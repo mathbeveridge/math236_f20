@@ -1,0 +1,46 @@
+# (PART) Linear Systems {-}
+
+# Linear Systems
+
+We have to load the package `pracma` to include the `rref` command.
+```{r}
+require(pracma)
+```
+
+To solve a linear system of equations $A x = b$, we first define the vector $b$ using the command below. The `c` command in R stands for **combine**. We are combining values into a vector.
+```{r}
+b = c(-2,10,4,-2)
+b
+```
+
+Then we define the coefficient matrix $A$. Here we use `cbind` to combine the vectors into the columns of a matrix named $A$. You can use `rbind` if you want to combine the vectors into the rows of a matrix.
+```{r}
+A = cbind(c(1,2,-1,1),c(0,1,1,0),c(-1,2,1,-1),c(-1,1,0,-1),c(-1,5,0,-1))
+A
+```
+
+We can augment the matrix A with b (we could have just made the full augmented matrix from the start, but this is a skill we will use later) by column binding A with b.
+```{r}
+Ab = cbind(A,b)
+Ab
+rref(Ab)
+```
+So the set of solutions in parametric form is
+
+x = (1,2,3,0,0) + s (0,1,-1,1,0) + t (-1,1,-2,0,1)
+
+and this is a "plane" in $\mathbb{R}^5$. It is in $\mathbb{R}^5$, because these vectors have 5 coordinates. It is a plane because it is spanned by two vectors that are not on the same line.  If you want to use $\LaTeX$ to typeset this answer, you do so as follows (see the .Rmd file for the code):
+$$
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
+= 
+\begin{bmatrix} 1 \\ 2 \\ 3 \\ 0 \\ 0 \end{bmatrix}
++ s \begin{bmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \end{bmatrix}
++ t \begin{bmatrix} -1 \\ 1 \\ -2 \\ 0 \\ 1 \end{bmatrix}
+$$
+
+We can **verify** that our answer works by multiplying $A$ by one of the solutions above. Matrix multiplication uses the funny operation `%*%`.
+```{r}
+A %*% c(1,2,3,0,0)
+```
+Which equals $b$ just as we had hoped.
+
