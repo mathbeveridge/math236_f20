@@ -2,7 +2,7 @@
 
 # Linear Systems
 
-We have to load the package `pracma` to include the `rref` command.
+A SMALL CHANGE. We have to load the package `pracma` to include the `rref` command.
 ```{r}
 require(pracma)
 ```
