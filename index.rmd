@@ -1,0 +1,32 @@
+--- 
+title: "MATH 236: Linear Algebra"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    config:
+      sharing:
+        facebook: false
+        twitter: false
+documentclass: book
+link-citations: yes
+github-repo: mathbeveridge/math236_f20
+description: "This is the class activity manual for MATH 236 at Macalester College."
+---
+
+**Macalester College**    
+**Fall 2020**
+
+# Preface {-}
+
+
+
+This is the class manual for Math 236 Linear Algebra at Macalester College. The content here was made by [Andrew Beveridge](https://mathbeveridge.github.io) 
+and draws upon prepared by [Tom Halverson](https://www.macalester.edu/~halverson/) and other faculty in the [MSCS Department](https://www.macalester.edu/mscs/) at [Macalester College](https://www.macalester.edu/).
+
+<br>
+<br>
+<br>
+
+![](images/cc_license_button.png)
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
