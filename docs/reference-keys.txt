@@ -1,4 +1,9 @@
 problem-set-1
+characterize-the-solution-set
+find-the-parametric-solution
+elementary-row-operations-are-reversible
+traffic-flow
+parabolas-through-two-points
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system

@@ -21,8 +21,8 @@ description: "This is the class activity manual for MATH 236 at Macalester Colle
 
 
 
-This is the class manual for Math 236 Linear Algebra at Macalester College. The content here was made by [Andrew Beveridge](https://mathbeveridge.github.io) 
-and draws upon prepared by [Tom Halverson](https://www.macalester.edu/~halverson/) and other faculty in the [MSCS Department](https://www.macalester.edu/mscs/) at [Macalester College](https://www.macalester.edu/).
+This is the class handbook for Math 236 Linear Algebra at Macalester College. The content here was made by [Andrew Beveridge](https://mathbeveridge.github.io) 
+and draws upon material prepared by [Tom Halverson](https://www.macalester.edu/~halverson/) and other faculty in the [Department  of Mathematics, Statistics and Computer Science](https://www.macalester.edu/mscs/) at [Macalester College](https://www.macalester.edu/).
 
 <br>
 <br>

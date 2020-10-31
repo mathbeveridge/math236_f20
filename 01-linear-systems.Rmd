@@ -2,9 +2,11 @@
 
 # Linear Systems in R
 
-Let's learn how to use R to solve systems of linear equations. First, we will create vectors and matrices  Then we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.
+Let's learn how to use R to solve systems of linear equations! 
 
-Gaussian elimination is performed by the `rref()` command. However, this command is not loaded into R by default. So we have have to tell RStudio to use the **practical math** package, which is known as `pracma'. 
+First, we will create vectors and matrices  Then we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.
+
+Gaussian elimination is performed by the `rref()` command. However, this command is not loaded into R by default. So we have have to tell RStudio to use the **practical math** package, which is known as `pracma`. 
 So we need to run the following command once at the beginning of our session.
 ```{r}
 require(pracma)

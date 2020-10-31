@@ -1,4 +1,4 @@
-book_filename: "math236_manual"
+book_filename: "math236_handbook"
 output_dir: docs/
 rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "01-linear-systems.Rmd"]
 language:

@@ -131,7 +131,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Problem Sets</b></span></li>
-<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a></li>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
+<li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
+<li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
+<li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
+<li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
+</ul></li>
 <li class="part"><span><b>II Linear Systems</b></span></li>
 <li class="chapter" data-level="2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>2</b> Linear Systems in R</a><ul>
 <li class="chapter" data-level="2.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>2.1</b> Building Vectors and Matrices</a></li>
@@ -161,8 +167,139 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
             <section class="normal" id="section-">
 <div id="problem-set-1" class="section level1">
 <h1><span class="header-section-number">Topic 1</span> Problem Set 1</h1>
-<p>We will talk about how to create vectors and matrices in R. In particular, we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.</p>
+<ul>
+<li>Due: Tuesday November 3 by 11:55pm CST.</li>
+<li>Upload your solutions to Moodle in a PDF.</li>
+<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
+</ul>
+<div id="characterize-the-solution-set" class="section level2">
+<h2><span class="header-section-number">1.1</span> Characterize the Solution Set</h2>
+<p>The following augmented matrices are in row echelon form. Decide whether the set of solutions is a point, line, plane, or the empty set in 3-space. Briefly justify your answer.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 4 \\ 0 &amp; 1 &amp; 4 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 2 \\ \end{array} \right]\)</span></p></li>
+<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 5 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
+<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; -1 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7\\ 0 &amp; 0 &amp; 0 &amp; 1\\ \end{array} \right]\)</span></p></li>
+<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 0 &amp; 1 &amp; 0 &amp; 6 \\ 0 &amp; 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
+</ol>
+</div>
+<div id="find-the-parametric-solution" class="section level2">
+<h2><span class="header-section-number">1.2</span> Find the Parametric Solution</h2>
+<p>Each of the following matrices is the reduced row echelon form of the augmented matrix of a system of linear equations. Give the general solution to each system.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 3 &amp; 0 &amp; -2 &amp; 5\\ 0 &amp; 0 &amp; 1 &amp; 4 &amp; -2 \\ \end{array} \right]\)</span></p></li>
+<li><p><span class="math inline">\(\left[ \begin{array}{ccccc|c} 1 &amp; 0 &amp; 4 &amp; 0 &amp; 3 &amp; 6\\ 0 &amp; 1 &amp; 1 &amp; 0 &amp; -2&amp; -8 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 &amp; 3 \\ \end{array} \right]\)</span></p></li>
+<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 4 &amp; 0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7 &amp; 6\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
+</ol>
+</div>
+<div id="elementary-row-operations-are-reversible" class="section level2">
+<h2><span class="header-section-number">1.3</span> Elementary row operations are reversible</h2>
+<p>In each case below, an elementary row operation turns the matrix <span class="math inline">\(A\)</span> into the matrix <span class="math inline">\(B\)</span>. For each of them,</p>
+<ul>
+<li>Describe the row operation that turns <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, and</li>
+<li>Describe the row operation that turns <span class="math inline">\(B\)</span> into <span class="math inline">\(A\)</span>.</li>
+</ul>
+<p>Give your answers in the form: “scale <span class="math inline">\(R_2\)</span> by 3” or “swap <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_4\)</span>” or “replace <span class="math inline">\(R_3\)</span> with <span class="math inline">\(R_3 + \frac{1}{5} R_1\)</span>.”</p>
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+A=\left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 1 &amp; -2 &amp; 2 &amp; 1 \\
+ 2 &amp; 8 &amp; 2 &amp; -4 \\
+ 3 &amp; 1 &amp; 6 &amp; -1 \\
+\end{array}
+\right]\longrightarrow 
+B=\left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 1 &amp; -2 &amp; 2 &amp; 1 \\
+ 2 &amp; 8 &amp; 2 &amp; -4 \\
+ 0 &amp; 7 &amp; 0 &amp; -4 \\
+\end{array}
+\right]
+\]</span></li>
+<li><span class="math display">\[
+A=\left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 1 &amp; -2 &amp; 2 &amp; 1 \\
+ 2 &amp; 8 &amp; 2 &amp; -4 \\
+ 3 &amp; 1 &amp; 6 &amp; -1 \\
+\end{array}
+\right]\longrightarrow 
+B=\left[
+\begin{array}{cccc}
+1 &amp; -2 &amp; 2 &amp; 1 \\
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 2 &amp; 8 &amp; 2 &amp; -4 \\
+ 3 &amp; 1 &amp; 6 &amp; -1 \\
+\end{array}
+\right]
+\]</span></li>
+<li><span class="math display">\[
+A=\left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 1 &amp; -2 &amp; 2 &amp; 1 \\
+ 2 &amp; 8 &amp; 2 &amp; -4 \\
+ 3 &amp; 1 &amp; 6 &amp; -1 \\
+\end{array}
+\right]\longrightarrow 
+B=\left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 1 &amp; 3 \\
+ 1 &amp; -2 &amp; 2 &amp; 1 \\
+ 1 &amp; 4 &amp; 1 &amp; -2 \\
+ 3 &amp; 1 &amp; 6 &amp; -1 \\
+\end{array}
+\right]
+\]</span></li>
+</ol>
+</div>
+<div id="traffic-flow" class="section level2">
+<h2><span class="header-section-number">1.4</span> Traffic Flow</h2>
+<p>Below you find a section of one-way streets in downtown St Paul, where the arrows indicate traffic direction.
+The traffic control center has installed electronic sensors that count the numbers of vehicles passing through the 6
+streets that lead into and out of this area. Assume that the total flow that enters each intersection equals the the total flow that leaves
+each intersection (we will ignore parking and staying).</p>
+<center>
+<p><img src="images/ps1-traffic.png" style="width:50.0%" /></p>
+</center>
+<ol style="list-style-type: decimal">
+<li><p>Create a system of linear equations to find the possible flow values for the inner streets <span class="math inline">\(x_1, x_2, x_3, x_4\)</span>.</p></li>
+<li><p>Use RStudio to find the solution set. Write your answer in parametric form.</p></li>
+<li><p>Your answer to part 2 finds an infinite solution set. In terms of <strong>traffic flow</strong>, explain why there can be more than one solution. Thinking about cars traveling along streets, why is there some flexibility in the overall flow of cars?</p></li>
+<li><p>Now critique the model as presented. What solutions to the linear system are problematic for our original traffic flow problem? What additional conditions should we require for a valid solution?</p></li>
+</ol>
+</div>
+<div id="parabolas-through-two-points" class="section level2">
+<h2><span class="header-section-number">1.5</span> Parabolas Through Two Points</h2>
+<p>You will find the family og all possible parabolas
+<span class="math display">\[
+f(x) = a x^2 + b x + c
+\]</span>
+through two given points. Note that there will be an infinite number of such polynomials: there are three unknowns, but only two constraints. So there will be at least one free variable. Here are the plots of the two different families of parabolas that you will consider.</p>
+<center>
+<img src="images/ps1-parab1.png" style="width:40.0%" />
+<img src="images/ps1-parab2.png" style="width:40.0%" />
+</center>
+<ol style="list-style-type: decimal">
+<li><p>For each pair of points, (a) create linear system that represents the problem (b) use RStudio to find the RREF of the augmented matrix for the system and (c) write down the general formula for the polynomial <span class="math inline">\(f(x)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(p_1 = (1,0)\)</span> and <span class="math inline">\(p_2 = (5,0)\)</span></p></li>
+<li><p><span class="math inline">\(q_1= (1,-3)\)</span> and <span class="math inline">\(q_2 = (5,10)\)</span></p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> be two functions from the family in part 1.1: both contain the points <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>. Show that <span class="math inline">\(g_1(x) - g_2(x)\)</span> is also a member of this <span class="math inline">\(p_1,p_2\)</span> family!</p></li>
+<li><p>Let <span class="math inline">\(h_1(x)\)</span> and <span class="math inline">\(h_2(x)\)</span> be two functions from the family in part 1.2: both contain the points <span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span>. Show that <span class="math inline">\(h_1(x) - h_2(x)\)</span> is NOT a member of this <span class="math inline">\(q_1,q_2\)</span> family!</p></li>
+<li><p>Now take a step back. I want you to make some observations about these two families, and the relation between them. In particular:</p>
+<ul>
+<li>What special property of the <span class="math inline">\(p_1,p_2\)</span> family leads to the nice behavior of part 3?</li>
+<li>What <strong>can</strong> you say about the parabola <span class="math inline">\(h_1(x) - h_2(x)\)</span> in part 4?</li>
+<li>What is the connection between the <span class="math inline">\(q_1, q_2\)</span> family and the <span class="math inline">\(p_1, p_2\)</span> family?</li>
+</ul></li>
+</ol>
 
+</div>
 </div>
 
 
