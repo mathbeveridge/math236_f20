@@ -1,0 +1,5 @@
+# (PART) Problem Sets {-}
+
+# Problem Set 1
+
+We will talk about how to create vectors and matrices in R. In particular, we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.

@@ -1,0 +1,6 @@
+problem-set-1
+linear-systems-in-r
+building-vectors-and-matrices
+solving-a-linear-system
+solving-another-linear-system
+appendix-dimensionless-vectors-in-r

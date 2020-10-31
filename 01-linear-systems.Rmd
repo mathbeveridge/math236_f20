@@ -1,35 +1,149 @@
 # (PART) Linear Systems {-}
 
-# Linear Systems
+# Linear Systems in R
 
-A SMALL CHANGE. We have to load the package `pracma` to include the `rref` command.
+Let's learn how to use R to solve systems of linear equations. First, we will create vectors and matrices  Then we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.
+
+Gaussian elimination is performed by the `rref()` command. However, this command is not loaded into R by default. So we have have to tell RStudio to use the **practical math** package, which is known as `pracma'. 
+So we need to run the following command once at the beginning of our session.
 ```{r}
 require(pracma)
 ```
 
-To solve a linear system of equations $A x = b$, we first define the vector $b$ using the command below. The `c` command in R stands for **combine**. We are combining values into a vector.
+## Building Vectors and Matrices
+
+A **vector** in R is a list of data. The simplest way to create a vector is to use the `c()` command. The letter 'c' is short for 'combine these values into a vector.' For example, we can make a vector `v` for the numbers 1,2,3 as follows:
+
 ```{r}
-b = c(-2,10,4,-2)
-b
+v=c(1,2,3)
+v
+```
+Note that we had to ask R to display the value of `v`. This is because the assignment of `v` doesn't echo the value to the console. But can see the value of `v` in the Environment tab in the upper right panel of RStudio. For example, run this command and then check to see that the value of `v` gets updated in the environment.
+
+```{r}
+v=c(1,2,3,4,5,6)
 ```
 
-Then we define the coefficient matrix $A$. Here we use `cbind` to combine the vectors into the columns of a matrix named $A$. You can use `rbind` if you want to combine the vectors into the rows of a matrix.
+It is interesting to note that `c()` returns a **dimensionless vector**. So 
+you can treat a vector `c()` as either a row or a column when you construct a matrix. For example, suppose that we want to make the matrix
+$$
+A = \begin{bmatrix}
+1 & 1 & 1 \\
+2 & 4 & 8 \\
+3 & 9 & 27
+\end{bmatrix}.
+$$
+We could create this matrix by binding three row vectors:
 ```{r}
-A = cbind(c(1,2,-1,1),c(0,1,1,0),c(-1,2,1,-1),c(-1,1,0,-1),c(-1,5,0,-1))
+A = rbind(c(1,1,1), c(2,4,8), c(3,9,27))
+A
+```
+or we could bind three column vectors:
+```{r}
+A = cbind(c(1,2,3), c(1,4,9), c(1,8,27))
 A
 ```
 
-We can augment the matrix A with b (we could have just made the full augmented matrix from the start, but this is a skill we will use later) by column binding A with b.
+
+## Solving a Linear System 
+
+Suppose that we want to solve the linear system 
+\begin{aligned}
+x + y + z &= 7 \\
+2x + 4y + 8z &= 6 \\
+3x +9y+27z &=12
+\end{aligned}
+which has coefficient matrix 
+$$
+A = \begin{bmatrix}
+1 & 1 & 1 \\
+2 & 4 & 8 \\
+3 & 9 & 27
+\end{bmatrix}.
+$$
+and target (column) vector
+$$
+b = \begin{bmatrix}
+4 \\ 6 \\ 12
+\end{bmatrix}.
+$$
+This is the same matrix `A` we defined above. Let's define a vector b and use `cbind()` to create an augmented matrix which we will name `Ab'.
+(We could have just made the full augmented matrix from the start, but using `cbind` to add a column to a matrix is a skill we will use later in the course!) 
+
 ```{r}
+A
+b = c(4,6,12)
 Ab = cbind(A,b)
 Ab
+```
+
+Now we use the `rref()` command to apply Gaussian Elimination to produce the reduced row echelon form. (And remember: we had to load this function into R by using the `require(pracma)` command above.)
+
+```{r}
+rref(Ab)
+```
+
+We conclude that this is a consistent system no free variables. The unique solution is 
+\begin{align}
+x&=7\\
+y&=-4\\
+z&=1
+\end{align}
+
+
+We can **verify** that our answer works by multiplying $A$ by one of the solutions above. Matrix multiplication uses the funny operation `%*%`.
+```{r}
+A %*% c(7,-4,1)
+#A %*% c(1,2,3,0,0)
+```
+Which matches our target 
+$$
+b = \begin{bmatrix}
+4 \\ 6 \\ 12
+\end{bmatrix}
+$$ 
+just as we had hoped.
+
+
+## Solving another Linear System
+
+Now let's find the solution set for the  linear system
+$$
+\begin{array}{rrrrrcr}
+x_1 & & -x_3 & -x_4 & -x_5 & = & -2 \\
+2x_1 & +x_2 & +2x_3 & -x_4 & -x_5 & = & 4 \\
+-x_1 & +x_2 & +x_3 &  &  & = & 10 \\
+x_1 & & -x_3 & -x_4 & -x_5 & = & -2 \\
+\end{array}
+$$
+which corresponds to augmented matrix
+$$
+\left[
+\begin{array}{rrrrr|r}
+1 & & -1 & -1 & -1  & -2 \\
+2 & +1 & +2 & -1 & -1  & 4 \\
+-1 & +1 & +1 &  &  & 10 \\
+1 & & -1 & -1 & -1 & -2 \\
+\end{array}
+\right]
+$$
+
+
+This time, let's just construct the augmented matrix direclty.
+
+Then we define the coefficient matrix $A$. Here we use `cbind` to combine the vectors into the columns of a matrix named $A$. You can use `rbind` if you want to combine the vectors into the rows of a matrix.
+```{r}
+Ab = cbind(c(1,2,-1,1),c(0,1,1,0),c(-1,2,1,-1),c(-1,1,0,-1),c(-1,5,0,-1),c(-2,10,4,-2))
+Ab
+```
+
+And now let's row reduce to get RREF.
+
+```{r}
 rref(Ab)
 ```
 So the set of solutions in parametric form is
 
-x = (1,2,3,0,0) + s (0,1,-1,1,0) + t (-1,1,-2,0,1)
-
-and this is a "plane" in $\mathbb{R}^5$. It is in $\mathbb{R}^5$, because these vectors have 5 coordinates. It is a plane because it is spanned by two vectors that are not on the same line.  If you want to use $\LaTeX$ to typeset this answer, you do so as follows (see the .Rmd file for the code):
 $$
 \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
 = 
@@ -38,9 +152,50 @@ $$
 + t \begin{bmatrix} -1 \\ 1 \\ -2 \\ 0 \\ 1 \end{bmatrix}
 $$
 
-We can **verify** that our answer works by multiplying $A$ by one of the solutions above. Matrix multiplication uses the funny operation `%*%`.
+and this is a "plane" in $\mathbb{R}^5$. It is in $\mathbb{R}^5$ because these vectors have 5 coordinates. It is a plane because it is spanned by two vectors that are not on the same line. 
+
+
+
+
+
+##  Appendix: Dimensionless Vectors  in R
+
+Let's revisit the vector constructed by `cbind`. Above we called this  a "dimensionless" vector because it can be used as a column vector or a row vector.  In general, R will do its best to make sense of a dimensionless vector. In other words, it will promote `c()` to make an expression valid.
+
+For example, let $A$ be an $n \times  n$ matrix, and let $b$ be a vector.  The expression $Av$ is only defined when $v$ is a $n \times 1$ **column vector** and that $wA$  is only defined when  $w$ is a $1 \times n$ ** row vector**. But let's look at what happens when we use a dimensionless vector instead.
+
+
 ```{r}
-A %*% c(1,2,3,0,0)
+A = cbind(c(1,1,1),c(-1,0,1), c(0,1,-1))
+A
+b = c(2,5,11)
+b
+
+# A times b
+A %*% b
+# b times A
+b %*% A
+
 ```
-Which equals $b$ just as we had hoped.
+
+
+Both of these multiplications worked! So  R **treated `b` as a column vector** for the multiplication`A %*% b`. And then R **treated `b` as a row vector** for the multiplication `b %b% A`. 
+
+So how do you make a true **column vector** or a true **row vector**? The answer is to use `cbind` and  `rbind`! Here are some examples:
+
+```{r}
+#  dimensionless
+b = c(1,2,3,4)
+b
+# column vector
+b.col = cbind(b)
+b.col
+# row vectror
+b.row = rbind(b)
+b.row
+```
+
+
+
+
 

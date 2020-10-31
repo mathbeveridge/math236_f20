@@ -13,6 +13,7 @@ github-repo: mathbeveridge/math236_f20
 description: "This is the class activity manual for MATH 236 at Macalester College."
 ---
 
+
 **Macalester College**    
 **Fall 2020**
 
@@ -27,6 +28,6 @@ and draws upon prepared by [Tom Halverson](https://www.macalester.edu/~halverson
 <br>
 <br>
 
-![](images/cc_license_button.png)
+![](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).

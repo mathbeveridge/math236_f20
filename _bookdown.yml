@@ -1,6 +1,6 @@
 book_filename: "math236_manual"
 output_dir: docs/
-rmd_files: ["index.Rmd", "01-linear-systems.Rmd"]
+rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "01-linear-systems.Rmd"]
 language:
   ui:
     chapter_name: "Topic "
