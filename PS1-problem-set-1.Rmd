@@ -5,9 +5,7 @@
 * Due: Tuesday November 3 by 11:55pm CST. 
 * Upload your solutions to Moodle in a PDF. 
 * Please feel free to **use RStudio for all row reductions.**
-
-
-
+* You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS1-problem-set-1.Rmd).
 
 
 ## Characterize the Solution Set
@@ -93,8 +91,7 @@ In each case below, an elementary row operation turns the matrix $A$ into the  m
 Give your answers in the form: "scale $R_2$ by 3" or "swap $R_1$  and $R_4$" or "replace $R_3$ with $R_3 + \frac{1}{5} R_1$."
 
 1.
-$$
-A=\left[
+$$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
  1 & -2 & 2 & 1 \\
@@ -109,11 +106,9 @@ B=\left[
  2 & 8 & 2 & -4 \\
  0 & 7 & 0 & -4 \\
 \end{array}
-\right]
-$$
+\right]$$
 2.
-$$
-A=\left[
+$$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
  1 & -2 & 2 & 1 \\
@@ -128,11 +123,9 @@ B=\left[
  2 & 8 & 2 & -4 \\
  3 & 1 & 6 & -1 \\
 \end{array}
-\right]
-$$
+\right]$$
 3.
-$$
-A=\left[
+$$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
  1 & -2 & 2 & 1 \\
@@ -147,8 +140,7 @@ B=\left[
  1 & 4 & 1 & -2 \\
  3 & 1 & 6 & -1 \\
 \end{array}
-\right]
-$$
+\right]$$
 
 ## Traffic Flow
 
@@ -179,7 +171,7 @@ each intersection (we will ignore parking and staying).
 
 ## Parabolas Through Two Points
 
-You will find the family og all possible parabolas
+You will find the family of all possible parabolas
 $$
 f(x) = a x^2 + b x + c
 $$ 

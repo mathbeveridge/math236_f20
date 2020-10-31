@@ -167,7 +167,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
             <section class="normal" id="section-">
 <div id="linear-systems-in-r" class="section level1">
 <h1><span class="header-section-number">Topic 2</span> Linear Systems in R</h1>
-<p>Let’s learn how to use R to solve systems of linear equations!</p>
+<p>Let’s learn how to use R to solve systems of linear equations! <a href="https://github.com/mathbeveridge/math236_f20/blob/main/01-linear-systems.Rmd">Download this Rmd file.</a></p>
 <p>First, we will create vectors and matrices Then we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.</p>
 <p>Gaussian elimination is performed by the <code>rref()</code> command. However, this command is not loaded into R by default. So we have have to tell RStudio to use the <strong>practical math</strong> package, which is known as <code>pracma</code>.
 So we need to run the following command once at the beginning of our session.</p>
@@ -226,7 +226,8 @@ b = \begin{bmatrix}
 4 \\ 6 \\ 12
 \end{bmatrix}.
 \]</span>
-This is the same matrix <code>A</code> we defined above. Let’s define a vector b and use <code>cbind()</code> to create an augmented matrix which we will name <code>Ab'. (We could have just made the full augmented matrix from the start, but using</code>cbind` to add a column to a matrix is a skill we will use later in the course!)</p>
+This is the same matrix <code>A</code> we defined above. Let’s define a vector b and use <code>cbind()</code> to create an augmented matrix which we will name <code>Ab</code>.
+(We could have just made the full augmented matrix from the start, but using <code>cbind</code> to add a column to a matrix is a skill we will use later in the course!)</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-systems-in-r.html#cb9-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    1    1
@@ -351,7 +352,7 @@ which corresponds to augmented matrix
 ## [2,] 2
 ## [3,] 3
 ## [4,] 4</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="linear-systems-in-r.html#cb34-1"></a><span class="co"># row vectror</span></span>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="linear-systems-in-r.html#cb34-1"></a><span class="co"># row vector</span></span>
 <span id="cb34-2"><a href="linear-systems-in-r.html#cb34-2"></a>b.row =<span class="st"> </span><span class="kw">rbind</span>(b)</span>
 <span id="cb34-3"><a href="linear-systems-in-r.html#cb34-3"></a>b.row</span></code></pre></div>
 <pre><code>##   [,1] [,2] [,3] [,4]

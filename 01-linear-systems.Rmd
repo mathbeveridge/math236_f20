@@ -2,7 +2,7 @@
 
 # Linear Systems in R
 
-Let's learn how to use R to solve systems of linear equations! 
+Let's learn how to use R to solve systems of linear equations! [Download this Rmd file.](https://github.com/mathbeveridge/math236_f20/blob/main/01-linear-systems.Rmd)
 
 First, we will create vectors and matrices  Then we will see how to create an augmented matrix and then apply Gaussian Elimination to obtain is reduced row echelon form.
 
@@ -69,7 +69,7 @@ b = \begin{bmatrix}
 4 \\ 6 \\ 12
 \end{bmatrix}.
 $$
-This is the same matrix `A` we defined above. Let's define a vector b and use `cbind()` to create an augmented matrix which we will name `Ab'.
+This is the same matrix `A` we defined above. Let's define a vector b and use `cbind()` to create an augmented matrix which we will name `Ab`.
 (We could have just made the full augmented matrix from the start, but using `cbind` to add a column to a matrix is a skill we will use later in the course!) 
 
 ```{r}
@@ -192,7 +192,7 @@ b
 # column vector
 b.col = cbind(b)
 b.col
-# row vectror
+# row vector
 b.row = rbind(b)
 b.row
 ```
