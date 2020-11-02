@@ -193,7 +193,7 @@ through two given points. Note that there will be an infinite number of such pol
 3. Let $h_1(x)$ and $h_2(x)$ be two functions from the family in part 1.2: both contain the points $q_1$ and $q_2$. Show  that $h_1(x)  - h_2(x)$ is NOT a member of this $q_1,q_2$ family!
 
 4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular:
-    + What special property of the $p_1,p_2$ family leads to the nice behavior of part 3?
-    + What **can** you say about the parabola $h_1(x) - h_2(x)$ in part 4?
+    + What special property of the $p_1,p_2$ family leads to the nice behavior of part 2?
+    + What **can** you say about the parabola $h_1(x) - h_2(x)$ in part 3?
     + What is the connection between the $q_1, q_2$ family and the $p_1, p_2$ family?
 
