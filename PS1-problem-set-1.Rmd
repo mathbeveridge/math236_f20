@@ -188,12 +188,36 @@ through two given points. Note that there will be an infinite number of such pol
 
     2. $q_1= (1,-3)$ and $q_2 =  (5,10)$
 
-2. Let $g_1(x)$ and $g_2(x)$ be two functions from the family in part 1.1: both contain the points $p_1$ and $p_2$. Show that  $g_1(x)  - g_2(x)$ is also a member of this $p_1,p_2$ family! (In other words, check to see what happens at the points $x=1$ and $x=5$.)
+2. Part 1.1 characterizes the family of parabolas that contain the points 
+$p_1$ and $p_2$. Let's refer to this family of parabolas as our "$p_1,p_2$ family." Pick any two functions $g_1(x)$ and $g_2(x)$ from this $p_1,p_2$ family of parabolas. Now consider the parabola
+$$
+g(x) = g_1(x) - g_2(x).
+$$
+Show that $g(1)=0$ and $g(5)=0$. This means that $g(x)$ is also in our $p_1,p_2$ family! (That's realy cool!)
 
-3. Let $h_1(x)$ and $h_2(x)$ be two functions from the family in part 1.2: both contain the points $q_1$ and $q_2$. Show  that $h_1(x)  - h_2(x)$ is NOT a member of this $q_1,q_2$ family!
 
-4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular:
-    + What special property of the $p_1,p_2$ family leads to the nice behavior of part 2? (Or equivalently: what goes wrong for the $q_1,q_2$ family?)
-    + What **can** you say about the parabola $h_1(x) - h_2(x)$ in part 3?
-    + What is the connection between the $q_1, q_2$ family and the $p_1, p_2$ family?
 
+3. Part 1.2 characterizes the family of parabolas that contain the points 
+$q_1$ and $q_2$. Let's refer to this family of parabolas as our "$q_1,q_2$ family."  Pick any two functions $h_1(x)$ and $h_2(x)$ in this $q_1,q_2$ family. Now consider the parabola
+$$
+h(x) = h_1(x) - h_2(x).
+$$
+Show that $h(1) \neq -1$ and $h(5) \neq 10$. This means that $h(x)$ is NOT in our $q_1,q_2$ family. (So this family is not as nice as the previous one.)
+
+
+4. Now explain why the parabola $h(x)$ from part 3 is actually a member of the $p_1, p_2$ family. (So maybe this family is nicer than we thought!)
+
+<!-- 
+4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular: 
+    + What special property of the $p_1,p_2$ family leads to the nice behavior of $g(x)$ part 2? (Or equivalently: what goes wrong for the $q_1,q_2$ family in part 3?) 
+     + What **can** you say about the parabola $h(x) = h_1(x) - h_2(x)$ in part 3? 
+     + What is the connection between the $q_1, q_2$ family and the $p_1, p_2$ family? 
+-->
+
+**Remark:** This problem is about families of parabolas. But at its core, this is actually a problem about linear algebra. 
+
+* Obviously, we used linear algebra to solve part 1, but there is linear algebra in the other parts as well!
+* We define $g(x) = g_1(x) - g_2(x)$ by taking a **linear combination** of two functions. (Just like we take linear combinations of vectors.)
+* What leads to the "nice" behavior of the $p_1, p_2$ family in part 2? It's because the $y$-values of the constraining points are both 0. We will soon learn about **homogeneous** linear systems whose right hand sides are all zero. These homogeneous systems have some very special properties.
+* The $q_1, q_2$ family is "not nice" because it a **nonhomogenous system**.
+* Just as there is a connection betwen the $p_1,p_2$ family and the $q_1, q_2$ family, we will soon learn that there is a connection between homogeneous systems and nonhomogeneous systems.
