@@ -202,7 +202,7 @@ $q_1$ and $q_2$. Let's refer to this family of parabolas as our "$q_1,q_2$ famil
 $$
 h(x) = h_1(x) - h_2(x).
 $$
-Show that $h(1) \neq -1$ and $h(5) \neq 10$. This means that $h(x)$ is NOT in our $q_1,q_2$ family. (So this family is not as nice as the previous one.)
+Show that $h(1) \neq -3$ and $h(5) \neq 10$. This means that $h(x)$ is NOT in our $q_1,q_2$ family. (So this family is not as nice as the previous one.)
 
 
 4. Now explain why the parabola $h(x)$ from part 3 is actually a member of the $p_1, p_2$ family. (So maybe this family is nicer than we thought!)
