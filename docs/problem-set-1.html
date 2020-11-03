@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="linear-systems-in-r.html"/>
+<link rel="next" href="week-1-learning-goals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -113,7 +113,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="m236.css" type="text/css" />
 </head>
 
 <body>
@@ -138,12 +138,19 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
 <li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
 </ul></li>
-<li class="part"><span><b>II Linear Systems</b></span></li>
-<li class="chapter" data-level="2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>2</b> Linear Systems in R</a><ul>
-<li class="chapter" data-level="2.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>2.1</b> Building Vectors and Matrices</a></li>
-<li class="chapter" data-level="2.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> Solving a Linear System</a></li>
-<li class="chapter" data-level="2.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>2.3</b> Solving another Linear System</a></li>
-<li class="chapter" data-level="2.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>2.4</b> Appendix: Dimensionless Vectors in R</a></li>
+<li class="part"><span><b>II Weekly Learning Goals</b></span></li>
+<li class="chapter" data-level="2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>2</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="2.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>2.1</b> Solving Linear Equations</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>2.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>2.3</b> Conceptual Thinking</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Systems</b></span></li>
+<li class="chapter" data-level="3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>3</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>3.1</b> Building Vectors and Matrices</a></li>
+<li class="chapter" data-level="3.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>3.2</b> Solving a Linear System</a></li>
+<li class="chapter" data-level="3.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>3.3</b> Solving another Linear System</a></li>
+<li class="chapter" data-level="3.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>3.4</b> Appendix: Dimensionless Vectors in R</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -288,7 +295,7 @@ through two given points. Note that there will be an infinite number of such pol
 <li><p>Let <span class="math inline">\(h_1(x)\)</span> and <span class="math inline">\(h_2(x)\)</span> be two functions from the family in part 1.2: both contain the points <span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span>. Show that <span class="math inline">\(h_1(x) - h_2(x)\)</span> is NOT a member of this <span class="math inline">\(q_1,q_2\)</span> family!</p></li>
 <li><p>Now take a step back. I want you to make some observations about these two families, and the relation between them. In particular:</p>
 <ul>
-<li>What special property of the <span class="math inline">\(p_1,p_2\)</span> family leads to the nice behavior of part 2?</li>
+<li>What special property of the <span class="math inline">\(p_1,p_2\)</span> family leads to the nice behavior of part 2? (Or equivalently: what goes wrong for the <span class="math inline">\(q_1,q_2\)</span> family?)</li>
 <li>What <strong>can</strong> you say about the parabola <span class="math inline">\(h_1(x) - h_2(x)\)</span> in part 3?</li>
 <li>What is the connection between the <span class="math inline">\(q_1, q_2\)</span> family and the <span class="math inline">\(p_1, p_2\)</span> family?</li>
 </ul></li>
@@ -305,7 +312,7 @@ through two given points. Note that there will be an infinite number of such pol
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
