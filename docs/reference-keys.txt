@@ -4,6 +4,11 @@ find-the-parametric-solution
 elementary-row-operations-are-reversible
 traffic-flow
 parabolas-through-two-points
+week-1-learning-goals
+solving-linear-equations
+vocabulary
+conceptual-thinking
+rstudio
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system

@@ -1,6 +1,6 @@
 bookdown::gitbook:
   highlight: haddock
-  css: style.css
+  css: m236.css
   split_by: chapter
   config:
     toc:

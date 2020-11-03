@@ -1,0 +1,53 @@
+# (PART) Weekly Learning Goals {-}
+
+# Week 1 Learning Goals
+
+
+
+Here are the knowledge and skills you should master by the end of this first, shorter week.
+
+
+## Solving Linear Equations
+
+I should be able to do the following tasks:
+
+* Identify linear systems from nonlinear systems
+* Create a linear system to solve a variety of applied scenarios
+* Convert between a linear system and an augmented matrix
+* Row reduce an augmented matrix into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
+* Use REF to determine whether a linear system is consistent or inconsistent
+* Use REF to determine whether a consistent system has a unique solution or an infinite number of solutions
+* Use RREF to find explicit equations for the solution set of a consistent system
+
+## Vocabulary
+
+I should know and be able to use and explain the following terms:
+
+* elementary row operation (and be able to state them)
+* augmented matrix
+* REF and RREF
+* pivot position
+* basic variable (pivot variable)
+* free variable
+* consistent system and inconsistent system
+
+## Conceptual Thinking
+
+I should understand and be able to perform the following conceptual tasks:
+
+* Model 2-dimensional linear systems as the intersections of lines
+* Model 3-dimensional linear systems as the intersections of planes
+
+
+## RStudio
+
+* Log in to [Macalester's RStudio server](http://rstudio.macalester.edu/)
+* Upload R Markdown files to RStudio
+* Knit R Markdown to produce HTML
+* Use RStudio to create vectors and matrices
+* Use the ``rref`` command from ``pracma`` to solve a linear system
+
+
+
+
+

@@ -1,0 +1,14 @@
+/* -----------div tips------------- */
+
+  div.soln {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 60px;
+    color: #2e4d38;
+    background-color: #ededed;
+    border: solid 5px #b5b5b5;
+  }
