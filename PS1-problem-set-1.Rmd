@@ -193,7 +193,7 @@ $p_1$ and $p_2$. Let's refer to this family of parabolas as our "$p_1,p_2$ famil
 $$
 g(x) = g_1(x) - g_2(x).
 $$
-Show that $g(1)=0$ and $g(5)=0$. This means that $g(x)$ is also in our $p_1,p_2$ family! (That's realy cool!)
+Show that $g(1)=0$ and $g(5)=0$. This means that $g(x)$ is also in our $p_1,p_2$ family! (That's really cool!)
 
 
 
