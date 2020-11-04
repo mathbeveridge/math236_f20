@@ -4,6 +4,13 @@ find-the-parametric-solution
 elementary-row-operations-are-reversible
 traffic-flow
 parabolas-through-two-points
+problem-set-2
+parametric-vector-form
+rref-for-a-linear-system
+rref-for-a-set-of-vectors
+removing-free-variable-columns-from-a-matrix
+a-square-matrix
+combining-solutions-to-a-mathsfx-mathsfb
 week-1-learning-goals
 solving-linear-equations
 vocabulary

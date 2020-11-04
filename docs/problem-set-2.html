@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 3 Week 1 Learning Goals | MATH 236: Linear Algebra</title>
+  <title>Topic 2 Problem Set 2 | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 3 Week 1 Learning Goals | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Topic 2 Problem Set 2 | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 3 Week 1 Learning Goals | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Topic 2 Problem Set 2 | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-2.html"/>
-<link rel="next" href="linear-systems-in-r.html"/>
+<link rel="prev" href="problem-set-1.html"/>
+<link rel="next" href="week-1-learning-goals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -180,52 +180,146 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-1-learning-goals" class="section level1">
-<h1><span class="header-section-number">Topic 3</span> Week 1 Learning Goals</h1>
-<p>Here are the knowledge and skills you should master by the end of this first, shorter week.</p>
-<div id="solving-linear-equations" class="section level2">
-<h2><span class="header-section-number">3.1</span> Solving Linear Equations</h2>
-<p>I should be able to do the following tasks:</p>
+<div id="problem-set-2" class="section level1">
+<h1><span class="header-section-number">Topic 2</span> Problem Set 2</h1>
 <ul>
-<li>Identify linear systems from nonlinear systems</li>
-<li>Create a linear system to solve a variety of applied scenarios</li>
-<li>Convert between a linear system and an augmented matrix</li>
-<li>Row reduce an augmented matrix into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)</li>
-<li>Use REF to determine whether a linear system is consistent or inconsistent</li>
-<li>Use REF to determine whether a consistent system has a unique solution or an infinite number of solutions</li>
-<li>Use RREF to find explicit equations for the solution set of a consistent system</li>
+<li>Due: Friday November 6 by 5:00pm CST.</li>
+<li>Upload your solutions to Moodle in a PDF.</li>
+<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
+<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS2-problem-set-2.Rmd">Rmd source file for this problem set</a>.</li>
 </ul>
+<p>The Problem Set covers sections 1.3, 1.4, 1.5.</p>
+<div id="parametric-vector-form" class="section level2">
+<h2><span class="header-section-number">2.1</span> Parametric Vector Form</h2>
+<p>Here is the augmented matrix for a system of linear equations <span class="math inline">\(\mathsf{A} \mathsf{x} = \mathsf{b}\)</span>, and its RREF.
+Give the complete solution to this system in <strong>parametric vector form</strong>.</p>
+<p><span class="math display">\[\left[
+\begin{array}{ccccc|c}
+ 1 &amp; 1 &amp; -1 &amp; -1 &amp; 2 &amp; 1 \\
+ 1 &amp; 0 &amp; -2 &amp; 1 &amp; 1 &amp; 3 \\
+ -2 &amp; 1 &amp; 5 &amp; 1 &amp; -6 &amp; 2 \\
+ -3 &amp; 0 &amp; 6 &amp; 2 &amp; -8 &amp; 1 \\
+ 0 &amp; 1 &amp; 1 &amp; 2 &amp; -3 &amp; 6 \\
+ 1 &amp; 0 &amp; -2 &amp; -1 &amp; 3 &amp; -1 \\
+\end{array}
+\right] \longrightarrow \left[
+\begin{array}{ccccc|c}
+ 1 &amp; 0 &amp; -2 &amp; 0 &amp; 2 &amp; 1 \\
+ 0 &amp; 1 &amp; 1 &amp; 0 &amp; -1 &amp; 2 \\
+ 0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 &amp; 2 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{array}
+\right]
+\]</span></p>
 </div>
-<div id="vocabulary" class="section level2">
-<h2><span class="header-section-number">3.2</span> Vocabulary</h2>
-<p>I should know and be able to use and explain the following terms:</p>
-<ul>
-<li>elementary row operation (and be able to state them)</li>
-<li>augmented matrix</li>
-<li>REF and RREF</li>
-<li>pivot position</li>
-<li>basic variable (pivot variable)</li>
-<li>free variable</li>
-<li>consistent system and inconsistent system</li>
-</ul>
+<div id="rref-for-a-linear-system" class="section level2">
+<h2><span class="header-section-number">2.2</span> RREF for a linear system</h2>
+<p>Here is the reduced row echelon form of a matrix <span class="math inline">\(\mathsf{A}\)</span> (you are not given the matrix <span class="math inline">\(\mathsf{A}\)</span>).
+<span class="math display">\[
+\mathsf{A} \longrightarrow \left[
+\begin{array}{cccc}
+ 1 &amp; -2 &amp; 0 &amp; 4 \\
+ 0 &amp; 0 &amp; 1 &amp; -5 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{array}
+\right]
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Give the parametric equations of the general solution to the homogenous equation <span class="math inline">\(\mathsf{A} \mathsf{x} = {\bf 0}\)</span>.</p></li>
+<li><p>Describe the geometric form of your answer to part (a). For example, you answer should be something like: “it is a plane in <span class="math inline">\(\mathbb{R}^3\)</span>” or “it is a line in <span class="math inline">\(\mathbb{R}^7\)</span>” or “it is a point in <span class="math inline">\(\mathbb{R}^4\)</span>.”</p></li>
+<li><p>Suppose that we also know that <span class="math inline">\(\mathsf{A}\begin{bmatrix} 4 \\ 1 \\ -3 \\ 2 \\ \end{bmatrix} = \begin{bmatrix} 22 \\ -13 \\ 7 \\ \end{bmatrix}\)</span>. Then give the general solution to
+<span class="math inline">\(\mathsf{A} \mathsf{x}= \begin{bmatrix} 22 \\ -13\\ 7 \\ \end{bmatrix}\)</span> in parametric form.</p></li>
+</ol>
 </div>
-<div id="conceptual-thinking" class="section level2">
-<h2><span class="header-section-number">3.3</span> Conceptual Thinking</h2>
-<p>I should understand and be able to perform the following conceptual tasks:</p>
-<ul>
-<li>Model 2-dimensional linear systems as the intersections of lines</li>
-<li>Model 3-dimensional linear systems as the intersections of planes</li>
-</ul>
+<div id="rref-for-a-set-of-vectors" class="section level2">
+<h2><span class="header-section-number">2.3</span> RREF for a set of vectors</h2>
+<p>Suppose that we have five vectors
+<span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2,\mathsf{v}_3,\mathsf{v}_4,\mathsf{v}_5\)</span> in <span class="math inline">\(\mathbb{R}^4\)</span> and that the matrix
+<span class="math display">\[
+A = \left[
+\begin{array}{ccc}
+\mid &amp; \mid  &amp; \mid &amp; \mid &amp; \mid \\
+\mathsf{v}_1 &amp; \mathsf{v}_2 &amp; \mathsf{v}_3 &amp;\mathsf{v}_4 &amp;\mathsf{v}_5  \\
+\mid &amp; \mid  &amp; \mid &amp; \mid &amp; \mid 
+\end{array}
+\right]
+\]</span>
+has reduced row echelon form
+<span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -3 &amp; 0 &amp; 2  \\
+0 &amp; 1 &amp; 4 &amp; 0 &amp;  1  \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1  \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 
+\end{bmatrix}.
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Do the vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4, \mathsf{v}_5\)</span> span <span class="math inline">\(\mathbb{R}^4\)</span>? Justify your answer.</p></li>
+<li><p>Is the vector <span class="math inline">\(\mathsf{v}_3\)</span> in <span class="math inline">\(\mathrm{span}(\mathsf{v}_1,\mathsf{v}_2)\)</span>? Justify your answer.</p></li>
+<li><p>Pick any <span class="math inline">\(\mathsf{b}\)</span> in <span class="math inline">\(\mathrm{span}(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4, \mathsf{v}_5)\)</span>. Is there always a unqiue way to write <span class="math inline">\(\mathsf{b}\)</span> as a linear combination of <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4, \mathsf{v}_5\)</span>? Justify your answer.</p></li>
+</ol>
 </div>
-<div id="rstudio" class="section level2">
-<h2><span class="header-section-number">3.4</span> RStudio</h2>
-<ul>
-<li>Log in to <a href="http://rstudio.macalester.edu/">Macalester’s RStudio server</a></li>
-<li>Upload R Markdown files to RStudio</li>
-<li>Knit R Markdown to produce HTML</li>
-<li>Use RStudio to create vectors and matrices</li>
-<li>Use the <code>rref</code> command from <code>pracma</code> to solve a linear system</li>
-</ul>
+<div id="removing-free-variable-columns-from-a-matrix" class="section level2">
+<h2><span class="header-section-number">2.4</span> Removing free variable columns from a matrix</h2>
+<p>Consider the matrix</p>
+<p><span class="math display">\[
+A =\left[
+\begin{array}{cccccc}
+ 6 &amp; 5 &amp; -3 &amp; 4 &amp; 2 &amp; -9 \\
+ -7 &amp; -6 &amp; 4 &amp; -5 &amp; -7 &amp; 16 \\
+ -4 &amp; -3 &amp; -1 &amp; 0 &amp; -8 &amp; 9 \\
+ 8 &amp; 7 &amp; -5 &amp; 6 &amp; 1 &amp; -12 
+\end{array}
+\right].
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Use RStudio to show that the columns of <span class="math inline">\(\mathsf{A}\)</span> span <span class="math inline">\(\mathbb{R}^4\)</span>.</li>
+<li>Write down matrix <span class="math inline">\(\mathsf{A}&#39;\)</span> that you get by removing the free variable columns from <span class="math inline">\(\mathsf{A}\)</span>.</li>
+<li>Without using additional calculations on RStudio, explain why the new system <span class="math inline">\(\mathsf{A}&#39; \mathsf{x} = \mathsf{b}\)</span> is <strong>consistent</strong> and has a <strong>unique solution</strong> for every choice of <span class="math inline">\(\mathsf{b} \in \mathbb{R}^4\)</span>.</li>
+</ol>
+</div>
+<div id="a-square-matrix" class="section level2">
+<h2><span class="header-section-number">2.5</span> A square matrix</h2>
+<p>Suppose that <span class="math inline">\(A\)</span> is a <span class="math inline">\(5\times 5\)</span> matrix and <span class="math inline">\(\mathsf{b}\)</span> is a vector in <span class="math inline">\(\mathbb{R}^5\)</span> with the property that
+<span class="math inline">\(A\mathsf{x}=\mathsf{b}\)</span> has a unique solution. Explain why the columns of <span class="math inline">\(A\)</span> must span <span class="math inline">\(\mathbb{R}^5\)</span>. Use the reduced row echelon form of <span class="math inline">\(A\)</span> in your explanation.</p>
+</div>
+<div id="combining-solutions-to-a-mathsfx-mathsfb" class="section level2">
+<h2><span class="header-section-number">2.6</span> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></h2>
+<p>Suppose that <span class="math inline">\(\mathsf{x}_1\)</span> and <span class="math inline">\(\mathsf{x}_2\)</span> are solutions to <span class="math inline">\(\mathsf{A} \mathsf{x} = \mathsf{b}\)</span> (where <span class="math inline">\(\mathsf{b} \not= \mathsf{0}\)</span>).</p>
+<ol style="list-style-type: decimal">
+<li>Decide if any of the following are also solutions to <span class="math inline">\(\mathsf{A} \mathsf{x} = \mathsf{b}\)</span>.
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\mathsf{x}_1+ \mathsf{x}_2\)</span></li>
+<li><span class="math inline">\(\mathsf{x}_1 - \mathsf{x}_2\)</span></li>
+<li><span class="math inline">\(\frac{1}{2} ( \mathsf{x}_1 + \mathsf{x}_2)\)</span></li>
+<li><span class="math inline">\(\frac{5}{2} \mathsf{x}_1 - \frac{3}{2} \mathsf{x}_2\)</span>.</li>
+</ol></li>
+<li>Under what conditions on <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span> is <span class="math inline">\(\mathsf{x} = c \mathsf{x}_1 + d \mathsf{x}_2\)</span> a solution to   = ? Justify your answer.</li>
+<li>Let <span class="math inline">\(\mathsf{u}\)</span> be the vector that <em>points to</em> <span class="math inline">\(1/3\)</span> of the way from the tip of <span class="math inline">\(\mathsf{v}\)</span> to the tip of <span class="math inline">\(\mathsf{w}\)</span> as depicted below.
+<ol style="list-style-type: lower-alpha">
+<li>Write <span class="math inline">\(\mathsf{u}\)</span> as a linear combination of <span class="math inline">\(\mathsf{v}\)</span> and <span class="math inline">\(\mathsf{w}\)</span> (hint: think about <span class="math inline">\(\mathsf{w} - \mathsf{v}\)</span>)</li>
+<li>If <span class="math inline">\(\mathsf{v}\)</span> and <span class="math inline">\(\mathsf{w}\)</span> are solutions to <span class="math inline">\(A x = \mathsf{b}\)</span> then show that <span class="math inline">\(\mathsf{u}\)</span> is also a solution to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span>.</li>
+</ol></li>
+</ol>
+<center>
+<img src="images/ps2-three-vec.png" style="width:30.0%" />
+</center>
+<!--
+\begin{tikzpicture}
+
+\draw[-latex, very thick,green] (0,0) -- (2,8/3);
+\draw[-latex, very thick,blue] (0,0) -- (1,3);
+\draw[-latex, very thick,blue] (0,0) -- (4,2);
+\draw[-latex, very thick,red] (1,3) -- (4,2);
+
+\node at (1.55,1.75) {$\mathsf{u}$};
+\node at (.3,1.75) {$\mathsf{v}$};
+\node at (2.75,1) {$\mathsf{w}$};
+
+\end{tikzpicture}
+-->
 
 </div>
 </div>
@@ -237,8 +331,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="problem-set-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="problem-set-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
