@@ -16,6 +16,7 @@ solving-linear-equations
 vocabulary
 conceptual-thinking
 rstudio
+week-2-learning-goals
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system

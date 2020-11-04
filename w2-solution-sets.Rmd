@@ -1,0 +1,31 @@
+# Week 2 Learning Goals
+
+Here are the knowledge and skills you should master by the end the second week.
+
+
+You should be able to do the following **tasks**:
+
+* Go back and forth between (i) systems of equations, (ii) vector equations, and (iii) the matrix equation $Ax = b$.
+* Compute and understand the matrix-vector product $A x$ both as a linear combination of the columns of A and as the dot product of $x$ with the rows of $A$.
+* Write the solution set to $Ax=b$ as a parametric vector equation.
+* Determine whether a set of vectors is linearly dependent or independent
+* Find a dependence relation among a set of vectors
+* Decide if a set of vectors span $\mathbb{R}^n$
+
+You should know and be able to use and explain the following **terms** or **properties**. 
+
+* $A(x + y) = Ax + Ay$ and $A(c x) = c A x$
+* homogeneous and nonhomogeneous equations
+* parametric vector equations
+* linear independence and linear dependence
+
+I should understand and be able to explain the following **concepts**:
+
+* Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $n \times m$ matrix $A$
+    * For each $b \in  \mathbb{R}^m$, the system $A x = b$ has a solution
+    * Each $b \in  \mathbb{R}^m$ is a linear combination of the columns of $A$
+    * The columns of $A$ span $\mathbb{R}^m$
+    * $A$ has a pivot in every row.
+* Understand the relation between homogeneous solutions and nonhomogeneous solutions.
+* Linear independence
+* More than $n$ vectors in $\mathbb{R}^n$ must be linearly dependent.
