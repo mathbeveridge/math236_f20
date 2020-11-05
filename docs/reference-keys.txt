@@ -17,6 +17,9 @@ vocabulary
 conceptual-thinking
 rstudio
 week-2-learning-goals
+solution-sets-span-and-linear-independence
+vocabulary-1
+conceptual-thinking-1
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system
