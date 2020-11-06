@@ -25,3 +25,7 @@ building-vectors-and-matrices
 solving-a-linear-system
 solving-another-linear-system
 appendix-dimensionless-vectors-in-r
+d-linear-transformations
+functions-to-plot-our-vectors
+exercises
+exploration
