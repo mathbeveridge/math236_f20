@@ -27,6 +27,11 @@ solving-another-linear-system
 appendix-dimensionless-vectors-in-r
 d-linear-transformations
 functions-to-plot-our-vectors
-exercises
+your-turn
+family-1
+family-2
+family-3
+family-4
+some-other-matrices
 exploration
 even-more-exploration

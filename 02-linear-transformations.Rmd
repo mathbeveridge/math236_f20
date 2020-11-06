@@ -11,7 +11,7 @@ But what do linear transformations look like? Let's start to answer this questio
 We will look at mappings $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ where $T(\mathsf{x}) = \mathsf{A} \mathsf{x}$ for a $2 \times 2$ matrix $\mathsf{A}$.
 $$
 T \left( \begin{bmatrix} x \\ y \end{bmatrix} \right) = 
-\begin{bmatrix} a & b \\ c & b \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
+\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
 $$
 The linear transformation $T(\mathsf{x})$ maps the plane to itself. This nicely allows us to compare vectors before the mapping with their images after the mapping. We can then describe the effect of the mapping on the plane.
 
@@ -65,7 +65,7 @@ Here is some example code showing how to make our plot. Note: `A %*% x` is the s
 vec1 = c(3,0)
 vec2 = c(0,2)
 
- A = cbind(c(2,1), c(4,-1))
+A = cbind(c(2,1), c(4,-1))
 
 newvec1 = A %*% vec1
 newvec2 = A %*% vec2
@@ -81,110 +81,87 @@ This visualization uses different colors for the vectors so that you can match u
 
 There isn't a simple description for what's happening here. It's a combination of effects, so that the image of the rectangle is a warped version of the original.
 
-## Exercises
 
-Now it's your turn. Investigate the effect of each of the following mappings.
+## Your Turn
+
+Now it's your turn. Investigate the effect of each of the following families of mappings.
 
 * Using the previous code snippet as a guide, create a "before and after plot" for the black vector $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$ and the red vector $\begin{bmatrix} 0 \\ 2 \end{bmatrix}$
-* Describe the effect of the mapping as best you can. Be sure to look at the different effect on the black vector and the red vector. Use words like, expansion, contraction, rotation, reflection and [shear](https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg).
+* **Describe** the effect of the mapping as best you can. Be sure to look at the different effect on the black vector and the red vector. Use words like, expansion, contraction, rotation, reflection and [shear](https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg).
+* Once you have looked at the effect of the family, look back at the form of the matrix $A$. Can you explain why it leads to the outcome you see?
 
-1. $A=\displaystyle{ \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}}$
+### Family 1
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}}.$$
+Once again, try various combinations of positive, negative, small and large  numbers. Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
 
 ```{r}
+a = 1
+b = 1
 
+A = cbind(c(a,0), c(0,b))
 ```
 
 
-    Description:
+### Family 2
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} 0 & b \\ c & 0 \end{bmatrix}}.$$
+Try various combinations of positive and negative numbers. Also try numbers of small magnitude (less than 1) and large magnitude. 
 
 
-2. $B=\displaystyle{ \begin{bmatrix} 0.71& -0.71  \\ 0.71  & 0.71  \end{bmatrix}}$
+### Family 3
 
-```{r}
-
-```
-
-  
-    Description:
-
-3. $C=\displaystyle{ \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}}$
-
-```{r}
-
-```
-
-
-    Description:
-
-4. $D=\displaystyle{ \begin{bmatrix} 1 & -1 \\  1.5 & -1.5 \end{bmatrix}}$
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
+where $t$ is in radians. Here is a function that will create such a matrix.
 
 ```{r}
+create_angle_matrix <- function(t) {
+  A = cbind(c(cos(t), sin(t)), c(-sin(t), cos(t)))
+  return(A)
+}
 
+A = create_angle_matrix(pi/2)
+A
 ```
+**Note**: R is numerical software. You'll note that ``sin(pi/2)`` returns a value of ``6.123234e-17`` or something similar. This value is given in scientific notation, and is $\approx 6.12 \times 10^{-17}$. **You should treat this tiny number as equal to 0.** Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.''
 
 
-    Description:
+### Family 4
 
-5. $E=\displaystyle{ \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}}$
+Now explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} a & -b \\ b & a \end{bmatrix}}$$
 
-```{r}
-
-```
-
-
-    Description:
-
-6. $F=\displaystyle{ \begin{bmatrix} -1 & -1/2 \\ 1/2 & 1 \end{bmatrix}}$
-
-```{r}
-
-```
+Once again, consider a wide variety of such matrices. 
 
 
-    Description:
+### Some Other Matrices
 
-7. $G=\displaystyle{ \begin{bmatrix} 1 & -1 \\ -1 & 1  \end{bmatrix}}$
-
-```{r}
-
-```
+Now try these matrices. For each one, try to make other matrices that have a similar effect. (What is the relationship between the entries that leads to this particular kind of image?)
 
 
-    Description:
-
-8. $H=\displaystyle{ \begin{bmatrix} 0.6 & 0.8 \\ 0.8 & -0.6 \end{bmatrix}}$
-
-```{r}
-
-```
-
-
-    Description:
-
-9. $J=\displaystyle{ \begin{bmatrix} 1.5 & -1 \\ 1 & 1.5  \end{bmatrix}}$
-
-```{r}
-
-```
+$$
+A=\displaystyle{ \begin{bmatrix} 1 & -3 \\  2 & -6 \end{bmatrix}},
+\qquad
+B=\displaystyle{ \begin{bmatrix} 1 & 1 \\  0 & 1 \end{bmatrix}},
+\qquad
+C=\displaystyle{ \begin{bmatrix} 0 & 1 \\  0 & 0 \end{bmatrix}},
+\qquad
+D=\displaystyle{ \begin{bmatrix} 3 & 0 \\  3 & 2 \end{bmatrix}},
+\qquad
+$$
 
 
-    Description:
-
-10. $K=\displaystyle{ \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}}$
-
-```{r}
-
-```
 
 
-    Description:
-    
-    
+
 ## Exploration
 
 Now it's time to explore. Try one or more of the following:
 
-* Can you find a mapping that will turn the rectangle into a square?
+* Can you find a mapping that will turn the rectangle with corners ``(0,0), (3,0), (3,2), (0,2)`` into a square?
 * Look at some different starting vectors. 
 * Try some other matrices.
 * What is the relationship between the rank of the matrix and the image of the transformation?
