@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 6 2D Linear Transformations | MATH 236: Linear Algebra</title>
+  <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 6 2D Linear Transformations | MATH 236: Linear Algebra" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  <meta name="github-repo" content="mathbeveridge/math236_f20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 6 2D Linear Transformations | MATH 236: Linear Algebra" />
+  
+  <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-systems-in-r.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="m236.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href = "./">MATH 236: Linear Algebra</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I Problem Sets</b></span></li>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
+<li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
+<li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
+<li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
+<li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
+<li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
+<li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="problem-set-2.html"><a href="problem-set-2.html#removing-free-variable-columns-from-a-matrix"><i class="fa fa-check"></i><b>2.4</b> Removing free variable columns from a matrix</a></li>
+<li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
+<li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
+</ul></li>
+<li class="part"><span><b>II Weekly Learning Goals</b></span></li>
+<li class="chapter" data-level="3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>3</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="3.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>3.1</b> Solving Linear Equations</a></li>
+<li class="chapter" data-level="3.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>3.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="3.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>3.3</b> Conceptual Thinking</a></li>
+<li class="chapter" data-level="3.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>3.4</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>4</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="4.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>4.1</b> Solution Sets, Span and Linear Independence</a></li>
+<li class="chapter" data-level="4.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>4.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="4.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>4.3</b> Conceptual Thinking</a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Systems</b></span></li>
+<li class="chapter" data-level="5" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>5</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>5.1</b> Building Vectors and Matrices</a></li>
+<li class="chapter" data-level="5.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>5.2</b> Solving a Linear System</a></li>
+<li class="chapter" data-level="5.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>5.3</b> Solving another Linear System</a></li>
+<li class="chapter" data-level="5.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>5.4</b> Appendix: Dimensionless Vectors in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>6</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="6.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>6.1</b> Functions to plot our vectors</a></li>
+<li class="chapter" data-level="6.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exercises"><i class="fa fa-check"></i><b>6.2</b> Exercises</a></li>
+<li class="chapter" data-level="6.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>6.3</b> Exploration</a></li>
+<li class="chapter" data-level="6.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>6.4</b> Even More Exploration</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 236: Linear Algebra</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d-linear-transformations" class="section level1">
+<h1><span class="header-section-number">Topic 6</span> 2D Linear Transformations</h1>
+<p>We know that a linear transformation <span class="math inline">\(T\)</span> satisfies
+<span class="math display">\[
+T(c \mathsf{u} + d \mathsf{v}) = c\, T( \mathsf{u}) +d \, T( \mathsf{v}).
+\]</span>
+But what do linear transformations look like? Let’s start to answer this question by considering linear transformations of the plane.</p>
+<p>We will look at mappings <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span> where <span class="math inline">\(T(\mathsf{x}) = \mathsf{A} \mathsf{x}\)</span> for a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathsf{A}\)</span>.
+<span class="math display">\[
+T \left( \begin{bmatrix} x \\ y \end{bmatrix} \right) = 
+\begin{bmatrix} a &amp; b \\ c &amp; b \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
+\]</span>
+The linear transformation <span class="math inline">\(T(\mathsf{x})\)</span> maps the plane to itself. This nicely allows us to compare vectors before the mapping with their images after the mapping. We can then describe the effect of the mapping on the plane.</p>
+<div id="functions-to-plot-our-vectors" class="section level2">
+<h2><span class="header-section-number">6.1</span> Functions to plot our vectors</h2>
+<p>Here are a couple of helper functions to plot our “before” and “after” vectors as arrows in the plane.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="d-linear-transformations.html#cb36-1"></a>plot_four_vectors &lt;-<span class="st"> </span><span class="cf">function</span>(before1, before2, after1, after2){</span>
+<span id="cb36-2"><a href="d-linear-transformations.html#cb36-2"></a>  a0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">1</span>], before2[<span class="dv">1</span>])</span>
+<span id="cb36-3"><a href="d-linear-transformations.html#cb36-3"></a>  b0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">2</span>], before2[<span class="dv">2</span>])</span>
+<span id="cb36-4"><a href="d-linear-transformations.html#cb36-4"></a>  a1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">1</span>],before2[<span class="dv">1</span>],before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>], before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>])</span>
+<span id="cb36-5"><a href="d-linear-transformations.html#cb36-5"></a>  b1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">2</span>],before2[<span class="dv">2</span>],before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>], before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>])</span>
+<span id="cb36-6"><a href="d-linear-transformations.html#cb36-6"></a>  c0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">1</span>], after2[<span class="dv">1</span>])</span>
+<span id="cb36-7"><a href="d-linear-transformations.html#cb36-7"></a>  d0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">2</span>], after2[<span class="dv">2</span>])</span>
+<span id="cb36-8"><a href="d-linear-transformations.html#cb36-8"></a>  c1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">1</span>],after2[<span class="dv">1</span>],after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>], after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>])</span>
+<span id="cb36-9"><a href="d-linear-transformations.html#cb36-9"></a>  d1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">2</span>],after2[<span class="dv">2</span>],after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>], after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>])</span>
+<span id="cb36-10"><a href="d-linear-transformations.html#cb36-10"></a>  max_val =<span class="st"> </span><span class="kw">max</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
+<span id="cb36-11"><a href="d-linear-transformations.html#cb36-11"></a>  min_val =<span class="st"> </span><span class="kw">min</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
+<span id="cb36-12"><a href="d-linear-transformations.html#cb36-12"></a>  </span>
+<span id="cb36-13"><a href="d-linear-transformations.html#cb36-13"></a>  <span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlim=</span><span class="kw">c</span>(min_val<span class="op">*</span><span class="fl">1.5</span>,max_val<span class="op">*</span><span class="fl">1.5</span>), <span class="dt">ylim=</span><span class="kw">c</span>(min_val,max_val), <span class="dt">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Y&quot;</span>, )</span>
+<span id="cb36-14"><a href="d-linear-transformations.html#cb36-14"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb36-15"><a href="d-linear-transformations.html#cb36-15"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb36-16"><a href="d-linear-transformations.html#cb36-16"></a>  vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
+<span id="cb36-17"><a href="d-linear-transformations.html#cb36-17"></a>                     <span class="dt">x0=</span>a0, <span class="dt">y0=</span>b0, <span class="dt">x1=</span>a1 ,<span class="dt">y1=</span>b1, </span>
+<span id="cb36-18"><a href="d-linear-transformations.html#cb36-18"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb36-19"><a href="d-linear-transformations.html#cb36-19"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col, <span class="dt">lty=</span><span class="dv">2</span>) )</span>
+<span id="cb36-20"><a href="d-linear-transformations.html#cb36-20"></a>    vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
+<span id="cb36-21"><a href="d-linear-transformations.html#cb36-21"></a>                     <span class="dt">x0=</span>c0, <span class="dt">y0=</span>d0, <span class="dt">x1=</span>c1, <span class="dt">y1=</span>d1, </span>
+<span id="cb36-22"><a href="d-linear-transformations.html#cb36-22"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb36-23"><a href="d-linear-transformations.html#cb36-23"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col) )</span>
+<span id="cb36-24"><a href="d-linear-transformations.html#cb36-24"></a></span>
+<span id="cb36-25"><a href="d-linear-transformations.html#cb36-25"></a>}</span></code></pre></div>
+<p>This function has four parameters. The parameters <code>before1</code> and <code>before2</code> are two vectors before the mapping, and <code>after1</code> and <code>after2</code> are their images after the mapping. The function creates a dashed plot of the parallelogram with corners (0,0), <code>before1</code>, <code>before2</code> and <code>before1+before2</code>. It also creates a solid plot of the image of this parallelogram. These are plotted on the same plane so taht we can easily compare “before” and “after.”</p>
+<p>Here is an example. Let’s start with vectors <span class="math inline">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and <span class="math inline">\(\begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span>. It’s nice to start with vectors of different lengths. Let’s consider the mapping correspoding to multiplication by the matrix
+<span class="math display">\[
+A = \begin{bmatrix} 2 &amp; 3 \\ 4 &amp; -1 \end{bmatrix}.
+\]</span>
+Here is some example code showing how to make our plot. Note: <code>A %*% x</code> is the syntax for matrix multiplication in R.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="d-linear-transformations.html#cb37-1"></a>vec1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>)</span>
+<span id="cb37-2"><a href="d-linear-transformations.html#cb37-2"></a>vec2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb37-3"><a href="d-linear-transformations.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="d-linear-transformations.html#cb37-4"></a> A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb37-5"><a href="d-linear-transformations.html#cb37-5"></a></span>
+<span id="cb37-6"><a href="d-linear-transformations.html#cb37-6"></a>newvec1 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec1</span>
+<span id="cb37-7"><a href="d-linear-transformations.html#cb37-7"></a>newvec2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec2</span>
+<span id="cb37-8"><a href="d-linear-transformations.html#cb37-8"></a></span>
+<span id="cb37-9"><a href="d-linear-transformations.html#cb37-9"></a><span class="kw">plot_four_vectors</span>(vec1, vec2, newvec1, newvec2)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>This visualization uses different colors for the vectors so that you can match up the original vector with its image. There is a lot going on in this mapping, so let’s start making some observations.</p>
+<ul>
+<li>The original rectangle mapped to a parallelogram. So the shape is ``squished’’ a bit.</li>
+<li>Both the black vector and the red vector have gotten larger. But we can see that the red vector has grown much more than the black one. So there is expansion, but it is not uniform.</li>
+<li>The black vector and the red vector have flipped! This means that there is some sort of reflection happening.</li>
+</ul>
+<p>There isn’t a simple description for what’s happening here. It’s a combination of effects, so that the image of the rectangle is a warped version of the original.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">6.2</span> Exercises</h2>
+<p>Now it’s your turn. Investigate the effect of each of the following mappings.</p>
+<ul>
+<li>Using the previous code snippet as a guide, create a “before and after plot” for the black vector <span class="math inline">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and the red vector <span class="math inline">\(\begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span></li>
+<li>Describe the effect of the mapping as best you can. Be sure to look at the different effect on the black vector and the red vector. Use words like, expansion, contraction, rotation, reflection and <a href="https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg">shear</a>.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(A=\displaystyle{ \begin{bmatrix} 1 &amp; 0 \\ -1 &amp; 1 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(B=\displaystyle{ \begin{bmatrix} 0.71&amp; -0.71 \\ 0.71 &amp; 0.71 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(C=\displaystyle{ \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(D=\displaystyle{ \begin{bmatrix} 1 &amp; -1 \\ 1.5 &amp; -1.5 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(E=\displaystyle{ \begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(F=\displaystyle{ \begin{bmatrix} -1 &amp; -1/2 \\ 1/2 &amp; 1 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(G=\displaystyle{ \begin{bmatrix} 1 &amp; -1 \\ -1 &amp; 1 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(H=\displaystyle{ \begin{bmatrix} 0.6 &amp; 0.8 \\ 0.8 &amp; -0.6 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(J=\displaystyle{ \begin{bmatrix} 1.5 &amp; -1 \\ 1 &amp; 1.5 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+<li><p><span class="math inline">\(K=\displaystyle{ \begin{bmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{bmatrix}}\)</span></p>
+<p>Description:</p></li>
+</ol>
+</div>
+<div id="exploration" class="section level2">
+<h2><span class="header-section-number">6.3</span> Exploration</h2>
+<p>Now it’s time to explore. Try one or more of the following:</p>
+<ul>
+<li>Can you find a mapping that will turn the rectangle into a square?</li>
+<li>Look at some different starting vectors.</li>
+<li>Try some other matrices.</li>
+<li>What is the relationship between the rank of the matrix and the image of the transformation?</li>
+</ul>
+</div>
+<div id="even-more-exploration" class="section level2">
+<h2><span class="header-section-number">6.4</span> Even More Exploration</h2>
+<p>For a more interactive experinece, head over to <a href="http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-transforms-geom.html">Section 2.6.2 of Understanding Linear Algbra</a>. This short section on the geometry of <span class="math inline">\(2 \times 2\)</span> matrix transformations has an interactive activity where you can change the entries using slider controls. It is interesting to see the progressive impact of your changes!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-systems-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

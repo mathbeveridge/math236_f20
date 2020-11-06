@@ -1,0 +1,194 @@
+
+# 2D Linear Transformations
+
+
+We know that a linear transformation $T$ satisfies
+$$
+T(c \mathsf{u} + d \mathsf{v}) = c\, T( \mathsf{u}) +d \, T( \mathsf{v}).
+$$
+But what do linear transformations look like? Let's start to answer this question by considering linear transformations of the plane. 
+
+We will look at mappings $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ where $T(\mathsf{x}) = \mathsf{A} \mathsf{x}$ for a $2 \times 2$ matrix $\mathsf{A}$.
+$$
+T \left( \begin{bmatrix} x \\ y \end{bmatrix} \right) = 
+\begin{bmatrix} a & b \\ c & b \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
+$$
+The linear transformation $T(\mathsf{x})$ maps the plane to itself. This nicely allows us to compare vectors before the mapping with their images after the mapping. We can then describe the effect of the mapping on the plane.
+
+
+## Functions to plot our vectors
+
+Here are a couple of helper functions to plot our "before" and "after" vectors as arrows in the plane. 
+
+
+```{r}
+
+plot_four_vectors <- function(before1, before2, after1, after2){
+  a0 = c(0,0, before1[1], before2[1])
+  b0 = c(0,0, before1[2], before2[2])
+  a1 = c(before1[1],before2[1],before1[1]+before2[1], before1[1]+before2[1])
+  b1 = c(before1[2],before2[2],before1[2]+before2[2], before1[2]+before2[2])
+  c0 = c(0,0, after1[1], after2[1])
+  d0 = c(0,0, after1[2], after2[2])
+  c1 = c(after1[1],after2[1],after1[1]+after2[1], after1[1]+after2[1])
+  d1 = c(after1[2],after2[2],after1[2]+after2[2], after1[2]+after2[2])
+  max_val = max(a0,b0,a1,b1,c0,d0,c1,d1)
+  min_val = min(a0,b0,a1,b1,c0,d0,c1,d1)
+  
+  plot(NA, xlim=c(min_val*1.5,max_val*1.5), ylim=c(min_val,max_val), xlab="X", ylab="Y", )
+  abline(v=0, col="gray")
+  abline(h=0, col="gray")
+  vecs <- data.frame(vname=c("a","b","a+b", "transb"), 
+                     x0=a0, y0=b0, x1=a1 ,y1=b1, 
+                     col=1:4)
+  with( vecs, mapply("arrows", x0, y0, x1,y1,col=col, lty=2) )
+    vecs <- data.frame(vname=c("a","b","a+b", "transb"), 
+                     x0=c0, y0=d0, x1=c1, y1=d1, 
+                     col=1:4)
+  with( vecs, mapply("arrows", x0, y0, x1,y1,col=col) )
+
+}
+```
+
+
+This function has four parameters. The parameters `before1` and `before2` are two vectors before the mapping, and `after1` and `after2` are their images after the mapping. The function creates a dashed plot of the  parallelogram with corners (0,0), `before1`, `before2` and `before1+before2`. It also creates a solid plot of the image of this parallelogram. These are plotted on the same plane so taht we can easily compare "before" and "after."
+
+Here is an example. Let's start with vectors $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$ and $\begin{bmatrix} 0 \\ 2 \end{bmatrix}$. It's nice to start with vectors of different lengths. Let's consider the mapping correspoding to multiplication by the matrix
+$$
+A = \begin{bmatrix} 2 & 3 \\ 4 & -1 \end{bmatrix}.
+$$
+Here is some example code showing how to make our plot. Note: `A %*% x` is the syntax for matrix multiplication in R. 
+
+
+```{r, results = FALSE}
+
+vec1 = c(3,0)
+vec2 = c(0,2)
+
+ A = cbind(c(2,1), c(4,-1))
+
+newvec1 = A %*% vec1
+newvec2 = A %*% vec2
+
+plot_four_vectors(vec1, vec2, newvec1, newvec2)
+```
+
+This visualization uses different colors for the vectors so that you can match up the original vector with its image. There is a lot going on in this mapping, so let's start making some observations.
+
+* The original rectangle mapped to a parallelogram. So the shape is ``squished'' a bit.
+* Both the black vector and the red vector have gotten larger. But we can see that the red vector has grown much more than the black one. So there is expansion, but it is not uniform.
+* The black vector and the red vector have flipped! This means that there is some sort of reflection happening. 
+
+There isn't a simple description for what's happening here. It's a combination of effects, so that the image of the rectangle is a warped version of the original.
+
+## Exercises
+
+Now it's your turn. Investigate the effect of each of the following mappings.
+
+* Using the previous code snippet as a guide, create a "before and after plot" for the black vector $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$ and the red vector $\begin{bmatrix} 0 \\ 2 \end{bmatrix}$
+* Describe the effect of the mapping as best you can. Be sure to look at the different effect on the black vector and the red vector. Use words like, expansion, contraction, rotation, reflection and [shear](https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg).
+
+1. $A=\displaystyle{ \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+
+2. $B=\displaystyle{ \begin{bmatrix} 0.71& -0.71  \\ 0.71  & 0.71  \end{bmatrix}}$
+
+```{r}
+
+```
+
+  
+    Description:
+
+3. $C=\displaystyle{ \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+4. $D=\displaystyle{ \begin{bmatrix} 1 & -1 \\  1.5 & -1.5 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+5. $E=\displaystyle{ \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+6. $F=\displaystyle{ \begin{bmatrix} -1 & -1/2 \\ 1/2 & 1 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+7. $G=\displaystyle{ \begin{bmatrix} 1 & -1 \\ -1 & 1  \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+8. $H=\displaystyle{ \begin{bmatrix} 0.6 & 0.8 \\ 0.8 & -0.6 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+9. $J=\displaystyle{ \begin{bmatrix} 1.5 & -1 \\ 1 & 1.5  \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+
+10. $K=\displaystyle{ \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}}$
+
+```{r}
+
+```
+
+
+    Description:
+    
+    
+## Exploration
+
+Now it's time to explore. Try one or more of the following:
+
+* Can you find a mapping that will turn the rectangle into a square?
+* Look at some different starting vectors. 
+* Try some other matrices.
+* What is the relationship between the rank of the matrix and the image of the transformation?
+
+## Even More Exploration
+
+For a more interactive experinece, head over to [Section 2.6.2 of Understanding Linear Algbra](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-transforms-geom.html). This short section on the geometry of $2 \times 2$ matrix transformations has an interactive activity where you can change the entries using slider controls. It is interesting to see the progressive impact of your changes!

@@ -29,3 +29,4 @@ d-linear-transformations
 functions-to-plot-our-vectors
 exercises
 exploration
+even-more-exploration
