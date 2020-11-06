@@ -1,3 +1,4 @@
+fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution

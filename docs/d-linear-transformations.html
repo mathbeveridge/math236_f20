@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 6 2D Linear Transformations | MATH 236: Linear Algebra</title>
+  <title>Vector 6 2D Linear Transformations | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 6 2D Linear Transformations | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 6 2D Linear Transformations | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 6 2D Linear Transformations | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 6 2D Linear Transformations | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -198,7 +198,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
             <section class="normal" id="section-">
 <div id="d-linear-transformations" class="section level1">
-<h1><span class="header-section-number">Topic 6</span> 2D Linear Transformations</h1>
+<h1><span class="header-section-number">Vector 6</span> 2D Linear Transformations</h1>
+<p>Let’s explore linear transformations of the plane! <a href="https://github.com/mathbeveridge/math236_f20/blob/main/02-linear-transformations.Rmd">Download this Rmd file.</a></p>
 <p>We know that a linear transformation <span class="math inline">\(T\)</span> satisfies
 <span class="math display">\[
 T(c \mathsf{u} + d \mathsf{v}) = c\, T( \mathsf{u}) +d \, T( \mathsf{v}).
@@ -253,7 +254,12 @@ Here is some example code showing how to make our plot. Note: <code>A %*% x</cod
 <span id="cb37-7"><a href="d-linear-transformations.html#cb37-7"></a>newvec2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec2</span>
 <span id="cb37-8"><a href="d-linear-transformations.html#cb37-8"></a></span>
 <span id="cb37-9"><a href="d-linear-transformations.html#cb37-9"></a><span class="kw">plot_four_vectors</span>(vec1, vec2, newvec1, newvec2)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="figure"><span id="fig:example-2d-transformation"></span>
+<img src="math236_handbook_files/figure-html/example-2d-transformation-1.png" alt="An example 2D linear transformation" width="672" />
+<p class="caption">
+Figure 6.1: An example 2D linear transformation
+</p>
+</div>
 <p>This visualization uses different colors for the vectors so that you can match up the original vector with its image. There is a lot going on in this mapping, so let’s start making some observations.</p>
 <ul>
 <li>The original rectangle mapped to a parallelogram. So the shape is ``squished’’ a bit.</li>

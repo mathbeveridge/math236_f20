@@ -1,6 +1,7 @@
 
 # 2D Linear Transformations
 
+Let's explore linear transformations of the plane! [Download this Rmd file.](https://github.com/mathbeveridge/math236_f20/blob/main/02-linear-transformations.Rmd)
 
 We know that a linear transformation $T$ satisfies
 $$
@@ -60,7 +61,7 @@ $$
 Here is some example code showing how to make our plot. Note: `A %*% x` is the syntax for matrix multiplication in R. 
 
 
-```{r, results = FALSE}
+```{r, example-2d-transformation, results = FALSE, fig.cap="An example 2D linear transformation"}
 
 vec1 = c(3,0)
 vec2 = c(0,2)
