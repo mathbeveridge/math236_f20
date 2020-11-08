@@ -118,7 +118,7 @@ D &\phantom{\Big\vert XX}&&& \\ \hline
 $$
 
 
-## Partial Information about a linear transformation
+## Partial Information about a Linear Transformation
 
 $T: \mathbb{R}^4 \rightarrow \mathbb{R}^3$ is a linear transformation such that: 
 $$
