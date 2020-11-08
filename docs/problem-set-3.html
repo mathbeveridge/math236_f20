@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 1 Problem Set 1 | MATH 236: Linear Algebra</title>
+  <title>Vector 3 Problem Set 3 | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 1 Problem Set 1 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 3 Problem Set 3 | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 1 Problem Set 1 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 3 Problem Set 3 | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="problem-set-2.html"/>
+<link rel="prev" href="problem-set-2.html"/>
+<link rel="next" href="week-1-learning-goals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -146,163 +146,192 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-1" class="section level1">
-<h1><span class="header-section-number">Vector 1</span> Problem Set 1</h1>
+<div id="problem-set-3" class="section level1">
+<h1><span class="header-section-number">Vector 3</span> Problem Set 3</h1>
 <ul>
-<li>Due: Tuesday November 3 by 11:55pm CST.</li>
+<li>Due: Tuesday November 10 by 11:55pm CST.</li>
 <li>Upload your solutions to Moodle in a PDF.</li>
 <li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS1-problem-set-1.Rmd">Rmd source file for this problem set</a>.</li>
+<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS3-problem-set-3.Rmd">Rmd source file for this problem set</a>.</li>
 </ul>
-<div id="characterize-the-solution-set" class="section level2">
-<h2><span class="header-section-number">1.1</span> Characterize the Solution Set</h2>
-<p>The following augmented matrices are in row echelon form. Decide whether the set of solutions is a point, line, plane, or the empty set in 3-space. Briefly justify your answer.</p>
+<p>The Problem Set covers sections 1.7, 1.8, 1.9.</p>
+<div id="three-vectors-in-mathbbr4" class="section level2">
+<h2><span class="header-section-number">3.1</span> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></h2>
+
+<p>Consider the vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span> given by
+<span class="math display">\[
+ \qquad
+\mathbf{u} = \begin{bmatrix} 1 \\  0 \\   2 \\  -1 \end{bmatrix}, \qquad
+\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\  3 \\  1 \end{bmatrix}, \qquad
+\mathbf{w} = \begin{bmatrix} 1 \\  -2 \\   2 \\ 1 \end{bmatrix}.
+\]</span>
+Use RStudio to answer the following questions.</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 4 \\ 0 &amp; 1 &amp; 4 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 2 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 5 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; -1 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7\\ 0 &amp; 0 &amp; 0 &amp; 1\\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 0 &amp; 1 &amp; 0 &amp; 6 \\ 0 &amp; 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
+<li><p>Are <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span> linearly independent?</p></li>
+<li><p>Is the vector <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 4 \\ 4 \\ 2 \\ 4 \end{bmatrix}\)</span> in the span of vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span>?</p></li>
+<li><p>Is the vector <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 2 \\ 1 \\ 3 \\ 1 \end{bmatrix}\)</span> in the span of vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span>?</p></li>
 </ol>
 </div>
-<div id="find-the-parametric-solution" class="section level2">
-<h2><span class="header-section-number">1.2</span> Find the Parametric Solution</h2>
-<p>Each of the following matrices is the reduced row echelon form of the augmented matrix of a system of linear equations. Give the general solution to each system.</p>
+<div id="a-balanced-diet" class="section level2">
+<h2><span class="header-section-number">3.2</span> A Balanced Diet</h2>
+<!-- https://lvs.com.au/wp-content/uploads/2015/10/protein-fat-carb-counter.pdf -->
+<p>An athlete wants to consume a daily diet of 200 grams of carbohydrates, 160 grams of proteins and 60 grams of fats. Here are some of their favorite foods.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-275">Table 3.1: </span>Food Carb/Fat/Protein (grams)</caption>
+<thead>
+<tr class="header">
+<th align="left">food</th>
+<th align="right">carbs</th>
+<th align="right">fats</th>
+<th align="right">proteins</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">almonds</td>
+<td align="right">3</td>
+<td align="right">8</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">avocado</td>
+<td align="right">15</td>
+<td align="right">31</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">beans</td>
+<td align="right">20</td>
+<td align="right">1</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">bread</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">cheese</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">egg</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">milk</td>
+<td align="right">12</td>
+<td align="right">8</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">zucchini</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>Answer the following questions, using RStudio for your calculations. Each response must use <strong>two or more</strong> of the following terms: linear combination, span, linearly dependent, linearly independent.</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 3 &amp; 0 &amp; -2 &amp; 5\\ 0 &amp; 0 &amp; 1 &amp; 4 &amp; -2 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccccc|c} 1 &amp; 0 &amp; 4 &amp; 0 &amp; 3 &amp; 6\\ 0 &amp; 1 &amp; 1 &amp; 0 &amp; -2&amp; -8 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 &amp; 3 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 4 &amp; 0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7 &amp; 6\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
+<li><p>Explain why they <strong>cannot</strong> achieve their daily goal by eating only almonds, milk and zucchini.</p></li>
+<li><p>Explain why they <strong>cannot</strong> acheive their daily goal by eating only almonds, beans and cheese.</p></li>
+<li><p>Find a valid one-day diet consisting of avocado, beans, and bread.</p></li>
 </ol>
 </div>
-<div id="elementary-row-operations-are-reversible" class="section level2">
-<h2><span class="header-section-number">1.3</span> Elementary row operations are reversible</h2>
-<p>In each case below, an elementary row operation turns the matrix <span class="math inline">\(A\)</span> into the matrix <span class="math inline">\(B\)</span>. For each of them,</p>
+<div id="a-problem-about-span-and-linear-dependence" class="section level2">
+<h2><span class="header-section-number">3.3</span> A Problem about Span and Linear Dependence</h2>
+<p>Let <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> and <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4\)</span> all be vectors in <span class="math inline">\(\mathbb{R}^4\)</span>. Suppose that <span class="math inline">\(\{ \mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 \}\)</span> is a linearly independent set, and that
+<span class="math display">\[
+\mathrm{span}(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3) 
+=
+\mathrm{span}(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4).
+\]</span>
+Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4\)</span> must be linearly dependent.
+You can do this by either:</p>
 <ul>
-<li>Describe the row operation that turns <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, and</li>
-<li>Describe the row operation that turns <span class="math inline">\(B\)</span> into <span class="math inline">\(A\)</span>.</li>
+<li>Explaning why there must be a nontrivial linear combination <span class="math inline">\(c_1 \mathsf{w}_1 + c_2 \mathsf{w}_2 + c \mathsf{w}_3 + c \mathsf{w}_4 = \mathbf{0}\)</span>, or</li>
+<li>Showing that the <span class="math inline">\(4 \times 4\)</span> matrix <span class="math inline">\(\begin{bmatrix} \mathsf{w}_1 &amp; \mathsf{w}_2 &amp; \mathsf{w}_3 &amp; \mathsf{w}_4 \end{bmatrix}\)</span> does not have a pivot in every column.</li>
 </ul>
-<p>Give your answers in the form: “scale <span class="math inline">\(R_2\)</span> by 3” or “swap <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_4\)</span>” or “replace <span class="math inline">\(R_3\)</span> with <span class="math inline">\(R_3 + \frac{1}{5} R_1\)</span>.”</p>
+</div>
+<div id="properties-of-linear-transformations" class="section level2">
+<h2><span class="header-section-number">3.4</span> Properties of Linear Transformations</h2>
+<p>Here are the row reductions to reduced row echelon form of 4 matrices.
+<span class="math display">\[
+\begin{array}{ll}
+A \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 5 &amp; -3 &amp; 0\\ 0 &amp; 1 &amp; -2 &amp; 8  &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1  \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp;  0 \\ 0 &amp; 0 &amp; 0  &amp; 0 &amp;  0 \end{bmatrix} \qquad
+&amp; 
+B \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix} 
+\\
+\\
+C \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0  &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0  \\ 0 &amp; 0 &amp; 0 &amp;  1 \end{bmatrix}
+&amp;
+D \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0  \\ 0 &amp; 1 &amp; 0  &amp; 0  \\ 0 &amp; 0 &amp; 1 &amp; 1   \end{bmatrix} 
+\end{array}
+\]</span></p>
+<p>In each case, if <span class="math inline">\(T\)</span> is the linear transformation given by the matrix product <span class="math inline">\(T(x) = M x\)</span>, where <span class="math inline">\(M\)</span> is an <span class="math inline">\(m \times n\)</span> matrix (<span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns) then <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a transformation from domain <span class="math inline">\(\mathbb{R}^n\)</span> to codomain (aka target) <span class="math inline">\(\mathbb{R}^m\)</span>.</p>
+<p>Determine the appropriate values for <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span>, and decide whether <span class="math inline">\(T\)</span> is one-to-one and/or onto. Submit your answers in table form, as shown below.
+<span class="math display">\[
+\begin{array} {|c|c|c|c|c|} 
+\hline
+\text{matrix } M &amp;  n  &amp;  m &amp; \text{one-to-one?} &amp; \text{onto?} \\ \hline
+A &amp;\phantom{\Big\vert XX}&amp;\phantom{\Big\vert XX}&amp;&amp; \\ \hline
+B &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
+C &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
+D &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
+\end{array} \hskip5in
+\]</span></p>
+</div>
+<div id="partial-information-about-a-linear-transformation" class="section level2">
+<h2><span class="header-section-number">3.5</span> Partial Information about a linear transformation</h2>
+<p><span class="math inline">\(T: \mathbb{R}^4 \rightarrow \mathbb{R}^3\)</span> is a linear transformation such that:
+<span class="math display">\[
+T\left(\begin{bmatrix} 1 \\ 2 \\ 2 \\ 0 \end{bmatrix} \right)
+=
+\begin{bmatrix}  ~4~ \\ -1~ \\ 2 \end{bmatrix}
+\quad \mbox{and} \quad
+T\left(\begin{bmatrix} 2 \\ -1~ \\ 1 \\ 3 \end{bmatrix} \right)
+=
+\begin{bmatrix} ~2~ \\ 6  \\ -1~ \end{bmatrix}
+\quad \mbox{and} \quad
+T\left(\begin{bmatrix} 3 \\ 0 \\ 2 \\ 2 \end{bmatrix} \right)
+=
+\begin{bmatrix} 6 \\ 5  \\ 1 \end{bmatrix}
+\]</span></p>
 <ol style="list-style-type: decimal">
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 0 &amp; 7 &amp; 0 &amp; -4 \\
-\end{array}
-\right]\]</span></li>
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
-1 &amp; -2 &amp; 2 &amp; 1 \\
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\]</span></li>
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 1 &amp; 4 &amp; 1 &amp; -2 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\]</span></li>
+<li><p>Do we have enough information to determine whether <span class="math inline">\(T\)</span> is one-to-one? If no, then explain why not. If yes, then do so, along with a justification.</p></li>
+<li><p>Do we have enough information to determin whether <span class="math inline">\(T\)</span> is onto? If no, then explain why not. If yes, then do so, along with a justification.</p></li>
 </ol>
 </div>
-<div id="traffic-flow" class="section level2">
-<h2><span class="header-section-number">1.4</span> Traffic Flow</h2>
-<p>Below you find a section of one-way streets in downtown St Paul, where the arrows indicate traffic direction.
-The traffic control center has installed electronic sensors that count the numbers of vehicles passing through the 6
-streets that lead into and out of this area. Assume that the total flow that enters each intersection equals the the total flow that leaves
-each intersection (we will ignore parking and staying).</p>
-<center>
-<p><img src="images/ps1-traffic.png" style="width:50.0%" /></p>
-</center>
+<div id="house-renovations" class="section level2">
+<h2><span class="header-section-number">3.6</span> House Renovations</h2>
+<p>Find the matrix of a linear transformation <span class="math inline">\(T: \mathbb{R}^2 \to \mathbb{R}^2\)</span> that performs the given transformation of my house. (Hint: use the base, the doorway and the peak of the roof as a guide.)</p>
 <ol style="list-style-type: decimal">
-<li><p>Create a system of linear equations to find the possible flow values for the inner streets <span class="math inline">\(x_1, x_2, x_3, x_4\)</span>.</p></li>
-<li><p>Use RStudio to find the solution set. Write your answer in parametric form.</p></li>
-<li><p>Your answer to part 2 finds an infinite solution set. In terms of <strong>traffic flow</strong>, explain why there can be more than one solution. Thinking about cars traveling along streets, why is there some flexibility in the overall flow of cars?</p></li>
-<li><p>Now critique the model as presented. What solutions to the linear system are problematic for our original traffic flow problem? What additional conditions should we require for a valid solution?</p></li>
+<li>Transformation #1</li>
 </ol>
-</div>
-<div id="parabolas-through-two-points" class="section level2">
-<h2><span class="header-section-number">1.5</span> Parabolas Through Two Points</h2>
-<p>You will find the family of all possible parabolas
-<span class="math display">\[
-f(x) = a x^2 + b x + c
-\]</span>
-through two given points. Note that there will be an infinite number of such polynomials: there are three unknowns, but only two constraints. So there will be at least one free variable. Here are the plots of the two different families of parabolas that you will consider.</p>
-<center>
-<img src="images/ps1-parab1.png" style="width:40.0%" />
-<img src="images/ps1-parab2.png" style="width:40.0%" />
-</center>
-<ol style="list-style-type: decimal">
-<li><p>For each pair of points, (a) create linear system that represents the problem (b) use RStudio to find the RREF of the augmented matrix for the system and (c) write down the general formula for the family of parabolas <span class="math inline">\(f(x)\)</span> that contain the points.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(p_1 = (1,0)\)</span> and <span class="math inline">\(p_2 = (5,0)\)</span></p></li>
-<li><p><span class="math inline">\(q_1= (1,-3)\)</span> and <span class="math inline">\(q_2 = (5,10)\)</span></p></li>
-</ol></li>
-<li><p>Part 1.1 characterizes the family of parabolas that contain the points
-<span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>. Let’s refer to this family of parabolas as our “<span class="math inline">\(p_1,p_2\)</span> family.” Pick any two functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> from this <span class="math inline">\(p_1,p_2\)</span> family of parabolas. Now consider the parabola
-<span class="math display">\[
-g(x) = g_1(x) - g_2(x).
-\]</span>
-Show that <span class="math inline">\(g(1)=0\)</span> and <span class="math inline">\(g(5)=0\)</span>. This means that <span class="math inline">\(g(x)\)</span> is also in our <span class="math inline">\(p_1,p_2\)</span> family! (That’s really cool!)</p></li>
-<li><p>Part 1.2 characterizes the family of parabolas that contain the points
-<span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span>. Let’s refer to this family of parabolas as our “<span class="math inline">\(q_1,q_2\)</span> family.” Pick any two functions <span class="math inline">\(h_1(x)\)</span> and <span class="math inline">\(h_2(x)\)</span> in this <span class="math inline">\(q_1,q_2\)</span> family. Now consider the parabola
-<span class="math display">\[
-h(x) = h_1(x) - h_2(x).
-\]</span>
-Show that <span class="math inline">\(h(1) \neq -3\)</span> and <span class="math inline">\(h(5) \neq 10\)</span>. This means that <span class="math inline">\(h(x)\)</span> is NOT in our <span class="math inline">\(q_1,q_2\)</span> family. (So this family is not as nice as the previous one.)</p></li>
-<li><p>Now explain why the parabola <span class="math inline">\(h(x)\)</span> from part 3 is actually a member of the <span class="math inline">\(p_1, p_2\)</span> family. (So maybe this family is nicer than we thought!)</p></li>
+<p><img src="images/ps3-house1.png" style="width:40.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/ps3-house2.png" style="width:40.0%" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Transformation #2</li>
 </ol>
-<!-- 
-4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular: 
-    + What special property of the $p_1,p_2$ family leads to the nice behavior of $g(x)$ part 2? (Or equivalently: what goes wrong for the $q_1,q_2$ family in part 3?) 
-     + What **can** you say about the parabola $h(x) = h_1(x) - h_2(x)$ in part 3? 
-     + What is the connection between the $q_1, q_2$ family and the $p_1, p_2$ family? 
--->
-<p><strong>Remark:</strong> This problem is about families of parabolas. But at its core, this is actually a problem about linear algebra.</p>
-<ul>
-<li>Obviously, we used linear algebra to solve part 1, but there is linear algebra in the other parts as well!</li>
-<li>We define <span class="math inline">\(g(x) = g_1(x) - g_2(x)\)</span> by taking a <strong>linear combination</strong> of two functions. (Just like we take linear combinations of vectors.)</li>
-<li>What leads to the “nice” behavior of the <span class="math inline">\(p_1, p_2\)</span> family in part 2? It’s because the <span class="math inline">\(y\)</span>-values of the constraining points are both 0. We will soon learn about <strong>homogeneous</strong> linear systems whose right hand sides are all zero. These homogeneous systems have some very special properties.</li>
-<li>The <span class="math inline">\(q_1, q_2\)</span> family is “not nice” because it a <strong>nonhomogenous system</strong>.</li>
-<li>Just as there is a connection betwen the <span class="math inline">\(p_1,p_2\)</span> family and the <span class="math inline">\(q_1, q_2\)</span> family, we will soon learn that there is a connection between homogeneous systems and nonhomogeneous systems.</li>
-</ul>
+<p><img src="images/ps3-house1.png" style="width:40.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/ps3-house3.png" style="width:40.0%" /></p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="problem-set-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="problem-set-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

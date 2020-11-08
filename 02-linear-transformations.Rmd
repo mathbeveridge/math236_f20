@@ -169,4 +169,4 @@ Now it's time to explore. Try one or more of the following:
 
 ## Even More Exploration
 
-For a more interactive experinece, head over to [Section 2.6.2 of Understanding Linear Algbra](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-transforms-geom.html). This short section on the geometry of $2 \times 2$ matrix transformations has an interactive activity where you can change the entries using slider controls. It is interesting to see the progressive impact of your changes!
+For a more interactive experinece, head over to [Section 2.6.2 of Understanding Linear Algbra](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-transforms-geom.html). This short section on the geometry of $2 \times 2$ matrix transformations has an interactive activity where you can change the entries using slider controls. It is illuminating to see the progressive impact of your choices!

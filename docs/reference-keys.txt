@@ -1,3 +1,4 @@
+tab:unnamed-chunk-275
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -12,6 +13,13 @@ rref-for-a-set-of-vectors
 removing-free-variable-columns-from-a-matrix
 a-square-matrix
 combining-solutions-to-a-mathsfx-mathsfb
+problem-set-3
+three-vectors-in-mathbbr4
+a-balanced-diet
+a-problem-about-span-and-linear-dependence
+properties-of-linear-transformations
+partial-information-about-a-linear-transformation
+house-renovations
 week-1-learning-goals
 solving-linear-equations
 vocabulary

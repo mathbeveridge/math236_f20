@@ -1,6 +1,6 @@
 book_filename: "math236_handbook"
 output_dir: docs/
-rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "PS2-problem-set-2.Rmd",    "w1-solving-linear-equations.Rmd", "w2-solution-sets.Rmd", "01-linear-systems.Rmd", "02-linear-transformations.Rmd"]
+rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "PS2-problem-set-2.Rmd", "PS3-problem-set-3.Rmd",    "w1-solving-linear-equations.Rmd", "w2-solution-sets.Rmd", "01-linear-systems.Rmd", "02-linear-transformations.Rmd"]
 language:
   ui:
-    chapter_name: "Topic "
+    chapter_name: "Vector "
