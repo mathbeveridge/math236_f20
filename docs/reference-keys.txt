@@ -29,7 +29,7 @@ week-2-learning-goals
 solution-sets-span-and-linear-independence
 vocabulary-1
 conceptual-thinking-1
-week-2-learning-goals-1
+week-3-learning-goals
 linear-transformations-and-matrix-inverses
 vocabulary-2
 conceptual-thinking-2

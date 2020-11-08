@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 3 Problem Set 3 | MATH 236: Linear Algebra</title>
+  <title>Vector 6 Week 3 Learning Goals | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 3 Problem Set 3 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 6 Week 3 Learning Goals | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 3 Problem Set 3 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 6 Week 3 Learning Goals | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-2.html"/>
-<link rel="next" href="week-1-learning-goals.html"/>
+<link rel="prev" href="week-2-learning-goals.html"/>
+<link rel="next" href="linear-systems-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -151,186 +151,47 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-3" class="section level1">
-<h1><span class="header-section-number">Vector 3</span> Problem Set 3</h1>
+<div id="week-3-learning-goals" class="section level1">
+<h1><span class="header-section-number">Vector 6</span> Week 3 Learning Goals</h1>
+<p>Here are the knowledge and skills you should master by the end the third week.</p>
+<div id="linear-transformations-and-matrix-inverses" class="section level2">
+<h2><span class="header-section-number">6.1</span> Linear Transformations and Matrix Inverses</h2>
+<p>You should be able to do the following <strong>tasks</strong>:</p>
 <ul>
-<li>Due: Tuesday November 10 by 11:55pm CST.</li>
-<li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS3-problem-set-3.Rmd">Rmd source file for this problem set</a>.</li>
-</ul>
-<p>The Problem Set covers sections 1.7, 1.8, 1.9.</p>
-<div id="three-vectors-in-mathbbr4" class="section level2">
-<h2><span class="header-section-number">3.1</span> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></h2>
-
-<p>Consider the vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span> given by
-<span class="math display">\[
- \qquad
-\mathbf{u} = \begin{bmatrix} 1 \\  0 \\   2 \\  -1 \end{bmatrix}, \qquad
-\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\  3 \\  1 \end{bmatrix}, \qquad
-\mathbf{w} = \begin{bmatrix} 1 \\  -2 \\   2 \\ 1 \end{bmatrix}.
-\]</span>
-Use RStudio to answer the following questions.</p>
-<ol style="list-style-type: decimal">
-<li><p>Are <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span> linearly independent?</p></li>
-<li><p>Is the vector <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 4 \\ 4 \\ 2 \\ 4 \end{bmatrix}\)</span> in the span of vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span>?</p></li>
-<li><p>Is the vector <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 2 \\ 1 \\ 3 \\ 1 \end{bmatrix}\)</span> in the span of vectors <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(\mathbf{w}\)</span>?</p></li>
-</ol>
-</div>
-<div id="a-balanced-diet" class="section level2">
-<h2><span class="header-section-number">3.2</span> A Balanced Diet</h2>
-<!-- https://lvs.com.au/wp-content/uploads/2015/10/protein-fat-carb-counter.pdf -->
-<p>An athlete wants to consume a daily diet of 200 grams of carbohydrates, 160 grams of proteins and 60 grams of fats. Here are some of their favorite foods.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-2">Table 3.1: </span>Food Carb/Fat/Protein (grams)</caption>
-<thead>
-<tr class="header">
-<th align="left">food</th>
-<th align="right">carbs</th>
-<th align="right">fats</th>
-<th align="right">proteins</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">almonds</td>
-<td align="right">3</td>
-<td align="right">8</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td align="left">avocado</td>
-<td align="right">15</td>
-<td align="right">31</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="left">beans</td>
-<td align="right">20</td>
-<td align="right">1</td>
-<td align="right">8</td>
-</tr>
-<tr class="even">
-<td align="left">bread</td>
-<td align="right">12</td>
-<td align="right">1</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="left">cheese</td>
-<td align="right">1</td>
-<td align="right">5</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="left">egg</td>
-<td align="right">1</td>
-<td align="right">5</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td align="left">milk</td>
-<td align="right">12</td>
-<td align="right">8</td>
-<td align="right">8</td>
-</tr>
-<tr class="even">
-<td align="left">zucchini</td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="right">2</td>
-</tr>
-</tbody>
-</table>
-<p>Answer the following questions, using RStudio for your calculations. Each response must use <strong>two or more</strong> of the following terms: linear combination, span, linearly dependent, linearly independent.</p>
-<ol style="list-style-type: decimal">
-<li><p>Explain why they <strong>cannot</strong> achieve their daily goal by eating only almonds, milk and zucchini.</p></li>
-<li><p>Explain why they <strong>cannot</strong> acheive their daily goal by eating only almonds, beans and cheese.</p></li>
-<li><p>Find a valid one-day diet consisting of avocado, beans, and bread.</p></li>
-</ol>
-</div>
-<div id="a-problem-about-span-and-linear-dependence" class="section level2">
-<h2><span class="header-section-number">3.3</span> A Problem about Span and Linear Dependence</h2>
-<p>Let <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> and <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4\)</span> all be vectors in <span class="math inline">\(\mathbb{R}^4\)</span>. Suppose that <span class="math inline">\(\{ \mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 \}\)</span> is a linearly independent set, and that
-<span class="math display">\[
-\mathrm{span}(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3) 
-=
-\mathrm{span}(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4).
-\]</span>
-Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3, \mathsf{w}_4\)</span> must be linearly dependent.
-You can do this by either:</p>
-<ul>
-<li>Explaning why there must be a nontrivial linear combination <span class="math inline">\(c_1 \mathsf{w}_1 + c_2 \mathsf{w}_2 + c \mathsf{w}_3 + c \mathsf{w}_4 = \mathbf{0}\)</span>, or</li>
-<li>Showing that the <span class="math inline">\(4 \times 4\)</span> matrix <span class="math inline">\(\begin{bmatrix} \mathsf{w}_1 &amp; \mathsf{w}_2 &amp; \mathsf{w}_3 &amp; \mathsf{w}_4 \end{bmatrix}\)</span> does not have a pivot in every column.</li>
+<li>Determine whether a mapping from <span class="math inline">\(\mathbb{R}^n\)</span> to <span class="math inline">\(\mathbb{R}^n\)</span> is a linear transformation</li>
+<li>Use the RREF of the corresponding matrix to determine whether <span class="math inline">\(T(\mathsf{x})\)</span> is one-to-one and/or onto.</li>
+<li>Describe 2D linear transformations as a mixture of geometric operations, including expansion, contraction, reflection, rotation, shearing and dimension reduction.</li>
+<li>Perform a 2D translation using 3D homogeneous coordinates</li>
+<li>Multiply an <span class="math inline">\(m \times n\)</span> matrix with an <span class="math inline">\(n \times p\)</span> matrix to get an <span class="math inline">\(m \times p\)</span> matrix</li>
+<li>Determine whether a <span class="math inline">\(2 \times 2\)</span> matrix is invertible</li>
+<li>Find the inverse of a <span class="math inline">\(2 \times 2\)</span> matrix by hand.</li>
+<li>Use RStudio to check for invertiblity and to find the inverse of an <span class="math inline">\(n \times n\)</span> square matrix</li>
+<li>Explain the connection between Gaussian Elimination, elementary matrices, and the matrix inverse.</li>
 </ul>
 </div>
-<div id="properties-of-linear-transformations" class="section level2">
-<h2><span class="header-section-number">3.4</span> Properties of Linear Transformations</h2>
-<p>Here are the row reductions to reduced row echelon form of 4 matrices.
-<span class="math display">\[
-\begin{array}{ll}
-A \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 5 &amp; -3 &amp; 0\\ 0 &amp; 1 &amp; -2 &amp; 8  &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1  \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp;  0 \\ 0 &amp; 0 &amp; 0  &amp; 0 &amp;  0 \end{bmatrix} \qquad
-&amp; 
-B \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix} 
-\\
-\\
-C \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0  &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0  \\ 0 &amp; 0 &amp; 0 &amp;  1 \end{bmatrix}
-&amp;
-D \longrightarrow \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0  \\ 0 &amp; 1 &amp; 0  &amp; 0  \\ 0 &amp; 0 &amp; 1 &amp; 1   \end{bmatrix} 
-\end{array}
-\]</span></p>
-<p>In each case, if <span class="math inline">\(T\)</span> is the linear transformation given by the matrix product <span class="math inline">\(T(x) = M x\)</span>, where <span class="math inline">\(M\)</span> is an <span class="math inline">\(m \times n\)</span> matrix (<span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns) then <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a transformation from domain <span class="math inline">\(\mathbb{R}^n\)</span> to codomain (aka target) <span class="math inline">\(\mathbb{R}^m\)</span>.</p>
-<p>Determine the appropriate values for <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span>, and decide whether <span class="math inline">\(T\)</span> is one-to-one and/or onto. Submit your answers in table form, as shown below.
-<span class="math display">\[
-\begin{array} {|c|c|c|c|c|} 
-\hline
-\text{matrix } M &amp;  n  &amp;  m &amp; \text{one-to-one?} &amp; \text{onto?} \\ \hline
-A &amp;\phantom{\Big\vert XX}&amp;\phantom{\Big\vert XX}&amp;&amp; \\ \hline
-B &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
-C &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
-D &amp;\phantom{\Big\vert XX}&amp;&amp;&amp; \\ \hline
-\end{array} \hskip5in
-\]</span></p>
+<div id="vocabulary-2" class="section level2">
+<h2><span class="header-section-number">6.2</span> Vocabulary</h2>
+<p>You should know and be able to use and explain the following <strong>terms</strong> or <strong>properties</strong>.</p>
+<ul>
+<li>Linear Transformation: <span class="math inline">\(T(a \mathsf{u} + b \mathsf{v}) = a T(\mathsf{u}) + b T(\mathsf{v})\)</span></li>
+<li>domain, codomain (aka target) and range (aka image)</li>
+<li>one-to-one</li>
+<li>onto</li>
+<li>standard matrix for a linear transformation</li>
+<li>homogeneous coordinates</li>
+<li>transpose of a matix</li>
+<li>invertible matrix</li>
+<li>elementary matrices</li>
+</ul>
 </div>
-<div id="partial-information-about-a-linear-transformation" class="section level2">
-<h2><span class="header-section-number">3.5</span> Partial Information about a Linear Transformation</h2>
-<p><span class="math inline">\(T: \mathbb{R}^4 \rightarrow \mathbb{R}^3\)</span> is a linear transformation such that:
-<span class="math display">\[
-T\left(\begin{bmatrix} 1 \\ 2 \\ 2 \\ 0 \end{bmatrix} \right)
-=
-\begin{bmatrix}  ~4~ \\ -1~ \\ 2 \end{bmatrix}
-\quad \mbox{and} \quad
-T\left(\begin{bmatrix} 2 \\ -1~ \\ 1 \\ 3 \end{bmatrix} \right)
-=
-\begin{bmatrix} ~2~ \\ 6  \\ -1~ \end{bmatrix}
-\quad \mbox{and} \quad
-T\left(\begin{bmatrix} 3 \\ 0 \\ 2 \\ 2 \end{bmatrix} \right)
-=
-\begin{bmatrix} 6 \\ 5  \\ 1 \end{bmatrix}
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Do we have enough information to determine whether <span class="math inline">\(T\)</span> is one-to-one? If no, then explain why not. If yes, then do so, along with a justification.</p></li>
-<li><p>Do we have enough information to determin whether <span class="math inline">\(T\)</span> is onto? If no, then explain why not. If yes, then do so, along with a justification.</p></li>
-</ol>
-</div>
-<div id="house-renovations" class="section level2">
-<h2><span class="header-section-number">3.6</span> House Renovations</h2>
-<p>Find the matrix of a linear transformation <span class="math inline">\(T: \mathbb{R}^2 \to \mathbb{R}^2\)</span> that performs the given transformation of my house. (Hint: use the base, the doorway and the peak of the roof as a guide.)</p>
-<ol style="list-style-type: decimal">
-<li>Transformation #1</li>
-</ol>
-<p><img src="images/ps3-house1.png" style="width:40.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/ps3-house2.png" style="width:40.0%" /></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Transformation #2</li>
-</ol>
-<p><img src="images/ps3-house1.png" style="width:40.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/ps3-house3.png" style="width:40.0%" /></p>
-<p>For your convenience, here is the code to make the original plot of the house.</p>
-<pre><code>par(pty=&quot;s&quot;)
-house = cbind(c(0,0), c(0,3/4), c(1/2,3/4), c(1/2,0), c(1,0), c(1,1), c(5/4,1), c(0,2), c(-5/4,1), c(-1,1), c(-1,0), c(0,0));
-
-plot(house[1,],house[2,],type=&quot;n&quot;,xlim=c(-6,6),ylim=c(-6,6),xlab=&quot;x&quot;,ylab=&quot;y&quot;, asp=1)
-abline(h=-6:6, v=-6:6, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
-polygon(house[1,], house[2,], col = &quot;gray&quot;, border = &quot;blue&quot;)</code></pre>
+<div id="conceptual-thinking-2" class="section level2">
+<h2><span class="header-section-number">6.3</span> Conceptual Thinking</h2>
+<p>I should understand and be able to explain the following <strong>concepts</strong>:</p>
+<ul>
+<li><span class="math inline">\(T(\mathsf{x})=\mathsf{A} \mathsf{x}\)</span> is a one-to-one linear transformations if and only <span class="math inline">\(\mathsf{A}\)</span> has linearly independent columns</li>
+<li><span class="math inline">\(T(\mathsf{x})=\mathsf{A} \mathsf{x}\)</span> is an onto linear transformations if and only if the columns of <span class="math inline">\(\mathsf{A}\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span>.</li>
+<li>The Invertible Matrix Theorem (Section 2.3, Theorem 8, page 112) is one of the highlights of the course! It gives 12 different conditions that all equivalent! You should think deeply about why everything comes together like this for square matrices.</li>
+</ul>
 
 </div>
 </div>
@@ -342,8 +203,8 @@ polygon(house[1,], house[2,], col = &quot;gray&quot;, border = &quot;blue&quot;)
           </div>
         </div>
       </div>
-<a href="problem-set-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-2-learning-goals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
