@@ -177,7 +177,7 @@ Use RStudio to answer the following questions.</p>
 <!-- https://lvs.com.au/wp-content/uploads/2015/10/protein-fat-carb-counter.pdf -->
 <p>An athlete wants to consume a daily diet of 200 grams of carbohydrates, 160 grams of proteins and 60 grams of fats. Here are some of their favorite foods.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-275">Table 3.1: </span>Food Carb/Fat/Protein (grams)</caption>
+<caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Food Carb/Fat/Protein (grams)</caption>
 <thead>
 <tr class="header">
 <th align="left">food</th>
@@ -319,6 +319,13 @@ T\left(\begin{bmatrix} 3 \\ 0 \\ 2 \\ 2 \end{bmatrix} \right)
 <li>Transformation #2</li>
 </ol>
 <p><img src="images/ps3-house1.png" style="width:40.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/ps3-house3.png" style="width:40.0%" /></p>
+<p>For your convenience, here is the code to make the original plot of the house.</p>
+<pre><code>par(pty=&quot;s&quot;)
+house = cbind(c(0,0), c(0,3/4), c(1/2,3/4), c(1/2,0), c(1,0), c(1,1), c(5/4,1), c(0,2), c(-5/4,1), c(-1,1), c(-1,0), c(0,0));
+
+plot(house[1,],house[2,],type=&quot;n&quot;,xlim=c(-6,6),ylim=c(-6,6),xlab=&quot;x&quot;,ylab=&quot;y&quot;, asp=1)
+abline(h=-6:6, v=-6:6, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
+polygon(house[1,], house[2,], col = &quot;gray&quot;, border = &quot;blue&quot;)</code></pre>
 
 </div>
 </div>

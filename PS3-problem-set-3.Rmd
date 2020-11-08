@@ -160,6 +160,15 @@ Find the matrix of a linear transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ th
 ![](images/ps3-house1.png){width=40%} $\qquad \qquad$ ![](images/ps3-house3.png){width=40%}
 
 
+For your convenience, here is the code to make the original plot of the house.
 
+```
+par(pty="s")
+house = cbind(c(0,0), c(0,3/4), c(1/2,3/4), c(1/2,0), c(1,0), c(1,1), c(5/4,1), c(0,2), c(-5/4,1), c(-1,1), c(-1,0), c(0,0));
+
+plot(house[1,],house[2,],type="n",xlim=c(-6,6),ylim=c(-6,6),xlab="x",ylab="y", asp=1)
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+```
 
 
