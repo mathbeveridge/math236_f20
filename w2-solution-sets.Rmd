@@ -34,4 +34,5 @@ I should understand and be able to explain the following **concepts**:
     * $A$ has a pivot in every row.
 * Understand the relation between homogeneous solutions and nonhomogeneous solutions.
 * Linear independence
+* Span
 * More than $n$ vectors in $\mathbb{R}^n$ must be linearly dependent.
