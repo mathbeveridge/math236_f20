@@ -2,6 +2,8 @@
 # Linear Transformations of a House
 
 
+[Download this Rmd file from GitHub](https://github.com/mathbeveridge/math236_f20/blob/main/03-house-transformations.Rmd)
+
 
 Here is a plot of my house. You will need to run this chunk of code each time you re-start R to get the house back in memory.
 
