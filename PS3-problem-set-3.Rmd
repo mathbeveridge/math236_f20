@@ -48,10 +48,10 @@ An athlete wants to consume  a daily diet of 200 grams of carbohydrates, 160 gra
 
 ```{r}
 food.data <- data.frame(
-   food = c ("almonds", "avocado",  "beans", "bread", "cheese", "egg", "milk", "zucchini"),
-   carbs = c(3,15,20,12,1,1,12,6),
-   fats = c(8,31,1,1,5,5,8,0), 
-   proteins = c(5,4,8,2,3,6,8,2)
+   food = c ("almonds", "avocado",  "beans", "bread", "cheese", "chicken", "egg", "milk", "zucchini"),
+   carbs = c(3,15,20,12,1,0,1,12,6),
+   fats = c(8,31,1,1,5,13,5,8,0), 
+   proteins = c(5,4,8,2,3,50,6,8,2)
 )
 
 knitr::kable(
@@ -65,9 +65,9 @@ Answer the following  questions, using RStudio for your calculations. Each respo
 
 1. Explain why they **cannot** achieve their daily goal by eating only almonds, milk and zucchini.
 
-2. Explain why they **cannot** acheive their daily goal by eating only almonds, beans and cheese.
+2. Explain why they **cannot** achieve their daily goal by eating only almonds, beans and cheese.
 
-3. Find a valid one-day diet consisting of avocado, beans, and bread. 
+3. Find a valid one-day diet consisting of almonds, chicken, and zucchini. 
 
 
 
@@ -138,7 +138,7 @@ $$
   1. Do we have enough information to  determine whether $T$ is one-to-one? If no, then explain why not. If yes, then do so, along with a justification.
 
 
-  2. Do we have enough information to determin whether $T$ is onto? If no, then  explain why not. If yes, then do so, along with  a justification.
+  2. Do we have enough information to determine whether $T$ is onto? If no, then  explain why not. If yes, then do so, along with  a justification.
 
 
 

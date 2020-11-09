@@ -1,4 +1,4 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-91
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -49,8 +49,12 @@ some-other-matrices
 exploration
 even-more-exploration
 linear-transformations-of-a-house
-linear-transformations
+rotations
 your-turn-1
+expansion-and-contraction
+your-turn-2
+reflection-over-the-line-yx
+your-turn-3
 family-1-1
 family-2-1
 family-3-1

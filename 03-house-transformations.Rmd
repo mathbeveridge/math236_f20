@@ -13,12 +13,14 @@ abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
 polygon(house[1,], house[2,], col = "gray", border = "blue")
 ```
 
-## Linear Transformations
+Today we will explore various families of linear transformations on the plane by looking at their effect on my house.
 
-First we will try out some linear transformations in the plane on my house.
+## Rotations
 
-
-Here I *rotate* my house by pi/3 radians. Observe that I apply the matrix `A` to the house, call it `house2` and plot both the orignal house and the new house in the same plot.
+First we will *rotate* my house by pi/3 radians. A 2D rotation matrix by $t$ radians is given by
+$$A=\displaystyle{ \begin{bmatrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}.$$
+Here is the code to display this transformation.
+Observe that I apply the matrix `A` to the house, call it `house2` and plot both the original house and the new house in the same plot.
 
 ```{r,house2,fig.height=4,fig.width=4, echo=TRUE}
 # create a plot that we will add more layers to
@@ -37,7 +39,7 @@ polygon(house[1,], house[2,], col = "gray", border = "blue")
 polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
 
-And now I rotate it back to its original position. The inverse in this case is rotation by -pi/3.
+And now I rotate it back to its original position. The inverse in this case is rotation by -pi/3.I apply this mapping to `house2` to get `house3` and then plot those houses together.
 
 ```{r,fig.height=4,fig.width=4, echo=TRUE}
 plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
@@ -49,22 +51,42 @@ polygon(house2[1,], house2[2,], col = "pink", border = "black")
 polygon(house3[1,], house3[2,], col = "green", border = "black")
 ```
 
-Now let's try reflecting the house over the line y = x. Note that by putting the assignment of A into parentheses it prints out the value of A while you are assigning it 
+### Your Turn
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
+where $t$ is in radians. Here is a function that will create such a matrix (so that you only have to enter the angle once).
 
 ```{r, echo=TRUE}
-(A = cbind(c(0,1),c(1,0)))
-```
+create_angle_matrix <- function(t) {
+  A = cbind(c(cos(t), sin(t)), c(-sin(t), cos(t)))
+  return(A)
+}
 
-```{r,house3,fig.height=4,fig.width=4, echo=TRUE}
+A = create_angle_matrix(pi/2)
+A
+```
+**Note #1**: R is **numerical software**. The example code rotates the couse by $pi/2$. You'll note that ``sin(pi/2)`` returns a value of ``6.123234e-17`` or something similar. This value is given in scientific notation, and is $\approx 6.12 \times 10^{-17}$. **You should treat this tiny number as equal to 0.** Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.''
+
+**Note #2**: By default, an R plot stretches the horizontal scale compared to the vertical scale. In order to create a square plot, your R chunk should start with ``{r, fig.height=4,fig.width=4}`` rather than ``{r}``. Here is an example of what that looks like:
+
+````markdown
+`r ''````{r,fig.height=4,fig.width=4}
+
+house2 = A %*% house
+
+# initialize the plot
 plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
 abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
-house2 = A %*% house
-polygon(house[1,], house[2,], col = "gray", border = "blue")
-polygon(house2[1,], house2[2,], col = "pink", border = "black")
+
+# plot the original house and the transformed house
+polygon(house[1,], house[2,], col = "gray", border = "blue")   
+polygon(house2[1,], house2[2,], col = "pink", border = "black")  
 ```
+````
 
-
-And now we perform the transformation that scales the house by 2 in the $x$-direction and by 3 in the $y$-direction.
+## Expansion and contraction
+Next, let's perform the transformation that scales the house by 2 in the $x$-direction and by 3 in the $y$-direction.
 
 ```{r, echo=TRUE}
 (A = cbind(c(2,0),c(0,3)))
@@ -78,6 +100,58 @@ house2 = A %*% house
 polygon(house[1,], house[2,], col = "gray", border = "blue")
 polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
+
+
+### Your Turn
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}}.$$ Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
+
+```{r, echo=TRUE}
+a = 1
+b = 1
+
+A = cbind(c(a,0), c(0,b))
+```
+
+Try various combinations of $a$ and $b$. Here are some guiding questions:
+
+* How would you expand along the $x$-axis while contracting along the $y$-axis?
+* What happens when $a$ is negative? when $b$ is negative? when both are negative?
+
+
+What values would you use to 
+
+Once again, try three or four combinations of positive, negative, small and large  numbers. For example, you  can pick a value of $a$  and a value for $b$ from this list:
+$$
+\begin{array}{ccccccccccccccc}
+-4  &  -3 & -2 & -1 & -\frac{1}{2} & -\frac{1}{3} & -\frac{1}{4} & 0 &
+\frac{1}{4} & \frac{1}{3} & \frac{1}{2} & 1 & 2 & 3  & 4
+\end{array}
+$$
+
+
+
+
+
+
+## Reflection over the line $y=x$
+Now let's try reflecting the house over the line $y = x$. Note that by putting the assignment of A into parentheses it prints out the value of A while you are assigning it 
+
+```{r, echo=TRUE}
+(A = cbind(c(0,1),c(1,0)))
+```
+
+
+```{r,house3,fig.height=4,fig.width=4, echo=TRUE}
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+
 
 Here we perform the transformation that sends  $\mathsf{e}_1$ to $(-1,1/2)$ and $\mathsf{e}_2$ to $(2,-1)$. Notice that they are the same line and the transformation projects the house onto this line.
 
