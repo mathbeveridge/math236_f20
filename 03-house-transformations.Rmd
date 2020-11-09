@@ -1,0 +1,189 @@
+
+# Linear Transformations of a House
+
+
+
+Here is a plot of my house. You will need to run this chunk of code each time you re-start R to get the house back in memory.
+
+```{r,house1,fig.height=4,fig.width=4, echo=TRUE}
+house = cbind(c(0,0), c(0,3/4), c(1/2,3/4), c(1/2,0), c(1,0), c(1,1), c(5/4,1), c(0,2), c(-5/4,1), c(-1,1), c(-1,0), c(0,0));
+
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+```
+
+## Linear Transformations
+
+First we will try out some linear transformations in the plane on my house.
+
+
+Here I *rotate* my house by pi/3 radians. Observe that I apply the matrix `A` to the house, call it `house2` and plot both the orignal house and the new house in the same plot.
+
+```{r,house2,fig.height=4,fig.width=4, echo=TRUE}
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+A = cbind(c(cos(pi/3),sin(pi/3)),c(-sin(pi/3),cos(pi/3)))  # define A
+A # display A
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+And now I rotate it back to its original position. The inverse in this case is rotation by -pi/3.
+
+```{r,fig.height=4,fig.width=4, echo=TRUE}
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+Ainv = cbind(c(cos(-pi/3),sin(-pi/3)),c(-sin(-pi/3),cos(-pi/3)))  # A inverse 
+Ainv # display A inverse
+house3 = Ainv %*% house2
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+polygon(house3[1,], house3[2,], col = "green", border = "black")
+```
+
+Now let's try reflecting the house over the line y = x. Note that by putting the assignment of A into parentheses it prints out the value of A while you are assigning it 
+
+```{r, echo=TRUE}
+(A = cbind(c(0,1),c(1,0)))
+```
+
+```{r,house3,fig.height=4,fig.width=4, echo=TRUE}
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+
+And now we perform the transformation that scales the house by 2 in the x-direction and by 3 in the y-direction.
+
+```{r, echo=TRUE}
+(A = cbind(c(2,0),c(0,3)))
+```
+
+
+```{r,house4,fig.height=4,fig.width=4, echo=TRUE}
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+Here we perform the transformation that sends  e1 to (-1,1/2) and e2 to (2,-1). Notice that they are the same line and the transformation projects the house onto this line.
+
+```{r,house5,fig.height=4,fig.width=4, echo=TRUE}
+(A = cbind(c(-1,1/2),c(2,-1)))
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+Finally, suppose that we wish to perform the transformation that reflects over the y-axis, then rotates by pi/2, and finally scales the x-direction by 2 and the y-direction by 3 in that order. You can do this as three matrices that you multiply together.
+
+**Note:** The order of these matrices goes **from right to left.**  The rightmost matrix is the one that is closest to the vector. So that transformation happens first!
+
+
+The matrix A:
+```{r,house6,fig.height=4,fig.width=4, echo=TRUE}
+scale = cbind(c(2,0),c(0,3))
+rot = cbind(c(cos(pi/2),sin(pi/2)),c(-sin(pi/2),cos(pi/2)))
+reflect = cbind(c(-1,0),c(0,1))
+A = scale %*% rot %*% reflect
+
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+house2 = A %*% house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+
+
+
+
+## Your Turn
+
+Now it's your turn. Investigate the effect of each of the following families of mappings on my house.
+
+* Using the previous code snippets as a guide, create a single plot with the "before and after" houses.
+* **Describe** the effect of the mapping as best you can. Be sure to look at the different effect on the "ground" and the "walls" of the course. Use words like, expansion, contraction, rotation, reflection and [shear](https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg).
+* Once you have looked at the effect of the family, look back at the form of the matrix $A$. Can you explain why it leads to the outcome you see?
+
+### Family 1
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}}.$$
+
+Once again, try various combinations of positive, negative, small and large  numbers. Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
+
+```{r, echo=TRUE}
+a = 1
+b = 1
+
+A = cbind(c(a,0), c(0,b))
+```
+
+
+### Family 2
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} 0 & b \\ c & 0 \end{bmatrix}}.$$
+Try various combinations of positive and negative numbers. Also try numbers of small magnitude (less than 1) and large magnitude. 
+
+
+### Family 3
+
+Explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
+where $t$ is in radians. Here is a function that will create such a matrix.
+
+```{r, echo=TRUE}
+create_angle_matrix <- function(t) {
+  A = cbind(c(cos(t), sin(t)), c(-sin(t), cos(t)))
+  return(A)
+}
+
+A = create_angle_matrix(pi/2)
+A
+```
+**Note**: R is numerical software. You'll note that ``sin(pi/2)`` returns a value of ``6.123234e-17`` or something similar. This value is given in scientific notation, and is $\approx 6.12 \times 10^{-17}$. **You should treat this tiny number as equal to 0.** Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.''atrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
+
+
+### Family 4
+
+Now explore matrices of the form 
+$$
+A=\displaystyle{ \begin{bmatrix} a & b \\ 0 & b \end{bmatrix}}
+\quad
+\mbox{and}
+\quad
+A=\displaystyle{ \begin{bmatrix} a & 0 \\ a & b \end{bmatrix}}
+$$
+
+ 
+Start with $a=1$ and $b=1$. Then consider a wide variety of such matrices. 
+
+
+### Family 5
+
+Now explore matrices of the form 
+$$A=\displaystyle{ \begin{bmatrix} a & -b \\ b & a \end{bmatrix}}$$
+Once again, consider a wide variety of such matrices.
+
+### Family 6
+
+Finally explore matrices of the form 
+$$
+A=\displaystyle{ \begin{bmatrix} a & ca \\ b & cb \end{bmatrix}}
+\quad
+\mbox{and}
+\quad
+A=\displaystyle{ \begin{bmatrix} a & b \\ ca & cb \end{bmatrix}}
+$$
+Once again, consider a wide variety of such matrices.
+
+
