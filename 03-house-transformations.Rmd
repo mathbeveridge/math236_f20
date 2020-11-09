@@ -21,12 +21,19 @@ First we will try out some linear transformations in the plane on my house.
 Here I *rotate* my house by pi/3 radians. Observe that I apply the matrix `A` to the house, call it `house2` and plot both the orignal house and the new house in the same plot.
 
 ```{r,house2,fig.height=4,fig.width=4, echo=TRUE}
+# create a plot that we will add more layers to
 plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+# add the grid lines
 abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
-A = cbind(c(cos(pi/3),sin(pi/3)),c(-sin(pi/3),cos(pi/3)))  # define A
-A # display A
+# define the matrix A
+A = cbind(c(cos(pi/3),sin(pi/3)),c(-sin(pi/3),cos(pi/3)))
+# display A
+A 
+# transform the house using matrix multiplication
 house2 = A %*% house
+# plot the original house
 polygon(house[1,], house[2,], col = "gray", border = "blue")
+# plot the transformed house
 polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
 
@@ -57,7 +64,7 @@ polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
 
 
-And now we perform the transformation that scales the house by 2 in the x-direction and by 3 in the y-direction.
+And now we perform the transformation that scales the house by 2 in the $x$-direction and by 3 in the $y$-direction.
 
 ```{r, echo=TRUE}
 (A = cbind(c(2,0),c(0,3)))
@@ -72,7 +79,7 @@ polygon(house[1,], house[2,], col = "gray", border = "blue")
 polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
 
-Here we perform the transformation that sends  e1 to (-1,1/2) and e2 to (2,-1). Notice that they are the same line and the transformation projects the house onto this line.
+Here we perform the transformation that sends  $\mathsf{e}_1$ to $(-1,1/2)$ and $\mathsf{e}_2$ to $(2,-1)$. Notice that they are the same line and the transformation projects the house onto this line.
 
 ```{r,house5,fig.height=4,fig.width=4, echo=TRUE}
 (A = cbind(c(-1,1/2),c(2,-1)))
@@ -83,7 +90,7 @@ polygon(house[1,], house[2,], col = "gray", border = "blue")
 polygon(house2[1,], house2[2,], col = "pink", border = "black")
 ```
 
-Finally, suppose that we wish to perform the transformation that reflects over the y-axis, then rotates by pi/2, and finally scales the x-direction by 2 and the y-direction by 3 in that order. You can do this as three matrices that you multiply together.
+Finally, suppose that we wish to perform the transformation that reflects over the $y$-axis, then rotates by pi/2, and finally scales the $x$-direction by 2 and the y-direction by 3 in that order. You can do this as three matrices that you multiply together.
 
 **Note:** The order of these matrices goes **from right to left.**  The rightmost matrix is the one that is closest to the vector. So that transformation happens first!
 
@@ -113,12 +120,44 @@ Now it's your turn. Investigate the effect of each of the following families of 
 * **Describe** the effect of the mapping as best you can. Be sure to look at the different effect on the "ground" and the "walls" of the course. Use words like, expansion, contraction, rotation, reflection and [shear](https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg).
 * Once you have looked at the effect of the family, look back at the form of the matrix $A$. Can you explain why it leads to the outcome you see?
 
+
+For your convenience, here is the code we used in our very first example. Note that the ``{r,fig.height=4,fig.width=4}'' tells R to make a square plot, so the $x$-axis and $y$-axis use the same scaling.
+
+
+````markdown
+`r ''````{r,fig.height=4,fig.width=4}
+# create a plot that we will add more layers to
+plot(house[1,],house[2,],type="n",xlim=c(-5,5),ylim=c(-5,5),xlab="x",ylab="y")
+# add the grid lines
+abline(h=-6:6, v=-6:6, col="gray", lty="dotted")
+# define the matrix A
+A = cbind(c(cos(pi/3),sin(pi/3)),c(-sin(pi/3),cos(pi/3)))
+# display A
+A 
+# transform the house using matrix multiplication
+house2 = A %*% house
+# plot the original house
+polygon(house[1,], house[2,], col = "gray", border = "blue")
+# plot the transformed house
+polygon(house2[1,], house2[2,], col = "pink", border = "black")
+```
+````
+
+
 ### Family 1
 
 Explore matrices of the form 
 $$A=\displaystyle{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}}.$$
 
-Once again, try various combinations of positive, negative, small and large  numbers. Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
+Once again, try three or four combinations of positive, negative, small and large  numbers. For example, you  can pick a value of $a$  and a value for $b$ from this list:
+$$
+\begin{array}{ccccccccccccccc}
+-4  &  -3 & -2 & -1 & -\frac{1}{2} & -\frac{1}{3} & -\frac{1}{4} & 0 &
+\frac{1}{4} & \frac{1}{3} & \frac{1}{2} & 1 & 2 & 3  & 4
+\end{array}
+$$
+
+Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
 
 ```{r, echo=TRUE}
 a = 1
@@ -132,7 +171,7 @@ A = cbind(c(a,0), c(0,b))
 
 Explore matrices of the form 
 $$A=\displaystyle{ \begin{bmatrix} 0 & b \\ c & 0 \end{bmatrix}}.$$
-Try various combinations of positive and negative numbers. Also try numbers of small magnitude (less than 1) and large magnitude. 
+Try various combinations of positive and negative numbers as in the previous family. 
 
 
 ### Family 3
@@ -150,8 +189,7 @@ create_angle_matrix <- function(t) {
 A = create_angle_matrix(pi/2)
 A
 ```
-**Note**: R is numerical software. You'll note that ``sin(pi/2)`` returns a value of ``6.123234e-17`` or something similar. This value is given in scientific notation, and is $\approx 6.12 \times 10^{-17}$. **You should treat this tiny number as equal to 0.** Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.''atrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
-
+**Note**: R is numerical software. You'll note that ``sin(pi/2)`` returns a value of ``6.123234e-17`` or something similar. This value is given in scientific notation, and is $\approx 6.12 \times 10^{-17}$. **You should treat this tiny number as equal to 0.** Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.''
 
 ### Family 4
 
@@ -165,7 +203,7 @@ A=\displaystyle{ \begin{bmatrix} a & 0 \\ a & b \end{bmatrix}}
 $$
 
  
-Start with $a=1$ and $b=1$. Then consider a wide variety of such matrices. 
+Start with $a=1$ and $b=1$. Then consider a wider variety of such matrices as with the families above.
 
 
 ### Family 5
@@ -184,6 +222,6 @@ A=\displaystyle{ \begin{bmatrix} a & ca \\ b & cb \end{bmatrix}}
 \quad
 A=\displaystyle{ \begin{bmatrix} a & b \\ ca & cb \end{bmatrix}}
 $$
-Once again, consider a wide variety of such matrices.
+Once again, consider a wide variety of such matrices using various values for $a,b,c$.
 
 

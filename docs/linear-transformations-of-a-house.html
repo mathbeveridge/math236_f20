@@ -234,16 +234,23 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h2><span class="header-section-number">9.1</span> Linear Transformations</h2>
 <p>First we will try out some linear transformations in the plane on my house.</p>
 <p>Here I <em>rotate</em> my house by pi/3 radians. Observe that I apply the matrix <code>A</code> to the house, call it <code>house2</code> and plot both the orignal house and the new house in the same plot.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="linear-transformations-of-a-house.html#cb20-1"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb20-2"><a href="linear-transformations-of-a-house.html#cb20-2"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb20-3"><a href="linear-transformations-of-a-house.html#cb20-3"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">3</span>),<span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">3</span>)),<span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">3</span>),<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">3</span>)))  <span class="co"># define A</span></span>
-<span id="cb20-4"><a href="linear-transformations-of-a-house.html#cb20-4"></a>A <span class="co"># display A</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="linear-transformations-of-a-house.html#cb20-1"></a><span class="co"># create a plot that we will add more layers to</span></span>
+<span id="cb20-2"><a href="linear-transformations-of-a-house.html#cb20-2"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
+<span id="cb20-3"><a href="linear-transformations-of-a-house.html#cb20-3"></a><span class="co"># add the grid lines</span></span>
+<span id="cb20-4"><a href="linear-transformations-of-a-house.html#cb20-4"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
+<span id="cb20-5"><a href="linear-transformations-of-a-house.html#cb20-5"></a><span class="co"># define the matrix A</span></span>
+<span id="cb20-6"><a href="linear-transformations-of-a-house.html#cb20-6"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">3</span>),<span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">3</span>)),<span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">3</span>),<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">3</span>)))</span>
+<span id="cb20-7"><a href="linear-transformations-of-a-house.html#cb20-7"></a><span class="co"># display A</span></span>
+<span id="cb20-8"><a href="linear-transformations-of-a-house.html#cb20-8"></a>A </span></code></pre></div>
 <pre><code>##           [,1]       [,2]
 ## [1,] 0.5000000 -0.8660254
 ## [2,] 0.8660254  0.5000000</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="linear-transformations-of-a-house.html#cb22-1"></a>house2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb22-2"><a href="linear-transformations-of-a-house.html#cb22-2"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb22-3"><a href="linear-transformations-of-a-house.html#cb22-3"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="linear-transformations-of-a-house.html#cb22-1"></a><span class="co"># transform the house using matrix multiplication</span></span>
+<span id="cb22-2"><a href="linear-transformations-of-a-house.html#cb22-2"></a>house2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>house</span>
+<span id="cb22-3"><a href="linear-transformations-of-a-house.html#cb22-3"></a><span class="co"># plot the original house</span></span>
+<span id="cb22-4"><a href="linear-transformations-of-a-house.html#cb22-4"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb22-5"><a href="linear-transformations-of-a-house.html#cb22-5"></a><span class="co"># plot the transformed house</span></span>
+<span id="cb22-6"><a href="linear-transformations-of-a-house.html#cb22-6"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/house2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>And now I rotate it back to its original position. The inverse in this case is rotation by -pi/3.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="linear-transformations-of-a-house.html#cb23-1"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
@@ -268,7 +275,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span id="cb28-4"><a href="linear-transformations-of-a-house.html#cb28-4"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb28-5"><a href="linear-transformations-of-a-house.html#cb28-5"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/house3-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>And now we perform the transformation that scales the house by 2 in the x-direction and by 3 in the y-direction.</p>
+<p>And now we perform the transformation that scales the house by 2 in the <span class="math inline">\(x\)</span>-direction and by 3 in the <span class="math inline">\(y\)</span>-direction.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="linear-transformations-of-a-house.html#cb29-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    2    0
@@ -279,7 +286,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span id="cb31-4"><a href="linear-transformations-of-a-house.html#cb31-4"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb31-5"><a href="linear-transformations-of-a-house.html#cb31-5"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/house4-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Here we perform the transformation that sends e1 to (-1,1/2) and e2 to (2,-1). Notice that they are the same line and the transformation projects the house onto this line.</p>
+<p>Here we perform the transformation that sends <span class="math inline">\(\mathsf{e}_1\)</span> to <span class="math inline">\((-1,1/2)\)</span> and <span class="math inline">\(\mathsf{e}_2\)</span> to <span class="math inline">\((2,-1)\)</span>. Notice that they are the same line and the transformation projects the house onto this line.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="linear-transformations-of-a-house.html#cb32-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,] -1.0    2
@@ -290,7 +297,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span id="cb34-4"><a href="linear-transformations-of-a-house.html#cb34-4"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb34-5"><a href="linear-transformations-of-a-house.html#cb34-5"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/house5-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Finally, suppose that we wish to perform the transformation that reflects over the y-axis, then rotates by pi/2, and finally scales the x-direction by 2 and the y-direction by 3 in that order. You can do this as three matrices that you multiply together.</p>
+<p>Finally, suppose that we wish to perform the transformation that reflects over the <span class="math inline">\(y\)</span>-axis, then rotates by pi/2, and finally scales the <span class="math inline">\(x\)</span>-direction by 2 and the y-direction by 3 in that order. You can do this as three matrices that you multiply together.</p>
 <p><strong>Note:</strong> The order of these matrices goes <strong>from right to left.</strong> The rightmost matrix is the one that is closest to the vector. So that transformation happens first!</p>
 <p>The matrix A:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="linear-transformations-of-a-house.html#cb35-1"></a>scale =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>))</span>
@@ -313,38 +320,62 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><strong>Describe</strong> the effect of the mapping as best you can. Be sure to look at the different effect on the “ground” and the “walls” of the course. Use words like, expansion, contraction, rotation, reflection and <a href="https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg">shear</a>.</li>
 <li>Once you have looked at the effect of the family, look back at the form of the matrix <span class="math inline">\(A\)</span>. Can you explain why it leads to the outcome you see?</li>
 </ul>
+<p>For your convenience, here is the code we used in our very first example. Note that the ``{r,fig.height=4,fig.width=4}’’ tells R to make a square plot, so the <span class="math inline">\(x\)</span>-axis and <span class="math inline">\(y\)</span>-axis use the same scaling.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="linear-transformations-of-a-house.html#cb36-1"></a><span class="bn">```{r,fig.height=4,fig.width=4}</span></span>
+<span id="cb36-2"><a href="linear-transformations-of-a-house.html#cb36-2"></a><span class="bn"># create a plot that we will add more layers to</span></span>
+<span id="cb36-3"><a href="linear-transformations-of-a-house.html#cb36-3"></a><span class="bn">plot(house[1,],house[2,],type=&quot;n&quot;,xlim=c(-5,5),ylim=c(-5,5),xlab=&quot;x&quot;,ylab=&quot;y&quot;)</span></span>
+<span id="cb36-4"><a href="linear-transformations-of-a-house.html#cb36-4"></a><span class="bn"># add the grid lines</span></span>
+<span id="cb36-5"><a href="linear-transformations-of-a-house.html#cb36-5"></a><span class="bn">abline(h=-6:6, v=-6:6, col=&quot;gray&quot;, lty=&quot;dotted&quot;)</span></span>
+<span id="cb36-6"><a href="linear-transformations-of-a-house.html#cb36-6"></a><span class="bn"># define the matrix A</span></span>
+<span id="cb36-7"><a href="linear-transformations-of-a-house.html#cb36-7"></a><span class="bn">A = cbind(c(cos(pi/3),sin(pi/3)),c(-sin(pi/3),cos(pi/3)))</span></span>
+<span id="cb36-8"><a href="linear-transformations-of-a-house.html#cb36-8"></a><span class="bn"># display A</span></span>
+<span id="cb36-9"><a href="linear-transformations-of-a-house.html#cb36-9"></a><span class="bn">A </span></span>
+<span id="cb36-10"><a href="linear-transformations-of-a-house.html#cb36-10"></a><span class="bn"># transform the house using matrix multiplication</span></span>
+<span id="cb36-11"><a href="linear-transformations-of-a-house.html#cb36-11"></a><span class="bn">house2 = A %*% house</span></span>
+<span id="cb36-12"><a href="linear-transformations-of-a-house.html#cb36-12"></a><span class="bn"># plot the original house</span></span>
+<span id="cb36-13"><a href="linear-transformations-of-a-house.html#cb36-13"></a><span class="bn">polygon(house[1,], house[2,], col = &quot;gray&quot;, border = &quot;blue&quot;)</span></span>
+<span id="cb36-14"><a href="linear-transformations-of-a-house.html#cb36-14"></a><span class="bn"># plot the transformed house</span></span>
+<span id="cb36-15"><a href="linear-transformations-of-a-house.html#cb36-15"></a><span class="bn">polygon(house2[1,], house2[2,], col = &quot;pink&quot;, border = &quot;black&quot;)</span></span>
+<span id="cb36-16"><a href="linear-transformations-of-a-house.html#cb36-16"></a><span class="bn">```</span></span></code></pre></div>
 <div id="family-1-1" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Family 1</h3>
 <p>Explore matrices of the form
 <span class="math display">\[A=\displaystyle{ \begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix}}.\]</span></p>
-<p>Once again, try various combinations of positive, negative, small and large numbers. Here is some sample code that would create such a matrix for <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="linear-transformations-of-a-house.html#cb36-1"></a>a =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb36-2"><a href="linear-transformations-of-a-house.html#cb36-2"></a>b =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb36-3"><a href="linear-transformations-of-a-house.html#cb36-3"></a></span>
-<span id="cb36-4"><a href="linear-transformations-of-a-house.html#cb36-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(a,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,b))</span></code></pre></div>
+<p>Once again, try three or four combinations of positive, negative, small and large numbers. For example, you can pick a value of <span class="math inline">\(a\)</span> and a value for <span class="math inline">\(b\)</span> from this list:
+<span class="math display">\[
+\begin{array}{ccccccccccccccc}
+-4  &amp;  -3 &amp; -2 &amp; -1 &amp; -\frac{1}{2} &amp; -\frac{1}{3} &amp; -\frac{1}{4} &amp; 0 &amp;
+\frac{1}{4} &amp; \frac{1}{3} &amp; \frac{1}{2} &amp; 1 &amp; 2 &amp; 3  &amp; 4
+\end{array}
+\]</span></p>
+<p>Here is some sample code that would create such a matrix for <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="linear-transformations-of-a-house.html#cb37-1"></a>a =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb37-2"><a href="linear-transformations-of-a-house.html#cb37-2"></a>b =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb37-3"><a href="linear-transformations-of-a-house.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="linear-transformations-of-a-house.html#cb37-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(a,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,b))</span></code></pre></div>
 </div>
 <div id="family-2-1" class="section level3">
 <h3><span class="header-section-number">9.2.2</span> Family 2</h3>
 <p>Explore matrices of the form
 <span class="math display">\[A=\displaystyle{ \begin{bmatrix} 0 &amp; b \\ c &amp; 0 \end{bmatrix}}.\]</span>
-Try various combinations of positive and negative numbers. Also try numbers of small magnitude (less than 1) and large magnitude.</p>
+Try various combinations of positive and negative numbers as in the previous family.</p>
 </div>
 <div id="family-3-1" class="section level3">
 <h3><span class="header-section-number">9.2.3</span> Family 3</h3>
 <p>Explore matrices of the form
 <span class="math display">\[A=\displaystyle{ \begin{bmatrix} \cos(t) &amp; -\sin(t) \\ \sin(t) &amp; \cos(t) \end{bmatrix}}\]</span>
 where <span class="math inline">\(t\)</span> is in radians. Here is a function that will create such a matrix.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="linear-transformations-of-a-house.html#cb37-1"></a>create_angle_matrix &lt;-<span class="st"> </span><span class="cf">function</span>(t) {</span>
-<span id="cb37-2"><a href="linear-transformations-of-a-house.html#cb37-2"></a>  A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(t), <span class="kw">sin</span>(t)), <span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(t), <span class="kw">cos</span>(t)))</span>
-<span id="cb37-3"><a href="linear-transformations-of-a-house.html#cb37-3"></a>  <span class="kw">return</span>(A)</span>
-<span id="cb37-4"><a href="linear-transformations-of-a-house.html#cb37-4"></a>}</span>
-<span id="cb37-5"><a href="linear-transformations-of-a-house.html#cb37-5"></a></span>
-<span id="cb37-6"><a href="linear-transformations-of-a-house.html#cb37-6"></a>A =<span class="st"> </span><span class="kw">create_angle_matrix</span>(pi<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb37-7"><a href="linear-transformations-of-a-house.html#cb37-7"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="linear-transformations-of-a-house.html#cb38-1"></a>create_angle_matrix &lt;-<span class="st"> </span><span class="cf">function</span>(t) {</span>
+<span id="cb38-2"><a href="linear-transformations-of-a-house.html#cb38-2"></a>  A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(t), <span class="kw">sin</span>(t)), <span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(t), <span class="kw">cos</span>(t)))</span>
+<span id="cb38-3"><a href="linear-transformations-of-a-house.html#cb38-3"></a>  <span class="kw">return</span>(A)</span>
+<span id="cb38-4"><a href="linear-transformations-of-a-house.html#cb38-4"></a>}</span>
+<span id="cb38-5"><a href="linear-transformations-of-a-house.html#cb38-5"></a></span>
+<span id="cb38-6"><a href="linear-transformations-of-a-house.html#cb38-6"></a>A =<span class="st"> </span><span class="kw">create_angle_matrix</span>(pi<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb38-7"><a href="linear-transformations-of-a-house.html#cb38-7"></a>A</span></code></pre></div>
 <pre><code>##              [,1]          [,2]
 ## [1,] 6.123234e-17 -1.000000e+00
 ## [2,] 1.000000e+00  6.123234e-17</code></pre>
-<p><strong>Note</strong>: R is numerical software. You’ll note that <code>sin(pi/2)</code> returns a value of <code>6.123234e-17</code> or something similar. This value is given in scientific notation, and is <span class="math inline">\(\approx 6.12 \times 10^{-17}\)</span>. <strong>You should treat this tiny number as equal to 0.</strong> Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.’’atrix} (t) &amp; -(t) \ (t) &amp; (t) \end{bmatrix}}$$</p>
+<p><strong>Note</strong>: R is numerical software. You’ll note that <code>sin(pi/2)</code> returns a value of <code>6.123234e-17</code> or something similar. This value is given in scientific notation, and is <span class="math inline">\(\approx 6.12 \times 10^{-17}\)</span>. <strong>You should treat this tiny number as equal to 0.</strong> Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.’’</p>
 </div>
 <div id="family-4-1" class="section level3">
 <h3><span class="header-section-number">9.2.4</span> Family 4</h3>
@@ -356,7 +387,7 @@ A=\displaystyle{ \begin{bmatrix} a &amp; b \\ 0 &amp; b \end{bmatrix}}
 \quad
 A=\displaystyle{ \begin{bmatrix} a &amp; 0 \\ a &amp; b \end{bmatrix}}
 \]</span></p>
-<p>Start with <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>. Then consider a wide variety of such matrices.</p>
+<p>Start with <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>. Then consider a wider variety of such matrices as with the families above.</p>
 </div>
 <div id="family-5" class="section level3">
 <h3><span class="header-section-number">9.2.5</span> Family 5</h3>
@@ -374,7 +405,7 @@ A=\displaystyle{ \begin{bmatrix} a &amp; ca \\ b &amp; cb \end{bmatrix}}
 \quad
 A=\displaystyle{ \begin{bmatrix} a &amp; b \\ ca &amp; cb \end{bmatrix}}
 \]</span>
-Once again, consider a wide variety of such matrices.</p>
+Once again, consider a wide variety of such matrices using various values for <span class="math inline">\(a,b,c\)</span>.</p>
 
 </div>
 </div>
