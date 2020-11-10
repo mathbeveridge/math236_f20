@@ -194,3 +194,6 @@ $$
     a. State precisely what it means for $T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})$ to be linearly dependent.
     b. Use the properties of a linear transformation to demonstrate that $T(\mathsf{x}) = \mathbf{0}$ has a nontrivial solution.
 
+## Solutions to Practice Problems
+
+Coming Soon!
