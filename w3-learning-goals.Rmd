@@ -38,7 +38,7 @@ You should know and be able to use and explain the following **terms** or **prop
 
 I should understand and be able to explain the following **concepts**:
 
-* A linear transformation $ T: \mathbb{R}^n \rightarrow mathbb{R}^m$ corresponds to multiplication by an $m \times n$ matrix $A$.
+* A linear transformation $T: \mathbb{R}^n \rightarrow mathbb{R}^m$ corresponds to multiplication by an $m \times n$ matrix $A$.
 * $T(\mathsf{x})=\mathsf{A} \mathsf{x}$ is a one-to-one linear transformations if and only $\mathsf{A}$ has linearly independent columns
 * $T(\mathsf{x})=\mathsf{A} \mathsf{x}$ is an onto linear transformations if  and only if the  columns of $\mathsf{A}$ span $\mathbb{R}^m$.
 * The Invertible Matrix Theorem (Section 2.3, Theorem 8, page 112) is one of the highlights of the course! It gives 12 different conditions that all equivalent! You should think deeply about why everything comes together like this for square matrices.

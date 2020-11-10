@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 5 Week 2 Learning Goals | MATH 236: Linear Algebra</title>
+  <title>Vector 10 Quiz 1 Review | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 5 Week 2 Learning Goals | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 10 Quiz 1 Review | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 5 Week 2 Learning Goals | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 10 Quiz 1 Review | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-1-learning-goals.html"/>
-<link rel="next" href="week-3-learning-goals.html"/>
+<link rel="prev" href="linear-transformations-of-a-house.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -232,57 +232,156 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-2-learning-goals" class="section level1">
-<h1><span class="header-section-number">Vector 5</span> Week 2 Learning Goals</h1>
-<p>Here are the knowledge and skills you should master by the end the second week.</p>
-<div id="solution-sets-span-and-linear-independence" class="section level2">
-<h2><span class="header-section-number">5.1</span> Solution Sets, Span and Linear Independence</h2>
-<p>You should be able to do the following <strong>tasks</strong>:</p>
-<ul>
-<li>Go back and forth between (i) systems of equations, (ii) vector equations, and (iii) the matrix equation <span class="math inline">\(Ax = b\)</span>.</li>
-<li>Compute and understand the matrix-vector product <span class="math inline">\(A x\)</span> both as a linear combination of the columns of A and as the dot product of <span class="math inline">\(x\)</span> with the rows of <span class="math inline">\(A\)</span>.</li>
-<li>Write the solution set to <span class="math inline">\(Ax=b\)</span> as a parametric vector equation.</li>
-<li>Determine whether a set of vectors is linearly dependent or independent</li>
-<li>Find a dependence relation among a set of vectors</li>
-<li>Decide if a set of vectors span <span class="math inline">\(\mathbb{R}^n\)</span></li>
-</ul>
-</div>
-<div id="vocabulary-1" class="section level2">
-<h2><span class="header-section-number">5.2</span> Vocabulary</h2>
-<p>You should know and be able to use and explain the following <strong>terms</strong> or <strong>properties</strong>.</p>
-<ul>
-<li><span class="math inline">\(A(x + y) = Ax + Ay\)</span> and <span class="math inline">\(A(c x) = c A x\)</span></li>
-<li>homogeneous and nonhomogeneous equations</li>
-<li>parametric vector equations</li>
-<li>linear independence and linear dependence</li>
-</ul>
-</div>
-<div id="conceptual-thinking-1" class="section level2">
-<h2><span class="header-section-number">5.3</span> Conceptual Thinking</h2>
-<p>I should understand and be able to explain the following <strong>concepts</strong>:</p>
-<ul>
-<li>Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(A\)</span>
-<ul>
-<li>For each <span class="math inline">\(b \in \mathbb{R}^m\)</span>, the system <span class="math inline">\(A x = b\)</span> has a solution</li>
-<li>Each <span class="math inline">\(b \in \mathbb{R}^m\)</span> is a linear combination of the columns of <span class="math inline">\(A\)</span></li>
-<li>The columns of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
-<li><span class="math inline">\(A\)</span> has a pivot in every row.</li>
-</ul></li>
-<li>Understand the relation between homogeneous solutions and nonhomogeneous solutions.</li>
-<li>Linear independence</li>
-<li>Span</li>
-<li>More than <span class="math inline">\(n\)</span> vectors in <span class="math inline">\(\mathbb{R}^n\)</span> must be linearly dependent.</li>
-</ul>
+<div id="quiz-1-review" class="section level1">
+<h1><span class="header-section-number">Vector 10</span> Quiz 1 Review</h1>
+<!-- ------------------ -->
+<ol style="list-style-type: decimal">
+<li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Write out the complete set of solutions to <span class="math inline">\(A \mathsf{x} = {\bf 0}\)</span>.
+<span class="math display">\[
+A=
+\begin{bmatrix}
+1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1 \\
+1&amp; 2&amp; 1&amp; 1&amp; 0&amp; -2 \\
+2&amp; 4&amp; -2&amp; 6&amp; 1&amp; 2 \\
+1&amp; 2&amp;  0&amp; 2&amp; -1&amp; -3 \\
+\end{bmatrix} \longrightarrow
+\begin{bmatrix}
+1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1\\
+0&amp; 0&amp; 1&amp; -1&amp; 0&amp; -1\\
+0&amp; 0&amp; 0&amp; 0&amp; 1&amp; 2\\
+0&amp; 0&amp;   0&amp; 0&amp; 0&amp; 0\\
+\end{bmatrix}
+\]</span></p></li>
+<li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(B\)</span>.
+<span class="math display">\[
+B=
+\begin{bmatrix}
+1&amp; 1&amp; 0 \\ 0&amp; 1&amp; 1 \\ 2&amp; 1&amp; 2 \\ 1&amp; -1&amp; 1 \\ 2&amp; 3&amp; 1 \\
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1&amp; 0&amp; 0 \\ 0&amp; 1&amp; 0 \\ 0&amp; 0&amp; 1 \\ 0&amp;0&amp;0 \\ 0&amp;0&amp;0 \\
+\end{bmatrix} 
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Describe the solutions to the equation <span class="math inline">\(B \mathsf{x} = {\bf 0}\)</span>.</p></li>
+<li><p>Fill in the boxes: the transformation <span class="math inline">\(T(\mathsf{x}) = B\mathsf{x}\)</span> is a linear transformation from <span class="math inline">\(\mathbb{R}^{\square}\)</span> to <span class="math inline">\(\mathbb{R}^{\square}\)</span>.</p></li>
+</ol></li>
+<li><p>I want to know if it is possible to write <span class="math inline">\(\mathsf{w}\)</span> as a linear combination of the vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> below. Write down,
+<strong>but do not solve</strong>, a matrix equation that would solve this problem. Your answer should be of the form <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span>, where I can clearly see what <span class="math inline">\(A, \mathsf{x}\)</span>, and <span class="math inline">\(\mathsf{b}\)</span> are. I should also be able to tell how many unknowns there are.
+<span class="math display">\[
+\mathsf{v}_1 = \left[ \begin{matrix} 1 \\  2 \\ 3 \\ 4 \\  \end{matrix}\right] ,  \quad
+\mathsf{v}_2 = \left[ \begin{matrix} 1 \\  0 \\ 1 \\ 0 \\  \end{matrix}\right] ,  \quad
+\mathsf{v}_3 = \left[ \begin{matrix} 1 \\  1 \\ 0 \\ -2 \\  \end{matrix}\right] ,  \quad
+\mathsf{w} = \left[ \begin{matrix} 1 \\  -8 \\ -11 \\ -24 \\  \end{matrix}\right] . 
+\]</span></p></li>
+<li><p>Describe all vectors that are not in the span of the columns of the matrix <span class="math inline">\(A\)</span> below:
+<span class="math display">\[
+A=
+\begin{bmatrix}
+1&amp; 2&amp; 4  \\
+-3&amp; -5&amp; -11\\
+1&amp; 1&amp; 3 \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p>The matrix below is <span class="math inline">\(3 \times 3\)</span> but the third column is missing. Add a nonzero third column so that the columns of <span class="math inline">\(A\)</span> are linearly dependent and add a 3rd column so that the columns of <span class="math inline">\(A\)</span> are linearly independent. Briefly describe your strategy.
+<span class="math display">\[
+\begin{bmatrix}
+1&amp; 0 &amp; \quad \\
+0&amp; 1&amp; \quad \\
+2&amp; 2&amp; \quad \\
+\end{bmatrix}  \qquad\qquad 
+\begin{bmatrix}
+1&amp; 0 &amp; \quad \\
+0&amp; 1&amp; \quad \\
+2&amp; 2&amp; \quad \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p>In each case below, find the <strong>matrix</strong> of the linear transformation that is described, if you believe that the matrix exists. Otherwise, demonstrate that the transformation is <strong>not linear</strong>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The transformation <span class="math inline">\(T\)</span> is given by:
+<span class="math display">\[T \begin{pmatrix}  x_1 \\ x_2 \\ \end{pmatrix} = 
+ \begin{pmatrix} x_1 + x_2 \\ 2 x_1 \\ -x_2 \\\end{pmatrix}.
+ \]</span></p></li>
+<li><p>The transformation <span class="math inline">\(T\)</span> is given by:
+<span class="math display">\[T \begin{pmatrix}  x_1 \\ x_2 \\ x_3 \end{pmatrix} = 
+   \begin{pmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3                  \end{pmatrix}.
+ \]</span></p></li>
+<li><p>In the two graphs below, the transformation <span class="math inline">\(L: \mathbb{R}^2 \to \mathbb{R}^2\)</span> sends the shaded region on the left to the the shaded region on the right such that <span class="math inline">\(A\)</span> maps to <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> maps to <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> maps to <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> maps to <span class="math inline">\(D\)</span>.</p></li>
+</ol></li>
+</ol>
+<p><img src="images/q1-blockA.png" style="width:30.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/q1-blockB.png" style="width:30.0%" /></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>In the two graphs below, the transformation <span class="math inline">\(R: \mathbb{R}^2 \to \mathbb{R}^2\)</span> sends the shaded region on the left to the the shaded region on the right such that <span class="math inline">\(A\)</span> maps to <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> maps to <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> maps to <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> maps to <span class="math inline">\(D\)</span>.</li>
+</ol>
+<p><img src="images/q1-blockA.png" style="width:30.0%" /> <span class="math inline">\(\qquad \qquad\)</span> <img src="images/q1-blockD.png" style="width:30.0%" /></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Write the following systems of equations in vector and matrix form.</li>
+</ol>
+<p><span class="math display">\[
+\begin{array} {ccccccccccc}
+5 x_1 &amp;+&amp; 3 x_2 &amp;+&amp; x_3 &amp;+&amp; 11 x_4 &amp;-&amp;  x_5 &amp;=&amp; 10 \\
+4 x_1 &amp;+&amp; x_2 &amp;+&amp; 3 x_3 &amp;+&amp; 2 x_4 &amp;+&amp; 6 x_5 &amp;=&amp; 11 \\
+- x_1 &amp;+&amp; 3 x_2 &amp;-&amp; 2 x_3 &amp;+&amp;  x_4 &amp;+&amp; 6 x_5 &amp;=&amp; 12 \\
+\end{array} 
+\]</span></p>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4\)</span> be the vectors in the columns of the matrix <span class="math inline">\(A\)</span> below.
+<span class="math display">\[
+A = \left[
+\begin{array}{cccc}
+ 1 &amp; 1 &amp; 3 &amp; 1 \\
+ 2 &amp; 0 &amp; 2 &amp; 3 \\
+ 1 &amp; 1 &amp; 3 &amp; 1 \\
+ -1 &amp; 0 &amp; -1 &amp; 0
+\end{array}
+\right]
+\longrightarrow
+\left[
+\begin{array}{cccc}
+ 1 &amp; 0 &amp; 1 &amp; 0 \\
+ 0 &amp; 1 &amp; 2 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 1 \\
+ 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}
+\right]
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Are the vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4\)</span> linear independent or dependent? If they are linearly dependent, please give a dependence relation among them.</li>
+<li>Describe the span of the vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4\)</span> inside of <span class="math inline">\(\mathbb{R}^4\)</span>?</li>
+</ol></li>
+<li><p>Find a solution to <span class="math inline">\(A \mathsf{x}=0\)</span> that no one else in the class has.
+<span class="math display">\[
+A = 
+\begin{bmatrix}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 4 \\
+ 2 &amp; 0 &amp; 4 &amp; 1 &amp; 4 \\
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 4 \\
+ 1 &amp; 0 &amp; 2 &amp; 1 &amp; 3
+\end{bmatrix}
+ \longrightarrow 
+\begin{bmatrix}
+ 1 &amp; 0 &amp; 2 &amp; 0 &amp; 1 \\
+ 0 &amp; 1 &amp; -1 &amp; 0 &amp; 1 \\
+ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 2 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</span></p></li>
+<li><p>(This is problem 36 from Section 1.8, written more exam-like and with an extra vector). Let <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> be a linear transformation. Let <span class="math inline">\(\mathsf{u}, \mathsf{v}, \mathsf{w}\)</span> be a linearly independent set in <span class="math inline">\(\mathbb{R}^n\)</span>, and suppose that <span class="math inline">\(T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})\)</span> is a linearly dependent set in <span class="math inline">\(\mathbb{R}^m\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>State precisely what it means for <span class="math inline">\(T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})\)</span> to be linearly dependent.</li>
+<li>Use the properties of a linear transformation to demonstrate that <span class="math inline">\(T(\mathsf{x}) = \mathbf{0}\)</span> has a nontrivial solution.</li>
+</ol></li>
+</ol>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="week-1-learning-goals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-3-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-transformations-of-a-house.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

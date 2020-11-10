@@ -215,7 +215,7 @@ polygon(house2[1,], house2[2,], col = "pink", border = "black")
 
 ### Your Turn
 
-Rxplore matrices of the form 
+Explore matrices of the form 
 $$
 A=\displaystyle{ \begin{bmatrix} a & ca \\ b & cb \end{bmatrix}}
 \quad
