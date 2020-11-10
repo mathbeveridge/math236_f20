@@ -3,7 +3,49 @@
 # Quiz 1 Review
 
 
+## Overview
 
+
+### Vocabulary and Concepts
+
+You should understand these concepts and be able to read and use these terms correctly:
+
+* elementary row operations 
+* REF and RREF
+* pivot position
+* linear combination
+* span
+* linear independence
+* homogeneous and nonhomogeneous equations
+* Understand the geometric relationship between the solutions to $Ax = 0$ and $Ax=b$
+* Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $n \times m$ matrix $A$
+    + For each $b$ in Rm, $A x = b$ has a solution
+    + Each $b$ in $\mathbb{R}^m$ is a linear combination of the columns of $A$
+    + The columns of $A$ span $\mathbb{R}^m$
+    + $A$ has a pivot in every row.
+* Understand Theorem 8 in Section 1.7: if you have more than n vectors in Rn they must be linearly dependent.
+* linear transformation
+* one-to-one and onto
+
+
+### Skills
+
+You should be able to perform these linear algebra tasks.
+
+* Identify linear systems from nonlinear systems
+* Make the augmented matrix from a set of equations
+* Row reduce a system of equations into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
+* Write the solution set to Ax=b as a parametric vector equation.
+* Convert back and forth between systems of equations, vector equations, and matrix equations.
+* Compute the matrix-vector product $Ax$
+* Determine whether a set of vectors is linearly dependent or independent
+* Find a dependence relation among a set of vectors
+* Decide if a set of vectors span Rn
+* Manipulate matrix vector products using: $A(x + y) = Ax + Ay$ and $A(c x) = c A x$
+* Determine whether a linear transformation is one-to-one and/or onto
+
+
+## Practice Problems
 
 <!-- ------------------ -->
 1. I have performed some row operations below for you on a matrix $A$. Write out the complete set of solutions to $A \mathsf{x} = {\bf 0}$.

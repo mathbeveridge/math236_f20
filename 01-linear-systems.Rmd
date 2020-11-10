@@ -1,4 +1,4 @@
-# (PART) Linear Systems {-}
+# (PART) LineaR Algebra {-}
 
 # Linear Systems in R
 

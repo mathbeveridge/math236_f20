@@ -171,7 +171,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="6.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>6.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="6.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>6.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="part"><span><b>III Linear Systems</b></span></li>
+<li class="part"><span><b>III LineaR Algebra</b></span></li>
 <li class="chapter" data-level="7" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>7</b> Linear Systems in R</a><ul>
 <li class="chapter" data-level="7.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>7.1</b> Building Vectors and Matrices</a></li>
 <li class="chapter" data-level="7.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>7.2</b> Solving a Linear System</a></li>
@@ -211,7 +211,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="10" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>10</b> Quiz 1 Review</a></li>
+<li class="chapter" data-level="10" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>10</b> Quiz 1 Review</a><ul>
+<li class="chapter" data-level="10.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>10.1.1</b> Vocabulary and Concepts</a></li>
+<li class="chapter" data-level="10.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>10.1.2</b> Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>10.2</b> Practice Problems</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
 
@@ -234,6 +240,52 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
             <section class="normal" id="section-">
 <div id="quiz-1-review" class="section level1">
 <h1><span class="header-section-number">Vector 10</span> Quiz 1 Review</h1>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">10.1</span> Overview</h2>
+<div id="vocabulary-and-concepts" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Vocabulary and Concepts</h3>
+<p>You should understand these concepts and be able to read and use these terms correctly:</p>
+<ul>
+<li>elementary row operations</li>
+<li>REF and RREF</li>
+<li>pivot position</li>
+<li>linear combination</li>
+<li>span</li>
+<li>linear independence</li>
+<li>homogeneous and nonhomogeneous equations</li>
+<li>Understand the geometric relationship between the solutions to <span class="math inline">\(Ax = 0\)</span> and <span class="math inline">\(Ax=b\)</span></li>
+<li>Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(A\)</span>
+<ul>
+<li>For each <span class="math inline">\(b\)</span> in Rm, <span class="math inline">\(A x = b\)</span> has a solution</li>
+<li>Each <span class="math inline">\(b\)</span> in <span class="math inline">\(\mathbb{R}^m\)</span> is a linear combination of the columns of <span class="math inline">\(A\)</span></li>
+<li>The columns of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
+<li><span class="math inline">\(A\)</span> has a pivot in every row.</li>
+</ul></li>
+<li>Understand Theorem 8 in Section 1.7: if you have more than n vectors in Rn they must be linearly dependent.</li>
+<li>linear transformation</li>
+<li>one-to-one and onto</li>
+</ul>
+</div>
+<div id="skills" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> Skills</h3>
+<p>You should be able to perform these linear algebra tasks.</p>
+<ul>
+<li>Identify linear systems from nonlinear systems</li>
+<li>Make the augmented matrix from a set of equations</li>
+<li>Row reduce a system of equations into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)</li>
+<li>Write the solution set to Ax=b as a parametric vector equation.</li>
+<li>Convert back and forth between systems of equations, vector equations, and matrix equations.</li>
+<li>Compute the matrix-vector product <span class="math inline">\(Ax\)</span></li>
+<li>Determine whether a set of vectors is linearly dependent or independent</li>
+<li>Find a dependence relation among a set of vectors</li>
+<li>Decide if a set of vectors span Rn</li>
+<li>Manipulate matrix vector products using: <span class="math inline">\(A(x + y) = Ax + Ay\)</span> and <span class="math inline">\(A(c x) = c A x\)</span></li>
+<li>Determine whether a linear transformation is one-to-one and/or onto</li>
+</ul>
+</div>
+</div>
+<div id="practice-problems" class="section level2">
+<h2><span class="header-section-number">10.2</span> Practice Problems</h2>
 <!-- ------------------ -->
 <ol style="list-style-type: decimal">
 <li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Write out the complete set of solutions to <span class="math inline">\(A \mathsf{x} = {\bf 0}\)</span>.
@@ -374,6 +426,7 @@ A =
 </ol></li>
 </ol>
 
+</div>
 </div>
             </section>
 
