@@ -353,12 +353,12 @@ A=
 <li><p>In each case below, find the <strong>matrix</strong> of the linear transformation that is described, if you believe that the matrix exists. Otherwise, demonstrate that the transformation is <strong>not linear</strong>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>The transformation <span class="math inline">\(T\)</span> is given by:
-<span class="math display">\[T \begin{pmatrix}  x_1 \\ x_2 \\ \end{pmatrix} = 
- \begin{pmatrix} x_1 + x_2 \\ 2 x_1 \\ -x_2 \\\end{pmatrix}.
+<span class="math display">\[T \left( \begin{bmatrix}  x_1 \\ x_2 \\ \end{bmatrix}\right) = 
+ \begin{bmatrix} x_1 + x_2 \\ 2 x_1 \\ -x_2 \\\end{bmatrix}.
  \]</span></p></li>
 <li><p>The transformation <span class="math inline">\(T\)</span> is given by:
-<span class="math display">\[T \begin{pmatrix}  x_1 \\ x_2 \\ x_3 \end{pmatrix} = 
-   \begin{pmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3                  \end{pmatrix}.
+<span class="math display">\[T \left() \begin{bmatrix}  x_1 \\ x_2 \\ x_3 \end{bmatrix} \right)= 
+   \begin{bmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3 \end{bmatrix}.
  \]</span></p></li>
 <li><p>In the two graphs below, the transformation <span class="math inline">\(L: \mathbb{R}^2 \to \mathbb{R}^2\)</span> sends the shaded region on the left to the the shaded region on the right such that <span class="math inline">\(A\)</span> maps to <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> maps to <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> maps to <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> maps to <span class="math inline">\(D\)</span>.</p></li>
 </ol></li>
@@ -429,7 +429,147 @@ A =
 </div>
 <div id="solutions-to-practice-problems" class="section level2">
 <h2><span class="header-section-number">10.3</span> Solutions to Practice Problems</h2>
-<p>Coming Soon!</p>
+<ol style="list-style-type: decimal">
+<li>The parametric vector form of the solution is</li>
+</ol>
+<p><span class="math display">\[\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\
+\end{bmatrix} = s \begin{bmatrix}
+-2 \\ 1 \\ 0 \\ 0 \\0  \\ 0
+\end{bmatrix}
++ t \begin{bmatrix}
+-2 \\ 0 \\ 1 \\ 1 \\0  \\ 0
+\end{bmatrix}
+u \begin{bmatrix}
+1 \\ 0 \\ 1 \\ 0 \\-2  \\ 1
+\end{bmatrix}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-alpha">
+<li>There is one solution: <span class="math inline">\(\mathsf{x} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}\)</span>.</li>
+<li>The transformation <span class="math inline">\(T(\mathsf{x}) = B\mathsf{x}\)</span> is a linear transformation from <span class="math inline">\(\mathbb{R}^{3}\)</span> to <span class="math inline">\(\mathbb{R}^{5}\)</span>.</li>
+</ol></li>
+<li><p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+2 &amp; 0 &amp; 1 \\
+3 &amp; 1 &amp; 0 \\
+4 &amp; 0 &amp; -2
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\ -8 \\ -11 \\ -24
+\end{bmatrix}
+\]</span></p></li>
+<li><p><span class="math display">\[
+\left[ \begin{array}{ccc|c}
+1&amp; 2&amp; 4 &amp; b_1 \\
+-3&amp; -5&amp; -11 &amp; b_2\\
+1&amp; 1&amp; 3 &amp; b_3 \\
+\end{array} \right]
+\longrightarrow
+\left[ \begin{array}{ccc|c}
+1&amp; 2&amp; 4 &amp; b_1 \\
+0&amp; 1&amp; 1 &amp; 3b_1 +b_2\\
+0&amp; -1&amp; -1 &amp; -b_1+b_3 \\
+\end{array} \right]
+\longrightarrow
+\left[ \begin{array}{ccc|c}
+1&amp; 2&amp; 4 &amp; b_1 \\
+0&amp; 1&amp; 1 &amp; 3b_1 +b_2\\
+0&amp; 0&amp; 0 &amp; 2b_1+b_2+b_3 \\
+\end{array} \right]
+\]</span>
+So the set of target vectors that are not in the span of the columns of <span class="math inline">\(A\)</span> are the vectors
+<span class="math display">\[
+\begin{bmatrix}
+b_1 \\ b_2 \\ b_3
+\end{bmatrix}
+\qquad \mbox{where} \qquad
+2b_1 + b_2 + b_3 \neq 0.
+\]</span></p></li>
+<li><p>There are lots of right answers to this one. In my first matrix, I will just add the first two columns to get the thrid column. Then I will add one to one to the bottom right entry of the matrix.
+<span class="math display">\[
+\begin{bmatrix}
+1&amp; 0 &amp; 1 \\
+0&amp; 1&amp; 1 \\
+2&amp; 2&amp; 4 \\
+\end{bmatrix}  \qquad\qquad 
+\begin{bmatrix}
+1&amp; 0 &amp; 1 \\
+0&amp; 1&amp; 1 \\
+2&amp; 2&amp; 5 \\
+\end{bmatrix}
+\]</span></p></li>
+<li><ol style="list-style-type: lower-alpha">
+<li><p>This is a linear transformation with
+<span class="math display">\[A = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}.\]</span></p></li>
+<li><p>This is not a linear transformation because
+<span class="math display">\[
+ 2 \, T \left( \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right)= 2 \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 2 \\ 2 \end{bmatrix} \quad \mbox{while} \quad 
+ T \left( \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} \right)= 2 \begin{bmatrix} 6 \\ 4 \\ 2 \end{bmatrix}.
+ \]</span></p></li>
+<li><p><span class="math inline">\(A= \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; 1/2 \end{bmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(A= \begin{bmatrix} 0 &amp; -1 \\ -1 &amp; 0 \end{bmatrix}\)</span></p></li>
+</ol></li>
+<li><p>Vector Form:
+<span class="math display">\[
+x_1 \begin{bmatrix} 5 \\ 4 \\ -1 \end{bmatrix} + 
+x_2 \begin{bmatrix} 3 \\ 1 \\ 3 \end{bmatrix} + 
+x_3 \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix} + 
+x_4 \begin{bmatrix} 11 \\ 2 \\ 1 \end{bmatrix} + 
+x_5 \begin{bmatrix} -1 \\ 6 \\ 6 \end{bmatrix} =
+ \begin{bmatrix} 10 \\ 11 \\ 12 \end{bmatrix} 
+\]</span>
+Matrix Form:
+<span class="math display">\[
+\begin{bmatrix} 
+5 &amp; 3 &amp; 1 &amp; 11 &amp; -1 \\
+4 &amp; 1 &amp; 3 &amp; 2 &amp; 6 \\
+-1 &amp; 3 &amp; -2&amp; 1 &amp; 6
+\end{bmatrix} 
+ \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix} 
+ =
+ \begin{bmatrix} 10 \\ 11 \\ 12 \end{bmatrix} 
+\]</span></p></li>
+<li><ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(-\mathsf{v}_1 - 2\mathsf{v}_2 + \mathsf{v}_3 + 0 \mathsf{v}_4 = 0\)</span>.</li>
+<li><span class="math inline">\(\mathrm{span}(\mathsf{v}_1,\mathsf{v}_2,\mathsf{v}_3,\mathsf{v}_4)\)</span> looks like a copy of <span class="math inline">\(\mathbb{R}^3\)</span> sitting inside <span class="math inline">\(\mathbb{R}^4\)</span>. In other words, is 3-dimensional subset of <span class="math inline">\(\mathbb{R}^4\)</span>.</li>
+</ol></li>
+<li><p>The general solution is
+<span class="math display">\[
+ \begin{bmatrix}
+ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5
+ \end{bmatrix}
+ = s \begin{bmatrix} -2 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+ + t \begin{bmatrix} -1 \\ -1 \\ 0 \\ -2 \\ 1 \end{bmatrix}.
+ \]</span>
+My solution is
+<span class="math display">\[77,083,679 
+ \begin{bmatrix}
+ -2 \\ 1 \\ 1 \\ 0 \\ 0
+ \end{bmatrix}
+ - 72,159,215 
+ \begin{bmatrix}
+ -1 \\ -1 \\ 0 \\ -2 \\ 1
+ \end{bmatrix}.
+ \]</span></p></li>
+<li><ol style="list-style-type: lower-alpha">
+<li>There are scalars <span class="math inline">\(c_1, c_2, c_3\)</span> not all zero such that <span class="math inline">\(c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) = \mathbf{0}\)</span>.</li>
+<li>We have
+<span class="math display">\[
+ \mathbf{0} = c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) =
+  T(c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w})
+ \]</span>
+However, we know that <span class="math inline">\(\mathsf{u}, \mathsf{v},\mathsf{w}\)</span> are linearly independent, so
+<span class="math display">\[
+ c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w} \neq \mathbf{0}.
+ \]</span>
+So this is a nonzero vector that maps to the zero vector. Therefore <span class="math inline">\(T\)</span> is not one-to-one.</li>
+</ol></li>
+</ol>
 
 </div>
 </div>
