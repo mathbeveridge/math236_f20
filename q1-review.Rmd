@@ -122,15 +122,15 @@ $$
     $$
 
     b. The transformation $T$ is given by:
-    $$T \left() \begin{bmatrix}  x_1 \\ x_2 \\ x_3 \end{bmatrix} \right)= 
+    $$T \left( \begin{bmatrix}  x_1 \\ x_2 \\ x_3 \end{bmatrix} \right)= 
       \begin{bmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3 \end{bmatrix}.
     $$
 
-   c. In the two graphs below, the transformation $L: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
+   c. The transformation $L: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
     
 ![](images/q1-blockA.png){width=30%} $\qquad \qquad$ ![](images/q1-blockB.png){width=30%} 
     
-  d. In the two graphs below, the transformation $R: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
+  d. The transformation $R: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
 
 ![](images/q1-blockA.png){width=30%} $\qquad \qquad$ ![](images/q1-blockD.png){width=30%} 
 
