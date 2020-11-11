@@ -5,6 +5,8 @@
 
 ## Overview
 
+Our first quiz covers sections 1.1 - 1.9 in Lay's book. This corresponds to Problem Sets 1,2,3.
+
 
 ### Vocabulary and Concepts
 
@@ -340,4 +342,4 @@ $$
     $$
     c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w} \neq \mathbf{0}.
     $$
-    So this is a nonzero vector that maps to the zero vector. Therefore $T$ is not one-to-one.
+    This is a nonzero vector that maps to the zero vector. Therefore $T$ is not one-to-one.
