@@ -256,16 +256,22 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>linear independence</li>
 <li>homogeneous and nonhomogeneous equations</li>
 <li>Understand the geometric relationship between the solutions to <span class="math inline">\(Ax = 0\)</span> and <span class="math inline">\(Ax=b\)</span></li>
-<li>Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(A\)</span>
+<li>Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span>
 <ul>
-<li>For each <span class="math inline">\(b\)</span> in Rm, <span class="math inline">\(A x = b\)</span> has a solution</li>
+<li>For each <span class="math inline">\(b\)</span> in <span class="math inline">\(\mathbb{R}^m\)</span>, <span class="math inline">\(A x = b\)</span> has a solution</li>
 <li>Each <span class="math inline">\(b\)</span> in <span class="math inline">\(\mathbb{R}^m\)</span> is a linear combination of the columns of <span class="math inline">\(A\)</span></li>
 <li>The columns of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
 <li><span class="math inline">\(A\)</span> has a pivot in every row.</li>
 </ul></li>
-<li>Understand Theorem 8 in Section 1.7: if you have more than n vectors in Rn they must be linearly dependent.</li>
+<li>The columns of <span class="math inline">\(A\)</span> are linearly independent if and only if <span class="math inline">\(Ax=0\)</span> only has the trivial solution</li>
+<li>Understand Theorem 8 in Section 1.7: if you have more than <span class="math inline">\(n\)</span> vectors in <span class="math inline">\(\mathbb{R}^n\)</span> they must be linearly dependent.</li>
 <li>linear transformation</li>
 <li>one-to-one and onto</li>
+<li>Understand Theorem 12 in Section 1.9 which states that
+<ul>
+<li><span class="math inline">\(T(x)=Ax\)</span> is onto if and only if the column of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
+<li><span class="math inline">\(T(x)=Ax\)</span> is one-to-one if and only if the columns of <span class="math inline">\(A\)</span> are linearly independent.</li>
+</ul></li>
 </ul>
 </div>
 <div id="skills" class="section level3">
@@ -275,14 +281,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>Identify linear systems from nonlinear systems</li>
 <li>Make the augmented matrix from a set of equations</li>
 <li>Row reduce a system of equations into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)</li>
-<li>Write the solution set to Ax=b as a parametric vector equation.</li>
+<li>Write the solution set to <span class="math inline">\(Ax=b\)</span> as a parametric vector equation.</li>
 <li>Convert back and forth between systems of equations, vector equations, and matrix equations.</li>
 <li>Compute the matrix-vector product <span class="math inline">\(Ax\)</span></li>
 <li>Determine whether a set of vectors is linearly dependent or independent</li>
 <li>Find a dependence relation among a set of vectors</li>
-<li>Decide if a set of vectors span Rn</li>
+<li>Decide if a set of vectors span <span class="math inline">\(\mathbb{R}^n\)</span></li>
 <li>Manipulate matrix vector products using: <span class="math inline">\(A(x + y) = Ax + Ay\)</span> and <span class="math inline">\(A(c x) = c A x\)</span></li>
 <li>Determine whether a linear transformation is one-to-one and/or onto</li>
+<li>Find the standard matrix for a linear transformation</li>
+<li>Give geometric descriptions of linear transformations <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span></li>
 </ul>
 </div>
 </div>
@@ -464,7 +472,8 @@ x_1 \\ x_2 \\ x_3
 1 \\ -8 \\ -11 \\ -24
 \end{bmatrix}
 \]</span></p></li>
-<li><p><span class="math display">\[
+<li><p>We want to find all target vectors <span class="math inline">\(\mathsf{b}\)</span> such that <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> is inconsistent. So we want the augmented matrix <span class="math inline">\(\begin{bmatrix} A \,| \, b \end{bmatrix}\)</span> to have a pivot in the last column.
+<span class="math display">\[
 \left[ \begin{array}{ccc|c}
 1&amp; 2&amp; 4 &amp; b_1 \\
 -3&amp; -5&amp; -11 &amp; b_2\\

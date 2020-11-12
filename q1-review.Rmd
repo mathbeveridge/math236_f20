@@ -20,14 +20,18 @@ You should understand these concepts and be able to read and use these terms cor
 * linear independence
 * homogeneous and nonhomogeneous equations
 * Understand the geometric relationship between the solutions to $Ax = 0$ and $Ax=b$
-* Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $n \times m$ matrix $A$
-    + For each $b$ in Rm, $A x = b$ has a solution
+* Understand Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $m \times n$ matrix $A$
+    + For each $b$ in $\mathbb{R}^m$, $A x = b$ has a solution
     + Each $b$ in $\mathbb{R}^m$ is a linear combination of the columns of $A$
     + The columns of $A$ span $\mathbb{R}^m$
     + $A$ has a pivot in every row.
-* Understand Theorem 8 in Section 1.7: if you have more than n vectors in Rn they must be linearly dependent.
+* The columns of $A$ are linearly independent if and only if $Ax=0$ only has the trivial solution
+* Understand Theorem 8 in Section 1.7: if you have more than $n$ vectors in $\mathbb{R}^n$ they must be linearly dependent.
 * linear transformation
 * one-to-one and onto
+* Understand Theorem 12 in Section 1.9 which states that 
+    + $T(x)=Ax$ is onto if and only if the column of $A$ span $\mathbb{R}^m$
+    + $T(x)=Ax$ is one-to-one if and only if the columns of $A$ are linearly independent.
 
 
 ### Skills
@@ -37,14 +41,16 @@ You should be able to perform these linear algebra tasks.
 * Identify linear systems from nonlinear systems
 * Make the augmented matrix from a set of equations
 * Row reduce a system of equations into Row Echelon Form (REF) and Reduced Row Echelon Form (RREF)
-* Write the solution set to Ax=b as a parametric vector equation.
+* Write the solution set to $Ax=b$ as a parametric vector equation.
 * Convert back and forth between systems of equations, vector equations, and matrix equations.
 * Compute the matrix-vector product $Ax$
 * Determine whether a set of vectors is linearly dependent or independent
 * Find a dependence relation among a set of vectors
-* Decide if a set of vectors span Rn
+* Decide if a set of vectors span $\mathbb{R}^n$
 * Manipulate matrix vector products using: $A(x + y) = Ax + Ay$ and $A(c x) = c A x$
 * Determine whether a linear transformation is one-to-one and/or onto
+* Find the standard matrix for a linear transformation
+* Give geometric descriptions of linear transformations $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$
 
 
 ## Practice Problems
@@ -234,7 +240,7 @@ x_1 \\ x_2 \\ x_3
 \end{bmatrix}
 $$
 
-4.
+4. We want to find all target vectors $\mathsf{b}$ such that $A \mathsf{x} = \mathsf{b}$ is inconsistent. So we want the augmented matrix $\begin{bmatrix} A \,| \, b \end{bmatrix}$ to have a pivot in the last column.
 $$
 \left[ \begin{array}{ccc|c}
 1& 2& 4 & b_1 \\
