@@ -61,6 +61,13 @@ dimension-reduction
 your-turn-5
 a-complicated-transformation
 your-turn-6
+d-translations-with-homogeneous-coordinates
+translation
+translation-and-then-rotation
+rotation-and-then-translation
+your-turn-7
+house-of-orange
+house-party
 quiz-1-review
 overview
 vocabulary-and-concepts
