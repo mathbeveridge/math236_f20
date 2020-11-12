@@ -27,8 +27,8 @@ You should know and be able to use and explain the following **terms** or **prop
 
 I should understand and be able to explain the following **concepts**:
 
-* Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $n \times m$ matrix $A$
-    * For each $b \in  \mathbb{R}^m$, the system $A x = b$ has a solution
+* Theorem 4 in Section 1.4 which says that the following are equivalent (they are all true or are all false) for an $m \times n$ matrix $A$
+    * For each $b \in  \mathbb{R}^m$, the system $A x = b$ has at least one solution
     * Each $b \in  \mathbb{R}^m$ is a linear combination of the columns of $A$
     * The columns of $A$ span $\mathbb{R}^m$
     * $A$ has a pivot in every row.
