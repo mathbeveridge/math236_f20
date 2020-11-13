@@ -1,4 +1,4 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-113
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -68,6 +68,9 @@ rotation-and-then-translation
 your-turn-7
 house-of-orange
 house-party
+fractals
+transforming-my-house.
+watching-a-series-of-points.
 quiz-1-review
 overview
 vocabulary-and-concepts

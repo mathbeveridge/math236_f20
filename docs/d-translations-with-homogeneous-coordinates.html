@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="linear-transformations-of-a-house.html"/>
-<link rel="next" href="quiz-1-review.html"/>
+<link rel="next" href="fractals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -219,14 +219,18 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="10.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>10.4.2</b> House Party</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="11" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>11</b> Quiz 1 Review</a><ul>
-<li class="chapter" data-level="11.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>11.1.1</b> Vocabulary and Concepts</a></li>
-<li class="chapter" data-level="11.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>11.1.2</b> Skills</a></li>
+<li class="chapter" data-level="11" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>11</b> Fractals</a><ul>
+<li class="chapter" data-level="11.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>11.1</b> Transforming My House.</a></li>
+<li class="chapter" data-level="11.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>11.2</b> Watching a series of points.</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>11.2</b> Practice Problems</a></li>
-<li class="chapter" data-level="11.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>11.3</b> Solutions to Practice Problems</a></li>
+<li class="part"><span><b>IV Quiz Review</b></span></li>
+<li class="chapter" data-level="12" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>12</b> Quiz 1 Review</a><ul>
+<li class="chapter" data-level="12.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>12.1.1</b> Vocabulary and Concepts</a></li>
+<li class="chapter" data-level="12.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>12.1.2</b> Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>12.2</b> Practice Problems</a></li>
+<li class="chapter" data-level="12.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>12.3</b> Solutions to Practice Problems</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -317,7 +321,7 @@ It worked! Note that <strong>this linear transformation maps every horizontal pl
 \]</span>
 becomes the 3D transformation
 <span class="math display">\[
-\begin{bmatrix} \cos\theta &amp; -\sin\theta~ &amp; 0   \\ \sin\theta &amp; \cos\theta  &amp;0 \\ 0 &amp; 0 &amp; 0 \end{bmatrix}. 
+\begin{bmatrix} \cos\theta &amp; -\sin\theta~ &amp; 0   \\ \sin\theta &amp; \cos\theta  &amp;0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}. 
 \]</span>
 This mapping rotates 3D space around the <span class="math inline">\(z\)</span>-axis.</p>
 <p>So let’s combine two operations: a translation and a rotation. First, let’s translate by <span class="math inline">\(\begin{bmatrix} -2 \\ - 1 \end{bmatrix}\)</span> and then rotate counterclockwise by <span class="math inline">\(2 pi/3\)</span>. And remember: the matrix <strong>closest</strong> to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:</p>
@@ -419,16 +423,13 @@ T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 </div>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="linear-transformations-of-a-house.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fractals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

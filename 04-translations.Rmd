@@ -81,7 +81,7 @@ $$
 $$
 becomes the 3D transformation
 $$
-\begin{bmatrix} \cos\theta & -\sin\theta~ & 0   \\ \sin\theta & \cos\theta  &0 \\ 0 & 0 & 0 \end{bmatrix}. 
+\begin{bmatrix} \cos\theta & -\sin\theta~ & 0   \\ \sin\theta & \cos\theta  &0 \\ 0 & 0 & 1 \end{bmatrix}. 
 $$
 This mapping rotates 3D space around the $z$-axis.
 
