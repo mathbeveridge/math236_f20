@@ -213,7 +213,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="10" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>10</b> 2D Translations with Homogeneous Coordinates</a><ul>
 <li class="chapter" data-level="10.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>10.1</b> Translation</a></li>
 <li class="chapter" data-level="10.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>10.2</b> Translation and then Rotation</a></li>
-<li class="chapter" data-level="10.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>10.3</b> Rotation and then translation</a></li>
+<li class="chapter" data-level="10.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>10.3</b> Rotation and then Translation</a></li>
 <li class="chapter" data-level="10.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>10.4</b> Your Turn</a><ul>
 <li class="chapter" data-level="10.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>10.4.1</b> House of Orange</a></li>
 <li class="chapter" data-level="10.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>10.4.2</b> House Party</a></li>
@@ -315,7 +315,7 @@ It worked! Note that <strong>this linear transformation maps every horizontal pl
 </div>
 <div id="translation-and-then-rotation" class="section level2">
 <h2><span class="header-section-number">10.2</span> Translation and then Rotation</h2>
-<p>We have lots of 2D linear transformations. We can turn any of them into a 3D transformation by appending a row and a column of all zeros. For example, the 2D rotation
+<p>We know plenty 2D linear transformation, including rotation, reflection and shear mappings. We can turn any of them into a 3D transformation by appending a row and a column with a 1 in the lower right corner and zero everywhere else. For example, the 2D rotation
 <span class="math display">\[
 \begin{bmatrix} \cos \theta &amp; -\sin \theta~   \\ \sin \theta &amp; \cos \theta \end{bmatrix} 
 \]</span>
@@ -324,12 +324,12 @@ becomes the 3D transformation
 \begin{bmatrix} \cos\theta &amp; -\sin\theta~ &amp; 0   \\ \sin\theta &amp; \cos\theta  &amp;0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}. 
 \]</span>
 This mapping rotates 3D space around the <span class="math inline">\(z\)</span>-axis.</p>
-<p>So let’s combine two operations: a translation and a rotation. First, let’s translate by <span class="math inline">\(\begin{bmatrix} -2 \\ - 1 \end{bmatrix}\)</span> and then rotate counterclockwise by <span class="math inline">\(2 pi/3\)</span>. And remember: the matrix <strong>closest</strong> to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:</p>
+<p>So let’s combine two operations: a translation and a rotation. First, let’s translate by <span class="math inline">\(\begin{bmatrix} -2 \\ 1 \end{bmatrix}\)</span> and then rotate counterclockwise by <span class="math inline">\(2 \pi/3\)</span>. And remember: the matrix <strong>closest</strong> to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:</p>
 <p><span class="math display">\[
 T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 = 
-\begin{bmatrix} \cos \frac{2\pi}{3} &amp; -\sin\frac{2\pi}{3}~ &amp; 0  \\ \sin\frac{2\pi}{3} &amp; \cos\frac{2\pi}{3} &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{bmatrix} 
-\begin{bmatrix} 1 &amp; 0 &amp; 3  \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
+\begin{bmatrix} \cos \frac{2\pi}{3} &amp; -\sin\frac{2\pi}{3}~ &amp; 0  \\ \sin\frac{2\pi}{3} &amp; \cos\frac{2\pi}{3} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
+\begin{bmatrix} 1 &amp; 0 &amp; -2  \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
 \begin{bmatrix} x \\ y \\ z \end{bmatrix}.
 \]</span></p>
 <pre><code>##      [,1] [,2] [,3]
@@ -347,8 +347,8 @@ T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 <p><img src="math236_handbook_files/figure-html/homogeneous3-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="rotation-and-then-translation" class="section level2">
-<h2><span class="header-section-number">10.3</span> Rotation and then translation</h2>
-<p>Let’s reverse the order of these matrices and see that we get a different transformation.</p>
+<h2><span class="header-section-number">10.3</span> Rotation and then Translation</h2>
+<p>Let’s <strong>reverse the order</strong> of these matrices and see that we get a <strong>different transformation</strong>.</p>
 <pre><code>##            [,1]       [,2] [,3]
 ## [1,] -0.5000000 -0.8660254   -2
 ## [2,]  0.8660254 -0.5000000    1
@@ -361,7 +361,7 @@ T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 <p>Here are a couple of plots that you should try to reproduce using homogeneous coordinates.</p>
 <div id="house-of-orange" class="section level3">
 <h3><span class="header-section-number">10.4.1</span> House of Orange</h3>
-<p>Here is a picture of a grey house and a larger, upside-down orange house. <strong>Work as a group</strong> to reproduce this image using homogeneous coordinates.</p>
+<p>Here is a picture of a gray house and a larger, upside-down orange house. <strong>Work as a group</strong> to reproduce this image using homogeneous coordinates.</p>
 <p><img src="images/04-house-orange.png" style="width:50.0%" /></p>
 <p>You will have to use a combination of translation, rotation, and expansion. You will do this by multiplying three matrices. <strong>Think carefully and experiment.</strong> Remember that the order of your matrices matters, and the rightmost one happens first.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="d-translations-with-homogeneous-coordinates.html#cb48-1"></a><span class="co">#############################</span></span>

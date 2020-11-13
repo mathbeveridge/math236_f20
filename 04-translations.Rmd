@@ -75,7 +75,7 @@ polygon(house2[1,], house2[2,], col = "pink", border = "black")
 
 ## Translation and then Rotation
 
-We have lots of 2D linear transformations. We can turn any of them into a 3D transformation by appending a row and a column of all zeros. For example, the 2D rotation
+We know plenty 2D linear transformation, including rotation, reflection  and shear mappings. We can turn any of them into a 3D transformation by appending a row and a column with a 1 in the lower right corner and  zero everywhere else. For example, the 2D rotation
 $$
 \begin{bmatrix} \cos \theta & -\sin \theta~   \\ \sin \theta & \cos \theta \end{bmatrix} 
 $$
@@ -85,14 +85,14 @@ $$
 $$
 This mapping rotates 3D space around the $z$-axis.
 
-So let's combine two operations: a translation and a rotation.  First, let's translate by $\begin{bmatrix} -2 \\ - 1 \end{bmatrix}$ and then rotate counterclockwise by $2 pi/3$. And remember: the matrix **closest** to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:
+So let's combine two operations: a translation and a rotation.  First, let's translate by $\begin{bmatrix} -2 \\ 1 \end{bmatrix}$ and then rotate counterclockwise by $2 \pi/3$. And remember: the matrix **closest** to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:
 
 
 $$
 T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 = 
-\begin{bmatrix} \cos \frac{2\pi}{3} & -\sin\frac{2\pi}{3}~ & 0  \\ \sin\frac{2\pi}{3} & \cos\frac{2\pi}{3} & 0 \\ 0 & 0 & 0 \end{bmatrix} 
-\begin{bmatrix} 1 & 0 & 3  \\ 0 & 1 & -4 \\ 0 & 0 & 1 \end{bmatrix} 
+\begin{bmatrix} \cos \frac{2\pi}{3} & -\sin\frac{2\pi}{3}~ & 0  \\ \sin\frac{2\pi}{3} & \cos\frac{2\pi}{3} & 0 \\ 0 & 0 & 1 \end{bmatrix} 
+\begin{bmatrix} 1 & 0 & -2  \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix} 
 \begin{bmatrix} x \\ y \\ z \end{bmatrix}.
 $$
 
@@ -116,9 +116,9 @@ polygon(house[1,], house[2,], col = "gray", border = "blue")
 polygon(house3[1,], house3[2,], col = "green", border = "black")
 ```
 
-## Rotation and then translation 
+## Rotation and then Translation 
 
-Let's reverse the order of these matrices and see that we get a different transformation.
+Let's **reverse the order** of these matrices and see that we get a **different transformation**.
 
 
 ```{r,homogeneous4,fig.height=5,fig.width=5}
@@ -144,7 +144,7 @@ Here are a couple of plots that you should try to reproduce using homogeneous co
 
 ### House of Orange
 
-Here is a picture of a grey house and a larger, upside-down orange house. **Work as a group** to reproduce this image using homogeneous coordinates. 
+Here is a picture of a gray house and a larger, upside-down orange house. **Work as a group** to reproduce this image using homogeneous coordinates. 
 
 
 ![](images/04-house-orange.png){width=50%}
