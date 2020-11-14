@@ -1,0 +1,169 @@
+
+# Problem Set 4
+
+* Due: Tuesday November 17 by 11:55pm CST. 
+* Upload your solutions to Moodle in a PDF. 
+* Please feel free to **use RStudio for all row reductions.**
+* You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd).
+* Would you like use RMarkdown to type up some or all of your solution? Here is an [Rmd template file](https://github.com/mathbeveridge/math236_f20/blob/main/PS4-YourNameHere.Rmd) to get you started. You can "knit to PDF"  when you are done. Here are some helpful resources:
+    + [RMarkdown Basics](https://rmarkdown.rstudio.com/authoring_basics.html)
+    + [Math Typsetting using LaTeX syntax](https://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html)
+    + [The Rmd source for the problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd) which has examples of  using `\begin{bmatrix} ... \end{bmatrix}` to format matrices.
+
+
+The Problem Set covers sections 2.1,  2.2 and 2.3, and homogeneous coordinates.
+
+
+
+## An Invertible Product of Rectangular Matrices
+
+Suppose that  $m \neq n$ and  that $B$ is a $m \times n$ matrix and that $C$ is an $n \times m$ matrix where $A =BC$  is  an invertible matrix.
+
+a. Is  $m > n$ or  is $m < n$? Explain.
+
+b. Since $A$ is invertible, the Invertible Matrix Theorem tells us the following facts:
+    * $A$ has a pivot in every row
+    * $A$ has a pivot  in every column
+    * $T(\mathsf{x})  = A\mathsf{x}$ is one-to-one
+    * $T(\mathsf{x})  = A\mathsf{x}$ is onto
+    * The columns of  $A$ are linearly independent
+    * The columnns of $A$ are linearly independent
+    * $A \mathsf{x} =\mathsf{b}$ has exactly one  solution for all $\mathsf{b}$
+    * $A \mathsf{x} =\mathbf{0}$ only has the trivial solution  
+
+    What do these conditions guarantee about the $m \times n$ matrix $B$ and the $n \times m$ matrix $C$? Make a similar list for  each of $B$ and $C$.
+
+
+## Guessing the Inverse Matrix from a Pattern
+
+a. Use RStudio to find the inverse matrix for each of the following matrices
+
+$$
+\begin{bmatrix}
+1 & 0 &  0  \\
+1  & 1 & 0   \\
+1  & 1 & 1  
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+1 & 0 &  0 & 0 \\
+1  & 1 & 0  & 0   \\
+1  & 1 & 1  & 0 \\
+1  & 1 & 1  & 1 \\
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+1 & 0 &  0 & 0 & 0\\
+1  & 1 & 0  & 0 & 0  \\
+1  & 1 & 1  & 0 & 0\\
+1  & 1 & 1  & 1 & 0\\
+1  & 1 & 1  & 1 & 1\\
+\end{bmatrix}.
+$$
+      by creating a matrix of the form $[ \, A \, | \, I \, ]$ and putting it into RREF to obtain $[ \, I \, | \, A^{-1} \, ]$.
+
+b. Use the previous part to guess the inverse matrix $A^{-1}$ of  the $n \times n$ matrix
+
+$$
+A = 
+\begin{bmatrix}
+1 & 0 &  0 & 0 & \cdots & 0 \\
+1  & 1 & 0  & 0 & \cdots & 0 \\
+1  & 1 & 1  & 0 & \cdots & 0 \\
+\vdots &  & & \ddots & & \vdots \\
+1  & 1 & 1 & 1 & \cdots & 1 
+\end{bmatrix}.
+$$
+
+c. Use this same method to guess the inverse matrix $B^{-1}$ for the $n \times n$ matrix
+$$
+B = 
+\begin{bmatrix}
+1 & 0 &  0 & 0 & \cdots & 0 \\
+2  & 2 & 0  & 0 & \cdots & 0 \\
+3  & 3 & 3  & 0 & \cdots & 0 \\
+\vdots &  & & \ddots & & \vdots \\
+n  & n & n & n & \cdots & n 
+\end{bmatrix}.
+$$
+Pro Tip: when R displays a number with a **large** negative exponent like `3.700743e-17` then this number  is $3.700743 \times 10^{-17}$  which is numerically equivalent to 0.
+
+d. Use RStudio to confirm that your answer to (c) is correct for the following matrix `B`.  Multiply `B` by your proposed inverse `Binv` to confirm that you get the identity matrix.
+
+```
+B=cbind(c(1,2,3,4,5,6,7,8),
+        c(0,2,3,4,5,6,7,8),
+        c(0,0,3,4,5,6,7,8),
+        c(0,0,0,4,5,6,7,8),
+        c(0,0,0,0,5,6,7,8),
+        c(0,0,0,0,0,6,7,8),
+        c(0,0,0,0,0,0,7,8),
+        c(0,0,0,0,0,0,0,8)
+        )
+```
+
+
+
+
+## LU Decomposition of an Invertible Matrix
+
+Let $A$ be a $5 \times  5$ invertible matrix. Recall that if we run Gaussian Elimination on 
+$[ \, A \,  | \, I \, ]$
+until the first part is the RREF of matrix $A$, then we get the matrix 
+$[ \, I \,  | \, A^{-1} ]$. 
+In other words, this procedue is how we calculate $A^{-1}$. 
+
+But what if we stop this process at the REF of matrix $A$? Let's call this resulting matrix 
+$[ \, B  \,  | \, C \, ]$   
+where $B$ is the RREF of $A$ where all the pivots are 1, so $B$ looks like
+$$
+B = \begin{bmatrix}
+1 & b_{12} & b_{13}& b_{14} & b_{15} \\
+0 & 1 & b_{23} & b_{24} & b_{25} \\
+0 & 0 & 1 & b_{34} & b_{35} \\
+0 & 0 & 0 & 1 & b_{45} \\
+0  &0 & 0 & 0  &  1
+\end{bmatrix}
+$$
+**Remark:** B is an example of an invertible **upper triangular matrix**: all the entries below the diagonal are zero.
+
+a. Explain why $C$ has the the form
+      $$
+      C = \begin{bmatrix}
+       1 & 0 & 0 &  0  & 0 \\
+      c_{21} & 1 & 0 & 0 &  0 \\
+      c_{31} & c_{32} & 1 & 0 &  0 \\
+      c_{41} & c_{42} & c_{43}  & 1 &  0 \\
+      c_{51} & c_{52} & c_{53}& c_{54} & 1 \\
+      \end{bmatrix}
+      $$
+      Think about the actual row operations required to turn matrix $A$ into matrix $B$. Which ones  can occur? Which ones cannot occur?
+      
+      **Remark:** C is an example of an invertible **lower triangular matrix**: all the entries above the diagonal are zero.
+
+b. Explain why $CA=B$. 
+
+c. Next, you  will show that the  inverse matrix $C^{-1}$ is also lower triangluar. Start with the matrix $[ \, C \, | \, I \, ]$ 
+and perform Gaussian Elimination to put $C$ into RREF to get the matrix $[ \, I  \, | \,  C^{-1} ]$. 
+
+    Considering the lower triangular structure of $C$, explain why putting $C$ into $REF$ actually results in the identity matrix $I$. 
+
+d. Use the previous three parts to show that we can factor $A=LU$ where $L$ is an invertible lower triangular matrix and $U$ is an upper triangular matrix.
+
+
+
+**Extended Remark**: This same result  holds for any invertbile $n \times n$ matrix $A$: we can factor $A=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** for $A$. It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. 
+
+More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = \mathsf{b}$ and then solve this in two steps.
+
+* First, we solve $L \mathsf{y}  = \mathsf{b}$. Because $L$ is lower triangular, this runs exactly like ``back substitution.''
+* Next, we solve $U \mathsf{x} = \mathsf{y}$.  Because $L$ is upper triangular, this also runs like ``back substitution.''
+
+So what can go  wrong when computing $A^{-1}$? Sometimes an invertible matrix is   *ill-conditioned* which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The $LU$ methodology avoids this problem. You can learn more about the  realities of ill-conditioned matrices in MATH 365 Computational Linear Algebra. 
+
+
+
+## Homogeneous Coordinates
+
+This problem is coming soon!
+

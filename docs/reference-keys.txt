@@ -20,6 +20,11 @@ a-problem-about-span-and-linear-dependence
 properties-of-linear-transformations
 partial-information-about-a-linear-transformation
 house-renovations
+problem-set-4
+an-invertible-product-of-rectangular-matrices
+guessing-the-inverse-matrix-from-a-pattern
+lu-decomposition-of-an-invertible-matrix
+homogeneous-coordinates
 week-1-learning-goals
 solving-linear-equations
 vocabulary
@@ -71,6 +76,7 @@ house-party
 fractals
 transforming-my-house.
 watching-a-series-of-points.
+here-are-some-from-httppaulbourke.netfractalsifs
 quiz-1-review
 overview
 vocabulary-and-concepts

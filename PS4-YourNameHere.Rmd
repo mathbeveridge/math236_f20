@@ -1,0 +1,70 @@
+---
+title: "Problem Set 4"
+author: "Your Name Here"
+date: "Due 11/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# 1. An Invertible Product of Rectangular Matrices
+
+<!------------------------------------------------------>
+a. Your answer 
+
+<!------------------------------------------------------>
+b. Your answer
+
+
+
+
+
+# 2. Guessing the Inverse Matrix from a Pattern
+
+<!------------------------------------------------------>
+a. Your answer
+
+<!------------------------------------------------------>
+b. Your answer
+
+<!------------------------------------------------------>
+c. Your answer
+
+
+# 3. LU Decomposition of an Invertible Matrix
+
+
+<!------------------------------------------------------>
+a. Your answer
+
+<!------------------------------------------------------>
+b. Your answer
+
+<!------------------------------------------------------>
+c. Your answer
+
+
+<!------------------------------------------------------>
+d. Your answer
+
+
+```
+B=cbind(c(1,2,3,4,5,6,7,8),
+        c(0,2,3,4,5,6,7,8),
+        c(0,0,3,4,5,6,7,8),
+        c(0,0,0,4,5,6,7,8),
+        c(0,0,0,0,5,6,7,8),
+        c(0,0,0,0,0,6,7,8),
+        c(0,0,0,0,0,0,7,8),
+        c(0,0,0,0,0,0,0,8)
+        )
+```
+
+
+# 4. Homogeneous Coordinates
+
+Your answer
