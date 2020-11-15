@@ -27,8 +27,8 @@ b. Since $A$ is invertible, the Invertible Matrix Theorem tells us the following
     * $T(\mathsf{x})  = A\mathsf{x}$ is one-to-one
     * $T(\mathsf{x})  = A\mathsf{x}$ is onto
     * The columns of  $A$ span $\mathbb{R}^m$
-    * The columnns of $A$ are linearly independent
-    * $A \mathsf{x} =\mathsf{b}$ has exactly one  solution for all $\mathsf{b}$
+    * The columns of $A$ are linearly independent
+    * $A \mathsf{x} =\mathsf{b}$ has at least one  solution for all $\mathsf{b}$
     * $A \mathsf{x} =\mathbf{0}$ only has the trivial solution  
 
     What do these conditions guarantee about the $m \times n$ matrix $B$ and the $n \times m$ matrix $C$? Make a similar list for  each of $B$ and $C$.
