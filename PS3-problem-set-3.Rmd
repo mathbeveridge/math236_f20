@@ -67,7 +67,7 @@ Answer the following  questions, using RStudio for your calculations. Each respo
 
 2. Explain why they **cannot** achieve their daily goal by eating only almonds, beans and cheese.
 
-3. **(Note: Ths part has been updated! The previous choices did not work. Sorry about that!)** Find a valid one-day diet consisting of almonds, chicken, and zucchini. 
+3. Find a valid one-day diet consisting of almonds, chicken, and zucchini. 
 
 
 
