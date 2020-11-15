@@ -148,7 +148,7 @@ d. Use the previous three parts to show that we can factor $A=LU$ where $L$ is a
 
 **Remark 1:** You proved this for a $4 \times 4$ matrix, but your argument also works for an $n \times n$ matrix.
 
-**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$ and then perform Gaussian Elimination on $PA$. We can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** for $A$. It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. 
+**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$. We then perform Gaussian Elimination on $PA$: we can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$PLU$-decomposition** of $A$. It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. 
 
 More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = \mathsf{b}$ and then solve this in two steps.
 
