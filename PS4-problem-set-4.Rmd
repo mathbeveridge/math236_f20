@@ -26,7 +26,7 @@ b. Since $A$ is invertible, the Invertible Matrix Theorem tells us the following
     * $A$ has a pivot  in every column
     * $T(\mathsf{x})  = A\mathsf{x}$ is one-to-one
     * $T(\mathsf{x})  = A\mathsf{x}$ is onto
-    * The columns of  $A$ are linearly independent
+    * The columns of  $A$ span $\mathbb{R}^m$
     * The columnns of $A$ are linearly independent
     * $A \mathsf{x} =\mathsf{b}$ has exactly one  solution for all $\mathsf{b}$
     * $A \mathsf{x} =\mathbf{0}$ only has the trivial solution  
@@ -36,7 +36,7 @@ b. Since $A$ is invertible, the Invertible Matrix Theorem tells us the following
 
 ## Guessing the Inverse Matrix from a Pattern
 
-a. Use RStudio to find the inverse matrix for each of the following matrices
+a. Use RStudio to find the inverse matrix for each of the following matrices.
 
 $$
 \begin{bmatrix}
@@ -67,11 +67,12 @@ b. Use the previous part to guess the inverse matrix $A^{-1}$ of  the $n \times 
 $$
 A = 
 \begin{bmatrix}
-1 & 0 &  0 & 0 & \cdots & 0 \\
-1  & 1 & 0  & 0 & \cdots & 0 \\
-1  & 1 & 1  & 0 & \cdots & 0 \\
+1 & 0 &  0 & 0 & \cdots &0&0 \\
+1  & 1 & 0  & 0 & \cdots &0 &  0 \\
+1  & 1 & 1  & 0 & \cdots & 0 & 0 \\
 \vdots &  & & \ddots & & \vdots \\
-1  & 1 & 1 & 1 & \cdots & 1 
+1  & 1 & 1 & 1 & \cdots & 1 &   0 \\ 
+1  & 1 & 1 & 1 & \cdots & 1 &   1 
 \end{bmatrix}.
 $$
 
@@ -79,35 +80,23 @@ c. Use this same method to guess the inverse matrix $B^{-1}$ for the $n \times n
 $$
 B = 
 \begin{bmatrix}
-1 & 0 &  0 & 0 & \cdots & 0 \\
-2  & 2 & 0  & 0 & \cdots & 0 \\
-3  & 3 & 3  & 0 & \cdots & 0 \\
+1 & 0 &  0 & 0 & \cdots & 0 & 0 \\
+2  & 2 & 0  & 0 & \cdots & 0 & 0 \\
+3  & 3 & 3  & 0 & \cdots & 0 & 0 \\
 \vdots &  & & \ddots & & \vdots \\
-n  & n & n & n & \cdots & n 
+n-1  & -1 & -1 & n-1 & \cdots & n-1 &  0 \\
+n  & n & n & n & \cdots & n &  n 
 \end{bmatrix}.
 $$
 Pro Tip: when R displays a number with a **large** negative exponent like `3.700743e-17` then this number  is $3.700743 \times 10^{-17}$  which is numerically equivalent to 0.
 
-d. Use RStudio to confirm that your answer to (c) is correct for the following matrix `B`.  Multiply `B` by your proposed inverse `Binv` to confirm that you get the identity matrix.
-
-```
-B=cbind(c(1,2,3,4,5,6,7,8),
-        c(0,2,3,4,5,6,7,8),
-        c(0,0,3,4,5,6,7,8),
-        c(0,0,0,4,5,6,7,8),
-        c(0,0,0,0,5,6,7,8),
-        c(0,0,0,0,0,6,7,8),
-        c(0,0,0,0,0,0,7,8),
-        c(0,0,0,0,0,0,0,8)
-        )
-```
 
 
 
 
 ## LU Decomposition of an Invertible Matrix
 
-Let $A$ be a $5 \times  5$ invertible matrix. Recall that if we run Gaussian Elimination on 
+Let $A$ be a $4 \times  4$ invertible matrix. Recall that if we run Gaussian Elimination on 
 $[ \, A \,  | \, I \, ]$
 until the first part is the RREF of matrix $A$, then we get the matrix 
 $[ \, I \,  | \, A^{-1} ]$. 
@@ -118,26 +107,31 @@ $[ \, B  \,  | \, C \, ]$
 where $B$ is the RREF of $A$ where all the pivots are 1, so $B$ looks like
 $$
 B = \begin{bmatrix}
-1 & b_{12} & b_{13}& b_{14} & b_{15} \\
-0 & 1 & b_{23} & b_{24} & b_{25} \\
-0 & 0 & 1 & b_{34} & b_{35} \\
-0 & 0 & 0 & 1 & b_{45} \\
-0  &0 & 0 & 0  &  1
+1 & b_{12} & b_{13}& b_{14}  \\
+0 & 1 & b_{23} & b_{24}  \\
+0 & 0 & 1 & b_{34}  \\
+0 & 0 & 0 & 1  \\
 \end{bmatrix}
 $$
 **Remark:** B is an example of an invertible **upper triangular matrix**: all the entries below the diagonal are zero.
 
-a. Explain why $C$ has the the form
+a. Assume that $A$ is a  $4 \times 4$ matrix such that Gaussian Elimination to  REF only uses two types of Elementary Row Operations: 
+    
+      * (E1)  Add a multiple of one row  to another
+      * (E3) Multiply a row by a nonzero constant.
+    
+   Explain why $C$ has the the form
       $$
       C = \begin{bmatrix}
-       1 & 0 & 0 &  0  & 0 \\
-      c_{21} & 1 & 0 & 0 &  0 \\
-      c_{31} & c_{32} & 1 & 0 &  0 \\
-      c_{41} & c_{42} & c_{43}  & 1 &  0 \\
-      c_{51} & c_{52} & c_{53}& c_{54} & 1 \\
+       c_{11} & 0 & 0 &  0   \\
+      c_{21} & c_{22} & 0 & 0  \\
+      c_{31} & c_{32} & c_{33} & 0  \\
+      c_{41} & c_{42} & c_{43}  & c_{44}  \\
       \end{bmatrix}
       $$
-      Think about the actual row operations required to turn matrix $A$ into matrix $B$. Which ones  can occur? Which ones cannot occur?
+      
+    where the diagonal elements $c_{11}, c_{22}, c_{33}, c{44}$ are nonzero.
+
       
       **Remark:** C is an example of an invertible **lower triangular matrix**: all the entries above the diagonal are zero.
 
@@ -152,14 +146,16 @@ d. Use the previous three parts to show that we can factor $A=LU$ where $L$ is a
 
 
 
-**Extended Remark**: This same result  holds for any invertbile $n \times n$ matrix $A$: we can factor $A=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** for $A$. It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. 
+**Remark 1:** You proved this for a $4 \times 4$ matrix, but your argument also works for an $n \times n$ matrix.
+
+**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$ and then perform Gaussian Elimination on $PA$. We can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** for $A$. It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. 
 
 More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = \mathsf{b}$ and then solve this in two steps.
 
 * First, we solve $L \mathsf{y}  = \mathsf{b}$. Because $L$ is lower triangular, this runs exactly like ``back substitution.''
 * Next, we solve $U \mathsf{x} = \mathsf{y}$.  Because $L$ is upper triangular, this also runs like ``back substitution.''
 
-So what can go  wrong when computing $A^{-1}$? Sometimes an invertible matrix is   *ill-conditioned* which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The $LU$ methodology avoids this problem. You can learn more about the  realities of ill-conditioned matrices in MATH 365 Computational Linear Algebra. 
+**Remark 3:** So what can go  wrong when computing $A^{-1}$? Sometimes an invertible matrix is   *ill-conditioned* which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The $LU$ methodology avoids this problem. You can learn more about this in MATH 365 Computational Linear Algebra. 
 
 
 
@@ -265,12 +261,12 @@ plot(newbird[1,],newbird[2,],type="n",xlim=c(0,25),ylim=c(0,25),xlab="x",ylab="y
 abline(h=0:25, v=0:25, col="gray", lty="dotted")
 
 # plot the new bird and new fronds
-polygon(newbird[1,], bird[2,], col = "gray", border = "blue")
-polygon(newfronds[1,], fronds[2,], col = "orange", border = "black")
+polygon(newbird[1,], newbird[2,], col = "gray", border = "blue")
+polygon(newfronds[1,], newfronds[2,], col = "orange", border = "black")
 
 # plot the original bird, fronds  and trunk
-polygon(newbird[1,], newbird[2,], col = "cyan", border = "blue")
-polygon(newfronds[1,], newfronds[2,], col = "green", border = "black")
+polygon(bird[1,], bird[2,], col = "cyan", border = "blue")
+polygon(fronds[1,], fronds[2,], col = "green", border = "black")
 polygon(trunk[1,], trunk[2,], col = "brown", border = "black")
 
 ```
