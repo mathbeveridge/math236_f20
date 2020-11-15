@@ -130,7 +130,7 @@ a. Assume that $A$ is a  $4 \times 4$ matrix such that Gaussian Elimination to  
       \end{bmatrix}
       $$
       
-    where the diagonal elements $c_{11}, c_{22}, c_{33}, c{44}$ are nonzero.
+    where the diagonal elements $c_{11}, c_{22}, c_{33}, c_{44}$ are nonzero.
 
       
       **Remark:** C is an example of an invertible **lower triangular matrix**: all the entries above the diagonal are zero.
@@ -148,7 +148,7 @@ d. Use the previous three parts to show that we can factor $A=LU$ where $L$ is a
 
 **Remark 1:** You proved this for a $4 \times 4$ matrix, but your argument also works for an $n \times n$ matrix.
 
-**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$. We then perform Gaussian Elimination on $PA$: we can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** of $A$. 
+**Remark 2:** If Gaussian Elimination of $A$ requires row operation (E2) "exchange two rows" then we can choose to do those row swaps first. This corresponds to multiplying $A$ by an invertible **permutation matrix** $P$. We then perform Gaussian Elimination on $PA$: we can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** of $A$. 
 
 **Remark 3:** It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = P^{-1} \mathsf{b}$ and then solve this in two steps.
 
