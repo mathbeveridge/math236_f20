@@ -148,11 +148,11 @@ d. Use the previous three parts to show that we can factor $A=LU$ where $L$ is a
 
 **Remark 1:** You proved this for a $4 \times 4$ matrix, but your argument also works for an $n \times n$ matrix.
 
-**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$. We then perform Gaussian Elimination on $PA$: we can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$PLU$-decomposition** of $A$. 
+**Remark 2:** If Gaussian Elimination of $A$ requires (E2) exchange two rows then we can choose to do those row swaps first. This corresponds to multiplying $A$ by a **permutation matrix** $P$. We then perform Gaussian Elimination on $PA$: we can factor $PA=LU$ where $L$ is lower triangular and $U$ is upper triangular. This is called the **$LU$-decomposition** of $A$. 
 
-**Remark 3:** It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = \mathsf{b}$ and then solve this in two steps.
+**Remark 3:** It turns out that explicitly calculating $A^{-1}$ can lead to some very problematic rounding errors. So most solvers use the $LU$-decomposition to solve $A \mathsf{x} = \mathsf{b}$ instead of calculating $\mathsf{x} = A^{-1}\mathsf{b}$. More specifically, we replace $A \mathsf{x} = \mathsf{b}$ with $LU \mathsf{x} = P^{-1} \mathsf{b}$ and then solve this in two steps.
 
-* First, we solve $L \mathsf{y}  = \mathsf{b}$. Because $L$ is lower triangular, this runs exactly like ``back substitution.''
+* First, we solve $L \mathsf{y}  = P^{-1}\mathsf{b}$. Because $L$ is lower triangular, this runs exactly like ``back substitution.''
 * Next, we solve $U \mathsf{x} = \mathsf{y}$.  Because $L$ is upper triangular, this also runs like ``back substitution.''
 
 **Remark 4:** So what can go  wrong when computing $A^{-1}$? Sometimes an invertible matrix is   *ill-conditioned* which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The $LU$ methodology avoids this problem. You can learn more about this in MATH 365 Computational Linear Algebra. 
