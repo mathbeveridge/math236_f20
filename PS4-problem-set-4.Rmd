@@ -84,7 +84,7 @@ B =
 2  & 2 & 0  & 0 & \cdots & 0 & 0 \\
 3  & 3 & 3  & 0 & \cdots & 0 & 0 \\
 \vdots &  & & \ddots & & \vdots \\
-n-1  & -1 & -1 & n-1 & \cdots & n-1 &  0 \\
+n-1  & n-1 & n-1 & n-1 & \cdots & n-1 &  0 \\
 n  & n & n & n & \cdots & n &  n 
 \end{bmatrix}.
 $$
