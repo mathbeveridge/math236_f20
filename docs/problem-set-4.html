@@ -290,7 +290,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><span class="math inline">\(A \mathsf{x} =\mathsf{b}\)</span> has at least one solution for all <span class="math inline">\(\mathsf{b}\)</span></li>
 <li><span class="math inline">\(A \mathsf{x} =\mathbf{0}\)</span> only has the trivial solution</li>
 </ul>
-<p>What do these conditions guarantee about the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(B\)</span> and the <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(C\)</span>? Make a similar list for each of <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>.</p></li>
+<p>What do these conditions guarantee about the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(B\)</span> and the <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(C\)</span>? Make the appropriate list for each of <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>.</p></li>
 </ol>
 </div>
 <div id="guessing-the-inverse-matrix-from-a-pattern" class="section level2">
@@ -348,7 +348,7 @@ n-1  &amp; n-1 &amp; n-1 &amp; n-1 &amp; \cdots &amp; n-1 &amp;  0 \\
 n  &amp; n &amp; n &amp; n &amp; \cdots &amp; n &amp;  n 
 \end{bmatrix}.
 \]</span>
-Pro Tip: when R displays a number with a <strong>large</strong> negative exponent like <code>3.700743e-17</code> then this number is <span class="math inline">\(3.700743 \times 10^{-17}\)</span> which is numerically equivalent to 0.</li>
+<strong>Pro Tip:</strong> when R displays a number with a <strong>large</strong> negative exponent like <code>3.700743e-17</code> then this number is <span class="math inline">\(3.700743 \times 10^{-17}\)</span> which is numerically equivalent to 0.</li>
 </ol>
 </div>
 <div id="lu-decomposition-of-an-invertible-matrix" class="section level2">
@@ -441,7 +441,7 @@ and perform Gaussian Elimination to put <span class="math inline">\(C\)</span> i
 <li>I only know how to rotate vectors around the point <span class="math inline">\((0,0)\)</span>. So how can I rotate around the point <span class="math inline">\((20,20)\)</span>?</li>
 <li>Likewise, I only know how to expand vectros from the point <span class="math inline">\((0,0)\)</span>. So how can I expand outward from the point <span class="math inline">\((10,16)\)</span>?</li>
 </ul>
-<p>I heard someone say that transaltions via homogeneous coordinates will help to solve my problem. But I’m not sure what to do. Help!</p>
+<p>I heard someone say that translations via homogeneous coordinates will help to solve my problem. But I’m not sure what to do. Help!</p>
 <p>Please submit:</p>
 <ul>
 <li>The numerical <span class="math inline">\(3 \times 3\)</span> matrix <code>birdmap</code> that you used for the bird, and an explanation of how you made it.</li>
@@ -452,8 +452,8 @@ and perform Gaussian Elimination to put <span class="math inline">\(C\)</span> i
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="problem-set-4.html#cb3-1"></a><span class="co">#####################</span></span>
 <span id="cb3-2"><a href="problem-set-4.html#cb3-2"></a><span class="co">######## update this code with the appropriate linear transformations</span></span>
 <span id="cb3-3"><a href="problem-set-4.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="problem-set-4.html#cb3-4"></a>birdmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb3-5"><a href="problem-set-4.html#cb3-5"></a>leafmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb3-4"><a href="problem-set-4.html#cb3-4"></a>birdmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb3-5"><a href="problem-set-4.html#cb3-5"></a>leafmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
 <span id="cb3-6"><a href="problem-set-4.html#cb3-6"></a></span>
 <span id="cb3-7"><a href="problem-set-4.html#cb3-7"></a></span>
 <span id="cb3-8"><a href="problem-set-4.html#cb3-8"></a><span class="co">#####################</span></span>
