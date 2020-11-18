@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MATH 236: Linear Algebra</title>
+  <title>Vector 5 Problem Set 5 | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 5 Problem Set 5 | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 5 Problem Set 5 | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="problem-set-1.html"/>
+<link rel="prev" href="problem-set-4.html"/>
+<link rel="next" href="week-1-learning-goals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -266,19 +266,127 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MATH 236: Linear Algebra</h1>
+<div id="problem-set-5" class="section level1">
+<h1><span class="header-section-number">Vector 5</span> Problem Set 5</h1>
+<ul>
+<li>Due: Friday November 20 by 11:55pm CST.</li>
+<li>Upload your solutions to Moodle in a PDF.</li>
+<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
+<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS5-problem-set-5.Rmd">Rmd source file for this problem set</a>.</li>
+</ul>
+<p>The Problem Set covers sections 4.1, 4.2, 4.3 and 4.4.</p>
+<div id="a-subspace-from-two-linear-transformations" class="section level2">
+<h2><span class="header-section-number">5.1</span> A Subspace from Two Linear Transformations</h2>
+<p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> and <span class="math inline">\(S: \mathbb{R}^n \to \mathbb{R}^m\)</span> are linear transformations.
+Let <span class="math inline">\(V \subset \mathbb{R}^n\)</span> be the set
+<span class="math display">\[
+V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{w}) \}.
+\]</span></p>
+<p>Prove that the set <span class="math inline">\(V\)</span> is a subspace by showing that:</p>
+<ol style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(\mathsf{w} \in V\)</span> then <span class="math inline">\(\mathsf{v}+\mathsf{w} \in V\)</span></li>
+<li>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> then <span class="math inline">\(c \mathsf{v} \in V\)</span></li>
+</ol>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This is the class handbook for Math 236 Linear Algebra at Macalester College. The content here was made by <a href="https://mathbeveridge.github.io">Andrew Beveridge</a>
-and draws upon material prepared by <a href="https://www.macalester.edu/~halverson/">Tom Halverson</a> and other faculty in the <a href="https://www.macalester.edu/mscs/">Department of Mathematics, Statistics and Computer Science</a> at <a href="https://www.macalester.edu/">Macalester College</a>.</p>
-<p><br>
-<br>
-<br></p>
-<p><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></p>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<div id="getting-into-a-subspace" class="section level2">
+<h2><span class="header-section-number">5.2</span> Getting Into a Subspace</h2>
+<p>Let <span class="math inline">\(S \subset \mathbb{R}^n\)</span> be a subspace and let <span class="math inline">\(\mathsf{v}, \mathsf{w} \in \mathbb{R}^n\)</span>. For each of the following statements, either give a specific example or explain why it cannot happen.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is in <span class="math inline">\(S\)</span> but <span class="math inline">\(\mathsf{w}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span>, can <span class="math inline">\(\mathsf{v} + \mathsf{w}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
+<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span> and <span class="math inline">\(\mathsf{w}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span>, can <span class="math inline">\(\mathsf{v} + \mathsf{w}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
+<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span> and <span class="math inline">\(c\)</span> is a nonzero constant, can <span class="math inline">\(c\mathsf{v}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
+</ol>
+</div>
+<div id="creating-a-basis-from-another-basis." class="section level2">
+<h2><span class="header-section-number">5.3</span> Creating a Basis from Another Basis.</h2>
+<p>Suppose that <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> is a basis of <span class="math inline">\(\mathbb{R}^3\)</span>. Let
+<span class="math display">\[
+\mathsf{w}_1 = \mathsf{v}_1, \quad \mathsf{w}_2 = \mathsf{v}_1 +  \mathsf{v}_2, \quad  \mathsf{w}_3= \mathsf{v}_1 +  \mathsf{v}_2 +  \mathsf{v}_3.
+\]</span>
+Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> is also a basis for <span class="math inline">\(\mathbb{R}^3\)</span> as follows:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> are linearly independent.</p></li>
+<li><p>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span>.</p></li>
+</ol>
+</div>
+<div id="a-vector-that-is-in-both-mathrmcola-and-mathrmnula." class="section level2">
+<h2><span class="header-section-number">5.4</span> A Vector that is in Both <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>.</h2>
+<p>Give a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span> for which the vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix}3 \\ -2 \\ 5 \end{bmatrix}\)</span> is in both <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>. Be sure to demonstrate that <span class="math inline">\(\mathsf{v} \in \mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathsf{v} \in \mathrm{Nul}(A)\)</span>.</p>
+</div>
+<div id="changing-coordinate-systems" class="section level2">
+<h2><span class="header-section-number">5.5</span> Changing Coordinate Systems</h2>
+<p>Here are three bases for <span class="math inline">\(\mathbb{R}^4\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+{\cal S}  &amp;= \left\{
+\begin{bmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\0 \\ 1 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{bmatrix}
+\right\},
+\\
+\\
+{\cal B}  &amp;= \left\{
+\begin{bmatrix}
+1 \\ 1 \\ 1 \\ 1
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ 1 \\ -1~ \\ -1~
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 0 \\ 1 \\ -1~
+\end{bmatrix}
+\right\},
+\\
+\\
+{\cal C}  &amp;= \left\{
+\begin{bmatrix}
+1 \\ 1 \\ 1 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ 1 \\ -1~ \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ 1
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ -1~
+\end{bmatrix}
+\right\}.
+\end{align}\]</span></p>
+<p>Let <span class="math inline">\(P_{\cal B}\)</span> be the change-of-coordinates matrix from basis <span class="math inline">\({\cal B}\)</span> to the standard basis <span class="math inline">\({\cal S}\)</span>, and let
+<span class="math inline">\(P_{\cal C}\)</span> be the change-of-coordinates matrix from basis <span class="math inline">\({\cal C}\)</span> to the standard basis <span class="math inline">\({\cal S}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Find <span class="math inline">\(P_{\cal B}^{-1}\)</span>, which is the change-of-coordinates matrix from the standard basis <span class="math inline">\({\cal S}\)</span> to basis <span class="math inline">\({\cal B}\)</span>.</li>
+<li>Find <span class="math inline">\(P_{\cal C}^{-1}\)</span>, which is the change-of-coordinates matrix from the standard basis <span class="math inline">\({\cal S}\)</span> to basis <span class="math inline">\({\cal C}\)</span>.</li>
+<li>Find the change-of-coordinates matrix from basis <span class="math inline">\({\cal B}\)</span> to basis <span class="math inline">\({\cal C}\)</span>.</li>
+<li>Find the change-of-coordinates matrix from basis <span class="math inline">\({\cal C}\)</span> to basis <span class="math inline">\({\cal B}\)</span>.</li>
+<li>Consider the vector <span class="math inline">\(\mathsf{v}\)</span> where
+<span class="math display">\[ [\mathsf{v}]_{\cal B} =  \begin{bmatrix}  ~3.5 \\ -1.0 \\ -0.5 \\ ~1.5 \end{bmatrix}_{\cal B}.\]</span>
+Find <span class="math inline">\([ \mathsf{v} ]_{\cal C}.\)</span> Then calculate both <span class="math inline">\(P_{\cal B} [\mathsf{v}]_{\cal B}\)</span> and <span class="math inline">\(P_{\cal C} [\mathsf{v}]_{\cal C}\)</span> to confirm that they both produce the same vector <span class="math inline">\(\mathsf{v} =[\mathsf{v}]_{\cal S}\)</span>.</li>
+</ol>
+<p><strong>Remark:</strong> Both <span class="math inline">\(\cal{B}\)</span> and <span class="math inline">\(\cal{C}\)</span> are examples of <em>wavelet</em> bases. Wavelets and similar bases are useful for image processing and image compression.</p>
 
+</div>
 </div>
 
 
@@ -288,8 +396,8 @@ and draws upon material prepared by <a href="https://www.macalester.edu/~halvers
           </div>
         </div>
       </div>
-
-<a href="problem-set-1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="problem-set-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

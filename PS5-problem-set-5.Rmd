@@ -1,0 +1,145 @@
+
+# Problem Set 5
+
+* Due: Friday November 20 by 11:55pm CST. 
+* Upload your solutions to Moodle in a PDF. 
+* Please feel free to **use RStudio for all row reductions.**
+* You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS5-problem-set-5.Rmd).
+
+
+The Problem Set covers sections 4.1, 4.2, 4.3 and 4.4. 
+
+
+
+
+
+
+
+## A Subspace from Two Linear Transformations
+
+Suppose  that $T: \mathbb{R}^n \to \mathbb{R}^m$ and  $S: \mathbb{R}^n \to \mathbb{R}^m$ are linear transformations. 
+ Let $V  \subset  \mathbb{R}^n$ be  the set 
+$$
+V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{w}) \}.
+$$
+
+Prove that the set $V$ is a subspace by showing that:
+
+a. If $\mathsf{v} \in V$ and $\mathsf{w} \in V$ then  $\mathsf{v}+\mathsf{w} \in V$
+b. If $\mathsf{v} \in V$ and $c \in \mathbb{R}$ then  $c \mathsf{v} \in V$
+
+
+
+
+
+## Getting Into a Subspace
+
+Let $S \subset \mathbb{R}^n$ be a subspace and let $\mathsf{v}, \mathsf{w} \in \mathbb{R}^n$. For  each of the following statements, either give  a specific example  or explain why it cannot happen.
+
+
+a. If $\mathsf{v}$ is in $S$ but  $\mathsf{w}$ is **not** in $S$, can  $\mathsf{v} + \mathsf{w}$ be in $S$?  
+
+b. If $\mathsf{v}$ is **not** in $S$ and  $\mathsf{w}$ is **not** in $S$, can  $\mathsf{v} + \mathsf{w}$ be in $S$? 
+
+c. If $\mathsf{v}$ is **not** in  $S$ and $c$ is a  nonzero constant, can $c\mathsf{v}$ be  in $S$?
+
+
+
+## Creating a Basis from  Another Basis.
+
+Suppose that $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ is a basis of $\mathbb{R}^3$. Let
+$$
+\mathsf{w}_1 = \mathsf{v}_1, \quad \mathsf{w}_2 = \mathsf{v}_1 +  \mathsf{v}_2, \quad  \mathsf{w}_3= \mathsf{v}_1 +  \mathsf{v}_2 +  \mathsf{v}_3.
+$$
+Prove that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ is  also a  basis for $\mathbb{R}^3$ as follows:
+
+a.  Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ are linearly independent.
+
+b. Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ span  $\mathbb{R}^3$.
+
+
+
+## A Vector that is in Both $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$.
+
+Give a $3 \times 3$ matrix $A$ for which the vector $\mathsf{v} = \begin{bmatrix}3 \\ -2 \\ 5   \end{bmatrix}$ is in both $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$. Be sure to demonstrate that $\mathsf{v} \in \mathrm{Col}(A)$ and $\mathsf{v} \in \mathrm{Nul}(A)$.
+
+
+
+## Changing Coordinate Systems
+
+Here are three  bases for $\mathbb{R}^4$:
+
+
+\begin{align}
+{\cal S}  &= \left\{
+\begin{bmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\0 \\ 1 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{bmatrix}
+\right\},
+\\
+\\
+{\cal B}  &= \left\{
+\begin{bmatrix}
+1 \\ 1 \\ 1 \\ 1
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ 1 \\ -1~ \\ -1~
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+0 \\ 0 \\ 1 \\ -1~
+\end{bmatrix}
+\right\},
+\\
+\\
+{\cal C}  &= \left\{
+\begin{bmatrix}
+1 \\ 1 \\ 1 \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ 1 \\ -1~ \\ 0
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ 1
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ -1~ \\ 0 \\ -1~
+\end{bmatrix}
+\right\}.
+\end{align}
+
+Let $P_{\cal B}$ be the change-of-coordinates matrix from basis ${\cal B}$ to the standard basis ${\cal S}$, and let 
+$P_{\cal C}$ be the change-of-coordinates matrix from basis ${\cal C}$ to the standard basis ${\cal S}$.
+
+
+a.  Find $P_{\cal B}^{-1}$, which is the change-of-coordinates matrix from the standard basis ${\cal S}$ to basis ${\cal B}$.
+b.  Find $P_{\cal C}^{-1}$, which is the change-of-coordinates matrix from the standard basis ${\cal S}$ to basis ${\cal C}$.
+c. Find the change-of-coordinates matrix from  basis ${\cal B}$ to basis ${\cal C}$.
+d. Find the change-of-coordinates matrix from  basis ${\cal C}$ to basis ${\cal B}$.
+d. Consider  the vector $\mathsf{v}$ where
+$$ [\mathsf{v}]_{\cal B} =  \begin{bmatrix}  ~3.5 \\ -1.0 \\ -0.5 \\ ~1.5 \end{bmatrix}_{\cal B}.$$
+    Find $[ \mathsf{v} ]_{\cal C}.$ Then calculate both $P_{\cal B} [\mathsf{v}]_{\cal B}$ and $P_{\cal C} [\mathsf{v}]_{\cal C}$ to confirm that they both produce the  same vector $\mathsf{v} =[\mathsf{v}]_{\cal S}$.
+
+
+
+**Remark:** Both $\cal{B}$ and $\cal{C}$ are examples of *wavelet* bases. Wavelets and similar bases are useful for image processing and image compression.

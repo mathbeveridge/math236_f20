@@ -1,4 +1,4 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-43
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -25,6 +25,12 @@ an-invertible-product-of-rectangular-matrices
 guessing-the-inverse-matrix-from-a-pattern
 lu-decomposition-of-an-invertible-matrix
 homogeneous-coordinates
+problem-set-5
+a-subspace-from-two-linear-transformations
+getting-into-a-subspace
+creating-a-basis-from-another-basis.
+a-vector-that-is-in-both-mathrmcola-and-mathrmnula.
+changing-coordinate-systems
 week-1-learning-goals
 solving-linear-equations
 vocabulary
