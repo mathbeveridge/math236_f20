@@ -26,6 +26,8 @@ $$
 Prove that the set $V$ is a subspace by showing that:
 
 a. If $\mathsf{v} \in V$ and $\mathsf{w} \in V$ then  $\mathsf{v}+\mathsf{w} \in V$
+
+
 b. If $\mathsf{v} \in V$ and $c \in \mathbb{R}$ then  $c \mathsf{v} \in V$
 
 
@@ -39,7 +41,11 @@ Let $S \subset \mathbb{R}^n$ be a subspace and let $\mathsf{v}, \mathsf{w} \in \
 
 a. If $\mathsf{v}$ is in $S$ but  $\mathsf{w}$ is **not** in $S$, can  $\mathsf{v} + \mathsf{w}$ be in $S$?  
 
+
+
 b. If $\mathsf{v}$ is **not** in $S$ and  $\mathsf{w}$ is **not** in $S$, can  $\mathsf{v} + \mathsf{w}$ be in $S$? 
+
+
 
 c. If $\mathsf{v}$ is **not** in  $S$ and $c$ is a  nonzero constant, can $c\mathsf{v}$ be  in $S$?
 
@@ -53,9 +59,14 @@ $$
 $$
 Prove that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ is  also a  basis for $\mathbb{R}^3$ as follows:
 
-a.  Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ are linearly independent.
+a.  Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ are linearly independent as follows:
+    * We know that whenever $a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3 = \mathbf{0}$, this means that  $a_1 = a_2 = a_3 = 0$.
+    * Now consider a linear combination $b_1 \mathsf{w}_1 + b_2  \mathsf{w}_2 + b_3 \mathsf{w}_3 = \mathbf{0}$. Use the previous fact to show that $b_1 = b_2 = b_3 = 0$.    
 
-b. Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ span  $\mathbb{R}^3$.
+
+b. Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ span  $\mathbb{R}^3$ as follows:
+    * We know that for any $\mathsf{b} \in \mathbb{R}^3$, there  exist $a_1, a_2, a_3 \in \mathbb{R}$ such that $\mathsf{b} = a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3$.
+    * Use the previous fact to show that there also exist $c_1, c_2, c_3 \in \mathbb{R}$ such that $\mathsf{c} =  b_1 \mathsf{w}_1 + b_2 \mathsf{w}_2 + b_3 \mathsf{w}_3$.
 
 
 
@@ -136,7 +147,7 @@ a.  Find $P_{\cal B}^{-1}$, which is the change-of-coordinates matrix from the s
 b.  Find $P_{\cal C}^{-1}$, which is the change-of-coordinates matrix from the standard basis ${\cal S}$ to basis ${\cal C}$.
 c. Find the change-of-coordinates matrix from  basis ${\cal B}$ to basis ${\cal C}$.
 d. Find the change-of-coordinates matrix from  basis ${\cal C}$ to basis ${\cal B}$.
-d. Consider  the vector $\mathsf{v}$ where
+e. Consider  the vector $\mathsf{v}$ where
 $$ [\mathsf{v}]_{\cal B} =  \begin{bmatrix}  ~3.5 \\ -1.0 \\ -0.5 \\ ~1.5 \end{bmatrix}_{\cal B}.$$
     Find $[ \mathsf{v} ]_{\cal C}.$ Then calculate both $P_{\cal B} [\mathsf{v}]_{\cal B}$ and $P_{\cal C} [\mathsf{v}]_{\cal C}$ to confirm that they both produce the  same vector $\mathsf{v} =[\mathsf{v}]_{\cal S}$.
 

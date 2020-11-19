@@ -284,8 +284,8 @@ V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
 \]</span></p>
 <p>Prove that the set <span class="math inline">\(V\)</span> is a subspace by showing that:</p>
 <ol style="list-style-type: lower-alpha">
-<li>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(\mathsf{w} \in V\)</span> then <span class="math inline">\(\mathsf{v}+\mathsf{w} \in V\)</span></li>
-<li>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> then <span class="math inline">\(c \mathsf{v} \in V\)</span></li>
+<li><p>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(\mathsf{w} \in V\)</span> then <span class="math inline">\(\mathsf{v}+\mathsf{w} \in V\)</span></p></li>
+<li><p>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> then <span class="math inline">\(c \mathsf{v} \in V\)</span></p></li>
 </ol>
 </div>
 <div id="getting-into-a-subspace" class="section level2">
@@ -305,8 +305,16 @@ V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
 \]</span>
 Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> is also a basis for <span class="math inline">\(\mathbb{R}^3\)</span> as follows:</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> are linearly independent.</p></li>
-<li><p>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span>.</p></li>
+<li>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> are linearly independent as follows:
+<ul>
+<li>We know that whenever <span class="math inline">\(a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3 = \mathbf{0}\)</span>, this means that <span class="math inline">\(a_1 = a_2 = a_3 = 0\)</span>.</li>
+<li>Now consider a linear combination <span class="math inline">\(b_1 \mathsf{w}_1 + b_2 \mathsf{w}_2 + b_3 \mathsf{w}_3 = \mathbf{0}\)</span>. Use the previous fact to show that <span class="math inline">\(b_1 = b_2 = b_3 = 0\)</span>.</li>
+</ul></li>
+<li>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span> as follows:
+<ul>
+<li>We know that for any <span class="math inline">\(\mathsf{b} \in \mathbb{R}^3\)</span>, there exist <span class="math inline">\(a_1, a_2, a_3 \in \mathbb{R}\)</span> such that <span class="math inline">\(\mathsf{b} = a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3\)</span>.</li>
+<li>Use the previous fact to show that there also exist <span class="math inline">\(c_1, c_2, c_3 \in \mathbb{R}\)</span> such that <span class="math inline">\(\mathsf{c} = b_1 \mathsf{w}_1 + b_2 \mathsf{w}_2 + b_3 \mathsf{w}_3\)</span>.</li>
+</ul></li>
 </ol>
 </div>
 <div id="a-vector-that-is-in-both-mathrmcola-and-mathrmnula." class="section level2">
