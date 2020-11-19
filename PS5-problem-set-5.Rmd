@@ -20,7 +20,7 @@ The Problem Set covers sections 4.1, 4.2, 4.3 and 4.4.
 Suppose  that $T: \mathbb{R}^n \to \mathbb{R}^m$ and  $S: \mathbb{R}^n \to \mathbb{R}^m$ are linear transformations. 
  Let $V  \subset  \mathbb{R}^n$ be  the set 
 $$
-V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{w}) \}.
+V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
 $$
 
 Prove that the set $V$ is a subspace by showing that:
