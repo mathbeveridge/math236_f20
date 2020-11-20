@@ -31,6 +31,7 @@ getting-into-a-subspace
 creating-a-basis-from-another-basis.
 a-vector-that-is-in-both-mathrmcola-and-mathrmnula.
 changing-coordinate-systems
+important-definitions
 week-1-learning-goals
 solving-linear-equations
 vocabulary
@@ -89,3 +90,9 @@ vocabulary-and-concepts
 skills
 practice-problems
 solutions-to-practice-problems
+quiz-2-review
+overview-1
+vocabulary-and-concepts-1
+skills-1
+practice-problems-1
+solutions-to-practice-problems-1

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 5 Problem Set 5 | MATH 236: Linear Algebra</title>
+  <title>Vector 16 Quiz 2 Review | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 5 Problem Set 5 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 16 Quiz 2 Review | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 5 Problem Set 5 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 16 Quiz 2 Review | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-4.html"/>
-<link rel="next" href="important-definitions.html"/>
+<link rel="prev" href="quiz-1-review.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -275,146 +275,195 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-5" class="section level1">
-<h1><span class="header-section-number">Vector 5</span> Problem Set 5</h1>
+<div id="quiz-2-review" class="section level1">
+<h1><span class="header-section-number">Vector 16</span> Quiz 2 Review</h1>
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">16.1</span> Overview</h2>
+<p>Our first quiz covers sections 2.1 - 2.3 and 4.1-4.6 in Lay’s book. This corresponds to Problem Sets 4 and 5.</p>
+<div id="vocabulary-and-concepts-1" class="section level3">
+<h3><span class="header-section-number">16.1.1</span> Vocabulary and Concepts</h3>
+<p>You should understand these concepts and be able to read and use these terms correctly:</p>
 <ul>
-<li>Due: Friday November 20 by 11:55pm CST.</li>
-<li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS5-problem-set-5.Rmd">Rmd source file for this problem set</a>.</li>
+<li>all of the <a href="important-definitions.html#important-definitions">Important Definitions found here</a>.</li>
+<li>matrix inverses</li>
+<li>the Invertible Matrix Theorem</li>
+<li>homogeneous coordinates</li>
+<li>subspaces</li>
+<li>null space</li>
+<li>column space</li>
+<li>basis (span and linearly independent)</li>
+<li>dimension</li>
 </ul>
-<p>The Problem Set covers sections 4.1, 4.2, 4.3 and 4.4.</p>
-<div id="a-subspace-from-two-linear-transformations" class="section level2">
-<h2><span class="header-section-number">5.1</span> A Subspace from Two Linear Transformations</h2>
-<p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> and <span class="math inline">\(S: \mathbb{R}^n \to \mathbb{R}^m\)</span> are linear transformations.
-Let <span class="math inline">\(V \subset \mathbb{R}^n\)</span> be the set
-<span class="math display">\[
-V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
-\]</span></p>
-<p>Prove that the set <span class="math inline">\(V\)</span> is a subspace by showing that:</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(\mathsf{w} \in V\)</span> then <span class="math inline">\(\mathsf{v}+\mathsf{w} \in V\)</span></p></li>
-<li><p>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> then <span class="math inline">\(c \mathsf{v} \in V\)</span></p></li>
-</ol>
 </div>
-<div id="getting-into-a-subspace" class="section level2">
-<h2><span class="header-section-number">5.2</span> Getting Into a Subspace</h2>
-<p>Let <span class="math inline">\(S \subset \mathbb{R}^n\)</span> be a subspace and let <span class="math inline">\(\mathsf{v}, \mathsf{w} \in \mathbb{R}^n\)</span>. For each of the following statements, either give a specific example or explain why it cannot happen.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is in <span class="math inline">\(S\)</span> but <span class="math inline">\(\mathsf{w}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span>, can <span class="math inline">\(\mathsf{v} + \mathsf{w}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
-<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span> and <span class="math inline">\(\mathsf{w}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span>, can <span class="math inline">\(\mathsf{v} + \mathsf{w}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
-<li><p>If <span class="math inline">\(\mathsf{v}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span> and <span class="math inline">\(c\)</span> is a nonzero constant, can <span class="math inline">\(c\mathsf{v}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
-</ol>
+<div id="skills-1" class="section level3">
+<h3><span class="header-section-number">16.1.2</span> Skills</h3>
+<p>You should be able to perform these linear algebra tasks.</p>
+<ul>
+<li>solve matrix algebra equations</li>
+<li>find a matrix inverse</li>
+<li>use homogeneous coordinates to transform and translate images in the plane.</li>
+<li>show that a subset is a subspace or demonstrate that it is not a subspace</li>
+<li>describe the null space and the column space</li>
+<li>determine if a vector is in a null space or column space</li>
+<li>find a basis of a subspace</li>
+<li>answer questions about the connections between all these ideas</li>
+<li>write short proofs of basic statements using the important definitions</li>
+</ul>
 </div>
-<div id="creating-a-basis-from-another-basis." class="section level2">
-<h2><span class="header-section-number">5.3</span> Creating a Basis from Another Basis.</h2>
-<p>Suppose that <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> is a basis of <span class="math inline">\(\mathbb{R}^3\)</span>. Let
+</div>
+<div id="practice-problems-1" class="section level2">
+<h2><span class="header-section-number">16.2</span> Practice Problems</h2>
+<ol style="list-style-type: decimal">
+<li><p>Find the inverse of the matrix
 <span class="math display">\[
-\mathsf{w}_1 = \mathsf{v}_1, \quad \mathsf{w}_2 = \mathsf{v}_1 +  \mathsf{v}_2, \quad  \mathsf{w}_3= \mathsf{v}_1 +  \mathsf{v}_2 +  \mathsf{v}_3.
+\left[
+\begin{array}{rrr}
+1 &amp; -2 &amp; 2  \\
+1 &amp; 0 &amp; 0 \\
+2 &amp;-4 &amp; 5
+\end{array}
+\right]
+\]</span></p></li>
+<li><p>Suppose that a linear transformation <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> has the property that
+<span class="math inline">\(T(\mathsf{u}) = T(\mathsf{v})\)</span> for some pair of distinct vectors <span class="math inline">\(\mathsf{u}, \mathsf{v} \in \mathbb{R}^n\)</span>. Can <span class="math inline">\(T\)</span> map <span class="math inline">\(\mathbb{R}^n\)</span> onto <span class="math inline">\(\mathbb{R}^n\)</span>? Why or why not?</p></li>
+<li><p>Let <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> be subspaces of a vector space <span class="math inline">\(\mathbb{R}^n\)</span>.
+Prove or disprove the following statements</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(U \cap W = \{ \mathsf{v} \in V \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}\)</span> is a subspace</li>
+<li><span class="math inline">\(U \cup W = \{ \mathsf{v} \in V \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}\)</span> is a subspace</li>
+<li><span class="math inline">\(U+W = \{\mathsf{u} + \mathsf{w} \mid \mathsf{u} \in U \mbox{ and } \mathsf{w} \in W \}\)</span> is a subspace</li>
+</ol></li>
+<li><p>Let <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> be a linear transformation.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one. Prove that if <span class="math inline">\(\mathsf{v}_1, \ldots, \mathsf{v}_k\)</span> are linearly independent, then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_k)\)</span> are linearly independent.</p></li>
+<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \ldots, \mathsf{v}_k\)</span> span <span class="math inline">\(\mathbb{R}^n\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_k)\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span>.</p></li>
+</ol></li>
+<li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Find a basis for the column space and the null space of <span class="math inline">\(A\)</span>.
+<span class="math display">\[
+A=
+\left[
+\begin{matrix}
+1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1 \\
+1&amp; 2&amp; 1&amp; 1&amp; 0&amp; -2 \\
+2&amp; 4&amp; -2&amp; 6&amp; 1&amp; 2 \\
+1&amp; 2&amp;  0&amp; 2&amp; -1&amp; -3 \\
+\end{matrix}\right] \longrightarrow
+\left[
+\begin{matrix}
+1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1\\
+0&amp; 0&amp; 1&amp; -1&amp; 0&amp; -1\\
+0&amp; 0&amp; 0&amp; 0&amp; 1&amp; 2\\
+0&amp; 0&amp;   0&amp; 0&amp; 0&amp; 0\\
+\end{matrix}\right] 
+\]</span></p></li>
+<li><p>Consider the matrix
+<span class="math display">\[
+A = \left[
+\begin{array}{cccc}
+1 &amp; 5 &amp; 2 &amp; -4 \\
+3 &amp; 10 &amp; 2 &amp; 8 \\
+4 &amp; 15 &amp; 4 &amp; 4 
+\end{array}
+\right]
 \]</span>
-Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> is also a basis for <span class="math inline">\(\mathbb{R}^3\)</span> as follows:</p>
+Find a basis for <span class="math inline">\(\mathrm{Col}(A)\)</span>. Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span>.</p></li>
+<li><p>Are the vectors in <span class="math inline">\({\mathcal B}\)</span> a basis of <span class="math inline">\(\mathbb{R}^3\)</span>? If not, find a basis of <span class="math inline">\(\mathbb{R}^3\)</span> that consists of as many of the vectors from <span class="math inline">\({\mathcal B}\)</span> as is possible. Explain your reasoning.
+<span class="math display">\[
+\mathcal{B}=\left\{ \begin{bmatrix} 1 \\ -1 \\ -2 \end{bmatrix},\begin{bmatrix} 2 \\ -1 \\ 1 \end{bmatrix},\begin{bmatrix} -1 \\ -1 \\ -8 \end{bmatrix}
+\right\}
+\]</span></p></li>
+<li><p>I have the vectors below:
+<span class="math display">\[
+\begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix}. 
+\]</span>
+I know that they do not span <span class="math inline">\(\mathbb{R}^5\)</span>, but I want to extend them to a basis of <span class="math inline">\(\mathbb{R}^5\)</span> by adding some vectors to the set. I created the matrix below and row reduced. Give a basis for <span class="math inline">\(\mathbb{R}^5\)</span> that uses my three vectors and explain why this method works in general.
+<span class="math display">\[
+\left[
+\begin{array}{cccccccc}
+ 5 &amp; 4 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 4 &amp; 4 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+ 3 &amp; 3 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+ 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+ 2 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{array}
+\right] \rightarrow \left[
+\begin{array}{cccccccc}
+ 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 &amp; -3 \\
+ 0 &amp; 1 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; -3 &amp; 4 \\
+ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; -1 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 2 &amp; -3 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; -2 \\
+\end{array}
+\right]
+\]</span></p></li>
+<li><p>Find the coordinates of <span class="math inline">\(\mathsf{w}\)</span> in the standard basis and of <span class="math inline">\(\mathsf{v}\)</span> in the <span class="math inline">\(\mathcal{B}\)</span>-basis.
+<span class="math display">\[
+\mathcal{B} = \left\{
+\mathsf{v}_1=\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+\mathsf{v}_2=\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+\mathsf{v}_3=\begin{bmatrix} 1 \\ 1 \\ 1 \\ 0 \end{bmatrix},
+\mathsf{v}_4=\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
+\right\},
+\qquad
+\mathsf{w} = 
+\begin{bmatrix} 3 \\ -2 \\ 0 \\ -1 \end{bmatrix}_{\mathcal{B}},
+\qquad
+\mathsf{v} = 
+\begin{bmatrix} 10 \\ 9 \\ 7 \\ 4 \end{bmatrix}_{\mathcal{S}}
+\]</span></p></li>
+<li><p>The subspace <span class="math inline">\(S \subset \mathbb{R}^5\)</span> is given by
+<span class="math display">\[ \mathsf{S} = \mathsf{span}
+\left(
+\begin{bmatrix}1\\ 1\\ 0\\ -1\\ 2 \end{bmatrix},
+\begin{bmatrix} 0\\ 1\\ 1\\  1\\ 1 \end{bmatrix},
+\begin{bmatrix} 3\\ 1\\ -2\\ -5\\ 4 \end{bmatrix},
+\begin{bmatrix} 1\\ 0\\ 1\\ 0\\ 1 \end{bmatrix},
+\begin{bmatrix} 2\\ -1\\ -1\\ -3\\ 1 \end{bmatrix},
+\right)\]</span></p>
 <ol style="list-style-type: lower-alpha">
-<li>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> are linearly independent as follows:
+<li><p>Use the following matrix to find a basis for <span class="math inline">\(S\)</span>. What is the dimension of <span class="math inline">\(S\)</span>?
+<span class="math display">\[
+A=\left[
+\begin{array}{ccccc}
+ 1 &amp; 0 &amp; 3 &amp; 1 &amp; 2 \\
+ 1 &amp; 1 &amp; 1 &amp; 0 &amp; -1 \\
+ 0 &amp; 1 &amp; -2 &amp; 1 &amp; -1 \\
+ -1 &amp; 1 &amp; -5 &amp; 0 &amp; -3 \\
+ 2 &amp; 1 &amp; 4 &amp; 1 &amp; 1 \\
+\end{array}
+\right] \rightarrow
+\left[
+\begin{array}{ccccc}
+ 1 &amp; 0 &amp; 3 &amp; 0 &amp; 1 \\
+ 0 &amp; 1 &amp; -2 &amp; 0 &amp; -2 \\
+ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{array}
+\right]
+\]</span></p></li>
+<li><p>Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span>. What is the dimension of this nullspace?</p></li>
+</ol></li>
+<li><p>A <span class="math inline">\(5 \times 7\)</span> matrix <span class="math inline">\(A\)</span> contains 5 pivots. For each of <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>,</p>
 <ul>
-<li>We know that whenever <span class="math inline">\(a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3 = \mathbf{0}\)</span>, this means that <span class="math inline">\(a_1 = a_2 = a_3 = 0\)</span>.</li>
-<li>Now consider a linear combination <span class="math inline">\(b_1 \mathsf{w}_1 + b_2 \mathsf{w}_2 + b_3 \mathsf{w}_3 = \mathbf{0}\)</span>. Use the previous fact to show that <span class="math inline">\(b_1 = b_2 = b_3 = 0\)</span>.</li>
-</ul></li>
-<li>Show that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span> as follows:
-<ul>
-<li>We know that for any <span class="math inline">\(\mathsf{b} \in \mathbb{R}^3\)</span>, there exist <span class="math inline">\(a_1, a_2, a_3 \in \mathbb{R}\)</span> such that <span class="math inline">\(\mathsf{b} = a_1 \mathsf{v}_1 + a_2 \mathsf{v}_2 + a_3 \mathsf{v}_3\)</span>.</li>
-<li>Use the previous fact to show that there also exist <span class="math inline">\(c_1, c_2, c_3 \in \mathbb{R}\)</span> such that <span class="math inline">\(\mathsf{c} = b_1 \mathsf{w}_1 + b_2 \mathsf{w}_2 + b_3 \mathsf{w}_3\)</span>.</li>
+<li>Determine the dimension of the subspace,</li>
+<li>Indicate whether it is subspace of <span class="math inline">\(\mathbb{R}^5\)</span> or <span class="math inline">\(\mathbb{R}^7\)</span>, and</li>
+<li>Decide how you would find a basis of the space. Answer your question as follows.</li>
 </ul></li>
 </ol>
 </div>
-<div id="a-vector-that-is-in-both-mathrmcola-and-mathrmnula." class="section level2">
-<h2><span class="header-section-number">5.4</span> A Vector that is in Both <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>.</h2>
-<p>Give a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span> for which the vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix}3 \\ -2 \\ 5 \end{bmatrix}\)</span> is in both <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>. Be sure to demonstrate that <span class="math inline">\(\mathsf{v} \in \mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathsf{v} \in \mathrm{Nul}(A)\)</span>.</p>
-</div>
-<div id="changing-coordinate-systems" class="section level2">
-<h2><span class="header-section-number">5.5</span> Changing Coordinate Systems</h2>
-<p>Here are three bases for <span class="math inline">\(\mathbb{R}^4\)</span>:</p>
-<p><span class="math display">\[\begin{align}
-{\cal S}  &amp;= \left\{
-\begin{bmatrix}
-1 \\ 0 \\ 0 \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-0 \\ 1 \\ 0 \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-0 \\0 \\ 1 \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-0 \\ 0 \\ 0 \\ 1
-\end{bmatrix}
-\right\},
-\\
-\\
-{\cal B}  &amp;= \left\{
-\begin{bmatrix}
-1 \\ 1 \\ 1 \\ 1
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ 1 \\ -1~ \\ -1~
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ -1~ \\ 0 \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-0 \\ 0 \\ 1 \\ -1~
-\end{bmatrix}
-\right\},
-\\
-\\
-{\cal C}  &amp;= \left\{
-\begin{bmatrix}
-1 \\ 1 \\ 1 \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ 1 \\ -1~ \\ 0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ -1~ \\ 0 \\ 1
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ -1~ \\ 0 \\ -1~
-\end{bmatrix}
-\right\}.
-\end{align}\]</span></p>
-<p>Let <span class="math inline">\(P_{\cal B}\)</span> be the change-of-coordinates matrix from basis <span class="math inline">\({\cal B}\)</span> to the standard basis <span class="math inline">\({\cal S}\)</span>, and let
-<span class="math inline">\(P_{\cal C}\)</span> be the change-of-coordinates matrix from basis <span class="math inline">\({\cal C}\)</span> to the standard basis <span class="math inline">\({\cal S}\)</span>.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Find <span class="math inline">\(P_{\cal B}^{-1}\)</span>, which is the change-of-coordinates matrix from the standard basis <span class="math inline">\({\cal S}\)</span> to basis <span class="math inline">\({\cal B}\)</span>.</li>
-<li>Find <span class="math inline">\(P_{\cal C}^{-1}\)</span>, which is the change-of-coordinates matrix from the standard basis <span class="math inline">\({\cal S}\)</span> to basis <span class="math inline">\({\cal C}\)</span>.</li>
-<li>Find the change-of-coordinates matrix from basis <span class="math inline">\({\cal B}\)</span> to basis <span class="math inline">\({\cal C}\)</span>.</li>
-<li>Find the change-of-coordinates matrix from basis <span class="math inline">\({\cal C}\)</span> to basis <span class="math inline">\({\cal B}\)</span>.</li>
-<li>Consider the vector <span class="math inline">\(\mathsf{v}\)</span> where
-<span class="math display">\[ [\mathsf{v}]_{\cal B} =  \begin{bmatrix}  ~3.5 \\ -1.0 \\ -0.5 \\ ~1.5 \end{bmatrix}_{\cal B}.\]</span>
-Find <span class="math inline">\([ \mathsf{v} ]_{\cal C}.\)</span> Then calculate both <span class="math inline">\(P_{\cal B} [\mathsf{v}]_{\cal B}\)</span> and <span class="math inline">\(P_{\cal C} [\mathsf{v}]_{\cal C}\)</span> to confirm that they both produce the same vector <span class="math inline">\(\mathsf{v} =[\mathsf{v}]_{\cal S}\)</span>.</li>
-</ol>
-<p><strong>Remark:</strong> Both <span class="math inline">\(\cal{B}\)</span> and <span class="math inline">\(\cal{C}\)</span> are examples of <em>wavelet</em> bases. Wavelets and similar bases are useful for image processing and image compression.</p>
+<div id="solutions-to-practice-problems-1" class="section level2">
+<h2><span class="header-section-number">16.3</span> Solutions to Practice Problems</h2>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="problem-set-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="important-definitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
