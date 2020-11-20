@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 6 Important Definitions | MATH 236: Linear Algebra</title>
+  <title>Vector 10 Week 4 Learning Goals | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 6 Important Definitions | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 10 Week 4 Learning Goals | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 6 Important Definitions | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 10 Week 4 Learning Goals | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-5.html"/>
-<link rel="next" href="week-1-learning-goals.html"/>
+<link rel="prev" href="week-3-learning-goals.html"/>
+<link rel="next" href="linear-systems-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -280,88 +280,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="important-definitions" class="section level1">
-<h1><span class="header-section-number">Vector 6</span> Important Definitions</h1>
-<dl>
-<dt>span</dt>
-<dd><p>A set of vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> <strong>span</strong> a vector space <span class="math inline">\(V\)</span> if for every <span class="math inline">\(\mathsf{v} \in V\)</span> there exist a set of scalars (weights) <span class="math inline">\(c_1, c_2, \ldots, c_n \in \mathbb{R}\)</span> such that
-<span class="math display">\[
-\mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
-\]</span>
-If <span class="math inline">\(A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]\)</span> is the matrix with these vectors in the columns, then this is the same as saying that <span class="math inline">\(\mathsf{x} = (c_1, \ldots, c_n)^T\)</span> is a solution to <span class="math inline">\(A x = \mathsf{v}\)</span>.</p>
-</dd>
-<dt>linear independence</dt>
-<dd><p>A set of vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2,\ldots, \mathsf{v}_n\)</span> are <strong>linearly independent</strong> if the only way to write
-<span class="math display">\[
-\mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
-\]</span>
-is with <span class="math inline">\(c_1 = c_2 = \cdots = c_n = 0\)</span>. This is the same as saying that <span class="math inline">\(A x = \mathsf{0}\)</span> has only the trivial solution.</p>
-</dd>
-<dt>linear dependence</dt>
-<dd><p>Conversely, a set of vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> are <strong>linearly dependent</strong> if there exist scalars <span class="math inline">\(c_1, c_2,\ldots, c_n \in \mathbb{R}\)</span> that are <strong>not all equal to 0</strong> such that
-<span class="math display">\[
-\mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
-\]</span>
-This is called a <strong>dependence relation</strong> among the vectors. This is the same as saying that <span class="math inline">\(\mathsf{x} = (c_1, c_2, \ldots, c_n)^T\)</span> is a nontrivial solution to <span class="math inline">\(A \mathsf{x} = \mathsf{0}\)</span>.</p>
-</dd>
-<dt>linear transformation</dt>
-<dd><p>A function <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a <strong>linear transformation</strong> when:</p>
+<div id="week-4-learning-goals" class="section level1">
+<h1><span class="header-section-number">Vector 10</span> Week 4 Learning Goals</h1>
+<p>Here are the knowledge and skills you should master by the end of the fourth week.</p>
+<div id="vector-spaces-and-the-determinant" class="section level2">
+<h2><span class="header-section-number">10.1</span> Vector Spaces and the Determinant</h2>
+<p>You should be able to do the following <strong>tasks</strong>:</p>
 <ul>
-<li><span class="math inline">\(T(\mathsf{u} + \mathsf{v}) = T(\mathsf{u}) + T(\mathsf{v})\)</span> for all <span class="math inline">\(\mathsf{u}, \mathsf{v} \in \mathbb{R}^n\)</span> (preserves addition)</li>
-<li><span class="math inline">\(T(c \mathsf{u} ) = c T(\mathsf{u})\)</span> for all <span class="math inline">\(\mathsf{u} \mathbb{R}^n\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span>.</li>
+<li>Prove/disprove that a subset of a vector space is a subspace.</li>
+<li>Prove/disprove that a set of vectors is linearly dependent.</li>
+<li>Prove/disprove that a set of vectors span a vector space (or a subspace).</li>
+<li>Find the kernel and image of <span class="math inline">\(T(\mathsf{x}) = Ax\)</span>.</li>
+<li>Determine whether a set of vectors is a basis.</li>
+<li>Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> and a basis for <span class="math inline">\(\mathrm{Col}(A)\)</span>.</li>
+<li>Find the change-of-coordinate matrix <span class="math inline">\(P_{\mathcal{B}}\)</span> from basis <span class="math inline">\({\mathcal{B}}\)</span> to the standard basis <span class="math inline">\(\mathcal{S}\)</span>.</li>
+<li>Use matrix inverses (and RStudio) to find the change-of-coordinate matrix <span class="math inline">\(P_{\mathcal{B}}^{-1}\)</span> from basis <span class="math inline">\({\mathcal{S}}\)</span> to the standard basis <span class="math inline">\(\mathcal{B}\)</span>.</li>
+<li>Find the coordinate vector with respect to a given basis.</li>
+<li>Find the dimension of a vector space (or subspace) by finding or verifying a basis.</li>
+<li>Find the determinant of a <span class="math inline">\(2 \times 2\)</span> matrix by hand.</li>
+<li>Find the determinant of a <span class="math inline">\(3 \times 3\)</span> matrix by using row operations/cofactor expansion/permutation method.</li>
+<li>Use RStudio to calculate the determinant of a square matrix.</li>
+<li>Use <span class="math inline">\(\det(A)\)</span> to decide whether the square matrix <span class="math inline">\(A\)</span> is invertible.</li>
 </ul>
-</dd>
-</dl>
-<p>It follows from these that also <span class="math inline">\(T(\mathsf{0}) = \mathsf{0}\)</span>.</p>
-<dl>
-<dt>one-to-one</dt>
-<dd><p>A function <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a <strong>one-to-one</strong> when:</p>
-</dd>
-</dl>
-<center>
-for all <span class="math inline">\(\mathsf{y} \in \mathbb{R}^m\)</span> there is <strong>at most</strong> one <span class="math inline">\(\mathsf{x} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(T(\mathsf{x}) = \mathsf{y}\)</span>.
-</center>
-<dl>
-<dt>onto</dt>
-<dd><p>A function <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a <strong>onto</strong> when:</p>
-</dd>
-</dl>
-<center>
-for all <span class="math inline">\(\mathsf{y} \in \mathbb{R}^m\)</span> there is <strong>at least</strong> one <span class="math inline">\(\mathsf{x} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(T(\mathsf{x}) = \mathsf{y}\)</span>.
-</center>
-<dl>
-<dt>subspace</dt>
-<dd><p>A subset <span class="math inline">\(S \subseteq \mathbb{R}^n\)</span> is a <strong>subspace</strong> when:</p>
+</div>
+<div id="vocabulary-3" class="section level2">
+<h2><span class="header-section-number">10.2</span> Vocabulary</h2>
+<p>You should know and be able to use and explain the following <strong>terms</strong> or <strong>properties</strong>.</p>
 <ul>
-<li><span class="math inline">\(\mathsf{u} + \mathsf{v} \in S\)</span> for all <span class="math inline">\(\mathsf{u}, \mathsf{v} \in S\)</span> (closed under addition)</li>
-<li><span class="math inline">\(c \mathsf{u} \in S\)</span> for all <span class="math inline">\(\mathsf{u}\in S\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> (closed under scalar multiplication)</li>
+<li>Every one of <a href="important-definitions.html#important-definitions">these Important Definitions</a></li>
+<li>Subspace</li>
+<li>Null space and column space of a matrix</li>
+<li>Kernel and Image of a linear transformation</li>
+<li>Basis</li>
+<li>Coordinate vector with respect to a basis</li>
+<li>Change-of-coordinates matrix</li>
+<li>The coordinate vector with respect to a basis</li>
+<li>The dimension of a vector space (or a subspace)</li>
+<li>Determinant</li>
 </ul>
-</dd>
-</dl>
-<p>It follows from these that also <span class="math inline">\(\mathsf{0} \in S\)</span>.</p>
-<dl>
-<dt>basis</dt>
-<dd><p>A basis of a vector space (or subspace) <span class="math inline">\(V\)</span> is a set of vectors <span class="math inline">\(\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}\)</span> in <span class="math inline">\(V\)</span> such that</p>
+</div>
+<div id="conceptual-thinking-3" class="section level2">
+<h2><span class="header-section-number">10.3</span> Conceptual Thinking</h2>
+<p>I should understand and be able to explain the following <strong>concepts</strong>:</p>
 <ul>
-<li><span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> span <span class="math inline">\(V\)</span></li>
-<li><span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> are linearly independent</li>
+<li>A vector space consists of a collection of vectors and all of their linear combinations.</li>
+<li>A subspace is a subset of a vector space that is <em>also</em> a vector space by itself (closed under linear combinations).</li>
+<li>The solutions to <span class="math inline">\(A \mathsf{x} = \mathbb{0}\)</span> form a subspace.</li>
+<li>The span of the columns of <span class="math inline">\(A\)</span> form a subspace.</li>
+<li>How the kernel and image of <span class="math inline">\(T(\mathsf{x}) = Ax\)</span> correspond to the nullspace and columnspace of <span class="math inline">\(A\)</span>.</li>
+<li>Every basis of a given vector space (or subspace) contains the same number of vectors.</li>
+<li>Why every vector in a vector space has a unique representation as a linear combination of a given basis <span class="math inline">\({\mathcal{B}}\)</span>.</li>
+<li>How dimension relates to span and linear independence.</li>
+<li>Interpret <span class="math inline">\(\det(A)\)</span> as a measure the expansion/contraction of “volumes” in <span class="math inline">\(\mathbb{R}^n\)</span> under the linear transformation <span class="math inline">\(T(\mathsf{x})=A\mathsf{x}\)</span>.</li>
 </ul>
-</dd>
-</dl>
-<p>Equivalently, one can say that <span class="math inline">\(\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}\)</span> is a basis of <span class="math inline">\(V\)</span> if for every vector <span class="math inline">\(\mathsf{v} \in V\)</span> there is a <strong>unique</strong> set of scalars <span class="math inline">\(c_1, \ldots, c_n\)</span> such that
-<span class="math display">\[
-\mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
-\]</span>
-(the fact that there is a set of vectors comes from the span; the fact that they are unique comes from linear independence).</p>
 
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="problem-set-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-1-learning-goals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-3-learning-goals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

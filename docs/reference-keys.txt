@@ -45,6 +45,10 @@ week-3-learning-goals
 linear-transformations-and-matrix-inverses
 vocabulary-2
 conceptual-thinking-2
+week-4-learning-goals
+vector-spaces-and-the-determinant
+vocabulary-3
+conceptual-thinking-3
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system

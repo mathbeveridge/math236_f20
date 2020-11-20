@@ -21,9 +21,11 @@ You should understand these concepts and be able to read and use these terms cor
 * the Invertible Matrix Theorem
 * homogeneous coordinates
 * subspaces
-* null space
-* column space
+* null space and column space of a matrix
+* kernel and image of a linear transformation
 * basis (span and linearly independent)
+* coordinate vector with respect to a basis $\mathcal{B}$
+* change-of-coordinates matrix
 * dimension
 
 

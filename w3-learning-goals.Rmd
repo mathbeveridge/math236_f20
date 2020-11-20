@@ -7,14 +7,14 @@ Here are the knowledge and skills you should master by the end the third week.
 
 You should be able to do the following **tasks**:
 
-* Determine whether a mapping from $\mathbb{R}^n$ to $\mathbb{R}^n$ is a linear transformation
+* Determine whether a mapping from $\mathbb{R}^n$ to $\mathbb{R}^n$ is a linear transformation.
 * Use the RREF of the corresponding matrix to determine whether $T(\mathsf{x})$ is one-to-one and/or onto.
 * Describe 2D linear transformations as a mixture of geometric operations, including expansion, contraction, reflection, rotation, shearing  and dimension reduction. 
-* Perform a 2D translation using 3D homogeneous coordinates
-* Multiply an $m \times n$ matrix with an $n \times p$ matrix to get an $m \times p$ matrix
-* Determine whether a $2 \times 2$ matrix is invertible
+* Perform a 2D translation using 3D homogeneous coordinates.
+* Multiply an $m \times n$ matrix with an $n \times p$ matrix to get an $m \times p$ matrix.
+* Determine whether a $2 \times 2$ matrix is invertible.
 * Find the inverse of a $2 \times 2$ matrix by hand.
-* Use RStudio to check for invertiblity and to find the inverse of an $n \times n$ square matrix
+* Use RStudio to check for invertiblity and to find the inverse of an $n \times n$ square matrix.
 * Explain the connection between Gaussian Elimination, elementary matrices, and the matrix inverse.
 
 
@@ -38,7 +38,7 @@ You should know and be able to use and explain the following **terms** or **prop
 
 I should understand and be able to explain the following **concepts**:
 
-* A linear transformation $T: \mathbb{R}^n \rightarrow mathbb{R}^m$ corresponds to multiplication by an $m \times n$ matrix $A$.
+* A linear transformation $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ corresponds to multiplication by an $m \times n$ matrix $A$.
 * $T(\mathsf{x})=\mathsf{A} \mathsf{x}$ is a one-to-one linear transformations if and only $\mathsf{A}$ has linearly independent columns
 * $T(\mathsf{x})=\mathsf{A} \mathsf{x}$ is an onto linear transformations if  and only if the  columns of $\mathsf{A}$ span $\mathbb{R}^m$.
 * The Invertible Matrix Theorem (Section 2.3, Theorem 8, page 112) is one of the highlights of the course! It gives 12 different conditions that all equivalent! You should think deeply about why everything comes together like this for square matrices.

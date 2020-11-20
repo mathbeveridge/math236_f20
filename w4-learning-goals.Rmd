@@ -1,0 +1,56 @@
+
+# Week 4 Learning Goals
+
+
+
+Here are the knowledge and skills you should master by the end of the fourth week.
+
+
+## Vector Spaces and the Determinant
+
+You should be able to do the following **tasks**:
+
+* Prove/disprove that a subset of a vector space is a subspace.
+* Prove/disprove that a set of vectors is linearly dependent.
+* Prove/disprove that a set of vectors span a vector space (or a subspace).
+* Find the kernel and image of $T(\mathsf{x}) = Ax$.
+* Determine whether a set of vectors is a basis.
+* Find a basis for $\mathrm{Nul}(A)$ and a basis for $\mathrm{Col}(A)$.
+* Find the change-of-coordinate matrix $P_{\mathcal{B}}$ from basis ${\mathcal{B}}$ to the standard basis $\mathcal{S}$.
+* Use matrix inverses (and RStudio) to find the change-of-coordinate matrix $P_{\mathcal{B}}^{-1}$ from basis ${\mathcal{S}}$ to the standard basis $\mathcal{B}$.
+* Find the coordinate vector with respect to a given basis.
+* Find the dimension of a vector space (or subspace) by finding or verifying a basis.
+* Find the determinant of a $2 \times 2$ matrix by hand.
+* Find the determinant of a $3 \times 3$ matrix by using row operations/cofactor expansion/permutation method.
+* Use RStudio to calculate the determinant of a square matrix.
+* Use $\det(A)$ to decide whether the square matrix $A$ is invertible.
+
+## Vocabulary
+
+You should know and be able to use and explain the following **terms** or **properties**. 
+
+* Every one of [these Important Definitions][Important Definitions]
+* Subspace
+* Null space and column space of a matrix
+* Kernel and Image of a linear transformation
+* Basis
+* Coordinate vector with respect to a basis
+* Change-of-coordinates matrix
+* The coordinate vector with respect to a basis
+* The dimension of a vector space (or a subspace)
+* Determinant
+
+## Conceptual Thinking
+
+I should understand and be able to explain the following **concepts**:
+
+* A vector space consists of a collection of vectors and all of their linear combinations.
+* A subspace is a subset of a vector space that is *also* a vector space by itself (closed under linear combinations).
+* The solutions to $A \mathsf{x} = \mathbb{0}$ form a subspace.
+* The span of the columns of $A$ form a subspace.
+* How the kernel and image of $T(\mathsf{x}) = Ax$ correspond to the nullspace and columnspace of $A$.
+* Every basis of a given vector space (or subspace) contains the same number of vectors.
+* Why every vector in a vector space has a unique representation as a linear combination of a given basis ${\mathcal{B}}$.
+* How dimension relates to span and linear independence.
+* Interpret $\det(A)$ as a measure the expansion/contraction of "volumes" in $\mathbb{R}^n$ under the linear transformation $T(\mathsf{x})=A\mathsf{x}$.
+
