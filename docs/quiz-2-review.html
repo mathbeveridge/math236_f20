@@ -389,8 +389,8 @@ Prove or disprove the following statements</p>
 </ol></li>
 <li><p>Let <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> be a linear transformation.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one. Prove that if <span class="math inline">\(\mathsf{v}_1, \ldots, \mathsf{v}_k\)</span> are linearly independent, then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_k)\)</span> are linearly independent.</p></li>
-<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \ldots, \mathsf{v}_k\)</span> span <span class="math inline">\(\mathbb{R}^n\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_k)\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span>.</p></li>
+<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> are linearly independent, then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p></li>
+<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_3)\)</span> span <span class="math inline">\(\mathbb{R}^2\)</span>.</p></li>
 </ol></li>
 <li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Find a basis for the column space and the null space of <span class="math inline">\(A\)</span>.
 <span class="math display">\[
@@ -498,32 +498,241 @@ A=\left[
 \]</span></p></li>
 <li><p>Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span>. What is the dimension of this nullspace?</p></li>
 </ol></li>
-<li><p>A <span class="math inline">\(5 \times 7\)</span> matrix <span class="math inline">\(A\)</span> contains 5 pivots. For each of <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>,</p>
+<li><p>A <span class="math inline">\(6 \times 8\)</span> matrix <span class="math inline">\(A\)</span> contains 5 pivots. For each of <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>,</p>
 <ul>
 <li>Determine the dimension of the subspace,</li>
-<li>Indicate whether it is subspace of <span class="math inline">\(\mathbb{R}^5\)</span> or <span class="math inline">\(\mathbb{R}^7\)</span>, and</li>
-<li>Decide how you would find a basis of the space. Answer your question as follows.</li>
+<li>Indicate whether it is subspace of <span class="math inline">\(\mathbb{R}^6\)</span> or <span class="math inline">\(\mathbb{R}^8\)</span>, and</li>
+<li>Decide how you would find a basis of the subspace.</li>
 </ul></li>
 </ol>
 </div>
 <div id="solutions-to-practice-problems-1" class="section level2">
 <h2><span class="header-section-number">17.3</span> Solutions to Practice Problems</h2>
 <ol style="list-style-type: decimal">
+<li><p>Here are the matrices to make the boats.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Shadow gray boat:
+<span class="math display">\[ 
+\begin{bmatrix} 1 &amp; 1  &amp; 0 \\ 0 &amp; -1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span><br />
+</li>
+<li>Fast blue boat:
+<span class="math display">\[ 
+\begin{bmatrix} 1 &amp; -0.25  &amp; 13 \\ 0 &amp; 1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span></li>
+<li>Funny yellow boat:
+<span class="math display">\[ 
+\begin{bmatrix} 0.35 &amp; -0.35  &amp; -3 \\ 0.35 &amp; 0.35 &amp; 8 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span></li>
+</ol></li>
+</ol>
+<p>And here is the update coded</p>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-46-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The inverse is
+<span class="math display">\[
+\begin{bmatrix}
+0 &amp; 1 &amp; 0 \\ 
+-5/18  &amp; 1/18  &amp;1/9 \\
+2/9 &amp; -4/9 &amp; 1/9
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 &amp; 1 &amp; 0 \\ 
+-0.278  &amp; 0.056  &amp;0.111 \\
+0.222 &amp; -0.444 &amp; 0.111
+\end{bmatrix}
+\]</span></li>
+</ol>
+<pre><code>##      [,1] [,2] [,3]       [,4]        [,5]      [,6]
+## [1,]    1    0    0  0.0000000  1.00000000 0.0000000
+## [2,]    0    1    0 -0.2777778  0.05555556 0.1111111
+## [3,]    0    0    1  0.2222222 -0.44444444 0.1111111</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>No <span class="math inline">\(T\)</span> cannot be an onto mapping by the Invertible Matrix Theorem. Since <span class="math inline">\(T\)</span> is not one-to-one, the mapping cannot be onto.</p></li>
 <li></li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math display">\[ 
-\begin{bmatrix} 1 &amp; 1  &amp; 0 \\ 0 &amp; -1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\]</span></li>
-<li><span class="math display">\[ 
-\begin{bmatrix} 1 &amp; -0.25  &amp; 13 \\ 0 &amp; 1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\]</span></li>
-<li><span class="math display">\[ 
-\begin{bmatrix} 0.35 &amp; -0.35  &amp; -3 \\ 0.35 &amp; 0.35 &amp; 8 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+<li><strong>True</strong></li>
+</ol>
+<pre><code>* Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
+* Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
+    * We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
+    *  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. </code></pre>
+<p>Therefore <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W\)</span>.</p>
+<pre><code>*  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
+    * We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
+    *  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
+
+Therefore $c \mathsf{v} \in U \cap W$.</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p><strong>False.</strong> Here is an example that shows this is not always true.
+Let <span class="math inline">\(V= \mathbb{R}^2\)</span>, <span class="math inline">\(U = \{ { x \choose 0} \mid x \in \mathbb{R} \}\)</span> and <span class="math inline">\(W= \{ { 0 \choose y} \mid y \in \mathbb{R} \}\)</span>. The set <span class="math inline">\(U \cup W\)</span> is not closed under addition. For example,
+<span class="math inline">\({1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W\)</span>.</p></li>
+<li><p><strong>True.</strong></p></li>
+</ol>
+<pre><code>*  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
+* Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then</code></pre>
+<p><span class="math display">\[
+(\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
+\]</span>
+and <span class="math inline">\(\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U\)</span> (because <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W\)</span> (because <span class="math inline">\(W\)</span> is a subspace).
+Therefore <span class="math inline">\((\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W\)</span>.</p>
+<pre><code>* Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then</code></pre>
+<p><span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}\)</span>. We know that <span class="math inline">\(c \mathsf{u} \in U\)</span> (since <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(c \mathsf{w} \in W\)</span> (since <span class="math inline">\(W\)</span> is a subspace). Therefore <span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W\)</span>.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-alpha">
+<li>Suppose that <span class="math inline">\(c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3) = 0\)</span>. We must show that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</li>
+</ol>
+*Since <span class="math inline">\(T\)</span> is a linear transformation, this means that <span class="math inline">\(T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0\)</span>.
+<ul>
+<li>Since <span class="math inline">\(T\)</span> is one-to-one and <span class="math inline">\(T(\mathbf{0}) = \mathbf{0}\)</span>, we must have <span class="math inline">\(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}\)</span>.</li>
+<li>Because $_1, _2, _3 $ are linearly independent, this means that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</li>
+</ul></li>
+</ol>
+<p>This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p>
+<pre><code>b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that</code></pre>
+<p><span class="math inline">\(\mathsf{w} = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)\)</span>. Here we go!</p>
+<pre><code>* Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
+* Since $\mathsf{v}_1, \mathsf{v}_2, \ldots ,\mathsf{v}_k $ span $V$, we know that there exist constants </code></pre>
+<p><span class="math inline">\(c_1, c_2, \ldots c_k\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k\)</span>
+* Therefore
+<span class="math display">\[
+\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + \cdots + c_3 T(\mathsf{v}_k)
+\]</span>
+because <span class="math inline">\(T\)</span> is a linear transformation.
+This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots T(\mathsf{v}_k)\)</span> span <span class="math inline">\(W\)</span>.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
+<span class="math display">\[
+\begin{bmatrix}
+1 \\1  \\ 2 \\ 1 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+0 \\1  \\ -2 \\ 0 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+0 \\0  \\ 1 \\ -1 
+\end{bmatrix}
+\]</span>
+and a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> is
+<span class="math display">\[
+\begin{bmatrix}
+-2 \\1  \\ 0 \\ 0 \\ 0 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+-2 \\0  \\ 1 \\ 1 \\ 0 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+1 \\0   \\ 1 \\ -2 \\ 1 
+\end{bmatrix}.
+\]</span></p></li>
+<li><p>Using RStudio we find:</p></li>
+</ol>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    2   -4
+## [2,]    3   10    2    8
+## [3,]    4   15    4    4</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    0 -2.0   16
+## [2,]    0    1  0.8   -4
+## [3,]    0    0  0.0    0</code></pre>
+<p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
+<span class="math display">\[
+\begin{bmatrix}
+1 \\ 3 \\ 4 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+5 \\ 10 \\ 15
+\end{bmatrix}.
+\]</span></p>
+<p>A basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> is
+<span class="math display">\[
+\begin{bmatrix}
+2 \\ -0.8 \\ 1 \\ 0 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+-16 \\ 4  \\ 0 \\ 1
+\end{bmatrix}.
+\]</span></p>
+<ol start="8" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2   -1
+## [2,]   -1   -1   -1
+## [3,]   -2    1   -8</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    0    3
+## [2,]    0    1   -2
+## [3,]    0    0    0</code></pre>
+<p>No they are not a basis. The corresponding matrix only has two pivots.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>A basis for <span class="math inline">\(\mathbb{R}^5\)</span> is
+<span class="math display">\[
+\begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix},
+\begin{bmatrix} 0\\ 1\\ 0\\ 0\\ 0\end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1\\ 0\\ 0 \end{bmatrix}
 \]</span></li>
 </ol>
-<p>And here is the update code</p>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-37-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>because these are basic columns in the given matrix. This will always work: place your desired vectors in the first columns. Since they are linearly independent, they will be basic columns. The remaining <span class="math inline">\(n\)</span> elementary basis vectors span $. So the columns of the matrix span <span class="math inline">\(\mathbb{R}^n\)</span> and Gaussian Elimination will identify <span class="math inline">\(n\)</span> pivots. The corresponding columns are a basis.</p>
+<ol start="10" style="list-style-type: decimal">
+<li>We need the matrices
+<span class="math display">\[
+P_{\cal  B} = 
+\begin{bmatrix}
+1 &amp; 1  &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 1 \\
+0  &amp; 0 &amp;  1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\qquad \mbox{and}  \qquad
+P_{\cal  B}^{-1} = 
+\begin{bmatrix}
+1 &amp; -1  &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0  &amp; 0 &amp;  1 &amp;-1 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span>
+The desired coordinate vectors are
+<span class="math display">\[
+\mathsf{w} = 
+\begin{bmatrix} 0 \\ -3 \\ -1 \\ -1 \end{bmatrix}_{\mathcal{S}},
+\qquad
+\mathsf{v} = 
+\begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}_{\mathcal{B}}
+\]</span>
+Here is the R code for this solution:</li>
+</ol>
+<pre><code>##      [,1]
+## [1,]    0
+## [2,]   -3
+## [3,]   -1
+## [4,]   -1</code></pre>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    3
+## [4,]    4</code></pre>
+<ol start="11" style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(\dim(S) = 3\)</span> and a basis for <span class="math inline">\(S\)</span> is
+<span class="math display">\[
+\begin{bmatrix} 1 \\ 1 \\ 0 \\ -1 \\2  \end{bmatrix}, \quad
+\begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1  \end{bmatrix}, \quad
+\begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \\1  \end{bmatrix}.
+\]</span></p></li>
+<li><p><span class="math inline">\(\dim(\mathrm{Nul}(A))=2\)</span> and a basis is
+<span class="math display">\[
+\begin{bmatrix} -3 \\ 2 \\ 1 \\ 0 \\0  \end{bmatrix}, \quad
+\begin{bmatrix} -1 \\ 2 \\ 0 \\ -1 \\1  \end{bmatrix}.
+\]</span></p></li>
+</ol></li>
+<li><ul>
+<li><span class="math inline">\(\mathrm{Col}(A)\)</span> has dimension 5, and it is a subspace of <span class="math inline">\(\mathbb{R}^6\)</span>. You would find a basis by taking the pivot columns of <span class="math inline">\(A\)</span>.</li>
+<li><span class="math inline">\(\mathrm{Nul}(A)\)</span> has dimension 3, and it is a subspace of <span class="math inline">\(\mathbb{R}^8\)</span>. You would find a basis by finding the parametric solution to <span class="math inline">\(A \mathsf{x}= \mathbb{0}\)</span>.</li>
+</ul></li>
+</ol>
 
 </div>
 </div>
