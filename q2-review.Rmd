@@ -352,15 +352,15 @@ A = cbind(c(1,1,2),c(-2,0,4),c(2,0,5),c(1,0,0),c(0,1,0),c(0,0,1))
 
   a. **True**
 
-    * Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
-    * Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
-        * We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
-        *  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. 
+      + Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
+      + Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
+            + We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
+            +  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. 
 Therefore $\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W$.
 
-    *  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
-        * We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
-        *  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
+      +  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
+          + We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
+          +  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
 
     Therefore $c \mathsf{v} \in U \cap W$.
 
@@ -372,34 +372,33 @@ ${1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W$.
 
   c. **True.**
 
-    *  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
-    * Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then
+      +  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
+      + Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then
 $$
 (\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
 $$
-    and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace).
-Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
+      and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace). Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
 
-    * Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then
+      + Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then
 $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mathsf{u} \in U$ (since $U$ is a subspace) and $c \mathsf{w} \in W$ (since $W$ is a subspace). Therefore $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W$.
 
 5. 
 
     a. Suppose that $c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) +  c_3 T(\mathsf{v}_3) = 0$. We must show that $c_1 = c_2 = c_3 = 0$. 
 
-    *Since $T$ is a linear transformation, this means that  $T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0$.
-    * Since $T$ is one-to-one and $T(\mathbf{0}) = \mathbf{0}$, we must have $c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}$.
-    * Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
+    + Since $T$ is a linear transformation, this means that  $T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0$.
+    + Since $T$ is one-to-one and $T(\mathbf{0}) = \mathbf{0}$, we must have $c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}$.
+    + Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
     
-This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
+      This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
 
     b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that
 $\mathsf{w} =  c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)$. Here we go!
 
-    * Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
-    * Since $\mathsf{v}_1, \mathsf{v}_2, \ldots ,\mathsf{v}_k $ span $V$, we know that there exist constants 
+    + Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
+    + Since $\mathsf{v}_1, \mathsf{v}_2, \ldots ,\mathsf{v}_k $ span $V$, we know that there exist constants 
 $c_1, c_2, \ldots c_k$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k$
-    *  Therefore
+    +  Therefore
 $$
 \mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + \cdots + c_3 T(\mathsf{v}_k)
 $$

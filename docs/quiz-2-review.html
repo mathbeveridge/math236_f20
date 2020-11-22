@@ -527,7 +527,7 @@ A=\left[
 </ol></li>
 </ol>
 <p>And here is the update coded</p>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-46-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-36-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>The inverse is
 <span class="math display">\[
@@ -553,56 +553,62 @@ A=\left[
 <li></li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li><strong>True</strong></li>
+<li><p><strong>True</strong></p>
+<ul>
+<li><p>Since <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are subspaces, we know that <span class="math inline">\(\mathbb{0} \in U\)</span> and <span class="math inline">\(\mathbb{0} \in W\)</span>. Therefore <span class="math inline">\(\mathbb{0} \in U \cap W\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathsf{v}_1 \in U \cap W\)</span> and <span class="math inline">\(\mathsf{v}_2 \in U \cap W\)</span>.
++ We know that <span class="math inline">\(\mathsf{v}_1 \in U\)</span> and <span class="math inline">\(\mathsf{v}_2 \in U\)</span>. Since <span class="math inline">\(U\)</span> is a subspace, we have <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U\)</span>.
++ We know that <span class="math inline">\(\mathsf{v}_1 \in W\)</span> and <span class="math inline">\(\mathsf{v}_2 \in W\)</span>. Since <span class="math inline">\(W\)</span> is a subspace, we have <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in W\)</span>.
+Therefore <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathsf{v} \in U \cap W\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span>.</p>
+<ul>
+<li>We know that <span class="math inline">\(\mathsf{v} \in U\)</span> and <span class="math inline">\(c \in R\)</span>. Since <span class="math inline">\(U\)</span> is a subspace, we have <span class="math inline">\(c \mathsf{v} \in U\)</span>.</li>
+<li>We know that <span class="math inline">\(\mathsf{v} \in W\)</span> and <span class="math inline">\(c \in R\)</span>. Since <span class="math inline">\(W\)</span> is a subspace, we have <span class="math inline">\(c \mathsf{v} \in W\)</span>.</li>
+</ul></li>
+</ul></li>
 </ol>
-<pre><code>* Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
-* Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
-    * We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
-    *  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. </code></pre>
-<p>Therefore <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W\)</span>.</p>
-<pre><code>*  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
-    * We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
-    *  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
-
-Therefore $c \mathsf{v} \in U \cap W$.</code></pre>
+<pre><code>Therefore $c \mathsf{v} \in U \cap W$.</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p><strong>False.</strong> Here is an example that shows this is not always true.
 Let <span class="math inline">\(V= \mathbb{R}^2\)</span>, <span class="math inline">\(U = \{ { x \choose 0} \mid x \in \mathbb{R} \}\)</span> and <span class="math inline">\(W= \{ { 0 \choose y} \mid y \in \mathbb{R} \}\)</span>. The set <span class="math inline">\(U \cup W\)</span> is not closed under addition. For example,
 <span class="math inline">\({1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W\)</span>.</p></li>
-<li><p><strong>True.</strong></p></li>
-</ol>
-<pre><code>*  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
-* Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then</code></pre>
-<p><span class="math display">\[
+<li><p><strong>True.</strong></p>
+<ul>
+<li><p>Since <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are subspaces, we know that <span class="math inline">\(\mathbb{0} \in U\)</span> and <span class="math inline">\(\mathbb{0} \in W\)</span>. Therefore <span class="math inline">\(\mathbb{0} = \mathbb{0} + \mathbb{0} \in U + W\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathsf{u}_1 + \mathsf{w}_1 \in U + W\)</span> and <span class="math inline">\(\mathsf{u}_1 + \mathsf{w}_2 \in U + W\)</span>, where <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2 \in U\)</span> and <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2 \in W\)</span>. Then
+<span class="math display">\[
 (\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
 \]</span>
-and <span class="math inline">\(\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U\)</span> (because <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W\)</span> (because <span class="math inline">\(W\)</span> is a subspace).
-Therefore <span class="math inline">\((\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W\)</span>.</p>
-<pre><code>* Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then</code></pre>
-<p><span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}\)</span>. We know that <span class="math inline">\(c \mathsf{u} \in U\)</span> (since <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(c \mathsf{w} \in W\)</span> (since <span class="math inline">\(W\)</span> is a subspace). Therefore <span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W\)</span>.</p>
+and <span class="math inline">\(\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U\)</span> (because <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W\)</span> (because <span class="math inline">\(W\)</span> is a subspace). Therefore <span class="math inline">\((\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathsf{u} + \mathsf{w} \in U + W\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span>. Then
+<span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}\)</span>. We know that <span class="math inline">\(c \mathsf{u} \in U\)</span> (since <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(c \mathsf{w} \in W\)</span> (since <span class="math inline">\(W\)</span> is a subspace). Therefore <span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W\)</span>.</p></li>
+</ul></li>
+</ol>
 <ol start="5" style="list-style-type: decimal">
 <li><ol style="list-style-type: lower-alpha">
 <li>Suppose that <span class="math inline">\(c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3) = 0\)</span>. We must show that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</li>
 </ol>
-*Since <span class="math inline">\(T\)</span> is a linear transformation, this means that <span class="math inline">\(T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0\)</span>.
 <ul>
-<li>Since <span class="math inline">\(T\)</span> is one-to-one and <span class="math inline">\(T(\mathbf{0}) = \mathbf{0}\)</span>, we must have <span class="math inline">\(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}\)</span>.</li>
-<li>Because $_1, _2, _3 $ are linearly independent, this means that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</li>
-</ul></li>
+<li><p>Since <span class="math inline">\(T\)</span> is a linear transformation, this means that <span class="math inline">\(T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(T\)</span> is one-to-one and <span class="math inline">\(T(\mathbf{0}) = \mathbf{0}\)</span>, we must have <span class="math inline">\(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}\)</span>.</p></li>
+<li><p>Because $_1, _2, _3 $ are linearly independent, this means that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</p>
+<p>This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Given <span class="math inline">\(\mathsf{w} \in W\)</span>. We must show that there exist constants <span class="math inline">\(c_1, c_2, c_3\)</span> such that
+<span class="math inline">\(\mathsf{w} = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)\)</span>. Here we go!</li>
 </ol>
-<p>This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p>
-<pre><code>b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that</code></pre>
-<p><span class="math inline">\(\mathsf{w} = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)\)</span>. Here we go!</p>
-<pre><code>* Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
-* Since $\mathsf{v}_1, \mathsf{v}_2, \ldots ,\mathsf{v}_k $ span $V$, we know that there exist constants </code></pre>
-<p><span class="math inline">\(c_1, c_2, \ldots c_k\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k\)</span>
-* Therefore
+<ul>
+<li>Since <span class="math inline">\(T\)</span> is onto, we know that there exists <span class="math inline">\(\mathsf{v} \in V\)</span> such that <span class="math inline">\(T(\mathsf{v}) = \mathsf{w}\)</span>.</li>
+<li>Since $_1, _2, ,_k $ span <span class="math inline">\(V\)</span>, we know that there exist constants
+<span class="math inline">\(c_1, c_2, \ldots c_k\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k\)</span></li>
+<li>Therefore
 <span class="math display">\[
 \mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + \cdots + c_3 T(\mathsf{v}_k)
 \]</span>
 because <span class="math inline">\(T\)</span> is a linear transformation.
-This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots T(\mathsf{v}_k)\)</span> span <span class="math inline">\(W\)</span>.</p>
-<ol start="6" style="list-style-type: decimal">
+This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots T(\mathsf{v}_k)\)</span> span <span class="math inline">\(W\)</span>.</li>
+</ul></li>
 <li><p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
 <span class="math display">\[
 \begin{bmatrix}
