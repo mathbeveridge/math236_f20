@@ -55,8 +55,54 @@ You should be able to perform these linear algebra tasks.
 ## Practice Problems
 
 
+1. Here is a picture of some boats.
 
-1. Find the inverse of the matrix
+<center>
+![](images/q2r-boat.png){width=60%}
+</center>
+
+The blue, yellow and gray boats are linear transformations of the red boat (using homogeneous coordinates). Find the $3 \times 3$ matrix corresponding to the linear transformation that creates:
+
+a. The shadow gray boat
+a. The fast blue boat
+a. The funny yellow boat.
+
+For your convenience, here is the code to draw the red boat as well as some commented code that you can adapt to create the other boats.
+
+
+```
+'```{r,fig.height=4,fig.width=4}
+
+# the red boat
+boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
+            c(-.5,11), c(-.5,3), c(2,3) )
+boat = rbind(boat,rep(1,11))
+
+##### update these matrices
+graymap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+bluemap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+yellowmap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+
+
+# plot all of the boats
+grayboat = graymap %*%  boat
+blueboat = bluemap %*%  boat
+yellowboat = yellowmap %*%  boat
+
+plot(boat[1,],boat[2,],type="n",xlim=c(-16,16),ylim=c(-16,16),xlab="x",ylab="y")
+abline(h=-16:16, v=-16:16, col="gray", lty="dotted")
+
+polygon(grayboat[1,], grayboat[2,], col = "gray", border = "gray")
+polygon(blueboat[1,], blueboat[2,], col = "blue", border = "gray")
+polygon(yellowboat[1,], yellowboat[2,], col = "yellow", border = "gray")
+polygon(boat[1,], boat[2,], col = "red", border = "blue")
+
+```
+
+
+
+
+2. Find the inverse of the matrix
 $$
 \left[
 \begin{array}{rrr}
@@ -218,6 +264,59 @@ $$
 
 
 
+
+
+
+
 ## Solutions to Practice Problems
 
 
+1. 
+
+a.
+$$ 
+\begin{bmatrix} 1 & 1  & 0 \\ 0 & -1 & 0 \\  0 & 0 & 1 \end{bmatrix}
+$$
+a.
+$$ 
+\begin{bmatrix} 1 & -0.25  & 13 \\ 0 & 1 & 0 \\  0 & 0 & 1 \end{bmatrix}
+$$
+a.
+$$ 
+\begin{bmatrix} 0.35 & -0.35  & -3 \\ 0.35 & 0.35 & 8 \\  0 & 0 & 1 \end{bmatrix}
+$$
+
+
+And here is the update code
+
+
+```{r,fig.height=4,fig.width=4}
+
+# the red boat
+boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
+            c(-.5,11), c(-.5,3), c(2,3) )
+boat = rbind(boat,rep(1,11))
+
+
+# updated mappings
+graymap = cbind(c(1,0,0), c(0,-1,0),c(0,0,1))
+bluemap = cbind(c(1,0,0), c(0,1,0),c(13,0,1))  %*% cbind(c(1,0,0), c(-.25,1,0),c(0,0,1))
+t=pi/4
+yellowmap = cbind(c(1,0,0), c(0,1,0),c(-3,8,1)) %*% cbind(c(cos(t),sin(t),0), c(-sin(t),cos(t),0),c(0,0,1)) %*% cbind(c(1/2,0,0),c(0,1/2,0),c(0,0,1))
+
+
+
+# plot all of the boats
+grayboat = graymap %*%  boat
+blueboat = bluemap %*%  boat
+yellowboat = yellowmap %*%  boat
+
+plot(boat[1,],boat[2,],type="n",xlim=c(-16,16),ylim=c(-16,16),xlab="x",ylab="y")
+abline(h=-16:16, v=-16:16, col="gray", lty="dotted")
+
+polygon(grayboat[1,], grayboat[2,], col = "gray", border = "gray")
+polygon(blueboat[1,], blueboat[2,], col = "blue", border = "gray")
+polygon(yellowboat[1,], yellowboat[2,], col = "yellow", border = "gray")
+polygon(boat[1,], boat[2,], col = "red", border = "blue")
+
+```

@@ -329,6 +329,45 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="practice-problems-1" class="section level2">
 <h2><span class="header-section-number">17.2</span> Practice Problems</h2>
 <ol style="list-style-type: decimal">
+<li>Here is a picture of some boats.</li>
+</ol>
+<center>
+<img src="images/q2r-boat.png" style="width:60.0%" />
+</center>
+<p>The blue, yellow and gray boats are linear transformations of the red boat (using homogeneous coordinates). Find the <span class="math inline">\(3 \times 3\)</span> matrix corresponding to the linear transformation that creates:</p>
+<ol style="list-style-type: lower-alpha">
+<li>The shadow gray boat</li>
+<li>The fast blue boat</li>
+<li>The funny yellow boat.</li>
+</ol>
+<p>For your convenience, here is the code to draw the red boat as well as some commented code that you can adapt to create the other boats.</p>
+<pre><code>&#39;```{r,fig.height=4,fig.width=4}
+
+# the red boat
+boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
+            c(-.5,11), c(-.5,3), c(2,3) )
+boat = rbind(boat,rep(1,11))
+
+##### update these matrices
+graymap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+bluemap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+yellowmap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
+
+
+# plot all of the boats
+grayboat = graymap %*%  boat
+blueboat = bluemap %*%  boat
+yellowboat = yellowmap %*%  boat
+
+plot(boat[1,],boat[2,],type=&quot;n&quot;,xlim=c(-16,16),ylim=c(-16,16),xlab=&quot;x&quot;,ylab=&quot;y&quot;)
+abline(h=-16:16, v=-16:16, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
+
+polygon(grayboat[1,], grayboat[2,], col = &quot;gray&quot;, border = &quot;gray&quot;)
+polygon(blueboat[1,], blueboat[2,], col = &quot;blue&quot;, border = &quot;gray&quot;)
+polygon(yellowboat[1,], yellowboat[2,], col = &quot;yellow&quot;, border = &quot;gray&quot;)
+polygon(boat[1,], boat[2,], col = &quot;red&quot;, border = &quot;blue&quot;)
+</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Find the inverse of the matrix
 <span class="math display">\[
 \left[
@@ -469,6 +508,22 @@ A=\left[
 </div>
 <div id="solutions-to-practice-problems-1" class="section level2">
 <h2><span class="header-section-number">17.3</span> Solutions to Practice Problems</h2>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math display">\[ 
+\begin{bmatrix} 1 &amp; 1  &amp; 0 \\ 0 &amp; -1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span></li>
+<li><span class="math display">\[ 
+\begin{bmatrix} 1 &amp; -0.25  &amp; 13 \\ 0 &amp; 1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span></li>
+<li><span class="math display">\[ 
+\begin{bmatrix} 0.35 &amp; -0.35  &amp; -3 \\ 0.35 &amp; 0.35 &amp; 8 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</span></li>
+</ol>
+<p>And here is the update code</p>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-37-1.png" width="75%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
