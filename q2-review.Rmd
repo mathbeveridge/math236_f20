@@ -275,7 +275,7 @@ $$
 
     a.  Shadow gray  boat:
 $$ 
-\begin{bmatrix} 1 & 1  & 0 \\ 0 & -1 & 0 \\  0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} 1 & 0  & 0 \\ 0 & -1 & 0 \\  0 & 0 & 1 \end{bmatrix}
 $$  
     a. Fast blue boat:
 $$ 
