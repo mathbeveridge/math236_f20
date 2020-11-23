@@ -49,7 +49,7 @@ You should be able to perform these linear algebra tasks.
 * determine if a vector is in a null space or column space
 * find a basis of a subspace
 * answer questions about the connections between all these ideas
-* write short proofs of basic statements using the important definitions
+* write short proofs of basic statements using the [Important Definitions][Important Definitions]
 
 
 ## Practice Problems
