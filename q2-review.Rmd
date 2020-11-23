@@ -132,7 +132,7 @@ Prove or disprove the following statements
 
     a. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is one-to-one. Prove that if $\mathsf{v}_1,  \mathsf{v}_2,  \mathsf{v}_3$ are linearly independent, then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
 
-    b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^3$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_3)$ span $\mathbb{R}^2$.
+    b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^3$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $\mathbb{R}^2$.
 
 
 
@@ -396,14 +396,14 @@ $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mat
 $\mathsf{w} =  c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)$. Here we go!
 
     + Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
-    + Since $\mathsf{v}_1, \mathsf{v}_2, \ldots ,\mathsf{v}_k $ span $V$, we know that there exist constants 
-$c_1, c_2, \ldots c_k$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k$
+    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ span $V$, we know that there exist constants 
+$c_1, c_2, c_3$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k$
     +  Therefore
 $$
-\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + \cdots + c_3 T(\mathsf{v}_k)
+\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_k)
 $$
   because $T$ is a linear transformation.
-This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots T(\mathsf{v}_k)$ span $W$.
+This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $W$.
 
 
 6. A basis for $\mathrm{Col}(A)$ is

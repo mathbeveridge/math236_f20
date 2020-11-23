@@ -390,7 +390,7 @@ Prove or disprove the following statements</p>
 <li><p>Let <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> be a linear transformation.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> are linearly independent, then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p></li>
-<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots, T(\mathsf{v}_3)\)</span> span <span class="math inline">\(\mathbb{R}^2\)</span>.</p></li>
+<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> span <span class="math inline">\(\mathbb{R}^3\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> span <span class="math inline">\(\mathbb{R}^2\)</span>.</p></li>
 </ol></li>
 <li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Find a basis for the column space and the null space of <span class="math inline">\(A\)</span>.
 <span class="math display">\[
@@ -600,14 +600,14 @@ and <span class="math inline">\(\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in
 </ol>
 <ul>
 <li>Since <span class="math inline">\(T\)</span> is onto, we know that there exists <span class="math inline">\(\mathsf{v} \in V\)</span> such that <span class="math inline">\(T(\mathsf{v}) = \mathsf{w}\)</span>.</li>
-<li>Since $_1, _2, ,_k $ span <span class="math inline">\(V\)</span>, we know that there exist constants
-<span class="math inline">\(c_1, c_2, \ldots c_k\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k\)</span></li>
+<li>Since $_1, _2, _3 $ span <span class="math inline">\(V\)</span>, we know that there exist constants
+<span class="math inline">\(c_1, c_2, c_3\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k\)</span></li>
 <li>Therefore
 <span class="math display">\[
-\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + \cdots + c_3 T(\mathsf{v}_k)
+\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_k)
 \]</span>
 because <span class="math inline">\(T\)</span> is a linear transformation.
-This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), \ldots T(\mathsf{v}_k)\)</span> span <span class="math inline">\(W\)</span>.</li>
+This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> span <span class="math inline">\(W\)</span>.</li>
 </ul></li>
 <li><p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
 <span class="math display">\[
