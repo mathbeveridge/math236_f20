@@ -361,8 +361,7 @@ Therefore $\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W$.
       +  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
           + We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
           +  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
-
-    Therefore $c \mathsf{v} \in U \cap W$.
+      + Therefore $c \mathsf{v} \in U \cap W$.
 
 
 
@@ -377,7 +376,8 @@ ${1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W$.
 $$
 (\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
 $$
-      and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace). Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
+      and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace). 
+      + Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
 
       + Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then
 $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mathsf{u} \in U$ (since $U$ is a subspace) and $c \mathsf{w} \in W$ (since $W$ is a subspace). Therefore $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W$.
