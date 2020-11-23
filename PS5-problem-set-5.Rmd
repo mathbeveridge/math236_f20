@@ -70,7 +70,7 @@ b. Show that $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$ span  $\mathbb{R}^3$ as 
 
 
 
-## A Vector that is in Both $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$.
+## A Vector that is in Both Col(A) and Nul}(A)
 
 Give a $3 \times 3$ matrix $A$ for which the vector $\mathsf{v} = \begin{bmatrix}3 \\ -2 \\ 5   \end{bmatrix}$ is in both $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$. Be sure to demonstrate that $\mathsf{v} \in \mathrm{Col}(A)$ and $\mathsf{v} \in \mathrm{Nul}(A)$.
 

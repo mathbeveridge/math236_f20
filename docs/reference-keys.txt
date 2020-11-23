@@ -29,7 +29,7 @@ problem-set-5
 a-subspace-from-two-linear-transformations
 getting-into-a-subspace
 creating-a-basis-from-another-basis.
-a-vector-that-is-in-both-mathrmcola-and-mathrmnula.
+a-vector-that-is-in-both-cola-and-nula
 changing-coordinate-systems
 important-definitions
 week-1-learning-goals
