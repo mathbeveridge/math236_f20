@@ -287,10 +287,10 @@ $$
 $$
 
 
-And here is the update coded
+And here is the updated code
 
-
-```{r,fig.height=4,fig.width=4}
+```
+'```{r,fig.height=4,fig.width=4}
 
 # the red boat
 boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),

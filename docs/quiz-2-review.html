@@ -526,8 +526,36 @@ A=\left[
 \]</span></li>
 </ol></li>
 </ol>
-<p>And here is the update coded</p>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-36-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>And here is the updated code</p>
+<pre><code>&#39;```{r,fig.height=4,fig.width=4}
+
+# the red boat
+boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
+            c(-.5,11), c(-.5,3), c(2,3) )
+boat = rbind(boat,rep(1,11))
+
+
+# updated mappings
+graymap = cbind(c(1,0,0), c(0,-1,0),c(0,0,1))
+bluemap = cbind(c(1,0,0), c(0,1,0),c(13,0,1))  %*% cbind(c(1,0,0), c(-.25,1,0),c(0,0,1))
+t=pi/4
+yellowmap = cbind(c(1,0,0), c(0,1,0),c(-3,8,1)) %*% cbind(c(cos(t),sin(t),0), c(-sin(t),cos(t),0),c(0,0,1)) %*% cbind(c(1/2,0,0),c(0,1/2,0),c(0,0,1))
+
+
+
+# plot all of the boats
+grayboat = graymap %*%  boat
+blueboat = bluemap %*%  boat
+yellowboat = yellowmap %*%  boat
+
+plot(boat[1,],boat[2,],type=&quot;n&quot;,xlim=c(-16,16),ylim=c(-16,16),xlab=&quot;x&quot;,ylab=&quot;y&quot;)
+abline(h=-16:16, v=-16:16, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
+
+polygon(grayboat[1,], grayboat[2,], col = &quot;gray&quot;, border = &quot;gray&quot;)
+polygon(blueboat[1,], blueboat[2,], col = &quot;blue&quot;, border = &quot;gray&quot;)
+polygon(yellowboat[1,], yellowboat[2,], col = &quot;yellow&quot;, border = &quot;gray&quot;)
+polygon(boat[1,], boat[2,], col = &quot;red&quot;, border = &quot;blue&quot;)
+</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>The inverse is
 <span class="math display">\[
