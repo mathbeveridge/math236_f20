@@ -132,7 +132,7 @@ Prove or disprove the following statements
 
     a. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is one-to-one. Prove that if $\mathsf{v}_1,  \mathsf{v}_2,  \mathsf{v}_3$ are linearly independent, then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
 
-    b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^3$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $\mathbb{R}^2$.
+    b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $\mathbb{R}^m$.
 
 
 
