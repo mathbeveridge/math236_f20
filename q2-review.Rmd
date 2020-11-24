@@ -121,8 +121,8 @@ $T(\mathsf{u}) = T(\mathsf{v})$ for some pair of distinct vectors $\mathsf{u}, \
 
 1. Let $U$ and $W$ be subspaces of a vector space $\mathbb{R}^n$. 
 Prove or disprove the following statements
-    a. $U \cap W = \{ \mathsf{v} \in V \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}$ is a subspace
-    b. $U \cup W = \{ \mathsf{v} \in V \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}$ is a subspace
+    a. $U \cap W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}$ is a subspace
+    b. $U \cup W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}$ is a subspace
     c. $U+W = \{\mathsf{u} + \mathsf{w} \mid \mathsf{u} \in U \mbox{ and } \mathsf{w} \in W \}$ is a subspace
 
 
@@ -395,8 +395,8 @@ $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mat
     b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that
 $\mathsf{w} =  c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)$. Here we go!
 
-    + Since $T$ is onto, we know that there exists $\mathsf{v} \in V$ such that $T(\mathsf{v}) = \mathsf{w}$.
-    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ span $V$, we know that there exist constants 
+    + Since $T$ is onto, we know that there exists $\mathsf{v} \in \mathbb{R}^n$ such that $T(\mathsf{v}) = \mathsf{w}$.
+    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ span $\mathbb{R}^n$, we know that there exist constants 
 $c_1, c_2, c_3$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k$
     +  Therefore
 $$
