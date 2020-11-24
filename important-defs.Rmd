@@ -1,0 +1,81 @@
+# (PART) Concepts of Linear Algebra  {-}
+
+
+# Important Definitions
+
+
+span 
+
+: A set of vectors $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ **span** a vector space $V$ if for every $\mathsf{v} \in V$ there exist a set of scalars (weights) $c_1, c_2, \ldots, c_n \in \mathbb{R}$ such that 
+$$
+\mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
+$$
+If $A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]$ is the matrix with these vectors in the columns, then this is the same as saying that $\mathsf{x} = [c_1, \ldots, c_n]^{\top}$ is a solution to $A x  = \mathsf{v}$.
+
+linear independence
+
+: A set of vectors $\mathsf{v}_1, \mathsf{v}_2,\ldots, \mathsf{v}_n$ are **linearly independent** if the only way to write 
+$$
+\mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
+$$
+is with $c_1 = c_2 = \cdots = c_n = 0$. This is the same as saying that $A x = \mathsf{0}$ has only the trivial solution.
+
+
+linear dependence
+
+: Conversely, a set of vectors $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ are **linearly dependent** if there exist scalars $c_1, c_2,\ldots, c_n \in \mathbb{R}$ that are **not all equal to 0** such that
+$$
+\mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
+$$
+This is called a **dependence relation** among the vectors. This is the same as saying that $\mathsf{x} = [c_1, c_2, \ldots, c_n]^{\top}$ is a nontrivial solution to $A \mathsf{x} = \mathsf{0}$.
+
+
+linear transformation
+
+: A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is a **linear transformation** when: 
+
+    * $T(\mathsf{u} + \mathsf{v}) = T(\mathsf{u}) + T(\mathsf{v})$ for all $\mathsf{u}, \mathsf{v} \in \mathbb{R}^n$ (preserves addition)
+    * $T(c \mathsf{u} ) = c T(\mathsf{u})$ for all $\mathsf{u} \in \mathbb{R}^n$ and $c \in \mathbb{R}$.
+
+It follows from these that also $T(\mathsf{0}) = \mathsf{0}$ (preserves scalar multiplication).
+
+one-to-one 
+
+: A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is a **one-to-one** when:
+
+<center>
+for all $\mathsf{y} \in \mathbb{R}^m$ there is **at most** one $\mathsf{x} \in \mathbb{R}^n$ such that $T(\mathsf{x}) = \mathsf{y}$.
+</center>
+
+onto 
+
+: A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is a **onto** when:
+
+<center>
+for all $\mathsf{y} \in \mathbb{R}^m$ there is **at least** one $\mathsf{x} \in \mathbb{R}^n$ such that $T(\mathsf{x}) = \mathsf{y}$.
+</center>
+
+subspace
+
+: A subset $S \subseteq \mathbb{R}^n$ is a **subspace** when:
+
+    * $\mathsf{u} + \mathsf{v}  \in S$ for all $\mathsf{u}, \mathsf{v} \in S$ (closed under addition)
+    * $c \mathsf{u} \in S$ for all $\mathsf{u}\in S$ and $c \in \mathbb{R}$ (closed under scalar multiplication)
+
+It follows from these that also $\mathsf{0} \in S$.
+
+
+
+basis
+
+: A basis of a vector space (or subspace) $V$ is a set of vectors $\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}$  in $V$ such that
+
+    * $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ span $V$
+    * $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ are linearly independent
+
+Equivalently, one can say that $\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}$ is a basis of $V$ if for every vector $\mathsf{v} \in V$ there is a **unique** set of scalars $c_1, \ldots, c_n$ such that
+$$
+\mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
+$$
+(the fact that there is a set of vectors comes from the span; the fact that they are unique comes from linear independence).
+
