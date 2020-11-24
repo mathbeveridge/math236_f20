@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 1 Problem Set 1 | MATH 236: Linear Algebra</title>
+  <title>Vector 16 Dynamical Systems in 2D | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 1 Problem Set 1 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 16 Dynamical Systems in 2D | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 1 Problem Set 1 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 16 Dynamical Systems in 2D | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="problem-set-2.html"/>
+<link rel="prev" href="fractals.html"/>
+<link rel="next" href="quiz-1-review.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -290,163 +290,144 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-1" class="section level1">
-<h1><span class="header-section-number">Vector 1</span> Problem Set 1</h1>
-<ul>
-<li>Due: Tuesday November 3 by 11:55pm CST.</li>
-<li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS1-problem-set-1.Rmd">Rmd source file for this problem set</a>.</li>
-</ul>
-<div id="characterize-the-solution-set" class="section level2">
-<h2><span class="header-section-number">1.1</span> Characterize the Solution Set</h2>
-<p>The following augmented matrices are in row echelon form. Decide whether the set of solutions is a point, line, plane, or the empty set in 3-space. Briefly justify your answer.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 4 \\ 0 &amp; 1 &amp; 4 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 2 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; 3 &amp; -1 &amp; 5 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 1 &amp; -1 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7\\ 0 &amp; 0 &amp; 0 &amp; 1\\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccc|c} 0 &amp; 1 &amp; 0 &amp; 6 \\ 0 &amp; 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
-</ol>
-</div>
-<div id="find-the-parametric-solution" class="section level2">
-<h2><span class="header-section-number">1.2</span> Find the Parametric Solution</h2>
-<p>Each of the following matrices is the reduced row echelon form of the augmented matrix of a system of linear equations. Give the general solution to each system.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 3 &amp; 0 &amp; -2 &amp; 5\\ 0 &amp; 0 &amp; 1 &amp; 4 &amp; -2 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{ccccc|c} 1 &amp; 0 &amp; 4 &amp; 0 &amp; 3 &amp; 6\\ 0 &amp; 1 &amp; 1 &amp; 0 &amp; -2&amp; -8 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 &amp; 3 \\ \end{array} \right]\)</span></p></li>
-<li><p><span class="math inline">\(\left[ \begin{array}{cccc|c} 1 &amp; 4 &amp; 0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; 1 &amp; 7 &amp; 6\\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\)</span></p></li>
-</ol>
-</div>
-<div id="elementary-row-operations-are-reversible" class="section level2">
-<h2><span class="header-section-number">1.3</span> Elementary row operations are reversible</h2>
-<p>In each case below, an elementary row operation turns the matrix <span class="math inline">\(A\)</span> into the matrix <span class="math inline">\(B\)</span>. For each of them,</p>
-<ul>
-<li>Describe the row operation that turns <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, and</li>
-<li>Describe the row operation that turns <span class="math inline">\(B\)</span> into <span class="math inline">\(A\)</span>.</li>
-</ul>
-<p>Give your answers in the form: “scale <span class="math inline">\(R_2\)</span> by 3” or “swap <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_4\)</span>” or “replace <span class="math inline">\(R_3\)</span> with <span class="math inline">\(R_3 + \frac{1}{5} R_1\)</span>.”</p>
-<ol style="list-style-type: decimal">
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 0 &amp; 7 &amp; 0 &amp; -4 \\
-\end{array}
-\right]\]</span></li>
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
-1 &amp; -2 &amp; 2 &amp; 1 \\
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\]</span></li>
-<li><span class="math display">\[A=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 2 &amp; 8 &amp; 2 &amp; -4 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\longrightarrow 
-B=\left[
-\begin{array}{cccc}
- 1 &amp; 1 &amp; 1 &amp; 3 \\
- 1 &amp; -2 &amp; 2 &amp; 1 \\
- 1 &amp; 4 &amp; 1 &amp; -2 \\
- 3 &amp; 1 &amp; 6 &amp; -1 \\
-\end{array}
-\right]\]</span></li>
-</ol>
-</div>
-<div id="traffic-flow" class="section level2">
-<h2><span class="header-section-number">1.4</span> Traffic Flow</h2>
-<p>Below you find a section of one-way streets in downtown St Paul, where the arrows indicate traffic direction.
-The traffic control center has installed electronic sensors that count the numbers of vehicles passing through the 6
-streets that lead into and out of this area. Assume that the total flow that enters each intersection equals the the total flow that leaves
-each intersection (we will ignore parking and staying).</p>
-<center>
-<p><img src="images/ps1-traffic.png" style="width:50.0%" /></p>
-</center>
-<ol style="list-style-type: decimal">
-<li><p>Create a system of linear equations to find the possible flow values for the inner streets <span class="math inline">\(x_1, x_2, x_3, x_4\)</span>.</p></li>
-<li><p>Use RStudio to find the solution set. Write your answer in parametric form.</p></li>
-<li><p>Your answer to part 2 finds an infinite solution set. In terms of <strong>traffic flow</strong>, explain why there can be more than one solution. Thinking about cars traveling along streets, why is there some flexibility in the overall flow of cars?</p></li>
-<li><p>Now critique the model as presented. What solutions to the linear system are problematic for our original traffic flow problem? What additional conditions should we require for a valid solution?</p></li>
-</ol>
-</div>
-<div id="parabolas-through-two-points" class="section level2">
-<h2><span class="header-section-number">1.5</span> Parabolas Through Two Points</h2>
-<p>You will find the family of all possible parabolas
+<div id="dynamical-systems-in-2d" class="section level1">
+<h1><span class="header-section-number">Vector 16</span> Dynamical Systems in 2D</h1>
+<p>Let <span class="math inline">\(A\)</span> be a square <span class="math inline">\(n \times n\)</span> matrix and let <span class="math inline">\(\mathsf{x}_0 \in \mathbb{R}^n\)</span>. A <strong>dynamical system</strong> is a sequence of vectors <span class="math inline">\(\mathsf{x}_0,\mathsf{x}_1,\mathsf{x}_2, \ldots, \mathsf{x}_t, \ldots\)</span> where
 <span class="math display">\[
-f(x) = a x^2 + b x + c
+\mathsf{x}_{t} = A \mathsf{x}_{t-1} = A^t \mathsf{x}_0 \quad \mbox{for} \quad t \geq 1.
 \]</span>
-through two given points. Note that there will be an infinite number of such polynomials: there are three unknowns, but only two constraints. So there will be at least one free variable. Here are the plots of the two different families of parabolas that you will consider.</p>
-<center>
-<img src="images/ps1-parab1.png" style="width:40.0%" />
-<img src="images/ps1-parab2.png" style="width:40.0%" />
-</center>
-<ol style="list-style-type: decimal">
-<li><p>For each pair of points, (a) create linear system that represents the problem (b) use RStudio to find the RREF of the augmented matrix for the system and (c) write down the general formula for the family of parabolas <span class="math inline">\(f(x)\)</span> that contain the points.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(p_1 = (1,0)\)</span> and <span class="math inline">\(p_2 = (5,0)\)</span></p></li>
-<li><p><span class="math inline">\(q_1= (1,-3)\)</span> and <span class="math inline">\(q_2 = (5,10)\)</span></p></li>
-</ol></li>
-<li><p>Part 1.1 characterizes the family of parabolas that contain the points
-<span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>. Let’s refer to this family of parabolas as our “<span class="math inline">\(p_1,p_2\)</span> family.” Pick any two functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> from this <span class="math inline">\(p_1,p_2\)</span> family of parabolas. Now consider the parabola
+The sequence <span class="math inline">\(\mathsf{x}_0,\mathsf{x}_1,\mathsf{x}_2, \ldots, \mathsf{x}_t, \ldots\)</span> is called the <strong>trajectory</strong> for initial vector <span class="math inline">\(\mathsf{x}_0\)</span>.</p>
+<p>A dynamical system evolves over time. The long-term behavior is governed by the eigenvalues of matrix <span class="math inline">\(A\)</span>
+We will look at some <span class="math inline">\(2 \times 2\)</span> dynamical systems to develop some intuition about eigensystems.</p>
+<div id="helper-function-to-plot-dynamical-systems" class="section level2">
+<h2><span class="header-section-number">16.1</span> Helper Function to Plot Dynamical Systems</h2>
+<p>I have written some code that makes some helpful plots. You should run this code chunk before the others.</p>
+</div>
+<div id="our-first-example" class="section level2">
+<h2><span class="header-section-number">16.2</span> Our first example</h2>
+<p>Let’s start by looking at the example from the video
 <span class="math display">\[
-g(x) = g_1(x) - g_2(x).
-\]</span>
-Show that <span class="math inline">\(g(1)=0\)</span> and <span class="math inline">\(g(5)=0\)</span>. This means that <span class="math inline">\(g(x)\)</span> is also in our <span class="math inline">\(p_1,p_2\)</span> family! (That’s really cool!)</p></li>
-<li><p>Part 1.2 characterizes the family of parabolas that contain the points
-<span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span>. Let’s refer to this family of parabolas as our “<span class="math inline">\(q_1,q_2\)</span> family.” Pick any two functions <span class="math inline">\(h_1(x)\)</span> and <span class="math inline">\(h_2(x)\)</span> in this <span class="math inline">\(q_1,q_2\)</span> family. Now consider the parabola
-<span class="math display">\[
-h(x) = h_1(x) - h_2(x).
-\]</span>
-Show that <span class="math inline">\(h(1) \neq -3\)</span> and <span class="math inline">\(h(5) \neq 10\)</span>. This means that <span class="math inline">\(h(x)\)</span> is NOT in our <span class="math inline">\(q_1,q_2\)</span> family. (So this family is not as nice as the previous one.)</p></li>
-<li><p>Now explain why the parabola <span class="math inline">\(h(x)\)</span> from part 3 is actually a member of the <span class="math inline">\(p_1, p_2\)</span> family. (So maybe this family is nicer than we thought!)</p></li>
-</ol>
-<!-- 
-4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular: 
-    + What special property of the $p_1,p_2$ family leads to the nice behavior of $g(x)$ part 2? (Or equivalently: what goes wrong for the $q_1,q_2$ family in part 3?) 
-     + What **can** you say about the parabola $h(x) = h_1(x) - h_2(x)$ in part 3? 
-     + What is the connection between the $q_1, q_2$ family and the $p_1, p_2$ family? 
--->
-<p><strong>Remark:</strong> This problem is about families of parabolas. But at its core, this is actually a problem about linear algebra.</p>
+A = \frac{1}{30}
+\begin{bmatrix}
+31 &amp; 4 \\ 2 &amp; 29
+\end{bmatrix}.
+\]</span></p>
+<p>Here is some code that creates a single trajectory for <span class="math inline">\(0 \leq t \leq 30\)</span> starting at
+<span class="math inline">\(\mathsf{x}_0 = \begin{bmatrix} -0.5 &amp; 1 \end{bmatrix}.\)</span>
+The colors of the points follow the rainbow ordering at <span class="math inline">\(t\)</span> increases.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="dynamical-systems-in-2d.html#cb58-1"></a>A =<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">30</span> <span class="op">*</span><span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">31</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">29</span>))</span>
+<span id="cb58-2"><a href="dynamical-systems-in-2d.html#cb58-2"></a>x0 =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>,<span class="dv">1</span>)</span>
+<span id="cb58-3"><a href="dynamical-systems-in-2d.html#cb58-3"></a></span>
+<span id="cb58-4"><a href="dynamical-systems-in-2d.html#cb58-4"></a><span class="co"># initialize the plot</span></span>
+<span id="cb58-5"><a href="dynamical-systems-in-2d.html#cb58-5"></a><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>),<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
+<span id="cb58-6"><a href="dynamical-systems-in-2d.html#cb58-6"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">5</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">5</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb58-7"><a href="dynamical-systems-in-2d.html#cb58-7"></a></span>
+<span id="cb58-8"><a href="dynamical-systems-in-2d.html#cb58-8"></a></span>
+<span id="cb58-9"><a href="dynamical-systems-in-2d.html#cb58-9"></a><span class="kw">plot_traj</span>(A,x0,<span class="dv">30</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/dynsys1-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>We get a more complete picture when we plot multiple trajectories at once.
+So I have written a helper function to plot the trajectories of a grid of points. It also plots the eigenspaces for the matrix. You can specify</p>
 <ul>
-<li>Obviously, we used linear algebra to solve part 1, but there is linear algebra in the other parts as well!</li>
-<li>We define <span class="math inline">\(g(x) = g_1(x) - g_2(x)\)</span> by taking a <strong>linear combination</strong> of two functions. (Just like we take linear combinations of vectors.)</li>
-<li>What leads to the “nice” behavior of the <span class="math inline">\(p_1, p_2\)</span> family in part 2? It’s because the <span class="math inline">\(y\)</span>-values of the constraining points are both 0. We will soon learn about <strong>homogeneous</strong> linear systems whose right hand sides are all zero. These homogeneous systems have some very special properties.</li>
-<li>The <span class="math inline">\(q_1, q_2\)</span> family is “not nice” because it a <strong>nonhomogenous system</strong>.</li>
-<li>Just as there is a connection betwen the <span class="math inline">\(p_1,p_2\)</span> family and the <span class="math inline">\(q_1, q_2\)</span> family, we will soon learn that there is a connection between homogeneous systems and nonhomogeneous systems.</li>
+<li>the matrix A</li>
+<li>the number of iterations</li>
+<li>the size of the square where the initial points lie</li>
+<li>the size of the plot</li>
+<li>the number of points along the side of the grid</li>
 </ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="dynamical-systems-in-2d.html#cb59-1"></a>A =<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">30</span> <span class="op">*</span><span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">31</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">29</span>))</span>
+<span id="cb59-2"><a href="dynamical-systems-in-2d.html#cb59-2"></a></span>
+<span id="cb59-3"><a href="dynamical-systems-in-2d.html#cb59-3"></a><span class="kw">trajectory_plot</span>(A, <span class="dt">t=</span><span class="dv">30</span>, <span class="dt">datamax=</span><span class="dv">5</span>, <span class="dt">plotmax=</span><span class="dv">15</span>, <span class="dt">numpoints=</span><span class="dv">5</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/dynsys2-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<pre><code>## lambda= 1.1 and lambda= 0.9</code></pre>
+<p>Perhaps this system is best understood by comparing what we see with the eigenvector and eigenvalues.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="dynamical-systems-in-2d.html#cb61-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
+<pre><code>## eigen() decomposition
+## $values
+## [1] 1.1 0.9
+## 
+## $vectors
+##           [,1]       [,2]
+## [1,] 0.8944272 -0.7071068
+## [2,] 0.4472136  0.7071068</code></pre>
+<p>We can see that we have slight expansion along <span class="math inline">\([ 2, 1]^{\top}\)</span> and slight contraction along <span class="math inline">\([-1,1]\)</span>. The long term behavior is an expansion in the direction of <span class="math inline">\([2, 1]^{\top}\)</span>.</p>
+</div>
+<div id="your-turn-8" class="section level2">
+<h2><span class="header-section-number">16.3</span> Your Turn</h2>
+<p>Now it’s your turn to explore some dynamical systems.</p>
+<ul>
+<li>Create trajectory plots for each of these dynamical systems.</li>
+<li>Characterize the long-term behavior.
+<ul>
+<li>What direction to vectors converge to?</li>
+<li>Do magnitudes increase? decrease? stabilize?</li>
+</ul></li>
+<li>Calculate the eigenvectors and eigenvalues and compare them to your plot.
+<ul>
+<li>The eigensystem should tell the same story as your plot.</li>
+</ul></li>
+</ul>
+<p>If your original plot is confusing, <strong>try changing the parameters</strong> (initial square size, plot size, number of grid points).</p>
+<p>Here is some code for you to adapt for the examples.</p>
+<pre><code>&#39;```{r, echo=TRUE}
+A = cbind(c(1,0),c(0,1))
+
+trajectory_plot(A, t=30, datamax=5, plotmax=15, numpoints=5)
+
+eigen(A)
+</code></pre>
+<div id="example-1" class="section level3">
+<h3><span class="header-section-number">16.3.1</span> Example 1</h3>
+<p><span class="math display">\[
+A =  \frac{1}{20}
+\begin{bmatrix}
+24&amp; -6 \\
+1 &amp; 19
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="example-2" class="section level3">
+<h3><span class="header-section-number">16.3.2</span> Example 2</h3>
+<p><span class="math display">\[
+A =  \frac{1}{60}
+\begin{bmatrix}
+55&amp; -8 \\
+-1 &amp; 53
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="example-3" class="section level3">
+<h3><span class="header-section-number">16.3.3</span> Example 3</h3>
+<p><span class="math display">\[
+A =  \frac{1}{110}
+\begin{bmatrix}
+106&amp; 12 \\
+6 &amp; 92
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="example-4" class="section level3">
+<h3><span class="header-section-number">16.3.4</span> Example 4</h3>
+<p><span class="math display">\[
+A =  \frac{1}{16}
+\begin{bmatrix}
+17&amp; -15 \\
+15 &amp; 17
+\end{bmatrix}
+\]</span></p>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="problem-set-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fractals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

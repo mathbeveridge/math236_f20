@@ -1,4 +1,4 @@
-tab:unnamed-chunk-16
+tab:unnamed-chunk-126
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -88,6 +88,14 @@ fractals
 transforming-my-house.
 watching-a-series-of-points.
 here-are-some-from-httppaulbourke.netfractalsifs
+dynamical-systems-in-2d
+helper-function-to-plot-dynamical-systems
+our-first-example
+your-turn-8
+example-1
+example-2
+example-3
+example-4
 quiz-1-review
 overview
 vocabulary-and-concepts
