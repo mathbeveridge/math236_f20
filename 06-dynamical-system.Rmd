@@ -54,7 +54,7 @@ trajectory_plot <- function(mat, t=20, datamax=5, plotmax=10, numpoints=10, show
   if (showEigenspaces) {
     eigen = eigen(A)
     
-    mylabel = cat('lambda=', eigen$values[1], 'and lambda=', eigen$values[2])
+    #mylabel = cat('lambda=', eigen$values[1], 'and lambda=', eigen$values[2])
     #title(xlab=mylabel)
     
     v1 = zapsmall(eigen$vectors[,1])
