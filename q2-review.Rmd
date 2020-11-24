@@ -382,7 +382,7 @@ $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mat
 
     + Since $T$ is a linear transformation, this means that  $T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0$.
     + Since $T$ is one-to-one and $T(\mathbf{0}) = \mathbf{0}$, we must have $c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}$.
-    + Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
+    + Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
     
       This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
 
@@ -390,7 +390,7 @@ $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mat
 $\mathsf{w} =  c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)$. Here we go!
 
     + Since $T$ is onto, we know that there exists $\mathsf{v} \in \mathbb{R}^n$ such that $T(\mathsf{v}) = \mathsf{w}$.
-    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3 $ span $\mathbb{R}^n$, we know that there exist constants 
+    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$, we know that there exist constants 
 $c_1, c_2, c_3$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k$
     +  Therefore
 $$
@@ -458,13 +458,36 @@ $$
 
 8.
 
-```{r}
+```{r echo=TRUE}
 A =  cbind(c(1,-1,-2),c(2,-1,1),c(-1,-1,-8))
 A
 rref(A)
 ```
 
-No they are not a basis. The  corresponding matrix only has two pivots.
+No they are not a basis. The  corresponding matrix only has two pivots. Let's add the three elementary vectors to create matrix $B$ and then row reduce.
+
+```{r echo=TRUE}
+B =  cbind(A, c(1,0,0),c(0,1,0),c(0,0,1))
+B
+rref(B)
+```
+
+From this matrix, we can see  that the  vectors
+$$
+\begin{bmatrix}
+1 \\ -1 \\ -2 
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+2 \\ -1 \\ 1 
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+1 \\ 0 \\ 0 
+\end{bmatrix}.
+$$
+are  linearly independent because they correspond to the basis columns of $B$.
+
 
 9. A basis for $\mathbb{R}^5$ is
 $$
