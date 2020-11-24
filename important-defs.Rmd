@@ -35,9 +35,9 @@ linear transformation
 : A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is a **linear transformation** when: 
 
     * $T(\mathsf{u} + \mathsf{v}) = T(\mathsf{u}) + T(\mathsf{v})$ for all $\mathsf{u}, \mathsf{v} \in \mathbb{R}^n$ (preserves addition)
-    * $T(c \mathsf{u} ) = c T(\mathsf{u})$ for all $\mathsf{u} \in \mathbb{R}^n$ and $c \in \mathbb{R}$.
+    * $T(c \mathsf{u} ) = c T(\mathsf{u})$ for all $\mathsf{u} \in \mathbb{R}^n$ and $c \in \mathbb{R}$  (preserves scalar multiplication).
 
-It follows from these that also $T(\mathsf{0}) = \mathsf{0}$ (preserves scalar multiplication).
+It follows from these that also $T(\mathsf{0}) = \mathsf{0}$.
 
 one-to-one 
 
