@@ -2,6 +2,8 @@
 
 # Dynamical Systems in 2D
 
+[Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/06-dynamical-system.Rmd)
+
 
 Let $A$ be a square $n \times n$ matrix and let $\mathsf{x}_0 \in \mathbb{R}^n$. A **dynamical system** is a sequence of vectors $\mathsf{x}_0,\mathsf{x}_1,\mathsf{x}_2, \ldots, \mathsf{x}_t, \ldots$ where
 $$
@@ -16,7 +18,7 @@ We will look at some $2 \times 2$ dynamical systems to develop some intuition ab
 
 I have written some code that makes some helpful plots. You should run this code chunk before the others.
 
-```{r}
+```{r, echo=TRUE}
 get_traj <- function(mat, x0, num) {
   traj = cbind(x0) 
   num
