@@ -169,8 +169,17 @@ eigen(A)
 
 ```
 
-
 ### Example 1
+
+$$
+A =  \frac{1}{60}
+\begin{bmatrix}
+55& -8 \\
+-1 & 53
+\end{bmatrix}
+$$
+
+### Example 2
 
 $$
 A =  \frac{1}{20}
@@ -180,15 +189,7 @@ A =  \frac{1}{20}
 \end{bmatrix}
 $$
 
-### Example 2
 
-$$
-A =  \frac{1}{60}
-\begin{bmatrix}
-55& -8 \\
--1 & 53
-\end{bmatrix}
-$$
 
 ### Example 3
 
