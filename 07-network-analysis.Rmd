@@ -320,7 +320,7 @@ Let's use Gould’s Index to form a geographer's opinion about this debate. Eith
 * Other forces must have come into play.
 
 Here is the adjacency matrix for this transportation network into an adjacency matrix and a plot of the network.
-```{r fig.height=8, fig.width=8, echo=TRUE}
+```{r, networkRussia, fig.height=8, fig.width=8, echo=TRUE}
 RusCity = c("Novgorod", "Vitebsk", "Smolensk", "Kiev", "Chernikov",
 "Novgorod Severskij", "Kursk", "Bryansk", "Karachev", "Kozelsk",
 "Dorogobusch", "Vyazma", "A", "Tver", "Vishnij Totochek", "Ksyatyn",
