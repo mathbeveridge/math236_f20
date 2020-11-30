@@ -1,5 +1,5 @@
 
-#  Airline Network
+#  Network Centralities
 
 [Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/07-network-analysis.Rmd)
 
@@ -53,7 +53,7 @@ plot(g, vertex.color='tan1', vertex.frame.color="dodgerblue")
 
 Observe that there is an edge from vertex $i$ to vertex $j$ if and only if there is a 1 in position $(i,j)$ in the matrix. 
 
-You can add vertex labels and change the vertex size:
+Let's assume that this network is the route map of a small airline. Let's add vertex labels and change the vertex size:
 
 ```{r, network2, fig.height=6, fig.width=6, echo=TRUE}
 airports = 
@@ -89,18 +89,25 @@ plot(g,vertex.size=20, layout=locations, vertex.label.cex=0.65, vertex.color='ta
 ```
 
 
-## Measures of Centrality
+## Degree Centrality
+
+
 
 If we are considering placing an office in one of our airport locations, we may want to chose the most **central** hub for that office. It turns out that there are many interesting **centrality measures** for networks. We will talk about two of them today.
 
-### Degree Centrality
 
-One measure of centrality is to use the **degree** of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector $\mathsf{v}$ of all 1's; then (2) multiply $\mathsf{d} = A\mathsf{v}$ to get the degree proportions; and (3) we also divide vector $\mathsf{d}$ by the sum of its entries. This creates a "normalized vector" $\mathsf{u}$ whose entries sum to 1. Each entry of vector $\mathsf{u}$ represents to proportion of edges incident with the corresponding vertex.
+The simplest measure centrality is the **degree** of the vertex, or the number of edges connected to that vertex. We calculate the degree centralities from the adjacency matrix as follows:
+
+1. First make a vector $\mathsf{v}$ of all 1's; then 
+1. multiply $\mathsf{d} = A\mathsf{v}$ to get the degree proportions; and 
+1. we also divide vector $\mathsf{d}$ by the sum of its entries. 
+
+The result is a **normalized vector** $\mathsf{u}$ whose entries sum to 1. Each entry of vector $\mathsf{u}$ represents to proportion of edges incident with the corresponding vertex.
 
 ```{r, echo=TRUE}
 v=rep(1,nrow(A)) # all 1s vector
 d = A %*% v  # degrees
-u=d/sum(d)   # proportion of degres
+u=d/sum(d)   # proportion of degrees
 cbind(d,u) # show d and u together side-by-side in a matrix
 ```
 
@@ -120,11 +127,11 @@ df2 = data.frame(df[ii,])
 rownames(df2) = airports[ii]
 df2
 ```
-### Gould Index
+## Gould's Index
 
-The Gould Index is a measure of centrality that uses the dominant eigenvector of a matrix. It was introduced by geographer P. R. Gould in 1967 to analyze the geographical features on maps. We will build up Gould's Index step-by-step so that we can understand what it measures. 
+Gould's Index is a measure of centrality that uses the dominant eigenvector of a matrix. It was introduced by geographer P. R. Gould in 1967 to analyze the geographical features on maps. We will build up Gould's Index step-by-step so that we can understand what it measures. 
 
-#### Step One
+### Step 1
 
 The first step is typically to add the identity matrix to the adjancency matrix $A$ to get a new matrix 
 $$B= A + I.$$ 
@@ -258,13 +265,16 @@ cbind(w,gould)
 
 ### Step 5
 
-Now let's plot the network with the vertices sized by the Gould Index.
+Now let's plot the network with:
+
+* the vertices sized by Gould's Index
+* the labels sized by degree centrality
 
 ```{r, network6, fig.height=6, fig.width=6, eecho=TRUE}
-plot(g, layout=locations, vertex.size=250*u,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue" )
+plot(g, layout=locations, vertex.size=250*gould,vertex.label.cex=7*u, vertex.color='tan1', vertex.frame.color="dodgerblue" )
 ```
 
-And we can create a data frame containing both the degree centrality and the Gould Index. We  order the data using the Gould Index and then compare the two.
+And we can create a data frame containing both the Gould's Index and the Degree Centrality. We  order the data using the Gould Index and then compare the two.
 ```{r, echo=TRUE}
 df = data.frame(gould, u) #Convert vector to a data frame in order to add row names
 rownames(df)=airports
@@ -277,12 +287,138 @@ df2
 
 #### Your Turn
 
-**Discuss with your group:** Degree centrality and Gould's Index give different rankings. 
+**Discuss with your group:** Degree centrality and Gould's Index give different rankings. Look at the table and observe that:
 
 * LAX, DEN and SEA have the same degree centrality. However LAX and DEN have higher Gould Index than SEA.
 * SFO has lower degree centrality than SEA, but higher Gould centrality! So these two centralities give different rankings.
 
-Remind yourselves what does the Gould Index measures. 
+Remind yourselves about the intuitive idea behind Gould's Index. What does Gould Index measure? 
 
 * Why does the Gould Index value SFO more than SEA?
 * Find another pair of cities where the rankings of degree centrality and Gould's Index differ. Look at the plot of the network and explain why this is the case.
+
+
+### Gould Index Summary
+
+Now that we understand what Gould's Index means, let's summarize how to find the Gould Index values for an adjacency matrix $A$.
+
+1. Create the matrix $B = A+I$.
+2. Find the dominant eigenvector $\mathbf{v}$ of $B$.
+3. Normalize the values of $\mathbf{v}$ so that the entries sum to 1.
+
+
+
+## Your Turn: The Rise of Moscow
+
+Russian historians often attribute the dominance and rise to power of Moscow to its strategic position on medieval trade routes (see Figure 1). Others argue that sociological and political factors aided Moscow’s rise to power, and thus Moscow did not rise to power strictly because of its strategic location on the trade routes. The figure below shows the major cities and trade routes of medieval Russia.
+
+![](images/MedievalRussia.png){width=75%}
+
+Let's use Gould’s Index to form a geographer's opinion about this debate. Either:
+
+* Moscow’s location was the primary reason for its rise to power, or 
+* Other forces must have come into play.
+
+Here is the adjacency matrix for this transportation network into an adjacency matrix and a plot of the network.
+```{r fig.height=8, fig.width=8, echo=TRUE}
+RusCity = c("Novgorod", "Vitebsk", "Smolensk", "Kiev", "Chernikov",
+"Novgorod Severskij", "Kursk", "Bryansk", "Karachev", "Kozelsk",
+"Dorogobusch", "Vyazma", "A", "Tver", "Vishnij Totochek", "Ksyatyn",
+"Uglich", "Yaroslavl", "Rostov", "B", "C", "Suzdal", "Vladimir",
+"Nizhnij Novgorod", "Bolgar", "Isad'-Ryazan", "Pronsk", "Dubok",
+"Elets", "Mtsensk", "Tula", "Dedoslavl", "Pereslavl", "Kolomna",
+"Moscow", "Mozhaysk", "Dmitrov", "Volok Lamskij", "Murom")
+A = rbind(c(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(1, 0, 
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 1, 0, 1, 0, 0, 
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0), c(0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0), c(0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 
+    0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 
+    1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
+    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 
+    0, 1, 0, 0, 0, 0, 0), c(0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 
+    0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0), c(1, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 1, 0, 1, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
+    0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    1), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1), c(0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
+    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 
+    0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0), c(0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
+    0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
+    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
+    1, 0, 1, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 
+    0, 0, 0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 
+    0), c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0), c(0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0), c(0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+g=graph_from_adjacency_matrix(A,mode='undirected')
+V(g)$label = RusCity
+# Plot network
+plot(g)
+```
+
+### Find the degree centrality values.
+
+Create a vector containing the normalized Degree Centralities. See Section \@ref(degree-centrality) for help.
+
+### Find the Gould Index values
+
+Create a vector containing the Gould Index values. See Section \@ref(gould-index-summary) for help.
+
+### Analyze the Data
+
+* Plot the network where the size of the vertices is determined by Gould's Index and the size of the label is determined by degree centrality.
+* Create a data frame that contains Gould's Index and Degree Centralities. The rows should be labeled with the city names and the columns should be named by the centrality measures.  Sort according to Gould's Index. 
+* Use Gould's Index to decide whether Moscow's dominance was solely due to its geographic location.
+* Compare the Gould's Index and Degree Centrality rankings and note any interesting findings.
+
+See Section \@ref(step-5) for help.
