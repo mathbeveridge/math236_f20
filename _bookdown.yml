@@ -1,6 +1,6 @@
 book_filename: "math236_handbook"
 output_dir: docs/
-rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "PS2-problem-set-2.Rmd", "PS3-problem-set-3.Rmd", "PS4-problem-set-4.Rmd", "PS5-problem-set-5.Rmd",  "important-defs.Rmd", "w1-solving-linear-equations.Rmd", "w2-solution-sets.Rmd", "w3-learning-goals.Rmd", "w4-learning-goals.Rmd", "01-linear-systems.Rmd", "02-linear-transformations.Rmd",  "03-house-transformations.Rmd", "04-translations.Rmd", "05-fractal.Rmd", "06-dynamical-system.Rmd", "q1-review.Rmd", "q2-review.Rmd"]
+rmd_files: ["index.Rmd", "PS1-problem-set-1.Rmd", "PS2-problem-set-2.Rmd", "PS3-problem-set-3.Rmd", "PS4-problem-set-4.Rmd", "PS5-problem-set-5.Rmd",  "important-defs.Rmd", "w1-solving-linear-equations.Rmd", "w2-solution-sets.Rmd", "w3-learning-goals.Rmd", "w4-learning-goals.Rmd", "01-linear-systems.Rmd", "02-linear-transformations.Rmd",  "03-house-transformations.Rmd", "04-translations.Rmd", "05-fractal.Rmd", "06-dynamical-system.Rmd", "07-airline-network.Rmd", "q1-review.Rmd", "q2-review.Rmd"]
 delete_merged_file: true
 language:
   ui:

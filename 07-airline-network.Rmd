@@ -1,0 +1,201 @@
+
+#  Airline Network
+
+[Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/07-network-analysis.Rmd)
+
+
+In this example, we will use a package called `igraph`. To install it, you need to go to the packages window (bottom right), choose `install`, and search for and install `igraph` from the packages window.
+
+Once it is installed (you should only need to do that once, like you did for `pracma`), you then include it each time:
+```{r,message=FALSE, echo=TRUE}
+library(igraph)
+```
+The igraph R package isn't all that well documented. Here are some places to look for documentation if you want to learn about other features. Let me know if you find any other good references:
+
+* http://kateto.net/netscix2016
+* http://igraph.org/r/doc/aaa-igraph-
+
+### Graphs and Networks
+
+Graphs consists of vertices and the edges between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term "Network Science" is sometimes used. In this application question, we will see that linear algebra is an important tool in the study of graphs. 
+
+#### Adjacency Matrices
+
+Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position i-j of the *adjacency* matrix A of the graph G, if there is an edge from node i to node j in G. 
+
+Here is the adjacency matrix we will use today. As you can see it is a 12 x 12 matrix.
+```{r, echo=TRUE}
+A = rbind(
+  c(0,1,0,1,0,0,0,0,1,0,0,0),
+  c(1,0,1,1,1,0,1,0,0,0,0,0),
+  c(0,1,0,0,1,0,0,0,0,0,0,0),
+  c(1,1,0,0,0,1,0,1,0,0,0,0),
+  c(0,1,1,0,0,0,1,1,0,0,0,1),
+  c(0,0,0,1,0,0,1,0,0,0,0,0),
+  c(0,1,0,0,1,1,0,1,0,0,0,0),
+  c(0,0,0,1,1,0,1,0,0,1,1,0),
+  c(1,0,0,0,0,0,0,0,0,0,0,0),
+  c(0,0,0,0,0,0,0,1,0,0,0,0),
+  c(0,0,0,0,0,0,0,1,0,0,0,0),
+  c(0,0,0,0,1,0,0,0,0,0,0,0))
+A
+```
+
+And here is the graph that corresponds to that adjacency matrix.
+Here is how to make the graph from your adjacency matrix
+
+```{r, network1, fig.height=6, fig.width=6, echo=TRUE}
+g=graph_from_adjacency_matrix(A,mode='undirected')
+plot(g)
+```
+
+Observe that there is an edge from node $i$ to node $j$ if and only if there is a 1 in position $i$-$j$ in the matrix. 
+
+You can add vertex labels and change the vertex size:
+
+```{r, network2, fig.height=6, fig.width=6, echo=FALSE}
+airports = 
+  c("ATL","LAX","ORD","MSP","DEN","JFK","SFO","SEA","PHL","PDX","MDW","LGA")
+V(g)$label = airports
+plot(g,vertex.size=30)
+```
+
+#### Graph Layouts
+
+There are many graph layout algorithms which place the vertices in the plane. You can find many algorithms here: You can find others graph  https://igraph.org/c/doc/igraph-Layout.html.
+
+For example, here is a layout on a circle
+```{r,  network3, fig.height=6, fig.width=6, echo=TRUE}
+coords = layout_in_circle(g)
+plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.5)
+```
+
+The **Fruchterman-Reingold algorithm** is one of the most popular graph vertex layout algorithms. It is a force-directed layouts that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Nodes are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected nodes closer together. As a result, nodes are evenly distributed through the chart area, and the layout is intuitive in that nodes which share more connections are closer to each other. 
+```{r fig.height=6, fig.width=6, echo=FALSE}
+coords = layout_with_fr(g)
+plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.5)
+```
+
+Here we layout vertices by hand:
+
+```{r, network4, fig.height=6, fig.width=6, echo=TRUE}
+locations = rbind(
+  c(20,0),c(-10,0),c(11,7),c(10,15),c(3,12),c(25,10),
+  c(-10,10),c(-12,15),c(20,6),c(-15,12),c(12,4),c(25,13)
+)
+plot(g,vertex.size=30, layout=locations, vertex.label.cex=0.5)
+```
+
+
+### Measures of Centrality
+
+If we are considering placing an office in one of our airport locations, we may want to chose the most *central* hub for that office. One measure of centrality is to use the *degree* of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector $v$ of all 1s; then (2) multiply $d = Av$ to get the degree proportions; and (3) we also divide $d$ by its sum to re-scale the vector $u$ so that we can think of those values as proportions.
+
+```{r, echo=TRUE}
+v=rep(1,nrow(A)) # all 1s vector
+d = A %*% v  # degrees
+u=d/sum(d)   # proportion of degres
+cbind(d,u) # show d and u together side-by-side in a matrix
+```
+
+Here we size each vertex according to the vector $u.$ The larger vertices have more edges connected to them.
+
+```{r, network5, fig.height=6, fig.width=6, echo=TRUE}
+plot(g, layout=locations, vertex.size = 200*u,vertex.label.cex=0.5)
+```
+
+We can also sort the vertices by degree. To include the vertex names, we do it in a data frame. 
+
+```{r, echo=TRUE}
+df = data.frame(d) #We need to convert this vector to a data frame in order to add row names
+rownames(df)=airports
+ii=order(d,decreasing=TRUE)
+df2 = data.frame(df[ii,])
+rownames(df2) = airports[ii]
+df2
+```
+### Gould Index
+
+The Gould Index is a measure of centrality that uses the dominant eigenvector. The first step is typically to add the identity matrix to the adjancency matrix $A$, and get a new matrix $B= A + I$. The $n \times n$ identity matrix in `R` is obtained by using `diag(n)`. Adding the identity gives a connection from a node to itself and allows the possibility of a layover at a given city.
+
+```{r, echo=TRUE}
+(B = A + diag(nrow(A)))
+```
+
+
+We now start with the all 1s vector and iterate a few steps.
+
+```{r, echo=TRUE}
+v0 = rep(1,nrow(B))
+v1 = B %*% v0
+v2 = B %*% v1
+v3 = B %*% v2
+cbind(v0,v1,v2,v3)
+```
+
+In your group you should agree about what these vectors are counting. We can do this using a loop:
+
+```{r, echo=TRUE}
+N = 10 
+X = matrix(0,nrow=nrow(B),ncol=N+1)
+X[,1] = rep(1,nrow(B))
+for (i in 2:(N+1)) {  
+   X[,i] = A %*%  X[,i-1]
+}
+X 
+```
+
+These numbers get big fast, so we divide by the sum each time.
+
+```{r, echo=TRUE}
+N = 10 
+X = matrix(0,nrow=nrow(B),ncol=N+1)
+X[,1] = rep(1,nrow(B))
+for (i in 2:(N+1)) {  
+   X[,i] = A %*%  X[,i-1]
+   X[,i] = X[,i]/sum(X[,i])
+}
+X 
+```
+
+You can see that these vectors are converging to a common direction: the direction of the dominant eigenvector. We can also just get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector is the Gould Index.
+
+```{r, echo=TRUE}
+N = 1000 
+w = rep(1,nrow(B))
+for (i in 2:(N+1)) {  
+   w = A %*%  w
+   w = w/sum(w)
+}
+w
+```
+
+We can see that it is the same as the dominant eigenvector as follows. First compute the eigenvectors.
+```{r, echo=TRUE}
+eigen(B)
+```
+Here we extract the dominant eigenvector $v_1$, rescale it to sum to 1, and display it next to the vector $w$ we got above by iteration. This common vector, scaled to sum to one, is called **Gould's Index**.
+
+```{r, echo=TRUE}
+vecs = eigen(A)$vectors
+v1 = vecs[,1]
+v1 = v1/sum(v1)
+cbind(w,v1)
+```
+
+We can now plot the network with the vertices sized by the Gould Index.
+
+```{r, network6, fig.height=6, fig.width=6, eecho=TRUE}
+plot(g, layout=locations, vertex.size = 200*v1,vertex.label.cex=0.5)
+```
+
+And we can order the vertices using the Gould Index
+```{r, echo=TRUE}
+df = data.frame(v1) #We need to convert this vector to a data frame in order to add row names
+rownames(df)=airports
+ii=order(v1,decreasing=TRUE)
+df2 = data.frame(df[ii,])
+rownames(df2) = airports[ii]
+df2
+```
+

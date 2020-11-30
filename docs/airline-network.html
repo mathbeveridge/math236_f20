@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Vector 17 Airline Network | MATH 236: Linear Algebra</title>
+  <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Vector 17 Airline Network | MATH 236: Linear Algebra" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  <meta name="github-repo" content="mathbeveridge/math236_f20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Vector 17 Airline Network | MATH 236: Linear Algebra" />
+  
+  <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dynamical-systems-in-2d.html"/>
+<link rel="next" href="quiz-1-review.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="m236.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href = "./">MATH 236: Linear Algebra</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I Problem Sets</b></span></li>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
+<li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
+<li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
+<li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
+<li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
+<li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
+<li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="problem-set-2.html"><a href="problem-set-2.html#removing-free-variable-columns-from-a-matrix"><i class="fa fa-check"></i><b>2.4</b> Removing free variable columns from a matrix</a></li>
+<li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
+<li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a><ul>
+<li class="chapter" data-level="3.1" data-path="problem-set-3.html"><a href="problem-set-3.html#three-vectors-in-mathbbr4"><i class="fa fa-check"></i><b>3.1</b> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></a></li>
+<li class="chapter" data-level="3.2" data-path="problem-set-3.html"><a href="problem-set-3.html#a-balanced-diet"><i class="fa fa-check"></i><b>3.2</b> A Balanced Diet</a></li>
+<li class="chapter" data-level="3.3" data-path="problem-set-3.html"><a href="problem-set-3.html#a-problem-about-span-and-linear-dependence"><i class="fa fa-check"></i><b>3.3</b> A Problem about Span and Linear Dependence</a></li>
+<li class="chapter" data-level="3.4" data-path="problem-set-3.html"><a href="problem-set-3.html#properties-of-linear-transformations"><i class="fa fa-check"></i><b>3.4</b> Properties of Linear Transformations</a></li>
+<li class="chapter" data-level="3.5" data-path="problem-set-3.html"><a href="problem-set-3.html#partial-information-about-a-linear-transformation"><i class="fa fa-check"></i><b>3.5</b> Partial Information about a Linear Transformation</a></li>
+<li class="chapter" data-level="3.6" data-path="problem-set-3.html"><a href="problem-set-3.html#house-renovations"><i class="fa fa-check"></i><b>3.6</b> House Renovations</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a><ul>
+<li class="chapter" data-level="4.1" data-path="problem-set-4.html"><a href="problem-set-4.html#an-invertible-product-of-rectangular-matrices"><i class="fa fa-check"></i><b>4.1</b> An Invertible Product of Rectangular Matrices</a></li>
+<li class="chapter" data-level="4.2" data-path="problem-set-4.html"><a href="problem-set-4.html#guessing-the-inverse-matrix-from-a-pattern"><i class="fa fa-check"></i><b>4.2</b> Guessing the Inverse Matrix from a Pattern</a></li>
+<li class="chapter" data-level="4.3" data-path="problem-set-4.html"><a href="problem-set-4.html#lu-decomposition-of-an-invertible-matrix"><i class="fa fa-check"></i><b>4.3</b> LU Decomposition of an Invertible Matrix</a></li>
+<li class="chapter" data-level="4.4" data-path="problem-set-4.html"><a href="problem-set-4.html#homogeneous-coordinates"><i class="fa fa-check"></i><b>4.4</b> Homogeneous Coordinates</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
+<li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
+<li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
+<li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis."><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis.</a></li>
+<li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
+<li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
+</ul></li>
+<li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
+<li class="chapter" data-level="6" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>6</b> Important Definitions</a></li>
+<li class="chapter" data-level="7" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>7</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="7.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>7.1</b> Solving Linear Equations</a></li>
+<li class="chapter" data-level="7.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>7.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="7.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>7.3</b> Conceptual Thinking</a></li>
+<li class="chapter" data-level="7.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>7.4</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>8</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="8.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>8.1</b> Solution Sets, Span and Linear Independence</a></li>
+<li class="chapter" data-level="8.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>8.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="8.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>8.3</b> Conceptual Thinking</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>9</b> Week 3 Learning Goals</a><ul>
+<li class="chapter" data-level="9.1" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#linear-transformations-and-matrix-inverses"><i class="fa fa-check"></i><b>9.1</b> Linear Transformations and Matrix Inverses</a></li>
+<li class="chapter" data-level="9.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>9.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="9.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>9.3</b> Conceptual Thinking</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 4 Learning Goals</a><ul>
+<li class="chapter" data-level="10.1" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vector-spaces-and-the-determinant"><i class="fa fa-check"></i><b>10.1</b> Vector Spaces and the Determinant</a></li>
+<li class="chapter" data-level="10.2" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vocabulary-3"><i class="fa fa-check"></i><b>10.2</b> Vocabulary</a></li>
+<li class="chapter" data-level="10.3" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#conceptual-thinking-3"><i class="fa fa-check"></i><b>10.3</b> Conceptual Thinking</a></li>
+</ul></li>
+<li class="part"><span><b>III LineaR Algebra</b></span></li>
+<li class="chapter" data-level="11" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>11</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="11.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>11.1</b> Building Vectors and Matrices</a></li>
+<li class="chapter" data-level="11.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>11.2</b> Solving a Linear System</a></li>
+<li class="chapter" data-level="11.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>11.3</b> Solving another Linear System</a></li>
+<li class="chapter" data-level="11.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>11.4</b> Appendix: Dimensionless Vectors in R</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>12</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="12.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>12.1</b> Functions to plot our vectors</a></li>
+<li class="chapter" data-level="12.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>12.2</b> Your Turn</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-1"><i class="fa fa-check"></i><b>12.2.1</b> Family 1</a></li>
+<li class="chapter" data-level="12.2.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-2"><i class="fa fa-check"></i><b>12.2.2</b> Family 2</a></li>
+<li class="chapter" data-level="12.2.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-3"><i class="fa fa-check"></i><b>12.2.3</b> Family 3</a></li>
+<li class="chapter" data-level="12.2.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-4"><i class="fa fa-check"></i><b>12.2.4</b> Family 4</a></li>
+<li class="chapter" data-level="12.2.5" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#some-other-matrices"><i class="fa fa-check"></i><b>12.2.5</b> Some Other Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>12.3</b> Exploration</a></li>
+<li class="chapter" data-level="12.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>12.4</b> Even More Exploration</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>13</b> Linear Transformations of a House</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>13.1</b> Rotations</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-1"><i class="fa fa-check"></i><b>13.1.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>13.2</b> Expansion and contraction</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-2"><i class="fa fa-check"></i><b>13.2.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>13.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a><ul>
+<li class="chapter" data-level="13.3.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-3"><i class="fa fa-check"></i><b>13.3.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>13.4</b> Shear Transformations</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-4"><i class="fa fa-check"></i><b>13.4.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>13.5</b> Dimension Reduction</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-5"><i class="fa fa-check"></i><b>13.5.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>13.6</b> A Complicated Transformation</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-6"><i class="fa fa-check"></i><b>13.6.1</b> Your Turn</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>14</b> 2D Translations with Homogeneous Coordinates</a><ul>
+<li class="chapter" data-level="14.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>14.1</b> Translation</a></li>
+<li class="chapter" data-level="14.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>14.2</b> Translation and then Rotation</a></li>
+<li class="chapter" data-level="14.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>14.3</b> Rotation and then Translation</a></li>
+<li class="chapter" data-level="14.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>14.4</b> Your Turn</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>14.4.1</b> House of Orange</a></li>
+<li class="chapter" data-level="14.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>14.4.2</b> House Party</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>15</b> Fractals</a><ul>
+<li class="chapter" data-level="15.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>15.1</b> Transforming My House.</a></li>
+<li class="chapter" data-level="15.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>15.2</b> Watching a series of points.</a></li>
+<li class="chapter" data-level="15.3" data-path="fractals.html"><a href="fractals.html#here-are-some-from-httppaulbourke.netfractalsifs"><i class="fa fa-check"></i><b>15.3</b> Here are some from <span>http://paulbourke.net/fractals/ifs/</span></a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>16</b> Dynamical Systems in 2D</a><ul>
+<li class="chapter" data-level="16.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#helper-function-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>16.1</b> Helper Function to Plot Dynamical Systems</a></li>
+<li class="chapter" data-level="16.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#our-first-example"><i class="fa fa-check"></i><b>16.2</b> Our first example</a></li>
+<li class="chapter" data-level="16.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>16.3</b> Your Turn</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-1"><i class="fa fa-check"></i><b>16.3.1</b> Example 1</a></li>
+<li class="chapter" data-level="16.3.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-2"><i class="fa fa-check"></i><b>16.3.2</b> Example 2</a></li>
+<li class="chapter" data-level="16.3.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-3"><i class="fa fa-check"></i><b>16.3.3</b> Example 3</a></li>
+<li class="chapter" data-level="16.3.4" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-4"><i class="fa fa-check"></i><b>16.3.4</b> Example 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="airline-network.html"><a href="airline-network.html"><i class="fa fa-check"></i><b>17</b> Airline Network</a><ul>
+<li class="chapter" data-level="17.0.1" data-path="airline-network.html"><a href="airline-network.html#graphs-and-networks"><i class="fa fa-check"></i><b>17.0.1</b> Graphs and Networks</a></li>
+<li class="chapter" data-level="17.0.2" data-path="airline-network.html"><a href="airline-network.html#measures-of-centrality"><i class="fa fa-check"></i><b>17.0.2</b> Measures of Centrality</a></li>
+<li class="chapter" data-level="17.0.3" data-path="airline-network.html"><a href="airline-network.html#gould-index"><i class="fa fa-check"></i><b>17.0.3</b> Gould Index</a></li>
+</ul></li>
+<li class="part"><span><b>IV Quiz Review</b></span></li>
+<li class="chapter" data-level="18" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>18</b> Quiz 1 Review</a><ul>
+<li class="chapter" data-level="18.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>18.1</b> Overview</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>18.1.1</b> Vocabulary and Concepts</a></li>
+<li class="chapter" data-level="18.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>18.1.2</b> Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>18.2</b> Practice Problems</a></li>
+<li class="chapter" data-level="18.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>18.3</b> Solutions to Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>19</b> Quiz 2 Review</a><ul>
+<li class="chapter" data-level="19.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>19.1</b> Overview</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#vocabulary-and-concepts-1"><i class="fa fa-check"></i><b>19.1.1</b> Vocabulary and Concepts</a></li>
+<li class="chapter" data-level="19.1.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#skills-1"><i class="fa fa-check"></i><b>19.1.2</b> Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>19.2</b> Practice Problems</a></li>
+<li class="chapter" data-level="19.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>19.3</b> Solutions to Practice Problems</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 236: Linear Algebra</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="airline-network" class="section level1">
+<h1><span class="header-section-number">Vector 17</span> Airline Network</h1>
+<p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/07-network-analysis.Rmd">Download this Rmd file</a></p>
+<p>In this example, we will use a package called <code>igraph</code>. To install it, you need to go to the packages window (bottom right), choose <code>install</code>, and search for and install <code>igraph</code> from the packages window.</p>
+<p>Once it is installed (you should only need to do that once, like you did for <code>pracma</code>), you then include it each time:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="airline-network.html#cb64-1"></a><span class="kw">library</span>(igraph)</span></code></pre></div>
+<p>The igraph R package isn’t all that well documented. Here are some places to look for documentation if you want to learn about other features. Let me know if you find any other good references:</p>
+<ul>
+<li><a href="http://kateto.net/netscix2016" class="uri">http://kateto.net/netscix2016</a></li>
+<li><a href="http://igraph.org/r/doc/aaa-igraph-" class="uri">http://igraph.org/r/doc/aaa-igraph-</a></li>
+</ul>
+<div id="graphs-and-networks" class="section level3">
+<h3><span class="header-section-number">17.0.1</span> Graphs and Networks</h3>
+<p>Graphs consists of vertices and the edges between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term “Network Science” is sometimes used. In this application question, we will see that linear algebra is an important tool in the study of graphs.</p>
+<div id="adjacency-matrices" class="section level4">
+<h4><span class="header-section-number">17.0.1.1</span> Adjacency Matrices</h4>
+<p>Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position i-j of the <em>adjacency</em> matrix A of the graph G, if there is an edge from node i to node j in G.</p>
+<p>Here is the adjacency matrix we will use today. As you can see it is a 12 x 12 matrix.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="airline-network.html#cb65-1"></a>A =<span class="st"> </span><span class="kw">rbind</span>(</span>
+<span id="cb65-2"><a href="airline-network.html#cb65-2"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-3"><a href="airline-network.html#cb65-3"></a>  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-4"><a href="airline-network.html#cb65-4"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-5"><a href="airline-network.html#cb65-5"></a>  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-6"><a href="airline-network.html#cb65-6"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb65-7"><a href="airline-network.html#cb65-7"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-8"><a href="airline-network.html#cb65-8"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-9"><a href="airline-network.html#cb65-9"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),</span>
+<span id="cb65-10"><a href="airline-network.html#cb65-10"></a>  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-11"><a href="airline-network.html#cb65-11"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-12"><a href="airline-network.html#cb65-12"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb65-13"><a href="airline-network.html#cb65-13"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb65-14"><a href="airline-network.html#cb65-14"></a>A</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+##  [1,]    0    1    0    1    0    0    0    0    1     0     0     0
+##  [2,]    1    0    1    1    1    0    1    0    0     0     0     0
+##  [3,]    0    1    0    0    1    0    0    0    0     0     0     0
+##  [4,]    1    1    0    0    0    1    0    1    0     0     0     0
+##  [5,]    0    1    1    0    0    0    1    1    0     0     0     1
+##  [6,]    0    0    0    1    0    0    1    0    0     0     0     0
+##  [7,]    0    1    0    0    1    1    0    1    0     0     0     0
+##  [8,]    0    0    0    1    1    0    1    0    0     1     1     0
+##  [9,]    1    0    0    0    0    0    0    0    0     0     0     0
+## [10,]    0    0    0    0    0    0    0    1    0     0     0     0
+## [11,]    0    0    0    0    0    0    0    1    0     0     0     0
+## [12,]    0    0    0    0    1    0    0    0    0     0     0     0</code></pre>
+<p>And here is the graph that corresponds to that adjacency matrix.
+Here is how to make the graph from your adjacency matrix</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="airline-network.html#cb67-1"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
+<span id="cb67-2"><a href="airline-network.html#cb67-2"></a><span class="kw">plot</span>(g)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/network1-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Observe that there is an edge from node <span class="math inline">\(i\)</span> to node <span class="math inline">\(j\)</span> if and only if there is a 1 in position <span class="math inline">\(i\)</span>-<span class="math inline">\(j\)</span> in the matrix.</p>
+<p>You can add vertex labels and change the vertex size:</p>
+<p><img src="math236_handbook_files/figure-html/network2-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="graph-layouts" class="section level4">
+<h4><span class="header-section-number">17.0.1.2</span> Graph Layouts</h4>
+<p>There are many graph layout algorithms which place the vertices in the plane. You can find many algorithms here: You can find others graph <a href="https://igraph.org/c/doc/igraph-Layout.html" class="uri">https://igraph.org/c/doc/igraph-Layout.html</a>.</p>
+<p>For example, here is a layout on a circle</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="airline-network.html#cb68-1"></a>coords =<span class="st"> </span><span class="kw">layout_in_circle</span>(g)</span>
+<span id="cb68-2"><a href="airline-network.html#cb68-2"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">30</span>,<span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/network3-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>The <strong>Fruchterman-Reingold algorithm</strong> is one of the most popular graph vertex layout algorithms. It is a force-directed layouts that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Nodes are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected nodes closer together. As a result, nodes are evenly distributed through the chart area, and the layout is intuitive in that nodes which share more connections are closer to each other.
+<img src="math236_handbook_files/figure-html/unnamed-chunk-40-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Here we layout vertices by hand:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="airline-network.html#cb69-1"></a>locations =<span class="st"> </span><span class="kw">rbind</span>(</span>
+<span id="cb69-2"><a href="airline-network.html#cb69-2"></a>  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">7</span>),<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">10</span>),</span>
+<span id="cb69-3"><a href="airline-network.html#cb69-3"></a>  <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">12</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">15</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">13</span>)</span>
+<span id="cb69-4"><a href="airline-network.html#cb69-4"></a>)</span>
+<span id="cb69-5"><a href="airline-network.html#cb69-5"></a><span class="kw">plot</span>(g,<span class="dt">vertex.size=</span><span class="dv">30</span>, <span class="dt">layout=</span>locations, <span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/network4-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="measures-of-centrality" class="section level3">
+<h3><span class="header-section-number">17.0.2</span> Measures of Centrality</h3>
+<p>If we are considering placing an office in one of our airport locations, we may want to chose the most <em>central</em> hub for that office. One measure of centrality is to use the <em>degree</em> of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector <span class="math inline">\(v\)</span> of all 1s; then (2) multiply <span class="math inline">\(d = Av\)</span> to get the degree proportions; and (3) we also divide <span class="math inline">\(d\)</span> by its sum to re-scale the vector <span class="math inline">\(u\)</span> so that we can think of those values as proportions.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="airline-network.html#cb70-1"></a>v=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(A)) <span class="co"># all 1s vector</span></span>
+<span id="cb70-2"><a href="airline-network.html#cb70-2"></a>d =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>v  <span class="co"># degrees</span></span>
+<span id="cb70-3"><a href="airline-network.html#cb70-3"></a>u=d<span class="op">/</span><span class="kw">sum</span>(d)   <span class="co"># proportion of degres</span></span>
+<span id="cb70-4"><a href="airline-network.html#cb70-4"></a><span class="kw">cbind</span>(d,u) <span class="co"># show d and u together side-by-side in a matrix</span></span></code></pre></div>
+<pre><code>##       [,1]       [,2]
+##  [1,]    3 0.08823529
+##  [2,]    5 0.14705882
+##  [3,]    2 0.05882353
+##  [4,]    4 0.11764706
+##  [5,]    5 0.14705882
+##  [6,]    2 0.05882353
+##  [7,]    4 0.11764706
+##  [8,]    5 0.14705882
+##  [9,]    1 0.02941176
+## [10,]    1 0.02941176
+## [11,]    1 0.02941176
+## [12,]    1 0.02941176</code></pre>
+<p>Here we size each vertex according to the vector <span class="math inline">\(u.\)</span> The larger vertices have more edges connected to them.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="airline-network.html#cb72-1"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>locations, <span class="dt">vertex.size =</span> <span class="dv">200</span><span class="op">*</span>u,<span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/network5-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>We can also sort the vertices by degree. To include the vertex names, we do it in a data frame.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="airline-network.html#cb73-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(d) <span class="co">#We need to convert this vector to a data frame in order to add row names</span></span>
+<span id="cb73-2"><a href="airline-network.html#cb73-2"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb73-3"><a href="airline-network.html#cb73-3"></a>ii=<span class="kw">order</span>(d,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
+<span id="cb73-4"><a href="airline-network.html#cb73-4"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
+<span id="cb73-5"><a href="airline-network.html#cb73-5"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
+<span id="cb73-6"><a href="airline-network.html#cb73-6"></a>df2</span></code></pre></div>
+<pre><code>##     df.ii...
+## LAX        5
+## DEN        5
+## SEA        5
+## MSP        4
+## SFO        4
+## ATL        3
+## ORD        2
+## JFK        2
+## PHL        1
+## PDX        1
+## MDW        1
+## LGA        1</code></pre>
+</div>
+<div id="gould-index" class="section level3">
+<h3><span class="header-section-number">17.0.3</span> Gould Index</h3>
+<p>The Gould Index is a measure of centrality that uses the dominant eigenvector. The first step is typically to add the identity matrix to the adjancency matrix <span class="math inline">\(A\)</span>, and get a new matrix <span class="math inline">\(B= A + I\)</span>. The <span class="math inline">\(n \times n\)</span> identity matrix in <code>R</code> is obtained by using <code>diag(n)</code>. Adding the identity gives a connection from a node to itself and allows the possibility of a layover at a given city.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="airline-network.html#cb75-1"></a>(<span class="dt">B =</span> A <span class="op">+</span><span class="st"> </span><span class="kw">diag</span>(<span class="kw">nrow</span>(A)))</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+##  [1,]    1    1    0    1    0    0    0    0    1     0     0     0
+##  [2,]    1    1    1    1    1    0    1    0    0     0     0     0
+##  [3,]    0    1    1    0    1    0    0    0    0     0     0     0
+##  [4,]    1    1    0    1    0    1    0    1    0     0     0     0
+##  [5,]    0    1    1    0    1    0    1    1    0     0     0     1
+##  [6,]    0    0    0    1    0    1    1    0    0     0     0     0
+##  [7,]    0    1    0    0    1    1    1    1    0     0     0     0
+##  [8,]    0    0    0    1    1    0    1    1    0     1     1     0
+##  [9,]    1    0    0    0    0    0    0    0    1     0     0     0
+## [10,]    0    0    0    0    0    0    0    1    0     1     0     0
+## [11,]    0    0    0    0    0    0    0    1    0     0     1     0
+## [12,]    0    0    0    0    1    0    0    0    0     0     0     1</code></pre>
+<p>We now start with the all 1s vector and iterate a few steps.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="airline-network.html#cb77-1"></a>v0 =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb77-2"><a href="airline-network.html#cb77-2"></a>v1 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v0</span>
+<span id="cb77-3"><a href="airline-network.html#cb77-3"></a>v2 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v1</span>
+<span id="cb77-4"><a href="airline-network.html#cb77-4"></a>v3 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v2</span>
+<span id="cb77-5"><a href="airline-network.html#cb77-5"></a><span class="kw">cbind</span>(v0,v1,v2,v3)</span></code></pre></div>
+<pre><code>##       v0         
+##  [1,]  1 4 17  76
+##  [2,]  1 6 29 139
+##  [3,]  1 3 15  72
+##  [4,]  1 5 24 109
+##  [5,]  1 6 28 132
+##  [6,]  1 3 13  63
+##  [7,]  1 5 26 122
+##  [8,]  1 6 26 120
+##  [9,]  1 2  6  23
+## [10,]  1 2  8  34
+## [11,]  1 2  8  34
+## [12,]  1 2  8  36</code></pre>
+<p>In your group you should agree about what these vectors are counting. We can do this using a loop:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="airline-network.html#cb79-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
+<span id="cb79-2"><a href="airline-network.html#cb79-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb79-3"><a href="airline-network.html#cb79-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb79-4"><a href="airline-network.html#cb79-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb79-5"><a href="airline-network.html#cb79-5"></a>   X[,i] =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
+<span id="cb79-6"><a href="airline-network.html#cb79-6"></a>}</span>
+<span id="cb79-7"><a href="airline-network.html#cb79-7"></a>X </span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7]  [,8]  [,9]  [,10]  [,11]
+##  [1,]    1    3   10   36  130  477 1741  6392 23394  85846 314471
+##  [2,]    1    5   18   69  245  923 3317 12346 44761 165467 602927
+##  [3,]    1    2   10   35  134  483 1796  6534 24091  88004 323475
+##  [4,]    1    4   15   51  196  688 2598  9307 34693 125610 464760
+##  [5,]    1    5   17   65  238  873 3217 11745 43243 158008 580881
+##  [6,]    1    2    8   32  109  421 1484  5592 20090  74739 271069
+##  [7,]    1    4   17   58  225  796 2994 10783 40046 145459 536922
+##  [8,]    1    5   15   59  204  777 2765 10363 37365 138708 503807
+##  [9,]    1    1    3   10   36  130  477  1741  6392  23394  85846
+## [10,]    1    1    5   15   59  204  777  2765 10363  37365 138708
+## [11,]    1    1    5   15   59  204  777  2765 10363  37365 138708
+## [12,]    1    1    5   17   65  238  873  3217 11745  43243 158008</code></pre>
+<p>These numbers get big fast, so we divide by the sum each time.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="airline-network.html#cb81-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
+<span id="cb81-2"><a href="airline-network.html#cb81-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb81-3"><a href="airline-network.html#cb81-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb81-4"><a href="airline-network.html#cb81-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb81-5"><a href="airline-network.html#cb81-5"></a>   X[,i] =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
+<span id="cb81-6"><a href="airline-network.html#cb81-6"></a>   X[,i] =<span class="st"> </span>X[,i]<span class="op">/</span><span class="kw">sum</span>(X[,i])</span>
+<span id="cb81-7"><a href="airline-network.html#cb81-7"></a>}</span>
+<span id="cb81-8"><a href="airline-network.html#cb81-8"></a>X </span></code></pre></div>
+<pre><code>##       [,1]       [,2]      [,3]       [,4]       [,5]       [,6]       [,7]       [,8]       [,9]      [,10]
+##  [1,]    1 0.08823529 0.0781250 0.07792208 0.07647059 0.07676215 0.07630610 0.07650509 0.07631481 0.07642930
+##  [2,]    1 0.14705882 0.1406250 0.14935065 0.14411765 0.14853556 0.14538043 0.14776780 0.14601724 0.14731644
+##  [3,]    1 0.05882353 0.0781250 0.07575758 0.07882353 0.07772771 0.07871669 0.07820467 0.07858853 0.07835058
+##  [4,]    1 0.11764706 0.1171875 0.11038961 0.11529412 0.11071773 0.11386746 0.11139437 0.11317388 0.11183147
+##  [5,]    1 0.14705882 0.1328125 0.14069264 0.14000000 0.14048922 0.14099755 0.14057451 0.14106529 0.14067564
+##  [6,]    1 0.05882353 0.0625000 0.06926407 0.06411765 0.06775024 0.06504208 0.06692998 0.06553666 0.06654066
+##  [7,]    1 0.11764706 0.1328125 0.12554113 0.13235294 0.12809784 0.13122370 0.12906044 0.13063619 0.12950317
+##  [8,]    1 0.14705882 0.1171875 0.12770563 0.12000000 0.12504023 0.12118689 0.12403351 0.12189035 0.12349271
+##  [9,]    1 0.02941176 0.0234375 0.02164502 0.02117647 0.02092050 0.02090638 0.02083782 0.02085168 0.02082784
+## [10,]    1 0.02941176 0.0390625 0.03246753 0.03470588 0.03282910 0.03405505 0.03309396 0.03380569 0.03326632
+## [11,]    1 0.02941176 0.0390625 0.03246753 0.03470588 0.03282910 0.03405505 0.03309396 0.03380569 0.03326632
+## [12,]    1 0.02941176 0.0390625 0.03679654 0.03823529 0.03830061 0.03826262 0.03850389 0.03831399 0.03849955
+##            [,11]
+##  [1,] 0.07633566
+##  [2,] 0.14635635
+##  [3,] 0.07852132
+##  [4,] 0.11281727
+##  [5,] 0.14100484
+##  [6,] 0.06580012
+##  [7,] 0.13033410
+##  [8,] 0.12229566
+##  [9,] 0.02083852
+## [10,] 0.03367041
+## [11,] 0.03367041
+## [12,] 0.03835535</code></pre>
+<p>You can see that these vectors are converging to a common direction: the direction of the dominant eigenvector. We can also just get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector is the Gould Index.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="airline-network.html#cb83-1"></a>N =<span class="st"> </span><span class="dv">1000</span> </span>
+<span id="cb83-2"><a href="airline-network.html#cb83-2"></a>w =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb83-3"><a href="airline-network.html#cb83-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb83-4"><a href="airline-network.html#cb83-4"></a>   w =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>w</span>
+<span id="cb83-5"><a href="airline-network.html#cb83-5"></a>   w =<span class="st"> </span>w<span class="op">/</span><span class="kw">sum</span>(w)</span>
+<span id="cb83-6"><a href="airline-network.html#cb83-6"></a>}</span>
+<span id="cb83-7"><a href="airline-network.html#cb83-7"></a>w</span></code></pre></div>
+<pre><code>##             [,1]
+##  [1,] 0.07637062
+##  [2,] 0.14676474
+##  [3,] 0.07845446
+##  [4,] 0.11239329
+##  [5,] 0.14086410
+##  [6,] 0.06611172
+##  [7,] 0.12998472
+##  [8,] 0.12280792
+##  [9,] 0.02083107
+## [10,] 0.03349744
+## [11,] 0.03349744
+## [12,] 0.03842249</code></pre>
+<p>We can see that it is the same as the dominant eigenvector as follows. First compute the eigenvectors.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="airline-network.html#cb85-1"></a><span class="kw">eigen</span>(B)</span></code></pre></div>
+<pre><code>## eigen() decomposition
+## $values
+##  [1]  4.66618847  2.64207538  2.41909839  1.80037113  1.27260439  1.00000000  1.00000000  0.49835918  0.02718633
+## [10] -0.67732874 -0.92557189 -1.72298263
+## 
+## $vectors
+##              [,1]        [,2]        [,3]         [,4]        [,5]          [,6]          [,7]        [,8]
+##  [1,] -0.23401334  0.57249329 -0.03677166  0.289569576 -0.11347970  0.000000e+00  0.000000e+00  0.17344569
+##  [2,] -0.44971357  0.23508235  0.28327135 -0.009053428  0.29280642  2.626816e-16  1.203957e-16  0.27532162
+##  [3,] -0.24039858 -0.04730698  0.44304618  0.102332378  0.42192015 -1.576610e-16 -4.434216e-17 -0.59911594
+##  [4,] -0.34439328  0.35635470 -0.30954196 -0.120977575  0.09253829  4.851644e-01  1.208947e-01 -0.01657232
+##  [5,] -0.43163295 -0.31276398  0.34545477  0.090957309 -0.17778914  1.198948e-16  1.395385e-16  0.02521939
+##  [6,] -0.20257820  0.10572025 -0.24645181 -0.612347635 -0.18646435 -5.005332e-18 -9.291441e-17 -0.52296040
+##  [7,] -0.39829657 -0.18275409 -0.04019741 -0.369127791 -0.14336929 -4.851644e-01 -1.208947e-01  0.27891061
+##  [8,] -0.37630557 -0.32813461 -0.43931838  0.235004528  0.03236396 -1.021498e-16 -3.393381e-17  0.08250644
+##  [9,] -0.06383014  0.34864008 -0.02591199  0.361794131 -0.41627977 -4.851644e-01 -1.208947e-01 -0.34575674
+## [10,] -0.10264218 -0.19982920 -0.30957570  0.293619448  0.11872135 -1.709709e-01  6.861261e-01 -0.16447314
+## [11,] -0.10264218 -0.19982920 -0.30957570  0.293619448  0.11872135  1.709709e-01 -6.861261e-01 -0.16447314
+## [12,] -0.11773343 -0.19046871  0.24343257  0.113643916 -0.65218735  4.851644e-01  1.208947e-01 -0.05027381
+##              [,9]         [,10]       [,11]        [,12]
+##  [1,]  0.19570619  6.653425e-01  0.08742351  0.026476499
+##  [2,]  0.33415547 -4.571765e-01 -0.14917762  0.397124122
+##  [3,] -0.08232149  1.379670e-01  0.40635541 -0.072909426
+##  [4,] -0.32336571 -2.621537e-01  0.02623868 -0.459495824
+##  [5,] -0.25407199  2.257605e-01 -0.63328894 -0.198593023
+##  [6,]  0.18953651  1.563407e-01 -0.22162883  0.307139725
+##  [7,]  0.13898200 -8.104161e-05  0.40052356 -0.376840313
+##  [8,] -0.40482358  7.521122e-02  0.23285847  0.520458800
+##  [9,] -0.20117541 -3.966679e-01 -0.04540132 -0.009723345
+## [10,]  0.41613681 -4.483988e-02 -0.12092951 -0.191135557
+## [11,]  0.41613681 -4.483988e-02 -0.12092951 -0.191135557
+## [12,]  0.26117231 -1.345953e-01  0.32888356  0.072932167</code></pre>
+<p>Here we extract the dominant eigenvector <span class="math inline">\(v_1\)</span>, rescale it to sum to 1, and display it next to the vector <span class="math inline">\(w\)</span> we got above by iteration. This common vector, scaled to sum to one, is called <strong>Gould’s Index</strong>.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="airline-network.html#cb87-1"></a>vecs =<span class="st"> </span><span class="kw">eigen</span>(A)<span class="op">$</span>vectors</span>
+<span id="cb87-2"><a href="airline-network.html#cb87-2"></a>v1 =<span class="st"> </span>vecs[,<span class="dv">1</span>]</span>
+<span id="cb87-3"><a href="airline-network.html#cb87-3"></a>v1 =<span class="st"> </span>v1<span class="op">/</span><span class="kw">sum</span>(v1)</span>
+<span id="cb87-4"><a href="airline-network.html#cb87-4"></a><span class="kw">cbind</span>(w,v1)</span></code></pre></div>
+<pre><code>##                          v1
+##  [1,] 0.07637062 0.07637062
+##  [2,] 0.14676474 0.14676474
+##  [3,] 0.07845446 0.07845446
+##  [4,] 0.11239329 0.11239329
+##  [5,] 0.14086410 0.14086410
+##  [6,] 0.06611172 0.06611172
+##  [7,] 0.12998472 0.12998472
+##  [8,] 0.12280792 0.12280792
+##  [9,] 0.02083107 0.02083107
+## [10,] 0.03349744 0.03349744
+## [11,] 0.03349744 0.03349744
+## [12,] 0.03842249 0.03842249</code></pre>
+<p>We can now plot the network with the vertices sized by the Gould Index.</p>
+<p><img src="math236_handbook_files/figure-html/network6-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>And we can order the vertices using the Gould Index</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="airline-network.html#cb89-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(v1) <span class="co">#We need to convert this vector to a data frame in order to add row names</span></span>
+<span id="cb89-2"><a href="airline-network.html#cb89-2"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb89-3"><a href="airline-network.html#cb89-3"></a>ii=<span class="kw">order</span>(v1,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
+<span id="cb89-4"><a href="airline-network.html#cb89-4"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
+<span id="cb89-5"><a href="airline-network.html#cb89-5"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
+<span id="cb89-6"><a href="airline-network.html#cb89-6"></a>df2</span></code></pre></div>
+<pre><code>##       df.ii...
+## LAX 0.14676474
+## DEN 0.14086410
+## SFO 0.12998472
+## SEA 0.12280792
+## MSP 0.11239329
+## ORD 0.07845446
+## ATL 0.07637062
+## JFK 0.06611172
+## LGA 0.03842249
+## PDX 0.03349744
+## MDW 0.03349744
+## PHL 0.02083107</code></pre>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dynamical-systems-in-2d.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
