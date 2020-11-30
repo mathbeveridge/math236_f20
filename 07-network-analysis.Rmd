@@ -406,7 +406,7 @@ V(g)$label = RusCity
 plot(g)
 ```
 
-### Find the degree centrality values.
+### Find the Degree Centrality values.
 
 Create a vector containing the normalized Degree Centralities. See Section \@ref(degree-centrality) for help.
 
