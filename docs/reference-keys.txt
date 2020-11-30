@@ -101,7 +101,16 @@ graphs-and-networks
 adjacency-matrices
 graph-layouts
 measures-of-centrality
+degree-centrality
 gould-index
+step-one
+step-2
+your-turn-9
+step-3
+your-turn-10
+step-4
+step-5
+your-turn-11
 quiz-1-review
 overview
 vocabulary-and-concepts

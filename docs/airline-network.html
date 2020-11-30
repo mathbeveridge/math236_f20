@@ -254,9 +254,18 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="airline-network.html"><a href="airline-network.html"><i class="fa fa-check"></i><b>17</b> Airline Network</a><ul>
-<li class="chapter" data-level="17.0.1" data-path="airline-network.html"><a href="airline-network.html#graphs-and-networks"><i class="fa fa-check"></i><b>17.0.1</b> Graphs and Networks</a></li>
-<li class="chapter" data-level="17.0.2" data-path="airline-network.html"><a href="airline-network.html#measures-of-centrality"><i class="fa fa-check"></i><b>17.0.2</b> Measures of Centrality</a></li>
-<li class="chapter" data-level="17.0.3" data-path="airline-network.html"><a href="airline-network.html#gould-index"><i class="fa fa-check"></i><b>17.0.3</b> Gould Index</a></li>
+<li class="chapter" data-level="17.1" data-path="airline-network.html"><a href="airline-network.html#graphs-and-networks"><i class="fa fa-check"></i><b>17.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="airline-network.html"><a href="airline-network.html#adjacency-matrices"><i class="fa fa-check"></i><b>17.1.1</b> Adjacency Matrices</a></li>
+<li class="chapter" data-level="17.1.2" data-path="airline-network.html"><a href="airline-network.html#graph-layouts"><i class="fa fa-check"></i><b>17.1.2</b> Graph Layouts</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="airline-network.html"><a href="airline-network.html#measures-of-centrality"><i class="fa fa-check"></i><b>17.2</b> Measures of Centrality</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="airline-network.html"><a href="airline-network.html#degree-centrality"><i class="fa fa-check"></i><b>17.2.1</b> Degree Centrality</a></li>
+<li class="chapter" data-level="17.2.2" data-path="airline-network.html"><a href="airline-network.html#gould-index"><i class="fa fa-check"></i><b>17.2.2</b> Gould Index</a></li>
+<li class="chapter" data-level="17.2.3" data-path="airline-network.html"><a href="airline-network.html#step-2"><i class="fa fa-check"></i><b>17.2.3</b> Step 2</a></li>
+<li class="chapter" data-level="17.2.4" data-path="airline-network.html"><a href="airline-network.html#step-3"><i class="fa fa-check"></i><b>17.2.4</b> Step 3</a></li>
+<li class="chapter" data-level="17.2.5" data-path="airline-network.html"><a href="airline-network.html#step-4"><i class="fa fa-check"></i><b>17.2.5</b> Step 4</a></li>
+<li class="chapter" data-level="17.2.6" data-path="airline-network.html"><a href="airline-network.html#step-5"><i class="fa fa-check"></i><b>17.2.6</b> Step 5</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="18" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>18</b> Quiz 1 Review</a><ul>
@@ -299,20 +308,20 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h1><span class="header-section-number">Vector 17</span> Airline Network</h1>
 <p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/07-network-analysis.Rmd">Download this Rmd file</a></p>
 <p>In this example, we will use a package called <code>igraph</code>. To install it, you need to go to the packages window (bottom right), choose <code>install</code>, and search for and install <code>igraph</code> from the packages window.</p>
-<p>Once it is installed (you should only need to do that once, like you did for <code>pracma</code>), you then include it each time:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="airline-network.html#cb64-1"></a><span class="kw">library</span>(igraph)</span></code></pre></div>
 <p>The igraph R package isn’t all that well documented. Here are some places to look for documentation if you want to learn about other features. Let me know if you find any other good references:</p>
 <ul>
 <li><a href="http://kateto.net/netscix2016" class="uri">http://kateto.net/netscix2016</a></li>
 <li><a href="http://igraph.org/r/doc/aaa-igraph-" class="uri">http://igraph.org/r/doc/aaa-igraph-</a></li>
 </ul>
-<div id="graphs-and-networks" class="section level3">
-<h3><span class="header-section-number">17.0.1</span> Graphs and Networks</h3>
-<p>Graphs consists of vertices and the edges between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term “Network Science” is sometimes used. In this application question, we will see that linear algebra is an important tool in the study of graphs.</p>
-<div id="adjacency-matrices" class="section level4">
-<h4><span class="header-section-number">17.0.1.1</span> Adjacency Matrices</h4>
-<p>Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position i-j of the <em>adjacency</em> matrix A of the graph G, if there is an edge from node i to node j in G.</p>
-<p>Here is the adjacency matrix we will use today. As you can see it is a 12 x 12 matrix.</p>
+<div id="graphs-and-networks" class="section level2">
+<h2><span class="header-section-number">17.1</span> Graphs and Networks</h2>
+<p>Graphs consists of <strong>vertices</strong> and the <strong>edges</strong> between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term <em>Network Science</em> is sometimes used. So we will use the terms <strong>graph</strong> and <strong>network</strong> interchangeably.</p>
+<p>In this application question, we will see that linear algebra is an important tool in the study of graphs.</p>
+<div id="adjacency-matrices" class="section level3">
+<h3><span class="header-section-number">17.1.1</span> Adjacency Matrices</h3>
+<p>Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position <span class="math inline">\((i,j)\)</span> of the <strong>adjacency matrix</strong> <span class="math inline">\(A\)</span> of the graph <span class="math inline">\(G\)</span>, if there is an edge from vertex <span class="math inline">\(i\)</span> to vertex <span class="math inline">\(j\)</span> in <span class="math inline">\(G\)</span>.</p>
+<p>Here is the adjacency matrix we will use today. As you can see it is a <span class="math inline">\(12 \times 12\)</span> matrix.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="airline-network.html#cb65-1"></a>A =<span class="st"> </span><span class="kw">rbind</span>(</span>
 <span id="cb65-2"><a href="airline-network.html#cb65-2"></a>  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
 <span id="cb65-3"><a href="airline-network.html#cb65-3"></a>  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
@@ -340,40 +349,49 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 ## [10,]    0    0    0    0    0    0    0    1    0     0     0     0
 ## [11,]    0    0    0    0    0    0    0    1    0     0     0     0
 ## [12,]    0    0    0    0    1    0    0    0    0     0     0     0</code></pre>
-<p>And here is the graph that corresponds to that adjacency matrix.
-Here is how to make the graph from your adjacency matrix</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="airline-network.html#cb67-1"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
-<span id="cb67-2"><a href="airline-network.html#cb67-2"></a><span class="kw">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="airline-network.html#cb67-1"></a><span class="kw">dim</span>(A)</span></code></pre></div>
+<pre><code>## [1] 12 12</code></pre>
+<p>Here is how to make the graph from your adjacency matrix</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="airline-network.html#cb69-1"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
+<span id="cb69-2"><a href="airline-network.html#cb69-2"></a><span class="kw">plot</span>(g, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/network1-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Observe that there is an edge from node <span class="math inline">\(i\)</span> to node <span class="math inline">\(j\)</span> if and only if there is a 1 in position <span class="math inline">\(i\)</span>-<span class="math inline">\(j\)</span> in the matrix.</p>
+<p>Observe that there is an edge from vertex <span class="math inline">\(i\)</span> to vertex <span class="math inline">\(j\)</span> if and only if there is a 1 in position <span class="math inline">\((i,j)\)</span> in the matrix.</p>
 <p>You can add vertex labels and change the vertex size:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="airline-network.html#cb70-1"></a>airports =<span class="st"> </span></span>
+<span id="cb70-2"><a href="airline-network.html#cb70-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;ATL&quot;</span>,<span class="st">&quot;LAX&quot;</span>,<span class="st">&quot;ORD&quot;</span>,<span class="st">&quot;MSP&quot;</span>,<span class="st">&quot;DEN&quot;</span>,<span class="st">&quot;JFK&quot;</span>,<span class="st">&quot;SFO&quot;</span>,<span class="st">&quot;SEA&quot;</span>,<span class="st">&quot;PHL&quot;</span>,<span class="st">&quot;PDX&quot;</span>,<span class="st">&quot;MDW&quot;</span>,<span class="st">&quot;LGA&quot;</span>)</span>
+<span id="cb70-3"><a href="airline-network.html#cb70-3"></a><span class="kw">V</span>(g)<span class="op">$</span>label =<span class="st"> </span>airports</span>
+<span id="cb70-4"><a href="airline-network.html#cb70-4"></a><span class="kw">plot</span>(g,<span class="dt">vertex.size=</span><span class="dv">30</span>, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/network2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="graph-layouts" class="section level4">
-<h4><span class="header-section-number">17.0.1.2</span> Graph Layouts</h4>
-<p>There are many graph layout algorithms which place the vertices in the plane. You can find many algorithms here: You can find others graph <a href="https://igraph.org/c/doc/igraph-Layout.html" class="uri">https://igraph.org/c/doc/igraph-Layout.html</a>.</p>
-<p>For example, here is a layout on a circle</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="airline-network.html#cb68-1"></a>coords =<span class="st"> </span><span class="kw">layout_in_circle</span>(g)</span>
-<span id="cb68-2"><a href="airline-network.html#cb68-2"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">30</span>,<span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div id="graph-layouts" class="section level3">
+<h3><span class="header-section-number">17.1.2</span> Graph Layouts</h3>
+<p>There are a variety of graph layout algorithms which place the vertices in the plane. You can find many algorithms <a href="https://igraph.org/c/doc/igraph-Layout.html">in the igraph documentation</a>. For example, here is a layout on a circle</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="airline-network.html#cb71-1"></a>coords =<span class="st"> </span><span class="kw">layout_in_circle</span>(g)</span>
+<span id="cb71-2"><a href="airline-network.html#cb71-2"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">30</span>,<span class="dt">vertex.label.cex=</span><span class="fl">0.65</span>, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/network3-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The <strong>Fruchterman-Reingold algorithm</strong> is one of the most popular graph vertex layout algorithms. It is a force-directed layouts that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Nodes are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected nodes closer together. As a result, nodes are evenly distributed through the chart area, and the layout is intuitive in that nodes which share more connections are closer to each other.
-<img src="math236_handbook_files/figure-html/unnamed-chunk-40-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Here we layout vertices by hand:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="airline-network.html#cb69-1"></a>locations =<span class="st"> </span><span class="kw">rbind</span>(</span>
-<span id="cb69-2"><a href="airline-network.html#cb69-2"></a>  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">7</span>),<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">10</span>),</span>
-<span id="cb69-3"><a href="airline-network.html#cb69-3"></a>  <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">12</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">15</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">13</span>)</span>
-<span id="cb69-4"><a href="airline-network.html#cb69-4"></a>)</span>
-<span id="cb69-5"><a href="airline-network.html#cb69-5"></a><span class="kw">plot</span>(g,<span class="dt">vertex.size=</span><span class="dv">30</span>, <span class="dt">layout=</span>locations, <span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p>The <strong>Fruchterman-Reingold algorithm</strong> is one of the most popular graph vertex layout algorithms. It is a force-directed layout that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Vertices are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected vertices closer together. As a result, vertices are evenly distributed through the chart area. The resulting layout is intuitive: vertices which share more connections are closer to each other.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="airline-network.html#cb72-1"></a>coords =<span class="st"> </span><span class="kw">layout_with_fr</span>(g)</span>
+<span id="cb72-2"><a href="airline-network.html#cb72-2"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">30</span>, <span class="dt">vertex.label.cex=</span><span class="fl">0.65</span>, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-40-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>We can also choose to layout vertices by hand:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="airline-network.html#cb73-1"></a>locations =<span class="st"> </span><span class="kw">rbind</span>(</span>
+<span id="cb73-2"><a href="airline-network.html#cb73-2"></a>  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">7</span>),<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">10</span>),</span>
+<span id="cb73-3"><a href="airline-network.html#cb73-3"></a>  <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">12</span>,<span class="dv">15</span>),<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">15</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">13</span>)</span>
+<span id="cb73-4"><a href="airline-network.html#cb73-4"></a>)</span>
+<span id="cb73-5"><a href="airline-network.html#cb73-5"></a><span class="kw">plot</span>(g,<span class="dt">vertex.size=</span><span class="dv">20</span>, <span class="dt">layout=</span>locations, <span class="dt">vertex.label.cex=</span><span class="fl">0.65</span>, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/network4-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="measures-of-centrality" class="section level3">
-<h3><span class="header-section-number">17.0.2</span> Measures of Centrality</h3>
-<p>If we are considering placing an office in one of our airport locations, we may want to chose the most <em>central</em> hub for that office. One measure of centrality is to use the <em>degree</em> of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector <span class="math inline">\(v\)</span> of all 1s; then (2) multiply <span class="math inline">\(d = Av\)</span> to get the degree proportions; and (3) we also divide <span class="math inline">\(d\)</span> by its sum to re-scale the vector <span class="math inline">\(u\)</span> so that we can think of those values as proportions.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="airline-network.html#cb70-1"></a>v=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(A)) <span class="co"># all 1s vector</span></span>
-<span id="cb70-2"><a href="airline-network.html#cb70-2"></a>d =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>v  <span class="co"># degrees</span></span>
-<span id="cb70-3"><a href="airline-network.html#cb70-3"></a>u=d<span class="op">/</span><span class="kw">sum</span>(d)   <span class="co"># proportion of degres</span></span>
-<span id="cb70-4"><a href="airline-network.html#cb70-4"></a><span class="kw">cbind</span>(d,u) <span class="co"># show d and u together side-by-side in a matrix</span></span></code></pre></div>
+<div id="measures-of-centrality" class="section level2">
+<h2><span class="header-section-number">17.2</span> Measures of Centrality</h2>
+<p>If we are considering placing an office in one of our airport locations, we may want to chose the most <strong>central</strong> hub for that office. It turns out that there are many interesting <strong>centrality measures</strong> for networks. We will talk about two of them today.</p>
+<div id="degree-centrality" class="section level3">
+<h3><span class="header-section-number">17.2.1</span> Degree Centrality</h3>
+<p>One measure of centrality is to use the <strong>degree</strong> of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector <span class="math inline">\(\mathsf{v}\)</span> of all 1’s; then (2) multiply <span class="math inline">\(\mathsf{d} = A\mathsf{v}\)</span> to get the degree proportions; and (3) we also divide vector <span class="math inline">\(\mathsf{d}\)</span> by the sum of its entries. This creates a “normalized vector” <span class="math inline">\(\mathsf{u}\)</span> whose entries sum to 1. Each entry of vector <span class="math inline">\(\mathsf{u}\)</span> represents to proportion of edges incident with the corresponding vertex.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="airline-network.html#cb74-1"></a>v=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(A)) <span class="co"># all 1s vector</span></span>
+<span id="cb74-2"><a href="airline-network.html#cb74-2"></a>d =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>v  <span class="co"># degrees</span></span>
+<span id="cb74-3"><a href="airline-network.html#cb74-3"></a>u=d<span class="op">/</span><span class="kw">sum</span>(d)   <span class="co"># proportion of degres</span></span>
+<span id="cb74-4"><a href="airline-network.html#cb74-4"></a><span class="kw">cbind</span>(d,u) <span class="co"># show d and u together side-by-side in a matrix</span></span></code></pre></div>
 <pre><code>##       [,1]       [,2]
 ##  [1,]    3 0.08823529
 ##  [2,]    5 0.14705882
@@ -387,16 +405,16 @@ Here is how to make the graph from your adjacency matrix</p>
 ## [10,]    1 0.02941176
 ## [11,]    1 0.02941176
 ## [12,]    1 0.02941176</code></pre>
-<p>Here we size each vertex according to the vector <span class="math inline">\(u.\)</span> The larger vertices have more edges connected to them.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="airline-network.html#cb72-1"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>locations, <span class="dt">vertex.size =</span> <span class="dv">200</span><span class="op">*</span>u,<span class="dt">vertex.label.cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p>Now let’s create a <strong>data visualization.</strong> We plot the network and size each vertex according to the vector <span class="math inline">\(u\)</span>. The larger vertices have more edges connected to them. This conveys information to the viewer about the relative importance of the vertices.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="airline-network.html#cb76-1"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>locations, <span class="dt">vertex.size=</span><span class="dv">250</span><span class="op">*</span>u,<span class="dt">vertex.label.cex=</span><span class="fl">0.65</span>, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/network5-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>We can also sort the vertices by degree. To include the vertex names, we do it in a data frame.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="airline-network.html#cb73-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(d) <span class="co">#We need to convert this vector to a data frame in order to add row names</span></span>
-<span id="cb73-2"><a href="airline-network.html#cb73-2"></a><span class="kw">rownames</span>(df)=airports</span>
-<span id="cb73-3"><a href="airline-network.html#cb73-3"></a>ii=<span class="kw">order</span>(d,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
-<span id="cb73-4"><a href="airline-network.html#cb73-4"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
-<span id="cb73-5"><a href="airline-network.html#cb73-5"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
-<span id="cb73-6"><a href="airline-network.html#cb73-6"></a>df2</span></code></pre></div>
+<p>We can also sort the vertices by degree. To include the vertex names, we do it in a <strong>data frame</strong>. WE then display the results in a</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="airline-network.html#cb77-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(d)  <span class="co"># Convert vector to a data frame so that we can add row names</span></span>
+<span id="cb77-2"><a href="airline-network.html#cb77-2"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb77-3"><a href="airline-network.html#cb77-3"></a>ii=<span class="kw">order</span>(d,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
+<span id="cb77-4"><a href="airline-network.html#cb77-4"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
+<span id="cb77-5"><a href="airline-network.html#cb77-5"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
+<span id="cb77-6"><a href="airline-network.html#cb77-6"></a>df2</span></code></pre></div>
 <pre><code>##     df.ii...
 ## LAX        5
 ## DEN        5
@@ -412,9 +430,14 @@ Here is how to make the graph from your adjacency matrix</p>
 ## LGA        1</code></pre>
 </div>
 <div id="gould-index" class="section level3">
-<h3><span class="header-section-number">17.0.3</span> Gould Index</h3>
-<p>The Gould Index is a measure of centrality that uses the dominant eigenvector. The first step is typically to add the identity matrix to the adjancency matrix <span class="math inline">\(A\)</span>, and get a new matrix <span class="math inline">\(B= A + I\)</span>. The <span class="math inline">\(n \times n\)</span> identity matrix in <code>R</code> is obtained by using <code>diag(n)</code>. Adding the identity gives a connection from a node to itself and allows the possibility of a layover at a given city.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="airline-network.html#cb75-1"></a>(<span class="dt">B =</span> A <span class="op">+</span><span class="st"> </span><span class="kw">diag</span>(<span class="kw">nrow</span>(A)))</span></code></pre></div>
+<h3><span class="header-section-number">17.2.2</span> Gould Index</h3>
+<p>The Gould Index is a measure of centrality that uses the dominant eigenvector of a matrix. It was introduced by geographer P. R. Gould in 1967 to analyze the geographical features on maps. We will build up Gould’s Index step-by-step so that we can understand what it measures.</p>
+<div id="step-one" class="section level4">
+<h4><span class="header-section-number">17.2.2.1</span> Step One</h4>
+<p>The first step is typically to add the identity matrix to the adjancency matrix <span class="math inline">\(A\)</span> to get a new matrix
+<span class="math display">\[B= A + I.\]</span>
+The <span class="math inline">\(n \times n\)</span> identity matrix in <code>R</code> is obtained by using <code>diag(n)</code>. Adding the identity gives a connection from a vertex to itself. This <strong>loop edge</strong> corresponds to staying at the current city during a layover.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="airline-network.html#cb79-1"></a>(<span class="dt">B =</span> A <span class="op">+</span><span class="st"> </span><span class="kw">diag</span>(<span class="kw">nrow</span>(A)))</span></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
 ##  [1,]    1    1    0    1    0    0    0    0    1     0     0     0
 ##  [2,]    1    1    1    1    1    0    1    0    0     0     0     0
@@ -428,104 +451,170 @@ Here is how to make the graph from your adjacency matrix</p>
 ## [10,]    0    0    0    0    0    0    0    1    0     1     0     0
 ## [11,]    0    0    0    0    0    0    0    1    0     0     1     0
 ## [12,]    0    0    0    0    1    0    0    0    0     0     0     1</code></pre>
-<p>We now start with the all 1s vector and iterate a few steps.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="airline-network.html#cb77-1"></a>v0 =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
-<span id="cb77-2"><a href="airline-network.html#cb77-2"></a>v1 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v0</span>
-<span id="cb77-3"><a href="airline-network.html#cb77-3"></a>v2 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v1</span>
-<span id="cb77-4"><a href="airline-network.html#cb77-4"></a>v3 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v2</span>
-<span id="cb77-5"><a href="airline-network.html#cb77-5"></a><span class="kw">cbind</span>(v0,v1,v2,v3)</span></code></pre></div>
-<pre><code>##       v0         
-##  [1,]  1 4 17  76
-##  [2,]  1 6 29 139
-##  [3,]  1 3 15  72
-##  [4,]  1 5 24 109
-##  [5,]  1 6 28 132
-##  [6,]  1 3 13  63
-##  [7,]  1 5 26 122
-##  [8,]  1 6 26 120
-##  [9,]  1 2  6  23
-## [10,]  1 2  8  34
-## [11,]  1 2  8  34
-## [12,]  1 2  8  36</code></pre>
-<p>In your group you should agree about what these vectors are counting. We can do this using a loop:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="airline-network.html#cb79-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
-<span id="cb79-2"><a href="airline-network.html#cb79-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb79-3"><a href="airline-network.html#cb79-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
-<span id="cb79-4"><a href="airline-network.html#cb79-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
-<span id="cb79-5"><a href="airline-network.html#cb79-5"></a>   X[,i] =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
-<span id="cb79-6"><a href="airline-network.html#cb79-6"></a>}</span>
-<span id="cb79-7"><a href="airline-network.html#cb79-7"></a>X </span></code></pre></div>
-<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7]  [,8]  [,9]  [,10]  [,11]
-##  [1,]    1    3   10   36  130  477 1741  6392 23394  85846 314471
-##  [2,]    1    5   18   69  245  923 3317 12346 44761 165467 602927
-##  [3,]    1    2   10   35  134  483 1796  6534 24091  88004 323475
-##  [4,]    1    4   15   51  196  688 2598  9307 34693 125610 464760
-##  [5,]    1    5   17   65  238  873 3217 11745 43243 158008 580881
-##  [6,]    1    2    8   32  109  421 1484  5592 20090  74739 271069
-##  [7,]    1    4   17   58  225  796 2994 10783 40046 145459 536922
-##  [8,]    1    5   15   59  204  777 2765 10363 37365 138708 503807
-##  [9,]    1    1    3   10   36  130  477  1741  6392  23394  85846
-## [10,]    1    1    5   15   59  204  777  2765 10363  37365 138708
-## [11,]    1    1    5   15   59  204  777  2765 10363  37365 138708
-## [12,]    1    1    5   17   65  238  873  3217 11745  43243 158008</code></pre>
-<p>These numbers get big fast, so we divide by the sum each time.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="airline-network.html#cb81-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
-<span id="cb81-2"><a href="airline-network.html#cb81-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb81-3"><a href="airline-network.html#cb81-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
-<span id="cb81-4"><a href="airline-network.html#cb81-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
-<span id="cb81-5"><a href="airline-network.html#cb81-5"></a>   X[,i] =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
-<span id="cb81-6"><a href="airline-network.html#cb81-6"></a>   X[,i] =<span class="st"> </span>X[,i]<span class="op">/</span><span class="kw">sum</span>(X[,i])</span>
-<span id="cb81-7"><a href="airline-network.html#cb81-7"></a>}</span>
-<span id="cb81-8"><a href="airline-network.html#cb81-8"></a>X </span></code></pre></div>
-<pre><code>##       [,1]       [,2]      [,3]       [,4]       [,5]       [,6]       [,7]       [,8]       [,9]      [,10]
-##  [1,]    1 0.08823529 0.0781250 0.07792208 0.07647059 0.07676215 0.07630610 0.07650509 0.07631481 0.07642930
-##  [2,]    1 0.14705882 0.1406250 0.14935065 0.14411765 0.14853556 0.14538043 0.14776780 0.14601724 0.14731644
-##  [3,]    1 0.05882353 0.0781250 0.07575758 0.07882353 0.07772771 0.07871669 0.07820467 0.07858853 0.07835058
-##  [4,]    1 0.11764706 0.1171875 0.11038961 0.11529412 0.11071773 0.11386746 0.11139437 0.11317388 0.11183147
-##  [5,]    1 0.14705882 0.1328125 0.14069264 0.14000000 0.14048922 0.14099755 0.14057451 0.14106529 0.14067564
-##  [6,]    1 0.05882353 0.0625000 0.06926407 0.06411765 0.06775024 0.06504208 0.06692998 0.06553666 0.06654066
-##  [7,]    1 0.11764706 0.1328125 0.12554113 0.13235294 0.12809784 0.13122370 0.12906044 0.13063619 0.12950317
-##  [8,]    1 0.14705882 0.1171875 0.12770563 0.12000000 0.12504023 0.12118689 0.12403351 0.12189035 0.12349271
-##  [9,]    1 0.02941176 0.0234375 0.02164502 0.02117647 0.02092050 0.02090638 0.02083782 0.02085168 0.02082784
-## [10,]    1 0.02941176 0.0390625 0.03246753 0.03470588 0.03282910 0.03405505 0.03309396 0.03380569 0.03326632
-## [11,]    1 0.02941176 0.0390625 0.03246753 0.03470588 0.03282910 0.03405505 0.03309396 0.03380569 0.03326632
-## [12,]    1 0.02941176 0.0390625 0.03679654 0.03823529 0.03830061 0.03826262 0.03850389 0.03831399 0.03849955
-##            [,11]
-##  [1,] 0.07633566
-##  [2,] 0.14635635
-##  [3,] 0.07852132
-##  [4,] 0.11281727
-##  [5,] 0.14100484
-##  [6,] 0.06580012
-##  [7,] 0.13033410
-##  [8,] 0.12229566
-##  [9,] 0.02083852
-## [10,] 0.03367041
-## [11,] 0.03367041
-## [12,] 0.03835535</code></pre>
-<p>You can see that these vectors are converging to a common direction: the direction of the dominant eigenvector. We can also just get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector is the Gould Index.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="airline-network.html#cb83-1"></a>N =<span class="st"> </span><span class="dv">1000</span> </span>
-<span id="cb83-2"><a href="airline-network.html#cb83-2"></a>w =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
-<span id="cb83-3"><a href="airline-network.html#cb83-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
-<span id="cb83-4"><a href="airline-network.html#cb83-4"></a>   w =<span class="st"> </span>A <span class="op">%*%</span><span class="st">  </span>w</span>
-<span id="cb83-5"><a href="airline-network.html#cb83-5"></a>   w =<span class="st"> </span>w<span class="op">/</span><span class="kw">sum</span>(w)</span>
-<span id="cb83-6"><a href="airline-network.html#cb83-6"></a>}</span>
-<span id="cb83-7"><a href="airline-network.html#cb83-7"></a>w</span></code></pre></div>
-<pre><code>##             [,1]
-##  [1,] 0.07637062
-##  [2,] 0.14676474
-##  [3,] 0.07845446
-##  [4,] 0.11239329
-##  [5,] 0.14086410
-##  [6,] 0.06611172
-##  [7,] 0.12998472
-##  [8,] 0.12280792
-##  [9,] 0.02083107
-## [10,] 0.03349744
-## [11,] 0.03349744
-## [12,] 0.03842249</code></pre>
-<p>We can see that it is the same as the dominant eigenvector as follows. First compute the eigenvectors.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="airline-network.html#cb85-1"></a><span class="kw">eigen</span>(B)</span></code></pre></div>
+<p>Here is what the corresponding network (with layovers) looks like. You can see why we refer to these additional edges as “loops.” However, we usually do not draw the network with these added loops to keep the figure less cluttered.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="airline-network.html#cb81-1"></a>g2=<span class="kw">graph_from_adjacency_matrix</span>(B,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
+<span id="cb81-2"><a href="airline-network.html#cb81-2"></a>airports =<span class="st"> </span></span>
+<span id="cb81-3"><a href="airline-network.html#cb81-3"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;ATL&quot;</span>,<span class="st">&quot;LAX&quot;</span>,<span class="st">&quot;ORD&quot;</span>,<span class="st">&quot;MSP&quot;</span>,<span class="st">&quot;DEN&quot;</span>,<span class="st">&quot;JFK&quot;</span>,<span class="st">&quot;SFO&quot;</span>,<span class="st">&quot;SEA&quot;</span>,<span class="st">&quot;PHL&quot;</span>,<span class="st">&quot;PDX&quot;</span>,<span class="st">&quot;MDW&quot;</span>,<span class="st">&quot;LGA&quot;</span>)</span>
+<span id="cb81-4"><a href="airline-network.html#cb81-4"></a><span class="kw">V</span>(g2)<span class="op">$</span>label =<span class="st"> </span>airports</span>
+<span id="cb81-5"><a href="airline-network.html#cb81-5"></a>coords =<span class="st"> </span><span class="kw">layout_with_fr</span>(g2)</span>
+<span id="cb81-6"><a href="airline-network.html#cb81-6"></a><span class="kw">plot</span>(g2, <span class="dt">layout=</span>coords, <span class="dt">vertex.color=</span><span class="st">&#39;tan1&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;dodgerblue&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/networkB-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="step-2" class="section level3">
+<h3><span class="header-section-number">17.2.3</span> Step 2</h3>
+<p>Start with the all 1’s vector <span class="math inline">\(\mathsf{v}_0 = [1, 1, \ldots ,1 ]^{\top}\)</span>. We iterate the mapping <span class="math inline">\(T(\mathsf{x}) = B\mathsf{x}\)</span> for a few steps to get <span class="math inline">\(\mathsf{v}_1 = B \mathsf{v}_0\)</span> and <span class="math inline">\(\mathsf{v}_2 = B \mathsf{v}_1 = B^2 \mathsf{v}_0\)</span> and <span class="math inline">\(\mathsf{v}_3 = B \mathsf{v}_2 = B^3 \mathsf{v}_0\)</span>.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="airline-network.html#cb82-1"></a>v0 =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb82-2"><a href="airline-network.html#cb82-2"></a>v1 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v0</span>
+<span id="cb82-3"><a href="airline-network.html#cb82-3"></a>v2 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v1</span>
+<span id="cb82-4"><a href="airline-network.html#cb82-4"></a>v3 =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>v2</span>
+<span id="cb82-5"><a href="airline-network.html#cb82-5"></a></span>
+<span id="cb82-6"><a href="airline-network.html#cb82-6"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">cbind</span>(v0,v1,v2,v3)) <span class="co">#Convert vector to a data frame in order to add row names</span></span>
+<span id="cb82-7"><a href="airline-network.html#cb82-7"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb82-8"><a href="airline-network.html#cb82-8"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb82-9"><a href="airline-network.html#cb82-9"></a>df</span></code></pre></div>
+<pre><code>##     0 1  2   3
+## ATL 1 4 17  76
+## LAX 1 6 29 139
+## ORD 1 3 15  72
+## MSP 1 5 24 109
+## DEN 1 6 28 132
+## JFK 1 3 13  63
+## SFO 1 5 26 122
+## SEA 1 6 26 120
+## PHL 1 2  6  23
+## PDX 1 2  8  34
+## MDW 1 2  8  34
+## LGA 1 2  8  36</code></pre>
+<div id="your-turn-9" class="section level4">
+<h4><span class="header-section-number">17.2.3.1</span> Your Turn</h4>
+<p><strong>Discuss with your group:</strong> Each of the entries of vector <span class="math inline">\(\mathsf{v}_{t}\)</span> corresponds to “a trip of length <span class="math inline">\(k\)</span>.” What kinds of trips does the <span class="math inline">\(i\)</span>th entry of <span class="math inline">\(\mathsf{v}_{t}\)</span> count? Here is how you can figure this out:</p>
+<ol style="list-style-type: decimal">
+<li>Compare the table of vectors with the picture of the network with layovers.</li>
+<li>Start by looking at the <span class="math inline">\(t=1\)</span> column. The <span class="math inline">\(i\)</span>th entry has something to do with the <span class="math inline">\(i\)</span>th city.</li>
+<li>Next, look at the <span class="math inline">\(t=2\)</span> column. And so on.</li>
+<li>Once you have noticed the connection between the network and data, <em>explain why the rule <span class="math inline">\(\mathsf{v}_t = A \mathsf{v}_{t-1}\)</span> leads to this result</em>.</li>
+</ol>
+</div>
+</div>
+<div id="step-3" class="section level3">
+<h3><span class="header-section-number">17.2.4</span> Step 3</h3>
+<p>We can calculate <span class="math inline">\(\mathsf{v}_1, \ldots, \mathsf{v}_{10}\)</span> using a loop:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="airline-network.html#cb84-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
+<span id="cb84-2"><a href="airline-network.html#cb84-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb84-3"><a href="airline-network.html#cb84-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb84-4"><a href="airline-network.html#cb84-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb84-5"><a href="airline-network.html#cb84-5"></a>   X[,i] =<span class="st"> </span>B <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
+<span id="cb84-6"><a href="airline-network.html#cb84-6"></a>}</span>
+<span id="cb84-7"><a href="airline-network.html#cb84-7"></a>X </span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6]  [,7]  [,8]   [,9]   [,10]   [,11]
+##  [1,]    1    4   17   76  347 1603  7442 34638 161411  752642 3510616
+##  [2,]    1    6   29  139  650 3044 14211 66352 309652 1445058 6743119
+##  [3,]    1    3   15   72  343 1614  7567 35389 165336  771972 3603377
+##  [4,]    1    5   24  109  507 2349 10936 50930 237450 1107376 5165837
+##  [5,]    1    6   28  132  621 2909 13611 63595 296984 1386347 6470458
+##  [6,]    1    3   13   63  294 1377  6418 29939 139617  651292 3038392
+##  [7,]    1    5   26  122  576 2692 12585 58748 274225 1279724 5971890
+##  [8,]    1    6   26  120  551 2563 11923 55591 259246 1209469 5642972
+##  [9,]    1    2    6   23   99  446  2049  9491  44129  205540  958182
+## [10,]    1    2    8   34  154  705  3268 15191  70782  330028 1539497
+## [11,]    1    2    8   34  154  705  3268 15191  70782  330028 1539497
+## [12,]    1    2    8   36  168  789  3698 17309  80904  377888 1764235</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="airline-network.html#cb86-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(X) </span>
+<span id="cb86-2"><a href="airline-network.html#cb86-2"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb86-3"><a href="airline-network.html#cb86-3"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb86-4"><a href="airline-network.html#cb86-4"></a>df</span></code></pre></div>
+<pre><code>##     0 1  2   3   4    5     6     7      8       9      10
+## ATL 1 4 17  76 347 1603  7442 34638 161411  752642 3510616
+## LAX 1 6 29 139 650 3044 14211 66352 309652 1445058 6743119
+## ORD 1 3 15  72 343 1614  7567 35389 165336  771972 3603377
+## MSP 1 5 24 109 507 2349 10936 50930 237450 1107376 5165837
+## DEN 1 6 28 132 621 2909 13611 63595 296984 1386347 6470458
+## JFK 1 3 13  63 294 1377  6418 29939 139617  651292 3038392
+## SFO 1 5 26 122 576 2692 12585 58748 274225 1279724 5971890
+## SEA 1 6 26 120 551 2563 11923 55591 259246 1209469 5642972
+## PHL 1 2  6  23  99  446  2049  9491  44129  205540  958182
+## PDX 1 2  8  34 154  705  3268 15191  70782  330028 1539497
+## MDW 1 2  8  34 154  705  3268 15191  70782  330028 1539497
+## LGA 1 2  8  36 168  789  3698 17309  80904  377888 1764235</code></pre>
+<p>Wow, these numbers get big fast! Let’s normalize by dividing by the sum each time.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="airline-network.html#cb88-1"></a>N =<span class="st"> </span><span class="dv">10</span> </span>
+<span id="cb88-2"><a href="airline-network.html#cb88-2"></a>X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(B),<span class="dt">ncol=</span>N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb88-3"><a href="airline-network.html#cb88-3"></a>X[,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb88-4"><a href="airline-network.html#cb88-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb88-5"><a href="airline-network.html#cb88-5"></a>   X[,i] =<span class="st"> </span>B <span class="op">%*%</span><span class="st">  </span>X[,i<span class="dv">-1</span>]</span>
+<span id="cb88-6"><a href="airline-network.html#cb88-6"></a>   X[,i] =<span class="st"> </span>X[,i]<span class="op">/</span><span class="kw">sum</span>(X[,i])</span>
+<span id="cb88-7"><a href="airline-network.html#cb88-7"></a>}</span>
+<span id="cb88-8"><a href="airline-network.html#cb88-8"></a></span>
+<span id="cb88-9"><a href="airline-network.html#cb88-9"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(X) </span>
+<span id="cb88-10"><a href="airline-network.html#cb88-10"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb88-11"><a href="airline-network.html#cb88-11"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb88-12"><a href="airline-network.html#cb88-12"></a>df</span></code></pre></div>
+<pre><code>##     0          1          2          3          4          5          6          7          8          9
+## ATL 1 0.08695652 0.08173077 0.07916667 0.07773297 0.07708213 0.07674064 0.07657108 0.07647933 0.07643081
+## LAX 1 0.13043478 0.13942308 0.14479167 0.14560932 0.14637430 0.14654141 0.14667834 0.14671848 0.14674567
+## ORD 1 0.06521739 0.07211538 0.07500000 0.07683692 0.07761108 0.07802962 0.07823125 0.07833906 0.07839377
+## MSP 1 0.10869565 0.11538462 0.11354167 0.11357527 0.11295441 0.11277017 0.11258632 0.11250792 0.11245405
+## DEN 1 0.13043478 0.13461538 0.13750000 0.13911290 0.13988267 0.14035431 0.14058369 0.14071617 0.14078356
+## JFK 1 0.06521739 0.06250000 0.06562500 0.06586022 0.06621466 0.06618132 0.06618343 0.06615295 0.06613871
+## SFO 1 0.10869565 0.12500000 0.12708333 0.12903226 0.12944797 0.12977438 0.12986887 0.12993256 0.12995600
+## SEA 1 0.13043478 0.12500000 0.12500000 0.12343190 0.12324485 0.12294795 0.12288997 0.12283525 0.12282160
+## PHL 1 0.04347826 0.02884615 0.02395833 0.02217742 0.02144643 0.02112894 0.02098089 0.02090908 0.02087259
+## PDX 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435
+## MDW 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435
+## LGA 1 0.04347826 0.03846154 0.03750000 0.03763441 0.03793999 0.03813315 0.03826343 0.03833372 0.03837453
+##             10
+## ATL 0.07640399
+## LAX 0.14675521
+## ORD 0.07842281
+## MSP 0.11242772
+## DEN 0.14082110
+## JFK 0.06612665
+## SFO 0.12997042
+## SEA 0.12281194
+## PHL 0.02085358
+## PDX 0.03350515
+## MDW 0.03350515
+## LGA 0.03839628</code></pre>
+<div id="your-turn-10" class="section level4">
+<h4><span class="header-section-number">17.2.4.1</span> Your Turn</h4>
+<p><strong>Discuss with your group:</strong> What do we learn from this table of normalized vectors?</p>
+<ol style="list-style-type: decimal">
+<li>Interpret the vector for <span class="math inline">\(t=10\)</span>. Since we have normalized our vector, each entry is a proportion, rather than a raw count.</li>
+<li>Look at the entries as <span class="math inline">\(t\)</span> increases. What do you observe?</li>
+<li>Iterative multiplication <span class="math inline">\(\mathsf{v}_t = A \mathsf{v}_{t-1}\)</span> is a <strong>dynamical system</strong>! We talked about dynamical systems last week. There is a relationship between the eigenvectors of <span class="math inline">\(A\)</span> and the “long term behavior” of the dynamical system. Share what you remember about this topic with your group.</li>
+</ol>
+</div>
+</div>
+<div id="step-4" class="section level3">
+<h3><span class="header-section-number">17.2.5</span> Step 4</h3>
+<p>You have observed that the vectors are converging to a common direction. We get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector, whose entries are scaled to sum to one, is called <strong>Gould’s Index</strong>.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="airline-network.html#cb90-1"></a>N =<span class="st"> </span><span class="dv">1000</span> </span>
+<span id="cb90-2"><a href="airline-network.html#cb90-2"></a>w =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(B))</span>
+<span id="cb90-3"><a href="airline-network.html#cb90-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="op">+</span><span class="dv">1</span>)) {  </span>
+<span id="cb90-4"><a href="airline-network.html#cb90-4"></a>   w =<span class="st"> </span>B <span class="op">%*%</span><span class="st">  </span>w</span>
+<span id="cb90-5"><a href="airline-network.html#cb90-5"></a>   w =<span class="st"> </span>w<span class="op">/</span><span class="kw">sum</span>(w)</span>
+<span id="cb90-6"><a href="airline-network.html#cb90-6"></a>}</span>
+<span id="cb90-7"><a href="airline-network.html#cb90-7"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(w)</span>
+<span id="cb90-8"><a href="airline-network.html#cb90-8"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb90-9"><a href="airline-network.html#cb90-9"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="st">&quot;Gould Index&quot;</span>)</span>
+<span id="cb90-10"><a href="airline-network.html#cb90-10"></a>df</span></code></pre></div>
+<pre><code>##     Gould Index
+## ATL  0.07637062
+## LAX  0.14676474
+## ORD  0.07845446
+## MSP  0.11239329
+## DEN  0.14086410
+## JFK  0.06611172
+## SFO  0.12998472
+## SEA  0.12280792
+## PHL  0.02083107
+## PDX  0.03349744
+## MDW  0.03349744
+## LGA  0.03842249</code></pre>
+<p>We saw last week that this direction must be the <strong>dominant eigenvector</strong> of <span class="math inline">\(B\)</span>. This dominant eigenvector is the directon that corresponds to the eigenvalue of largest magnitude.</p>
+<p>We can confirm that this is the dominant eigenvector as follows. First compute the eigenvectors.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="airline-network.html#cb92-1"></a><span class="kw">eigen</span>(B)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ##  [1]  4.66618847  2.64207538  2.41909839  1.80037113  1.27260439  1.00000000  1.00000000  0.49835918  0.02718633
@@ -558,12 +647,17 @@ Here is how to make the graph from your adjacency matrix</p>
 ## [10,]  0.41613681 -4.483988e-02 -0.12092951 -0.191135557
 ## [11,]  0.41613681 -4.483988e-02 -0.12092951 -0.191135557
 ## [12,]  0.26117231 -1.345953e-01  0.32888356  0.072932167</code></pre>
-<p>Here we extract the dominant eigenvector <span class="math inline">\(v_1\)</span>, rescale it to sum to 1, and display it next to the vector <span class="math inline">\(w\)</span> we got above by iteration. This common vector, scaled to sum to one, is called <strong>Gould’s Index</strong>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="airline-network.html#cb87-1"></a>vecs =<span class="st"> </span><span class="kw">eigen</span>(A)<span class="op">$</span>vectors</span>
-<span id="cb87-2"><a href="airline-network.html#cb87-2"></a>v1 =<span class="st"> </span>vecs[,<span class="dv">1</span>]</span>
-<span id="cb87-3"><a href="airline-network.html#cb87-3"></a>v1 =<span class="st"> </span>v1<span class="op">/</span><span class="kw">sum</span>(v1)</span>
-<span id="cb87-4"><a href="airline-network.html#cb87-4"></a><span class="kw">cbind</span>(w,v1)</span></code></pre></div>
-<pre><code>##                          v1
+<p>Now, we will</p>
+<ul>
+<li>extract the dominant eigenvector <span class="math inline">\(\mathsf{v}_1\)</span></li>
+<li>rescale this vector to sum to 1, and</li>
+<li>display it next to the vector <span class="math inline">\(w\)</span> we got above by iteration.</li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="airline-network.html#cb94-1"></a>vecs =<span class="st"> </span><span class="kw">eigen</span>(B)<span class="op">$</span>vectors</span>
+<span id="cb94-2"><a href="airline-network.html#cb94-2"></a>gould =<span class="st"> </span>vecs[,<span class="dv">1</span>]</span>
+<span id="cb94-3"><a href="airline-network.html#cb94-3"></a>gould =<span class="st"> </span>gould<span class="op">/</span><span class="kw">sum</span>(gould)</span>
+<span id="cb94-4"><a href="airline-network.html#cb94-4"></a><span class="kw">cbind</span>(w,gould)</span></code></pre></div>
+<pre><code>##                       gould
 ##  [1,] 0.07637062 0.07637062
 ##  [2,] 0.14676474 0.14676474
 ##  [3,] 0.07845446 0.07845446
@@ -576,29 +670,47 @@ Here is how to make the graph from your adjacency matrix</p>
 ## [10,] 0.03349744 0.03349744
 ## [11,] 0.03349744 0.03349744
 ## [12,] 0.03842249 0.03842249</code></pre>
-<p>We can now plot the network with the vertices sized by the Gould Index.</p>
+</div>
+<div id="step-5" class="section level3">
+<h3><span class="header-section-number">17.2.6</span> Step 5</h3>
+<p>Now let’s plot the network with the vertices sized by the Gould Index.</p>
 <p><img src="math236_handbook_files/figure-html/network6-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>And we can order the vertices using the Gould Index</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="airline-network.html#cb89-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(v1) <span class="co">#We need to convert this vector to a data frame in order to add row names</span></span>
-<span id="cb89-2"><a href="airline-network.html#cb89-2"></a><span class="kw">rownames</span>(df)=airports</span>
-<span id="cb89-3"><a href="airline-network.html#cb89-3"></a>ii=<span class="kw">order</span>(v1,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
-<span id="cb89-4"><a href="airline-network.html#cb89-4"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
-<span id="cb89-5"><a href="airline-network.html#cb89-5"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
-<span id="cb89-6"><a href="airline-network.html#cb89-6"></a>df2</span></code></pre></div>
-<pre><code>##       df.ii...
-## LAX 0.14676474
-## DEN 0.14086410
-## SFO 0.12998472
-## SEA 0.12280792
-## MSP 0.11239329
-## ORD 0.07845446
-## ATL 0.07637062
-## JFK 0.06611172
-## LGA 0.03842249
-## PDX 0.03349744
-## MDW 0.03349744
-## PHL 0.02083107</code></pre>
+<p>And we can create a data frame containing both the degree centrality and the Gould Index. We order the data using the Gould Index and then compare the two.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="airline-network.html#cb96-1"></a>df =<span class="st"> </span><span class="kw">data.frame</span>(gould, u) <span class="co">#Convert vector to a data frame in order to add row names</span></span>
+<span id="cb96-2"><a href="airline-network.html#cb96-2"></a><span class="kw">rownames</span>(df)=airports</span>
+<span id="cb96-3"><a href="airline-network.html#cb96-3"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="st">&#39;Gould&#39;</span>, <span class="st">&#39;Degree&#39;</span>)</span>
+<span id="cb96-4"><a href="airline-network.html#cb96-4"></a>ii=<span class="kw">order</span>(gould,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)</span>
+<span id="cb96-5"><a href="airline-network.html#cb96-5"></a>df2 =<span class="st"> </span><span class="kw">data.frame</span>(df[ii,])</span>
+<span id="cb96-6"><a href="airline-network.html#cb96-6"></a><span class="kw">rownames</span>(df2) =<span class="st"> </span>airports[ii]</span>
+<span id="cb96-7"><a href="airline-network.html#cb96-7"></a>df2</span></code></pre></div>
+<pre><code>##          Gould     Degree
+## LAX 0.14676474 0.14705882
+## DEN 0.14086410 0.14705882
+## SFO 0.12998472 0.11764706
+## SEA 0.12280792 0.14705882
+## MSP 0.11239329 0.11764706
+## ORD 0.07845446 0.05882353
+## ATL 0.07637062 0.08823529
+## JFK 0.06611172 0.05882353
+## LGA 0.03842249 0.02941176
+## PDX 0.03349744 0.02941176
+## MDW 0.03349744 0.02941176
+## PHL 0.02083107 0.02941176</code></pre>
+<div id="your-turn-11" class="section level4">
+<h4><span class="header-section-number">17.2.6.1</span> Your Turn</h4>
+<p><strong>Discuss with your group:</strong> Degree centrality and Gould’s Index give different rankings.</p>
+<ul>
+<li>LAX, DEN and SEA have the same degree centrality. However LAX and DEN have higher Gould Index than SEA.</li>
+<li>SFO has lower degree centrality than SEA, but higher Gould centrality! So these two centralities give different rankings.</li>
+</ul>
+<p>Remind yourselves what does the Gould Index measures.</p>
+<ul>
+<li>Why does the Gould Index value SFO more than SEA?</li>
+<li>Find another pair of cities where the rankings of degree centrality and Gould’s Index differ. Look at the plot of the network and explain why this is the case.</li>
+</ul>
 
+</div>
+</div>
 </div>
 </div>
 

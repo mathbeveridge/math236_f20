@@ -10,7 +10,7 @@ span
 $$
 \mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
 $$
-If $A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]$ is the matrix with these vectors in the columns, then this is the same as saying that $\mathsf{x} = [c_1, \ldots, c_n]^{\top}$ is a solution to $A x  = \mathsf{v}$.
+*Connection to Matrices:* If $A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]$ is the matrix with these vectors in the columns, then this is the same as saying that $\mathsf{x} = [c_1, \ldots, c_n]^{\top}$ is a solution to $A x  = \mathsf{v}$.
 
 linear independence
 
@@ -18,7 +18,9 @@ linear independence
 $$
 \mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
 $$
-is with $c_1 = c_2 = \cdots = c_n = 0$. This is the same as saying that $A x = \mathsf{0}$ has only the trivial solution.
+is with $c_1 = c_2 = \cdots = c_n = 0$. 
+
+*Connection to Matrices:* If $A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]$ is the matrix with these vectors in the columns, then this is the same as saying that $A x = \mathsf{0}$ has only the trivial solution.
 
 
 linear dependence
@@ -27,7 +29,9 @@ linear dependence
 $$
 \mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
 $$
-This is called a **dependence relation** among the vectors. This is the same as saying that $\mathsf{x} = [c_1, c_2, \ldots, c_n]^{\top}$ is a nontrivial solution to $A \mathsf{x} = \mathsf{0}$.
+This is called a **dependence relation** among the vectors. 
+
+*Connection to Matrices:* If $A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]$ is the matrix with these vectors in the columns, then this is the same as saying that $\mathsf{x} = [c_1, c_2, \ldots, c_n]^{\top}$ is a nontrivial solution to $A \mathsf{x} = \mathsf{0}$.
 
 
 linear transformation

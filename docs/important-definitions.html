@@ -254,9 +254,18 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="airline-network.html"><a href="airline-network.html"><i class="fa fa-check"></i><b>17</b> Airline Network</a><ul>
-<li class="chapter" data-level="17.0.1" data-path="airline-network.html"><a href="airline-network.html#graphs-and-networks"><i class="fa fa-check"></i><b>17.0.1</b> Graphs and Networks</a></li>
-<li class="chapter" data-level="17.0.2" data-path="airline-network.html"><a href="airline-network.html#measures-of-centrality"><i class="fa fa-check"></i><b>17.0.2</b> Measures of Centrality</a></li>
-<li class="chapter" data-level="17.0.3" data-path="airline-network.html"><a href="airline-network.html#gould-index"><i class="fa fa-check"></i><b>17.0.3</b> Gould Index</a></li>
+<li class="chapter" data-level="17.1" data-path="airline-network.html"><a href="airline-network.html#graphs-and-networks"><i class="fa fa-check"></i><b>17.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="airline-network.html"><a href="airline-network.html#adjacency-matrices"><i class="fa fa-check"></i><b>17.1.1</b> Adjacency Matrices</a></li>
+<li class="chapter" data-level="17.1.2" data-path="airline-network.html"><a href="airline-network.html#graph-layouts"><i class="fa fa-check"></i><b>17.1.2</b> Graph Layouts</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="airline-network.html"><a href="airline-network.html#measures-of-centrality"><i class="fa fa-check"></i><b>17.2</b> Measures of Centrality</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="airline-network.html"><a href="airline-network.html#degree-centrality"><i class="fa fa-check"></i><b>17.2.1</b> Degree Centrality</a></li>
+<li class="chapter" data-level="17.2.2" data-path="airline-network.html"><a href="airline-network.html#gould-index"><i class="fa fa-check"></i><b>17.2.2</b> Gould Index</a></li>
+<li class="chapter" data-level="17.2.3" data-path="airline-network.html"><a href="airline-network.html#step-2"><i class="fa fa-check"></i><b>17.2.3</b> Step 2</a></li>
+<li class="chapter" data-level="17.2.4" data-path="airline-network.html"><a href="airline-network.html#step-3"><i class="fa fa-check"></i><b>17.2.4</b> Step 3</a></li>
+<li class="chapter" data-level="17.2.5" data-path="airline-network.html"><a href="airline-network.html#step-4"><i class="fa fa-check"></i><b>17.2.5</b> Step 4</a></li>
+<li class="chapter" data-level="17.2.6" data-path="airline-network.html"><a href="airline-network.html#step-5"><i class="fa fa-check"></i><b>17.2.6</b> Step 5</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="18" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>18</b> Quiz 1 Review</a><ul>
@@ -303,22 +312,28 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span class="math display">\[
 \mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
 \]</span>
-If <span class="math inline">\(A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]\)</span> is the matrix with these vectors in the columns, then this is the same as saying that <span class="math inline">\(\mathsf{x} = [c_1, \ldots, c_n]^{\top}\)</span> is a solution to <span class="math inline">\(A x = \mathsf{v}\)</span>.</p>
+<em>Connection to Matrices:</em> If <span class="math inline">\(A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]\)</span> is the matrix with these vectors in the columns, then this is the same as saying that <span class="math inline">\(\mathsf{x} = [c_1, \ldots, c_n]^{\top}\)</span> is a solution to <span class="math inline">\(A x = \mathsf{v}\)</span>.</p>
 </dd>
 <dt>linear independence</dt>
 <dd><p>A set of vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2,\ldots, \mathsf{v}_n\)</span> are <strong>linearly independent</strong> if the only way to write
 <span class="math display">\[
 \mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
 \]</span>
-is with <span class="math inline">\(c_1 = c_2 = \cdots = c_n = 0\)</span>. This is the same as saying that <span class="math inline">\(A x = \mathsf{0}\)</span> has only the trivial solution.</p>
+is with <span class="math inline">\(c_1 = c_2 = \cdots = c_n = 0\)</span>.</p>
 </dd>
+</dl>
+<p><em>Connection to Matrices:</em> If <span class="math inline">\(A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]\)</span> is the matrix with these vectors in the columns, then this is the same as saying that <span class="math inline">\(A x = \mathsf{0}\)</span> has only the trivial solution.</p>
+<dl>
 <dt>linear dependence</dt>
 <dd><p>Conversely, a set of vectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> are <strong>linearly dependent</strong> if there exist scalars <span class="math inline">\(c_1, c_2,\ldots, c_n \in \mathbb{R}\)</span> that are <strong>not all equal to 0</strong> such that
 <span class="math display">\[
 \mathsf{0} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n
 \]</span>
-This is called a <strong>dependence relation</strong> among the vectors. This is the same as saying that <span class="math inline">\(\mathsf{x} = [c_1, c_2, \ldots, c_n]^{\top}\)</span> is a nontrivial solution to <span class="math inline">\(A \mathsf{x} = \mathsf{0}\)</span>.</p>
+This is called a <strong>dependence relation</strong> among the vectors.</p>
 </dd>
+</dl>
+<p><em>Connection to Matrices:</em> If <span class="math inline">\(A = [\mathsf{v}_1 \mathsf{v}_2 \cdots \mathsf{v}_n]\)</span> is the matrix with these vectors in the columns, then this is the same as saying that <span class="math inline">\(\mathsf{x} = [c_1, c_2, \ldots, c_n]^{\top}\)</span> is a nontrivial solution to <span class="math inline">\(A \mathsf{x} = \mathsf{0}\)</span>.</p>
+<dl>
 <dt>linear transformation</dt>
 <dd><p>A function <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a <strong>linear transformation</strong> when:</p>
 <ul>

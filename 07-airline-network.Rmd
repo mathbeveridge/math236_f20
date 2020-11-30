@@ -6,7 +6,6 @@
 
 In this example, we will use a package called `igraph`. To install it, you need to go to the packages window (bottom right), choose `install`, and search for and install `igraph` from the packages window.
 
-Once it is installed (you should only need to do that once, like you did for `pracma`), you then include it each time:
 ```{r,message=FALSE, echo=TRUE}
 library(igraph)
 ```
@@ -15,15 +14,17 @@ The igraph R package isn't all that well documented. Here are some places to loo
 * http://kateto.net/netscix2016
 * http://igraph.org/r/doc/aaa-igraph-
 
-### Graphs and Networks
+## Graphs and Networks
 
-Graphs consists of vertices and the edges between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term "Network Science" is sometimes used. In this application question, we will see that linear algebra is an important tool in the study of graphs. 
+Graphs consists of **vertices** and the **edges** between them. These edges are used to model connections in a wide array of applications, including but not limited to, physical, biological, social, and information networks. To emphasize the application to real-world systems, the term *Network Science* is sometimes used. So we will use the terms **graph** and **network** interchangeably. 
 
-#### Adjacency Matrices
+In this application question, we will see that linear algebra is an important tool in the study of graphs. 
 
-Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position i-j of the *adjacency* matrix A of the graph G, if there is an edge from node i to node j in G. 
+### Adjacency Matrices
 
-Here is the adjacency matrix we will use today. As you can see it is a 12 x 12 matrix.
+Matrices are used to represent graphs and networks in a very direct way: we place a 1 in position $(i,j)$ of the **adjacency matrix** $A$ of the graph $G$, if there is an edge from vertex $i$ to vertex $j$ in $G$. 
+
+Here is the adjacency matrix we will use today. As you can see it is a $12 \times 12$ matrix.
 ```{r, echo=TRUE}
 A = rbind(
   c(0,1,0,1,0,0,0,0,1,0,0,0),
@@ -39,57 +40,62 @@ A = rbind(
   c(0,0,0,0,0,0,0,1,0,0,0,0),
   c(0,0,0,0,1,0,0,0,0,0,0,0))
 A
+dim(A)
 ```
 
-And here is the graph that corresponds to that adjacency matrix.
+
 Here is how to make the graph from your adjacency matrix
 
 ```{r, network1, fig.height=6, fig.width=6, echo=TRUE}
 g=graph_from_adjacency_matrix(A,mode='undirected')
-plot(g)
+plot(g, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-Observe that there is an edge from node $i$ to node $j$ if and only if there is a 1 in position $i$-$j$ in the matrix. 
+Observe that there is an edge from vertex $i$ to vertex $j$ if and only if there is a 1 in position $(i,j)$ in the matrix. 
 
 You can add vertex labels and change the vertex size:
 
-```{r, network2, fig.height=6, fig.width=6, echo=FALSE}
+```{r, network2, fig.height=6, fig.width=6, echo=TRUE}
 airports = 
   c("ATL","LAX","ORD","MSP","DEN","JFK","SFO","SEA","PHL","PDX","MDW","LGA")
 V(g)$label = airports
-plot(g,vertex.size=30)
+plot(g,vertex.size=30, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-#### Graph Layouts
+### Graph Layouts
 
-There are many graph layout algorithms which place the vertices in the plane. You can find many algorithms here: You can find others graph  https://igraph.org/c/doc/igraph-Layout.html.
+There are a variety of graph layout algorithms which place the vertices in the plane. You can find many algorithms [in the igraph documentation](https://igraph.org/c/doc/igraph-Layout.html). For example, here is a layout on a circle
 
-For example, here is a layout on a circle
 ```{r,  network3, fig.height=6, fig.width=6, echo=TRUE}
 coords = layout_in_circle(g)
-plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.5)
+plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-The **Fruchterman-Reingold algorithm** is one of the most popular graph vertex layout algorithms. It is a force-directed layouts that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Nodes are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected nodes closer together. As a result, nodes are evenly distributed through the chart area, and the layout is intuitive in that nodes which share more connections are closer to each other. 
-```{r fig.height=6, fig.width=6, echo=FALSE}
+The **Fruchterman-Reingold algorithm** is one of the most popular graph vertex layout algorithms. It is a force-directed layout that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Vertices are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected vertices closer together. As a result, vertices are evenly distributed through the chart area. The resulting layout is intuitive: vertices which share more connections are closer to each other. 
+
+```{r fig.height=6, fig.width=6, echo=TRUE}
 coords = layout_with_fr(g)
-plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.5)
+plot(g, layout=coords, vertex.size = 30, vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-Here we layout vertices by hand:
+We can also choose to layout vertices by hand:
 
 ```{r, network4, fig.height=6, fig.width=6, echo=TRUE}
 locations = rbind(
   c(20,0),c(-10,0),c(11,7),c(10,15),c(3,12),c(25,10),
   c(-10,10),c(-12,15),c(20,6),c(-15,12),c(12,4),c(25,13)
 )
-plot(g,vertex.size=30, layout=locations, vertex.label.cex=0.5)
+plot(g,vertex.size=20, layout=locations, vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
 
-### Measures of Centrality
+## Measures of Centrality
 
-If we are considering placing an office in one of our airport locations, we may want to chose the most *central* hub for that office. One measure of centrality is to use the *degree* of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector $v$ of all 1s; then (2) multiply $d = Av$ to get the degree proportions; and (3) we also divide $d$ by its sum to re-scale the vector $u$ so that we can think of those values as proportions.
+If we are considering placing an office in one of our airport locations, we may want to chose the most **central** hub for that office. It turns out that there are many interesting **centrality measures** for networks. We will talk about two of them today.
+
+### Degree Centrality
+
+One measure of centrality is to use the **degree** of the vertex, or the number of edges connected to that vertex. We calculate it this way: (1) First make a vector $\mathsf{v}$ of all 1's; then (2) multiply $\mathsf{d} = A\mathsf{v}$ to get the degree proportions; and (3) we also divide vector $\mathsf{d}$ by the sum of its entries. This creates a "normalized vector" $\mathsf{u}$ whose entries sum to 1. Each entry of vector $\mathsf{u}$ represents to proportion of edges incident with the corresponding vertex.
 
 ```{r, echo=TRUE}
 v=rep(1,nrow(A)) # all 1s vector
@@ -98,16 +104,16 @@ u=d/sum(d)   # proportion of degres
 cbind(d,u) # show d and u together side-by-side in a matrix
 ```
 
-Here we size each vertex according to the vector $u.$ The larger vertices have more edges connected to them.
+Now let's create a **data visualization.** We plot the network and size each vertex according to the vector $u$. The larger vertices have more edges connected to them. This conveys information to the viewer about the relative importance of the vertices. 
 
 ```{r, network5, fig.height=6, fig.width=6, echo=TRUE}
-plot(g, layout=locations, vertex.size = 200*u,vertex.label.cex=0.5)
+plot(g, layout=locations, vertex.size=250*u,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-We can also sort the vertices by degree. To include the vertex names, we do it in a data frame. 
+We can also sort the vertices by degree. To include the vertex names, we do it in a **data frame**. WE then display the results in a 
 
 ```{r, echo=TRUE}
-df = data.frame(d) #We need to convert this vector to a data frame in order to add row names
+df = data.frame(d)  # Convert vector to a data frame so that we can add row names
 rownames(df)=airports
 ii=order(d,decreasing=TRUE)
 df2 = data.frame(df[ii,])
@@ -116,86 +122,167 @@ df2
 ```
 ### Gould Index
 
-The Gould Index is a measure of centrality that uses the dominant eigenvector. The first step is typically to add the identity matrix to the adjancency matrix $A$, and get a new matrix $B= A + I$. The $n \times n$ identity matrix in `R` is obtained by using `diag(n)`. Adding the identity gives a connection from a node to itself and allows the possibility of a layover at a given city.
+The Gould Index is a measure of centrality that uses the dominant eigenvector of a matrix. It was introduced by geographer P. R. Gould in 1967 to analyze the geographical features on maps. We will build up Gould's Index step-by-step so that we can understand what it measures. 
+
+#### Step One
+
+The first step is typically to add the identity matrix to the adjancency matrix $A$ to get a new matrix 
+$$B= A + I.$$ 
+The $n \times n$ identity matrix in `R` is obtained by using `diag(n)`. Adding the identity gives a connection from a vertex to itself. This **loop edge** corresponds to staying at the current city during a layover. 
 
 ```{r, echo=TRUE}
 (B = A + diag(nrow(A)))
 ```
 
+Here is what the corresponding network (with layovers) looks like. You can see why we refer to these additional edges as "loops." However, we usually do not draw the network with these added loops to keep the figure less cluttered.
 
-We now start with the all 1s vector and iterate a few steps.
+
+```{r, networkB, fig.height=6, fig.width=6, echo=TRUE}
+g2=graph_from_adjacency_matrix(B,mode='undirected')
+airports = 
+  c("ATL","LAX","ORD","MSP","DEN","JFK","SFO","SEA","PHL","PDX","MDW","LGA")
+V(g2)$label = airports
+coords = layout_with_fr(g2)
+plot(g2, layout=coords, vertex.color='tan1', vertex.frame.color="dodgerblue")
+```
+
+
+### Step 2
+
+Start with the all 1's vector $\mathsf{v}_0 = [1, 1, \ldots ,1 ]^{\top}$. We iterate the mapping $T(\mathsf{x}) = B\mathsf{x}$ for a few steps to get $\mathsf{v}_1 = B \mathsf{v}_0$ and $\mathsf{v}_2 = B \mathsf{v}_1 = B^2 \mathsf{v}_0$ and $\mathsf{v}_3 = B \mathsf{v}_2 = B^3 \mathsf{v}_0$.
 
 ```{r, echo=TRUE}
 v0 = rep(1,nrow(B))
 v1 = B %*% v0
 v2 = B %*% v1
 v3 = B %*% v2
-cbind(v0,v1,v2,v3)
+
+df = data.frame(cbind(v0,v1,v2,v3)) #Convert vector to a data frame in order to add row names
+rownames(df)=airports
+colnames(df)=c(0,1,2,3)
+df
+
 ```
 
-In your group you should agree about what these vectors are counting. We can do this using a loop:
+#### Your Turn
+
+**Discuss with your group:** Each of the entries  of vector $\mathsf{v}_{t}$ corresponds to "a trip of length $k$." What kinds of trips does the $i$th entry of $\mathsf{v}_{t}$ count? Here is how you can figure this out:
+
+1. Compare the table of vectors with the picture of the network with layovers.
+1. Start by looking at the $t=1$ column. The $i$th entry has something to do with the $i$th city. 
+1. Next, look at the $t=2$ column. And so on.
+1. Once you have noticed the connection between the network and data, *explain why the rule $\mathsf{v}_t = A \mathsf{v}_{t-1}$ leads to this result*.
+
+### Step 3
+
+We can calculate $\mathsf{v}_1, \ldots, \mathsf{v}_{10}$ using a loop:
 
 ```{r, echo=TRUE}
 N = 10 
 X = matrix(0,nrow=nrow(B),ncol=N+1)
 X[,1] = rep(1,nrow(B))
 for (i in 2:(N+1)) {  
-   X[,i] = A %*%  X[,i-1]
+   X[,i] = B %*%  X[,i-1]
 }
 X 
+
+df = data.frame(X) 
+rownames(df)=airports
+colnames(df)=c(0:10)
+df
 ```
 
-These numbers get big fast, so we divide by the sum each time.
+Wow, these numbers get big fast! Let's normalize by dividing by the sum each time.
 
 ```{r, echo=TRUE}
 N = 10 
 X = matrix(0,nrow=nrow(B),ncol=N+1)
 X[,1] = rep(1,nrow(B))
 for (i in 2:(N+1)) {  
-   X[,i] = A %*%  X[,i-1]
+   X[,i] = B %*%  X[,i-1]
    X[,i] = X[,i]/sum(X[,i])
 }
-X 
+
+df = data.frame(X) 
+rownames(df)=airports
+colnames(df)=c(0:10)
+df
 ```
 
-You can see that these vectors are converging to a common direction: the direction of the dominant eigenvector. We can also just get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector is the Gould Index.
+
+#### Your Turn
+
+**Discuss with your group:** What do we learn from this table of normalized vectors?  
+
+1. Interpret the vector for $t=10$. Since we have normalized our vector, each entry is a proportion, rather than a raw count.
+1. Look at the entries as $t$ increases. What do you observe? 
+1. Iterative multiplication $\mathsf{v}_t = A \mathsf{v}_{t-1}$ is a **dynamical system**! We talked about dynamical systems last week. There is a relationship between the eigenvectors of $A$ and the "long term behavior" of the dynamical system. Share what you remember about this topic with your group. 
+
+
+### Step 4
+
+You have observed that the vectors are converging to a common direction.  We get this final direction without saving all of the values along the way. Here we iterate 1000 steps and save the final value. This limiting vector, whose entries are scaled to sum to one, is called **Gould's Index**.
 
 ```{r, echo=TRUE}
 N = 1000 
 w = rep(1,nrow(B))
 for (i in 2:(N+1)) {  
-   w = A %*%  w
+   w = B %*%  w
    w = w/sum(w)
 }
-w
+df = data.frame(w)
+rownames(df)=airports
+colnames(df)=c("Gould Index")
+df
 ```
 
-We can see that it is the same as the dominant eigenvector as follows. First compute the eigenvectors.
+
+We saw last week that this direction must be  the **dominant eigenvector** of $B$. This dominant eigenvector is the directon that corresponds to the eigenvalue of largest magnitude.
+
+We can confirm that this is the dominant eigenvector as follows. First compute the eigenvectors.
 ```{r, echo=TRUE}
 eigen(B)
 ```
-Here we extract the dominant eigenvector $v_1$, rescale it to sum to 1, and display it next to the vector $w$ we got above by iteration. This common vector, scaled to sum to one, is called **Gould's Index**.
+Now, we will 
+
+* extract the dominant eigenvector $\mathsf{v}_1$
+* rescale this vector to sum to 1, and 
+* display it next to the vector $w$ we got above by iteration. 
 
 ```{r, echo=TRUE}
-vecs = eigen(A)$vectors
-v1 = vecs[,1]
-v1 = v1/sum(v1)
-cbind(w,v1)
+vecs = eigen(B)$vectors
+gould = vecs[,1]
+gould = gould/sum(gould)
+cbind(w,gould)
 ```
 
-We can now plot the network with the vertices sized by the Gould Index.
+### Step 5
+
+Now let's plot the network with the vertices sized by the Gould Index.
 
 ```{r, network6, fig.height=6, fig.width=6, eecho=TRUE}
-plot(g, layout=locations, vertex.size = 200*v1,vertex.label.cex=0.5)
+plot(g, layout=locations, vertex.size=250*u,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue" )
 ```
 
-And we can order the vertices using the Gould Index
+And we can create a data frame containing both the degree centrality and the Gould Index. We  order the data using the Gould Index and then compare the two.
 ```{r, echo=TRUE}
-df = data.frame(v1) #We need to convert this vector to a data frame in order to add row names
+df = data.frame(gould, u) #Convert vector to a data frame in order to add row names
 rownames(df)=airports
-ii=order(v1,decreasing=TRUE)
+colnames(df)=c('Gould', 'Degree')
+ii=order(gould,decreasing=TRUE)
 df2 = data.frame(df[ii,])
 rownames(df2) = airports[ii]
 df2
 ```
 
+#### Your Turn
+
+**Discuss with your group:** Degree centrality and Gould's Index give different rankings. 
+
+* LAX, DEN and SEA have the same degree centrality. However LAX and DEN have higher Gould Index than SEA.
+* SFO has lower degree centrality than SEA, but higher Gould centrality! So these two centralities give different rankings.
+
+Remind yourselves what does the Gould Index measures. 
+
+* Why does the Gould Index value SFO more than SEA?
+* Find another pair of cities where the rankings of degree centrality and Gould's Index differ. Look at the plot of the network and explain why this is the case.
