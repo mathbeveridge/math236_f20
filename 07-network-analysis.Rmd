@@ -73,14 +73,14 @@ plot(g, layout=coords, vertex.size = 30,vertex.label.cex=0.65, vertex.color='tan
 
 The **Fruchterman-Reingold algorithm** is one of the most popular graph vertex layout algorithms. It is a force-directed layout that tries to get a nice-looking graph where edges are similar in length and cross each other as little as possible. The algorithm simulates the graph as a physical system. Vertices are electrically charged particles that repulse each other when they get too close. The edges act as springs that attract connected vertices closer together. As a result, vertices are evenly distributed through the chart area. The resulting layout is intuitive: vertices which share more connections are closer to each other. 
 
-```{r fig.height=6, fig.width=6, echo=TRUE}
+```{r, network4, fig.height=6, fig.width=6, echo=TRUE}
 coords = layout_with_fr(g)
 plot(g, layout=coords, vertex.size = 30, vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
 We can also choose to layout vertices by hand:
 
-```{r, network4, fig.height=6, fig.width=6, echo=TRUE}
+```{r, network5, fig.height=6, fig.width=6, echo=TRUE}
 locations = rbind(
   c(20,0),c(-10,0),c(11,7),c(10,15),c(3,12),c(25,10),
   c(-10,10),c(-12,15),c(20,6),c(-15,12),c(12,4),c(25,13)
@@ -113,7 +113,7 @@ cbind(d,u) # show d and u together side-by-side in a matrix
 
 Now let's create a **data visualization.** We plot the network and size each vertex according to the vector $u$. The larger vertices have more edges connected to them. This conveys information to the viewer about the relative importance of the vertices. 
 
-```{r, network5, fig.height=6, fig.width=6, echo=TRUE}
+```{r, network7, fig.height=6, fig.width=6, echo=TRUE}
 plot(g, layout=locations, vertex.size=250*u,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
@@ -173,7 +173,7 @@ df
 
 #### Your Turn
 
-**Discuss with your group:** Each of the entries  of vector $\mathsf{v}_{t}$ corresponds to "a trip of length $k$." What kinds of trips does the $i$th entry of $\mathsf{v}_{t}$ count? Here is how you can figure this out:
+**Discuss with your group:** Each of the entries  of vector $\mathsf{v}_{t}$ corresponds to "a trip of length $t$." What kinds of trips does the $i$th entry of $\mathsf{v}_{t}$ count? Here is how you can figure this out:
 
 1. Compare the table of vectors with the picture of the network with layovers.
 1. Start by looking at the $t=1$ column. The $i$th entry has something to do with the $i$th city. 
@@ -312,7 +312,7 @@ Now that we understand what Gould's Index means, let's summarize how to find the
 
 Russian historians often attribute the dominance and rise to power of Moscow to its strategic position on medieval trade routes (see Figure 1). Others argue that sociological and political factors aided Moscow’s rise to power, and thus Moscow did not rise to power strictly because of its strategic location on the trade routes. The figure below shows the major cities and trade routes of medieval Russia.
 
-![](images/MedievalRussia.png){width=75%}
+![](https://raw.githubusercontent.com/mathbeveridge/math236_f20/main/images/MedievalRussia.png){width=75%}
 
 Let's use Gould’s Index to form a geographer's opinion about this debate. Either:
 
