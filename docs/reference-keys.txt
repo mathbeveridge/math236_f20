@@ -31,6 +31,12 @@ getting-into-a-subspace
 creating-a-basis-from-another-basis.
 a-vector-that-is-in-both-cola-and-nula
 changing-coordinate-systems
+problem-set-6
+the-square-root-of-a-matrix
+a-matrix-mystery
+eigenvector-problem-coming-soon
+complex-eigenvector-problem-coming-soon
+network-analysis-problem-coming-soon
 important-definitions
 week-1-learning-goals
 solving-linear-equations

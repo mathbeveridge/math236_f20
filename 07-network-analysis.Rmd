@@ -117,7 +117,7 @@ Now let's create a **data visualization.** We plot the network and size each ver
 plot(g, layout=locations, vertex.size=250*u,vertex.label.cex=0.65, vertex.color='tan1', vertex.frame.color="dodgerblue")
 ```
 
-We can also sort the vertices by degree. To include the vertex names, we do it in a **data frame**. WE then display the results in a 
+We can also sort the vertices by degree. To include the vertex names, we do it in a **data frame**.  
 
 ```{r, echo=TRUE}
 df = data.frame(d)  # Convert vector to a data frame so that we can add row names

@@ -1,0 +1,55 @@
+
+#  Problem Set 6
+
+* Due: Friday Deceomber 04 by 11:55pm CST. 
+* Upload your solutions to Moodle in a PDF. 
+* Please feel free to **use RStudio for all row reductions.**
+* You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS6-problem-set-6.Rmd).
+
+
+The Problem Set covers sections 5.1, 5.2, 5.3, 5.5 and Network Analysis. 
+
+
+
+
+
+
+## The Square Root of a Matrix?
+
+The matrix $A  =\begin{bmatrix} 7 & 2 \\ -4 & 1 \end{bmatrix}$ has characteristic polynomial
+$\lambda^2 - 8 \lambda + 15 = (\lambda -3)(\lambda - 5).$
+
+
+a. Describe the eigenspaces of $A$.
+a. Diagonalize $A$.
+a. Find a matrix that makes sense to call $\sqrt{A}$. *Then show that your answer makes sense.* 
+
+## A  Matrix Mystery
+
+An unknown $3 \times 3$ matrix $M$ has eigenvectors and corresponding eigenvalues:
+$$
+\mathsf{v}_1 = \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}, \  \lambda_1 = 1;
+\qquad
+\mathsf{v}_2 = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix},\  \lambda_2 = \frac{9}{10};
+\qquad
+\mathsf{v}_3 = \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix},\  \lambda_3 = 0.
+$$
+
+a. Find (exactly, if possible, or approximately otherwise) the vector $M^{10} \mathsf{v}$ where $\mathsf{v} = \begin{bmatrix}7\\3\\4\end{bmatrix}$.
+
+a.  Describe all vectors $\mathsf{v}$, if there are any, such that $M^{n} \mathsf{v}  \to {\bf 0}$ as $n \to \infty$.
+
+a.  Is it possible to reconstruct $M$ from the evidence given? If so, then do it!  If not, explain what further information is needed.
+
+
+
+
+
+## Eigenvector Problem Coming Soon
+
+
+
+## Complex Eigenvector Problem Coming Soon
+
+
+## Network Analysis Problem Coming Soon
