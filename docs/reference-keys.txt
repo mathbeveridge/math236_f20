@@ -1,4 +1,4 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-71
 fig:example-2d-transformation
 problem-set-1
 characterize-the-solution-set
@@ -121,6 +121,7 @@ your-turn-the-rise-of-moscow
 find-the-degree-centrality-values.
 find-the-gould-index-values
 analyze-the-data
+voting-patterns-in-the-us-senate
 quiz-1-review
 overview
 vocabulary-and-concepts

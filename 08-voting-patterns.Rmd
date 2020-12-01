@@ -1,0 +1,67 @@
+# Voting Patterns in the US Senate
+
+In 2014, the [Pew Research Center published a report](https://www.pewresearch.org/politics/2014/06/12/political-polarization-in-the-american-public/) about the increasing polarization of US politics. They wrote:
+
+> Republicans and Democrats are more divided along ideological lines – and partisan antipathy is deeper and more extensive – than at any point in the last two decades. These trends manifest themselves in myriad ways, both in politics and in everyday life.
+
+Is this really true, or is it just hype? Let's see what linear algebra can tell us about the situation.
+
+
+
+```{r}
+df <- read.csv("/Users/abeverid/PycharmProjects/linearalgebra/data/Senate088matrix.csv", header=FALSE)
+dim(df)
+head(df)
+
+
+sen <- read.csv("/Users/abeverid/PycharmProjects/linearalgebra/data/Senate088senators.csv", header=FALSE)
+
+party = sen[,4]
+
+color=rep("chartreuse", length(sen))
+color[party=='D']="cornflowerblue"
+color[party=='R']="firebrick"
+
+mat = data.matrix(df)
+
+sys = eigen(mat)
+
+
+a1 = sys$values[1]
+a2 = sys$values[2]
+a3 = sys$values[3]
+
+v1 = sys$vectors[,1]
+v2 = sys$vectors[,2]
+v3 = sys$vectors[,3]
+v4 = sys$vectors[,4]
+
+
+v1order= order(v2)
+v2order= order(v2)
+
+
+plot(v1, v2, col=color)
+print (sys$values[1])
+print (sys$values[2])
+
+foo = data.frame(cbind(v1,v2, party))
+rownames(foo)=sen[,2]
+
+bar = foo[v1order,]
+head(bar)
+
+```
+
+```{r}
+
+sys$values
+
+mat2 = mat - a1 * v1 %*% t(v1)
+
+max(mat2)
+
+heatmap(mat, Colv = NA, Rowv = NA, scale="none")
+heatmap(mat2, Colv = NA, Rowv = NA, scale="none")
+```
+

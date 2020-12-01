@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 15 2D Translations with Homogeneous Coordinates | MATH 236: Linear Algebra</title>
+  <title>Vector 19 Voting Patterns in the US Senate | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 15 2D Translations with Homogeneous Coordinates | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 19 Voting Patterns in the US Senate | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 15 2D Translations with Homogeneous Coordinates | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 19 Voting Patterns in the US Senate | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="linear-transformations-of-a-house.html"/>
-<link rel="next" href="fractals.html"/>
+<link rel="prev" href="network-centralities.html"/>
+<link rel="next" href="quiz-1-review.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -318,184 +318,88 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="d-translations-with-homogeneous-coordinates" class="section level1">
-<h1><span class="header-section-number">Vector 15</span> 2D Translations with Homogeneous Coordinates</h1>
-<p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/04-translations.Rmd">Download this Rmd file</a></p>
-<p>A <strong>translation</strong> of the plane shifts every vector by a constant vector. For example, the mapping
-<span class="math display">\[
-S \left( \begin{bmatrix} x \\ y \end{bmatrix} \right)
-= \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} 3 \\ -4 \end{bmatrix} 
-= \begin{bmatrix} x +3 \\ y - 4 \end{bmatrix}
-\]</span>
-translates every vector in the plane by <span class="math inline">\(\begin{bmatrix} 3 \\ -4~ \end{bmatrix}\)</span>.</p>
-<p><strong>The bad news:</strong> This is a simple and natural mapping, but it is <strong>not a linear transformation</strong>! We know that a linear transformation must map <span class="math inline">\(\mathbb{0}\)</span> to <span class="math inline">\(\mathbb{0}\)</span>, and that is certainly not the case when we translate! This restriction is rather limiting for computer graphics: we can never move our image away from the origin.</p>
-<p><strong>The good news:</strong> We can work around this problem by creating a 3D linear transformation <span class="math inline">\(T: \mathbb{R}^3 \rightarrow \mathbb{R}^3\)</span> and then retricting our attention to a plane in this larger space.
-As discussed in the Homogeneous Coordinates video, we do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Embed the <span class="math inline">\(xy\)</span>-plane <span class="math inline">\(\mathbb{R}^2\)</span> into the plane <span class="math inline">\(z = 1\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span>.</li>
-<li>Translate in <span class="math inline">\(\mathbb{R}^3\)</span> using a mapping <span class="math inline">\(T\)</span> that maps this horizontal plane to itself. That is:
-<span class="math display">\[
-T \left( \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} \right)
-= \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}. 
-\]</span></li>
-<li>When we create our plot, we use <strong>only the first two coordinates</strong> and ignore the third coordinate (which is still 1).</li>
-</ol>
-<p>In summary, during our calculations, we replace the vector <span class="math inline">\(\begin{bmatrix} x \\ y \end{bmatrix}\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span> with the <strong>homogeneous coordinate vector</strong> <span class="math inline">\(\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
-<div id="translation" class="section level2">
-<h2><span class="header-section-number">15.1</span> Translation</h2>
-<p>Here is my house once again. Note that we have add <span class="math inline">\(z=1\)</span> as the third coordinate to each point. However, when plotting, we only use the first two coordinates.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="d-translations-with-homogeneous-coordinates.html#cb45-1"></a><span class="co"># the third entry always = 1</span></span>
-<span id="cb45-2"><a href="d-translations-with-homogeneous-coordinates.html#cb45-2"></a>house =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>));</span>
-<span id="cb45-3"><a href="d-translations-with-homogeneous-coordinates.html#cb45-3"></a></span>
-<span id="cb45-4"><a href="d-translations-with-homogeneous-coordinates.html#cb45-4"></a><span class="co"># only plot the first two coordinates</span></span>
-<span id="cb45-5"><a href="d-translations-with-homogeneous-coordinates.html#cb45-5"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb45-6"><a href="d-translations-with-homogeneous-coordinates.html#cb45-6"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb45-7"><a href="d-translations-with-homogeneous-coordinates.html#cb45-7"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/homogeneous1-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Next, we translate by <span class="math inline">\(\begin{bmatrix} 3 \\ - 4 \end{bmatrix}\)</span> by using the linear transformation
-<span class="math display">\[
-T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
-= \begin{bmatrix} 1 &amp; 0 &amp; 3  \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
-\begin{bmatrix} x \\ y \\ z \end{bmatrix}.
-\]</span>
-Let’s check that this has the desired effect on a homogeneous coordinate vector:
-<span class="math display">\[
-T \left( \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} \right)
-= \begin{bmatrix} 1 &amp; 0 &amp; 3  \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
-\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
-=
-\begin{bmatrix} x+3 \\ y - 4 \\ 1 \end{bmatrix}.
-\]</span>
-It worked! Note that <strong>this linear transformation maps every horizontal plane to itself</strong>. For the plane <span class="math inline">\(z=1\)</span> (and only for this plane!) we get the exact translation that we desire. So it is <strong>crucial</strong> that <span class="math inline">\(z=1\)</span>. That’s the magic of homogeneous coordinates.</p>
-<p>Let’s do this calculation in R and plot the first two coordiantes:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="d-translations-with-homogeneous-coordinates.html#cb46-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">1</span>))</span>
-<span id="cb46-2"><a href="d-translations-with-homogeneous-coordinates.html#cb46-2"></a></span>
-<span id="cb46-3"><a href="d-translations-with-homogeneous-coordinates.html#cb46-3"></a>house2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb46-4"><a href="d-translations-with-homogeneous-coordinates.html#cb46-4"></a></span>
-<span id="cb46-5"><a href="d-translations-with-homogeneous-coordinates.html#cb46-5"></a><span class="co"># only plot the first two coordinates</span></span>
-<span id="cb46-6"><a href="d-translations-with-homogeneous-coordinates.html#cb46-6"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb46-7"><a href="d-translations-with-homogeneous-coordinates.html#cb46-7"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb46-8"><a href="d-translations-with-homogeneous-coordinates.html#cb46-8"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb46-9"><a href="d-translations-with-homogeneous-coordinates.html#cb46-9"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/homogeneous2-1.png" width="75%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="translation-and-then-rotation" class="section level2">
-<h2><span class="header-section-number">15.2</span> Translation and then Rotation</h2>
-<p>We know plenty 2D linear transformation, including rotation, reflection and shear mappings. We can turn any of them into a 3D transformation by appending a row and a column with a 1 in the lower right corner and zero everywhere else. For example, the 2D rotation
-<span class="math display">\[
-\begin{bmatrix} \cos \theta &amp; -\sin \theta~   \\ \sin \theta &amp; \cos \theta \end{bmatrix} 
-\]</span>
-becomes the 3D transformation
-<span class="math display">\[
-\begin{bmatrix} \cos\theta &amp; -\sin\theta~ &amp; 0   \\ \sin\theta &amp; \cos\theta  &amp;0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}. 
-\]</span>
-This mapping rotates 3D space around the <span class="math inline">\(z\)</span>-axis.</p>
-<p>So let’s combine two operations: a translation and a rotation. First, let’s translate by <span class="math inline">\(\begin{bmatrix} -2 \\ 1 \end{bmatrix}\)</span> and then rotate counterclockwise by <span class="math inline">\(2 \pi/3\)</span>. And remember: the matrix <strong>closest</strong> to the vector acts first. So if we want to translate first, the translation matrix needs to be to the right of the rotation matrix:</p>
-<p><span class="math display">\[
-T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
-= 
-\begin{bmatrix} \cos \frac{2\pi}{3} &amp; -\sin\frac{2\pi}{3}~ &amp; 0  \\ \sin\frac{2\pi}{3} &amp; \cos\frac{2\pi}{3} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
-\begin{bmatrix} 1 &amp; 0 &amp; -2  \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} 
-\begin{bmatrix} x \\ y \\ z \end{bmatrix}.
-\]</span></p>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    0   -2
-## [2,]    0    1    1
-## [3,]    0    0    1</code></pre>
-<pre><code>##            [,1]       [,2] [,3]
-## [1,] -0.5000000 -0.8660254    0
-## [2,]  0.8660254 -0.5000000    0
-## [3,]  0.0000000  0.0000000    1</code></pre>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,] -0.5000000 -0.8660254  0.1339746
-## [2,]  0.8660254 -0.5000000 -2.2320508
-## [3,]  0.0000000  0.0000000  1.0000000</code></pre>
-<p><img src="math236_handbook_files/figure-html/homogeneous3-1.png" width="75%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="rotation-and-then-translation" class="section level2">
-<h2><span class="header-section-number">15.3</span> Rotation and then Translation</h2>
-<p>Let’s <strong>reverse the order</strong> of these matrices and see that we get a <strong>different transformation</strong>.</p>
-<pre><code>##            [,1]       [,2] [,3]
-## [1,] -0.5000000 -0.8660254   -2
-## [2,]  0.8660254 -0.5000000    1
-## [3,]  0.0000000  0.0000000    1</code></pre>
-<p><img src="math236_handbook_files/figure-html/homogeneous4-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Indeed, these two transformations are different! So the order matters.</p>
-</div>
-<div id="your-turn-7" class="section level2">
-<h2><span class="header-section-number">15.4</span> Your Turn</h2>
-<p>Here are a couple of plots that you should try to reproduce using homogeneous coordinates.</p>
-<div id="house-of-orange" class="section level3">
-<h3><span class="header-section-number">15.4.1</span> House of Orange</h3>
-<p>Here is a picture of a gray house and a larger, upside-down orange house. <strong>Work as a group</strong> to reproduce this image using homogeneous coordinates.</p>
-<p><img src="images/04-house-orange.png" style="width:50.0%" /></p>
-<p>You will have to use a combination of translation, rotation, and expansion. You will do this by multiplying three matrices. <strong>Think carefully and experiment.</strong> Remember that the order of your matrices matters, and the rightmost one happens first.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="d-translations-with-homogeneous-coordinates.html#cb51-1"></a><span class="co">#############################</span></span>
-<span id="cb51-2"><a href="d-translations-with-homogeneous-coordinates.html#cb51-2"></a><span class="co"># your code defining the 3x3 matrices A1 and A2 </span></span>
-<span id="cb51-3"><a href="d-translations-with-homogeneous-coordinates.html#cb51-3"></a>A1 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb51-4"><a href="d-translations-with-homogeneous-coordinates.html#cb51-4"></a>A2 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb51-5"><a href="d-translations-with-homogeneous-coordinates.html#cb51-5"></a>A3 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb51-6"><a href="d-translations-with-homogeneous-coordinates.html#cb51-6"></a></span>
-<span id="cb51-7"><a href="d-translations-with-homogeneous-coordinates.html#cb51-7"></a>A =<span class="st"> </span>A3 <span class="op">%*%</span><span class="st"> </span>A2 <span class="op">%*%</span><span class="st"> </span>A1</span>
-<span id="cb51-8"><a href="d-translations-with-homogeneous-coordinates.html#cb51-8"></a></span>
-<span id="cb51-9"><a href="d-translations-with-homogeneous-coordinates.html#cb51-9"></a></span>
-<span id="cb51-10"><a href="d-translations-with-homogeneous-coordinates.html#cb51-10"></a><span class="co">#############################</span></span>
-<span id="cb51-11"><a href="d-translations-with-homogeneous-coordinates.html#cb51-11"></a><span class="co"># you do not need to change this code</span></span>
-<span id="cb51-12"><a href="d-translations-with-homogeneous-coordinates.html#cb51-12"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,],house[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb51-13"><a href="d-translations-with-homogeneous-coordinates.html#cb51-13"></a>house2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb51-14"><a href="d-translations-with-homogeneous-coordinates.html#cb51-14"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">6</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb51-15"><a href="d-translations-with-homogeneous-coordinates.html#cb51-15"></a><span class="kw">polygon</span>(house2[<span class="dv">1</span>,], house2[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;green&quot;</span>)</span>
-<span id="cb51-16"><a href="d-translations-with-homogeneous-coordinates.html#cb51-16"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/homogeneous5-1.png" width="75%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="house-party" class="section level3">
-<h3><span class="header-section-number">15.4.2</span> House Party</h3>
-<p>Here is a plot of the grey house and four other houses, colored cyan, red, gold and green. Reproduce this image using homogeneous coordinates. <strong>Work as a group! You can collaborate, or divide and conquer.</strong> Be ready to help one another out!</p>
-<p><img src="images/04-house-party.png" style="width:50.0%" /></p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="d-translations-with-homogeneous-coordinates.html#cb52-1"></a><span class="co">#############</span></span>
-<span id="cb52-2"><a href="d-translations-with-homogeneous-coordinates.html#cb52-2"></a><span class="co"># your code for 3x3 matrices that create the transformed houses goes here </span></span>
-<span id="cb52-3"><a href="d-translations-with-homogeneous-coordinates.html#cb52-3"></a>A.red =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb52-4"><a href="d-translations-with-homogeneous-coordinates.html#cb52-4"></a></span>
-<span id="cb52-5"><a href="d-translations-with-homogeneous-coordinates.html#cb52-5"></a>A.purple =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb52-6"><a href="d-translations-with-homogeneous-coordinates.html#cb52-6"></a></span>
-<span id="cb52-7"><a href="d-translations-with-homogeneous-coordinates.html#cb52-7"></a>A.gold =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb52-8"><a href="d-translations-with-homogeneous-coordinates.html#cb52-8"></a></span>
-<span id="cb52-9"><a href="d-translations-with-homogeneous-coordinates.html#cb52-9"></a>A.cyan =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb52-10"><a href="d-translations-with-homogeneous-coordinates.html#cb52-10"></a></span>
-<span id="cb52-11"><a href="d-translations-with-homogeneous-coordinates.html#cb52-11"></a></span>
-<span id="cb52-12"><a href="d-translations-with-homogeneous-coordinates.html#cb52-12"></a><span class="co">####################</span></span>
-<span id="cb52-13"><a href="d-translations-with-homogeneous-coordinates.html#cb52-13"></a><span class="co"># you do not need to change this code</span></span>
-<span id="cb52-14"><a href="d-translations-with-homogeneous-coordinates.html#cb52-14"></a>house =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>));</span>
-<span id="cb52-15"><a href="d-translations-with-homogeneous-coordinates.html#cb52-15"></a></span>
-<span id="cb52-16"><a href="d-translations-with-homogeneous-coordinates.html#cb52-16"></a></span>
-<span id="cb52-17"><a href="d-translations-with-homogeneous-coordinates.html#cb52-17"></a><span class="kw">plot</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">2.5</span>,<span class="fl">2.5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>),,<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb52-18"><a href="d-translations-with-homogeneous-coordinates.html#cb52-18"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="op">-</span><span class="dv">4</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">v=</span><span class="op">-</span><span class="dv">4</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb52-19"><a href="d-translations-with-homogeneous-coordinates.html#cb52-19"></a></span>
-<span id="cb52-20"><a href="d-translations-with-homogeneous-coordinates.html#cb52-20"></a>house.gold =<span class="st"> </span>A.gold <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb52-21"><a href="d-translations-with-homogeneous-coordinates.html#cb52-21"></a><span class="kw">polygon</span>(house.gold[<span class="dv">1</span>,], house.gold[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gold&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb52-22"><a href="d-translations-with-homogeneous-coordinates.html#cb52-22"></a></span>
-<span id="cb52-23"><a href="d-translations-with-homogeneous-coordinates.html#cb52-23"></a>house.cyan =<span class="st"> </span>A.cyan <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb52-24"><a href="d-translations-with-homogeneous-coordinates.html#cb52-24"></a><span class="kw">polygon</span>(house.cyan[<span class="dv">1</span>,], house.cyan[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb52-25"><a href="d-translations-with-homogeneous-coordinates.html#cb52-25"></a></span>
-<span id="cb52-26"><a href="d-translations-with-homogeneous-coordinates.html#cb52-26"></a>house.red =<span class="st"> </span>A.red <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb52-27"><a href="d-translations-with-homogeneous-coordinates.html#cb52-27"></a><span class="kw">polygon</span>(house.red[<span class="dv">1</span>,], house.red[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb52-28"><a href="d-translations-with-homogeneous-coordinates.html#cb52-28"></a></span>
-<span id="cb52-29"><a href="d-translations-with-homogeneous-coordinates.html#cb52-29"></a>house.purple=<span class="st"> </span>A.purple <span class="op">%*%</span><span class="st"> </span>house</span>
-<span id="cb52-30"><a href="d-translations-with-homogeneous-coordinates.html#cb52-30"></a><span class="kw">polygon</span>(house.purple[<span class="dv">1</span>,], house.purple[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb52-31"><a href="d-translations-with-homogeneous-coordinates.html#cb52-31"></a></span>
-<span id="cb52-32"><a href="d-translations-with-homogeneous-coordinates.html#cb52-32"></a><span class="kw">polygon</span>(house[<span class="dv">1</span>,], house[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/homogeneous6-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div id="voting-patterns-in-the-us-senate" class="section level1">
+<h1><span class="header-section-number">Vector 19</span> Voting Patterns in the US Senate</h1>
+<p>In 2014, the <a href="https://www.pewresearch.org/politics/2014/06/12/political-polarization-in-the-american-public/">Pew Research Center published a report</a> about the increasing polarization of US politics. They wrote:</p>
+<blockquote>
+<p>Republicans and Democrats are more divided along ideological lines – and partisan antipathy is deeper and more extensive – than at any point in the last two decades. These trends manifest themselves in myriad ways, both in politics and in everyday life.</p>
+</blockquote>
+<p>Is this really true, or is it just hype? Let’s see what linear algebra can tell us about the situation.</p>
+<pre><code>## [1] 102 102</code></pre>
+<pre><code>##    V1  V2  V3  V4  V5  V6  V7  V8  V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24
+## 1   0 321 252 302 336 287 282 384 286 297 155 246 245 318 366 294 254 316 259 248 302 301 322 172
+## 2 321   0 221 251 293 326 266 344 237 250 171 196 234 322 289 237 172 296 260 286 286 255 239 163
+## 3 252 221   0 304 258 175 302 248 322 303 106 254 298 215 290 287 279 227 170 142 187 286 279 138
+## 4 302 251 304   0 288 201 363 291 349 386 133 318 323 258 335 359 335 264 182 162 213 351 355 150
+## 5 336 293 258 288   0 274 290 357 279 290 170 227 249 307 330 250 243 278 268 249 254 315 306 152
+## 6 287 326 175 201 274   0 249 337 178 183 238 198 212 296 233 185 135 270 317 343 290 199 189 212
+##   V25 V26 V27 V28 V29 V30 V31 V32 V33 V34 V35 V36 V37 V38 V39 V40 V41 V42 V43 V44 V45 V46 V47 V48
+## 1 175  58 201 377 183 128 215 248 292 259 185 308 198 218 243 310 326 302 339 183 199 379  33 394
+## 2 193  50 191 326 137 139 157 218 219 200 147 287 179 227 269 235 257 271 272 169 205 296  14 310
+## 3 161  82 173 256 193 114 213 256 308 284 213 180 186 179 132 303 338 287 276 203 190 280  40 284
+## 4 187  83 196 313 237  75 264 340 370 328 252 216 245 221 154 395 419 349 332 263 230 332  48 317
+## 5 156  57 191 355 168 149 194 256 286 270 174 271 183 194 255 280 310 292 327 201 207 367  24 352
+## 6 226  37 244 284 162 220 162 200 167 156 124 336 189 238 328 176 205 215 223 203 231 251  14 263
+##   V49 V50 V51 V52 V53 V54 V55 V56 V57 V58 V59 V60 V61 V62 V63 V64 V65 V66 V67 V68 V69 V70 V71 V72
+## 1 287 275 155 262 258 278 201 288 298 285 289 301 265 266 280 306 316 256 320 425 334 292 318 173
+## 2 285 237 141 237 203 222 211 235 230 204 227 253 230 285 235 323 246 178 239 340 278 240 247 204
+## 3 190 265 178 278 255 296 155 276 308 305 303 310 255 191 298 201 321 253 301 235 271 283 303 129
+## 4 205 328 209 335 325 361 196 362 377 375 374 389 328 208 334 230 401 327 377 284 336 349 379 162
+## 5 248 264 158 256 223 260 188 262 276 266 258 275 275 255 247 295 284 241 292 349 326 286 310 175
+## 6 282 188 191 178 151 163 241 189 176 161 173 208 203 267 181 360 185 151 188 305 246 198 189 239
+##   V73 V74 V75 V76 V77 V78 V79 V80 V81 V82 V83 V84 V85 V86 V87 V88 V89 V90 V91 V92 V93 V94 V95 V96
+## 1 181 326 321 160 416 217 187 292 190 305 296 219 290 296 286 287 227 323 221 331 215 328 316 297
+## 2 177 284 292 127 323 183 199 244 196 232 288 190 294 228 339 221 225 344 159 263 244 320 236 327
+## 3 136 223 248 186 295 200 165 289 182 299 166 238 219 263 182 302 290 203 280 332 135 215 299 214
+## 4 175 249 286 215 334 250 185 333 206 378 193 285 256 326 200 348 291 220 292 400 141 233 379 215
+## 5 182 287 347 145 368 179 170 307 198 295 278 216 267 293 292 266 236 318 219 315 238 304 295 306
+## 6 244 261 264 148 274 204 253 207 245 184 349 177 286 184 329 171 198 393 109 223 307 321 181 300
+##   V97 V98 V99 V100 V101 V102
+## 1 306 248 187  182  124   26
+## 2 234 321 240  208  129   17
+## 3 289 144 111  114  137   21
+## 4 377 159 110  144  150   37
+## 5 289 249 225  189  124   32
+## 6 195 370 303  290  143   17</code></pre>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-119-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] 24198.15</code></pre>
+<pre><code>## [1] 4385.338</code></pre>
+<pre><code>##                                              v1                 v2 party
+## THURMOND James Strom        -0.0789970873804864 -0.207029806225625     D
+## BYRD Harry Flood            -0.0665699568843238 -0.172435813910847     D
+## RUSSELL Richard Brevard Jr. -0.0790048772020068  -0.16884556251451     D
+## MECHEM Edwin Leard          -0.0763631667315311 -0.168784658218173     R
+## TOWER John Goodwin          -0.0694478147828591 -0.165235404779027     R
+## STENNIS John Cornelius      -0.0852921044314169 -0.163591763251418     D</code></pre>
+<pre><code>##   [1] 24198.14970  4385.33792  2523.42898   413.59778   274.12291   219.84394    93.86570
+##   [8]   -19.59596   -39.68442   -73.58725   -84.08451  -124.18257  -137.88542  -155.95645
+##  [15]  -162.94701  -176.71449  -183.14311  -197.74427  -203.16191  -219.90337  -222.98559
+##  [22]  -225.77864  -236.01870  -240.90787  -249.06305  -257.49697  -263.81555  -268.10860
+##  [29]  -272.63265  -275.30214  -279.92416  -280.34948  -287.69592  -292.00408  -296.93484
+##  [36]  -299.17667  -303.67128  -309.89778  -314.33373  -318.90633  -320.25895  -321.98658
+##  [43]  -326.58688  -327.83596  -332.06144  -336.46538  -338.76991  -343.48455  -346.38591
+##  [50]  -348.16746  -349.23190  -350.47588  -358.25692  -359.24338  -360.90037  -363.21807
+##  [57]  -365.17417  -370.46006  -371.56674  -374.12517  -379.23090  -380.38760  -382.65978
+##  [64]  -384.71680  -388.62093  -389.78271  -391.81075  -394.10770  -396.11524  -400.65534
+##  [71]  -401.80357  -405.81092  -407.44165  -410.46333  -411.66607  -412.99086  -416.39535
+##  [78]  -418.09114  -418.76583  -422.02379  -424.59269  -426.38701  -428.84359  -430.30353
+##  [85]  -431.59921  -435.24536  -435.91447  -437.63064  -439.58808  -443.56104  -445.20242
+##  [92]  -447.99489  -451.15747  -453.68351  -454.57543  -458.33775  -461.38347  -463.97462
+##  [99]  -467.11710  -469.27240  -474.43223  -475.75931</code></pre>
+<pre><code>## [1] 374.5548</code></pre>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-120-1.png" width="75%" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/unnamed-chunk-120-2.png" width="75%" style="display: block; margin: auto;" /></p>
 
 </div>
-</div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="linear-transformations-of-a-house.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="fractals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="network-centralities.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
