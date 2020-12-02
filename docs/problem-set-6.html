@@ -330,9 +330,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="problem-set-6" class="section level1">
 <h1><span class="header-section-number">Vector 6</span> Problem Set 6</h1>
 <ul>
-<li>Due: Friday Deceomber 04 by 11:55pm CST.</li>
+<li>Due: Friday December 04 by 11:55pm CST.</li>
 <li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
+<li>Please feel free to <strong>use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation and inverse matrices.</strong></li>
 <li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS6-problem-set-6.Rmd">Rmd source file for this problem set</a>.</li>
 </ul>
 <p>The Problem Set covers sections 5.1, 5.2, 5.3, 5.5 and Network Analysis.</p>
@@ -387,7 +387,11 @@ A = \begin{bmatrix}
 \]</span>
 has complex eigenvalues <span class="math inline">\(a \pm bi\)</span> and <span class="math inline">\(c \pm di\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Use RStudio to find the eigenvalues <span class="math inline">\(a \pm bi\)</span> and <span class="math inline">\(c \pm di\)</span>, as well as “human friendly” eigenvectors <span class="math inline">\(\mathsf{v}\)</span> for <span class="math inline">\(a - bi\)</span> and <span class="math inline">\(\mathsf{w}\)</span> for <span class="math inline">\(c - di\)</span>.</p>
+<li><p>Use RStudio to find the eigenvalues <span class="math inline">\(a \pm bi\)</span> and <span class="math inline">\(c \pm di\)</span>, as well as “human friendly” eigenvectors</p>
+<ul>
+<li><span class="math inline">\(\mathsf{v} = \mathsf{v}_1 + i \mathsf{v}_2\)</span> for eigenvalue <span class="math inline">\(a + bi\)</span>, and</li>
+<li><span class="math inline">\(\mathsf{w} = \mathsf{w}_1 + i \mathsf{w}_2\)</span> for eigenvalue <span class="math inline">\(c + di\)</span>.</li>
+</ul>
 <p>Hint: the command <code>zapsmall()</code> might be helpful.</p></li>
 <li><p>This matrix A can be factored as <span class="math inline">\(A = P B P^{-1}\)</span> where <span class="math inline">\(B\)</span> is a “block diagonal” matrix of the form
 <span class="math display">\[
@@ -399,7 +403,9 @@ b &amp; a &amp; 0 &amp; 0 \\
 \]</span>
 and
 <span class="math display">\[
-P = \begin{bmatrix} \mathrm{Re} (\mathsf{v}) &amp; \mathrm{Im} (\mathsf{v}) &amp;  \mathrm{Re} (\mathsf{w}) &amp; \mathrm{Im}( \mathsf{w})  
+P = \begin{bmatrix} \mathrm{Im} (\mathsf{v}) &amp; \mathrm{Re} (\mathsf{v}) &amp;  \mathrm{Im} (\mathsf{w}) &amp; \mathrm{Re}( \mathsf{w})
+\end{bmatrix}
+=\begin{bmatrix} \mathsf{v}_2 &amp; \mathsf{v}_1 &amp;  \mathsf{w}_2 &amp;  \mathsf{w}_1
 \end{bmatrix}
 \]</span>
 where the constants <span class="math inline">\(a,b,c,d\)</span> and the vectors <span class="math inline">\(\mathsf{v}, \mathsf{w}\)</span> are as described in part (a). Use RStudio to find the <span class="math inline">\(4 \times 4\)</span> matrix <span class="math inline">\(P\)</span> and its inverse <span class="math inline">\(P^{-1}\)</span>.</p>

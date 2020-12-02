@@ -1,9 +1,9 @@
 
 #  Problem Set 6
 
-* Due: Friday Deceomber 04 by 11:55pm CST. 
+* Due: Friday December 04 by 11:55pm CST. 
 * Upload your solutions to Moodle in a PDF. 
-* Please feel free to **use RStudio for all row reductions.**
+* Please feel free to **use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation and inverse matrices.**
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS6-problem-set-6.Rmd).
 
 
@@ -75,7 +75,10 @@ A = \begin{bmatrix}
 $$
 has complex eigenvalues $a \pm bi$ and $c \pm di$. 
 
-a. Use RStudio to find the eigenvalues $a \pm bi$ and $c \pm di$, as well as "human friendly" eigenvectors $\mathsf{v}$ for $a - bi$ and $\mathsf{w}$ for $c - di$. 
+a. Use RStudio to find the eigenvalues $a \pm bi$ and $c \pm di$, as well as "human friendly" eigenvectors 
+
+    + $\mathsf{v} = \mathsf{v}_1 + i \mathsf{v}_2$ for eigenvalue $a + bi$, and 
+    + $\mathsf{w} = \mathsf{w}_1 + i \mathsf{w}_2$ for eigenvalue $c + di$. 
 
     Hint: the command `zapsmall()` might be helpful.
 
@@ -90,7 +93,9 @@ b & a & 0 & 0 \\
 $$
 and
 $$
-P = \begin{bmatrix} \mathrm{Re} (\mathsf{v}) & \mathrm{Im} (\mathsf{v}) &  \mathrm{Re} (\mathsf{w}) & \mathrm{Im}( \mathsf{w})  
+P = \begin{bmatrix} \mathrm{Im} (\mathsf{v}) & \mathrm{Re} (\mathsf{v}) &  \mathrm{Im} (\mathsf{w}) & \mathrm{Re}( \mathsf{w})
+\end{bmatrix}
+=\begin{bmatrix} \mathsf{v}_2 & \mathsf{v}_1 &  \mathsf{w}_2 &  \mathsf{w}_1
 \end{bmatrix}
 $$
 where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as described in part (a). Use RStudio to find the $4 \times 4$ matrix $P$ and its inverse $P^{-1}$. 
