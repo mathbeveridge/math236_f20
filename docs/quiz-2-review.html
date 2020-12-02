@@ -613,9 +613,9 @@ polygon(boat[1,], boat[2,], col = &quot;red&quot;, border = &quot;blue&quot;)
 \end{bmatrix}
 \]</span></li>
 </ol>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="quiz-2-review.html#cb105-1"></a><span class="kw">require</span>(pracma)</span>
-<span id="cb105-2"><a href="quiz-2-review.html#cb105-2"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb105-3"><a href="quiz-2-review.html#cb105-3"></a> <span class="kw">rref</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="quiz-2-review.html#cb109-1"></a><span class="kw">require</span>(pracma)</span>
+<span id="cb109-2"><a href="quiz-2-review.html#cb109-2"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb109-3"><a href="quiz-2-review.html#cb109-3"></a> <span class="kw">rref</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    0    0  0.0  1.0    0
 ## [2,]    0    1    0 -2.5  0.5    1
@@ -735,25 +735,25 @@ and a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> is
 <ol start="8" style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="quiz-2-review.html#cb109-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">8</span>))</span>
-<span id="cb109-2"><a href="quiz-2-review.html#cb109-2"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="quiz-2-review.html#cb113-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">8</span>))</span>
+<span id="cb113-2"><a href="quiz-2-review.html#cb113-2"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2   -1
 ## [2,]   -1   -1   -1
 ## [3,]   -2    1   -8</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="quiz-2-review.html#cb111-1"></a><span class="kw">rref</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="quiz-2-review.html#cb115-1"></a><span class="kw">rref</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    0    3
 ## [2,]    0    1   -2
 ## [3,]    0    0    0</code></pre>
 <p>No they are not a basis. The corresponding matrix only has two pivots. Let’s add the three elementary vectors to create matrix <span class="math inline">\(B\)</span> and then row reduce.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="quiz-2-review.html#cb113-1"></a>B =<span class="st">  </span><span class="kw">cbind</span>(A, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb113-2"><a href="quiz-2-review.html#cb113-2"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="quiz-2-review.html#cb117-1"></a>B =<span class="st">  </span><span class="kw">cbind</span>(A, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb117-2"><a href="quiz-2-review.html#cb117-2"></a>B</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    2   -1    1    0    0
 ## [2,]   -1   -1   -1    0    1    0
 ## [3,]   -2    1   -8    0    0    1</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="quiz-2-review.html#cb115-1"></a><span class="kw">rref</span>(B)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="quiz-2-review.html#cb119-1"></a><span class="kw">rref</span>(B)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]       [,5]       [,6]
 ## [1,]    1    0    3    0 -0.3333333 -0.3333333
 ## [2,]    0    1   -2    0 -0.6666667  0.3333333
@@ -810,16 +810,16 @@ The desired coordinate vectors are
 \]</span>
 Here is the R code for this solution:</li>
 </ol>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="quiz-2-review.html#cb117-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb117-2"><a href="quiz-2-review.html#cb117-2"></a>Ainv =<span class="st"> </span><span class="kw">solve</span>(A)</span>
-<span id="cb117-3"><a href="quiz-2-review.html#cb117-3"></a></span>
-<span id="cb117-4"><a href="quiz-2-review.html#cb117-4"></a>A  <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="quiz-2-review.html#cb121-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb121-2"><a href="quiz-2-review.html#cb121-2"></a>Ainv =<span class="st"> </span><span class="kw">solve</span>(A)</span>
+<span id="cb121-3"><a href="quiz-2-review.html#cb121-3"></a></span>
+<span id="cb121-4"><a href="quiz-2-review.html#cb121-4"></a>A  <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    0
 ## [2,]   -3
 ## [3,]   -1
 ## [4,]   -1</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="quiz-2-review.html#cb119-1"></a>Ainv <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="quiz-2-review.html#cb123-1"></a>Ainv <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    1
 ## [2,]    2

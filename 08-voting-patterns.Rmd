@@ -60,7 +60,7 @@ senate.2012.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/dat
 Let's load in our data.
 
 
-```{r}
+```{r, echo=TRUE}
 
 # pick the data set that we want to look at
 senate.files = senate.1964.files
@@ -126,7 +126,7 @@ In other words:
 First we will find the eigenvalues and eigenvectors. 
 
 
-```{r}
+```{r, echo=TRUE}
 
 mat = data.matrix(votes)
 
@@ -177,7 +177,7 @@ During class, we will talk about how to think about this picture. We will also c
 
 When we get to more contemporary data, it will be fun later on to look at the names of the Senators who get large (positive or negative) eigenvector scores. Here is some code to help with that.
 
-```{r}
+```{r, echo=TRUE}
 
 myorder= order(v1)
 

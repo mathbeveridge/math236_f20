@@ -400,6 +400,34 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <div id="the-88th-congressional-session-1964" class="section level2">
 <h2><span class="header-section-number">19.2</span> The 88th Congressional Session (1964)</h2>
 <p>Let’s load in our data.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="voting-patterns-in-the-us-senate.html#cb100-1"></a><span class="co"># pick the data set that we want to look at</span></span>
+<span id="cb100-2"><a href="voting-patterns-in-the-us-senate.html#cb100-2"></a>senate.files =<span class="st"> </span>senate.<span class="fl">1964.</span>files</span>
+<span id="cb100-3"><a href="voting-patterns-in-the-us-senate.html#cb100-3"></a></span>
+<span id="cb100-4"><a href="voting-patterns-in-the-us-senate.html#cb100-4"></a></span>
+<span id="cb100-5"><a href="voting-patterns-in-the-us-senate.html#cb100-5"></a><span class="co"># First we load in the information about the senators.</span></span>
+<span id="cb100-6"><a href="voting-patterns-in-the-us-senate.html#cb100-6"></a><span class="co"># We will use these names as our labels.</span></span>
+<span id="cb100-7"><a href="voting-patterns-in-the-us-senate.html#cb100-7"></a><span class="co"># We also set up the colors we will use for our data points.</span></span>
+<span id="cb100-8"><a href="voting-patterns-in-the-us-senate.html#cb100-8"></a>senators &lt;-<span class="st"> </span><span class="kw">read.csv</span>(senate.files[<span class="dv">2</span>], <span class="dt">header=</span><span class="ot">FALSE</span>)</span>
+<span id="cb100-9"><a href="voting-patterns-in-the-us-senate.html#cb100-9"></a></span>
+<span id="cb100-10"><a href="voting-patterns-in-the-us-senate.html#cb100-10"></a>sen.name =<span class="st"> </span>senators[,<span class="dv">2</span>]</span>
+<span id="cb100-11"><a href="voting-patterns-in-the-us-senate.html#cb100-11"></a>sen.party =<span class="st"> </span>senators[,<span class="dv">4</span>]</span>
+<span id="cb100-12"><a href="voting-patterns-in-the-us-senate.html#cb100-12"></a></span>
+<span id="cb100-13"><a href="voting-patterns-in-the-us-senate.html#cb100-13"></a>sen.color=<span class="kw">rep</span>(<span class="st">&quot;chartreuse&quot;</span>, <span class="kw">length</span>(senators))</span>
+<span id="cb100-14"><a href="voting-patterns-in-the-us-senate.html#cb100-14"></a>sen.color[sen.party<span class="op">==</span><span class="st">&#39;D&#39;</span>]=<span class="st">&quot;cornflowerblue&quot;</span></span>
+<span id="cb100-15"><a href="voting-patterns-in-the-us-senate.html#cb100-15"></a>sen.color[sen.party<span class="op">==</span><span class="st">&#39;R&#39;</span>]=<span class="st">&quot;firebrick&quot;</span></span>
+<span id="cb100-16"><a href="voting-patterns-in-the-us-senate.html#cb100-16"></a></span>
+<span id="cb100-17"><a href="voting-patterns-in-the-us-senate.html#cb100-17"></a></span>
+<span id="cb100-18"><a href="voting-patterns-in-the-us-senate.html#cb100-18"></a><span class="co"># Next we load in the square matrix that measures how often senators voted together. </span></span>
+<span id="cb100-19"><a href="voting-patterns-in-the-us-senate.html#cb100-19"></a><span class="co"># We add names for the columns and rows.</span></span>
+<span id="cb100-20"><a href="voting-patterns-in-the-us-senate.html#cb100-20"></a>votes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(senate.files[<span class="dv">1</span>], <span class="dt">header=</span><span class="ot">FALSE</span>)</span>
+<span id="cb100-21"><a href="voting-patterns-in-the-us-senate.html#cb100-21"></a><span class="kw">names</span>(votes) &lt;-<span class="st"> </span>sen.name</span>
+<span id="cb100-22"><a href="voting-patterns-in-the-us-senate.html#cb100-22"></a><span class="kw">row.names</span>(votes) &lt;-<span class="st"> </span>sen.name</span>
+<span id="cb100-23"><a href="voting-patterns-in-the-us-senate.html#cb100-23"></a></span>
+<span id="cb100-24"><a href="voting-patterns-in-the-us-senate.html#cb100-24"></a></span>
+<span id="cb100-25"><a href="voting-patterns-in-the-us-senate.html#cb100-25"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb100-26"><a href="voting-patterns-in-the-us-senate.html#cb100-26"></a>  <span class="kw">head</span>(votes), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb100-27"><a href="voting-patterns-in-the-us-senate.html#cb100-27"></a>  <span class="dt">caption =</span> <span class="st">&#39;Congressional Sessions of the US Senate&#39;</span></span>
+<span id="cb100-28"><a href="voting-patterns-in-the-us-senate.html#cb100-28"></a>)</span></code></pre></div>
 <table style="width:100%;">
 <caption><span id="tab:unnamed-chunk-52">Table 19.2: </span>Congressional Sessions of the US Senate</caption>
 <colgroup>
@@ -1273,6 +1301,11 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <div id="using-the-dominant-eigenvectors." class="section level3">
 <h3><span class="header-section-number">19.3.1</span> Using the Dominant Eigenvectors.</h3>
 <p>First we will find the eigenvalues and eigenvectors.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="voting-patterns-in-the-us-senate.html#cb101-1"></a>mat =<span class="st"> </span><span class="kw">data.matrix</span>(votes)</span>
+<span id="cb101-2"><a href="voting-patterns-in-the-us-senate.html#cb101-2"></a></span>
+<span id="cb101-3"><a href="voting-patterns-in-the-us-senate.html#cb101-3"></a>eigsys =<span class="st"> </span><span class="kw">eigen</span>(mat)</span>
+<span id="cb101-4"><a href="voting-patterns-in-the-us-senate.html#cb101-4"></a></span>
+<span id="cb101-5"><a href="voting-patterns-in-the-us-senate.html#cb101-5"></a>eigsys<span class="op">$</span>values</span></code></pre></div>
 <pre><code>##   [1] 24198.14970  4385.33792  2523.42898   413.59778   274.12291   219.84394    93.86570   -19.59596   -39.68442
 ##  [10]   -73.58725   -84.08451  -124.18257  -137.88542  -155.95645  -162.94701  -176.71449  -183.14311  -197.74427
 ##  [19]  -203.16191  -219.90337  -222.98559  -225.77864  -236.01870  -240.90787  -249.06305  -257.49697  -263.81555
@@ -1295,26 +1328,38 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <div id="patterns-in-the-first-two-eigenvectors" class="section level3">
 <h3><span class="header-section-number">19.3.2</span> Patterns in the First Two Eigenvectors</h3>
 <p>Let’s create a plot of the first two eigenvectors. Each point represents a Senator.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="voting-patterns-in-the-us-senate.html#cb101-1"></a><span class="co"># let&#39;s give simple names to our top eigenvectors</span></span>
-<span id="cb101-2"><a href="voting-patterns-in-the-us-senate.html#cb101-2"></a>v1 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">1</span>]</span>
-<span id="cb101-3"><a href="voting-patterns-in-the-us-senate.html#cb101-3"></a>v2 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">2</span>]</span>
-<span id="cb101-4"><a href="voting-patterns-in-the-us-senate.html#cb101-4"></a>v3 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">3</span>]</span>
-<span id="cb101-5"><a href="voting-patterns-in-the-us-senate.html#cb101-5"></a>v4 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">4</span>]</span>
-<span id="cb101-6"><a href="voting-patterns-in-the-us-senate.html#cb101-6"></a>v5 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">4</span>]</span>
-<span id="cb101-7"><a href="voting-patterns-in-the-us-senate.html#cb101-7"></a></span>
-<span id="cb101-8"><a href="voting-patterns-in-the-us-senate.html#cb101-8"></a></span>
-<span id="cb101-9"><a href="voting-patterns-in-the-us-senate.html#cb101-9"></a><span class="co"># Plot use v1 for the x-axis and v2 for the y-axis</span></span>
-<span id="cb101-10"><a href="voting-patterns-in-the-us-senate.html#cb101-10"></a><span class="co"># We color the points by the party of the Senator</span></span>
-<span id="cb101-11"><a href="voting-patterns-in-the-us-senate.html#cb101-11"></a>xdir =<span class="st"> </span>v1</span>
-<span id="cb101-12"><a href="voting-patterns-in-the-us-senate.html#cb101-12"></a>ydir =<span class="st"> </span>v2</span>
-<span id="cb101-13"><a href="voting-patterns-in-the-us-senate.html#cb101-13"></a></span>
-<span id="cb101-14"><a href="voting-patterns-in-the-us-senate.html#cb101-14"></a><span class="kw">plot</span>(v1, v2, <span class="dt">col=</span>sen.color)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="voting-patterns-in-the-us-senate.html#cb103-1"></a><span class="co"># let&#39;s give simple names to our top eigenvectors</span></span>
+<span id="cb103-2"><a href="voting-patterns-in-the-us-senate.html#cb103-2"></a>v1 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">1</span>]</span>
+<span id="cb103-3"><a href="voting-patterns-in-the-us-senate.html#cb103-3"></a>v2 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">2</span>]</span>
+<span id="cb103-4"><a href="voting-patterns-in-the-us-senate.html#cb103-4"></a>v3 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">3</span>]</span>
+<span id="cb103-5"><a href="voting-patterns-in-the-us-senate.html#cb103-5"></a>v4 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">4</span>]</span>
+<span id="cb103-6"><a href="voting-patterns-in-the-us-senate.html#cb103-6"></a>v5 =<span class="st"> </span>eigsys<span class="op">$</span>vectors[,<span class="dv">4</span>]</span>
+<span id="cb103-7"><a href="voting-patterns-in-the-us-senate.html#cb103-7"></a></span>
+<span id="cb103-8"><a href="voting-patterns-in-the-us-senate.html#cb103-8"></a></span>
+<span id="cb103-9"><a href="voting-patterns-in-the-us-senate.html#cb103-9"></a><span class="co"># Plot use v1 for the x-axis and v2 for the y-axis</span></span>
+<span id="cb103-10"><a href="voting-patterns-in-the-us-senate.html#cb103-10"></a><span class="co"># We color the points by the party of the Senator</span></span>
+<span id="cb103-11"><a href="voting-patterns-in-the-us-senate.html#cb103-11"></a>xdir =<span class="st"> </span>v1</span>
+<span id="cb103-12"><a href="voting-patterns-in-the-us-senate.html#cb103-12"></a>ydir =<span class="st"> </span>v2</span>
+<span id="cb103-13"><a href="voting-patterns-in-the-us-senate.html#cb103-13"></a></span>
+<span id="cb103-14"><a href="voting-patterns-in-the-us-senate.html#cb103-14"></a><span class="kw">plot</span>(v1, v2, <span class="dt">col=</span>sen.color)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/senate1964-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>During class, we will talk about how to think about this picture. We will also compare this plot to plots made using the other eigenvectors.</p>
 </div>
 <div id="creating-a-table-sorted-by-an-eigenvector" class="section level3">
 <h3><span class="header-section-number">19.3.3</span> Creating a Table Sorted by an Eigenvector</h3>
 <p>When we get to more contemporary data, it will be fun later on to look at the names of the Senators who get large (positive or negative) eigenvector scores. Here is some code to help with that.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="voting-patterns-in-the-us-senate.html#cb104-1"></a>myorder=<span class="st"> </span><span class="kw">order</span>(v1)</span>
+<span id="cb104-2"><a href="voting-patterns-in-the-us-senate.html#cb104-2"></a></span>
+<span id="cb104-3"><a href="voting-patterns-in-the-us-senate.html#cb104-3"></a>eigendata =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">cbind</span>(v1,v2, sen.party))</span>
+<span id="cb104-4"><a href="voting-patterns-in-the-us-senate.html#cb104-4"></a><span class="kw">rownames</span>(eigendata)=sen.name</span>
+<span id="cb104-5"><a href="voting-patterns-in-the-us-senate.html#cb104-5"></a></span>
+<span id="cb104-6"><a href="voting-patterns-in-the-us-senate.html#cb104-6"></a></span>
+<span id="cb104-7"><a href="voting-patterns-in-the-us-senate.html#cb104-7"></a>myorder=<span class="st"> </span><span class="kw">order</span>(v1)</span>
+<span id="cb104-8"><a href="voting-patterns-in-the-us-senate.html#cb104-8"></a></span>
+<span id="cb104-9"><a href="voting-patterns-in-the-us-senate.html#cb104-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb104-10"><a href="voting-patterns-in-the-us-senate.html#cb104-10"></a>  <span class="kw">head</span>(eigendata[myorder,]), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb104-11"><a href="voting-patterns-in-the-us-senate.html#cb104-11"></a>  <span class="dt">caption =</span> <span class="st">&#39;One Extreme&#39;</span></span>
+<span id="cb104-12"><a href="voting-patterns-in-the-us-senate.html#cb104-12"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-54">Table 19.3: </span>One Extreme</caption>
 <thead>
@@ -1364,6 +1409,12 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="voting-patterns-in-the-us-senate.html#cb105-1"></a>myrevorder =<span class="st"> </span><span class="kw">order</span>(<span class="op">-</span>v1)</span>
+<span id="cb105-2"><a href="voting-patterns-in-the-us-senate.html#cb105-2"></a></span>
+<span id="cb105-3"><a href="voting-patterns-in-the-us-senate.html#cb105-3"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb105-4"><a href="voting-patterns-in-the-us-senate.html#cb105-4"></a>  <span class="kw">head</span>(eigendata[myrevorder,]), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb105-5"><a href="voting-patterns-in-the-us-senate.html#cb105-5"></a>  <span class="dt">caption =</span> <span class="st">&#39;The Other Extreme&#39;</span></span>
+<span id="cb105-6"><a href="voting-patterns-in-the-us-senate.html#cb105-6"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-54">Table 19.3: </span>The Other Extreme</caption>
 <thead>
