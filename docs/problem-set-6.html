@@ -170,8 +170,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a><ul>
 <li class="chapter" data-level="6.1" data-path="problem-set-6.html"><a href="problem-set-6.html#the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.1</b> The Square Root of a Matrix?</a></li>
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
-<li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#eigenvector-problem-coming-soon"><i class="fa fa-check"></i><b>6.3</b> Eigenvector Problem Coming Soon</a></li>
-<li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#complex-eigenvector-problem-coming-soon"><i class="fa fa-check"></i><b>6.4</b> Complex Eigenvector Problem Coming Soon</a></li>
+<li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
+<li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
 <li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-problem-coming-soon"><i class="fa fa-check"></i><b>6.5</b> Network Analysis Problem Coming Soon</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
@@ -343,7 +343,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <ol style="list-style-type: lower-alpha">
 <li>Describe the eigenspaces of <span class="math inline">\(A\)</span>.</li>
 <li>Diagonalize <span class="math inline">\(A\)</span>.</li>
-<li>Find a matrix that makes sense to call <span class="math inline">\(\sqrt{A}\)</span>. <em>Then show that your answer makes sense.</em></li>
+<li>Find a matrix that makes sense to call <span class="math inline">\(\sqrt{A}\)</span>. Then show that when you square this matrix, you really do get matrix <span class="math inline">\(A\)</span>.</li>
 </ol>
 </div>
 <div id="a-matrix-mystery" class="section level2">
@@ -362,14 +362,59 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><p>Is it possible to reconstruct <span class="math inline">\(M\)</span> from the evidence given? If so, then do it! If not, explain what further information is needed.</p></li>
 </ol>
 </div>
-<div id="eigenvector-problem-coming-soon" class="section level2">
-<h2><span class="header-section-number">6.3</span> Eigenvector Problem Coming Soon</h2>
+<div id="upper-triangular-matrix-with-a-constant-diagonal" class="section level2">
+<h2><span class="header-section-number">6.3</span> Upper Triangular Matrix with a Constant Diagonal</h2>
+<p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(3 \times 3\)</span> upper triangular matrix of the form
+<span class="math display">\[
+A = \begin{bmatrix}
+d &amp; a &amp; b \\
+0  &amp; d &amp; c \\
+0 &amp; 0 &amp; d
+\end{bmatrix}
+\]</span>
+where <span class="math inline">\(d \neq 0\)</span> and at least one of <span class="math inline">\(a,b,c\)</span> is nonzero. Explain why <span class="math inline">\(A\)</span> is not diagonalizable.</p>
 </div>
-<div id="complex-eigenvector-problem-coming-soon" class="section level2">
-<h2><span class="header-section-number">6.4</span> Complex Eigenvector Problem Coming Soon</h2>
+<div id="block-diagonalization-of-a-4-times-4-matrix" class="section level2">
+<h2><span class="header-section-number">6.4</span> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</h2>
+<p>The <span class="math inline">\(4 \times 4\)</span> matrix
+<span class="math display">\[
+A = \begin{bmatrix}
+2 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -3 &amp; 3 &amp; 2 \\
+2 &amp; -9 &amp; 7 &amp; 0 \\
+2 &amp; -4 &amp; 2 &amp; 0
+\end{bmatrix}
+\]</span>
+has complex eigenvalues <span class="math inline">\(a \pm bi\)</span> and <span class="math inline">\(c \pm di\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Use RStudio to find the eigenvalues <span class="math inline">\(a \pm bi\)</span> and <span class="math inline">\(c \pm di\)</span>, as well as “human friendly” eigenvectors <span class="math inline">\(\mathsf{v}\)</span> for <span class="math inline">\(a - bi\)</span> and <span class="math inline">\(\mathsf{w}\)</span> for <span class="math inline">\(c - di\)</span>.</p>
+<p>Hint: the command <code>zapsmall()</code> might be helpful.</p></li>
+<li><p>This matrix A can be factored as <span class="math inline">\(A = P B P^{-1}\)</span> where <span class="math inline">\(B\)</span> is a “block diagonal” matrix of the form
+<span class="math display">\[
+B = \begin{bmatrix} a &amp; -b &amp; 0  &amp; 0 \\
+b &amp; a &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; c &amp; -d \\
+0 &amp; 0 &amp; d &amp; c 
+\end{bmatrix}
+\]</span>
+and
+<span class="math display">\[
+P = \begin{bmatrix} \mathrm{Re} (\mathsf{v}) &amp; \mathrm{Im} (\mathsf{v}) &amp;  \mathrm{Re} (\mathsf{w}) &amp; \mathrm{Im}( \mathsf{w})  
+\end{bmatrix}
+\]</span>
+where the constants <span class="math inline">\(a,b,c,d\)</span> and the vectors <span class="math inline">\(\mathsf{v}, \mathsf{w}\)</span> are as described in part (a). Use RStudio to find the <span class="math inline">\(4 \times 4\)</span> matrix <span class="math inline">\(P\)</span> and its inverse <span class="math inline">\(P^{-1}\)</span>.</p>
+<p>Hints:</p>
+<ul>
+<li>You can use the command <code>solve(M)</code> to find the inverse of matrix <span class="math inline">\(M\)</span>.</li>
+<li>You can confirm that your answer is correct by computing <span class="math inline">\(P B P^{-1}\)</span> and checking that this equals the original matrix <span class="math inline">\(A\)</span>.</li>
+</ul></li>
+</ol>
 </div>
 <div id="network-analysis-problem-coming-soon" class="section level2">
 <h2><span class="header-section-number">6.5</span> Network Analysis Problem Coming Soon</h2>
+<!--
+
+-->
 
 </div>
 </div>

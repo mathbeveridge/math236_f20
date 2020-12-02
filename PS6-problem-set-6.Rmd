@@ -22,7 +22,7 @@ $\lambda^2 - 8 \lambda + 15 = (\lambda -3)(\lambda - 5).$
 
 a. Describe the eigenspaces of $A$.
 a. Diagonalize $A$.
-a. Find a matrix that makes sense to call $\sqrt{A}$. *Then show that your answer makes sense.* 
+a. Find a matrix that makes sense to call $\sqrt{A}$. Then show that when you square this matrix, you really do get matrix $A$.
 
 ## A  Matrix Mystery
 
@@ -45,11 +45,71 @@ a.  Is it possible to reconstruct $M$ from the evidence given? If so, then do it
 
 
 
-## Eigenvector Problem Coming Soon
+
+## Upper Triangular Matrix with a Constant Diagonal
+
+Let $A$ be a $3 \times 3$ upper triangular matrix of the form
+$$
+A = \begin{bmatrix}
+d & a & b \\
+0  & d & c \\
+0 & 0 & d
+\end{bmatrix}
+$$
+where $d \neq 0$ and at least one of $a,b,c$ is nonzero. Explain why $A$ is not diagonalizable.
 
 
 
-## Complex Eigenvector Problem Coming Soon
+
+## Block Diagonalization of a  $4 \times 4$ Matrix
+
+
+The $4 \times 4$ matrix
+$$
+A = \begin{bmatrix}
+2 & -1 & 1 & -1 \\
+1 & -3 & 3 & 2 \\
+2 & -9 & 7 & 0 \\
+2 & -4 & 2 & 0
+\end{bmatrix}
+$$
+has complex eigenvalues $a \pm bi$ and $c \pm di$. 
+
+a. Use RStudio to find the eigenvalues $a \pm bi$ and $c \pm di$, as well as "human friendly" eigenvectors $\mathsf{v}$ for $a - bi$ and $\mathsf{w}$ for $c - di$. 
+
+    Hint: the command `zapsmall()` might be helpful.
+
+
+a. This matrix A can be factored as $A  =  P B P^{-1}$ where $B$ is a "block diagonal"  matrix of the form
+$$
+B = \begin{bmatrix} a & -b & 0  & 0 \\
+b & a & 0 & 0 \\
+0 & 0 & c & -d \\
+0 & 0 & d & c 
+\end{bmatrix}
+$$
+and
+$$
+P = \begin{bmatrix} \mathrm{Re} (\mathsf{v}) & \mathrm{Im} (\mathsf{v}) &  \mathrm{Re} (\mathsf{w}) & \mathrm{Im}( \mathsf{w})  
+\end{bmatrix}
+$$
+where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as described in part (a). Use RStudio to find the $4 \times 4$ matrix $P$ and its inverse $P^{-1}$. 
+
+    Hints: 
+
+    * You can use  the command `solve(M)` to find the inverse of matrix $M$.
+    * You can confirm that your answer is correct by computing $P B P^{-1}$ and checking that this equals the original matrix $A$.
+
 
 
 ## Network Analysis Problem Coming Soon
+
+
+<!--
+```{r}
+#library(igraph)
+
+#g = Graph.Read_Ncol("/Users/abeverid/Downloads/airports/asme-net-copy2.csv", format="edgelist")
+
+```
+-->
