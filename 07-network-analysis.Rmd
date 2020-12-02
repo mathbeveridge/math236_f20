@@ -270,7 +270,7 @@ Now let's plot the network with:
 * the vertices sized by Gould's Index
 * the labels sized by degree centrality
 
-```{r, network6, fig.height=6, fig.width=6, eecho=TRUE}
+```{r, network6, fig.height=6, fig.width=6, echo=TRUE}
 plot(g, layout=locations, vertex.size=250*gould,vertex.label.cex=7*u, vertex.color='tan1', vertex.frame.color="dodgerblue" )
 ```
 
