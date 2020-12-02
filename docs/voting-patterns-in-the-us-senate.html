@@ -1287,7 +1287,7 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <div id="using-the-eigenbasis" class="section level2">
 <h2><span class="header-section-number">19.3</span> Using the Eigenbasis</h2>
 <p>As the table above notes, there are 102 Senators in our data set. So each Senator is represented by a vector in <span class="math inline">\(\mathbb{R}^{102}\)</span>. This vector represents how similar the Senator is to each colleague. <strong>But just because our data lives in <span class="math inline">\(\mathbb{R}^{102}\)</span> doesn’t mean that it is inherently 102-dimensional!</strong> We can draw a line in <span class="math inline">\(\mathbb{R}^3\)</span>. That line is 1-dimensional, even though it lives in a higher dimensional space.</p>
-<p><strong>Maybe if we find a good basis for</strong> $^{102} then we can detect some interesting features of the data set. So what happens if we use an eigenbasis? We know that this basis is custom-made for our matrix. Here is what we will observe:</p>
+<p><strong>Maybe if we find a good basis for</strong> <span class="math inline">\(\mathbb{R}^{102}\)</span> then we can detect some interesting features of the data set. So what happens if we use an eigenbasis? We know that this basis is custom-made for our matrix. Here is what we will observe:</p>
 <ul>
 <li>The basis of eigenvector of our matrix will pick up some patterns in our data.</li>
 <li>The eigenvectors corresponding to the largest eigenvalues are the most important ones when modeling our column space. This is where the patterns are!</li>
@@ -1323,7 +1323,7 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <li><p>The largest eigenvalue <span class="math inline">\(\approx 24200\)</span> is huge compared to the others! There is a <strong>huge gap</strong> after that. So this eigenspace isthe most important (by far)!</p></li>
 <li><p>The second and third eigenvectors are still pretty big <span class="math inline">\(\approx 4400\)</span> and <span class="math inline">\(\approx 2500\)</span>. But then we have another <strong>big gap</strong>: the rest have magnitudes below 500.</p></li>
 </ul>
-<p>So it seems like this data set is “roughly” 3-dimensional. Of course, this isn’t technically correct because our matrix is invertible (all the eigenvalues are nonzero). But you can think of this data set as a “cloud of points” around a 3D subspace of <span class="math inline">\(\mathbb{R}^100\)</span>.</p>
+<p>So it seems like this data set is “roughly” 3-dimensional. Of course, this isn’t technically correct because our matrix is invertible (all the eigenvalues are nonzero). But you can think of this data set as a “cloud of points” around a 3D subspace of <span class="math inline">\(\mathbb{R}^{102}\)</span>.</p>
 </div>
 <div id="patterns-in-the-first-two-eigenvectors" class="section level3">
 <h3><span class="header-section-number">19.3.2</span> Patterns in the First Two Eigenvectors</h3>

@@ -110,7 +110,7 @@ We also should note that ** each "coordinate" represents a senator. Coordinate 1
 
 As the table above notes, there are 102 Senators in our data set. So each Senator is represented by a vector in $\mathbb{R}^{102}$. This vector represents how similar the Senator is to each colleague. **But just because our data lives in $\mathbb{R}^{102}$ doesn't mean that it is inherently 102-dimensional!** We can draw a line in $\mathbb{R}^3$. That line is 1-dimensional, even though it lives in a higher dimensional space.
 
-**Maybe if we find a good basis for** $\mathbb{R}^{102} then we can detect some interesting features of the data set. So what happens if we use an eigenbasis? We know that this basis is custom-made for our matrix. Here is what we will observe:
+**Maybe if we find a good basis for** $\mathbb{R}^{102}$ then we can detect some interesting features of the data set. So what happens if we use an eigenbasis? We know that this basis is custom-made for our matrix. Here is what we will observe:
 
 * The basis of eigenvector of our matrix will pick up some patterns in our data.
 * The eigenvectors corresponding to the largest eigenvalues are the most important ones when modeling our column space. This is where the patterns are!
@@ -142,7 +142,7 @@ What do we see?
 
 * The second and third eigenvectors are still pretty big $\approx 4400$ and $\approx 2500$. But then we have another **big gap**: the rest have magnitudes below 500. 
 
-So it seems like this data set is "roughly" 3-dimensional. Of course, this isn't technically correct because our matrix is invertible (all the eigenvalues are nonzero). But you can think of this data set as a "cloud of points" around a 3D subspace of $\mathbb{R}^100$.
+So it seems like this data set is "roughly" 3-dimensional. Of course, this isn't technically correct because our matrix is invertible (all the eigenvalues are nonzero). But you can think of this data set as a "cloud of points" around a 3D subspace of $\mathbb{R}^{102}$.
 
 ### Patterns in the First Two Eigenvectors
 
