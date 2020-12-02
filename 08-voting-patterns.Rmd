@@ -1,67 +1,227 @@
 # Voting Patterns in the US Senate
 
+[Download this Rmd file](https://raw.github.com/mathbeveridge/math236_f20//main/08-voting-patterns.Rmd)
+
+
+
 In 2014, the [Pew Research Center published a report](https://www.pewresearch.org/politics/2014/06/12/political-polarization-in-the-american-public/) about the increasing polarization of US politics. They wrote:
+
 
 > Republicans and Democrats are more divided along ideological lines – and partisan antipathy is deeper and more extensive – than at any point in the last two decades. These trends manifest themselves in myriad ways, both in politics and in everyday life.
 
-Is this really true, or is it just hype? Let's see what linear algebra can tell us about the situation.
+Is this really true, or is this just hype? Let's see what linear algebra can tell us about the evolution of voting patterns in the US Senate from 1964 to 2012. 
 
+## The Data
 
-
-```{r}
-df <- read.csv("/Users/abeverid/PycharmProjects/linearalgebra/data/Senate088matrix.csv", header=FALSE)
-dim(df)
-head(df)
-
-
-sen <- read.csv("/Users/abeverid/PycharmProjects/linearalgebra/data/Senate088senators.csv", header=FALSE)
-
-party = sen[,4]
-
-color=rep("chartreuse", length(sen))
-color[party=='D']="cornflowerblue"
-color[party=='R']="firebrick"
-
-mat = data.matrix(df)
-
-sys = eigen(mat)
-
-
-a1 = sys$values[1]
-a2 = sys$values[2]
-a3 = sys$values[3]
-
-v1 = sys$vectors[,1]
-v2 = sys$vectors[,2]
-v3 = sys$vectors[,3]
-v4 = sys$vectors[,4]
-
-
-v1order= order(v2)
-v2order= order(v2)
-
-
-plot(v1, v2, col=color)
-print (sys$values[1])
-print (sys$values[2])
-
-foo = data.frame(cbind(v1,v2, party))
-rownames(foo)=sen[,2]
-
-bar = foo[v1order,]
-head(bar)
-
-```
+We will analyze datasets corresponding to US Senate votes during a 2-year Congressional Session. 
+Our data sets are 12 years apart, and were chosen to coincide with US election years. 
 
 ```{r}
 
-sys$values
+tabledata = rbind(c(84, '1963-1965', 'Lyndon Johnson vs Richard Nixon', 534),
+                  c(94, '1975-1977',  'Jimmy Carter vs Gerald Ford', 1311),
+                  c(100, '1987-1989', 'George H. W. Bush vs Michael Dukakis', 799),
+                  c(106, '1999-2001', 'George W. Bush vs Al Gore', 672),
+                  c(112, '2011-2013', 'Barak Obama vs John McCain', 486)
+)
 
-mat2 = mat - a1 * v1 %*% t(v1)
+tableframe = data.frame(tabledata)
+names(tableframe) = c('Session', 'Years', 'US Election', '# Floor Votes')
 
-max(mat2)
-
-heatmap(mat, Colv = NA, Rowv = NA, scale="none")
-heatmap(mat2, Colv = NA, Rowv = NA, scale="none")
+knitr::kable(
+  tableframe, booktabs = TRUE,
+  caption = 'Congressional Sessions of the US Senate'
+)
 ```
 
+
+Here is a list our our data files, which we will load from Github. The original data can be found at [voteview.com](https://voteview.com/). There are two files for each year.
+
+* A csv file containing a matrix whose $(i,j)$ entry counts the number of times Senator $i$ and Senator $j$ cast the same vote on an issue. There are actually [nine different possibilities](https://voteview.com/articles/data_help_votes), including Yea, Nay, Present, Abstention and "Not a member of the chamber when the vote was taken."
+* A csv file containing senator information: name, state and party affiliation. 
+
+```{r, echo=TRUE}
+
+senate.1964.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/data/Senate088matrix.csv', 'https://raw.github.com/mathbeveridge/math236_f20//main/data/Senate088senators.csv')
+
+senate.1976.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/data/Senate094matrix.csv', 'https://raw.github.com/mathbeveridge/math236_f20//main/data/Senate094senators.csv')
+
+senate.1988.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/data/Senate100matrix.csv', 'https://raw.github.com/mathbeveridge/math236_f20//main/data/Senate100senators.csv')
+
+senate.2000.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/data/Senate106matrix.csv', 'https://raw.github.com/mathbeveridge/math236_f20//main/data/Senate106senators.csv')
+
+senate.2012.files = c('https://raw.github.com/mathbeveridge/math236_f20/main/data/Senate112matrix.csv', 'https://raw.github.com/mathbeveridge/math236_f20//main/data/Senate112senators.csv')
+
+```
+
+
+## The 88th Congressional Session (1964)
+
+Let's load in our data.
+
+
+```{r}
+
+# pick the data set that we want to look at
+senate.files = senate.1964.files
+
+
+# First we load in the information about the senators.
+# We will use these names as our labels.
+# We also set up the colors we will use for our data points.
+senators <- read.csv(senate.files[2], header=FALSE)
+
+sen.name = senators[,2]
+sen.party = senators[,4]
+
+sen.color=rep("chartreuse", length(senators))
+sen.color[sen.party=='D']="cornflowerblue"
+sen.color[sen.party=='R']="firebrick"
+
+
+# Next we load in the square matrix that measures how often senators voted together. 
+# We add names for the columns and rows.
+votes <- read.csv(senate.files[1], header=FALSE)
+names(votes) <- sen.name
+row.names(votes) <- sen.name
+
+
+knitr::kable(
+  head(votes), booktabs = TRUE,
+  caption = 'Congressional Sessions of the US Senate'
+)
+
+
+
+```
+
+
+Looking at this table, we see that 
+
+* Aiken voted with Allott 321 times. 
+* Aiken voted with Anderson 252 times.
+* Allot voted with Anderson 221 times.
+* And so on.
+
+We also should note that ** each "coordinate" represents a senator. Coordinate 1 is "Aiken." Coordinate 2 is "Allot," etc. This interpretation will be important later!
+
+
+## Using the Eigenbasis
+
+As the table above notes, there are 102 Senators in our data set. So each Senator is represented by a vector in $\mathbb{R}^{102}$. This vector represents how similar the Senator is to each colleague. **But just because our data lives in $\mathbb{R}^{102}$ doesn't mean that it is inherently 102-dimensional!** We can draw a line in $\mathbb{R}^3$. That line is 1-dimensional, even though it lives in a higher dimensional space.
+
+**Maybe if we find a good basis for** $\mathbb{R}^{102} then we can detect some interesting features of the data set. So what happens if we use an eigenbasis? We know that this basis is custom-made for our matrix. Here is what we will observe:
+
+* The basis of eigenvector of our matrix will pick up some patterns in our data.
+* The eigenvectors corresponding to the largest eigenvalues are the most important ones when modeling our column space. This is where the patterns are!
+* The eigenvectors for the small eigenvalues don't really matter. They just pick up "noise" in the data.
+
+In other words:
+
+*  Our data set will be "essentially low dimensional" (maybe only 3D or 4D) even though it lives in a high dimensional space.
+* Moreover, the structure of the eigenvectors (for the large eigenvalues) will reflect the prevalent patterns in the data. 
+
+### Using the Dominant Eigenvectors.
+
+First we will find the eigenvalues and eigenvectors. 
+
+
+```{r}
+
+mat = data.matrix(votes)
+
+eigsys = eigen(mat)
+
+eigsys$values
+
+```
+
+What do we see?
+
+* The largest eigenvalue $\approx 24200$ is huge compared to the others! There is a **huge gap** after that. So this eigenspace isthe most important (by far)!
+
+* The second and third eigenvectors are still pretty big $\approx 4400$ and $\approx 2500$. But then we have another **big gap**: the rest have magnitudes below 500. 
+
+So it seems like this data set is "roughly" 3-dimensional. Of course, this isn't technically correct because our matrix is invertible (all the eigenvalues are nonzero). But you can think of this data set as a "cloud of points" around a 3D subspace of $\mathbb{R}^100$.
+
+### Patterns in the First Two Eigenvectors
+
+Let's create a plot of the first two eigenvectors. Each point represents a Senator. 
+
+```{r, senate1964, fig.height=6, fig.width=6, echo=TRUE}
+
+# let's give simple names to our top eigenvectors
+v1 = eigsys$vectors[,1]
+v2 = eigsys$vectors[,2]
+v3 = eigsys$vectors[,3]
+v4 = eigsys$vectors[,4]
+v5 = eigsys$vectors[,4]
+
+
+# Plot use v1 for the x-axis and v2 for the y-axis
+# We color the points by the party of the Senator
+xdir = v1
+ydir = v2
+
+plot(v1, v2, col=sen.color)
+
+
+
+```
+
+
+During class, we will talk about how to think about this picture. We will also compare this plot to plots made using the other eigenvectors. 
+
+
+### Creating a Table Sorted by an Eigenvector
+
+When we get to more contemporary data, it will be fun later on to look at the names of the Senators who get large (positive or negative) eigenvector scores. Here is some code to help with that.
+
+```{r}
+
+myorder= order(v1)
+
+eigendata = data.frame(cbind(v1,v2, sen.party))
+rownames(eigendata)=sen.name
+
+
+myorder= order(v1)
+
+knitr::kable(
+  head(eigendata[myorder,]), booktabs = TRUE,
+  caption = 'One Extreme'
+)
+
+myrevorder = order(-v1)
+
+knitr::kable(
+  head(eigendata[myrevorder,]), booktabs = TRUE,
+  caption = 'The Other Extreme'
+)
+```
+
+## Your Turn
+
+The data for the 88th Congressional Session (1964) does not seem very partisan. Democrats and Republicans are  finding plenty of common ground. When we look at the "extremes" we find some recognizable names, including Hubert Humphrey (D) and Barry Goldwater (R). But there is no clear "left" or "right" pattern to the party affiliation.
+
+What about the remaining 5 data sets? It's your turn to explore and discuss.
+
+The code above has been written for ease of reuse. 
+
+* Go back to the top and change the following line:
+
+```
+# pick the data set that we want to look at
+senate.files = senate.1964.files
+```
+
+to one of the other options: `senate.1976.files, senate.1988.files, senate.2000.files, senate.2012.files
+
+* Do a similar analysis as described above, as well as the things we tried in class together.
+
+      + Find the eigenvalues. Where are the gaps? What is the rough "dimension" of each data set?
+      + Plotting the two dominant eigenvectors. Do you see evidence of political divission?
+      + Then try plotting other pairs of eigenvectors. Which ones are just noise?
+      + Create tables of the two extreme for the dominant eigenvectors. Do you see any names that you recognize?
+      
+* Finally, you have some evidence to help you to answer the orignal question: "Is US Politics more polarized than ever before?"

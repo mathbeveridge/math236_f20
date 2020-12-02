@@ -1,5 +1,8 @@
-tab:unnamed-chunk-71
+tab:unnamed-chunk-31
 fig:example-2d-transformation
+tab:unnamed-chunk-79
+tab:unnamed-chunk-81
+tab:unnamed-chunk-83
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -122,6 +125,13 @@ find-the-degree-centrality-values.
 find-the-gould-index-values
 analyze-the-data
 voting-patterns-in-the-us-senate
+the-data
+the-88th-congressional-session-1964
+using-the-eigenbasis
+using-the-dominant-eigenvectors.
+patterns-in-the-first-two-eigenvectors
+creating-a-table-sorted-by-an-eigenvector
+your-turn-12
 quiz-1-review
 overview
 vocabulary-and-concepts
