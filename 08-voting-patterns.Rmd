@@ -215,7 +215,7 @@ The code above has been written for ease of reuse.
 senate.files = senate.1964.files
 ```
 
-to one of the other options: `senate.1976.files, senate.1988.files, senate.2000.files, senate.2012.files
+to one of the other options: `senate.1976.files, senate.1988.files, senate.2000.files, senate.2012.files`
 
 * Do a similar analysis as described above, as well as the things we tried in class together.
 
