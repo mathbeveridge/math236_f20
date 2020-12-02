@@ -219,9 +219,9 @@ to one of the other options: `senate.1976.files, senate.1988.files, senate.2000.
 
 * Do a similar analysis as described above, as well as the things we tried in class together.
 
-      + Find the eigenvalues. Where are the gaps? What is the rough "dimension" of each data set?
-      + Plotting the two dominant eigenvectors. Do you see evidence of political divission?
-      + Then try plotting other pairs of eigenvectors. Which ones are just noise?
-      + Create tables of the two extreme for the dominant eigenvectors. Do you see any names that you recognize?
+    + Find the eigenvalues. Where are the gaps? What is the rough "dimension" of each data set?
+    + Plotting the two dominant eigenvectors. Do you see evidence of political divission?
+    + Then try plotting other pairs of eigenvectors. Which ones are just noise?
+    + Create tables of the two extreme for the dominant eigenvectors. Do you see any names that you recognize?
       
 * Finally, you have some evidence to help you to answer the orignal question: "Is US Politics more polarized than ever before?"

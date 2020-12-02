@@ -340,7 +340,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>We will analyze datasets corresponding to US Senate votes during a 2-year Congressional Session.
 Our data sets are 12 years apart, and were chosen to coincide with US election years.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-79">Table 19.1: </span>Congressional Sessions of the US Senate</caption>
+<caption><span id="tab:unnamed-chunk-50">Table 19.1: </span>Congressional Sessions of the US Senate</caption>
 <thead>
 <tr class="header">
 <th align="left">Session</th>
@@ -401,7 +401,7 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <h2><span class="header-section-number">19.2</span> The 88th Congressional Session (1964)</h2>
 <p>Let’s load in our data.</p>
 <table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-81">Table 19.2: </span>Congressional Sessions of the US Senate</caption>
+<caption><span id="tab:unnamed-chunk-52">Table 19.2: </span>Congressional Sessions of the US Senate</caption>
 <colgroup>
 <col width="1%" />
 <col width="0%" />
@@ -1316,7 +1316,7 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <h3><span class="header-section-number">19.3.3</span> Creating a Table Sorted by an Eigenvector</h3>
 <p>When we get to more contemporary data, it will be fun later on to look at the names of the Senators who get large (positive or negative) eigenvector scores. Here is some code to help with that.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-83">Table 19.3: </span>One Extreme</caption>
+<caption><span id="tab:unnamed-chunk-54">Table 19.3: </span>One Extreme</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -1365,7 +1365,7 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 </tbody>
 </table>
 <table>
-<caption><span id="tab:unnamed-chunk-83">Table 19.3: </span>The Other Extreme</caption>
+<caption><span id="tab:unnamed-chunk-54">Table 19.3: </span>The Other Extreme</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -1428,10 +1428,12 @@ senate.files = senate.1964.files</code></pre>
 <p>to one of the other options: `senate.1976.files, senate.1988.files, senate.2000.files, senate.2012.files</p>
 <ul>
 <li><p>Do a similar analysis as described above, as well as the things we tried in class together.</p>
-<pre><code>+ Find the eigenvalues. Where are the gaps? What is the rough &quot;dimension&quot; of each data set?
-+ Plotting the two dominant eigenvectors. Do you see evidence of political divission?
-+ Then try plotting other pairs of eigenvectors. Which ones are just noise?
-+ Create tables of the two extreme for the dominant eigenvectors. Do you see any names that you recognize?</code></pre></li>
+<ul>
+<li>Find the eigenvalues. Where are the gaps? What is the rough “dimension” of each data set?</li>
+<li>Plotting the two dominant eigenvectors. Do you see evidence of political divission?</li>
+<li>Then try plotting other pairs of eigenvectors. Which ones are just noise?</li>
+<li>Create tables of the two extreme for the dominant eigenvectors. Do you see any names that you recognize?</li>
+</ul></li>
 <li><p>Finally, you have some evidence to help you to answer the orignal question: “Is US Politics more polarized than ever before?”</p></li>
 </ul>
 
