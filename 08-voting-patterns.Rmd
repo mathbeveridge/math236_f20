@@ -22,7 +22,7 @@ tabledata = rbind(c(84, '1963-1965', 'Lyndon Johnson vs Richard Nixon', 534),
                   c(94, '1975-1977',  'Jimmy Carter vs Gerald Ford', 1311),
                   c(100, '1987-1989', 'George H. W. Bush vs Michael Dukakis', 799),
                   c(106, '1999-2001', 'George W. Bush vs Al Gore', 672),
-                  c(112, '2011-2013', 'Barak Obama vs John McCain', 486)
+                  c(112, '2011-2013', 'Barack Obama vs John McCain', 486)
 )
 
 tableframe = data.frame(tabledata)
