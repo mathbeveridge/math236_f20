@@ -172,7 +172,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
 <li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
 <li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
-<li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-problem-coming-soon"><i class="fa fa-check"></i><b>6.5</b> Network Analysis Problem Coming Soon</a></li>
+<li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-of-risk-territories."><i class="fa fa-check"></i><b>6.5</b> Network Analysis of Risk Territories.</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
 <li class="chapter" data-level="7" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>7</b> Important Definitions</a></li>
@@ -416,11 +416,35 @@ where the constants <span class="math inline">\(a,b,c,d\)</span> and the vectors
 </ul></li>
 </ol>
 </div>
-<div id="network-analysis-problem-coming-soon" class="section level2">
-<h2><span class="header-section-number">6.5</span> Network Analysis Problem Coming Soon</h2>
-<!--
-
--->
+<div id="network-analysis-of-risk-territories." class="section level2">
+<h2><span class="header-section-number">6.5</span> Network Analysis of Risk Territories.</h2>
+<p><em>Risk</em> is a classic board game of conflict and diplomacy played on a map of the world. Players try to capture territories my moving their armies through adjancent territories. Here is what the game map looks like, with the countries colored by continent.</p>
+<center>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Risk_game_map_fixed.png/800px-Risk_game_map_fixed.png" style="width:80.0%" alt="" />
+<p class="caption">Risk Game Board (image: wikipedia)</p>
+</div>
+</center>
+<p>Here is a network representation of the gameboard, created from an adjacency matrix.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="problem-set-6.html#cb5-1"></a><span class="kw">library</span>(igraph)</span>
+<span id="cb5-2"><a href="problem-set-6.html#cb5-2"></a></span>
+<span id="cb5-3"><a href="problem-set-6.html#cb5-3"></a>risk &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.github.com/mathbeveridge/math236_f20/main/data/riskmatrix.csv&quot;</span>)</span>
+<span id="cb5-4"><a href="problem-set-6.html#cb5-4"></a>A =<span class="st"> </span><span class="kw">data.matrix</span>(risk)</span>
+<span id="cb5-5"><a href="problem-set-6.html#cb5-5"></a>countries =<span class="st">  </span><span class="kw">names</span>(risk)</span>
+<span id="cb5-6"><a href="problem-set-6.html#cb5-6"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
+<span id="cb5-7"><a href="problem-set-6.html#cb5-7"></a></span>
+<span id="cb5-8"><a href="problem-set-6.html#cb5-8"></a>coords =<span class="st"> </span><span class="kw">layout_nicely</span>(g)</span>
+<span id="cb5-9"><a href="problem-set-6.html#cb5-9"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">10</span>, <span class="dt">vertex.label.cex=</span><span class="fl">0.75</span>, <span class="dt">vertex.color=</span><span class="st">&#39;khaki&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/networkRisk-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Calculate Gould’s Index for this network. Use the Gould’s index ranking to <strong>identify the most central territory in each of the six continents</strong> (Africa, Asia, Australia, Europe, North America, South America). <a href="https://en.wikipedia.org/wiki/Risk_(game)#Territories">Here is a list of territories by continent</a> to help you to classify the territories.</p>
+<p>Turn in a table with six rows, one for each continent. These six rows should be ordered by Gould’s index. Each row should contain:</p>
+<ul>
+<li>name of the continent</li>
+<li>name of the territory with the largest Gould Index,</li>
+<li>the degree of the territory,</li>
+<li>the Gould’s Index value for the territory.</li>
+</ul>
+<p>You do not need to show your work for this problem.</p>
 
 </div>
 </div>

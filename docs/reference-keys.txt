@@ -1,8 +1,8 @@
-tab:unnamed-chunk-28
+tab:unnamed-chunk-2
 fig:example-2d-transformation
-tab:unnamed-chunk-77
-tab:unnamed-chunk-79
-tab:unnamed-chunk-81
+tab:unnamed-chunk-50
+tab:unnamed-chunk-52
+tab:unnamed-chunk-54
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -39,7 +39,7 @@ the-square-root-of-a-matrix
 a-matrix-mystery
 upper-triangular-matrix-with-a-constant-diagonal
 block-diagonalization-of-a-4-times-4-matrix
-network-analysis-problem-coming-soon
+network-analysis-of-risk-territories.
 important-definitions
 week-1-learning-goals
 solving-linear-equations

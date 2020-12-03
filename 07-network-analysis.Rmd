@@ -134,7 +134,7 @@ Gould's Index is a measure of centrality that uses the dominant eigenvector of a
 ### Step 1
 
 The first step is typically to add the identity matrix to the adjancency matrix $A$ to get a new matrix 
-$$B= A + I.$$ 
+$$B = A + I.$$ 
 The $n \times n$ identity matrix in `R` is obtained by using `diag(n)`. Adding the identity gives a connection from a vertex to itself. This **loop edge** corresponds to staying at the current city during a layover. 
 
 ```{r, echo=TRUE}
