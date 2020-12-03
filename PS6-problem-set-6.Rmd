@@ -109,7 +109,7 @@ where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as de
 
 ## Network Analysis of Risk Territories
 
-*Risk* is a classic board game of conflict and diplomacy played on a map of the world. Players try to capture territories my moving their armies through adjancent territories. Here is what the game map looks like, with the countries colored by continent. 
+*Risk* is a classic board game of conflict and diplomacy played on a map of the world. Players try to capture territories by moving their armies through adjancent territories. Here is what the game map looks like, with the countries colored by continent. 
 
 <center>
 
