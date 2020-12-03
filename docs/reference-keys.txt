@@ -39,7 +39,7 @@ the-square-root-of-a-matrix
 a-matrix-mystery
 upper-triangular-matrix-with-a-constant-diagonal
 block-diagonalization-of-a-4-times-4-matrix
-network-analysis-of-risk-territories.
+network-analysis-of-risk-territories
 important-definitions
 week-1-learning-goals
 solving-linear-equations

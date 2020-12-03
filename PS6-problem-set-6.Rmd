@@ -107,7 +107,7 @@ where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as de
 
 
 
-## Network Analysis of Risk Territories.
+## Network Analysis of Risk Territories
 
 *Risk* is a classic board game of conflict and diplomacy played on a map of the world. Players try to capture territories my moving their armies through adjancent territories. Here is what the game map looks like, with the countries colored by continent. 
 
@@ -134,16 +134,16 @@ plot(g, layout=coords, vertex.size = 10, vertex.label.cex=0.75, vertex.color='kh
 
 ```
 
-Calculate Gould's Index for this network. Use the Gould's index ranking to **identify the most central territory in each of the six continents** (Africa, Asia, Australia, Europe, North America, South America). [Here is a list of territories by continent](https://en.wikipedia.org/wiki/Risk_(game)#Territories) to help you to classify the territories.
+Calculate Gould's Index for this network. Use this Gould's Index ranking to **identify the most central territory in each of the six continents in this worldwide network**.  [Here is a list of territories by continent](https://en.wikipedia.org/wiki/Risk_(game)#Territories) (Africa, Asia, Australia, Europe, North America, South America) to help you to classify the territories. 
 
-Turn in a table with six rows, one for each continent. These six rows should be ordered by Gould's index. Each row should contain: 
+Turn in a table with six rows. These six rows should be ordered by Gould's index. Each row should contain: 
 
 * name of the continent
 * name of the territory with the largest Gould Index,
 * the degree of the territory,
 * the Gould's Index value for the territory.
 
-You do not need to show your work for this problem.
+**Important:** You do not need to show your work for this problem! Just turn the table (handwritten is fine) of your results.
 
 
 
