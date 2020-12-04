@@ -1,7 +1,7 @@
 
 # Modeling of Ecological Systems
 
-[Download this Rmd file](https://raw.github.com/mathbeveridge/math236_f20/main/09-ecological-models.Rmd)
+[Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/09-ecological-models.Rmd)
 
 
 ```{r,message=FALSE}
