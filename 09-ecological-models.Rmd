@@ -103,7 +103,7 @@ $$L=\begin{bmatrix} 0&0&0.33 \\ 0.18 & 0 & 0 \\ 0 & 0.71 & 0.94 \end{bmatrix}.$$
 
 Suppose that we started out with 200 juveniles, 100 subadults and 500 adults. What happens to this population over time?
  
-```{r, echo=TRUE}
+```{r owls, fig.height=5, fig.width=7}
 L = cbind(c(0,.18,0),c(0,0,.71),c(.33,0,.94)) # the Leslie Matrix
 L
 start = c(200,100,500)  # the starting distribution
@@ -161,7 +161,7 @@ More recent spotted owl data give the following entries for the Leslie Matrix of
 
 Using this new Leslie matrix $L$ and the same initial populations $\mathsf{x}_0 = [200,100, 500]$ as above, create a plot of the owl populations for $N=100$. 
 
-```{r, echo=TRUE}
+```{r owls3, fig.height=5, fig.width=7}
 # Uncomment the next line and create this matrix 
 # L = 
 

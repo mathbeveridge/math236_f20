@@ -371,54 +371,54 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="helper-functions-to-plot-dynamical-systems" class="section level2">
 <h2><span class="header-section-number">20.1</span> Helper Functions to Plot Dynamical Systems</h2>
 <p>I have written some code that generates and plots a trajectory for a Leslie system. You should run this code chunk before the others.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modeling-of-ecological-systems.html#cb113-1"></a><span class="co"># run this command to load some practical math functions</span></span>
-<span id="cb113-2"><a href="modeling-of-ecological-systems.html#cb113-2"></a><span class="kw">require</span>(pracma)</span>
-<span id="cb113-3"><a href="modeling-of-ecological-systems.html#cb113-3"></a></span>
-<span id="cb113-4"><a href="modeling-of-ecological-systems.html#cb113-4"></a>get_leslie_trajectory &lt;-<span class="st"> </span><span class="cf">function</span>(L, start, N) {</span>
-<span id="cb113-5"><a href="modeling-of-ecological-systems.html#cb113-5"></a>    <span class="co">### this code follows the populations for N steps</span></span>
-<span id="cb113-6"><a href="modeling-of-ecological-systems.html#cb113-6"></a>  m =<span class="st"> </span><span class="kw">dim</span>(L)[<span class="dv">1</span>]  <span class="co"># m is the number of rows of L</span></span>
-<span id="cb113-7"><a href="modeling-of-ecological-systems.html#cb113-7"></a>  X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>m,<span class="dt">ncol=</span>N)  <span class="co">#  Store the results in a (m x N) matrix called X</span></span>
-<span id="cb113-8"><a href="modeling-of-ecological-systems.html#cb113-8"></a>  X[,<span class="dv">1</span>] =<span class="st"> </span>start  <span class="co"># put start in the first column of X</span></span>
-<span id="cb113-9"><a href="modeling-of-ecological-systems.html#cb113-9"></a>  </span>
-<span id="cb113-10"><a href="modeling-of-ecological-systems.html#cb113-10"></a>  <span class="co"># loop N times and put your results in X</span></span>
-<span id="cb113-11"><a href="modeling-of-ecological-systems.html#cb113-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>N) {</span>
-<span id="cb113-12"><a href="modeling-of-ecological-systems.html#cb113-12"></a>    X[,i] =<span class="st"> </span>L <span class="op">%*%</span><span class="st"> </span>X[,i<span class="dv">-1</span>]    <span class="co"># here is the loop</span></span>
-<span id="cb113-13"><a href="modeling-of-ecological-systems.html#cb113-13"></a>  }</span>
-<span id="cb113-14"><a href="modeling-of-ecological-systems.html#cb113-14"></a>  </span>
-<span id="cb113-15"><a href="modeling-of-ecological-systems.html#cb113-15"></a>  <span class="kw">return</span>(X)</span>
-<span id="cb113-16"><a href="modeling-of-ecological-systems.html#cb113-16"></a>}</span>
-<span id="cb113-17"><a href="modeling-of-ecological-systems.html#cb113-17"></a></span>
-<span id="cb113-18"><a href="modeling-of-ecological-systems.html#cb113-18"></a></span>
-<span id="cb113-19"><a href="modeling-of-ecological-systems.html#cb113-19"></a>plot_leslie_trajectory &lt;-<span class="st"> </span><span class="cf">function</span>(X, agegroups) {</span>
-<span id="cb113-20"><a href="modeling-of-ecological-systems.html#cb113-20"></a></span>
-<span id="cb113-21"><a href="modeling-of-ecological-systems.html#cb113-21"></a>  m =<span class="st"> </span><span class="kw">dim</span>(X)[<span class="dv">1</span>]</span>
-<span id="cb113-22"><a href="modeling-of-ecological-systems.html#cb113-22"></a>  N =<span class="st"> </span><span class="kw">dim</span>(X)[<span class="dv">2</span>]</span>
-<span id="cb113-23"><a href="modeling-of-ecological-systems.html#cb113-23"></a></span>
-<span id="cb113-24"><a href="modeling-of-ecological-systems.html#cb113-24"></a>  t =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,N)  <span class="co"># time</span></span>
-<span id="cb113-25"><a href="modeling-of-ecological-systems.html#cb113-25"></a></span>
-<span id="cb113-26"><a href="modeling-of-ecological-systems.html#cb113-26"></a>  <span class="kw">print</span>(<span class="kw">dim</span>(X))</span>
-<span id="cb113-27"><a href="modeling-of-ecological-systems.html#cb113-27"></a>  <span class="kw">print</span>(<span class="kw">dim</span>(t))</span>
-<span id="cb113-28"><a href="modeling-of-ecological-systems.html#cb113-28"></a>    </span>
-<span id="cb113-29"><a href="modeling-of-ecological-systems.html#cb113-29"></a>  <span class="co"># Expand right side of clipping rect to make room for the legend</span></span>
-<span id="cb113-30"><a href="modeling-of-ecological-systems.html#cb113-30"></a>  <span class="kw">par</span>(<span class="dt">xpd=</span>T, <span class="dt">mar=</span><span class="kw">par</span>()<span class="op">$</span>mar<span class="op">+</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">10</span>))</span>
-<span id="cb113-31"><a href="modeling-of-ecological-systems.html#cb113-31"></a>  </span>
-<span id="cb113-32"><a href="modeling-of-ecological-systems.html#cb113-32"></a>  </span>
-<span id="cb113-33"><a href="modeling-of-ecological-systems.html#cb113-33"></a>  ylimit =<span class="st"> </span><span class="fl">1.1</span> <span class="op">*</span><span class="st"> </span><span class="kw">max</span>(X)</span>
-<span id="cb113-34"><a href="modeling-of-ecological-systems.html#cb113-34"></a>  </span>
-<span id="cb113-35"><a href="modeling-of-ecological-systems.html#cb113-35"></a>  <span class="co"># Plot graph </span></span>
-<span id="cb113-36"><a href="modeling-of-ecological-systems.html#cb113-36"></a>  <span class="kw">plot</span>(t,X[<span class="dv">1</span>,],<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,ylimit),<span class="dt">ylab=</span><span class="st">&quot;population&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;time (year)&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Population in Age Group&quot;</span>)</span>
-<span id="cb113-37"><a href="modeling-of-ecological-systems.html#cb113-37"></a>  </span>
-<span id="cb113-38"><a href="modeling-of-ecological-systems.html#cb113-38"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
-<span id="cb113-39"><a href="modeling-of-ecological-systems.html#cb113-39"></a>    <span class="kw">lines</span>(t,X[i,],<span class="dt">col=</span>i)</span>
-<span id="cb113-40"><a href="modeling-of-ecological-systems.html#cb113-40"></a>    <span class="kw">points</span>(t,X[i,],<span class="dt">col=</span>i,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">8</span>)</span>
-<span id="cb113-41"><a href="modeling-of-ecological-systems.html#cb113-41"></a>  }</span>
-<span id="cb113-42"><a href="modeling-of-ecological-systems.html#cb113-42"></a>  </span>
-<span id="cb113-43"><a href="modeling-of-ecological-systems.html#cb113-43"></a>  <span class="co"># Plot legend where you want</span></span>
-<span id="cb113-44"><a href="modeling-of-ecological-systems.html#cb113-44"></a>  <span class="kw">legend</span>(N <span class="op">*</span><span class="fl">1.1</span>,ylimit <span class="op">*</span><span class="st"> </span><span class="fl">.85</span>,agegroups, <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span>m, <span class="dt">lty =</span> <span class="dv">1</span>)</span>
-<span id="cb113-45"><a href="modeling-of-ecological-systems.html#cb113-45"></a>  </span>
-<span id="cb113-46"><a href="modeling-of-ecological-systems.html#cb113-46"></a>  <span class="co"># Restore default clipping rect</span></span>
-<span id="cb113-47"><a href="modeling-of-ecological-systems.html#cb113-47"></a>  <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)</span>
-<span id="cb113-48"><a href="modeling-of-ecological-systems.html#cb113-48"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="modeling-of-ecological-systems.html#cb109-1"></a><span class="co"># run this command to load some practical math functions</span></span>
+<span id="cb109-2"><a href="modeling-of-ecological-systems.html#cb109-2"></a><span class="kw">require</span>(pracma)</span>
+<span id="cb109-3"><a href="modeling-of-ecological-systems.html#cb109-3"></a></span>
+<span id="cb109-4"><a href="modeling-of-ecological-systems.html#cb109-4"></a>get_leslie_trajectory &lt;-<span class="st"> </span><span class="cf">function</span>(L, start, N) {</span>
+<span id="cb109-5"><a href="modeling-of-ecological-systems.html#cb109-5"></a>    <span class="co">### this code follows the populations for N steps</span></span>
+<span id="cb109-6"><a href="modeling-of-ecological-systems.html#cb109-6"></a>  m =<span class="st"> </span><span class="kw">dim</span>(L)[<span class="dv">1</span>]  <span class="co"># m is the number of rows of L</span></span>
+<span id="cb109-7"><a href="modeling-of-ecological-systems.html#cb109-7"></a>  X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>m,<span class="dt">ncol=</span>N)  <span class="co">#  Store the results in a (m x N) matrix called X</span></span>
+<span id="cb109-8"><a href="modeling-of-ecological-systems.html#cb109-8"></a>  X[,<span class="dv">1</span>] =<span class="st"> </span>start  <span class="co"># put start in the first column of X</span></span>
+<span id="cb109-9"><a href="modeling-of-ecological-systems.html#cb109-9"></a>  </span>
+<span id="cb109-10"><a href="modeling-of-ecological-systems.html#cb109-10"></a>  <span class="co"># loop N times and put your results in X</span></span>
+<span id="cb109-11"><a href="modeling-of-ecological-systems.html#cb109-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>N) {</span>
+<span id="cb109-12"><a href="modeling-of-ecological-systems.html#cb109-12"></a>    X[,i] =<span class="st"> </span>L <span class="op">%*%</span><span class="st"> </span>X[,i<span class="dv">-1</span>]    <span class="co"># here is the loop</span></span>
+<span id="cb109-13"><a href="modeling-of-ecological-systems.html#cb109-13"></a>  }</span>
+<span id="cb109-14"><a href="modeling-of-ecological-systems.html#cb109-14"></a>  </span>
+<span id="cb109-15"><a href="modeling-of-ecological-systems.html#cb109-15"></a>  <span class="kw">return</span>(X)</span>
+<span id="cb109-16"><a href="modeling-of-ecological-systems.html#cb109-16"></a>}</span>
+<span id="cb109-17"><a href="modeling-of-ecological-systems.html#cb109-17"></a></span>
+<span id="cb109-18"><a href="modeling-of-ecological-systems.html#cb109-18"></a></span>
+<span id="cb109-19"><a href="modeling-of-ecological-systems.html#cb109-19"></a>plot_leslie_trajectory &lt;-<span class="st"> </span><span class="cf">function</span>(X, agegroups) {</span>
+<span id="cb109-20"><a href="modeling-of-ecological-systems.html#cb109-20"></a></span>
+<span id="cb109-21"><a href="modeling-of-ecological-systems.html#cb109-21"></a>  m =<span class="st"> </span><span class="kw">dim</span>(X)[<span class="dv">1</span>]</span>
+<span id="cb109-22"><a href="modeling-of-ecological-systems.html#cb109-22"></a>  N =<span class="st"> </span><span class="kw">dim</span>(X)[<span class="dv">2</span>]</span>
+<span id="cb109-23"><a href="modeling-of-ecological-systems.html#cb109-23"></a></span>
+<span id="cb109-24"><a href="modeling-of-ecological-systems.html#cb109-24"></a>  t =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,N)  <span class="co"># time</span></span>
+<span id="cb109-25"><a href="modeling-of-ecological-systems.html#cb109-25"></a></span>
+<span id="cb109-26"><a href="modeling-of-ecological-systems.html#cb109-26"></a>  <span class="kw">print</span>(<span class="kw">dim</span>(X))</span>
+<span id="cb109-27"><a href="modeling-of-ecological-systems.html#cb109-27"></a>  <span class="kw">print</span>(<span class="kw">dim</span>(t))</span>
+<span id="cb109-28"><a href="modeling-of-ecological-systems.html#cb109-28"></a>    </span>
+<span id="cb109-29"><a href="modeling-of-ecological-systems.html#cb109-29"></a>  <span class="co"># Expand right side of clipping rect to make room for the legend</span></span>
+<span id="cb109-30"><a href="modeling-of-ecological-systems.html#cb109-30"></a>  <span class="kw">par</span>(<span class="dt">xpd=</span>T, <span class="dt">mar=</span><span class="kw">par</span>()<span class="op">$</span>mar<span class="op">+</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">10</span>))</span>
+<span id="cb109-31"><a href="modeling-of-ecological-systems.html#cb109-31"></a>  </span>
+<span id="cb109-32"><a href="modeling-of-ecological-systems.html#cb109-32"></a>  </span>
+<span id="cb109-33"><a href="modeling-of-ecological-systems.html#cb109-33"></a>  ylimit =<span class="st"> </span><span class="fl">1.1</span> <span class="op">*</span><span class="st"> </span><span class="kw">max</span>(X)</span>
+<span id="cb109-34"><a href="modeling-of-ecological-systems.html#cb109-34"></a>  </span>
+<span id="cb109-35"><a href="modeling-of-ecological-systems.html#cb109-35"></a>  <span class="co"># Plot graph </span></span>
+<span id="cb109-36"><a href="modeling-of-ecological-systems.html#cb109-36"></a>  <span class="kw">plot</span>(t,X[<span class="dv">1</span>,],<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,ylimit),<span class="dt">ylab=</span><span class="st">&quot;population&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;time (year)&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Population in Age Group&quot;</span>)</span>
+<span id="cb109-37"><a href="modeling-of-ecological-systems.html#cb109-37"></a>  </span>
+<span id="cb109-38"><a href="modeling-of-ecological-systems.html#cb109-38"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="cb109-39"><a href="modeling-of-ecological-systems.html#cb109-39"></a>    <span class="kw">lines</span>(t,X[i,],<span class="dt">col=</span>i)</span>
+<span id="cb109-40"><a href="modeling-of-ecological-systems.html#cb109-40"></a>    <span class="kw">points</span>(t,X[i,],<span class="dt">col=</span>i,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb109-41"><a href="modeling-of-ecological-systems.html#cb109-41"></a>  }</span>
+<span id="cb109-42"><a href="modeling-of-ecological-systems.html#cb109-42"></a>  </span>
+<span id="cb109-43"><a href="modeling-of-ecological-systems.html#cb109-43"></a>  <span class="co"># Plot legend where you want</span></span>
+<span id="cb109-44"><a href="modeling-of-ecological-systems.html#cb109-44"></a>  <span class="kw">legend</span>(N <span class="op">*</span><span class="fl">1.1</span>,ylimit <span class="op">*</span><span class="st"> </span><span class="fl">.85</span>,agegroups, <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span>m, <span class="dt">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb109-45"><a href="modeling-of-ecological-systems.html#cb109-45"></a>  </span>
+<span id="cb109-46"><a href="modeling-of-ecological-systems.html#cb109-46"></a>  <span class="co"># Restore default clipping rect</span></span>
+<span id="cb109-47"><a href="modeling-of-ecological-systems.html#cb109-47"></a>  <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)</span>
+<span id="cb109-48"><a href="modeling-of-ecological-systems.html#cb109-48"></a>}</span></code></pre></div>
 </div>
 <div id="northern-spotted-owl-population" class="section level2">
 <h2><span class="header-section-number">20.2</span> Northern Spotted Owl Population</h2>
@@ -433,21 +433,13 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="population-forecast" class="section level3">
 <h3><span class="header-section-number">20.2.1</span> Population forecast</h3>
 <p>Suppose that we started out with 200 juveniles, 100 subadults and 500 adults. What happens to this population over time?</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="modeling-of-ecological-systems.html#cb114-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">18</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">71</span>),<span class="kw">c</span>(.<span class="dv">33</span>,<span class="dv">0</span>,.<span class="dv">94</span>)) <span class="co"># the Leslie Matrix</span></span>
-<span id="cb114-2"><a href="modeling-of-ecological-systems.html#cb114-2"></a>L</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,] 0.00 0.00 0.33
 ## [2,] 0.18 0.00 0.00
 ## [3,] 0.00 0.71 0.94</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="modeling-of-ecological-systems.html#cb116-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">500</span>)  <span class="co"># the starting distribution</span></span>
-<span id="cb116-2"><a href="modeling-of-ecological-systems.html#cb116-2"></a>N =<span class="st"> </span><span class="dv">50</span>  <span class="co"># N is the number of iterations</span></span>
-<span id="cb116-3"><a href="modeling-of-ecological-systems.html#cb116-3"></a></span>
-<span id="cb116-4"><a href="modeling-of-ecological-systems.html#cb116-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
-<span id="cb116-5"><a href="modeling-of-ecological-systems.html#cb116-5"></a></span>
-<span id="cb116-6"><a href="modeling-of-ecological-systems.html#cb116-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;(0-1)&quot;</span>, <span class="st">&quot;(1-2)&quot;</span>, <span class="st">&quot;(over 2)&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  3 50
 ## NULL</code></pre>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-107-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="math236_handbook_files/figure-html/owls-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-population-at-t200" class="section level3">
 <h3><span class="header-section-number">20.2.2</span> The population at <span class="math inline">\(t=200\)</span></h3>
@@ -460,8 +452,8 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="eigenvectors-and-eigenvalues-of-l" class="section level3">
 <h3><span class="header-section-number">20.2.3</span> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></h3>
 <p>Use eigenvalues and eigenvectors to explain the asymptotic behavior of the system. You can use the function <code>eigen(A)</code> to compute the eigenvalues and eigenvectors of a matrix.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="modeling-of-ecological-systems.html#cb119-1"></a><span class="co"># your code goes here</span></span>
-<span id="cb119-2"><a href="modeling-of-ecological-systems.html#cb119-2"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modeling-of-ecological-systems.html#cb113-1"></a><span class="co"># your code goes here</span></span>
+<span id="cb113-2"><a href="modeling-of-ecological-systems.html#cb113-2"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1]  0.9835927+0.0000000i -0.0217964+0.2059185i -0.0217964-0.2059185i
@@ -487,30 +479,19 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="find-the-long-range-populations" class="section level3">
 <h3><span class="header-section-number">20.3.1</span> Find the long-range populations</h3>
 <p>Using this new Leslie matrix <span class="math inline">\(L\)</span> and the same initial populations <span class="math inline">\(\mathsf{x}_0 = [200,100, 500]\)</span> as above, create a plot of the owl populations for <span class="math inline">\(N=100\)</span>.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="modeling-of-ecological-systems.html#cb121-1"></a><span class="co"># Uncomment the next line and create this matrix </span></span>
-<span id="cb121-2"><a href="modeling-of-ecological-systems.html#cb121-2"></a><span class="co"># L = </span></span>
-<span id="cb121-3"><a href="modeling-of-ecological-systems.html#cb121-3"></a></span>
-<span id="cb121-4"><a href="modeling-of-ecological-systems.html#cb121-4"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">22</span>,<span class="dv">0</span>),<span class="kw">c</span>(.<span class="dv">15</span>,<span class="dv">0</span>,.<span class="dv">85</span>),<span class="kw">c</span>(.<span class="dv">33</span>,<span class="dv">0</span>,.<span class="dv">94</span>)) <span class="co"># the Leslie Matrix</span></span>
-<span id="cb121-5"><a href="modeling-of-ecological-systems.html#cb121-5"></a>L</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,] 0.00 0.15 0.33
 ## [2,] 0.22 0.00 0.00
 ## [3,] 0.00 0.85 0.94</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="modeling-of-ecological-systems.html#cb123-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">500</span>)</span>
-<span id="cb123-2"><a href="modeling-of-ecological-systems.html#cb123-2"></a>N =<span class="st"> </span><span class="dv">100</span> </span>
-<span id="cb123-3"><a href="modeling-of-ecological-systems.html#cb123-3"></a></span>
-<span id="cb123-4"><a href="modeling-of-ecological-systems.html#cb123-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
-<span id="cb123-5"><a href="modeling-of-ecological-systems.html#cb123-5"></a></span>
-<span id="cb123-6"><a href="modeling-of-ecological-systems.html#cb123-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;(0-1)&quot;</span>, <span class="st">&quot;(1-2)&quot;</span>, <span class="st">&quot;(over 2)&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]   3 100
 ## NULL</code></pre>
-<p><img src="math236_handbook_files/figure-html/unnamed-chunk-109-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="math236_handbook_files/figure-html/owls3-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-populations-at-t100-versus-the-dominant-eigenvector" class="section level3">
 <h3><span class="header-section-number">20.3.2</span> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</h3>
 <p>The following code compares your <span class="math inline">\(t=100\)</span> population ratios to the dominant eigenvector ratios. What do you notice? Why does this make sense?</p>
 <table>
-<caption><span id="tab:unnamed-chunk-110">Table 20.1: </span>Ratios of vector entries</caption>
+<caption><span id="tab:unnamed-chunk-57">Table 20.1: </span>Ratios of vector entries</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -551,8 +532,8 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="the-leslie-matrix" class="section level3">
 <h3><span class="header-section-number">20.4.1</span> The Leslie Matrix</h3>
 <p>Explain, in words, the meaning of each of the non-zero entries of the matrix <span class="math inline">\(L\)</span>.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="modeling-of-ecological-systems.html#cb126-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">05</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">28</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">37</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">16</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">64</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">08</span>),<span class="kw">c</span>(<span class="dv">82</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.00</span>))</span>
-<span id="cb126-2"><a href="modeling-of-ecological-systems.html#cb126-2"></a>L</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="modeling-of-ecological-systems.html#cb118-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">05</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">28</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">37</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">16</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">64</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">08</span>),<span class="kw">c</span>(<span class="dv">82</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.00</span>))</span>
+<span id="cb118-2"><a href="modeling-of-ecological-systems.html#cb118-2"></a>L</span></code></pre></div>
 <pre><code>##      [,1] [,2]  [,3]  [,4] [,5]
 ## [1,] 0.00 0.00 37.00 64.00   82
 ## [2,] 0.05 0.00  0.00  0.00    0
@@ -563,9 +544,9 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <div id="find-the-long-range-populations-1" class="section level3">
 <h3><span class="header-section-number">20.4.2</span> Find the long-range populations</h3>
 <p>Here are the population dynamics. Calculate the eigenvalues for <span class="math inline">\(L\)</span> and match what you see to the plot of the populations for <span class="math inline">\(t=50\)</span>. What do you conclude about the long-range population?</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="modeling-of-ecological-systems.html#cb128-1"></a><span class="co"># your code goes here</span></span>
-<span id="cb128-2"><a href="modeling-of-ecological-systems.html#cb128-2"></a></span>
-<span id="cb128-3"><a href="modeling-of-ecological-systems.html#cb128-3"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="modeling-of-ecological-systems.html#cb120-1"></a><span class="co"># your code goes here</span></span>
+<span id="cb120-2"><a href="modeling-of-ecological-systems.html#cb120-2"></a></span>
+<span id="cb120-3"><a href="modeling-of-ecological-systems.html#cb120-3"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1]  0.8871688+0.0000000i -0.3053909+0.7049316i -0.3053909-0.7049316i -0.1381935+0.0946928i -0.1381935-0.0946928i
@@ -578,12 +559,12 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 ## [4,] 0.0032023584+0i  4.639142e-03+1.663816e-03i  4.639142e-03-1.663816e-03i  0.0859429-0.3647277i  0.0859429+0.3647277i
 ## [5,] 0.0002887711+0i -3.305712e-05-5.121576e-04i -3.305712e-05+5.121576e-04i -0.1323078+0.1204805i -0.1323078-0.1204805i</code></pre>
 <p>The largest eigenvalue 0.887 is less than 1. So the population is going to die out.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="modeling-of-ecological-systems.html#cb130-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
-<span id="cb130-2"><a href="modeling-of-ecological-systems.html#cb130-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>
-<span id="cb130-3"><a href="modeling-of-ecological-systems.html#cb130-3"></a></span>
-<span id="cb130-4"><a href="modeling-of-ecological-systems.html#cb130-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
-<span id="cb130-5"><a href="modeling-of-ecological-systems.html#cb130-5"></a></span>
-<span id="cb130-6"><a href="modeling-of-ecological-systems.html#cb130-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;Fingerlings (0-1)&quot;</span>, <span class="st">&quot;Yearlings  (1-2)&quot;</span>, <span class="st">&quot;Young Adults (2-3)&quot;</span>,<span class="st">&quot;Adults (3-4)&quot;</span>,<span class="st">&quot;Adults (4-5)&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="modeling-of-ecological-systems.html#cb122-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
+<span id="cb122-2"><a href="modeling-of-ecological-systems.html#cb122-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>
+<span id="cb122-3"><a href="modeling-of-ecological-systems.html#cb122-3"></a></span>
+<span id="cb122-4"><a href="modeling-of-ecological-systems.html#cb122-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
+<span id="cb122-5"><a href="modeling-of-ecological-systems.html#cb122-5"></a></span>
+<span id="cb122-6"><a href="modeling-of-ecological-systems.html#cb122-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;Fingerlings (0-1)&quot;</span>, <span class="st">&quot;Yearlings  (1-2)&quot;</span>, <span class="st">&quot;Young Adults (2-3)&quot;</span>,<span class="st">&quot;Adults (3-4)&quot;</span>,<span class="st">&quot;Adults (4-5)&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  5 50
 ## NULL</code></pre>
 <p><img src="math236_handbook_files/figure-html/trout-1.png" width="75%" style="display: block; margin: auto;" /></p>
@@ -595,33 +576,33 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <li>To what level does that survival rate need to be increased to in order for the population to reach a steady state? Find your answer (accurate up to 3 decimal places) by trial and error. (You only need to change a single entry of <span class="math inline">\(L\)</span>. Which one?)</li>
 <li>What are the population percentages in the stable population?</li>
 </ul>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="modeling-of-ecological-systems.html#cb132-1"></a><span class="co"># update the fingerling to yearling survival rate</span></span>
-<span id="cb132-2"><a href="modeling-of-ecological-systems.html#cb132-2"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">074</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">28</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">37</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">16</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">64</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">08</span>),<span class="kw">c</span>(<span class="dv">82</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.00</span>))</span>
-<span id="cb132-3"><a href="modeling-of-ecological-systems.html#cb132-3"></a>L</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="modeling-of-ecological-systems.html#cb124-1"></a><span class="co"># update the fingerling to yearling survival rate</span></span>
+<span id="cb124-2"><a href="modeling-of-ecological-systems.html#cb124-2"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">074</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">28</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">37</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">16</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">64</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">08</span>),<span class="kw">c</span>(<span class="dv">82</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.00</span>))</span>
+<span id="cb124-3"><a href="modeling-of-ecological-systems.html#cb124-3"></a>L</span></code></pre></div>
 <pre><code>##       [,1] [,2]  [,3]  [,4] [,5]
 ## [1,] 0.000 0.00 37.00 64.00   82
 ## [2,] 0.074 0.00  0.00  0.00    0
 ## [3,] 0.000 0.28  0.00  0.00    0
 ## [4,] 0.000 0.00  0.16  0.00    0
 ## [5,] 0.000 0.00  0.00  0.08    0</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="modeling-of-ecological-systems.html#cb134-1"></a><span class="co">## do your eigenvalue/eigenvector analysis here</span></span>
-<span id="cb134-2"><a href="modeling-of-ecological-systems.html#cb134-2"></a>eigensys =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
-<span id="cb134-3"><a href="modeling-of-ecological-systems.html#cb134-3"></a>val =<span class="st"> </span>eigensys<span class="op">$</span>values[<span class="dv">1</span>]</span>
-<span id="cb134-4"><a href="modeling-of-ecological-systems.html#cb134-4"></a>vec =<span class="st"> </span>eigensys<span class="op">$</span>vectors[,<span class="dv">1</span>]</span>
-<span id="cb134-5"><a href="modeling-of-ecological-systems.html#cb134-5"></a></span>
-<span id="cb134-6"><a href="modeling-of-ecological-systems.html#cb134-6"></a>val</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="modeling-of-ecological-systems.html#cb126-1"></a><span class="co">## do your eigenvalue/eigenvector analysis here</span></span>
+<span id="cb126-2"><a href="modeling-of-ecological-systems.html#cb126-2"></a>eigensys =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
+<span id="cb126-3"><a href="modeling-of-ecological-systems.html#cb126-3"></a>val =<span class="st"> </span>eigensys<span class="op">$</span>values[<span class="dv">1</span>]</span>
+<span id="cb126-4"><a href="modeling-of-ecological-systems.html#cb126-4"></a>vec =<span class="st"> </span>eigensys<span class="op">$</span>vectors[,<span class="dv">1</span>]</span>
+<span id="cb126-5"><a href="modeling-of-ecological-systems.html#cb126-5"></a></span>
+<span id="cb126-6"><a href="modeling-of-ecological-systems.html#cb126-6"></a>val</span></code></pre></div>
 <pre><code>## [1] 1.000172+0i</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="modeling-of-ecological-systems.html#cb136-1"></a>vec<span class="op">/</span><span class="kw">sum</span>(vec)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="modeling-of-ecological-systems.html#cb128-1"></a>vec<span class="op">/</span><span class="kw">sum</span>(vec)</span></code></pre></div>
 <pre><code>## [1] 0.9105157386+0i 0.0673665682+0i 0.0188593926+0i 0.0030169835+0i 0.0002413171+0i</code></pre>
 <p>Changing the fingerling survival rate to 0.074 results in a dominant eigenvector of 1 (approximately). The long-range population percentages will match the dominant eigenvector calculated above:
 <span class="math inline">\((0.9105, 0.0674, 0.0189, 0.0030, 0.0002)\)</span>.</p>
 <p>This code shows the population dynamics. You shouldn’t need to edit this.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="modeling-of-ecological-systems.html#cb138-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
-<span id="cb138-2"><a href="modeling-of-ecological-systems.html#cb138-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>
-<span id="cb138-3"><a href="modeling-of-ecological-systems.html#cb138-3"></a></span>
-<span id="cb138-4"><a href="modeling-of-ecological-systems.html#cb138-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
-<span id="cb138-5"><a href="modeling-of-ecological-systems.html#cb138-5"></a></span>
-<span id="cb138-6"><a href="modeling-of-ecological-systems.html#cb138-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;Fingerlings (0-1)&quot;</span>, <span class="st">&quot;Yearlings  (1-2)&quot;</span>, <span class="st">&quot;Young Adults (2-3)&quot;</span>,<span class="st">&quot;Adults (3-4)&quot;</span>,<span class="st">&quot;Adults (4-5)&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="modeling-of-ecological-systems.html#cb130-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
+<span id="cb130-2"><a href="modeling-of-ecological-systems.html#cb130-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>
+<span id="cb130-3"><a href="modeling-of-ecological-systems.html#cb130-3"></a></span>
+<span id="cb130-4"><a href="modeling-of-ecological-systems.html#cb130-4"></a>X =<span class="st"> </span><span class="kw">get_leslie_trajectory</span>(L, start, N)</span>
+<span id="cb130-5"><a href="modeling-of-ecological-systems.html#cb130-5"></a></span>
+<span id="cb130-6"><a href="modeling-of-ecological-systems.html#cb130-6"></a><span class="kw">plot_leslie_trajectory</span>(X, <span class="kw">c</span>(<span class="st">&quot;Fingerlings (0-1)&quot;</span>, <span class="st">&quot;Yearlings  (1-2)&quot;</span>, <span class="st">&quot;Young Adults (2-3)&quot;</span>,<span class="st">&quot;Adults (3-4)&quot;</span>,<span class="st">&quot;Adults (4-5)&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  5 50
 ## NULL</code></pre>
 <p><img src="math236_handbook_files/figure-html/trout2-1.png" width="75%" style="display: block; margin: auto;" /></p>
