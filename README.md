@@ -1,5 +1,5 @@
 # math236_f20
-Math 236 Linear Algebra Course Manual
+Math 236 Linear Algebra Course Handbook
 
 This online handbook accompanies MATH 236 Linear Algebra. The progression of topics comes from David Lay's book, though we are transitioning to using online book by Dan Margalit and Joseph Rabinoff at Georgia Tech.
 
@@ -10,6 +10,7 @@ This handbook contains
   - problem sets
   - R explorations
   - weekly learning goals
+  - important definitions
   - review problems and solutions
 
 Enter this command in the R console to build the handbook:

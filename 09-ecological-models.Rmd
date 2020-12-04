@@ -188,17 +188,32 @@ par(mar=c(5, 4, 4, 2) + 0.1)
 
 ### The populations at $t=100$ versus the dominant eigenvector
 
- The following code compares your final population ratios to the dominant eigenvector ratios. What do you notice? Why does this make sense?
+ The following code compares your $t=100$ population ratios to the dominant eigenvector ratios. What do you notice? Why does this make sense?
 
 ```{r}
 
 finalpop = X[,N]
-print(c('final population ratios:', finalpop/sum(finalpop)))
+finalpop = finalpop/sum(finalpop)
 
-vec = eigen(L)$vectors[,1]
-print(c('dominant eigenvector ratios:', vec/sum(vec)))
+vec = as.numeric(eigen(L)$vectors[,1])
+vec = vec/sum(vec)
 
+
+
+tabledata = cbind(finalpop,vec)
+
+tableframe = data.frame(tabledata)
+names(tableframe) = c('population', 'eigenvector')
+rownames(tableframe) = c('juveniles','subadults','adults')
+
+knitr::kable(
+  tableframe, booktabs = TRUE,
+  caption = 'Ratios of vector entries'
+)
 ```
+
+These ratios are the same. This is as expected, since in the limit, the vectors should coverge to the direction of the dominant eigenvalue.
+
 
 ### The long-range prospects
 

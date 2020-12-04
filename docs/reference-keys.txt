@@ -1,8 +1,9 @@
-tab:unnamed-chunk-72
+tab:unnamed-chunk-9
 fig:example-2d-transformation
-tab:unnamed-chunk-120
-tab:unnamed-chunk-122
-tab:unnamed-chunk-124
+tab:unnamed-chunk-57
+tab:unnamed-chunk-59
+tab:unnamed-chunk-61
+tab:unnamed-chunk-66
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
