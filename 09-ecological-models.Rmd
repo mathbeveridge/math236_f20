@@ -4,9 +4,86 @@
 [Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/09-ecological-models.Rmd)
 
 
-```{r,message=FALSE}
+In this exploration, we will explore the dynamics of a female animal population modeled by a Leslie matrix $L$ which has the form
+$$L = 
+\begin{bmatrix}
+F_1 & F_2 & F_3 & \cdots & F_{n-1} & F_n \\
+S_1 & 0 & 0 & \cdots & 0 & 0  \\
+0& S_2 & 0 & \cdots & 0 & 0  \\
+\vdots & \ddots & \ddots & \vdots & \vdots \\
+0& 0 & 0 &  S_{n-2} & 0 & 0  \\
+0& 0 & 0 &  0 & S_{n-1} & S_n  \\
+\end{bmatrix}
+$$
+
+
+The female population is grouped in $n$ age classes. 
+
+* The survival rate $S_i$ is probability that an animal in age class $i$ survives and enters age class $i+1$.
+* The fecundity rate $F_i$ is the reproduction rate of animals in age class $i$.
+
+Given an initial population $\mathsf{x}_0 \in \mathbb{R}^n$, the population $\mathsf{x}_{t+1}$ at time $t+1$ is determined by 
+$$
+\mathsf{x}_{t+1} = A \mathsf{x}_t.
+$$
+
+
+
+## Helper Functions to Plot Dynamical Systems
+
+I have written some code that generates and plots a trajectory for a Leslie system. You should run this code chunk before the others.
+
+```{r, echo=TRUE}
+
 # run this command to load some practical math functions
 require(pracma)
+
+get_leslie_trajectory <- function(L, start, N) {
+    ### this code follows the populations for N steps
+  m = dim(L)[1]  # m is the number of rows of L
+  X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
+  X[,1] = start  # put start in the first column of X
+  
+  # loop N times and put your results in X
+  for (i in 2:N) {
+    X[,i] = L %*% X[,i-1]    # here is the loop
+  }
+  
+  return(X)
+}
+
+
+plot_leslie_trajectory <- function(X, agegroups) {
+
+  m = dim(X)[1]
+  N = dim(X)[2]
+
+  t = seq(1,N)  # time
+
+  print(dim(X))
+  print(dim(t))
+    
+  # Expand right side of clipping rect to make room for the legend
+  par(xpd=T, mar=par()$mar+c(0,0,0,10))
+  
+  
+  ylimit = 1.1 * max(X)
+  
+  # Plot graph 
+  plot(t,X[1,],type='l',col=1,ylim=c(0,ylimit),ylab="population",xlab="time (year)", main="Population in Age Group")
+  
+  for (i in 1:m) {
+    lines(t,X[i,],col=i)
+    points(t,X[i,],col=i,pch=20,cex=.8)
+  }
+  
+  # Plot legend where you want
+  legend(N *1.1,ylimit * .85,agegroups, col=1:m, lty = 1)
+  
+  # Restore default clipping rect
+  par(mar=c(5, 4, 4, 2) + 0.1)
+}
+
 ```
 
 ## Northern Spotted Owl Population
@@ -32,82 +109,26 @@ L
 start = c(200,100,500)  # the starting distribution
 N = 50  # N is the number of iterations
 
+X = get_leslie_trajectory(L, start, N)
+
+plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
 
 ```
 
-This code shows the population dynamics. You shouldn't need to edit this.
-```{r owls, fig.height=5, fig.width=7}
-### this code follows the populations for N steps
-m = dim(L)[1]  # m is the number of rows of L
-X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
-X[,1] = start  # put start in the first column of X
-
-# loop N times and put your results in X
-for (i in 2:N) {
-  X[,i] = L %*% X[,i-1]    # here is the loop
-}
-
-#### this code plots the populations in the (m x N) matrix X
-
-t = seq(1,N)  # time
-
-# Expand right side of clipping rect to make room for the legend
-par(xpd=T, mar=par()$mar+c(0,0,0,7))
-
-# Plot graph 
-plot(t,X[1,],type='l',col=1,ylim=c(0,1000),ylab="population",xlab="time (year)", main="Population in Age Group")
-
-for (i in 1:m) {
-  lines(t,X[i,],col=i)
-  points(t,X[i,],col=i,pch=20,cex=.8)
-}
-
-# Plot legend where you want
-legend(60,1000,c("(0-1)", "(1-2)", "(over 2)"), col=1:m, lty = 1)
-
-# Restore default clipping rect
-par(mar=c(5, 4, 4, 2) + 0.1)
-```
  
-### The population at $t=100$
+### The population at $t=200$
 
-Change the code above to run for $N=100$ iteratons, and then $N=200$. Can you now make a stronger statement about the long-term population?
+Change the code above to run for $N=200$. Can you now make a stronger statement about the long-term population?
 
 
 
 ```{r owls2, fig.height=5, fig.width=7}
 
-N = 200
-### this code follows the populations for N steps
-m = dim(L)[1]  # m is the number of rows of L
-X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
-X[,1] = start  # put start in the first column of X
+N = 200  # N is the number of iterations
 
-# loop N times and put your results in X
-for (i in 2:N) {
-  X[,i] = L %*% X[,i-1]    # here is the loop
-}
+X = get_leslie_trajectory(L, start, N)
 
-#### this code plots the populations in the (m x N) matrix X
-
-t = seq(1,N)  # time
-
-# Expand right side of clipping rect to make room for the legend
-par(xpd=T, mar=par()$mar+c(0,0,0,7))
-
-# Plot graph 
-plot(t,X[1,],type='l',col=1,ylim=c(0,1000),ylab="population",xlab="time (year)", main="Population in Age Group")
-
-for (i in 1:m) {
-  lines(t,X[i,],col=i)
-  points(t,X[i,],col=i,pch=20,cex=.8)
-}
-
-# Plot legend where you want
-legend(60,1000,c("(0-1)", "(1-2)", "(over 2)"), col=1:m, lty = 1)
-
-# Restore default clipping rect
-par(mar=c(5, 4, 4, 2) + 0.1)
+plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
 ```
 
 Yes, we can now see that populations are dying out.
@@ -125,7 +146,7 @@ eigen(L)
 The largest eigenvalue of less than one. This explains why the owls are dying: when the dominant eigenvalue is less than one, we tend to the zero vector as time increases.
 
 
-## More recent numbers for Northern Spotted Owls
+## Northern Spotted Owls Revisited
 
 More recent spotted owl data give the following entries for the Leslie Matrix of the spotted owl population:
 
@@ -148,43 +169,15 @@ L = cbind(c(0,.22,0),c(.15,0,.85),c(.33,0,.94)) # the Leslie Matrix
 L
 start = c(200,100,500)
 N = 100 
+
+X = get_leslie_trajectory(L, start, N)
+
+plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
+
 ```
 
 
-This code shows the population dynamics. You shouldn't need to edit this.
 
-```{r owls3, fig.height=5, fig.width=7}
-### this code follows the populations for N steps
-m = dim(L)[1]  # m is the number of rows of L
-X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
-X[,1] = start  # put start in the first column of X
-
-# loop N times and put your results in X
-for (i in 2:N) {
-  X[,i] = L %*% X[,i-1]    # here is the loop
-}
-
-#### this code plots the populations in the (m x N) matrix X
-
-t = seq(1,N)  # time
-
-# Expand right side of clipping rect to make room for the legend
-par(xpd=T, mar=par()$mar+c(0,0,0,7))
-
-# Plot graph 
-plot(t,X[1,],type='l',col=1,ylim=c(0,1000),ylab="population",xlab="time (year)", main="Population in Age Group")
-
-for (i in 1:m) {
-  lines(t,X[i,],col=i)
-  points(t,X[i,],col=i,pch=20,cex=.8)
-}
-
-# Plot legend where you want
-legend(60,1000,c("(0-1)", "(1-2)", "(over 2)"), col=1:m, lty = 1)
-
-# Restore default clipping rect
-par(mar=c(5, 4, 4, 2) + 0.1)
-```
 
 ### The populations at $t=100$ versus the dominant eigenvector
 
@@ -242,7 +235,7 @@ L
 
 ### Find the long-range populations
 
-Here are the population dynamics. Calculate the eigenvalues for $L$ and match what you see to the plot of he populations. What do you conclude about the long-range population?
+Here are the population dynamics. Calculate the eigenvalues for $L$ and match what you see to the plot of the populations for $t=50$. What do you conclude about the long-range population?
 
 ```{r, echo=TRUE}
 # your code goes here
@@ -252,38 +245,20 @@ eigen(L)
 ```
 
 The largest eigenvalue 0.887 is less than 1. So the population is going to die out.
- 
-  
+
 ```{r trout, fig.height=5, fig.width=7, echo=TRUE}
+
 start = c(100,100,100,100,100)  # the starting distribution
-N = 30              # N is the number of iterations
-m = dim(L)[1]
-X = matrix(0,nrow=5,ncol=N)  #  Store the results in a 3 x N matrix called X
-X[,1] = start  # put start in the first column of X
+N = 50              # N is the number of iterations
 
-# loop N times and put your results in X
-for (i in 2:N) {
-  X[,i] = L %*% X[,i-1]    # here is the loop
-}
+X = get_leslie_trajectory(L, start, N)
 
-t = seq(1,N)  # time
+plot_leslie_trajectory(X, c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
 
-# Expand right side of clipping rect to make room for the legend
-par(xpd=T, mar=par()$mar+c(0,0,0,7))
-
-plot(t,X[1,],type='l',col=1,ylim=c(0,8000),ylab="population",xlab="time (year)",
-     main="Population in Age Group")
-for (i in 1:m) {
-  lines(t,X[i,],col=i)
-  points(t,X[i,],col=i,pch=20,cex=.8)
-}
-legend(25, 5000, legend=c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"), col=1:m, lty=1)
-
-
-# Restore default clipping rect
-par(mar=c(5, 4, 4, 2) + 0.1)
 
 ```
+  
+
 
 ### River Clean Up
 
@@ -316,33 +291,13 @@ This code shows the population dynamics. You shouldn't need to edit this.
 
 
 ```{r trout2, fig.height=5, fig.width=7, echo=TRUE}
+
 start = c(100,100,100,100,100)  # the starting distribution
 N = 50              # N is the number of iterations
-m = dim(L)[1]
-X = matrix(0,nrow=5,ncol=N)  #  Store the results in a 3 x N matrix called X
-X[,1] = start  # put start in the first column of X
 
-# loop N times and put your results in X
-for (i in 2:N) {
-  X[,i] = L %*% X[,i-1]    # here is the loop
-}
+X = get_leslie_trajectory(L, start, N)
 
-t = seq(1,N)  # time
-
-# Expand right side of clipping rect to make room for the legend
-par(xpd=T, mar=par()$mar+c(0,0,0,7))
-
-plot(t,X[1,],type='l',col=1,ylim=c(0,8000),ylab="population",xlab="time (year)",
-     main="Population in Age Group")
-for (i in 1:m) {
-  lines(t,X[i,],col=i)
-  points(t,X[i,],col=i,pch=20,cex=.8)
-}
-legend(25, 5000, legend=c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"), col=1:m, lty=1)
-
-
-# Restore default clipping rect
-par(mar=c(5, 4, 4, 2) + 0.1)
+plot_leslie_trajectory(X, c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
 
 ```
 
