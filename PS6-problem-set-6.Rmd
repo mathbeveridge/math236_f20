@@ -98,7 +98,7 @@ P = \begin{bmatrix} \mathrm{Im} (\mathsf{v}) & \mathrm{Re} (\mathsf{v}) &  \math
 =\begin{bmatrix} \mathsf{v}_2 & \mathsf{v}_1 &  \mathsf{w}_2 &  \mathsf{w}_1
 \end{bmatrix}
 $$
-where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as described in part (a). Use RStudio to find the $4 \times 4$ matrix $P$ and its inverse $P^{-1}$. 
+where the constants $a,b,c,d$ and the vectors $\mathsf{v}, \mathsf{w}$ are as described in part (a). Use RStudio to find the $4 \times 4$ matrices $B$, $P$ and its inverse $P^{-1}$. 
 
     Hints: 
 
