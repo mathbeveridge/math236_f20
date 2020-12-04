@@ -293,10 +293,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="20" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>20</b> Modeling of Ecological Systems</a><ul>
 <li class="chapter" data-level="20.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>20.1</b> Northern Spotted Owl Population</a><ul>
 <li class="chapter" data-level="20.1.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#population-forecast"><i class="fa fa-check"></i><b>20.1.1</b> Population forecast</a></li>
-<li class="chapter" data-level="20.1.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#your-turn-13"><i class="fa fa-check"></i><b>20.1.2</b> Your Turn</a></li>
+<li class="chapter" data-level="20.1.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-population-at-t100"><i class="fa fa-check"></i><b>20.1.2</b> The population at <span class="math inline">\(t=100\)</span></a></li>
+<li class="chapter" data-level="20.1.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#eigenvectors-and-eigenvalues-of-l"><i class="fa fa-check"></i><b>20.1.3</b> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="20.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#more-recent-numbers-for-northern-spotted-owls"><i class="fa fa-check"></i><b>20.2</b> More recent numbers for Northern Spotted Owls</a><ul>
 <li class="chapter" data-level="20.2.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations"><i class="fa fa-check"></i><b>20.2.1</b> Find the long-range populations</a></li>
+<li class="chapter" data-level="20.2.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-populations-at-t100-versus-the-dominant-eigenvector"><i class="fa fa-check"></i><b>20.2.2</b> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</a></li>
+<li class="chapter" data-level="20.2.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-long-range-prospects"><i class="fa fa-check"></i><b>20.2.3</b> The long-range prospects</a></li>
 </ul></li>
 <li class="chapter" data-level="20.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>20.3</b> Brook Trout in Hunt Creek, MI</a><ul>
 <li class="chapter" data-level="20.3.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-leslie-matrix"><i class="fa fa-check"></i><b>20.3.1</b> The Leslie Matrix</a></li>
@@ -590,32 +593,19 @@ The <span class="math inline">\(n \times n\)</span> identity matrix in <code>R</
 <span id="cb89-10"><a href="network-centralities.html#cb89-10"></a><span class="kw">rownames</span>(df)=airports</span>
 <span id="cb89-11"><a href="network-centralities.html#cb89-11"></a><span class="kw">colnames</span>(df)=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>)</span>
 <span id="cb89-12"><a href="network-centralities.html#cb89-12"></a>df</span></code></pre></div>
-<pre><code>##     0          1          2          3          4          5          6          7          8          9
-## ATL 1 0.08695652 0.08173077 0.07916667 0.07773297 0.07708213 0.07674064 0.07657108 0.07647933 0.07643081
-## LAX 1 0.13043478 0.13942308 0.14479167 0.14560932 0.14637430 0.14654141 0.14667834 0.14671848 0.14674567
-## ORD 1 0.06521739 0.07211538 0.07500000 0.07683692 0.07761108 0.07802962 0.07823125 0.07833906 0.07839377
-## MSP 1 0.10869565 0.11538462 0.11354167 0.11357527 0.11295441 0.11277017 0.11258632 0.11250792 0.11245405
-## DEN 1 0.13043478 0.13461538 0.13750000 0.13911290 0.13988267 0.14035431 0.14058369 0.14071617 0.14078356
-## JFK 1 0.06521739 0.06250000 0.06562500 0.06586022 0.06621466 0.06618132 0.06618343 0.06615295 0.06613871
-## SFO 1 0.10869565 0.12500000 0.12708333 0.12903226 0.12944797 0.12977438 0.12986887 0.12993256 0.12995600
-## SEA 1 0.13043478 0.12500000 0.12500000 0.12343190 0.12324485 0.12294795 0.12288997 0.12283525 0.12282160
-## PHL 1 0.04347826 0.02884615 0.02395833 0.02217742 0.02144643 0.02112894 0.02098089 0.02090908 0.02087259
-## PDX 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435
-## MDW 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435
-## LGA 1 0.04347826 0.03846154 0.03750000 0.03763441 0.03793999 0.03813315 0.03826343 0.03833372 0.03837453
-##             10
-## ATL 0.07640399
-## LAX 0.14675521
-## ORD 0.07842281
-## MSP 0.11242772
-## DEN 0.14082110
-## JFK 0.06612665
-## SFO 0.12997042
-## SEA 0.12281194
-## PHL 0.02085358
-## PDX 0.03350515
-## MDW 0.03350515
-## LGA 0.03839628</code></pre>
+<pre><code>##     0          1          2          3          4          5          6          7          8          9         10
+## ATL 1 0.08695652 0.08173077 0.07916667 0.07773297 0.07708213 0.07674064 0.07657108 0.07647933 0.07643081 0.07640399
+## LAX 1 0.13043478 0.13942308 0.14479167 0.14560932 0.14637430 0.14654141 0.14667834 0.14671848 0.14674567 0.14675521
+## ORD 1 0.06521739 0.07211538 0.07500000 0.07683692 0.07761108 0.07802962 0.07823125 0.07833906 0.07839377 0.07842281
+## MSP 1 0.10869565 0.11538462 0.11354167 0.11357527 0.11295441 0.11277017 0.11258632 0.11250792 0.11245405 0.11242772
+## DEN 1 0.13043478 0.13461538 0.13750000 0.13911290 0.13988267 0.14035431 0.14058369 0.14071617 0.14078356 0.14082110
+## JFK 1 0.06521739 0.06250000 0.06562500 0.06586022 0.06621466 0.06618132 0.06618343 0.06615295 0.06613871 0.06612665
+## SFO 1 0.10869565 0.12500000 0.12708333 0.12903226 0.12944797 0.12977438 0.12986887 0.12993256 0.12995600 0.12997042
+## SEA 1 0.13043478 0.12500000 0.12500000 0.12343190 0.12324485 0.12294795 0.12288997 0.12283525 0.12282160 0.12281194
+## PHL 1 0.04347826 0.02884615 0.02395833 0.02217742 0.02144643 0.02112894 0.02098089 0.02090908 0.02087259 0.02085358
+## PDX 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435 0.03350515
+## MDW 1 0.04347826 0.03846154 0.03541667 0.03449821 0.03390075 0.03369906 0.03358136 0.03353774 0.03351435 0.03350515
+## LGA 1 0.04347826 0.03846154 0.03750000 0.03763441 0.03793999 0.03813315 0.03826343 0.03833372 0.03837453 0.03839628</code></pre>
 <div id="your-turn-10" class="section level4">
 <h4><span class="header-section-number">18.3.3.1</span> Your Turn</h4>
 <p><strong>Discuss with your group:</strong> What do we learn from this table of normalized vectors?</p>

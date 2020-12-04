@@ -1,8 +1,8 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-72
 fig:example-2d-transformation
-tab:unnamed-chunk-50
-tab:unnamed-chunk-52
-tab:unnamed-chunk-54
+tab:unnamed-chunk-120
+tab:unnamed-chunk-122
+tab:unnamed-chunk-124
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -135,9 +135,12 @@ your-turn-12
 modeling-of-ecological-systems
 northern-spotted-owl-population
 population-forecast
-your-turn-13
+the-population-at-t100
+eigenvectors-and-eigenvalues-of-l
 more-recent-numbers-for-northern-spotted-owls
 find-the-long-range-populations
+the-populations-at-t100-versus-the-dominant-eigenvector
+the-long-range-prospects
 brook-trout-in-hunt-creek-mi
 the-leslie-matrix
 find-the-long-range-populations-1
