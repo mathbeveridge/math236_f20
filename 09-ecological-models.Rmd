@@ -1,0 +1,258 @@
+
+# Modeling of Ecological Systems
+
+[Download this Rmd file](https://raw.github.com/mathbeveridge/math236_f20//main/09-ecological-models.Rmd)
+
+
+```{r,message=FALSE}
+# run this command to load some practical math functions
+require(pracma)
+```
+
+## Northern Spotted Owl Population
+
+We model the population dyamics of the Northern Spotted Owls using a Leslie Matrix. The age classes for the spotted owls are:
+
+- juvenile (less than 1 year old)
+- subadult (1 to 2 years old)
+- adult (over 2 years old)
+
+and the Leslie Matrix is:
+$$L=\begin{bmatrix} 0&0&0.33 \\ 0.18 & 0 & 0 \\ 0 & 0.71 & 0.94 \end{bmatrix}.$$
+
+
+
+### Population forecast
+
+Suppose that we started out with 200 juveniles, 300 subadults and 500 adults. What happens to this population over time?
+ 
+```{r}
+L = cbind(c(0,.18,0),c(0,0,.71),c(.33,0,.94)) # the Leslie Matrix
+L
+start = c(200,300,500)  # the starting distribution
+N = 50  # N is the number of iterations
+
+
+```
+
+This code shows the population dynamics. You shouldn't need to edit this.
+```{r owls, fig.height=5, fig.width=7, echo=TRUE}
+### this code follows the populations for N steps
+m = dim(L)[1]  # m is the number of rows of L
+X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
+X[,1] = start  # put start in the first column of X
+
+# loop N times and put your results in X
+for (i in 2:N) {
+  X[,i] = L %*% X[,i-1]    # here is the loop
+}
+
+#### this code plots the populations in the (m x N) matrix X
+
+t = seq(1,N)  # time
+
+# Expand right side of clipping rect to make room for the legend
+par(xpd=T, mar=par()$mar+c(0,0,0,7))
+
+# Plot graph 
+plot(t,X[1,],type='l',col=1,ylim=c(0,1000),ylab="population",xlab="time (year)", main="Population in Age Group")
+
+for (i in 1:m) {
+  lines(t,X[i,],col=i)
+  points(t,X[i,],col=i,pch=20,cex=.8)
+}
+
+# Plot legend where you want
+legend(60,1000,c("(0-1)", "(1-2)", "(over 2)"), col=1:m, lty = 1)
+
+# Restore default clipping rect
+par(mar=c(5, 4, 4, 2) + 0.1)
+```
+ 
+### Your Turn
+
+1. Change the code above to run for $N=100$ iteratons, and then $N=200$. Can you now make a stronger statement about the long-term population?
+
+2.  Use eigenvalues and eigenvectors to explain the asymptotic behavior of the system. You can use the function `eigen(A)` to compute the eigenvalues and eigenvectors of a matrix.
+
+
+```{r}
+# your code goes here
+
+```
+
+
+
+
+## More recent numbers for Northern Spotted Owls
+
+More recent spotted owl data give the following entries for the Leslie Matrix of the spotted owl population:
+
+- Juvenile Survival 0.33
+- Subadult Survival 0.85
+- Adult Survival 0.85
+- Subadult Fecundity 0.125
+- Adult Fecundity 0.26
+
+
+### Find the long-range populations
+
+Using this data, determine the long-range population of the Northern Spotted Owl. Are the prospects for the owl better or worse than the original data given above? 
+
+```{r}
+# your code to create the Leslie Matrix L and investigate its
+# eigenvectors and eigenvalues goes here.
+
+# Uncomment the next line and create this matrix 
+# L = 
+start = c(200,300,500)
+N = 100 
+
+
+```
+
+
+This code shows the population dynamics. You shouldn't need to edit this.
+
+```{r}
+### this code follows the populations for N steps
+m = dim(L)[1]  # m is the number of rows of L
+X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
+X[,1] = start  # put start in the first column of X
+
+# loop N times and put your results in X
+for (i in 2:N) {
+  X[,i] = L %*% X[,i-1]    # here is the loop
+}
+
+#### this code plots the populations in the (m x N) matrix X
+
+t = seq(1,N)  # time
+
+# Expand right side of clipping rect to make room for the legend
+par(xpd=T, mar=par()$mar+c(0,0,0,7))
+
+# Plot graph 
+plot(t,X[1,],type='l',col=1,ylim=c(0,1000),ylab="population",xlab="time (year)", main="Population in Age Group")
+
+for (i in 1:m) {
+  lines(t,X[i,],col=i)
+  points(t,X[i,],col=i,pch=20,cex=.8)
+}
+
+# Plot legend where you want
+legend(60,1000,c("(0-1)", "(1-2)", "(over 2)"), col=1:m, lty = 1)
+
+# Restore default clipping rect
+par(mar=c(5, 4, 4, 2) + 0.1)
+```
+
+
+
+## Brook Trout in Hunt Creek, MI
+
+Here is the Leslie Matrix of a population of brook trout in Hunt Creek in Michigan. The population is categorized into 5 age categories: fingerlings (0,1), yearlings (1-2), young adults (2-3), adults (3-4), and adults (4-5). Right now the population is seen to be dying off. 
+
+### The Leslie Matrix
+
+Explain, in words, the meaning of each of the non-zero entries of the matrix $L$. 
+
+```{r}
+L = cbind(c(0,.05,0,0,0),c(0,0,.28,0,0),c(37,0,0,.16,0),c(64,0,0,0,.08),c(82,0,0,0,0.00))
+L
+```
+
+### Find the long-range populations
+
+Here are the population dynamics. Calculate the eigenvalues for $L$ and match what you see to the plot of he populations. What do you conclude about the long-range population?
+
+```{r}
+# your code goes here
+
+```
+
+
+ 
+  
+```{r trout, fig.height=5, fig.width=7, echo=TRUE}
+start = c(100,100,100,100,100)  # the starting distribution
+N = 30              # N is the number of iterations
+m = dim(L)[1]
+X = matrix(0,nrow=5,ncol=N)  #  Store the results in a 3 x N matrix called X
+X[,1] = start  # put start in the first column of X
+
+# loop N times and put your results in X
+for (i in 2:N) {
+  X[,i] = L %*% X[,i-1]    # here is the loop
+}
+
+t = seq(1,N)  # time
+
+# Expand right side of clipping rect to make room for the legend
+par(xpd=T, mar=par()$mar+c(0,0,0,7))
+
+plot(t,X[1,],type='l',col=1,ylim=c(0,8000),ylab="population",xlab="time (year)",
+     main="Population in Age Group")
+for (i in 1:m) {
+  lines(t,X[i,],col=i)
+  points(t,X[i,],col=i,pch=20,cex=.8)
+}
+legend(25, 5000, legend=c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"), col=1:m, lty=1)
+
+
+# Restore default clipping rect
+par(mar=c(5, 4, 4, 2) + 0.1)
+
+```
+
+### River Clean Up
+
+A river clean up effort is being conducted with the hope of *increasing the rate of survival from fingerlings to yearlings*. 
+- To what level does that survival rate need to be increased to in order for the population to reach a steady state? Find your answer (accurate up to 3 decimal places) by trial and error. (You only need to change a single entry of $L$. Which one?)
+- What are the population percentages in the stable population?
+
+```{r}
+
+# update the fingerling to yearling survival rate
+L = cbind(c(0,.05,0,0,0),c(0,0,.28,0,0),c(37,0,0,.16,0),c(64,0,0,0,.08),c(82,0,0,0,0.00))
+L
+
+## do your eigenvalue/eigenvector analysis here
+
+
+```
+
+This code shows the population dynamics. You shouldn't need to edit this. 
+
+
+```{r}
+start = c(100,100,100,100,100)  # the starting distribution
+N = 50              # N is the number of iterations
+m = dim(L)[1]
+X = matrix(0,nrow=5,ncol=N)  #  Store the results in a 3 x N matrix called X
+X[,1] = start  # put start in the first column of X
+
+# loop N times and put your results in X
+for (i in 2:N) {
+  X[,i] = L %*% X[,i-1]    # here is the loop
+}
+
+t = seq(1,N)  # time
+
+# Expand right side of clipping rect to make room for the legend
+par(xpd=T, mar=par()$mar+c(0,0,0,7))
+
+plot(t,X[1,],type='l',col=1,ylim=c(0,8000),ylab="population",xlab="time (year)",
+     main="Population in Age Group")
+for (i in 1:m) {
+  lines(t,X[i,],col=i)
+  points(t,X[i,],col=i,pch=20,cex=.8)
+}
+legend(25, 5000, legend=c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"), col=1:m, lty=1)
+
+
+# Restore default clipping rect
+par(mar=c(5, 4, 4, 2) + 0.1)
+
+```
+
