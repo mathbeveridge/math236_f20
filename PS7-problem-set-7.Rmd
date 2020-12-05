@@ -325,4 +325,6 @@ estimate_nearest_eigenvector <- function(A, c, numiter) {
 
 
 
-**Remark:** These two methods succeed in finding the complete eigensystem  when all of the eigenvalues are real. What do we do when there are complex eigenvalues? This is one of the reason why the `eigen()` command in RStudio actually uses another method called $QR$-decomposition to approximate eigensystems.
+**Remark:** These two methods succeed in finding the complete eigensystem  when all of the eigenvalues are real and distinct. This is one of the reasons why the `eigen()` command in RStudio actually uses another method called $QR$-decomposition to approximate eigensystems.
+
+**Remark:** MATH 365 Computational Linear Algebra goes into the full story about how to approximate eigenvalues and eigenvectors quickly and precisely.

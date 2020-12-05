@@ -526,13 +526,13 @@ where <span class="math inline">\(a,b,c,d\)</span> are constants that depend on 
 <li>12 or more years</li>
 </ul>
 <p>The Leslie Matrix <span class="math inline">\(B\)</span> for this model is given by</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="problem-set-7.html#cb11-1"></a>(<span class="dt">L=</span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">19</span>,.<span class="dv">44</span>,.<span class="dv">5</span>,.<span class="dv">5</span>,.<span class="dv">45</span>),</span>
-<span id="cb11-2"><a href="problem-set-7.html#cb11-2"></a>         <span class="kw">c</span>(.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb11-3"><a href="problem-set-7.html#cb11-3"></a>         <span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb11-4"><a href="problem-set-7.html#cb11-4"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb11-5"><a href="problem-set-7.html#cb11-5"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb11-6"><a href="problem-set-7.html#cb11-6"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb11-7"><a href="problem-set-7.html#cb11-7"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,.<span class="dv">78</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="problem-set-7.html#cb6-1"></a>(<span class="dt">L=</span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">19</span>,.<span class="dv">44</span>,.<span class="dv">5</span>,.<span class="dv">5</span>,.<span class="dv">45</span>),</span>
+<span id="cb6-2"><a href="problem-set-7.html#cb6-2"></a>         <span class="kw">c</span>(.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-3"><a href="problem-set-7.html#cb6-3"></a>         <span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-4"><a href="problem-set-7.html#cb6-4"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-5"><a href="problem-set-7.html#cb6-5"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-6"><a href="problem-set-7.html#cb6-6"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-7"><a href="problem-set-7.html#cb6-7"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,.<span class="dv">78</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
 ## [1,] 0.00 0.00 0.19 0.44 0.50 0.50 0.45
 ## [2,] 0.77 0.00 0.00 0.00 0.00 0.00 0.00
@@ -568,15 +568,15 @@ where <span class="math inline">\(a,b,c,d\)</span> are constants that depend on 
 <li>At certain points, <strong>Your Task</strong> is identified, and that is what you must turn in for this problem.</li>
 <li>Parts (a) and (c) will have you confirm that the code below works for the following <span class="math inline">\(4 \times 4\)</span> matrix.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="problem-set-7.html#cb13-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>))</span>
-<span id="cb13-2"><a href="problem-set-7.html#cb13-2"></a></span>
-<span id="cb13-3"><a href="problem-set-7.html#cb13-3"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="problem-set-7.html#cb8-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>))</span>
+<span id="cb8-2"><a href="problem-set-7.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="problem-set-7.html#cb8-3"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    4    2    4    8
 ## [2,]    2    2    4    4
 ## [3,]    4    4    9    1
 ## [4,]    8    4    1    5</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="problem-set-7.html#cb15-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="problem-set-7.html#cb10-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] 16.9078855  7.2660095  0.4248061 -4.5987012
@@ -595,30 +595,30 @@ where <span class="math inline">\(a,b,c,d\)</span> are constants that depend on 
 <li><p><strong>The Power Method.</strong> We find the dominant eigenvalue and eigenvector by repeatedly multiplying some initial vector by <span class="math inline">\(A\)</span> until we converge to the dominant eigenspace. This should sound familiar: it’s the same phenomenon that makes our dynamical systems converge!</p>
 <p>The one extra detail is that we rescale at each step: we adjust our eigenvector estimate so that its largest entry is 1. Here is the code. It is very simple.</p></li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="problem-set-7.html#cb17-1"></a>estimate_dominant_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, numiter) {</span>
-<span id="cb17-2"><a href="problem-set-7.html#cb17-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
-<span id="cb17-3"><a href="problem-set-7.html#cb17-3"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,n)</span>
-<span id="cb17-4"><a href="problem-set-7.html#cb17-4"></a>  </span>
-<span id="cb17-5"><a href="problem-set-7.html#cb17-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numiter) {</span>
-<span id="cb17-6"><a href="problem-set-7.html#cb17-6"></a>    y =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span>
-<span id="cb17-7"><a href="problem-set-7.html#cb17-7"></a>    maxval =<span class="st"> </span><span class="kw">max</span>(y)</span>
-<span id="cb17-8"><a href="problem-set-7.html#cb17-8"></a>    minval =<span class="st"> </span><span class="kw">min</span>(y)</span>
-<span id="cb17-9"><a href="problem-set-7.html#cb17-9"></a>    </span>
-<span id="cb17-10"><a href="problem-set-7.html#cb17-10"></a>    <span class="cf">if</span> (<span class="kw">abs</span>(maxval) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(minval)) {</span>
-<span id="cb17-11"><a href="problem-set-7.html#cb17-11"></a>      m =<span class="st"> </span>maxval</span>
-<span id="cb17-12"><a href="problem-set-7.html#cb17-12"></a>    }  <span class="cf">else</span> {</span>
-<span id="cb17-13"><a href="problem-set-7.html#cb17-13"></a>      m =<span class="st"> </span>minval</span>
-<span id="cb17-14"><a href="problem-set-7.html#cb17-14"></a>    }</span>
-<span id="cb17-15"><a href="problem-set-7.html#cb17-15"></a>    </span>
-<span id="cb17-16"><a href="problem-set-7.html#cb17-16"></a>    x =<span class="st"> </span>y<span class="op">/</span>m</span>
-<span id="cb17-17"><a href="problem-set-7.html#cb17-17"></a>  }</span>
-<span id="cb17-18"><a href="problem-set-7.html#cb17-18"></a>  </span>
-<span id="cb17-19"><a href="problem-set-7.html#cb17-19"></a>  est =<span class="st"> &#39;estimate&#39;</span></span>
-<span id="cb17-20"><a href="problem-set-7.html#cb17-20"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>m</span>
-<span id="cb17-21"><a href="problem-set-7.html#cb17-21"></a>  <span class="kw">attr</span>(est, <span class="st">&#39;vector&#39;</span>) =<span class="st"> </span>x</span>
-<span id="cb17-22"><a href="problem-set-7.html#cb17-22"></a>  </span>
-<span id="cb17-23"><a href="problem-set-7.html#cb17-23"></a>  <span class="kw">return</span>(est)</span>
-<span id="cb17-24"><a href="problem-set-7.html#cb17-24"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="problem-set-7.html#cb12-1"></a>estimate_dominant_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, numiter) {</span>
+<span id="cb12-2"><a href="problem-set-7.html#cb12-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
+<span id="cb12-3"><a href="problem-set-7.html#cb12-3"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,n)</span>
+<span id="cb12-4"><a href="problem-set-7.html#cb12-4"></a>  </span>
+<span id="cb12-5"><a href="problem-set-7.html#cb12-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numiter) {</span>
+<span id="cb12-6"><a href="problem-set-7.html#cb12-6"></a>    y =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span>
+<span id="cb12-7"><a href="problem-set-7.html#cb12-7"></a>    maxval =<span class="st"> </span><span class="kw">max</span>(y)</span>
+<span id="cb12-8"><a href="problem-set-7.html#cb12-8"></a>    minval =<span class="st"> </span><span class="kw">min</span>(y)</span>
+<span id="cb12-9"><a href="problem-set-7.html#cb12-9"></a>    </span>
+<span id="cb12-10"><a href="problem-set-7.html#cb12-10"></a>    <span class="cf">if</span> (<span class="kw">abs</span>(maxval) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(minval)) {</span>
+<span id="cb12-11"><a href="problem-set-7.html#cb12-11"></a>      m =<span class="st"> </span>maxval</span>
+<span id="cb12-12"><a href="problem-set-7.html#cb12-12"></a>    }  <span class="cf">else</span> {</span>
+<span id="cb12-13"><a href="problem-set-7.html#cb12-13"></a>      m =<span class="st"> </span>minval</span>
+<span id="cb12-14"><a href="problem-set-7.html#cb12-14"></a>    }</span>
+<span id="cb12-15"><a href="problem-set-7.html#cb12-15"></a>    </span>
+<span id="cb12-16"><a href="problem-set-7.html#cb12-16"></a>    x =<span class="st"> </span>y<span class="op">/</span>m</span>
+<span id="cb12-17"><a href="problem-set-7.html#cb12-17"></a>  }</span>
+<span id="cb12-18"><a href="problem-set-7.html#cb12-18"></a>  </span>
+<span id="cb12-19"><a href="problem-set-7.html#cb12-19"></a>  est =<span class="st"> &#39;estimate&#39;</span></span>
+<span id="cb12-20"><a href="problem-set-7.html#cb12-20"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>m</span>
+<span id="cb12-21"><a href="problem-set-7.html#cb12-21"></a>  <span class="kw">attr</span>(est, <span class="st">&#39;vector&#39;</span>) =<span class="st"> </span>x</span>
+<span id="cb12-22"><a href="problem-set-7.html#cb12-22"></a>  </span>
+<span id="cb12-23"><a href="problem-set-7.html#cb12-23"></a>  <span class="kw">return</span>(est)</span>
+<span id="cb12-24"><a href="problem-set-7.html#cb12-24"></a>}</span></code></pre></div>
 <p><strong>Your Task:</strong> Run this code on the matrix <span class="math inline">\(A\)</span> and start with <code>numiter=5</code>. Then increase this value and watch the eigenvalue estimate converge to the dominant eigenvalue.</p>
 <ul>
 <li>What is the smallest number of iterations needed so that the estimated eigenvalue matches the eigenvalue returned by <code>eigen(A)</code> (up to 7 decimal places)?</li>
@@ -646,28 +646,29 @@ And then we apply the power method to <span class="math inline">\(B\)</span>. Yo
 <ol start="3" style="list-style-type: lower-alpha">
 <li><strong>The Inverse Power Method in Practice.</strong> In part (b), you showed why the inverse power method works! Now, here is the code, which is very simple. (<strong>Remark:</strong> in order to avoid rounding errors, in a true implementation, we would write code that avoids explicitly taking the inverse.)</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="problem-set-7.html#cb18-1"></a>estimate_nearest_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, c, numiter) {</span>
-<span id="cb18-2"><a href="problem-set-7.html#cb18-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
-<span id="cb18-3"><a href="problem-set-7.html#cb18-3"></a>  </span>
-<span id="cb18-4"><a href="problem-set-7.html#cb18-4"></a>  B =<span class="st"> </span>A <span class="op">-</span><span class="st"> </span>c <span class="op">*</span><span class="st"> </span><span class="kw">diag</span>(n)</span>
-<span id="cb18-5"><a href="problem-set-7.html#cb18-5"></a>  Binv =<span class="st"> </span><span class="kw">solve</span>(B)</span>
-<span id="cb18-6"><a href="problem-set-7.html#cb18-6"></a></span>
-<span id="cb18-7"><a href="problem-set-7.html#cb18-7"></a>  est =<span class="st"> </span><span class="kw">estimate_dominant_eigenvector</span>(Binv, numiter)</span>
-<span id="cb18-8"><a href="problem-set-7.html#cb18-8"></a>  </span>
-<span id="cb18-9"><a href="problem-set-7.html#cb18-9"></a>  val =<span class="st"> </span><span class="kw">attr</span>(est, <span class="st">&#39;value&#39;</span>)</span>
-<span id="cb18-10"><a href="problem-set-7.html#cb18-10"></a>  newval =<span class="st"> </span><span class="dv">1</span><span class="op">/</span>val<span class="op">+</span>c</span>
-<span id="cb18-11"><a href="problem-set-7.html#cb18-11"></a>  </span>
-<span id="cb18-12"><a href="problem-set-7.html#cb18-12"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>newval</span>
-<span id="cb18-13"><a href="problem-set-7.html#cb18-13"></a>  </span>
-<span id="cb18-14"><a href="problem-set-7.html#cb18-14"></a>  <span class="kw">return</span> (est)</span>
-<span id="cb18-15"><a href="problem-set-7.html#cb18-15"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="problem-set-7.html#cb13-1"></a>estimate_nearest_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, c, numiter) {</span>
+<span id="cb13-2"><a href="problem-set-7.html#cb13-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
+<span id="cb13-3"><a href="problem-set-7.html#cb13-3"></a>  </span>
+<span id="cb13-4"><a href="problem-set-7.html#cb13-4"></a>  B =<span class="st"> </span>A <span class="op">-</span><span class="st"> </span>c <span class="op">*</span><span class="st"> </span><span class="kw">diag</span>(n)</span>
+<span id="cb13-5"><a href="problem-set-7.html#cb13-5"></a>  Binv =<span class="st"> </span><span class="kw">solve</span>(B)</span>
+<span id="cb13-6"><a href="problem-set-7.html#cb13-6"></a></span>
+<span id="cb13-7"><a href="problem-set-7.html#cb13-7"></a>  est =<span class="st"> </span><span class="kw">estimate_dominant_eigenvector</span>(Binv, numiter)</span>
+<span id="cb13-8"><a href="problem-set-7.html#cb13-8"></a>  </span>
+<span id="cb13-9"><a href="problem-set-7.html#cb13-9"></a>  val =<span class="st"> </span><span class="kw">attr</span>(est, <span class="st">&#39;value&#39;</span>)</span>
+<span id="cb13-10"><a href="problem-set-7.html#cb13-10"></a>  newval =<span class="st"> </span><span class="dv">1</span><span class="op">/</span>val<span class="op">+</span>c</span>
+<span id="cb13-11"><a href="problem-set-7.html#cb13-11"></a>  </span>
+<span id="cb13-12"><a href="problem-set-7.html#cb13-12"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>newval</span>
+<span id="cb13-13"><a href="problem-set-7.html#cb13-13"></a>  </span>
+<span id="cb13-14"><a href="problem-set-7.html#cb13-14"></a>  <span class="kw">return</span> (est)</span>
+<span id="cb13-15"><a href="problem-set-7.html#cb13-15"></a>}</span></code></pre></div>
 <p><strong>Your Task:</strong> Use this code to confirm that we can really find the other three eigenvectors for matrix <span class="math inline">\(A\)</span> above.</p>
 <ul>
 <li>Run this code using a guess for each of the 3 remaining eigenvalues.</li>
 <li>Confirm that this code does find the correct eigen vector and eigenvalue, provided that you run for enough iterations.</li>
 <li>Write some code to compare the estimated eigenvectors (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
 </ul>
-<p><strong>Remark:</strong> These two methods succeed in finding the complete eigensystem when all of the eigenvalues are real. What do we do when there are complex eigenvalues? This is one of the reason why the <code>eigen()</code> command in RStudio actually uses another method called <span class="math inline">\(QR\)</span>-decomposition to approximate eigensystems.</p>
+<p><strong>Remark:</strong> These two methods succeed in finding the complete eigensystem when all of the eigenvalues are real and distinct. This is one of the reasons why the <code>eigen()</code> command in RStudio actually uses another method called <span class="math inline">\(QR\)</span>-decomposition to approximate eigensystems.</p>
+<p><strong>Remark:</strong> MATH 365 Computational Linear Algebra goes into the full story about how to approximate eigenvalues and eigenvectors quickly and precisely.</p>
 
 </div>
 </div>
