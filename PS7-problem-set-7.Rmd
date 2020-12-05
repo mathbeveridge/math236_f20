@@ -207,12 +207,12 @@ c. When population is increasing, one might be interested in harvesting a portio
 
 During class, we found eigenvalues by solving the characteristic equation $\det(A−\lambda I) =0$. We then found the  eigenvectors by finding  a basis for $\mathrm{Nul}(A - \lambda I)$. This is fine for small matrices, but impractical for large ones. 
 
-So let's see how computers find (or really: approximate) eigensystems. We will assume that all of the eigenvectors are real. If you want the full story, then you should take MATH 365 Computational Linear Algebra.
+So let's see how computers find (or really: approximate) eigensystems. We will assume that all of the eigenvectors of $A$ are real and distinct. If you want the full story, then you should take MATH 365 Computational Linear Algebra.
 
 This problem explains how the Power Method and Inverse Power Methods work. 
 
 * At certain points, **Your Task** is identified, and that is what you must turn in for this problem.
-* Parts (a) and (c) will have you confirm that the code below works for the following $4 \times 4$ matrix. 
+* Parts (a) and (c) will have you confirm that the code below works for the following $4 \times 4$ matrix  $A$. We calculate its eigensystems up front so that you can compare your approximations to the values found by R.
 
 ```{r, echo=TRUE}
 A = cbind(c(4,2,4,8), c(2,2,4,4), c(4,4,9,1),c(8,4,1,5))
