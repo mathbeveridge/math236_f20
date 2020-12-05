@@ -5,8 +5,9 @@
 * Upload your solutions to Moodle in a PDF. 
 * Please feel free to **use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation and inverse matrices.**
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-problem-set-7.Rmd).
+* You can download a [Rmd template solution file](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd). 
 
-This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as [Modeling of Ecological Systems][Modeling of Ecological Systems].
+This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as [Modeling of Ecological Systems][Modeling of Ecological Systems]. All four questions require you to use RStudio. I've provided a [PS7 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd) if you want to use it. 
 
 
 
