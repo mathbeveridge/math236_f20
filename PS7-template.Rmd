@@ -1,0 +1,219 @@
+---
+title: "Template for Problem Set 7"
+author: "Andrew Beveridge"
+date: "12/5/2020"
+output: html_document
+---
+
+
+# Problem Set 7
+
+```{r, echo=FALSE}
+
+# run this command to load some practical math functions
+require(pracma)
+
+get_trajectory <- function(A, start, N) {
+    ### this code follows the populations for N steps
+  m = dim(A)[1]  # m is the number of rows of L
+  X = matrix(0, nrow=m, ncol=N)  #  Store the results in a (m x N) matrix called X
+  X[,1] = start  # put start in the first column of X
+  
+  # loop N times and put your results in X
+  for (i in 2:N) {
+    X[,i] = A %*% X[,i-1] 
+  }
+  
+  return(X)
+}
+
+
+plot_trajectory <- function(X, title, types) {
+
+  m = dim(X)[1]
+  N = dim(X)[2]
+
+  t = seq(1,N)  # time
+
+  print(dim(X))
+  print(dim(t))
+    
+  # Expand right side of clipping rect to make room for the legend
+  par(xpd=T, mar=par()$mar+c(0,0,0,10))
+  
+  ymin = min(0, 1.1 * min(X))
+  ymax = max(0, 1.1 * max(X))
+  
+  # Plot graph 
+  plot(t, X[1,], type='l', col=1, ylim=c(ymin,ymax), ylab="amount", xlab="time",  main=title)
+  
+  for (i in 1:m) {
+    lines(t, X[i,], col=i)
+    points(t,X[i,], col=i, pch=20, cex=.8)
+  }
+  
+  # Plot legend where you want
+  legend(N *1.1, ymax * .85, types, col=1:m, lty = 1)
+  
+  # Restore default clipping rect
+  par(mar=c(5, 4, 4, 2) + 0.1)
+}
+
+```
+
+
+## Glucose-Insulin System Model
+
+
+  a. My answer to part a
+
+  b. My answer to part b
+
+
+## Population Interaction Models
+
+
+
+a.  My answer to part a
+
+
+```{r, echo=FALSE}
+
+
+tabledata = rbind(c('predation', '\t\t', '\t\t', '\t\t', '\t\t'),
+                  c('competition', '\t\t', '\t\t', '\t\t', '\t\t'),
+                  c('symbiosis', '\t\t', '\t\t', '\t\t', '\t\t'))
+
+
+tableframe = data.frame(tabledata)
+names(tableframe) = c('model', 'a', 'b', 'c', 'd')
+
+
+
+knitr::kable(
+  tableframe, booktabs = TRUE
+)
+```
+
+
+b. My answer to part b
+
+c. My answer to part c
+
+d. My answer to part d
+
+##  Blue Whale Population Dynamics
+
+
+
+```{r, echo=TRUE}
+(L=rbind(c(0,0,.19,.44,.5,.5,.45),
+         c(.77,0,0,0,0,0,0),
+         c(0,.77,0,0,0,0,0),
+         c(0,0,.77,0,0,0,0),
+         c(0,0,0,.77,0,0,0),
+         c(0,0,0,0,.77,0,0),
+         c(0,0,0,0,0,.77,.78)))
+
+```
+
+
+
+
+a. My answer to part a
+
+
+b. My answer to part b
+
+
+c. My answer to part c
+
+
+## The Power Method for Eigenvalue Calculation
+
+ 
+
+```{r, echo=TRUE}
+A = cbind(c(4,2,4,8), c(2,2,4,4), c(4,4,9,1),c(8,4,1,5))
+
+A
+
+eigen(A)
+
+
+```
+
+&nbsp;
+
+a. My answer to part a
+
+
+```{r}
+
+estimate_dominant_eigenvector <- function(A, numiter) {
+  n = dim(A)[1]
+  x = rep(1,n)
+  
+  for (i in 1:numiter) {
+    y = A %*% x
+    maxval = max(y)
+    minval = min(y)
+    
+    if (abs(maxval) > abs(minval)) {
+      m = maxval
+    }  else {
+      m = minval
+    }
+    
+    x = y/m
+  }
+  
+  est = 'estimate'
+  attr(est,'value') = m
+  attr(est, 'vector') = x
+  
+  return(est)
+}
+```
+
+
+
+My answer to part a
+
+
+b. My answer to part b
+
+1. My answer to part 1
+
+1. My answer to part 2
+
+1. My answer to part 3
+
+1. My answer to part 4
+
+&nbsp;
+
+c. My answer to part c
+
+```{r, echo=TRUE}
+estimate_nearest_eigenvector <- function(A, c, numiter) {
+  n = dim(A)[1]
+  
+  B = A - c * diag(n)
+  Binv = solve(B)
+
+  est = estimate_dominant_eigenvector(Binv, numiter)
+  
+  val = attr(est, 'value')
+  newval = 1/val+c
+  
+  attr(est,'value') = newval
+  
+  return (est)
+}
+
+```
+
+
+My answer to part c
+

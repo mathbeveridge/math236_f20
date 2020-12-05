@@ -7,13 +7,13 @@
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-problem-set-7.Rmd).
 * You can download a [Rmd template solution file](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd). 
 
-This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as [Modeling of Ecological Systems][Modeling of Ecological Systems]. All four questions require you to use RStudio. I've provided a [PS7 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd) if you want to use it. 
+This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as [Modeling of Ecological Systems][Modeling of Ecological Systems]. Three out of four questions require you to use RStudio. I've provided a [PS7 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd) if you want to use it. 
 
 
 
 ## Glucose-Insulin System Model
 
-**Note:** Use the functions `get_trajectory(A, start, N)` and `plot_trajectory(X, title, types)` from [Modeling of Ecological Systems][Modeling of Ecological Systems] to create trajectories and plots for this question.
+**Note:** Use the functions `get_trajectory(A, start, N)` and `plot_trajectory(X, title, types)` from [Modeling of Ecological Systems](Modeling of Ecological Systems) to create trajectories and plots for this question.
 
 
 
@@ -35,7 +35,7 @@ $\begin{bmatrix} G_{0} \\  H_{0} \end{bmatrix} = \begin{bmatrix} 2 \\ 0 \end{bma
 
 
   b. Calculate the eigenvalues $\lambda = a \pm b i$  for this matrix. Use them to find the decay rate $|\lambda| = \sqrt{a^2 +  b^2}$ and the rate of rotation
-$\theta = \tan^{-1} (a/b)$,  measured either in radians or degrees.
+$\theta = \tan^{-1} (a/b)$,  measured in  degrees. You can find this value in RStudio using the command `atan(a/b) * 360 / (2 * pi)`.
 
 
 
@@ -112,7 +112,7 @@ knitr::kable(
 ```
 
 
-b. Here are three different population models, along with its eigenvalue and eigenvectors. For each one, you must decide whether it is  Predation, Competition or Symbiosis
+b. Here are three different population models, along with its eigenvalue and eigenvectors. For each one, you must decide whether it is  Predation, Competition or Symbiosis. Your answer will be three simple statements like "$M$ is predation."
 
 
     $A = \begin{bmatrix}1.1  & -0.2 \\ -0.3 & 1.2  \end{bmatrix}, \qquad \lambda_1 = 1.4 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ -1.5 \end{bmatrix}, \qquad \lambda_2 = 0.9 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$
@@ -122,7 +122,7 @@ b. Here are three different population models, along with its eigenvalue and eig
     $C = \begin{bmatrix}0.8  & 0.3 \\ 0.4 & 0.7  \end{bmatrix}, \qquad \lambda_1 = 1.1 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \qquad \lambda_2 = 0.4 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ -0.75 \end{bmatrix}$
 
 
-c. Here are  plots of the vector fields for the three models in part (b). Match the model $A, B, C$ to its corresponding vector field. 
+c. Here are  plots of the vector fields for the three models in part (b). Match the model $A, B, C$ to its corresponding vector field. Your answer will be three simple statements like "$M$ is Vector Field 2."
 
     i. Vector Field 1
 
@@ -198,7 +198,7 @@ c. When population is increasing, one might be interested in harvesting a portio
     $${\bf x}_{t+1} = (1-h) L {\bf x}_t.$$
 
     - Use trial and error to find the sustainable harvest rate $h < 1$ **up to 4 decimal places** that leads to a stable population of whales.
-    - Then plot a trajectory of this system with sustainable harvesting. Choose a long enough time peroid so that your plot shows the blue whale populations reach a stable configuration. 
+    - Then plot a trajectory of this system with sustainable harvesting. Choose a long enough time peroid so that your plot shows that the blue whale populations reach a very stable configuration. 
     - In the long run, what are the percentages of whales in each age class? How does this compare to the population percentages you found in part (b)? Why does this make sense?
 
 
@@ -209,9 +209,10 @@ During class, we found eigenvalues by solving the characteristic equation $\det(
 
 So let's see how computers find (or really: approximate) eigensystems. We will assume that all of the eigenvectors are real. If you want the full story, then you should take MATH 365 Computational Linear Algebra.
 
-This problem explains how the Power Method and Inverse Power Methods work. At certain points, **Your Task** is identified, and that is what you must turn in for this problem.
+This problem explains how the Power Method and Inverse Power Methods work. 
 
-Also, parts (a) and (c) will have you confirm that the code works for the following $4 \times 4$ matrix. 
+* At certain points, **Your Task** is identified, and that is what you must turn in for this problem.
+* Parts (a) and (c) will have you confirm that the code below works for the following $4 \times 4$ matrix. 
 
 ```{r, echo=TRUE}
 A = cbind(c(4,2,4,8), c(2,2,4,4), c(4,4,9,1),c(8,4,1,5))
@@ -223,6 +224,8 @@ eigen(A)
 
 ```
 
+* This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to [ULA Section 5.2](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html) and  Lay Section 5.8.
+
 &nbsp;
 
 a. **The Power Method.** We find the dominant eigenvalue and eigenvector by repeatedly multiplying some initial vector by $A$  until we converge to the dominant eigenspace. This should sound familiar: it's the same phenomenon that makes our dynamical systems converge!
@@ -230,7 +233,7 @@ a. **The Power Method.** We find the dominant eigenvalue and eigenvector by repe
     The one extra detail is that we rescale at each step: we adjust our eigenvector estimate so that its largest entry is 1. Here is the code. It is very simple.
 
 
-```{r}
+```{r, echo=TRUE}
 
 estimate_dominant_eigenvector <- function(A, numiter) {
   n = dim(A)[1]
@@ -269,15 +272,17 @@ estimate_dominant_eigenvector <- function(A, numiter) {
 &nbsp;
 
 
-b. **The Inverse Power Method.** We can use the power method to find the other eigenvalues, too. Let's suppose that we are trying to find eigenvalue $\lambda$ with eigenvector $\mathsf{v}$. 
+b. **The Inverse Power Method  Explained.** We can use the power method to find the other eigenvalues, too. Let's suppose that we are trying to find eigenvalue $\lambda$ with eigenvector $\mathsf{v}$. 
 
-  We just need to start at a guess $c$ that is closer to $\lambda$ that to any of the other eigenval. Using our guess $c$, we define
+  We just need to start at a guess $c$ that is closer to $\lambda$ that to any of the other eigenvalue. In other words, if $\mu$ is any other eigenvale of $A$, we  have $| \lambda - c| < | \mu - c|.$
+  
+  Using our guess $c$, we define
 $$
 B = (A - c I)^{-1}.
 $$
   And then we apply the power method to $B$. You will now show that (1) $A-cI$ really is invertible, and that (2) $\mathsf{v}$ is the dominant eigenvector of $B$.
 
-  **Your Task:** answer the following four short questions.
+  **Your Task:** answer the following four short questions. Each answer only requires a sentence or two.
 
   1. Suppose that $\mathsf{v}$ is an eigenvector of $A$ for eigenvalue $\lambda$. That is,  $A \mathsf{v} = \lambda \mathsf{v}$. Confirm that $\mathsf{v}$ is  an eigenvector for $A - cI$ for eigenvalue $\lambda - c$.
   
@@ -286,12 +291,12 @@ $$
   1. Now that we know that $B = (A - c I)^{-1}$ exists, explain why $\mathsf{v}$ is an eigenvector of $B$ for eigenvalue 
 $\frac{1}{\lambda-c}.$
 
-  1. A similar argument shows that all eigenvalues of $B$ are of the form $\frac{1}{\mu-c}$ where $\mu$ is an eigenvalue of $A$. So now use the fact that ``your guess $c$ is closer to $\lambda$ than any other eigenvector $\mu$'' to explain why $\frac{1}{\lambda-c}$ is the dominant eigenvalue of $B$.
+  1. A similar argument shows that all eigenvalues of $B$ are of the form $\frac{1}{\mu-c}$ where $\mu$ is an eigenvalue of $A$. So now use the fact that "$c$ that is closer to $\lambda$ that to any of the other eigenvalue" to explain why $\frac{1}{\lambda-c}$ is the dominant eigenvalue of $B$.
 
 
 &nbsp;
 
-c. So that's why the inverse power method works! Now, here is the code. Again, it's really simple. (Remark: in order to avoid rounding errors, in a true implementation, we would write code that avoids explicitly taking the inverse.)
+c. **The Inverse Power Method in Practice.** In part (b), you showed why the inverse power method works! Now, here is the code, which is very simple. (**Remark:** in order to avoid rounding errors, in a true implementation, we would write code that avoids explicitly taking the inverse.)
 
 ```{r, echo=TRUE}
 estimate_nearest_eigenvector <- function(A, c, numiter) {
@@ -320,4 +325,4 @@ estimate_nearest_eigenvector <- function(A, c, numiter) {
 
 
 
-
+**Remark:** These two methods succeed in finding the complete eigensystem  when all of the eigenvalues are real. What do we do when there are complex eigenvalues? This is one of the reason why the `eigen()` command in RStudio actually uses another method called $QR$-decomposition to approximate eigensystems.
