@@ -31,29 +31,29 @@ $$
 
 ## Helper Functions to Plot Dynamical Systems
 
-I have written some code that generates and plots a trajectory for a Leslie system. You should run this code chunk before the others.
+I have written some code that generates a trajectory  for a dynamical system and then plots it. You should run this code chunk before the others.
 
 ```{r, echo=TRUE}
 
 # run this command to load some practical math functions
 require(pracma)
 
-get_leslie_trajectory <- function(L, start, N) {
+get_trajectory <- function(A, start, N) {
     ### this code follows the populations for N steps
-  m = dim(L)[1]  # m is the number of rows of L
-  X = matrix(0,nrow=m,ncol=N)  #  Store the results in a (m x N) matrix called X
+  m = dim(A)[1]  # m is the number of rows of L
+  X = matrix(0, nrow=m, ncol=N)  #  Store the results in a (m x N) matrix called X
   X[,1] = start  # put start in the first column of X
   
   # loop N times and put your results in X
   for (i in 2:N) {
-    X[,i] = L %*% X[,i-1]    # here is the loop
+    X[,i] = A %*% X[,i-1] 
   }
   
   return(X)
 }
 
 
-plot_leslie_trajectory <- function(X, agegroups) {
+plot_trajectory <- function(X, title, types) {
 
   m = dim(X)[1]
   N = dim(X)[2]
@@ -66,19 +66,19 @@ plot_leslie_trajectory <- function(X, agegroups) {
   # Expand right side of clipping rect to make room for the legend
   par(xpd=T, mar=par()$mar+c(0,0,0,10))
   
-  
-  ylimit = 1.1 * max(X)
+  ymin = min(0, 1.1 * min(X))
+  ymax = max(0, 1.1 * max(X))
   
   # Plot graph 
-  plot(t,X[1,],type='l',col=1,ylim=c(0,ylimit),ylab="population",xlab="time (year)", main="Population in Age Group")
+  plot(t, X[1,], type='l', col=1, ylim=c(ymin,ymax), ylab="amount", xlab="time",  main=title)
   
   for (i in 1:m) {
-    lines(t,X[i,],col=i)
-    points(t,X[i,],col=i,pch=20,cex=.8)
+    lines(t, X[i,], col=i)
+    points(t,X[i,], col=i, pch=20, cex=.8)
   }
   
   # Plot legend where you want
-  legend(N *1.1,ylimit * .85,agegroups, col=1:m, lty = 1)
+  legend(N *1.1, ymax * .85, types, col=1:m, lty = 1)
   
   # Restore default clipping rect
   par(mar=c(5, 4, 4, 2) + 0.1)
@@ -109,9 +109,9 @@ L
 start = c(200,100,500)  # the starting distribution
 N = 50  # N is the number of iterations
 
-X = get_leslie_trajectory(L, start, N)
+X = get_trajectory(L, start, N)
 
-plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
+plot_trajectory(X, "Owls in Age Group", c("(0-1)", "(1-2)", "(over 2)"))
 
 ```
 
@@ -126,9 +126,9 @@ Change the code above to run for $N=200$. Can you now make a stronger statement 
 
 N = 200  # N is the number of iterations
 
-X = get_leslie_trajectory(L, start, N)
+X = get_trajectory(L, start, N)
 
-plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
+plot_trajectory(X, "Owls in Age Group",  c("(0-1)", "(1-2)", "(over 2)"))
 ```
 
 Yes, we can now see that populations are dying out.
@@ -170,9 +170,9 @@ L
 start = c(200,100,500)
 N = 100 
 
-X = get_leslie_trajectory(L, start, N)
+X = get_trajectory(L, start, N)
 
-plot_leslie_trajectory(X, c("(0-1)", "(1-2)", "(over 2)"))
+plot_trajectory(X, "Owls in Age Group", c("(0-1)", "(1-2)", "(over 2)"))
 
 ```
 
@@ -233,6 +233,21 @@ L = cbind(c(0,.05,0,0,0),c(0,0,.28,0,0),c(37,0,0,.16,0),c(64,0,0,0,.08),c(82,0,0
 L
 ```
 
+
+The survival rates are:
+
+* fingerlings to yearlings: 0.05
+* yearlings to young adults: 0.28
+* young adults to adults (3-4): 0.16
+* adults (3-4) to adults (4-5): 0.08
+* adults (4-5) to adults (4-5): 0
+
+The nonzero fecundity rates are:
+
+* young adults: 37
+* adults (3-4): 64
+* adults (4-5): 82
+
 ### Find the long-range populations
 
 Here are the population dynamics. Calculate the eigenvalues for $L$ and match what you see to the plot of the populations for $t=50$. What do you conclude about the long-range population?
@@ -251,9 +266,9 @@ The largest eigenvalue 0.887 is less than 1. So the population is going to die o
 start = c(100,100,100,100,100)  # the starting distribution
 N = 50              # N is the number of iterations
 
-X = get_leslie_trajectory(L, start, N)
+X = get_trajectory(L, start, N)
 
-plot_leslie_trajectory(X, c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
+plot_trajectory(X, "Trout in Age Group", c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
 
 
 ```
@@ -295,9 +310,9 @@ This code shows the population dynamics. You shouldn't need to edit this.
 start = c(100,100,100,100,100)  # the starting distribution
 N = 50              # N is the number of iterations
 
-X = get_leslie_trajectory(L, start, N)
+X = get_trajectory(L, start, N)
 
-plot_leslie_trajectory(X, c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
+plot_trajectory(X, "Trout in Age Group", c("Fingerlings (0-1)", "Yearlings  (1-2)", "Young Adults (2-3)","Adults (3-4)","Adults (4-5)"))
 
 ```
 

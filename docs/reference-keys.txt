@@ -1,9 +1,9 @@
-tab:unnamed-chunk-2
+tab:unnamed-chunk-189
 fig:example-2d-transformation
-tab:unnamed-chunk-50
-tab:unnamed-chunk-52
-tab:unnamed-chunk-54
-tab:unnamed-chunk-57
+tab:unnamed-chunk-243
+tab:unnamed-chunk-245
+tab:unnamed-chunk-247
+tab:unnamed-chunk-250
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -41,6 +41,11 @@ a-matrix-mystery
 upper-triangular-matrix-with-a-constant-diagonal
 block-diagonalization-of-a-4-times-4-matrix
 network-analysis-of-risk-territories
+problem-set-7
+glucose-insulin-system-model
+population-interaction-models
+blue-whale-population-dynamics
+the-power-method-for-eigenvalue-calculation
 important-definitions
 week-1-learning-goals
 solving-linear-equations

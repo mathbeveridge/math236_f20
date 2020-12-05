@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 4 Problem Set 4 | MATH 236: Linear Algebra</title>
+  <title>Vector 7 Problem Set 7 | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 4 Problem Set 4 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 7 Problem Set 7 | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 4 Problem Set 4 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 7 Problem Set 7 | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-3.html"/>
-<link rel="next" href="problem-set-5.html"/>
+<link rel="prev" href="problem-set-6.html"/>
+<link rel="next" href="important-definitions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -351,244 +351,303 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-4" class="section level1">
-<h1><span class="header-section-number">Vector 4</span> Problem Set 4</h1>
+<div id="problem-set-7" class="section level1">
+<h1><span class="header-section-number">Vector 7</span> Problem Set 7</h1>
 <ul>
-<li>Due: Tuesday November 17 by 11:55pm CST.</li>
+<li>Due: Tuesday December 08 by 11:55pm CST.</li>
 <li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd">Rmd source file for this problem set</a>.</li>
-<li>Would you like use RMarkdown to type up some or all of your solution? Here is an <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-YourNameHere.Rmd">Rmd template file</a> to get you started. You can “knit to PDF” when you are done. Here are some helpful resources:
-<ul>
-<li><a href="https://rmarkdown.rstudio.com/authoring_basics.html">RMarkdown Basics</a></li>
-<li><a href="https://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html">Math Typsetting using LaTeX syntax</a></li>
-<li><a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd">The Rmd source for the problem set</a> which has examples of using <code>\begin{bmatrix} ... \end{bmatrix}</code> to format matrices.</li>
-</ul></li>
+<li>Please feel free to <strong>use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation and inverse matrices.</strong></li>
+<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS7-problem-set-7.Rmd">Rmd source file for this problem set</a>.</li>
 </ul>
-<p>The Problem Set covers sections 2.1, 2.2 and 2.3, and homogeneous coordinates.</p>
-<div id="an-invertible-product-of-rectangular-matrices" class="section level2">
-<h2><span class="header-section-number">4.1</span> An Invertible Product of Rectangular Matrices</h2>
-<p>Suppose that <span class="math inline">\(m \neq n\)</span> and that <span class="math inline">\(B\)</span> is a <span class="math inline">\(m \times n\)</span> matrix and that <span class="math inline">\(C\)</span> is an <span class="math inline">\(n \times m\)</span> matrix where <span class="math inline">\(A =BC\)</span> is an invertible matrix.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Is <span class="math inline">\(m &gt; n\)</span> or is <span class="math inline">\(m &lt; n\)</span>? Explain.</p></li>
-<li><p>Since <span class="math inline">\(A\)</span> is invertible, the Invertible Matrix Theorem tells us the following facts:</p>
-<ul>
-<li><span class="math inline">\(A\)</span> has a pivot in every row</li>
-<li><span class="math inline">\(A\)</span> has a pivot in every column</li>
-<li><span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is one-to-one</li>
-<li><span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is onto</li>
-<li>The columns of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
-<li>The columns of <span class="math inline">\(A\)</span> are linearly independent</li>
-<li><span class="math inline">\(A \mathsf{x} =\mathsf{b}\)</span> has at least one solution for all <span class="math inline">\(\mathsf{b}\)</span></li>
-<li><span class="math inline">\(A \mathsf{x} =\mathbf{0}\)</span> only has the trivial solution</li>
-</ul>
-<p>What do these conditions guarantee about the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(B\)</span> and the <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(C\)</span>? Make the appropriate list for each of <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>.</p></li>
-</ol>
-</div>
-<div id="guessing-the-inverse-matrix-from-a-pattern" class="section level2">
-<h2><span class="header-section-number">4.2</span> Guessing the Inverse Matrix from a Pattern</h2>
-<ol style="list-style-type: lower-alpha">
-<li>Use RStudio to find the inverse matrix for each of the following matrices.</li>
-</ol>
-<p><span class="math display">\[
+<p>This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Systems</a>.</p>
+<div id="glucose-insulin-system-model" class="section level2">
+<h2><span class="header-section-number">7.1</span> Glucose-Insulin System Model</h2>
+<p><strong>Note:</strong> Use the functions <code>get_trajectory(A, start, N)</code> and <code>plot_trajectory(X, title, types)</code> from <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Systems</a> to create trajectories and plots for this question.</p>
+<p>The excess glucose level <span class="math inline">\(G_t\)</span> and excess insulin level <span class="math inline">\(H_t\)</span> in a digestive system are determined by the update rule
+<span class="math display">\[
+\begin{bmatrix} G_{t+1} \\  H_{t+1} \end{bmatrix}
+=
+\begin{bmatrix} 0.998 &amp; -0.169 \\  0.068 &amp; 0.930 \end{bmatrix}
+\begin{bmatrix} X_{t} \\  Y_{t} \end{bmatrix}
+=
 \begin{bmatrix}
-1 &amp; 0 &amp;  0  \\
-1  &amp; 1 &amp; 0   \\
-1  &amp; 1 &amp; 1  
-\end{bmatrix}
-\qquad
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 \\
-1  &amp; 1 &amp; 0  &amp; 0   \\
-1  &amp; 1 &amp; 1  &amp; 0 \\
-1  &amp; 1 &amp; 1  &amp; 1 \\
-\end{bmatrix}
-\qquad
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; 0\\
-1  &amp; 1 &amp; 0  &amp; 0 &amp; 0  \\
-1  &amp; 1 &amp; 1  &amp; 0 &amp; 0\\
-1  &amp; 1 &amp; 1  &amp; 1 &amp; 0\\
-1  &amp; 1 &amp; 1  &amp; 1 &amp; 1\\
-\end{bmatrix}.
+a X_t + b Y_t \\
+ c X_t + d Y_t \\
+ \end{bmatrix}
 \]</span>
-by creating a matrix of the form <span class="math inline">\([ \, A \, | \, I \, ]\)</span> and putting it into RREF to obtain <span class="math inline">\([ \, I \, | \, A^{-1} \, ]\)</span>.</p>
+a. Suppose that we have an intake of glucose
+<span class="math inline">\(\begin{bmatrix} G_{0} \\ H_{0} \end{bmatrix} = \begin{bmatrix} 2 \\ 0 \end{bmatrix}.\)</span> Make a plot of this system and that you can use to estimate how long it will take for this system to return (approximately) to homeostatis, where the values stay steady at <span class="math inline">\(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Use the previous part to guess the inverse matrix <span class="math inline">\(A^{-1}\)</span> of the <span class="math inline">\(n \times n\)</span> matrix</li>
-</ol>
-<p><span class="math display">\[
-A = 
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; \cdots &amp;0&amp;0 \\
-1  &amp; 1 &amp; 0  &amp; 0 &amp; \cdots &amp;0 &amp;  0 \\
-1  &amp; 1 &amp; 1  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-\vdots &amp;  &amp; &amp; \ddots &amp; &amp; \vdots \\
-1  &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 &amp;   0 \\ 
-1  &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 &amp;   1 
-\end{bmatrix}.
-\]</span></p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Use this same method to guess the inverse matrix <span class="math inline">\(B^{-1}\)</span> for the <span class="math inline">\(n \times n\)</span> matrix
-<span class="math display">\[
-B = 
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-2  &amp; 2 &amp; 0  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-3  &amp; 3 &amp; 3  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-\vdots &amp;  &amp; &amp; \ddots &amp; &amp; \vdots \\
-n-1  &amp; n-1 &amp; n-1 &amp; n-1 &amp; \cdots &amp; n-1 &amp;  0 \\
-n  &amp; n &amp; n &amp; n &amp; \cdots &amp; n &amp;  n 
-\end{bmatrix}.
-\]</span>
-<strong>Pro Tip:</strong> when R displays a number with a <strong>large</strong> negative exponent like <code>3.700743e-17</code> then this number is <span class="math inline">\(3.700743 \times 10^{-17}\)</span> which is numerically equivalent to 0.</li>
+<li>Calculate the eigenvalues <span class="math inline">\(\lambda = a \pm b i\)</span> for this matrix. Use them to find the decay rate <span class="math inline">\(|\lambda| = \sqrt{a^2 + b^2}\)</span> and the rate of rotation
+<span class="math inline">\(\theta = \tan^{-1} (a/b)\)</span>, measured either in radians or degrees.</li>
 </ol>
 </div>
-<div id="lu-decomposition-of-an-invertible-matrix" class="section level2">
-<h2><span class="header-section-number">4.3</span> LU Decomposition of an Invertible Matrix</h2>
-<p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(4 \times 4\)</span> invertible matrix. Recall that if we run Gaussian Elimination on
-<span class="math inline">\([ \, A \, | \, I \, ]\)</span>
-until the first part is the RREF of matrix <span class="math inline">\(A\)</span>, then we get the matrix
-<span class="math inline">\([ \, I \, | \, A^{-1} ]\)</span>.
-In other words, this procedue is how we calculate <span class="math inline">\(A^{-1}\)</span>.</p>
-<p>But what if we stop this process at the REF of matrix <span class="math inline">\(A\)</span>? Let’s call this resulting matrix
-<span class="math inline">\([ \, B \, | \, C \, ]\)</span><br />
-where <span class="math inline">\(B\)</span> is the RREF of <span class="math inline">\(A\)</span> where all the pivots are 1, so <span class="math inline">\(B\)</span> looks like
+<div id="population-interaction-models" class="section level2">
+<h2><span class="header-section-number">7.2</span> Population Interaction Models</h2>
+<p>The dynamics of two interacting populations <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be modeled using a discrete dynamical system of the form
 <span class="math display">\[
-B = \begin{bmatrix}
-1 &amp; b_{12} &amp; b_{13}&amp; b_{14}  \\
-0 &amp; 1 &amp; b_{23} &amp; b_{24}  \\
-0 &amp; 0 &amp; 1 &amp; b_{34}  \\
-0 &amp; 0 &amp; 0 &amp; 1  \\
-\end{bmatrix}
+\begin{bmatrix} X_{t+1} \\  Y_{t+1} \end{bmatrix}
+=
+\begin{bmatrix} a &amp; b \\  c &amp; d \end{bmatrix}
+\begin{bmatrix} X_{t} \\  Y_{t} \end{bmatrix}
+=
+\begin{bmatrix}
+a X_t + b Y_t \\
+ c X_t + d Y_t \\
+ \end{bmatrix}
 \]</span>
-<strong>Remark:</strong> B is an example of an invertible <strong>upper triangular matrix</strong>: all the entries below the diagonal are zero.</p>
+where <span class="math inline">\(a,b,c,d\)</span> are constants that depend on the type of interaction.</p>
+<p>The constants have the following interpretations:</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="35%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">constant</th>
+<th align="left">qualitative interpretation</th>
+<th align="left">quantitative interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(a\)</span></td>
+<td align="left">Does population <span class="math inline">\(X\)</span> thrive in the absence of population <span class="math inline">\(Y\)</span>?</td>
+<td align="left">If <span class="math inline">\(a &gt; 1\)</span>, then <span class="math inline">\(X\)</span> thrives without <span class="math inline">\(Y\)</span>. If <span class="math inline">\(0 &lt; a &lt; 1\)</span> then <span class="math inline">\(X\)</span> dies out without <span class="math inline">\(Y\)</span>.</td>
+</tr>
+<tr class="even">
+<td align="left">b</td>
+<td align="left">What is the effect of population <span class="math inline">\(Y\)</span> on population <span class="math inline">\(X\)</span>?</td>
+<td align="left">If <span class="math inline">\(b &gt; 0\)</span> then <span class="math inline">\(Y\)</span> helps <span class="math inline">\(X\)</span> to thrive. If <span class="math inline">\(b &lt; 0\)</span> then <span class="math inline">\(Y\)</span> hinders the population growth of <span class="math inline">\(X\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="left">c</td>
+<td align="left">What is the effect of population <span class="math inline">\(X\)</span> on population <span class="math inline">\(Y\)</span>?</td>
+<td align="left">If <span class="math inline">\(c &gt; 0\)</span> then <span class="math inline">\(X\)</span> helps <span class="math inline">\(Y\)</span> to thrive. If <span class="math inline">\(c &lt; 0\)</span> then <span class="math inline">\(X\)</span> hinders the population growth of <span class="math inline">\(Y\)</span>.</td>
+</tr>
+<tr class="even">
+<td align="left">d</td>
+<td align="left">Does population <span class="math inline">\(Y\)</span> thrive in the absence of population <span class="math inline">\(X\)</span>?</td>
+<td align="left">If <span class="math inline">\(d &gt; 1\)</span>, then <span class="math inline">\(Y\)</span> thrives without <span class="math inline">\(X\)</span>. If <span class="math inline">\(0 &lt; d &lt; 1\)</span> then <span class="math inline">\(Y\)</span> dies out without <span class="math inline">\(X\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s consider 3 different types of population interaction.</p>
+<ul>
+<li><strong>Predation</strong>: one population feeds off the other. One example: foxes and rabbits.</li>
+<li><strong>Competition</strong>: the populations compete for the same resources. One example: squirrels and chipmunks.</li>
+<li><strong>Mutual Symbiosis</strong>: the populations play complementary roles. Both thrive or decline together. One example: bees and flowers.</li>
+</ul>
+<p>You will characterize the constants corresponding to these interactions and then analyze some examples. (Note: these population models are oversimplified, of course. We are interested in seeing how eigenvalues and eigenvectors help to make sense of these systems.)</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Assume that <span class="math inline">\(A\)</span> is a <span class="math inline">\(4 \times 4\)</span> matrix such that Gaussian Elimination to REF only uses two types of Elementary Row Operations:</p>
-<ul>
-<li>(E1) Add a multiple of one row to another</li>
-<li>(E3) Multiply a row by a nonzero constant.</li>
-</ul>
-<p>Explain why <span class="math inline">\(C\)</span> has the the form
-<span class="math display">\[
-   C = \begin{bmatrix}
-    c_{11} &amp; 0 &amp; 0 &amp;  0   \\
-   c_{21} &amp; c_{22} &amp; 0 &amp; 0  \\
-   c_{31} &amp; c_{32} &amp; c_{33} &amp; 0  \\
-   c_{41} &amp; c_{42} &amp; c_{43}  &amp; c_{44}  \\
-   \end{bmatrix}
-   \]</span></p>
-<p>where the diagonal elements <span class="math inline">\(c_{11}, c_{22}, c_{33}, c_{44}\)</span> are nonzero.</p>
-<p><strong>Remark:</strong> C is an example of an invertible <strong>lower triangular matrix</strong>: all the entries above the diagonal are zero.</p></li>
-<li><p>Explain why <span class="math inline">\(CA=B\)</span>.</p></li>
-<li><p>Next, you will show that the inverse matrix <span class="math inline">\(C^{-1}\)</span> is also lower triangluar. Start with the matrix <span class="math inline">\([ \, C \, | \, I \, ]\)</span>
-and perform Gaussian Elimination to put <span class="math inline">\(C\)</span> into RREF to get the matrix <span class="math inline">\([ \, I \, | \, C^{-1} ]\)</span>.</p>
-<p>Considering the lower triangular structure of <span class="math inline">\(C\)</span>, explain why putting <span class="math inline">\(C\)</span> into <span class="math inline">\(REF\)</span> actually results in the identity matrix <span class="math inline">\(I\)</span>.</p></li>
-<li><p>Use the previous three parts to show that we can factor <span class="math inline">\(A=LU\)</span> where <span class="math inline">\(L\)</span> is an invertible lower triangular matrix and <span class="math inline">\(U\)</span> is an upper triangular matrix.</p></li>
+<li>For each of the proposed models (predation, competition, mutual symbiosis), characterize the values for the constants <span class="math inline">\(a,b,c,d\)</span> by using the interpretations listed above. For example, you must decide whether <span class="math inline">\(a&gt;1\)</span> or <span class="math inline">\(0 &lt; a &lt; 1\)</span> for each model.</li>
 </ol>
-<p><strong>Remark 1:</strong> You proved this for a <span class="math inline">\(4 \times 4\)</span> matrix, but your argument also works for an <span class="math inline">\(n \times n\)</span> matrix.</p>
-<p><strong>Remark 2:</strong> If Gaussian Elimination of <span class="math inline">\(A\)</span> requires row operation (E2) “exchange two rows” then we can choose to do those row swaps first. This corresponds to multiplying <span class="math inline">\(A\)</span> by an invertible <strong>permutation matrix</strong> <span class="math inline">\(P\)</span>. We then perform Gaussian Elimination on <span class="math inline">\(PA\)</span>: we can factor <span class="math inline">\(PA=LU\)</span> where <span class="math inline">\(L\)</span> is lower triangular and <span class="math inline">\(U\)</span> is upper triangular. This is called the <strong><span class="math inline">\(LU\)</span>-decomposition</strong> of <span class="math inline">\(A\)</span>.</p>
-<p><strong>Remark 3:</strong> It turns out that explicitly calculating <span class="math inline">\(A^{-1}\)</span> can lead to some very problematic rounding errors. So most solvers use the <span class="math inline">\(LU\)</span>-decomposition to solve <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> instead of calculating <span class="math inline">\(\mathsf{x} = A^{-1}\mathsf{b}\)</span>. More specifically, we replace <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> with <span class="math inline">\(LU \mathsf{x} = P^{-1} \mathsf{b}\)</span> and then solve this in two steps.</p>
+<p>Your answer should be written in table form, as shown below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">model</th>
+<th align="left">a</th>
+<th align="left">b</th>
+<th align="left">c</th>
+<th align="left">d</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">predation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">competition</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">symbiosis</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Here are three different population models, along with its eigenvalue and eigenvectors. For each one, you must decide whether it is Predation, Competition or Symbiosis</p>
+<p><span class="math inline">\(A = \begin{bmatrix}1.1 &amp; -0.2 \\ -0.3 &amp; 1.2 \end{bmatrix}, \qquad \lambda_1 = 1.4 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ -1.5 \end{bmatrix}, \qquad \lambda_2 = 0.9 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span></p>
+<p><span class="math inline">\(B = \begin{bmatrix}0.5 &amp; 0.4 \\ -0.2 &amp; 1.1 \end{bmatrix}, \qquad \lambda_1 = 0.9 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \qquad \lambda_2 = 0.7 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}\)</span></p>
+<p><span class="math inline">\(C = \begin{bmatrix}0.8 &amp; 0.3 \\ 0.4 &amp; 0.7 \end{bmatrix}, \qquad \lambda_1 = 1.1 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \qquad \lambda_2 = 0.4 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ -0.75 \end{bmatrix}\)</span></p></li>
+<li><p>Here are plots of the vector fields for the three models in part (b). Match the model <span class="math inline">\(A, B, C\)</span> to its corresponding vector field.</p>
+<ol style="list-style-type: lower-roman">
+<li>Vector Field 1</li>
+</ol>
+<center>
+<p><img src="images/pop-model1.png" style="width:40.0%" /></p>
+</center>
+<ol start="2" style="list-style-type: lower-roman">
+<li>Vector Field 2</li>
+</ol>
+<center>
+<p><img src="images/pop-model2.png" style="width:40.0%" /></p>
+</center>
+<ol start="3" style="list-style-type: lower-roman">
+<li>Vector Field 3</li>
+</ol>
+<center>
+<p><img src="images/pop-model3.png" style="width:40.0%" /></p>
+</center></li>
+<li><p>For each matrix model <span class="math inline">\(A,B,C\)</span>, assume that the initial population is <span class="math inline">\([X_0, Y_0]^{\top} = [1, 2.5]^{\top}\)</span> where the units are in millions of organisms. Use the corresponding vector field to visualize the trajetory starting at <span class="math inline">\([1, 2.5]^{\top}\)</span>.</p></li>
+</ol>
 <ul>
-<li>First, we solve <span class="math inline">\(L \mathsf{y} = P^{-1}\mathsf{b}\)</span>. Because <span class="math inline">\(L\)</span> is lower triangular, this runs exactly like ``back substitution.’’</li>
-<li>Next, we solve <span class="math inline">\(U \mathsf{x} = \mathsf{y}\)</span>. Because <span class="math inline">\(L\)</span> is upper triangular, this also runs like ``back substitution.’’</li>
+<li>Describe the trajectory in words. (For example: “At first both populations decrease to <span class="math inline">\([0.5, 1]^{\top}\)</span>. But then they both start increasing and converge to the direction of <span class="math inline">\([2,3]^{\top}\)</span>. They continue to grow forever.” )</li>
+<li>Indicate the long-term populations for both organisms (growth, stable, extinction).</li>
+<li>Connect the behavior you see back to the eigenvalues and eigenvectors of the model</li>
 </ul>
-<p><strong>Remark 4:</strong> So what can go wrong when computing <span class="math inline">\(A^{-1}\)</span>? Sometimes an invertible matrix is <em>ill-conditioned</em> which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The <span class="math inline">\(LU\)</span> methodology avoids this problem. You can learn more about this in MATH 365 Computational Linear Algebra.</p>
 </div>
-<div id="homogeneous-coordinates" class="section level2">
-<h2><span class="header-section-number">4.4</span> Homogeneous Coordinates</h2>
-<p>I made the following nature scene with a bird and a palm tree.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="problem-set-4.html#cb2-1"></a>bird =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">20</span>, <span class="fl">21.3</span>, <span class="fl">23.3</span>, <span class="fl">21.6</span>, <span class="fl">20.7</span>, <span class="fl">21.7</span>, <span class="fl">20.9</span>, <span class="fl">20.3</span>, <span class="fl">18.9</span>, <span class="fl">18.1</span>, <span class="fl">18.3</span>, <span class="fl">19.6</span>, <span class="fl">19.2</span>, <span class="fl">19.1</span>, <span class="fl">19.2</span>, <span class="fl">19.4</span>, <span class="dv">20</span>), </span>
-<span id="cb2-2"><a href="problem-set-4.html#cb2-2"></a>             <span class="kw">c</span>(<span class="dv">20</span>, <span class="fl">21.7</span>, <span class="fl">20.9</span>, <span class="fl">21.1</span>, <span class="fl">19.3</span>, <span class="fl">18.7</span>, <span class="dv">18</span>, <span class="fl">18.9</span>, <span class="dv">18</span>, <span class="fl">15.4</span>, <span class="fl">18.6</span>, <span class="fl">19.6</span>, <span class="dv">20</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, <span class="fl">20.3</span>, <span class="dv">20</span>), </span>
-<span id="cb2-3"><a href="problem-set-4.html#cb2-3"></a>             <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-4"><a href="problem-set-4.html#cb2-4"></a></span>
-<span id="cb2-5"><a href="problem-set-4.html#cb2-5"></a>fronds =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="fl">2.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="fl">10.5</span>, <span class="dv">12</span>, <span class="fl">12.5</span>, <span class="fl">12.5</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="fl">15.5</span>, <span class="fl">15.5</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="fl">13.5</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">10</span>),</span>
-<span id="cb2-6"><a href="problem-set-4.html#cb2-6"></a>               <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="fl">17.5</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="fl">17.5</span>, <span class="dv">19</span>, <span class="fl">19.5</span>, <span class="fl">18.5</span>, <span class="dv">20</span>, <span class="fl">20.5</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="fl">20.5</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="fl">13.5</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">16</span>),</span>
-<span id="cb2-7"><a href="problem-set-4.html#cb2-7"></a>               <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-8"><a href="problem-set-4.html#cb2-8"></a></span>
-<span id="cb2-9"><a href="problem-set-4.html#cb2-9"></a>trunk =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="fl">7.5</span>, <span class="fl">7.5</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="fl">6.5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">10</span>),</span>
-<span id="cb2-10"><a href="problem-set-4.html#cb2-10"></a>              <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">16</span>),</span>
-<span id="cb2-11"><a href="problem-set-4.html#cb2-11"></a>              <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-12"><a href="problem-set-4.html#cb2-12"></a></span>
-<span id="cb2-13"><a href="problem-set-4.html#cb2-13"></a><span class="co"># intialize the plot</span></span>
-<span id="cb2-14"><a href="problem-set-4.html#cb2-14"></a><span class="kw">plot</span>(bird[<span class="dv">1</span>,],bird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb2-15"><a href="problem-set-4.html#cb2-15"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb2-16"><a href="problem-set-4.html#cb2-16"></a></span>
-<span id="cb2-17"><a href="problem-set-4.html#cb2-17"></a><span class="co"># plot the bird, trunk and fronds</span></span>
-<span id="cb2-18"><a href="problem-set-4.html#cb2-18"></a><span class="kw">polygon</span>(bird[<span class="dv">1</span>,], bird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb2-19"><a href="problem-set-4.html#cb2-19"></a><span class="kw">polygon</span>(fronds[<span class="dv">1</span>,], fronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb2-20"><a href="problem-set-4.html#cb2-20"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird1-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<!-- ![](images/ps4-scene1.png){width=60%} -->
-<p>However, I’ve decided that I want to make some changes.</p>
+<div id="blue-whale-population-dynamics" class="section level2">
+<h2><span class="header-section-number">7.3</span> Blue Whale Population Dynamics</h2>
+<p><strong>Note:</strong> Use the helper code from <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Systems</a> to create trajectories and plots for this question.</p>
+<p>In the 1930’s (before <a href="https://en.wikipedia.org/wiki/Blue_whale#Hunting_era">its virtual extinction and a great change in its survival rates</a>), a researcher studied the blue whale population. Due to the long gestation period, mating habits and migration of the blue whale, a female can produce a calf only once in a two-year period. Thus the age classes for the whale were assumed to be:</p>
 <ul>
-<li>I want to <strong>rotate the bird</strong> by <span class="math inline">\(-\pi/2\)</span> around the point <span class="math inline">\((20,20)\)</span> where its head meets its wing.</li>
-<li>I want to <strong>enlarge the fronds</strong> (leaves) of the plam tree to be bigger by <span class="math inline">\(25\%\)</span>.</li>
-<li>I like the trunk just as it is (no changes!), so the fronds should still meet at the point <span class="math inline">\((10,16)\)</span>.</li>
-<li>I want to change the colors to make it happier.</li>
+<li>0-1 years</li>
+<li>2-3 years</li>
+<li>4-5 years</li>
+<li>6-7 years</li>
+<li>8-9 years</li>
+<li>10-11 years</li>
+<li>12 or more years</li>
 </ul>
-<p>For example, here is what I want it to look like (though maybe there is a better color choice).</p>
-<p><img src="images/ps4-scene2.png" style="width:60.0%" /></p>
-<p>However, I’m not sure how to do this because:</p>
+<p>The Leslie Matrix <span class="math inline">\(B\)</span> for this model is given by</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="problem-set-7.html#cb6-1"></a>(<span class="dt">L=</span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">19</span>,.<span class="dv">44</span>,.<span class="dv">5</span>,.<span class="dv">5</span>,.<span class="dv">45</span>),</span>
+<span id="cb6-2"><a href="problem-set-7.html#cb6-2"></a>         <span class="kw">c</span>(.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-3"><a href="problem-set-7.html#cb6-3"></a>         <span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-4"><a href="problem-set-7.html#cb6-4"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-5"><a href="problem-set-7.html#cb6-5"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-6"><a href="problem-set-7.html#cb6-6"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb6-7"><a href="problem-set-7.html#cb6-7"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,.<span class="dv">78</span>)))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## [1,] 0.00 0.00 0.19 0.44 0.50 0.50 0.45
+## [2,] 0.77 0.00 0.00 0.00 0.00 0.00 0.00
+## [3,] 0.00 0.77 0.00 0.00 0.00 0.00 0.00
+## [4,] 0.00 0.00 0.77 0.00 0.00 0.00 0.00
+## [5,] 0.00 0.00 0.00 0.77 0.00 0.00 0.00
+## [6,] 0.00 0.00 0.00 0.00 0.77 0.00 0.00
+## [7,] 0.00 0.00 0.00 0.00 0.00 0.77 0.78</code></pre>
+<p>We can see that the vector of fecundities is <span class="math inline">\([0,0,0.19,0.44,0.5,0.5,0.45]\)</span>, and that the survival rate for all whales 11 years old or younger is 77%, and for all whales 12 or more years, it is 78%.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Starting from a whale population of 1000 in each of the seven age classes, plot the trajectories over a 40 year period. Does your plot of this model predict population growth, population equilibrium or population extinction?</p></li>
+<li><p>Calculate the eigenvectors and eigenvalues of the matrix <span class="math inline">\(L\)</span>. Relate the behavior you see to the eigenvalues and eigenvectors.</p>
 <ul>
-<li>I only know how to rotate vectors around the point <span class="math inline">\((0,0)\)</span>. So how can I rotate around the point <span class="math inline">\((20,20)\)</span>?</li>
-<li>Likewise, I only know how to expand vectros from the point <span class="math inline">\((0,0)\)</span>. So how can I expand outward from the point <span class="math inline">\((10,16)\)</span>?</li>
-</ul>
-<p>I heard someone say that translations via homogeneous coordinates will help to solve my problem. But I’m not sure what to do. Help!</p>
-<p>Please submit:</p>
+<li>What is the overall growth rate?</li>
+<li>What are the long-term population ratios?</li>
+</ul></li>
+<li><p>When population is increasing, one might be interested in harvesting a portion of the population for some purpose. We want this harvest rate to be <strong>sustainable</strong>, meaning that the <strong>total population remains at a constant level</strong> in the long run. For simplicity, we will not distinguish between classes during the harvest (but this could be added with a minor modification).</p>
+<p>If a fraction <span class="math inline">\(h\)</span> of the population is harvested each year, where <span class="math inline">\(0 &lt; h &lt; 1\)</span>, then the population model becomes</p>
+<p><span class="math display">\[{\bf x}_{t+1} = (1-h) L {\bf x}_t.\]</span></p>
 <ul>
-<li>The numerical <span class="math inline">\(3 \times 3\)</span> matrix <code>birdmap</code> that you used for the bird, and an explanation of how you made it.</li>
-<li>The numerical <span class="math inline">\(3 \times 3\)</span> matrix <code>leafmap</code> that you used for the leaves, and an explanation of how you made it.</li>
-<li>Your resulting plot where you use happier <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">colors of your choice</a> that are <strong>unique to you</strong> and express your personal style. (An artist statement is optional.)</li>
+<li>Use trial and error to find the sustainable harvest rate <span class="math inline">\(h &lt; 1\)</span> <strong>up to 4 decimal places</strong> that leads to a stable population of whales.</li>
+<li>Then plot a trajectory of this system with sustainable harvesting. Choose a long enough time peroid so that your plot shows the blue whale populations reach a stable configuration.</li>
+<li>In the long run, what are the percentages of whales in each age class? How does this compare to the population percentages you found in part (b)? Why does this make sense?</li>
+</ul></li>
+</ol>
+</div>
+<div id="the-power-method-for-eigenvalue-calculation" class="section level2">
+<h2><span class="header-section-number">7.4</span> The Power Method for Eigenvalue Calculation</h2>
+<p>During class, we found eigenvalues by solving the characteristic equation <span class="math inline">\(\det(A−\lambda I) =0\)</span>. We then found the eigenvectors by finding a basis for <span class="math inline">\(\mathrm{Nul}(A - \lambda I)\)</span>. This is fine for small matrices, but impractical for large ones.</p>
+<p>So let’s see how computers find (or really: approximate) eigensystems. We will assume that all of the eigenvectors are real. If you want the full story, then you should take MATH 365 Computational Linear Algebra.</p>
+<p>This problem explains how the Power Method and Inverse Power Methods work. At certain points, <strong>Your Task</strong> is identified, and that is what you must turn in for this problem.</p>
+<p>Also, parts (a) and (c) will have you confirm that the code works for the following <span class="math inline">\(4 \times 4\)</span> matrix.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="problem-set-7.html#cb8-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>))</span>
+<span id="cb8-2"><a href="problem-set-7.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="problem-set-7.html#cb8-3"></a>A</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    4    2    4    8
+## [2,]    2    2    4    4
+## [3,]    4    4    9    1
+## [4,]    8    4    1    5</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="problem-set-7.html#cb10-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
+<pre><code>## eigen() decomposition
+## $values
+## [1] 16.9078855  7.2660095  0.4248061 -4.5987012
+## 
+## $vectors
+##            [,1]        [,2]        [,3]       [,4]
+## [1,] -0.5515710  0.29143140  0.45675770  0.6341999
+## [2,] -0.3595835 -0.08290935 -0.86242118  0.3464902
+## [3,] -0.5286316 -0.78914121  0.19952131 -0.2408236
+## [4,] -0.5357403  0.53427515 -0.08828003 -0.6478727</code></pre>
+<p> </p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>The Power Method.</strong> We find the dominant eigenvalue and eigenvector by repeatedly multiplying some initial vector by <span class="math inline">\(A\)</span> until we converge to the dominant eigenspace. This should sound familiar: it’s the same phenomenon that makes our dynamical systems converge!</p>
+<p>The one extra detail is that we rescale at each step: we adjust our eigenvector estimate so that its largest entry is 1. Here is the code. It is very simple.</p></li>
+</ol>
+<p><strong>Your Task:</strong> Run this code on the matrix <span class="math inline">\(A\)</span> and start with <code>numiter=5</code>. Then increase this value and watch the eigenvalue estimate converge to the dominant eigenvalue.</p>
+<ul>
+<li>What is the smallest number of iterations needed so that the estimated eigenvalue matches the eigenvalue returned by <code>eigen(A)</code> (up to 7 decimal places)?</li>
+<li>Write some code to compare the estimated eigenvector (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
 </ul>
-<p>For your convenience, here is some template code for you. Once you fill in the proper transformation, this code will make the final picture. Currently, it updates the colors, but doesn’t change the bird or the fronds (because it is using the identity transformation).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="problem-set-4.html#cb3-1"></a><span class="co">#####################</span></span>
-<span id="cb3-2"><a href="problem-set-4.html#cb3-2"></a><span class="co">######## update this code with the appropriate linear transformations</span></span>
-<span id="cb3-3"><a href="problem-set-4.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="problem-set-4.html#cb3-4"></a>birdmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb3-5"><a href="problem-set-4.html#cb3-5"></a>leafmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb3-6"><a href="problem-set-4.html#cb3-6"></a></span>
-<span id="cb3-7"><a href="problem-set-4.html#cb3-7"></a></span>
-<span id="cb3-8"><a href="problem-set-4.html#cb3-8"></a><span class="co">#####################</span></span>
-<span id="cb3-9"><a href="problem-set-4.html#cb3-9"></a><span class="co">######## you do not need to change this the code below this line</span></span>
-<span id="cb3-10"><a href="problem-set-4.html#cb3-10"></a></span>
-<span id="cb3-11"><a href="problem-set-4.html#cb3-11"></a>newbird =<span class="st"> </span>birdmap <span class="op">%*%</span><span class="st"> </span>bird</span>
-<span id="cb3-12"><a href="problem-set-4.html#cb3-12"></a>newfronds =<span class="st"> </span>leafmap <span class="op">%*%</span><span class="st"> </span>fronds</span>
-<span id="cb3-13"><a href="problem-set-4.html#cb3-13"></a></span>
-<span id="cb3-14"><a href="problem-set-4.html#cb3-14"></a></span>
-<span id="cb3-15"><a href="problem-set-4.html#cb3-15"></a><span class="co"># initialize the plot</span></span>
-<span id="cb3-16"><a href="problem-set-4.html#cb3-16"></a><span class="kw">plot</span>(newbird[<span class="dv">1</span>,],newbird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb3-17"><a href="problem-set-4.html#cb3-17"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb3-18"><a href="problem-set-4.html#cb3-18"></a></span>
-<span id="cb3-19"><a href="problem-set-4.html#cb3-19"></a><span class="kw">polygon</span>(newbird[<span class="dv">1</span>,], newbird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb3-20"><a href="problem-set-4.html#cb3-20"></a><span class="kw">polygon</span>(newfronds[<span class="dv">1</span>,], newfronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb3-21"><a href="problem-set-4.html#cb3-21"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird2-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Finally, here is some R code that might be helpful. It overlays the original and the new version, so that you can directly compare them. Here is what the final comparison should look like:</p>
-<p><img src="images/ps4-scene3.png" style="width:60.0%" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="problem-set-4.html#cb4-1"></a><span class="co"># initialize the plot</span></span>
-<span id="cb4-2"><a href="problem-set-4.html#cb4-2"></a><span class="kw">plot</span>(newbird[<span class="dv">1</span>,],newbird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb4-3"><a href="problem-set-4.html#cb4-3"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb4-4"><a href="problem-set-4.html#cb4-4"></a></span>
-<span id="cb4-5"><a href="problem-set-4.html#cb4-5"></a><span class="co"># plot the new bird and new fronds</span></span>
-<span id="cb4-6"><a href="problem-set-4.html#cb4-6"></a><span class="kw">polygon</span>(newbird[<span class="dv">1</span>,], newbird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb4-7"><a href="problem-set-4.html#cb4-7"></a><span class="kw">polygon</span>(newfronds[<span class="dv">1</span>,], newfronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb4-8"><a href="problem-set-4.html#cb4-8"></a></span>
-<span id="cb4-9"><a href="problem-set-4.html#cb4-9"></a><span class="co"># plot the original bird, fronds  and trunk</span></span>
-<span id="cb4-10"><a href="problem-set-4.html#cb4-10"></a><span class="kw">polygon</span>(bird[<span class="dv">1</span>,], bird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb4-11"><a href="problem-set-4.html#cb4-11"></a><span class="kw">polygon</span>(fronds[<span class="dv">1</span>,], fronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb4-12"><a href="problem-set-4.html#cb4-12"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird3-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p><strong>Remark:</strong> This truly is how computer animation works! We use different effects for each object, and need to use homogeneous coordinates to get our desired results.</p>
+<p> </p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><strong>The Inverse Power Method.</strong> We can use the power method to find the other eigenvalues, too. Let’s suppose that we are trying to find eigenvalue <span class="math inline">\(\lambda\)</span> with eigenvector <span class="math inline">\(\mathsf{v}\)</span>.</li>
+</ol>
+<p>We just need to start at a guess <span class="math inline">\(c\)</span> that is closer to <span class="math inline">\(\lambda\)</span> that to any of the other eigenval. Using our guess <span class="math inline">\(c\)</span>, we define
+<span class="math display">\[
+B = (A - c I)^{-1}.
+\]</span>
+And then we apply the power method to <span class="math inline">\(B\)</span>. You will now show that (1) <span class="math inline">\(A-cI\)</span> really is invertible, and that (2) <span class="math inline">\(\mathsf{v}\)</span> is the dominant eigenvector of <span class="math inline">\(B\)</span>.</p>
+<p><strong>Your Task:</strong> answer the following four short questions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose that <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> for eigenvalue <span class="math inline">\(\lambda\)</span>. That is, <span class="math inline">\(A \mathsf{v} = \lambda \mathsf{v}\)</span>. Confirm that <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector for <span class="math inline">\(A - cI\)</span> for eigenvalue <span class="math inline">\(\lambda - c\)</span>.</p></li>
+<li><p>Assume that our guess <span class="math inline">\(c\)</span> is not an eigenvalue of <span class="math inline">\(A\)</span>. Prove that <span class="math inline">\(A-cI\)</span> is invertible by showing that <span class="math inline">\(\mathrm{Nul}(A) = \mathbf{0}\)</span>.</p></li>
+<li><p>Now that we know that <span class="math inline">\(B = (A - c I)^{-1}\)</span> exists, explain why <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector of <span class="math inline">\(B\)</span> for eigenvalue
+<span class="math inline">\(\frac{1}{\lambda-c}.\)</span></p></li>
+<li><p>A similar argument shows that all eigenvalues of <span class="math inline">\(B\)</span> are of the form <span class="math inline">\(\frac{1}{\mu-c}\)</span> where <span class="math inline">\(\mu\)</span> is an eigenvalue of <span class="math inline">\(A\)</span>. So now use the fact that ``your guess <span class="math inline">\(c\)</span> is closer to <span class="math inline">\(\lambda\)</span> than any other eigenvector <span class="math inline">\(\mu\)</span>’’ to explain why <span class="math inline">\(\frac{1}{\lambda-c}\)</span> is the dominant eigenvalue of <span class="math inline">\(B\)</span>.</p></li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>So that’s why the inverse power method works! Now, here is the code. Again, it’s really simple. (Remark: in order to avoid rounding errors, in a true implementation, we would write code that avoids explicitly taking the inverse.)</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="problem-set-7.html#cb12-1"></a>estimate_nearest_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, c, numiter) {</span>
+<span id="cb12-2"><a href="problem-set-7.html#cb12-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
+<span id="cb12-3"><a href="problem-set-7.html#cb12-3"></a>  </span>
+<span id="cb12-4"><a href="problem-set-7.html#cb12-4"></a>  B =<span class="st"> </span>A <span class="op">-</span><span class="st"> </span>c <span class="op">*</span><span class="st"> </span><span class="kw">diag</span>(n)</span>
+<span id="cb12-5"><a href="problem-set-7.html#cb12-5"></a>  Binv =<span class="st"> </span><span class="kw">solve</span>(B)</span>
+<span id="cb12-6"><a href="problem-set-7.html#cb12-6"></a></span>
+<span id="cb12-7"><a href="problem-set-7.html#cb12-7"></a>  est =<span class="st"> </span><span class="kw">estimate_dominant_eigenvector</span>(Binv, numiter)</span>
+<span id="cb12-8"><a href="problem-set-7.html#cb12-8"></a>  </span>
+<span id="cb12-9"><a href="problem-set-7.html#cb12-9"></a>  val =<span class="st"> </span><span class="kw">attr</span>(est, <span class="st">&#39;value&#39;</span>)</span>
+<span id="cb12-10"><a href="problem-set-7.html#cb12-10"></a>  newval =<span class="st"> </span><span class="dv">1</span><span class="op">/</span>val<span class="op">+</span>c</span>
+<span id="cb12-11"><a href="problem-set-7.html#cb12-11"></a>  </span>
+<span id="cb12-12"><a href="problem-set-7.html#cb12-12"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>newval</span>
+<span id="cb12-13"><a href="problem-set-7.html#cb12-13"></a>  </span>
+<span id="cb12-14"><a href="problem-set-7.html#cb12-14"></a>  <span class="kw">return</span> (est)</span>
+<span id="cb12-15"><a href="problem-set-7.html#cb12-15"></a>}</span></code></pre></div>
+<p><strong>Your Task:</strong> Use this code to confirm that we can really find the other three eigenvectors for matrix <span class="math inline">\(A\)</span> above.</p>
+<ul>
+<li>Run this code using a guess for each of the 3 remaining eigenvalues.</li>
+<li>Confirm that this code does find the correct eigen vector and eigenvalue, provided that you run for enough iterations.</li>
+<li>Write some code to compare the estimated eigenvectors (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
+</ul>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="problem-set-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="problem-set-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="problem-set-6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="important-definitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
