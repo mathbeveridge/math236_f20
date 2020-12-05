@@ -1,7 +1,7 @@
 ---
 title: "Template for Problem Set 7"
-author: "Andrew Beveridge"
-date: "12/5/2020"
+author: "Your Name Here"
+date: "Due Date Here"
 output: html_document
 ---
 
@@ -65,16 +65,27 @@ plot_trajectory <- function(X, title, types) {
 ## Glucose-Insulin System Model
 
 
-  a. My answer to part a
+  a. My plot showing the trajectory and my observation about how long it takes for $\begin{bmatrix} G_{t} \\  H_{t} \end{bmatrix}$ to return  to homeostatis.  
 
-  b. My answer to part b
+  b. My answer about $\lambda = a \pm b i$ and $|\lambda| = \sqrt{a^2 +  b^2}$ and $\theta = \tan^{-1} (a/b)$. I'll include the R commands for these calculations by using an `{r echo=TRUE}' block like this one.
+  
+```{r, echo=TRUE}
+
+# setting echo=TRUE means that the code will be shown in the knit output
+
+a=1/2
+b=sqrt(3)/2
+atan(a/b) * 360 / (2 * pi)
+
+```
+
 
 
 ## Population Interaction Models
 
 
 
-a.  My answer to part a
+a.  My answer about the constants $a,b,c,d$. I'll use the ``tabledata`` variable below.  I will replace each `'\t\t'` with the appropriate sentence **inside the quotemarks**, for example, `'a > 1'`
 
 
 ```{r, echo=FALSE}
@@ -96,11 +107,24 @@ knitr::kable(
 ```
 
 
-b. My answer to part b
+b. My answer matching each of $A,B,C$ to one of the models. I could use a bullet list by editing the answer below.
 
-c. My answer to part c
+* $A$ is predation/competition/symbiosis
+* $B$ is predation/competition/symbiosis
+* $C$ is predation/competition/symbiosis
 
-d. My answer to part d
+c. My answer matching each of $A,B,C$ to one of the vector fields I could use a bullet list by editing the answer below.
+
+* $A$ is Vector Field 1/2/3
+* $B$ is Vector Field 1/2/3
+* $C$ is Vector Field 1/2/3
+
+
+d. My answer about the initial population is $[X_0, Y_0]^{\top} = [1, 2.5]^{\top}$ for each model. I could use a bullet list by editing the answer below.
+
+- **Matrix $A$:** My description of the trajectory and its long term behavior, including the limiting population ratios $[a, b]^{\top}$.
+- **Matrix $B$:** My description of the trajectory and its long term behavior, including the limiting population ratios $[a, b]^{\top}$.
+- **Matrix $C$:** My description of the trajectory and its long term behavior, including the limiting population ratios $[a, b]^{\top}$.
 
 ##  Blue Whale Population Dynamics
 
@@ -120,13 +144,13 @@ d. My answer to part d
 
 
 
-a. My answer to part a
+a. My plot of the blue whales for 40 years, and my observation about whether this is population growth, equilibirum or  extinction,  
 
 
-b. My answer to part b
+b. The R block with `{r echo=TRUE}` to calculate the eigensystem, and my conclusions about the growth rate and long term population ratios.
 
 
-c. My answer to part c
+c. My final R block with `{r echo=TRUE}` that shows my value for $h$ and confirms that the populations are stable in the long run. My observation about the long-term population ratios.
 
 
 ## The Power Method for Eigenvalue Calculation
@@ -140,15 +164,6 @@ A
 
 eigen(A)
 
-
-```
-
-&nbsp;
-
-a. My answer to part a
-
-
-```{r}
 
 estimate_dominant_eigenvector <- function(A, numiter) {
   n = dim(A)[1]
@@ -174,28 +189,7 @@ estimate_dominant_eigenvector <- function(A, numiter) {
   
   return(est)
 }
-```
 
-
-
-My answer to part a
-
-
-b. My answer to part b
-
-1. My answer to part 1
-
-1. My answer to part 2
-
-1. My answer to part 3
-
-1. My answer to part 4
-
-&nbsp;
-
-c. My answer to part c
-
-```{r, echo=TRUE}
 estimate_nearest_eigenvector <- function(A, c, numiter) {
   n = dim(A)[1]
   
@@ -211,9 +205,24 @@ estimate_nearest_eigenvector <- function(A, c, numiter) {
   
   return (est)
 }
-
 ```
 
 
-My answer to part c
+a. My R code block with `{r echo=TRUE}` that shows the minimum `numiter` for `estimate_dominant_eigenvector' to converge to the right answer (up to 7 decimal places).
+
+
+b. My answer to the four parts of this question.
+
+    1. My answer that shows that  $(A - cI)v = (\lambda - c) v$
+
+    2. My answer that shows that the zero vector is the only solution to $Ax=0$.
+
+    3. My answer that shows $B v = \frac{1}{\lambda -c} v$.
+
+    4. My answer that explains why $\frac{1}{\lambda -c}$ is the dominant eigenvalue.
+
+&nbsp;
+
+c. My R code block with `{r echo=TRUE}` which shows that `estimate_nearest_eigenvalue' does find the correct eigenvalue for an initial guess of $c$.
+
 

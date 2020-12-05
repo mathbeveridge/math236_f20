@@ -81,5 +81,5 @@ Equivalently, one can say that $\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldo
 $$
 \mathsf{v} = c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + \cdots + c_n \mathsf{v}_n.
 $$
-(the fact that there is a set of vectors comes from the span; the fact that they are unique comes from linear independence).
+(The fact that there is a set of vectors comes from the span; the fact that they are unique comes from linear independence).
 
