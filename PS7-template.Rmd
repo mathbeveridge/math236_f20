@@ -215,7 +215,7 @@ b. My answer to the four parts of this question.
 
     1. My answer that shows that  $(A - cI)v = (\lambda - c) v$
 
-    2. My answer that shows that the zero vector is the only solution to $Ax=0$.
+    2. My answer that shows that the zero vector is the only solution to $(A-cI)x=0$.
 
     3. My answer that shows $B v = \frac{1}{\lambda -c} v$.
 

@@ -286,7 +286,7 @@ $$
 
   1. Suppose that $\mathsf{v}$ is an eigenvector of $A$ for eigenvalue $\lambda$. That is,  $A \mathsf{v} = \lambda \mathsf{v}$. Confirm that $\mathsf{v}$ is  an eigenvector for $A - cI$ for eigenvalue $\lambda - c$.
   
-  1. Assume that our guess $c$ is not an eigenvalue of $A$. Prove that $A-cI$ is invertible by showing that $\mathrm{Nul}(A) = \mathbf{0}$.
+  1. Assume that our guess $c$ is not an eigenvalue of $A$. Prove that $A-cI$ is invertible by showing that $\mathrm{Nul}(A-Ic) = \mathbf{0}$.
   
   1. Now that we know that $B = (A - c I)^{-1}$ exists, explain why $\mathsf{v}$ is an eigenvector of $B$ for eigenvalue 
 $\frac{1}{\lambda-c}.$
