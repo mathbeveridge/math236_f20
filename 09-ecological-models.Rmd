@@ -111,7 +111,7 @@ $$L=\begin{bmatrix} 0&0&0.33 \\ 0.18 & 0 & 0 \\ 0 & 0.71 & 0.94 \end{bmatrix}.$$
 
 Suppose that we started out with 200 juveniles, 100 subadults and 500 adults. What happens to this population over time?
  
-```{r owls, fig.height=5, fig.width=7,, echo=TRUE}
+```{r owls, fig.height=5, fig.width=7, echo=TRUE}
 L = cbind(c(0,.18,0),c(0,0,.71),c(.33,0,.94)) # the Leslie Matrix
 L
 start = c(200,100,500)  # the starting distribution

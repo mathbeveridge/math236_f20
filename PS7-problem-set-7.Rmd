@@ -225,7 +225,7 @@ eigen(A)
 
 ```
 
-* This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to [ULA Section 5.2](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html) and  Lay Section 5.8.
+* **Remark.** This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to [ULA Section 5.2](http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html) and  Lay Section 5.8.
 
 &nbsp;
 
@@ -266,7 +266,7 @@ estimate_dominant_eigenvector <- function(A, numiter) {
 
   **Your Task:** Run this code on the matrix $A$ and start with `numiter=5`. Then increase this value and watch the eigenvalue estimate converge to the dominant eigenvalue.
 
-  - What is the smallest number of iterations needed so that the estimated eigenvalue  matches the eigenvalue returned by `eigen(A)` (up to 7 decimal places)? 
+  - What is the smallest number of iterations needed so that the estimated eigenvalue  matches the eigenvalue returned by `eigen(A)` (up to 5 decimal places)? 
   - Write some code to compare the estimated eigenvector (whose largest entry is 1) with the eigenvector returned by `eigen(A)`. They should match when you rescale.  
 
 
@@ -321,8 +321,8 @@ estimate_nearest_eigenvector <- function(A, c, numiter) {
 **Your Task:** Use this code to confirm that we can really find the other three eigenvectors for matrix $A$ above. 
 
   - Run this code using a guess for each of the 3 remaining eigenvalues. 
-  - Confirm that this code does find the correct eigen vector and eigenvalue, provided that you run for enough iterations.
-  - Write some code to compare the estimated eigenvectors (whose largest entry is 1) with the eigenvector returned by `eigen(A)`. They should match when you rescale. 
+  - Confirm that this code does find the correct eigenvalue, provided that you run for enough iterations.
+  - Note what your initial guess is, and how many iterations are required to converge to the nearest eigenvalue (up to 5 decimal places).
 
 
 

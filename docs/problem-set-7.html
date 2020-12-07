@@ -601,7 +601,7 @@ from <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Syste
 ## [3,] -0.5286316 -0.78914121  0.19952131 -0.2408236
 ## [4,] -0.5357403  0.53427515 -0.08828003 -0.6478727</code></pre>
 <ul>
-<li>This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to <a href="http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html">ULA Section 5.2</a> and Lay Section 5.8.</li>
+<li><strong>Remark.</strong> This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to <a href="http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html">ULA Section 5.2</a> and Lay Section 5.8.</li>
 </ul>
 <p> </p>
 <ol style="list-style-type: lower-alpha">
@@ -634,7 +634,7 @@ from <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Syste
 <span id="cb12-24"><a href="problem-set-7.html#cb12-24"></a>}</span></code></pre></div>
 <p><strong>Your Task:</strong> Run this code on the matrix <span class="math inline">\(A\)</span> and start with <code>numiter=5</code>. Then increase this value and watch the eigenvalue estimate converge to the dominant eigenvalue.</p>
 <ul>
-<li>What is the smallest number of iterations needed so that the estimated eigenvalue matches the eigenvalue returned by <code>eigen(A)</code> (up to 7 decimal places)?</li>
+<li>What is the smallest number of iterations needed so that the estimated eigenvalue matches the eigenvalue returned by <code>eigen(A)</code> (up to 5 decimal places)?</li>
 <li>Write some code to compare the estimated eigenvector (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
 </ul>
 <p> </p>
@@ -677,8 +677,8 @@ And then we apply the power method to <span class="math inline">\(B\)</span>. Yo
 <p><strong>Your Task:</strong> Use this code to confirm that we can really find the other three eigenvectors for matrix <span class="math inline">\(A\)</span> above.</p>
 <ul>
 <li>Run this code using a guess for each of the 3 remaining eigenvalues.</li>
-<li>Confirm that this code does find the correct eigen vector and eigenvalue, provided that you run for enough iterations.</li>
-<li>Write some code to compare the estimated eigenvectors (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
+<li>Confirm that this code does find the correct eigenvalue, provided that you run for enough iterations.</li>
+<li>Note what your initial guess is, and how many iterations are required to converge to the nearest eigenvalue (up to 5 decimal places).</li>
 </ul>
 <p><strong>Remark:</strong> These two methods succeed in finding the complete eigensystem when all of the eigenvalues are real and distinct. This is one of the reasons why the <code>eigen()</code> command in RStudio actually uses another method called <span class="math inline">\(QR\)</span>-decomposition to approximate eigensystems.</p>
 <p><strong>Remark:</strong> MATH 365 Computational Linear Algebra goes into the full story about how to approximate eigenvalues and eigenvectors quickly and precisely.</p>
