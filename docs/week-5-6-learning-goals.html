@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 4 Problem Set 4 | MATH 236: Linear Algebra</title>
+  <title>Vector 13 Week 5-6 Learning Goals | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 4 Problem Set 4 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 13 Week 5-6 Learning Goals | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 4 Problem Set 4 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 13 Week 5-6 Learning Goals | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-3.html"/>
-<link rel="next" href="problem-set-5.html"/>
+<link rel="prev" href="week-4-learning-goals.html"/>
+<link rel="next" href="linear-systems-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -364,244 +364,78 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-4" class="section level1">
-<h1><span class="header-section-number">Vector 4</span> Problem Set 4</h1>
+<div id="week-5-6-learning-goals" class="section level1">
+<h1><span class="header-section-number">Vector 13</span> Week 5-6 Learning Goals</h1>
+<p>Here are the knowledge and skills you should master by the end of the fifth and sixth weeks.</p>
+<div id="eigensystems" class="section level2">
+<h2><span class="header-section-number">13.1</span> Eigensystems</h2>
+<p>You should be able to do the following <strong>tasks</strong>:</p>
 <ul>
-<li>Due: Tuesday November 17 by 11:55pm CST.</li>
-<li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all row reductions.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd">Rmd source file for this problem set</a>.</li>
-<li>Would you like use RMarkdown to type up some or all of your solution? Here is an <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-YourNameHere.Rmd">Rmd template file</a> to get you started. You can “knit to PDF” when you are done. Here are some helpful resources:
-<ul>
-<li><a href="https://rmarkdown.rstudio.com/authoring_basics.html">RMarkdown Basics</a></li>
-<li><a href="https://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html">Math Typsetting using LaTeX syntax</a></li>
-<li><a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS4-problem-set-4.Rmd">The Rmd source for the problem set</a> which has examples of using <code>\begin{bmatrix} ... \end{bmatrix}</code> to format matrices.</li>
-</ul></li>
+<li>Check whether a given vector <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector for square matrix <span class="math inline">\(A\)</span>.</li>
+<li>Find the eigenvalues of a matrix <span class="math inline">\(2 \times 2\)</span> matrix by hand, using the characteristic equation</li>
+<li>Find the eigenvalues of a triangular matix by inspection.</li>
+<li>Given the eigenvalues of matrix <span class="math inline">\(A\)</span>, find the eigenvectors by solving <span class="math inline">\((A \lambda I) = \mathbf{0}\)</span>.</li>
+<li>Find the eigenvalues and (“human readable”) eigenvectors of an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span> using <code>eigen(A)</code> on RStudio.</li>
+<li>Determine whether a matrix is diagonalizable.</li>
+<li>Factor a diagonalizable <span class="math inline">\(n \times n\)</span> matrix as <span class="math inline">\(A = PDP^{-1}\)</span> where <span class="math inline">\(D\)</span> is a diagonal matrix of eigenvalues and <span class="math inline">\(P\)</span> is the matrix whose columns are the corresponding eignvectors.</li>
+<li>Use RStudio to find complex eigenvalues and (“human readable”) eigenvectors of a square matrix.</li>
+<li>Factor a <span class="math inline">\(2 \times 2\)</span> scaling-rotation matrix as <span class="math inline">\(A = P C P^{-1}\)</span> where <span class="math inline">\(C\)</span> is a scaling-rotation matrix <span class="math inline">\(\begin{bmatrix} a &amp; -b \\ b &amp; a \end{bmatrix}\)</span> and <span class="math inline">\(P = [ \mathsf{w}, \mathsf{u}]\)</span> where <span class="math inline">\(\mathsf{v} = \mathsf{u} + i \mathsf{w}\)</span> is the eigenvector for <span class="math inline">\(\lambda = a + b i\)</span>.</li>
+<li>Use RStudio to find the Gould Index of a network</li>
+<li>Use RStudio to create a 2D plot of pairs of eigenvalues of a square matrix</li>
+<li>Use the dominant eigenvalue and dominant eigenvector to determine the long-term behavior of a dynamical system</li>
+<li>Create a trajectory of a <span class="math inline">\(2 \times 2\)</span> dynamical system (either using RStudio or by using a given vector field plot) and then relate the trajectory to the eigenvectors and eigenvalues</li>
+<li>Interpret the constants in the <span class="math inline">\(2 \times 2\)</span> matrix for two interacting populations (competition, predator-prey, mutualism, etc)</li>
+<li>Use RStudio to investigate the animal population modeled with a Leslie matrix.</li>
 </ul>
-<p>The Problem Set covers sections 2.1, 2.2 and 2.3, and homogeneous coordinates.</p>
-<div id="an-invertible-product-of-rectangular-matrices" class="section level2">
-<h2><span class="header-section-number">4.1</span> An Invertible Product of Rectangular Matrices</h2>
-<p>Suppose that <span class="math inline">\(m \neq n\)</span> and that <span class="math inline">\(B\)</span> is a <span class="math inline">\(m \times n\)</span> matrix and that <span class="math inline">\(C\)</span> is an <span class="math inline">\(n \times m\)</span> matrix where <span class="math inline">\(A =BC\)</span> is an invertible matrix.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Is <span class="math inline">\(m &gt; n\)</span> or is <span class="math inline">\(m &lt; n\)</span>? Explain.</p></li>
-<li><p>Since <span class="math inline">\(A\)</span> is invertible, the Invertible Matrix Theorem tells us the following facts:</p>
-<ul>
-<li><span class="math inline">\(A\)</span> has a pivot in every row</li>
-<li><span class="math inline">\(A\)</span> has a pivot in every column</li>
-<li><span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is one-to-one</li>
-<li><span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is onto</li>
-<li>The columns of <span class="math inline">\(A\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span></li>
-<li>The columns of <span class="math inline">\(A\)</span> are linearly independent</li>
-<li><span class="math inline">\(A \mathsf{x} =\mathsf{b}\)</span> has at least one solution for all <span class="math inline">\(\mathsf{b}\)</span></li>
-<li><span class="math inline">\(A \mathsf{x} =\mathbf{0}\)</span> only has the trivial solution</li>
-</ul>
-<p>What do these conditions guarantee about the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(B\)</span> and the <span class="math inline">\(n \times m\)</span> matrix <span class="math inline">\(C\)</span>? Make the appropriate list for each of <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>.</p></li>
-</ol>
 </div>
-<div id="guessing-the-inverse-matrix-from-a-pattern" class="section level2">
-<h2><span class="header-section-number">4.2</span> Guessing the Inverse Matrix from a Pattern</h2>
-<ol style="list-style-type: lower-alpha">
-<li>Use RStudio to find the inverse matrix for each of the following matrices.</li>
-</ol>
-<p><span class="math display">\[
-\begin{bmatrix}
-1 &amp; 0 &amp;  0  \\
-1  &amp; 1 &amp; 0   \\
-1  &amp; 1 &amp; 1  
-\end{bmatrix}
-\qquad
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 \\
-1  &amp; 1 &amp; 0  &amp; 0   \\
-1  &amp; 1 &amp; 1  &amp; 0 \\
-1  &amp; 1 &amp; 1  &amp; 1 \\
-\end{bmatrix}
-\qquad
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; 0\\
-1  &amp; 1 &amp; 0  &amp; 0 &amp; 0  \\
-1  &amp; 1 &amp; 1  &amp; 0 &amp; 0\\
-1  &amp; 1 &amp; 1  &amp; 1 &amp; 0\\
-1  &amp; 1 &amp; 1  &amp; 1 &amp; 1\\
-\end{bmatrix}.
-\]</span>
-by creating a matrix of the form <span class="math inline">\([ \, A \, | \, I \, ]\)</span> and putting it into RREF to obtain <span class="math inline">\([ \, I \, | \, A^{-1} \, ]\)</span>.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Use the previous part to guess the inverse matrix <span class="math inline">\(A^{-1}\)</span> of the <span class="math inline">\(n \times n\)</span> matrix</li>
-</ol>
-<p><span class="math display">\[
-A = 
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; \cdots &amp;0&amp;0 \\
-1  &amp; 1 &amp; 0  &amp; 0 &amp; \cdots &amp;0 &amp;  0 \\
-1  &amp; 1 &amp; 1  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-\vdots &amp;  &amp; &amp; \ddots &amp; &amp; \vdots \\
-1  &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 &amp;   0 \\ 
-1  &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 &amp;   1 
-\end{bmatrix}.
-\]</span></p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Use this same method to guess the inverse matrix <span class="math inline">\(B^{-1}\)</span> for the <span class="math inline">\(n \times n\)</span> matrix
-<span class="math display">\[
-B = 
-\begin{bmatrix}
-1 &amp; 0 &amp;  0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-2  &amp; 2 &amp; 0  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-3  &amp; 3 &amp; 3  &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
-\vdots &amp;  &amp; &amp; \ddots &amp; &amp; \vdots \\
-n-1  &amp; n-1 &amp; n-1 &amp; n-1 &amp; \cdots &amp; n-1 &amp;  0 \\
-n  &amp; n &amp; n &amp; n &amp; \cdots &amp; n &amp;  n 
-\end{bmatrix}.
-\]</span>
-<strong>Pro Tip:</strong> when R displays a number with a <strong>large</strong> negative exponent like <code>3.700743e-17</code> then this number is <span class="math inline">\(3.700743 \times 10^{-17}\)</span> which is numerically equivalent to 0.</li>
-</ol>
+<div id="vocabulary-4" class="section level2">
+<h2><span class="header-section-number">13.2</span> Vocabulary</h2>
+<p>You should know and be able to use and explain the following <strong>terms</strong> or <strong>properties</strong>.</p>
+<ul>
+<li>Eigenvalue, eigenvector and eigenspace</li>
+<li>Characteristic equation</li>
+<li>Diagonalizable matrix</li>
+<li>Similar matrices</li>
+<li>Algebraic multiplicity of an eigenvalue</li>
+<li>Geometric multiplicity of an eigenvalue</li>
+<li>Scaling-rotation matrix</li>
+<li>Gould Index</li>
+<li>Discrete dynamical system</li>
+<li>Trajectory</li>
+<li>Dominant eigenvalue and dominant eigenvector</li>
+<li>Population model</li>
+<li>Leslie matrix</li>
+</ul>
 </div>
-<div id="lu-decomposition-of-an-invertible-matrix" class="section level2">
-<h2><span class="header-section-number">4.3</span> LU Decomposition of an Invertible Matrix</h2>
-<p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(4 \times 4\)</span> invertible matrix. Recall that if we run Gaussian Elimination on
-<span class="math inline">\([ \, A \, | \, I \, ]\)</span>
-until the first part is the RREF of matrix <span class="math inline">\(A\)</span>, then we get the matrix
-<span class="math inline">\([ \, I \, | \, A^{-1} ]\)</span>.
-In other words, this procedue is how we calculate <span class="math inline">\(A^{-1}\)</span>.</p>
-<p>But what if we stop this process at the REF of matrix <span class="math inline">\(A\)</span>? Let’s call this resulting matrix
-<span class="math inline">\([ \, B \, | \, C \, ]\)</span><br />
-where <span class="math inline">\(B\)</span> is the RREF of <span class="math inline">\(A\)</span> where all the pivots are 1, so <span class="math inline">\(B\)</span> looks like
-<span class="math display">\[
-B = \begin{bmatrix}
-1 &amp; b_{12} &amp; b_{13}&amp; b_{14}  \\
-0 &amp; 1 &amp; b_{23} &amp; b_{24}  \\
-0 &amp; 0 &amp; 1 &amp; b_{34}  \\
-0 &amp; 0 &amp; 0 &amp; 1  \\
-\end{bmatrix}
-\]</span>
-<strong>Remark:</strong> B is an example of an invertible <strong>upper triangular matrix</strong>: all the entries below the diagonal are zero.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Assume that <span class="math inline">\(A\)</span> is a <span class="math inline">\(4 \times 4\)</span> matrix such that Gaussian Elimination to REF only uses two types of Elementary Row Operations:</p>
+<div id="conceptual-thinking-4" class="section level2">
+<h2><span class="header-section-number">13.3</span> Conceptual Thinking</h2>
+<p>I should understand and be able to explain the following <strong>concepts</strong>:</p>
 <ul>
-<li>(E1) Add a multiple of one row to another</li>
-<li>(E3) Multiply a row by a nonzero constant.</li>
+<li>An eigenspace of <span class="math inline">\(A\)</span> is a subspace that is fixed under the linear transformation <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span></li>
+<li>An eigenvalue <span class="math inline">\(\lambda\)</span> with <span class="math inline">\(1 &lt;| \lambda |\)</span> corresponds to expansion</li>
+<li>An eigenvalue <span class="math inline">\(\lambda\)</span> with <span class="math inline">\(0 &lt; | \lambda | &lt; 1\)</span> corresponds to contraction</li>
+<li>A complex eigenvalue corresponds to a rotation in a 2D subspace.</li>
+<li>The eigenspace for <span class="math inline">\(\lambda\)</span> is the subspace <span class="math inline">\(\mathrm{Nul}(A - \lambda I)\)</span></li>
+<li>A matrix is not diagonalizable when it has complex eigenvalues</li>
+<li>A matrix is not diagonalizable when it has an eigenvalues whose algebraic mutiplicity is strictly larger than its geometrix multiplicity</li>
+<li>The Gould Index measures the centrality of a vertex in the network</li>
+<li>The eigenvalues of a matrix “encode some of the patterns” found in the matrix. Larger magnitude eigenvalues indicate more important patterns.</li>
+<li>The long-term behavior of a dynamical system is determined by its dominent eigenvalue and eigenvector</li>
+<li>Any population model predicts one of: long term growth, extinction, convergence to a stable population, or convergence to a stable orbit of populations.</li>
 </ul>
-<p>Explain why <span class="math inline">\(C\)</span> has the the form
-<span class="math display">\[
-   C = \begin{bmatrix}
-    c_{11} &amp; 0 &amp; 0 &amp;  0   \\
-   c_{21} &amp; c_{22} &amp; 0 &amp; 0  \\
-   c_{31} &amp; c_{32} &amp; c_{33} &amp; 0  \\
-   c_{41} &amp; c_{42} &amp; c_{43}  &amp; c_{44}  \\
-   \end{bmatrix}
-   \]</span></p>
-<p>where the diagonal elements <span class="math inline">\(c_{11}, c_{22}, c_{33}, c_{44}\)</span> are nonzero.</p>
-<p><strong>Remark:</strong> C is an example of an invertible <strong>lower triangular matrix</strong>: all the entries above the diagonal are zero.</p></li>
-<li><p>Explain why <span class="math inline">\(CA=B\)</span>.</p></li>
-<li><p>Next, you will show that the inverse matrix <span class="math inline">\(C^{-1}\)</span> is also lower triangluar. Start with the matrix <span class="math inline">\([ \, C \, | \, I \, ]\)</span>
-and perform Gaussian Elimination to put <span class="math inline">\(C\)</span> into RREF to get the matrix <span class="math inline">\([ \, I \, | \, C^{-1} ]\)</span>.</p>
-<p>Considering the lower triangular structure of <span class="math inline">\(C\)</span>, explain why putting <span class="math inline">\(C\)</span> into <span class="math inline">\(REF\)</span> actually results in the identity matrix <span class="math inline">\(I\)</span>.</p></li>
-<li><p>Use the previous three parts to show that we can factor <span class="math inline">\(A=LU\)</span> where <span class="math inline">\(L\)</span> is an invertible lower triangular matrix and <span class="math inline">\(U\)</span> is an upper triangular matrix.</p></li>
-</ol>
-<p><strong>Remark 1:</strong> You proved this for a <span class="math inline">\(4 \times 4\)</span> matrix, but your argument also works for an <span class="math inline">\(n \times n\)</span> matrix.</p>
-<p><strong>Remark 2:</strong> If Gaussian Elimination of <span class="math inline">\(A\)</span> requires row operation (E2) “exchange two rows” then we can choose to do those row swaps first. This corresponds to multiplying <span class="math inline">\(A\)</span> by an invertible <strong>permutation matrix</strong> <span class="math inline">\(P\)</span>. We then perform Gaussian Elimination on <span class="math inline">\(PA\)</span>: we can factor <span class="math inline">\(PA=LU\)</span> where <span class="math inline">\(L\)</span> is lower triangular and <span class="math inline">\(U\)</span> is upper triangular. This is called the <strong><span class="math inline">\(LU\)</span>-decomposition</strong> of <span class="math inline">\(A\)</span>.</p>
-<p><strong>Remark 3:</strong> It turns out that explicitly calculating <span class="math inline">\(A^{-1}\)</span> can lead to some very problematic rounding errors. So most solvers use the <span class="math inline">\(LU\)</span>-decomposition to solve <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> instead of calculating <span class="math inline">\(\mathsf{x} = A^{-1}\mathsf{b}\)</span>. More specifically, we replace <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> with <span class="math inline">\(LU \mathsf{x} = P^{-1} \mathsf{b}\)</span> and then solve this in two steps.</p>
-<ul>
-<li>First, we solve <span class="math inline">\(L \mathsf{y} = P^{-1}\mathsf{b}\)</span>. Because <span class="math inline">\(L\)</span> is lower triangular, this runs exactly like ``back substitution.’’</li>
-<li>Next, we solve <span class="math inline">\(U \mathsf{x} = \mathsf{y}\)</span>. Because <span class="math inline">\(L\)</span> is upper triangular, this also runs like ``back substitution.’’</li>
-</ul>
-<p><strong>Remark 4:</strong> So what can go wrong when computing <span class="math inline">\(A^{-1}\)</span>? Sometimes an invertible matrix is <em>ill-conditioned</em> which means that the rounding errors get in the way of the numerical calculation of the inverse. (Basically: you end up dividing by a number really close to 0.) The <span class="math inline">\(LU\)</span> methodology avoids this problem. You can learn more about this in MATH 365 Computational Linear Algebra.</p>
-</div>
-<div id="homogeneous-coordinates" class="section level2">
-<h2><span class="header-section-number">4.4</span> Homogeneous Coordinates</h2>
-<p>I made the following nature scene with a bird and a palm tree.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="problem-set-4.html#cb2-1"></a>bird =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">20</span>, <span class="fl">21.3</span>, <span class="fl">23.3</span>, <span class="fl">21.6</span>, <span class="fl">20.7</span>, <span class="fl">21.7</span>, <span class="fl">20.9</span>, <span class="fl">20.3</span>, <span class="fl">18.9</span>, <span class="fl">18.1</span>, <span class="fl">18.3</span>, <span class="fl">19.6</span>, <span class="fl">19.2</span>, <span class="fl">19.1</span>, <span class="fl">19.2</span>, <span class="fl">19.4</span>, <span class="dv">20</span>), </span>
-<span id="cb2-2"><a href="problem-set-4.html#cb2-2"></a>             <span class="kw">c</span>(<span class="dv">20</span>, <span class="fl">21.7</span>, <span class="fl">20.9</span>, <span class="fl">21.1</span>, <span class="fl">19.3</span>, <span class="fl">18.7</span>, <span class="dv">18</span>, <span class="fl">18.9</span>, <span class="dv">18</span>, <span class="fl">15.4</span>, <span class="fl">18.6</span>, <span class="fl">19.6</span>, <span class="dv">20</span>, <span class="fl">20.2</span>, <span class="fl">20.3</span>, <span class="fl">20.3</span>, <span class="dv">20</span>), </span>
-<span id="cb2-3"><a href="problem-set-4.html#cb2-3"></a>             <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-4"><a href="problem-set-4.html#cb2-4"></a></span>
-<span id="cb2-5"><a href="problem-set-4.html#cb2-5"></a>fronds =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="fl">2.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="fl">10.5</span>, <span class="dv">12</span>, <span class="fl">12.5</span>, <span class="fl">12.5</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="fl">15.5</span>, <span class="fl">15.5</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="fl">13.5</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">10</span>),</span>
-<span id="cb2-6"><a href="problem-set-4.html#cb2-6"></a>               <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="fl">17.5</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="fl">17.5</span>, <span class="dv">19</span>, <span class="fl">19.5</span>, <span class="fl">18.5</span>, <span class="dv">20</span>, <span class="fl">20.5</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="fl">20.5</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="fl">13.5</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">16</span>),</span>
-<span id="cb2-7"><a href="problem-set-4.html#cb2-7"></a>               <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-8"><a href="problem-set-4.html#cb2-8"></a></span>
-<span id="cb2-9"><a href="problem-set-4.html#cb2-9"></a>trunk =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="fl">7.5</span>, <span class="fl">7.5</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="fl">6.5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">10</span>),</span>
-<span id="cb2-10"><a href="problem-set-4.html#cb2-10"></a>              <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">16</span>),</span>
-<span id="cb2-11"><a href="problem-set-4.html#cb2-11"></a>              <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-12"><a href="problem-set-4.html#cb2-12"></a></span>
-<span id="cb2-13"><a href="problem-set-4.html#cb2-13"></a><span class="co"># intialize the plot</span></span>
-<span id="cb2-14"><a href="problem-set-4.html#cb2-14"></a><span class="kw">plot</span>(bird[<span class="dv">1</span>,],bird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb2-15"><a href="problem-set-4.html#cb2-15"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb2-16"><a href="problem-set-4.html#cb2-16"></a></span>
-<span id="cb2-17"><a href="problem-set-4.html#cb2-17"></a><span class="co"># plot the bird, trunk and fronds</span></span>
-<span id="cb2-18"><a href="problem-set-4.html#cb2-18"></a><span class="kw">polygon</span>(bird[<span class="dv">1</span>,], bird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb2-19"><a href="problem-set-4.html#cb2-19"></a><span class="kw">polygon</span>(fronds[<span class="dv">1</span>,], fronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb2-20"><a href="problem-set-4.html#cb2-20"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird1-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<!-- ![](images/ps4-scene1.png){width=60%} -->
-<p>However, I’ve decided that I want to make some changes.</p>
-<ul>
-<li>I want to <strong>rotate the bird</strong> by <span class="math inline">\(-\pi/2\)</span> around the point <span class="math inline">\((20,20)\)</span> where its head meets its wing.</li>
-<li>I want to <strong>enlarge the fronds</strong> (leaves) of the plam tree to be bigger by <span class="math inline">\(25\%\)</span>.</li>
-<li>I like the trunk just as it is (no changes!), so the fronds should still meet at the point <span class="math inline">\((10,16)\)</span>.</li>
-<li>I want to change the colors to make it happier.</li>
-</ul>
-<p>For example, here is what I want it to look like (though maybe there is a better color choice).</p>
-<p><img src="images/ps4-scene2.png" style="width:60.0%" /></p>
-<p>However, I’m not sure how to do this because:</p>
-<ul>
-<li>I only know how to rotate vectors around the point <span class="math inline">\((0,0)\)</span>. So how can I rotate around the point <span class="math inline">\((20,20)\)</span>?</li>
-<li>Likewise, I only know how to expand vectros from the point <span class="math inline">\((0,0)\)</span>. So how can I expand outward from the point <span class="math inline">\((10,16)\)</span>?</li>
-</ul>
-<p>I heard someone say that translations via homogeneous coordinates will help to solve my problem. But I’m not sure what to do. Help!</p>
-<p>Please submit:</p>
-<ul>
-<li>The numerical <span class="math inline">\(3 \times 3\)</span> matrix <code>birdmap</code> that you used for the bird, and an explanation of how you made it.</li>
-<li>The numerical <span class="math inline">\(3 \times 3\)</span> matrix <code>leafmap</code> that you used for the leaves, and an explanation of how you made it.</li>
-<li>Your resulting plot where you use happier <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">colors of your choice</a> that are <strong>unique to you</strong> and express your personal style. (An artist statement is optional.)</li>
-</ul>
-<p>For your convenience, here is some template code for you. Once you fill in the proper transformation, this code will make the final picture. Currently, it updates the colors, but doesn’t change the bird or the fronds (because it is using the identity transformation).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="problem-set-4.html#cb3-1"></a><span class="co">#####################</span></span>
-<span id="cb3-2"><a href="problem-set-4.html#cb3-2"></a><span class="co">######## update this code with the appropriate linear transformations</span></span>
-<span id="cb3-3"><a href="problem-set-4.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="problem-set-4.html#cb3-4"></a>birdmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb3-5"><a href="problem-set-4.html#cb3-5"></a>leafmap =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb3-6"><a href="problem-set-4.html#cb3-6"></a></span>
-<span id="cb3-7"><a href="problem-set-4.html#cb3-7"></a></span>
-<span id="cb3-8"><a href="problem-set-4.html#cb3-8"></a><span class="co">#####################</span></span>
-<span id="cb3-9"><a href="problem-set-4.html#cb3-9"></a><span class="co">######## you do not need to change this the code below this line</span></span>
-<span id="cb3-10"><a href="problem-set-4.html#cb3-10"></a></span>
-<span id="cb3-11"><a href="problem-set-4.html#cb3-11"></a>newbird =<span class="st"> </span>birdmap <span class="op">%*%</span><span class="st"> </span>bird</span>
-<span id="cb3-12"><a href="problem-set-4.html#cb3-12"></a>newfronds =<span class="st"> </span>leafmap <span class="op">%*%</span><span class="st"> </span>fronds</span>
-<span id="cb3-13"><a href="problem-set-4.html#cb3-13"></a></span>
-<span id="cb3-14"><a href="problem-set-4.html#cb3-14"></a></span>
-<span id="cb3-15"><a href="problem-set-4.html#cb3-15"></a><span class="co"># initialize the plot</span></span>
-<span id="cb3-16"><a href="problem-set-4.html#cb3-16"></a><span class="kw">plot</span>(newbird[<span class="dv">1</span>,],newbird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb3-17"><a href="problem-set-4.html#cb3-17"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb3-18"><a href="problem-set-4.html#cb3-18"></a></span>
-<span id="cb3-19"><a href="problem-set-4.html#cb3-19"></a><span class="kw">polygon</span>(newbird[<span class="dv">1</span>,], newbird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb3-20"><a href="problem-set-4.html#cb3-20"></a><span class="kw">polygon</span>(newfronds[<span class="dv">1</span>,], newfronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb3-21"><a href="problem-set-4.html#cb3-21"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird2-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Finally, here is some R code that might be helpful. It overlays the original and the new version, so that you can directly compare them. Here is what the final comparison should look like:</p>
-<p><img src="images/ps4-scene3.png" style="width:60.0%" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="problem-set-4.html#cb4-1"></a><span class="co"># initialize the plot</span></span>
-<span id="cb4-2"><a href="problem-set-4.html#cb4-2"></a><span class="kw">plot</span>(newbird[<span class="dv">1</span>,],newbird[<span class="dv">2</span>,],<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>),<span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>)</span>
-<span id="cb4-3"><a href="problem-set-4.html#cb4-3"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb4-4"><a href="problem-set-4.html#cb4-4"></a></span>
-<span id="cb4-5"><a href="problem-set-4.html#cb4-5"></a><span class="co"># plot the new bird and new fronds</span></span>
-<span id="cb4-6"><a href="problem-set-4.html#cb4-6"></a><span class="kw">polygon</span>(newbird[<span class="dv">1</span>,], newbird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb4-7"><a href="problem-set-4.html#cb4-7"></a><span class="kw">polygon</span>(newfronds[<span class="dv">1</span>,], newfronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb4-8"><a href="problem-set-4.html#cb4-8"></a></span>
-<span id="cb4-9"><a href="problem-set-4.html#cb4-9"></a><span class="co"># plot the original bird, fronds  and trunk</span></span>
-<span id="cb4-10"><a href="problem-set-4.html#cb4-10"></a><span class="kw">polygon</span>(bird[<span class="dv">1</span>,], bird[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb4-11"><a href="problem-set-4.html#cb4-11"></a><span class="kw">polygon</span>(fronds[<span class="dv">1</span>,], fronds[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb4-12"><a href="problem-set-4.html#cb4-12"></a><span class="kw">polygon</span>(trunk[<span class="dv">1</span>,], trunk[<span class="dv">2</span>,], <span class="dt">col =</span> <span class="st">&quot;brown&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="math236_handbook_files/figure-html/bird3-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p><strong>Remark:</strong> This truly is how computer animation works! We use different effects for each object, and need to use homogeneous coordinates to get our desired results.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="problem-set-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="problem-set-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-learning-goals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

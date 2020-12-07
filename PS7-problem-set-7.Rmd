@@ -127,7 +127,7 @@ c. Here are  plots of the vector fields for the three models in part (b). Match 
     i. Vector Field 1
 
     <center>    
-    ![](images/pop-model1.png){width=40%} 
+    ![](images/pop-model1.png){width=60%} 
 
 
     </center>
@@ -135,13 +135,13 @@ c. Here are  plots of the vector fields for the three models in part (b). Match 
     ii. Vector Field 2
 
     <center>    
-    ![](images/pop-model2.png){width=40%}
+    ![](images/pop-model2.png){width=60%}
     </center>
 
     iii. Vector Field 3
 
     <center>    
-    ![](images/pop-model3.png){width=40%}
+    ![](images/pop-model3.png){width=60%}
     </center>
 
 d. For each matrix model $A,B,C$, assume that the initial population is $[X_0, Y_0]^{\top} = [1, 2.5]^{\top}$ where the units are in millions of organisms. Use the corresponding vector field to visualize the trajetory starting at $[1, 2.5]^{\top}$.

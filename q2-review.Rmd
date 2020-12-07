@@ -7,7 +7,7 @@
 
 ## Overview
 
-Our first quiz covers sections 2.1 - 2.3  and 4.1-4.6 in Lay's book. This corresponds to Problem Sets 4 and 5.
+Our second quiz covers sections 2.1 - 2.3  and 4.1-4.6 in Lay's book. This corresponds to Problem Sets 4 and 5.
 
 The best way to study is to do practice problems. The Quiz will have calculation problems (like Edfinity) and more conceptual problems (like the problem sets). Here are some ways to practice:
 

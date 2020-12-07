@@ -1,0 +1,64 @@
+
+# Week 5-6 Learning Goals
+
+
+
+Here are the knowledge and skills you should master by the end of the fifth and sixth weeks.
+
+
+## Eigensystems
+
+You should be able to do the following **tasks**:
+
+* Check whether a given vector $\mathsf{v}$ is an  eigenvector for square matrix $A$.
+* Find the eigenvalues of a matrix $2 \times 2$ matrix by hand, using the  characteristic equation
+* Find the eigenvalues of a triangular matix by inspection.
+* Given the eigenvalues of matrix $A$, find the eigenvectors by solving $(A \lambda I) = \mathbf{0}$.
+* Find the eigenvalues and ("human readable") eigenvectors of an  $n \times n$ matrix $A$ using `eigen(A)` on RStudio.
+* Determine whether a matrix is diagonalizable.
+* Factor a diagonalizable $n \times n$ matrix as $A = PDP^{-1}$ where $D$ is a diagonal matrix of eigenvalues and $P$ is the matrix whose columns are the corresponding eignvectors.
+* Use RStudio to find complex eigenvalues and ("human readable") eigenvectors of a square matrix.
+* Factor a $2 \times 2$ scaling-rotation matrix as $A = P C P^{-1}$ where $C$ is a  scaling-rotation matrix $\begin{bmatrix} a & -b \\ b & a \end{bmatrix}$  and $P = [ \mathsf{w}, \mathsf{u}]$ where $\mathsf{v} = \mathsf{u} + i \mathsf{w}$ is the eigenvector for $\lambda = a + b i$.
+* Use RStudio to find the Gould Index of a network
+* Use RStudio to create a 2D plot of pairs of eigenvalues of a square matrix
+* Use the dominant eigenvalue and dominant eigenvector to determine the long-term behavior of a dynamical system
+* Create a trajectory of a $2 \times 2$ dynamical system (either using RStudio or by using a given vector field plot) and then relate the trajectory to the eigenvectors and eigenvalues
+* Interpret the constants in the  $2 \times 2$ matrix for two interacting populations (competition, predator-prey,  mutualism, etc)
+* Use RStudio to investigate the animal population modeled with  a Leslie matrix.
+
+## Vocabulary
+
+You should know and be able to use and explain the following **terms** or **properties**. 
+
+* Eigenvalue, eigenvector  and eigenspace
+* Characteristic equation
+* Diagonalizable matrix
+* Similar matrices
+* Algebraic multiplicity of an eigenvalue
+* Geometric multiplicity of an eigenvalue
+* Scaling-rotation matrix
+* Gould Index
+* Discrete dynamical system
+* Trajectory
+* Dominant eigenvalue  and dominant eigenvector
+* Population model
+* Leslie matrix
+
+## Conceptual Thinking
+
+I should understand and be able to explain the following **concepts**:
+
+* An eigenspace of $A$ is a subspace that is fixed under the linear transformation $T(\mathsf{x}) = A \mathsf{x}$
+* An eigenvalue $\lambda$ with $1 <| \lambda |$ corresponds to expansion
+* An eigenvalue $\lambda$ with $0 < | \lambda | < 1$ corresponds to contraction
+* A complex  eigenvalue  corresponds  to a rotation in a 2D subspace.
+* The eigenspace for $\lambda$ is the subspace $\mathrm{Nul}(A  - \lambda I)$
+* A matrix is  not diagonalizable when it has complex eigenvalues
+* A matrix is not diagonalizable when it has an eigenvalues whose algebraic mutiplicity is strictly larger than its geometrix multiplicity
+* The Gould Index measures the centrality of a vertex in the network
+* The eigenvalues of a matrix "encode some of the patterns" found in the matrix. Larger magnitude  eigenvalues indicate more important patterns.
+* The long-term behavior of a  dynamical system is determined by its  dominent eigenvalue and eigenvector
+* Any population model predicts one of: long term growth, extinction, convergence to a stable population, or convergence to a stable orbit of populations.
+
+
+

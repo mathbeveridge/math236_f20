@@ -1,0 +1,182 @@
+
+
+# Quiz 3 Review
+
+
+## Overview
+
+Our third quiz covers sections 5.1-5.3  and 5.5-5.6 in Lay's book. This corresponds to Problem Sets 6 and 7.
+
+The best way to study is to do practice problems. The Quiz will have calculation problems (like Edfinity) and more conceptual problems (like the problem sets). Here are some ways to practice:
+
+* Make sure that you have mastered the Vocabulary, Skills and Concepts  listed below.
+* Look over the Edfinity homework assingments
+* Do practice problems from the Edfinity Practice assignments. These allow you to "Practice Similar" by generating new variations of the same problem.
+* Try to resolve the Problem Sets and compare your answers to the solutions.
+* Do the practice problems below. Compare your answers to the solutions.
+
+### Vocabulary and Concepts
+
+
+### Skills
+
+
+
+## Practice Problems
+
+
+
+
+
+1. Consider the $3 \times 3$ matrix
+$$
+A = 
+\left[
+\begin{array}{rrr}
+2 & -1 & 0 \\
+0 & 1 & 0 \\
+-2 & 5 & -2 \\
+\end{array}
+\right]
+$$
+with characteristic equation 
+$$
+p(\lambda) = -(\lambda -1)(\lambda -2)(\lambda +2).
+$$
+Find the eigenvalues and corresponding eigenvectors for $A$.
+
+
+
+
+1. Let $A$ be a $2 \times 2$ matrix. We view $A$ as a linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$. Describe the eigenvalues for each of the following types of matrices.
+
+a. $A$ maps $\mathbb{R}^2  onto a line through the origin
+a. $A$ is a reflection  of $\mathbb{R}^2 about a line through the origin
+a. $A$ is a reflection  of $\mathbb{R}^2 through the origin
+a  $A$ is a horizontal shear
+
+
+## Solutions to Practice Problems
+
+
+1.  There are three eigenvalues: 1, 2, and  $-2$. We find an eigenvector for each of  them.
+    * Eigenvalue  $\lambda = 1$
+    $$
+    A - I = 
+    \left[
+    \begin{array}{rrr}
+    1 & -1 & 0 \\
+    0 & 0 & 0 \\
+    -2 & 5 & -3 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    1 & -1 & 0 \\
+    0 & 3 & -3 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    1 & -1 & 0 \\
+    0 & 1 & -1 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    1 & 0 & -1 \\
+    0 & 1 & -1 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    $$
+    So one eigenvector is $[1,1,1]^{\top}$
+
+
+    * Eigenvalue $\lambda = 2$
+    $$
+    A - 2I = 
+    \left[
+    \begin{array}{rrr}
+    0 & -1 & 0 \\
+    0 & -1 & 0 \\
+    -2 & 5 & -4 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    -2 & 5 & -4 \\
+    0 & -1 & 0 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    -2 & 0 & -4 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    1 & 0 & 2 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    $$
+    So one eigenvector is $[-2,0,1]^{\top}$
+  
+    * Eigenvalue $\lambda = -2$
+    $$
+    A - 2I = 
+    \left[
+    \begin{array}{rrr}
+    4 & -1 & 0 \\
+    0 & 3 & 0 \\
+    -2 & 5 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    4 & 0 & 0 \\
+    0 & 1 & 0 \\
+    -2 & 0 & 0 \\
+    \end{array}
+    \right]
+    \sim
+    \left[
+    \begin{array}{rrr}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0 \\
+    \end{array}
+    \right]
+    $$
+    So one eigenvector is $[0,0,1]^{\top}$
+
+
+
+2. 
+
+    a. $\lambda=0$ is one eigenvalue. We know that the other eigenvalue is nonzero, since we are mapping onto  a line. However, we  can't say anything more without additional information.
+  
+    b. The eigenvalues are $\lambda_1 = 1$ and $\lambda_2=-1$. Let $L$ be the line of reflection.
+        - If $\mathsf{v} = [a,b]^{\top}$ is on $L$, then $T(\mathsf{v}) = \mathsf{v}$.
+        - The vector $\mathsf{w} = [-b,a]^{\top}$ is perpendicular to $L$, so $T(\mathsf{w}) = -\mathsf{w}$.
+  
+    c. The eigenvalues are $\lambda_1 = \lambda_2=-1$ because
+    $$
+    T\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \right)
+    = \begin{bmatrix} -x_1 \\ -x_2 \end{bmatrix}
+    = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+    $$

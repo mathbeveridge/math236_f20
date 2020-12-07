@@ -1,9 +1,9 @@
-tab:unnamed-chunk-3
+tab:unnamed-chunk-2
 fig:example-2d-transformation
-tab:unnamed-chunk-57
-tab:unnamed-chunk-59
-tab:unnamed-chunk-61
-tab:unnamed-chunk-64
+tab:unnamed-chunk-56
+tab:unnamed-chunk-58
+tab:unnamed-chunk-60
+tab:unnamed-chunk-63
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -64,6 +64,10 @@ week-4-learning-goals
 vector-spaces-and-the-determinant
 vocabulary-3
 conceptual-thinking-3
+week-5-6-learning-goals
+eigensystems
+vocabulary-4
+conceptual-thinking-4
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system
@@ -164,3 +168,9 @@ vocabulary-and-concepts-1
 skills-1
 practice-problems-1
 solutions-to-practice-problems-1
+quiz-3-review
+overview-2
+vocabulary-and-concepts-2
+skills-2
+practice-problems-2
+solutions-to-practice-problems-2
