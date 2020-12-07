@@ -213,7 +213,7 @@ Here, $t$ is measured in years and $X$ and $Y$ are measured in $100,000$ animals
 ![](images/q3-wolfdeer1.png){width=60%}
 </center>
 
-    b. The population biologists consider two options to fix this system. The first option  is  a deer breeding program to increase their productivity. Their adjusted model becomes:
+    b. The population biologists consider two options to fix this system. The first option  is  a **deer breeding program** to increase their productivity. Their adjusted model becomes:
 $$
 \left[ 
 \begin{array}{r} 
@@ -245,7 +245,7 @@ $$
     Draw or describe the trajectory of the populations starting at $(X_0, Y_0) = (1,2)$ in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.
 
 
-    c. The second option they consider is a limited wolf hunting season. This reduces the productivity of the wolves, giving the new model: 
+    c. The second option they consider is a **limited wolf hunting season**. This reduces the productivity of the wolves, giving the new model: 
 $$
 \left[ 
 \begin{array}{r} 

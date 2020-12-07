@@ -13,7 +13,7 @@ This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Syste
 
 ## Glucose-Insulin System Model
 
-**Note:** Use the functions `get_trajectory(A, start, N)` and `plot_trajectory(X, title, types)` from [Modeling of Ecological Systems](Modeling of Ecological Systems) to create trajectories and plots for this question.
+**Note:** Use the functions `get_trajectory(A, start, N)` and `plot_trajectory(X, title, types)` from [Modeling of Ecological Systems][Modeling of Ecological Systems] to create trajectories and plots for this question.
 
 
 
@@ -23,11 +23,11 @@ $$
 \begin{bmatrix} G_{t+1} \\  H_{t+1} \end{bmatrix}
 =
 \begin{bmatrix} 0.998 & -0.169 \\  0.068 & 0.930 \end{bmatrix}
-\begin{bmatrix} X_{t} \\  Y_{t} \end{bmatrix}
+\begin{bmatrix} G_{t} \\  H_{t} \end{bmatrix}
 =
 \begin{bmatrix}
-a X_t + b Y_t \\
- c X_t + d Y_t \\
+a G_t + b H_t \\
+ c G_t + d H_t \\
  \end{bmatrix}
 $$
   a. Suppose that we have an intake of glucose
