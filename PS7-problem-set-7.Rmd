@@ -153,7 +153,8 @@ d. For each matrix model $A,B,C$, assume that the initial population is $[X_0, Y
 
 ##  Blue Whale Population Dynamics
 
-**Note:** Use the helper code from [Modeling of Ecological Systems](Modeling of Ecological Systems) to create trajectories and plots for this question.
+**Note:** Use the functions `get_trajectory(A, start, N)` and `plot_trajectory(X, title, types)`
+ from [Modeling of Ecological Systems](Modeling of Ecological Systems) to create trajectories and plots for this question.
 
 
 In the 1930's (before <a href="https://en.wikipedia.org/wiki/Blue_whale#Hunting_era">its virtual extinction and a great change in its survival rates</a>), a researcher studied the blue whale population. Due to the long gestation period, mating habits and migration of the blue whale, a female can produce a calf only once in a two-year period. Thus the age classes for the whale were assumed to be:

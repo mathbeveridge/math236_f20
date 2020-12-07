@@ -13,6 +13,10 @@ output: html_document
 # run this command to load some practical math functions
 require(pracma)
 
+# Creates a trajectory for the dynamical system
+# A = the matrix
+# start = the initial vector
+# N = number of iterations
 get_trajectory <- function(A, start, N) {
     ### this code follows the populations for N steps
   m = dim(A)[1]  # m is the number of rows of L
@@ -28,6 +32,10 @@ get_trajectory <- function(A, start, N) {
 }
 
 
+# Plots a trajectory along a time axis
+# X  = the trajectory
+# title = the title for the plot
+# types = a vector of the names for each of the entries of the vector.
 plot_trajectory <- function(X, title, types) {
 
   m = dim(X)[1]
