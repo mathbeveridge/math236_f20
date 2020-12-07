@@ -338,8 +338,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="25" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>25</b> Quiz 3 Review</a><ul>
 <li class="chapter" data-level="25.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>25.1</b> Overview</a><ul>
-<li class="chapter" data-level="25.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-and-concepts-2"><i class="fa fa-check"></i><b>25.1.1</b> Vocabulary and Concepts</a></li>
-<li class="chapter" data-level="25.1.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#skills-2"><i class="fa fa-check"></i><b>25.1.2</b> Skills</a></li>
+<li class="chapter" data-level="25.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>25.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>25.2</b> Practice Problems</a></li>
 <li class="chapter" data-level="25.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>25.3</b> Solutions to Practice Problems</a></li>
@@ -377,11 +376,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>Try to resolve the Problem Sets and compare your answers to the solutions.</li>
 <li>Do the practice problems below. Compare your answers to the solutions.</li>
 </ul>
-<div id="vocabulary-and-concepts-2" class="section level3">
-<h3><span class="header-section-number">25.1.1</span> Vocabulary and Concepts</h3>
-</div>
-<div id="skills-2" class="section level3">
-<h3><span class="header-section-number">25.1.2</span> Skills</h3>
+<div id="vocabulary-concepts-and-skills" class="section level3">
+<h3><span class="header-section-number">25.1.1</span> Vocabulary, Concepts and Skills</h3>
+<p>See the <a href="week-5-6-learning-goals">Week 5-6 Learning Goals</a> for the list of vocabulary, concepts and skills.</p>
 </div>
 </div>
 <div id="practice-problems-2" class="section level2">
@@ -403,13 +400,232 @@ with characteristic equation
 p(\lambda) = -(\lambda -1)(\lambda -2)(\lambda +2).
 \]</span>
 Find the eigenvalues and corresponding eigenvectors for <span class="math inline">\(A\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(2 \times 2\)</span> matrix. We view <span class="math inline">\(A\)</span> as a linear transformation from <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>. Describe the eigenvalues for each of the following types of matrices.</p></li>
-</ol>
+<li><p>Let <span class="math inline">\(A\)</span> be a <span class="math inline">\(2 \times 2\)</span> matrix. We view <span class="math inline">\(A\)</span> as a linear transformation from <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>. Describe the eigenvalues for each of the following types of matrices.</p>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(A\)</span> maps $^2 onto a line through the origin</li>
-<li><span class="math inline">\(A\)</span> is a reflection of $^2 about a line through the origin</li>
-<li><span class="math inline">\(A\)</span> is a reflection of $^2 through the origin
-a <span class="math inline">\(A\)</span> is a horizontal shear</li>
+<li><span class="math inline">\(A\)</span> maps <span class="math inline">\(\mathbb{R}^2\)</span> onto a line through the origin</li>
+<li><span class="math inline">\(A\)</span> is a reflection of <span class="math inline">\(\mathbb{R}^2\)</span> about a line through the origin</li>
+<li><span class="math inline">\(A\)</span> is a reflection of <span class="math inline">\(\mathbb{R}^2\)</span> through the origin</li>
+<li><span class="math inline">\(A\)</span> is a horizontal shear</li>
+</ol></li>
+<li><p>Below are the eigenvalues of four different <span class="math inline">\(5 \times 5\)</span> matrices. For each, decide if the matrix is invertible and if it is diagonalizable.
+Answer Yes, No or “Not enough information to determine this.”</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A\)</span> has eigenvalues <span class="math inline">\(\lambda = -4, -3,0,1, 2\)</span></li>
+<li><span class="math inline">\(B\)</span> has eigenvalues <span class="math inline">\(\lambda = -3, -1, 1, \sqrt{2}, 8.\)</span></li>
+<li><span class="math inline">\(C\)</span> has eigenvalues <span class="math inline">\(\lambda = 1, 2, 2, 7, 8.\)</span></li>
+<li><span class="math inline">\(D\)</span> has eigenvalues <span class="math inline">\(\lambda = -1, 0, 3,3, 10\)</span></li>
+</ol></li>
+<li><p>Here the diagonalization of a matrix:
+<span class="math display">\[
+ \mathsf{A}=\left[
+\begin{array}{ccc}
+ 5 &amp; 2 &amp; -1 \\
+ 2 &amp; 1 &amp; 0 \\
+ -1 &amp; 0 &amp; 1 \\
+\end{array}
+\right] = 
+\left[
+\begin{array}{ccc}
+ -5 &amp; 0 &amp; 1 \\
+ -2 &amp; 1 &amp; -2 \\
+ 1 &amp; 2 &amp; 1 \\
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+ 6 &amp; 0 &amp; 0 \\
+ 0 &amp; 1 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 \\
+\end{array}
+\right]\left[
+\begin{array}{ccc}
+ -\frac{1}{6} &amp; -\frac{1}{15} &amp; \frac{1}{30} \\
+ 0 &amp; \frac{1}{5} &amp; \frac{2}{5} \\
+ \frac{1}{6} &amp; -\frac{1}{3} &amp; \frac{1}{6} \\
+\end{array}
+\right].
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Is the matrix <span class="math inline">\(\mathsf{A}\)</span> invertible?</li>
+<li>Find a nonzero vector in <span class="math inline">\(\mathrm{Nul}(\mathsf{A})\)</span> if one exists.</li>
+<li>Find a steady-state vector <span class="math inline">\(\mathsf{v}\)</span> such that <span class="math inline">\(\mathsf{A} \mathsf{v} = \mathsf{v}\)</span> if one exists.</li>
+<li>Give the coordinates of <span class="math inline">\(\mathsf{v} = [1,2,3]^T\)</span> in the eigenbasis without row reductions.</li>
+<li>Find a closed formula for <span class="math inline">\(\mathsf{A}^{2020} \mathsf{v}\)</span> if <span class="math inline">\(\mathsf{v} = [1,2,3]^T\)</span>.</li>
+</ol></li>
+<li><p>The eigensystem of matrix <span class="math inline">\(A\)</span> is given below. It has complex eigenvalues. What angle does it rotate by? What factor does it scale by?
+<span class="math display">\[
+\begin{bmatrix} 3 &amp; -5 \\ 1 &amp; -1 \end{bmatrix}, \qquad
+\lambda = 1 \pm i,
+\qquad
+v = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \pm \begin{bmatrix} 1 \\ 0 \end{bmatrix} i.
+\]</span></p></li>
+<li><p>Using the matrix <span class="math inline">\(B = = \begin{bmatrix} .97 &amp; -.71 \\ .71 &amp; .97 \end{bmatrix}\)</span> and the starting vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span>, I plotted the points
+<span class="math display">\[\mathsf{v}, B \mathsf{v}, B^2\mathsf{v}, B^3 \mathsf{v}, \ldots.\]</span>
+I saw that these points are, roughly, going around in a circle.</p>
+<ol style="list-style-type: lower-alpha">
+<li>How many multiplications by <span class="math inline">\(B\)</span> does it take to get back around to the positive <span class="math inline">\(x\)</span>-axis?<br />
+</li>
+<li>When I come full circle, am I closer to the origin, farther from the origin, or the same distance to the origin?</li>
+</ol></li>
+<li><p>For each matrix below, decide if it is diagonalizable. You do not need to diagonalize the matrix (though you can!), but you must give a reason for why the matrix is or is not diagonalizable.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A = \begin{bmatrix} 0 &amp; -4 &amp; 2 \\ 2 &amp; -4 &amp; -1 \\ -6 &amp; 4 &amp; 7 \end{bmatrix}\)</span> has eigenvalues <span class="math inline">\(4, -1, 0\)</span>.</p></li>
+<li><p><span class="math inline">\(B = \begin{bmatrix} 3 &amp; -1 &amp; 2 \\ -1 &amp; 3 &amp; 2 \\ 2&amp;2 &amp; 0 \end{bmatrix}\)</span> has eigenvalues <span class="math inline">\(4,4,-2\)</span>.</p></li>
+</ol></li>
+<li><p>Consider the matrix with eigenvalues and eigenvectors
+<span class="math display">\[
+A = \begin{bmatrix} 0.7 &amp; 0.2 \\ 0.3 &amp; 0.8 \end{bmatrix}
+\qquad
+\begin{array}{cc}
+\lambda_1 = 1  &amp; \lambda_2 = .5 \\
+\mathsf{v}_1 = \begin{bmatrix} 2 \\ 3 \end{bmatrix} &amp; \mathsf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
+\end{array}
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Diagonalize <span class="math inline">\(A\)</span>.</li>
+<li>What can you say about <span class="math inline">\(\displaystyle{\lim_{n \to \infty}} A^n\)</span>?</li>
+<li>Give a closed formula for <span class="math inline">\(A^n \mathsf{x}_0\)</span> if <span class="math inline">\(\mathsf{x}_0 = \begin{bmatrix} 25 \\ 0 \end{bmatrix}\)</span>.</li>
+<li>What is <span class="math inline">\(\displaystyle{\lim_{n \to \infty}} A^n \begin{bmatrix} 25 \\ 0 \end{bmatrix}\)</span>?</li>
+</ol></li>
+<li><p>The matrix <span class="math inline">\(A\)</span> below has the given eigenvalues and eigenvectors.
+<span class="math display">\[
+A = \left[
+\begin{array}{cc}
+ \frac{1}{2} &amp; \frac{1}{5} \\
+ -\frac{2}{5} &amp; \frac{9}{10} \\
+\end{array}
+\right]
+\qquad
+\begin{array}{c}
+\lambda = .7  \pm .2 i \\
+\mathsf{v} = \begin{bmatrix} \frac{1}{2} \\ 1 \end{bmatrix} \pm   \begin{bmatrix} -\frac{1}{2} \\ 0 \end{bmatrix} i
+\end{array}\hskip5in
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Factor <span class="math inline">\(A=PCP^{-1}\)</span> where <span class="math inline">\(C\)</span> is a rotation-scaling matrix.</li>
+<li>What is the angle of rotation?</li>
+<li>What is the factor of dilation?</li>
+<li>Give a formula for <span class="math inline">\(A^n\)</span>.</li>
+</ol></li>
+<li><p>In a 1962 study of rainfall in Tel Aviv, it was determined that if today is a wet day, then the probability that tomorrow will be wet is 0.662 and the probability that tomorrow it will be dry is 0.338. If today is a dry day, then the probability that tomorrow is wet is 0.250 and the probability that tomorrow is dry will be 0.75. From this I computed the following:
+<span class="math display">\[
+A = \begin{bmatrix} 0.662 &amp; 0.25 \\ 0.338 &amp; 0.75\end{bmatrix};
+\qquad
+\begin{array}{cc}
+ \lambda_1 = 1.0 &amp; \lambda_2 = 0.412 \\
+ \mathsf{v}_1 = \begin{bmatrix}-0.595 \\ -0.804 \end{bmatrix} &amp; \quad \mathsf{v}_2 = \begin{bmatrix}-0.707\\ 0.707 \end{bmatrix}
+ \end{array}
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>If Monday is a dry day, what is the probability that Wednesday will be wet?</li>
+<li>In the long-run, what is the distribution of wet and dry days?</li>
+</ol></li>
+<li><p>Conservation biologists in the Minnesota boundary waters have modeled the predator-prey dynamics of Grey Wolves <span class="math inline">\(X\)</span> and White Tailed Deer <span class="math inline">\(Y\)</span>, which have a predator-prey relationship:
+<span class="math display">\[
+\left[ 
+\begin{array}{r} 
+X_{t+1} \\ Y_{t+1} 
+\end{array}
+\right]
+=
+\left[ 
+\begin{array}{rr} 
+0.7 &amp; 0.4 \\
+-0.2 &amp; 1.2
+\end{array}
+\right]
+\left[ 
+\begin{array}{r} 
+X_{t} \\ Y_{t} 
+\end{array}
+\right]
+\qquad \mbox{where} \qquad
+X_0=1 \mbox{ and } Y_0=2. 
+\]</span>
+Here, <span class="math inline">\(t\)</span> is measured in years and <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are measured in <span class="math inline">\(100,000\)</span> animals.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The plot below shows the vector field for this dynamical system. Draw or describe the trajectory of the populations starting at <span class="math inline">\([X_0, Y_0] = [1,2]\)</span>. In one or two sentences, describe what happens to these populations over time.</p>
+<center>
+<p><img src="images/q3-wolfdeer1.png" style="width:60.0%" /></p>
+</center></li>
+<li><p>The population biologists consider two options to fix this system. The first option is a deer breeding program to increase their productivity. Their adjusted model becomes:
+<span class="math display">\[
+\left[ 
+\begin{array}{r} 
+X_{t+1} \\ Y_{t+1} 
+\end{array}
+\right]
+=
+\left[ 
+\begin{array}{rr} 
+0.7 &amp; 0.4 \\
+-0.2 &amp; 1.3
+\end{array}
+\right]
+\left[ 
+\begin{array}{r} 
+X_{t} \\ Y_{t} 
+\end{array}
+\right]
+\]</span>
+whose transition matrix has eigenvectors and eigenvalues
+<span class="math display">\[
+\lambda_1 = 1.1  \mbox{ with eigenvector }  \begin{bmatrix} 1 \\ 1 \end{bmatrix} 
+\quad \mbox{and} \quad
+\lambda_2 = 0.9  \mbox{ with eigenvector }   \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}. 
+\]</span></p>
+<center>
+<p><img src="images/q3-wolfdeer2.png" style="width:60.0%" /></p>
+</center>
+<p>Draw or describe the trajectory of the populations starting at <span class="math inline">\((X_0, Y_0) = (1,2)\)</span> in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.</p></li>
+<li><p>The second option they consider is a limited wolf hunting season. This reduces the productivity of the wolves, giving the new model:
+<span class="math display">\[
+\left[ 
+\begin{array}{r} 
+X_{t+1} \\ Y_{t+1} 
+\end{array}
+\right]
+=
+\left[ 
+\begin{array}{rr} 
+0.6 &amp; 0.4 \\
+-0.2 &amp; 1.2
+\end{array}
+\right]
+\left[ 
+\begin{array}{r} 
+X_{t} \\ Y_{t} 
+\end{array}
+\right]
+\]</span>
+whose transition matrix has eigenvectors and eigenvalues
+<span class="math display">\[
+\lambda_1 = 1  \mbox{ with eigenvector }  \begin{bmatrix} 1 \\ 1 \end{bmatrix}  \quad \mbox{and} \quad
+\lambda_2 = 0.8 \mbox{ with eigenvector }   \begin{bmatrix} 1 \\ 0.5 \end{bmatrix} 
+\]</span></p>
+<center>
+<p><img src="images/q3-wolfdeer3.png" style="width:60.0%" /></p>
+</center>
+<p>Once again, draw or desctibe the trajectory of the populations starting at <span class="math inline">\((X_0, Y_0) = (1,2)\)</span> in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.</p></li>
+<li><p>The conservation biologists want to create a stable ecosystem, where the populations of deer and wolves remain constant over time. Which option (deer breeding or limited wolf hunting) would you recommend?</p></li>
+</ol></li>
+<li><p>A population of female bison is split into three groups: juveniles who are
+less than one year old; yearlings between one and two years old; and adults who
+are older than two years. Each year,</p>
+<ul>
+<li>80% of the juveniles survive to become yearlings.</li>
+<li>90% of the yearlings survive to become adults.</li>
+<li>80% of the adults survive.</li>
+<li>40% of the adults give birth to a juvenile
+Let
+<span class="math inline">\(\mathsf{x}_t = \begin{bmatrix} J_t \\ Y_t \\ A_t \end{bmatrix}\)</span> be the
+state of the system in year <span class="math inline">\(t\)</span>.</li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li>Find the Leslie matrix <span class="math inline">\(L\)</span> such that <span class="math inline">\(\mathsf{x}_{t+1} = B \mathsf{x}_t.\)</span>.</li>
+<li>Find the eigenvalues of <span class="math inline">\(L\)</span>.</li>
+<li>The matrix <span class="math inline">\(L\)</span> has two complex eigenvalues and one real eigenvalue. How do the complex eigenvectors manifest in the trajectory of a population?</li>
+<li>What is the long-term behavior of the herd? Will the size of the herd grow, stablilize or shrink? What will be the proportions of juveniles, yearlings and adults in the herd?</li>
+</ol></li>
 </ol>
 </div>
 <div id="solutions-to-practice-problems-2" class="section level2">
@@ -531,6 +747,7 @@ So one eigenvector is <span class="math inline">\([0,0,1]^{\top}\)</span></p></l
  = \begin{bmatrix} -x_1 \\ -x_2 \end{bmatrix}
  = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
  \]</span></p></li>
+<li><p>There is one eigenvalue <span class="math inline">\(\lambda=1\)</span> with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a shear matrix is not diagonalizable.</p></li>
 </ol></li>
 </ol>
 

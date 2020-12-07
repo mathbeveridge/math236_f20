@@ -338,8 +338,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="25" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>25</b> Quiz 3 Review</a><ul>
 <li class="chapter" data-level="25.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>25.1</b> Overview</a><ul>
-<li class="chapter" data-level="25.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-and-concepts-2"><i class="fa fa-check"></i><b>25.1.1</b> Vocabulary and Concepts</a></li>
-<li class="chapter" data-level="25.1.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#skills-2"><i class="fa fa-check"></i><b>25.1.2</b> Skills</a></li>
+<li class="chapter" data-level="25.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>25.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>25.2</b> Practice Problems</a></li>
 <li class="chapter" data-level="25.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>25.3</b> Solutions to Practice Problems</a></li>
@@ -582,22 +581,22 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <span id="cb128-3"><a href="modeling-of-ecological-systems.html#cb128-3"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
-## [1]  0.8871688+0.0000000i -0.3053909+0.7049316i -0.3053909-0.7049316i
-## [4] -0.1381935+0.0946928i -0.1381935-0.0946928i
+## [1]  0.8871688+0.0000000i -0.3053909+0.7049316i -0.3053909-0.7049316i -0.1381935+0.0946928i
+## [5] -0.1381935-0.0946928i
 ## 
 ## $vectors
-##                 [,1]                        [,2]                        [,3]
-## [1,] 0.9982530311+0i  9.975971e-01+0.000000e+00i  9.975971e-01+0.000000e+00i
-## [2,] 0.0562606057+0i -2.580999e-02-5.957701e-02i -2.580999e-02+5.957701e-02i
-## [3,] 0.0177564522+0i -1.618518e-02+1.726352e-02i -1.618518e-02-1.726352e-02i
-## [4,] 0.0032023584+0i  4.639142e-03+1.663816e-03i  4.639142e-03-1.663816e-03i
-## [5,] 0.0002887711+0i -3.305712e-05-5.121576e-04i -3.305712e-05+5.121576e-04i
-##                       [,4]                  [,5]
-## [1,]  0.7864719+0.0000000i  0.7864719+0.0000000i
-## [2,] -0.1936371-0.1326839i -0.1936371+0.1326839i
-## [3,]  0.1416272+0.3658824i  0.1416272-0.3658824i
-## [4,]  0.0859429-0.3647277i  0.0859429+0.3647277i
-## [5,] -0.1323078+0.1204805i -0.1323078-0.1204805i</code></pre>
+##                 [,1]                        [,2]                        [,3]                  [,4]
+## [1,] 0.9982530311+0i  9.975971e-01+0.000000e+00i  9.975971e-01+0.000000e+00i  0.7864719+0.0000000i
+## [2,] 0.0562606057+0i -2.580999e-02-5.957701e-02i -2.580999e-02+5.957701e-02i -0.1936371-0.1326839i
+## [3,] 0.0177564522+0i -1.618518e-02+1.726352e-02i -1.618518e-02-1.726352e-02i  0.1416272+0.3658824i
+## [4,] 0.0032023584+0i  4.639142e-03+1.663816e-03i  4.639142e-03-1.663816e-03i  0.0859429-0.3647277i
+## [5,] 0.0002887711+0i -3.305712e-05-5.121576e-04i -3.305712e-05+5.121576e-04i -0.1323078+0.1204805i
+##                       [,5]
+## [1,]  0.7864719+0.0000000i
+## [2,] -0.1936371+0.1326839i
+## [3,]  0.1416272-0.3658824i
+## [4,]  0.0859429+0.3647277i
+## [5,] -0.1323078-0.1204805i</code></pre>
 <p>The largest eigenvalue 0.887 is less than 1. So the population is going to die out.</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="modeling-of-ecological-systems.html#cb130-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
 <span id="cb130-2"><a href="modeling-of-ecological-systems.html#cb130-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>

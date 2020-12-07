@@ -170,7 +170,6 @@ practice-problems-1
 solutions-to-practice-problems-1
 quiz-3-review
 overview-2
-vocabulary-and-concepts-2
-skills-2
+vocabulary-concepts-and-skills
 practice-problems-2
 solutions-to-practice-problems-2
