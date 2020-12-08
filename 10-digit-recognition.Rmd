@@ -1,0 +1,220 @@
+
+
+# Digit Recognition
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, echo=TRUE, message=FALSE}
+library(readr)
+require(pracma)
+
+test <- data.matrix(read_csv("/Users/abeverid/RProjects/math236_f20/data/digit-test.csv", col_names = FALSE))
+centroids <- data.matrix(read_csv("/Users/abeverid/RProjects/math236_f20/data/digit-centroid.csv", col_names = FALSE))
+
+# take the transpose so that we can deal with column vectors (which is what we are used to)
+test=t(test)
+centroids=t(centroids)
+
+
+```
+
+
+
+
+
+```{r}
+
+plot_digit <- function(d) {
+  dim(d) <- c(16, 16)
+  d = d[,ncol(d):1 ]
+  
+  return (image(d, axes = FALSE, col = grey(seq(0, 1, length = 256))))
+}
+
+```
+
+
+```{r, out.width = "200px"}
+library(grid)
+images = vector()
+
+for (i in 0:9) {
+    dimg = centroids[2:257,i+1]
+    images <- c(images, plot_digit(dimg))
+  }
+```
+
+
+
+
+
+## Get Length, Distance and Angle
+
+```{r}
+
+get_length <- function(colvec) {
+  dist = sqrt(t(colvec) %*% colvec)
+  return (dist)
+}
+
+
+get_distance <- function(colvec1, colvec2) {
+  v = colvec1 - colvec2
+  
+  return (get_length(v))
+} 
+
+
+
+get_angle <- function(colvec1, colvec2) {
+  dotprod = t(colvec1) %*% colvec2
+  len1 = get_length(colvec1)
+  len2 = get_length(colvec2)
+  
+  val = dotprod / (len1 * len2)
+  angle = acos(val)
+  
+  return (angle)
+  
+} 
+
+
+get_distance(cbind(c(1,2,3)), cbind(c(2,2,2)))
+
+get_angle(cbind(c(1,2,3)), cbind(c(1,2,3)))
+
+
+
+```
+## Get Closest by Distance
+
+```{r}
+
+
+
+
+# Finds closest centroid to the given data
+# data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data
+# centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. 
+get_closest_by_distance <- function(data, centroids) {
+  idx = 0
+  min_dist = 1024
+  
+  for (i in 1:10) {
+    colvec1 = centroids[2:257,i]
+    colvec2 = data[2:257]
+    
+    dist = get_distance(colvec1, colvec2)
+    
+    if (dist < min_dist) {
+      idx = i
+      min_dist = dist
+    }
+  }
+  
+  return (idx)
+  
+}
+
+
+
+results = matrix(0, nrow=10, ncol=10)
+
+# try to match each column of the test data
+for (i in 1:dim(test)[2]) {
+  true_digit = data.matrix(test[1, i]) + 1
+  digit_data = data.matrix(test[,i])
+  matched_digit = get_closest_by_distance(digit_data, centroids)
+  results[true_digit,matched_digit] = results[true_digit,matched_digit]+1
+}
+  
+
+labels=c(0:9)
+colnames(results) <- labels
+rownames(results) <- labels
+
+results
+
+sprintf('matched: %f percent' , sum(diag(results))/sum(results) * 100) 
+
+```
+
+
+
+
+## Get Closest by Angle
+
+```{r}
+
+
+get_closest_angle <- function(data, centroids) {
+  idx = 0
+  minangle = pi
+
+  for (i in 1:10) {
+   angle = get_angle(data[2:257,1], centroids[2:257,i])
+   
+   #print(mycos)
+    
+    if (angle < minangle) {
+      idx = i
+      minangle = angle
+    }
+  }
+  
+  return (idx)
+}
+
+
+#rownum = 10
+#d = data.matrix(test[rownum, 2:257])
+
+#dim(d)
+#dim(normdigitavg)
+
+#idx = get_closest_angle(d,normdigitavg)
+#data.matrix(test[rownum, 1])
+
+#plot_digit(digitavg[idx,])
+#plot_digit(d)
+
+
+results = matrix(0, nrow=10, ncol=10)
+
+for (i in 1:dim(test)[2]) {
+  true_digit = data.matrix(test[1, i]) + 1
+  digit_data = data.matrix(test[, i])
+  matched_digit = get_closest_angle(digit_data, centroids)
+  results[true_digit,matched_digit] = results[true_digit,matched_digit]+1
+}
+  
+
+
+labels=c(0:9)
+colnames(results) <- labels
+rownames(results) <- labels
+
+results
+
+sprintf('matched: %f percent' , sum(diag(results))/sum(results) * 100) 
+
+
+```
+```{r}
+dim(test)[1]
+```
+
+```{r}
+labels = c(0:9)
+resultframe = data.frame(row.names=labels, results)
+names(resultframe) = labels
+resultframe
+```
+
+
+
+
+
