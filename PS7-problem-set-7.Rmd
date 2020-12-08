@@ -318,7 +318,7 @@ estimate_nearest_eigenvector <- function(A, c, numiter) {
 
 ```
 
-**Your Task:** Use this code to confirm that we can really find the other three eigenvectors for matrix $A$ above. 
+**Your Task:** Use this code to confirm that we can really find the other three eigenvalues for matrix $A$ above. 
 
   - Run this code using a guess for each of the 3 remaining eigenvalues. 
   - Confirm that this code does find the correct eigenvalue, provided that you run for enough iterations.
