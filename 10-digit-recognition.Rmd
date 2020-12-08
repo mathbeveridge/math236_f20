@@ -82,6 +82,7 @@ for (i in 1:6) {
 
 
 Next, let's talk about our training data. The original training data has 7291 different digits. Different machine learning techniques will use this data in different ways. But each of them follows the same idea: 
+
 * Define a measure of "closenesss" to the training data of known digits. 
 * Then compare the new (unknown) digits and categorize it according to the best fit to the training data.
 
@@ -112,7 +113,7 @@ Here is our simple machine learning algorithm. For each test digit:
 We will consider two definitions of "closeness." Both are calculated using the dot product!
 
 1. The distance between the vectors in $\mathbb{R}^{256}$. This **Euclidean distance** or **Pythagorean distance** is probably what you were thinking of when I started talking about distance in high dimensions.
-2. The angle between the vectors in $\mathbb{R}^{256}$. Interesting! Does this surprise you?  Why is this a reasonable way to measure distance. Well, span is one of the two fundamental characteristics of linear algebra (the other is linear independence). By measuring the angle between the vectors, we have a notion of distance between the span of each vector. In other words, **the angle measures the distance between a pair of one-dimensional subspaces**.  This measure is known as **cosine similarity**.
+2. The angle between the vectors in $\mathbb{R}^{256}$. Interesting! Does this surprise you?  Why is this a reasonable way to measure distance? Well, span is one of the two fundamental characteristics of linear algebra (the other is linear independence). By measuring the angle between the vectors, we have a notion of distance between the span of each vector. In other words, **the angle measures the distance between a pair of one-dimensional subspaces**.  This measure is known as **cosine similarity**.
 
 
 
@@ -139,6 +140,12 @@ $$
 d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 \theta = \cos^{-1} \left( \frac{\mathsf{v} \cdot \mathsf{v}}{\| \mathsf{v} \| \, \| \mathsf{w} \|} \right).
 $$
+
+Here are some R functions that you will need.
+
+* The dot product of two column vectors `colvec1` and `colvec2`  is calculated by `t(colvec1) %*% colvec2`. Here we are tranposing `colvec` to turn it into a row vector.
+* The square root of `y` is calculated by `sqrt(y)`.
+* The inverse cosine of `x` is calculated by `acos(x)`. 
 
 
 ```{r, echo=TRUE}
