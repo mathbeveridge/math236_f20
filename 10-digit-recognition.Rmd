@@ -2,99 +2,232 @@
 
 # Digit Recognition
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+[Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/10-digit-recognition.Rmd)
+
+**Machine Learning** has become a big part of our daily experience. When my phone suggests that it's time for bed, or volunteers how long my today's commute will be, I am benefiting from machine learning. My phone has learned my patterns and is predicting what might be useful for me today based on past data.
+
+Rather than being "told" the answer up front, a machine learning algorithm **learns what to do by analyzing training data**. The algorithm  then uses patterns to decide what to do with new data.  In other words, these algorithms learn from experience, just like humans do. That's why machine learning falls under the umbrella of artificial intelligence.
+
+And guess what sits at the heart of machine learning? That's right: **linear algebra.** Today we will create a rudimentary machine learning algorithm using the dot product in a high-dimensional space.
+
+## US Post Office Zip Code Data
+
+We will look at a classic machine learning problem: identifying hand-written digits. Our data comes from the U.S. Postal Service: each digit comes zip codes automatically scanned from envelopes. I found this data at [this Machine Learning course page at Stanford](https://web.stanford.edu/~hastie/StatLearnSparsity_files/DATA/zipcode.html), but it originates from the neural network group at AT&T research labs. I've made a copy of the data, and pre-processed the training data (to speed things up for us).
+
+Let's load the data and print out the first 10 rows and columns of the test data.
 
 
 ```{r, echo=TRUE, message=FALSE}
 library(readr)
 require(pracma)
 
-test <- data.matrix(read_csv("/Users/abeverid/RProjects/math236_f20/data/digit-test.csv", col_names = FALSE))
-centroids <- data.matrix(read_csv("/Users/abeverid/RProjects/math236_f20/data/digit-centroid.csv", col_names = FALSE))
+digit.test.file = 'https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-test.csv'
+digit.centroids.file = 'https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-centroid.csv'
+
+test <- data.matrix(read_csv(digit.test.file, col_names = FALSE))
+centroids <- data.matrix(read_csv(digit.centroids.file, col_names = FALSE))
 
 # take the transpose so that we can deal with column vectors (which is what we are used to)
 test=t(test)
 centroids=t(centroids)
 
+dim(test)
+test[1:10,1:10]
 
 ```
 
 
+The data set has 257 rows and 2007 columns. Each column of the data corresponds to a hand-written digit. So the test data has 2007 hand-written digits. 
+
+
+### Visualizing the Data
+
+Here is how the data is formatted.
+
+* The first value in each column tells you the correct digit. Looking at the data above, we see that the first ten hand-written digits are $9,6,3,6,6,0,0,0,6,9$. 
+* The remaining 256 values in each column correspond to a grayscale image of the digit. 
+
+We must reshape this $256 \times 1$ column vector into a $16 \times 16$ matrix in order to display it. The following code will display the handwritten image for a given column. (Note: You don't have to understand this code.)
 
 
 
-```{r}
+```{r, echo=TRUE}
 
-plot_digit <- function(d) {
-  dim(d) <- c(16, 16)
-  d = d[,ncol(d):1 ]
+# Takes in a vector of length 257 and creates an image form entries 2:257
+# digitcol: a 257 x 1 vector. The first entry is the digit classification. The remaining 256 entries are the 16 x 16 image.
+plot_digit <- function(digitcol) {
+  img = digitcol[2:257]
+  dim(img) <- c(16, 16)
+  img = img[,ncol(img):1 ]
   
-  return (image(d, axes = FALSE, col = grey(seq(0, 1, length = 256))))
+  image(img, axes = FALSE, col = grey(seq(0, 1, length = 256)))
 }
 
 ```
 
 
-```{r, out.width = "200px"}
+Now let's display a few random digits from the test dataset. Feel free to re-run this block a few times. You'll see different examples each time!
+
+```{r digitsamples, out.width = "200px", out.height = "200px", echo=TRUE}
+
+
+samp = sample(1:dim(test)[2], 6, replace=FALSE)
+
+for (i in 1:6) {
+  print(test[1,samp[i]])
+  plot_digit(test[,samp[i]])
+}
+
+```
+
+
+Next, let's talk about our training data. The original training data has 7291 different digits. Different machine learning techniques will use this data in different ways. But each of them follows the same idea: 
+* Define a measure of "closenesss" to the training data of known digits. 
+* Then compare the new (unknown) digits and categorize it according to the best fit to the training data.
+
+Our goal today is to **highlight the role of linear algebra**, not come up with a high-performance algorithm. So we will simplify our training set. I have pre-processed the 7291 training digits and found the "average" vector for each digit. 
+We will refer to these 10 training vectors as **centroids** since we are finding the vector in the center of all the training digits of each type. Since these are averages, when we plot them, they will look like blurry versions of the actual digit.  Let's look. 
+
+
+
+```{r digitcentroid, out.width = "200px", out.height = "200px", echo=TRUE}
 library(grid)
 images = vector()
 
 for (i in 0:9) {
-    dimg = centroids[2:257,i+1]
-    images <- c(images, plot_digit(dimg))
+    dimg = centroids[,i+1]
+    plot_digit(dimg)
   }
 ```
 
 
+### A Simple Machine Learning Algorithm
+
+Here is our simple machine learning algorithm. For each test digit:
+
+* Find the centroid that is closest to that digit.
+* Classify the test digit as the same type as that centroid.
+
+
+We will consider two definitions of "closeness." Both are calculated using the dot product!
+
+1. The distance between the vectors in $\mathbb{R}^{256}$. This **Euclidean distance** or **Pythagorean distance** is probably what you were thinking of when I started talking about distance in high dimensions.
+2. The angle between the vectors in $\mathbb{R}^{256}$. Interesting! Does this surprise you?  Why is this a reasonable way to measure distance. Well, span is one of the two fundamental characteristics of linear algebra (the other is linear independence). By measuring the angle between the vectors, we have a notion of distance between the span of each vector. In other words, **the angle measures the distance between a pair of one-dimensional subspaces**.  This measure is known as **cosine similarity**.
 
 
 
-## Get Length, Distance and Angle
+So let's get started.
 
-```{r}
+* **Here is the good news**: I've written the code to process all 2007 of the digits and then compare the classification to the true classification. I then output a matrix whose $(i,j)$-th entry counts the number of time digit $i$ was classified as digit $j$. (So we hope that the diagonal entries will be big!)
+
+* **Here's the even better news**: I've left three functions for you to implement using the dot product. 
+
+
+
+## Length, Distance and Angle
+
+
+Here are the three methods that you must implement:
+
+* `get_length(colvec)`
+* `get_distance(colvec1, colvec2)`
+* `get_angle(colvec1, colvec2)`
+
+Implement these methods according to the definitions:
+$$
+\| \mathsf{v} \| = \sqrt{ \mathsf{v} \cdot \mathsf{v}}, \qquad 
+d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
+\theta = \cos^{-1} \left( \frac{\mathsf{v} \cdot \mathsf{v}}{\| \mathsf{v} \| \, \| \mathsf{w} \|} \right).
+$$
+
+
+```{r, echo=TRUE}
 
 get_length <- function(colvec) {
-  dist = sqrt(t(colvec) %*% colvec)
-  return (dist)
+  # replace with your implementation
+  len = 1
+  
+  return (len)
 }
 
 
 get_distance <- function(colvec1, colvec2) {
-  v = colvec1 - colvec2
+  # replace with your implementation
+  dist = 1
   
-  return (get_length(v))
+  return (dist)
 } 
 
 
-
 get_angle <- function(colvec1, colvec2) {
-  dotprod = t(colvec1) %*% colvec2
-  len1 = get_length(colvec1)
-  len2 = get_length(colvec2)
-  
-  val = dotprod / (len1 * len2)
-  angle = acos(val)
+  # replace with your implementation
+  angle = 0
   
   return (angle)
   
 } 
 
-
-get_distance(cbind(c(1,2,3)), cbind(c(2,2,2)))
-
-get_angle(cbind(c(1,2,3)), cbind(c(1,2,3)))
+```
 
 
+Here is some test code you can use to confirm that your implementations are correct.
+
+```{r, echo=TRUE}
+
+if (get_length(c(3,4)) ==5) {
+  print('get_length passed test 1')
+} else {
+  print('get_length FAILED test 1')
+}
+
+if (get_length(c(1,2,-2,1)) == sqrt(10)) {
+  print('get_length passed test 2')
+} else {
+  print('get_length FAILED test 2')
+}
+
+
+if (get_distance(c(3,4,5),c(2,-1,-3)) ==sqrt(90)) {
+  print('get_distance passed test 1')
+} else {
+  print('get_distance FAILED test 1')
+}
+
+if (get_distance(c(1,2,-2,1),c(1,2,-2,1)) == 0) {
+  print('get_distance passed test 2')
+} else {
+  print('get_distance FAILED test 2')
+}
+
+
+if (get_angle(c(1,2,3,1),c(-3,3,-1,0)) == pi/2) {
+  print('get_angle passed test 1')
+} else {
+  print('get_angle FAILED test 1')
+}
+
+if (get_angle(c(3,4),c(6,8)) == 0) {
+  print('get_angle passed test 2')
+} else {
+  print('get_angle FAILED test 2')
+}
 
 ```
+
+
+## Machine Learning Algorihtms.
+
+Once your length, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around $80\%$ of the digits correct. (A good machine learning algorithm can get $98\%$ correct!)
+
+Run the code below and look at the output. Discuss the following questions
+
+1. Which digits are most commonly mistaken for one another? 
+1. Which algorithm does better: closest by distance or closest by angle? 
+1. I turned the training data into a single centroid and then used that to measure distances. A better algorithm would make use of all of the training points during the classification. Discuss what improvements you would try instead of using the centroids.
+
 ## Get Closest by Distance
 
-```{r}
-
-
-
+```{r, echo=TRUE}
 
 # Finds closest centroid to the given data
 # data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data
@@ -130,7 +263,6 @@ for (i in 1:dim(test)[2]) {
   matched_digit = get_closest_by_distance(digit_data, centroids)
   results[true_digit,matched_digit] = results[true_digit,matched_digit]+1
 }
-  
 
 labels=c(0:9)
 colnames(results) <- labels
@@ -147,8 +279,7 @@ sprintf('matched: %f percent' , sum(diag(results))/sum(results) * 100)
 
 ## Get Closest by Angle
 
-```{r}
-
+```{r, echo=TRUE}
 
 get_closest_angle <- function(data, centroids) {
   idx = 0
@@ -169,18 +300,6 @@ get_closest_angle <- function(data, centroids) {
 }
 
 
-#rownum = 10
-#d = data.matrix(test[rownum, 2:257])
-
-#dim(d)
-#dim(normdigitavg)
-
-#idx = get_closest_angle(d,normdigitavg)
-#data.matrix(test[rownum, 1])
-
-#plot_digit(digitavg[idx,])
-#plot_digit(d)
-
 
 results = matrix(0, nrow=10, ncol=10)
 
@@ -191,8 +310,6 @@ for (i in 1:dim(test)[2]) {
   results[true_digit,matched_digit] = results[true_digit,matched_digit]+1
 }
   
-
-
 labels=c(0:9)
 colnames(results) <- labels
 rownames(results) <- labels
@@ -201,18 +318,8 @@ results
 
 sprintf('matched: %f percent' , sum(diag(results))/sum(results) * 100) 
 
-
-```
-```{r}
-dim(test)[1]
 ```
 
-```{r}
-labels = c(0:9)
-resultframe = data.frame(row.names=labels, results)
-names(resultframe) = labels
-resultframe
-```
 
 
 

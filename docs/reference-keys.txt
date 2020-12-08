@@ -156,6 +156,14 @@ brook-trout-in-hunt-creek-mi
 the-leslie-matrix
 find-the-long-range-populations-1
 river-clean-up
+digit-recognition
+us-post-office-zip-code-data
+visualizing-the-data
+a-simple-machine-learning-algorithm
+length-distance-and-angle
+machine-learning-algorihtms.
+get-closest-by-distance
+get-closest-by-angle
 quiz-1-review
 overview
 vocabulary-and-concepts
