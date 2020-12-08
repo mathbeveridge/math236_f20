@@ -2,11 +2,17 @@
 title: "Template for Problem Set 7"
 author: "Your Name Here"
 date: "Due Date Here"
-output: html_document
+output:
+  html_document: default
 ---
 
 
 # Problem Set 7
+
+**Note:** If you are using this PS 7 Template then you need to submit a PDF file.
+
+* The easiest way is to (1) knit to HMTL, (2) click the "Open in Browser" button, (3) In the opened tab, "Print... Save as PDF"
+ * There is a way to knit to PDF, but it is not working for me (error: missing framed.sty). I tried to install the missing resources, but I didn't get it to work. Given the effort involved, I think that the "easy way" HMTL -> Print to PDF is faster.
 
 ```{r, echo=FALSE}
 
