@@ -102,7 +102,7 @@ for (i in 0:9) {
 ```
 
 
-### A Simple Machine Learning Algorithm
+### Algorithm Overview
 
 Here is our simple machine learning algorithm. For each test digit:
 
@@ -213,7 +213,7 @@ check_equal(get_angle(c(3,0),c(1,0)), 0)
 ```
 
 
-## Machine Learning Algorihtms.
+## Machine Learning Algorithms
 
 Once your length, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around $80\%$ of the digits correct. (A good machine learning algorithm can get $98\%$ correct.)
 
@@ -223,7 +223,7 @@ Run the code below and look at the output. Discuss the following questions
 1. Which algorithm does better: closest by distance or closest by angle? 
 1. We turned the training data into a single centroid and then used that to measure distances. A better algorithm would make use of all of the training points during the classification. Discuss what improvements you would try instead of using the centroids.
 
-## Get Closest by Distance
+### Get Closest by Distance
 
 ```{r, echo=TRUE}
 
@@ -275,7 +275,7 @@ sprintf('matched: %f percent' , sum(diag(results))/sum(results) * 100)
 
 
 
-## Get Closest by Angle
+### Get Closest by Angle
 
 ```{r, echo=TRUE}
 

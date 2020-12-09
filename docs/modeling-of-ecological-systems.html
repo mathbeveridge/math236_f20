@@ -322,12 +322,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="23" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>23</b> Digit Recognition</a><ul>
 <li class="chapter" data-level="23.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>23.1</b> US Post Office Zip Code Data</a><ul>
 <li class="chapter" data-level="23.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>23.1.1</b> Visualizing the Data</a></li>
-<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#a-simple-machine-learning-algorithm"><i class="fa fa-check"></i><b>23.1.2</b> A Simple Machine Learning Algorithm</a></li>
+<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>23.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="digit-recognition.html"><a href="digit-recognition.html#length-distance-and-angle"><i class="fa fa-check"></i><b>23.2</b> Length, Distance and Angle</a></li>
-<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorihtms."><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorihtms.</a></li>
-<li class="chapter" data-level="23.4" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.4</b> Get Closest by Distance</a></li>
-<li class="chapter" data-level="23.5" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.5</b> Get Closest by Angle</a></li>
+<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.3.1</b> Get Closest by Distance</a></li>
+<li class="chapter" data-level="23.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.3.2</b> Get Closest by Angle</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="24" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>24</b> Quiz 1 Review</a><ul>
@@ -641,15 +642,22 @@ S_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0  \\
 <span id="cb134-3"><a href="modeling-of-ecological-systems.html#cb134-3"></a><span class="kw">eigen</span>(L)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
-## [1]  0.8871688+0.0000000i -0.3053909+0.7049316i -0.3053909-0.7049316i -0.1381935+0.0946928i -0.1381935-0.0946928i
+## [1]  0.8871688+0.0000000i -0.3053909+0.7049316i -0.3053909-0.7049316i -0.1381935+0.0946928i
+## [5] -0.1381935-0.0946928i
 ## 
 ## $vectors
-##                 [,1]                        [,2]                        [,3]                  [,4]                  [,5]
-## [1,] 0.9982530311+0i  9.975971e-01+0.000000e+00i  9.975971e-01+0.000000e+00i  0.7864719+0.0000000i  0.7864719+0.0000000i
-## [2,] 0.0562606057+0i -2.580999e-02-5.957701e-02i -2.580999e-02+5.957701e-02i -0.1936371-0.1326839i -0.1936371+0.1326839i
-## [3,] 0.0177564522+0i -1.618518e-02+1.726352e-02i -1.618518e-02-1.726352e-02i  0.1416272+0.3658824i  0.1416272-0.3658824i
-## [4,] 0.0032023584+0i  4.639142e-03+1.663816e-03i  4.639142e-03-1.663816e-03i  0.0859429-0.3647277i  0.0859429+0.3647277i
-## [5,] 0.0002887711+0i -3.305712e-05-5.121576e-04i -3.305712e-05+5.121576e-04i -0.1323078+0.1204805i -0.1323078-0.1204805i</code></pre>
+##                 [,1]                        [,2]                        [,3]                  [,4]
+## [1,] 0.9982530311+0i  9.975971e-01+0.000000e+00i  9.975971e-01+0.000000e+00i  0.7864719+0.0000000i
+## [2,] 0.0562606057+0i -2.580999e-02-5.957701e-02i -2.580999e-02+5.957701e-02i -0.1936371-0.1326839i
+## [3,] 0.0177564522+0i -1.618518e-02+1.726352e-02i -1.618518e-02-1.726352e-02i  0.1416272+0.3658824i
+## [4,] 0.0032023584+0i  4.639142e-03+1.663816e-03i  4.639142e-03-1.663816e-03i  0.0859429-0.3647277i
+## [5,] 0.0002887711+0i -3.305712e-05-5.121576e-04i -3.305712e-05+5.121576e-04i -0.1323078+0.1204805i
+##                       [,5]
+## [1,]  0.7864719+0.0000000i
+## [2,] -0.1936371+0.1326839i
+## [3,]  0.1416272-0.3658824i
+## [4,]  0.0859429+0.3647277i
+## [5,] -0.1323078-0.1204805i</code></pre>
 <p>The largest eigenvalue 0.887 is less than 1. So the population is going to die out.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="modeling-of-ecological-systems.html#cb136-1"></a>start =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)  <span class="co"># the starting distribution</span></span>
 <span id="cb136-2"><a href="modeling-of-ecological-systems.html#cb136-2"></a>N =<span class="st"> </span><span class="dv">50</span>              <span class="co"># N is the number of iterations</span></span>

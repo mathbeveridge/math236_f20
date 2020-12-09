@@ -54,10 +54,10 @@ I should understand and be able to explain the following **concepts**:
 * A complex  eigenvalue  corresponds  to a rotation in a 2D subspace.
 * The eigenspace for $\lambda$ is the subspace $\mathrm{Nul}(A  - \lambda I)$
 * A matrix is  not diagonalizable when it has complex eigenvalues
-* A matrix is not diagonalizable when it has an eigenvalues whose algebraic mutiplicity is strictly larger than its geometrix multiplicity
+* A matrix is not diagonalizable when it has an eigenvalue whose algebraic mutiplicity is strictly larger than its geometrix multiplicity
 * The Gould Index measures the centrality of a vertex in the network
 * The eigenvalues of a matrix "encode some of the patterns" found in the matrix. Larger magnitude  eigenvalues indicate more important patterns.
-* The long-term behavior of a  dynamical system is determined by its  dominent eigenvalue and eigenvector
+* The long-term behavior of a  dynamical system is determined by its dominent eigenvalue and eigenvector
 * Any population model predicts one of: long term growth, extinction, convergence to a stable population, or convergence to a stable orbit of populations.
 
 

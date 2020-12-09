@@ -322,12 +322,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="23" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>23</b> Digit Recognition</a><ul>
 <li class="chapter" data-level="23.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>23.1</b> US Post Office Zip Code Data</a><ul>
 <li class="chapter" data-level="23.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>23.1.1</b> Visualizing the Data</a></li>
-<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#a-simple-machine-learning-algorithm"><i class="fa fa-check"></i><b>23.1.2</b> A Simple Machine Learning Algorithm</a></li>
+<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>23.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="digit-recognition.html"><a href="digit-recognition.html#length-distance-and-angle"><i class="fa fa-check"></i><b>23.2</b> Length, Distance and Angle</a></li>
-<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorihtms."><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorihtms.</a></li>
-<li class="chapter" data-level="23.4" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.4</b> Get Closest by Distance</a></li>
-<li class="chapter" data-level="23.5" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.5</b> Get Closest by Angle</a></li>
+<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.3.1</b> Get Closest by Distance</a></li>
+<li class="chapter" data-level="23.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.3.2</b> Get Closest by Angle</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="24" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>24</b> Quiz 1 Review</a><ul>
@@ -1352,16 +1353,19 @@ Our data sets are 12 years apart, and were chosen to coincide with US election y
 <span id="cb111-3"><a href="voting-patterns-in-the-us-senate.html#cb111-3"></a>eigsys =<span class="st"> </span><span class="kw">eigen</span>(mat)</span>
 <span id="cb111-4"><a href="voting-patterns-in-the-us-senate.html#cb111-4"></a></span>
 <span id="cb111-5"><a href="voting-patterns-in-the-us-senate.html#cb111-5"></a>eigsys<span class="op">$</span>values</span></code></pre></div>
-<pre><code>##   [1] 24198.14970  4385.33792  2523.42898   413.59778   274.12291   219.84394    93.86570   -19.59596   -39.68442   -73.58725   -84.08451
-##  [12]  -124.18257  -137.88542  -155.95645  -162.94701  -176.71449  -183.14311  -197.74427  -203.16191  -219.90337  -222.98559  -225.77864
-##  [23]  -236.01870  -240.90787  -249.06305  -257.49697  -263.81555  -268.10860  -272.63265  -275.30214  -279.92416  -280.34948  -287.69592
-##  [34]  -292.00408  -296.93484  -299.17667  -303.67128  -309.89778  -314.33373  -318.90633  -320.25895  -321.98658  -326.58688  -327.83596
-##  [45]  -332.06144  -336.46538  -338.76991  -343.48455  -346.38591  -348.16746  -349.23190  -350.47588  -358.25692  -359.24338  -360.90037
-##  [56]  -363.21807  -365.17417  -370.46006  -371.56674  -374.12517  -379.23090  -380.38760  -382.65978  -384.71680  -388.62093  -389.78271
-##  [67]  -391.81075  -394.10770  -396.11524  -400.65534  -401.80357  -405.81092  -407.44165  -410.46333  -411.66607  -412.99086  -416.39535
-##  [78]  -418.09114  -418.76583  -422.02379  -424.59269  -426.38701  -428.84359  -430.30353  -431.59921  -435.24536  -435.91447  -437.63064
-##  [89]  -439.58808  -443.56104  -445.20242  -447.99489  -451.15747  -453.68351  -454.57543  -458.33775  -461.38347  -463.97462  -467.11710
-## [100]  -469.27240  -474.43223  -475.75931</code></pre>
+<pre><code>##   [1] 24198.14970  4385.33792  2523.42898   413.59778   274.12291   219.84394    93.86570   -19.59596
+##   [9]   -39.68442   -73.58725   -84.08451  -124.18257  -137.88542  -155.95645  -162.94701  -176.71449
+##  [17]  -183.14311  -197.74427  -203.16191  -219.90337  -222.98559  -225.77864  -236.01870  -240.90787
+##  [25]  -249.06305  -257.49697  -263.81555  -268.10860  -272.63265  -275.30214  -279.92416  -280.34948
+##  [33]  -287.69592  -292.00408  -296.93484  -299.17667  -303.67128  -309.89778  -314.33373  -318.90633
+##  [41]  -320.25895  -321.98658  -326.58688  -327.83596  -332.06144  -336.46538  -338.76991  -343.48455
+##  [49]  -346.38591  -348.16746  -349.23190  -350.47588  -358.25692  -359.24338  -360.90037  -363.21807
+##  [57]  -365.17417  -370.46006  -371.56674  -374.12517  -379.23090  -380.38760  -382.65978  -384.71680
+##  [65]  -388.62093  -389.78271  -391.81075  -394.10770  -396.11524  -400.65534  -401.80357  -405.81092
+##  [73]  -407.44165  -410.46333  -411.66607  -412.99086  -416.39535  -418.09114  -418.76583  -422.02379
+##  [81]  -424.59269  -426.38701  -428.84359  -430.30353  -431.59921  -435.24536  -435.91447  -437.63064
+##  [89]  -439.58808  -443.56104  -445.20242  -447.99489  -451.15747  -453.68351  -454.57543  -458.33775
+##  [97]  -461.38347  -463.97462  -467.11710  -469.27240  -474.43223  -475.75931</code></pre>
 <p>What do we see?</p>
 <ul>
 <li><p>The largest eigenvalue <span class="math inline">\(\approx 24200\)</span> is huge compared to the others! There is a <strong>huge gap</strong> after that. So this eigenspace is the most important (by far)!</p></li>

@@ -159,9 +159,9 @@ river-clean-up
 digit-recognition
 us-post-office-zip-code-data
 visualizing-the-data
-a-simple-machine-learning-algorithm
+algorithm-overview
 length-distance-and-angle
-machine-learning-algorihtms.
+machine-learning-algorithms
 get-closest-by-distance
 get-closest-by-angle
 quiz-1-review

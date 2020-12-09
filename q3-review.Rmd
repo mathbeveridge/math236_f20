@@ -446,10 +446,10 @@ v = c(1,2,3)
 Pinv %*% v
 ```
 
-    So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
+  So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
 
 
-    e. $-\frac{1}{5} \cdot 6^{2000} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
+  e. $-\frac{1}{5} \cdot 6^{2000} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
   
   
 5. This system scales by $\sqrt{1+1} = \sqrt{2}$ and it rotates by $\tan^{-1} (1/1) = \pi/4$. 
@@ -473,8 +473,8 @@ angle
 2 * pi / angle
 ```
 
-    a. It takes 7 iterations to rotate past the $x$-axis. 
-    b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
+  a. It takes 7 iterations to rotate past the $x$-axis. 
+  b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
 
 
 7. 

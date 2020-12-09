@@ -322,12 +322,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="23" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>23</b> Digit Recognition</a><ul>
 <li class="chapter" data-level="23.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>23.1</b> US Post Office Zip Code Data</a><ul>
 <li class="chapter" data-level="23.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>23.1.1</b> Visualizing the Data</a></li>
-<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#a-simple-machine-learning-algorithm"><i class="fa fa-check"></i><b>23.1.2</b> A Simple Machine Learning Algorithm</a></li>
+<li class="chapter" data-level="23.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>23.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="digit-recognition.html"><a href="digit-recognition.html#length-distance-and-angle"><i class="fa fa-check"></i><b>23.2</b> Length, Distance and Angle</a></li>
-<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorihtms."><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorihtms.</a></li>
-<li class="chapter" data-level="23.4" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.4</b> Get Closest by Distance</a></li>
-<li class="chapter" data-level="23.5" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.5</b> Get Closest by Angle</a></li>
+<li class="chapter" data-level="23.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>23.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>23.3.1</b> Get Closest by Distance</a></li>
+<li class="chapter" data-level="23.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>23.3.2</b> Get Closest by Angle</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="24" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>24</b> Quiz 1 Review</a><ul>
@@ -436,22 +437,22 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span id="cb151-5"><a href="digit-recognition.html#cb151-5"></a>  <span class="kw">plot_digit</span>(test[,samp[i]])</span>
 <span id="cb151-6"><a href="digit-recognition.html#cb151-6"></a>}</span></code></pre></div>
 <pre><code>## X1 
-##  0</code></pre>
+##  7</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-1.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  1</code></pre>
+##  0</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-2.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  7</code></pre>
+##  6</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-3.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  8</code></pre>
+##  4</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-4.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  3</code></pre>
+##  6</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-5.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  2</code></pre>
+##  0</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-6.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <p>Next, let’s talk about our training data. The original training data has 7291 different digits. Different machine learning techniques will use this data in different ways. But each of them follows the same idea:</p>
 <ul>
@@ -469,8 +470,8 @@ We will refer to these 10 training vectors as <strong>centroids</strong> since w
 <span id="cb158-7"><a href="digit-recognition.html#cb158-7"></a>  }</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/digitcentroid-1.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-2.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-3.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-4.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-5.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-6.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-7.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-8.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-9.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-10.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 </div>
-<div id="a-simple-machine-learning-algorithm" class="section level3">
-<h3><span class="header-section-number">23.1.2</span> A Simple Machine Learning Algorithm</h3>
+<div id="algorithm-overview" class="section level3">
+<h3><span class="header-section-number">23.1.2</span> Algorithm Overview</h3>
 <p>Here is our simple machine learning algorithm. For each test digit:</p>
 <ul>
 <li>Find the centroid that is closest to that digit.</li>
@@ -567,8 +568,8 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="digit-recognition.html#cb182-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)), <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;fail 1.000000 0.000000&quot;</code></pre>
 </div>
-<div id="machine-learning-algorihtms." class="section level2">
-<h2><span class="header-section-number">23.3</span> Machine Learning Algorihtms.</h2>
+<div id="machine-learning-algorithms" class="section level2">
+<h2><span class="header-section-number">23.3</span> Machine Learning Algorithms</h2>
 <p>Once your length, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around <span class="math inline">\(80\%\)</span> of the digits correct. (A good machine learning algorithm can get <span class="math inline">\(98\%\)</span> correct.)</p>
 <p>Run the code below and look at the output. Discuss the following questions</p>
 <ol style="list-style-type: decimal">
@@ -576,9 +577,8 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <li>Which algorithm does better: closest by distance or closest by angle?</li>
 <li>We turned the training data into a single centroid and then used that to measure distances. A better algorithm would make use of all of the training points during the classification. Discuss what improvements you would try instead of using the centroids.</li>
 </ol>
-</div>
-<div id="get-closest-by-distance" class="section level2">
-<h2><span class="header-section-number">23.4</span> Get Closest by Distance</h2>
+<div id="get-closest-by-distance" class="section level3">
+<h3><span class="header-section-number">23.3.1</span> Get Closest by Distance</h3>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="digit-recognition.html#cb184-1"></a><span class="co"># Finds closest centroid to the given data</span></span>
 <span id="cb184-2"><a href="digit-recognition.html#cb184-2"></a><span class="co"># data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data</span></span>
 <span id="cb184-3"><a href="digit-recognition.html#cb184-3"></a><span class="co"># centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. </span></span>
@@ -633,8 +633,8 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="digit-recognition.html#cb186-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 17.887394 percent&quot;</code></pre>
 </div>
-<div id="get-closest-by-angle" class="section level2">
-<h2><span class="header-section-number">23.5</span> Get Closest by Angle</h2>
+<div id="get-closest-by-angle" class="section level3">
+<h3><span class="header-section-number">23.3.2</span> Get Closest by Angle</h3>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="digit-recognition.html#cb188-1"></a>get_closest_angle &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
 <span id="cb188-2"><a href="digit-recognition.html#cb188-2"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
 <span id="cb188-3"><a href="digit-recognition.html#cb188-3"></a>  minangle =<span class="st"> </span>pi</span>
@@ -681,6 +681,7 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="digit-recognition.html#cb190-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 17.887394 percent&quot;</code></pre>
 
+</div>
 </div>
 </div>
 
