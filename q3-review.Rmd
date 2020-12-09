@@ -439,7 +439,7 @@ require(pracma)
     c. THe vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
     d. When $A=P D P^{-1}$, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by $P^{-1}$.
   
-```{r}
+```{r, echo=TRUE}
 Pinv =cbind(c(-1/6,0,1/6),c(-1/15,1/5,-1/3),c(1/30,2/5,1/6))
 v = c(1,2,3)
 
@@ -504,7 +504,7 @@ $$
   
     c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
 
-```{r}
+```{r, echo=TRUE}
 P = cbind(c(2,3), c(1,-1))
 v = c(25,0)
 solve(P,v)

@@ -772,6 +772,10 @@ So one eigenvector is <span class="math inline">\([0,0,1]^{\top}\)</span></p></l
 <li>When <span class="math inline">\(A=P D P^{-1}\)</span>, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by <span class="math inline">\(P^{-1}\)</span>.</li>
 </ol></li>
 </ol>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="quiz-3-review.html#cb210-1"></a>Pinv =<span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">15</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">30</span>,<span class="dv">2</span><span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>))</span>
+<span id="cb210-2"><a href="quiz-3-review.html#cb210-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb210-3"><a href="quiz-3-review.html#cb210-3"></a></span>
+<span id="cb210-4"><a href="quiz-3-review.html#cb210-4"></a>Pinv <span class="op">%*%</span><span class="st"> </span>v</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] -0.2
 ## [2,]  1.6
@@ -788,17 +792,17 @@ So one eigenvector is <span class="math inline">\([0,0,1]^{\top}\)</span></p></l
 \]</span></p></li>
 </ol>
 <p>Let’s turn to RStudio</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="quiz-3-review.html#cb211-1"></a>a =<span class="st"> </span><span class="fl">.97</span></span>
-<span id="cb211-2"><a href="quiz-3-review.html#cb211-2"></a>b =<span class="st"> </span><span class="fl">.71</span></span>
-<span id="cb211-3"><a href="quiz-3-review.html#cb211-3"></a></span>
-<span id="cb211-4"><a href="quiz-3-review.html#cb211-4"></a>scale =<span class="st"> </span><span class="kw">sqrt</span>(a<span class="op">^</span><span class="dv">2</span><span class="op">+</span>b<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb211-5"><a href="quiz-3-review.html#cb211-5"></a>angle =<span class="st"> </span><span class="kw">atan</span> (.<span class="dv">97</span><span class="op">/</span>.<span class="dv">71</span>)</span>
-<span id="cb211-6"><a href="quiz-3-review.html#cb211-6"></a></span>
-<span id="cb211-7"><a href="quiz-3-review.html#cb211-7"></a>scale</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="quiz-3-review.html#cb212-1"></a>a =<span class="st"> </span><span class="fl">.97</span></span>
+<span id="cb212-2"><a href="quiz-3-review.html#cb212-2"></a>b =<span class="st"> </span><span class="fl">.71</span></span>
+<span id="cb212-3"><a href="quiz-3-review.html#cb212-3"></a></span>
+<span id="cb212-4"><a href="quiz-3-review.html#cb212-4"></a>scale =<span class="st"> </span><span class="kw">sqrt</span>(a<span class="op">^</span><span class="dv">2</span><span class="op">+</span>b<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb212-5"><a href="quiz-3-review.html#cb212-5"></a>angle =<span class="st"> </span><span class="kw">atan</span> (.<span class="dv">97</span><span class="op">/</span>.<span class="dv">71</span>)</span>
+<span id="cb212-6"><a href="quiz-3-review.html#cb212-6"></a></span>
+<span id="cb212-7"><a href="quiz-3-review.html#cb212-7"></a>scale</span></code></pre></div>
 <pre><code>## [1] 1.202082</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="quiz-3-review.html#cb213-1"></a>angle</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="quiz-3-review.html#cb214-1"></a>angle</span></code></pre></div>
 <pre><code>## [1] 0.9389419</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="quiz-3-review.html#cb215-1"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">/</span><span class="st"> </span>angle</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="quiz-3-review.html#cb216-1"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">/</span><span class="st"> </span>angle</span></code></pre></div>
 <pre><code>## [1] 6.691772</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>It takes 7 iterations to rotate past the <span class="math inline">\(x\)</span>-axis.</li>
@@ -810,7 +814,7 @@ So one eigenvector is <span class="math inline">\([0,0,1]^{\top}\)</span></p></l
 <li>We must see whether <span class="math inline">\(\lambda=4\)</span> has geometric multiplicty 2 (to match its algebraic multiplicity).</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="quiz-3-review.html#cb217-1"></a><span class="kw">rref</span>( <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="quiz-3-review.html#cb218-1"></a><span class="kw">rref</span>( <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    1   -2
 ## [2,]    0    0    0
@@ -833,6 +837,9 @@ A = \begin{bmatrix} 0.7 &amp; 0.2 \\ 0.3 &amp; 0.8 \end{bmatrix} =
 <li><p>We need to find the coefficients for <span class="math inline">\(x_0 = [25, 0]^{\top}\)</span>.</p></li>
 </ol></li>
 </ol>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="quiz-3-review.html#cb221-1"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb221-2"><a href="quiz-3-review.html#cb221-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">0</span>)</span>
+<span id="cb221-3"><a href="quiz-3-review.html#cb221-3"></a><span class="kw">solve</span>(P,v)</span></code></pre></div>
 <pre><code>## [1]  5 15</code></pre>
 <pre><code>So the formula is</code></pre>
 <p><span class="math display">\[
@@ -884,15 +891,15 @@ A = \left[
 <li>Here is the Leslie matrix, as well as some eigensystem computations.</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="quiz-3-review.html#cb225-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">8</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">9</span>),<span class="kw">c</span>(.<span class="dv">4</span>,<span class="dv">0</span>,.<span class="dv">8</span>))</span>
-<span id="cb225-2"><a href="quiz-3-review.html#cb225-2"></a>L</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="quiz-3-review.html#cb227-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">8</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">9</span>),<span class="kw">c</span>(.<span class="dv">4</span>,<span class="dv">0</span>,.<span class="dv">8</span>))</span>
+<span id="cb227-2"><a href="quiz-3-review.html#cb227-2"></a>L</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]  0.0  0.0  0.4
 ## [2,]  0.8  0.0  0.0
 ## [3,]  0.0  0.9  0.8</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="quiz-3-review.html#cb227-1"></a>syst =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
-<span id="cb227-2"><a href="quiz-3-review.html#cb227-2"></a></span>
-<span id="cb227-3"><a href="quiz-3-review.html#cb227-3"></a>syst</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="quiz-3-review.html#cb229-1"></a>syst =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
+<span id="cb229-2"><a href="quiz-3-review.html#cb229-2"></a></span>
+<span id="cb229-3"><a href="quiz-3-review.html#cb229-3"></a>syst</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1]  1.0575217+0.0000000i -0.1287609+0.5057227i -0.1287609-0.5057227i
@@ -902,7 +909,7 @@ A = \left[
 ## [1,] 0.3417536+0i -0.1097728+0.4311448i -0.1097728-0.4311448i
 ## [2,] 0.2585317+0i  0.6820256+0.0000000i  0.6820256+0.0000000i
 ## [3,] 0.9035297+0i -0.5097632-0.2775729i -0.5097632+0.2775729i</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="quiz-3-review.html#cb229-1"></a>syst<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(syst<span class="op">$</span>vectors[,<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="quiz-3-review.html#cb231-1"></a>syst<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(syst<span class="op">$</span>vectors[,<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.2272578+0i 0.1719172+0i 0.6008250+0i</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The eigenvalues are <span class="math inline">\(1.058, -0.129 \pm 0.506 i\)</span>.</li>
