@@ -100,7 +100,7 @@ $$
     b. Find a nonzero vector in $\mathrm{Nul}(\mathsf{A})$ if one exists.
     c. Find a steady-state vector $\mathsf{v}$ such that $\mathsf{A} \mathsf{v} = \mathsf{v}$ if one exists.
     d. Give the coordinates of $\mathsf{v} = [1,2,3]^T$ in the eigenbasis without row reductions.
-    e. Find a closed formula for $\mathsf{A}^{2020} \mathsf{v}$ if $\mathsf{v} = [1,2,3]^T$.
+    e. Find a formula for $\mathsf{A}^{2020} \mathsf{v}$ if $\mathsf{v} = [1,2,3]^T$ in terms of the eigenbasis.
 
 
 
@@ -141,7 +141,7 @@ $$
 
     a.  Diagonalize $A$.
     a. What can you say about $\displaystyle{\lim_{n \to \infty}} A^n$?
-    a. Give a closed formula for $A^n \mathsf{x}_0$ if $\mathsf{x}_0 = \begin{bmatrix} 25 \\ 0 \end{bmatrix}$.
+    a. Give a  formula for $A^n \mathsf{x}_0$ if $\mathsf{x}_0 = \begin{bmatrix} 25 \\ 0 \end{bmatrix}$ in terms of the eigenbasis.
     a. What is $\displaystyle{\lim_{n \to \infty}} A^n \begin{bmatrix} 25 \\ 0 \end{bmatrix}$?
 
  
@@ -163,7 +163,6 @@ $$
     a. Factor $A=PCP^{-1}$ where $C$ is a rotation-scaling matrix.
     a. What is the angle of rotation?
     a. What is the factor of dilation?
-    a. Give a formula for $A^n$.
 
  
  
@@ -298,6 +297,11 @@ state of the system in year $t$.
  
 ## Solutions to Practice Problems
 
+```{r}
+require(pracma)
+```
+
+
 
 1.  There are three eigenvalues: 1, 2, and  $-2$. We find an eigenvector for each of  them.
     * Eigenvalue  $\lambda = 1$
@@ -422,3 +426,166 @@ state of the system in year $t$.
     $$
     d. There is one eigenvalue $\lambda=1$ with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a  shear matrix is not diagonalizable.
     
+
+3.
+    a. $A$ is not invertible because $0$ is an eigenvalue. $A$ is diagonalizable because it have 5 distinct eigenvalues.
+    a. $B$ is  invertible because $0$ is not an eigenvalue. $B$ is diagonalizable because it have 5 distinct eigenvalues.
+    a. $C$ is  invertible because $0$ is not an eigenvalue. We cannot tell whether $C$ is diagonalizable without more information. The eigenvalue $\lambda=2$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
+    a. $D$ is not invertible because $0$ is  an eigenvalue. We cannot tell whether $D$ is diagonalizable without more information. The eigenvalue $\lambda=3$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
+  
+4.
+    a. No, $A$ is not invertible because $0$ is an eigenvalue.
+    b. $\mathsf{v} = [1, -2, 1]^{\top}$ is an eigenvector for $\lambda=0$. Therefore $\mathsf{v} \in \mbox{Nul}(A)$.
+    c. THe vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
+    d. When $A=P D P^{-1}$, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by $P^{-1}$.
+  
+```{r}
+Pinv =cbind(c(-1/6,0,1/6),c(-1/15,1/5,-1/3),c(1/30,2/5,1/6))
+v = c(1,2,3)
+
+Pinv %*% v
+```
+
+    So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
+
+
+    e. $-\frac{1}{5} \cdot 6^{2000} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
+  
+  
+5. This system scales by $\sqrt{1+1} = \sqrt{2}$ and it rotates by $\tan^{-1} (1/1) = \pi/4$. 
+
+6. We have
+$$
+\begin{bmatrix} a & -b \\ b & a \end{bmatrix} = \begin{bmatrix} .97 & -.71\\ .71 & .97 \end{bmatrix} 
+$$
+
+Let's turn to RStudio
+```{r, echo=TRUE}
+a = .97
+b = .71
+
+scale = sqrt(a^2+b^2)
+angle = atan (.97/.71)
+
+scale
+angle
+
+2 * pi / angle
+```
+
+    a. It takes 7 iterations to rotate past the $x$-axis. 
+    b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
+
+
+7. 
+    a. The matrix $A$ is diagonalizable because it has 3 distinct eigenvalues
+    b. We must see whether $\lambda=4$ has geometric multiplicty 2 (to match its algebraic multiplicity).
+
+```{r, echo=TRUE}
+rref( cbind(c(-1,-1,2), c(-1,-1,2), c(2,2,-4)))
+```
+
+    We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. THis menas that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
+
+8. 
+    a. Taking $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$, we have
+$$
+P^{-1} = \frac{1}{0.5} \begin{bmatrix} 0.8 & -0.2 \\ -0.3 & 0.7\end{bmatrix} = \begin{bmatrix} 1.6 & -0.4 \\ -0.6 & 1.4 \end{bmatrix}.
+$$
+    Therefore 
+$$
+A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix} = 
+\begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}
+\begin{bmatrix} 1 & 0 \\ 0 & 0.5 \end{bmatrix}
+\begin{bmatrix} 1.6 & -0.4 \\ -0.6 & 1.4 \end{bmatrix}
+$$
+
+    b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 2 & 1 \\ 2 & 1 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue.
+  
+    c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
+
+```{r}
+P = cbind(c(2,3), c(1,-1))
+v = c(25,0)
+solve(P,v)
+```
+
+    So the formula is
+$$
+5 \begin{bmatrix} 2 \\ 3 \end{bmatrix} + \left( \frac{1}{2}  \right)^n \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
+$$
+    
+    d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
+
+9. 
+    a.  We have
+$$
+A = \left[
+\begin{array}{cc}
+ \frac{1}{2} & \frac{1}{5} \\
+ -\frac{2}{5} & \frac{9}{10} \\
+\end{array}
+\right]
+=
+\begin{bmatrix}
+-1/2 & 1/2 \\ 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+-0.7 & -0.2 \\ 0.2 & 0.7
+\end{bmatrix}
+\begin{bmatrix}
+-2 & 1 \\ 0 & 1
+\end{bmatrix}
+$$
+
+    b. THe angle of rotation is $tan^{-1} (.7/.2) = 1.29 radians
+    c. The dilation factor is $\sqrt{0.49 + 0.4} = \sqrt{0.55}$.
+
+  
+10. Let's use RStudio.
+
+```{r}
+A = cbind(c(0.662, 0.338),c(0.25,  0.75))
+A %*% A %*% c(0,1)
+
+v1 = c(-0.595, -0.804 )
+v1/sum(v1)
+```
+
+  a. If Monday is dry, then  the probability of a wet Wednesday is $0.353$.
+  b. In the long run, $42.5\%$ of days are wet  and $57.5\%$ of days are dry.
+
+11.
+    a. Initially, both populations increase from $[1, 2]$ to $[2.25,2.5], with wolves increasing more quickly. The wolves continue to increase, while the deer start to decrease. After reachaing $[3,2]$, both populations decrease. The deer die out first at the point $[.8,0]$.
+    b. Deer breeding: Both populations thrive and grow every year, converging slowly to a $1:1$ ratio. The long-term growth rate is $1.1$, or $10\%$ growth.
+    c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[2.5, 2.5]$.
+    d. Since they want a stable ecosystem, the wolf hunting is a better option. Ww reach a stable equilibrium population of $[2.5, 2.5]$
+
+12. 
+
+    a. Here is the Leslie matrix, as well as some eigensystem computations.
+```{r, echo=TRUE}
+
+L = cbind(c(0,.8,0),c(0,0,.9),c(.4,0,.8))
+L
+
+syst = eigen(L)
+
+syst
+
+
+syst$vectors[,1] / sum(syst$vectors[,1])
+
+```
+
+  b. The eigenvalues are $1.058, -0.129 \pm 0.506 i$.
+  c. If we start outside of the span of the dominant eigenvalue, then the trajectory will wiggle with a mild oscillation with an overall growth trend of $1.058$, or $5.8\%$.
+  d. The size of the herd grows. THe proportions are $[0.227, 0.172, 0.601]$.
+
+
+
+
+
+
+
+
