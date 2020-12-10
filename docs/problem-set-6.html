@@ -473,15 +473,22 @@ where the constants <span class="math inline">\(a,b,c,d\)</span> and the vectors
 </div>
 </center>
 <p>Here is a network representation of the gameboard, created from an adjacency matrix.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="problem-set-6.html#cb5-1"></a><span class="kw">library</span>(igraph)</span>
-<span id="cb5-2"><a href="problem-set-6.html#cb5-2"></a></span>
-<span id="cb5-3"><a href="problem-set-6.html#cb5-3"></a>risk &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.github.com/mathbeveridge/math236_f20/main/data/riskmatrix.csv&quot;</span>)</span>
-<span id="cb5-4"><a href="problem-set-6.html#cb5-4"></a>A =<span class="st"> </span><span class="kw">data.matrix</span>(risk)</span>
-<span id="cb5-5"><a href="problem-set-6.html#cb5-5"></a>countries =<span class="st">  </span><span class="kw">names</span>(risk)</span>
-<span id="cb5-6"><a href="problem-set-6.html#cb5-6"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
-<span id="cb5-7"><a href="problem-set-6.html#cb5-7"></a></span>
-<span id="cb5-8"><a href="problem-set-6.html#cb5-8"></a>coords =<span class="st"> </span><span class="kw">layout_nicely</span>(g)</span>
-<span id="cb5-9"><a href="problem-set-6.html#cb5-9"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">10</span>, <span class="dt">vertex.label.cex=</span><span class="fl">0.75</span>, <span class="dt">vertex.color=</span><span class="st">&#39;khaki&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="problem-set-6.html#cb5-1"></a><span class="kw">library</span>(igraph)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;igraph&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     decompose, spectrum</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     union</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="problem-set-6.html#cb9-1"></a>risk &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.github.com/mathbeveridge/math236_f20/main/data/riskmatrix.csv&quot;</span>)</span>
+<span id="cb9-2"><a href="problem-set-6.html#cb9-2"></a>A =<span class="st"> </span><span class="kw">data.matrix</span>(risk)</span>
+<span id="cb9-3"><a href="problem-set-6.html#cb9-3"></a>countries =<span class="st">  </span><span class="kw">names</span>(risk)</span>
+<span id="cb9-4"><a href="problem-set-6.html#cb9-4"></a>g=<span class="kw">graph_from_adjacency_matrix</span>(A,<span class="dt">mode=</span><span class="st">&#39;undirected&#39;</span>)</span>
+<span id="cb9-5"><a href="problem-set-6.html#cb9-5"></a></span>
+<span id="cb9-6"><a href="problem-set-6.html#cb9-6"></a>coords =<span class="st"> </span><span class="kw">layout_nicely</span>(g)</span>
+<span id="cb9-7"><a href="problem-set-6.html#cb9-7"></a><span class="kw">plot</span>(g, <span class="dt">layout=</span>coords, <span class="dt">vertex.size =</span> <span class="dv">10</span>, <span class="dt">vertex.label.cex=</span><span class="fl">0.75</span>, <span class="dt">vertex.color=</span><span class="st">&#39;khaki&#39;</span>, <span class="dt">vertex.frame.color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/networkRisk-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Calculate Gould’s Index for this network. Use this Gould’s Index ranking to <strong>identify the most central territory in each of the six continents in this worldwide network</strong>. <a href="https://en.wikipedia.org/wiki/Risk_(game)#Territories">Here is a list of territories by continent</a> (Africa, Asia, Australia, Europe, North America, South America) to help you to classify the territories.</p>
 <p>Turn in a table with six rows. These six rows should be ordered by Gould’s index. Each row should contain:</p>

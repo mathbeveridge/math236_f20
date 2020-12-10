@@ -152,28 +152,33 @@ Here are some R functions that you will need.
 
 get_length <- function(colvec) {
   # replace with your implementation
-  len = 1
+  len = sqrt(t(colvec) %*% colvec)
   
   return (len)
 }
 
 
 get_distance <- function(colvec1, colvec2) {
-  # replace with your implementation
-  dist = 1
+  v = colvec1 - colvec2
+  dist = get_length(v)
   
   return (dist)
 } 
 
 
+
 get_angle <- function(colvec1, colvec2) {
-  # replace with your implementation
-  angle = 1
+  dotprod = t(colvec1) %*% colvec2
+  len1 = get_length(colvec1)
+  len2 = get_length(colvec2)
+
+  val = dotprod / (len1 * len2)
+  angle = acos(val)
   
   return (angle)
-
   
 } 
+
 
 ```
 

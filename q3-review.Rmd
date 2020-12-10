@@ -49,7 +49,7 @@ Find the eigenvalues and corresponding eigenvectors for $A$.
 
 2. Let $A$ be a $2 \times 2$ matrix. We view $A$ as a linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$. Describe the eigenvalues for each of the following types of matrices.
 
-    a. $A$ maps $\mathbb{R}^2$  onto a line through the origin
+    a. $A$ maps $\mathbb{R}^2$  onto a line through the origin in $\mathbb{R}^2$.
     a. $A$ is a reflection  of $\mathbb{R}^2$ about a line through the origin
     a. $A$ is a reflection  of $\mathbb{R}^2$ through the origin
     a.  $A$ is a horizontal shear
@@ -436,7 +436,7 @@ require(pracma)
 4.
     a. No, $A$ is not invertible because $0$ is an eigenvalue.
     b. $\mathsf{v} = [1, -2, 1]^{\top}$ is an eigenvector for $\lambda=0$. Therefore $\mathsf{v} \in \mbox{Nul}(A)$.
-    c. THe vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
+    c. The vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
     d. When $A=P D P^{-1}$, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by $P^{-1}$.
   
 ```{r, echo=TRUE}
@@ -449,7 +449,7 @@ Pinv %*% v
   So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
 
 
-  e. $-\frac{1}{5} \cdot 6^{2000} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
+  e. $-\frac{1}{5} \cdot 6^{2020} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
   
   
 5. This system scales by $\sqrt{1+1} = \sqrt{2}$ and it rotates by $\tan^{-1} (1/1) = \pi/4$. 
@@ -465,7 +465,7 @@ a = .97
 b = .71
 
 scale = sqrt(a^2+b^2)
-angle = atan (.97/.71)
+angle = atan (b/a)
 
 scale
 angle
@@ -473,7 +473,7 @@ angle
 2 * pi / angle
 ```
 
-  a. It takes 7 iterations to rotate past the $x$-axis. 
+  a. It takes 10 iterations to rotate past the $x$-axis. 
   b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
 
 
@@ -485,24 +485,31 @@ angle
 rref( cbind(c(-1,-1,2), c(-1,-1,2), c(2,2,-4)))
 ```
 
-    We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. THis menas that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
+  We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. THis menas that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
 
 8. 
-    a. Taking $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$, we have
-$$
-P^{-1} = \frac{1}{0.5} \begin{bmatrix} 0.8 & -0.2 \\ -0.3 & 0.7\end{bmatrix} = \begin{bmatrix} 1.6 & -0.4 \\ -0.6 & 1.4 \end{bmatrix}.
-$$
+    a. We set $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$. So
+    $$
+    P^{-1} =  - \frac{1}{5} \begin{bmatrix} -1 & -1 \\ -3 & 2 \end{bmatrix}
+    = \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
+    $$
+    Or we can find this inverse using RStudio.
+```{r}
+A = cbind(c(2,3),c(1,-1))
+solve(A)
+```
+    
     Therefore 
 $$
 A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix} = 
 \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}
 \begin{bmatrix} 1 & 0 \\ 0 & 0.5 \end{bmatrix}
-\begin{bmatrix} 1.6 & -0.4 \\ -0.6 & 1.4 \end{bmatrix}
+\begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
 $$
 
-    b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 2 & 1 \\ 2 & 1 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue.
+  b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 2 & 1 \\ 2 & 1 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue.
   
-    c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
+  c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
 
 ```{r, echo=TRUE}
 P = cbind(c(2,3), c(1,-1))
@@ -515,7 +522,7 @@ $$
 5 \begin{bmatrix} 2 \\ 3 \end{bmatrix} + \left( \frac{1}{2}  \right)^n \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
 $$
     
-    d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
+  d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
 
 9. 
     a.  We have
@@ -531,15 +538,35 @@ A = \left[
 -1/2 & 1/2 \\ 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
--0.7 & -0.2 \\ 0.2 & 0.7
+0.7 & -0.2 \\ 0.2 & 0.7
 \end{bmatrix}
 \begin{bmatrix}
 -2 & 1 \\ 0 & 1
 \end{bmatrix}
 $$
+    Here are some R calculations to check the answer for (a) and to find the values for (b) and (c)
 
-    b. THe angle of rotation is $tan^{-1} (.7/.2) = 1.29 radians
-    c. The dilation factor is $\sqrt{0.49 + 0.4} = \sqrt{0.55}$.
+```{r echo=TRUE}
+
+A = cbind(c(1/2,-2/5), c(1/5,9/10))
+A
+eigen(A)
+
+P = cbind(c(-1/2,0),c(1/2,1))
+C = cbind(c(.7,.2),c(-.2,.7))
+Pinv = solve(P)
+
+Pinv
+
+P %*% C %*% Pinv
+
+atan(.2/.7)
+sqrt(.7^2 + .2^2)
+
+```
+
+  b. The angle of rotation is $tan^{-1} (.2/.7) = 0.278$ radians
+  c. The dilation factor is $\sqrt{0.49 + 0.04} = \sqrt{0.53} = 0.728$.
 
   
 10. Let's use RStudio.
@@ -560,6 +587,7 @@ v1/sum(v1)
     b. Deer breeding: Both populations thrive and grow every year, converging slowly to a $1:1$ ratio. The long-term growth rate is $1.1$, or $10\%$ growth.
     c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[2.5, 2.5]$.
     d. Since they want a stable ecosystem, the wolf hunting is a better option. Ww reach a stable equilibrium population of $[2.5, 2.5]$
+
 
 12. 
 
