@@ -507,7 +507,30 @@ A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix} =
 \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
 $$
 
-  b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 2 & 1 \\ 2 & 1 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue.
+  b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 0.4 & 0.6 \\ 0.4 & 0.6 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue. So each column of $A$ convergence to vector in the eigenspace for the dominant eigenvalue. Basically, we treat each column of $A$ as a "starting vector" repeated multiplication by $A$ converges to the dominant eigenspace. Here are the details.
+  
+  Let $\mathsf{v}_1 = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$ and $\mathsf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$. For any constants $c_1, c_2$, we have
+$$
+\lim_{n \rightarrow \infty} A^n (c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2) 
+= \lim_{n \rightarrow \infty} \left( c_1 A^n  \mathsf{v}_1 + c_2 A^n \mathsf{v}_2 \right)
+= \lim_{n \rightarrow \infty} \left( c_1   \mathsf{v}_1 + c_2 (0.5)^n \mathsf{v}_2 \right)
+= c_1   \mathsf{v}_1.
+$$
+  So we need to find $c_1,c_2$ for each column of $A$. Let's use R Studio.
+
+```{r, echo=TRUE}
+a1 = c(.7,.3)
+a2 = c(.2,.8)
+P = cbind(c(2,3), c(1,-1))
+
+solve(P,a1)
+solve(P,a2)
+```
+In each case, $c_1 = 0.2$. Therefore
+$$
+\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{bmatrix}.
+$$
+
   
   c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
 
@@ -519,7 +542,7 @@ solve(P,v)
 
     So the formula is
 $$
-5 \begin{bmatrix} 2 \\ 3 \end{bmatrix} + \left( \frac{1}{2}  \right)^n \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
+5 \begin{bmatrix} 2 \\ 3 \end{bmatrix} + 15 \left( \frac{1}{2}  \right)^n \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
 $$
     
   d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
