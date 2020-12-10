@@ -485,7 +485,7 @@ angle
 rref( cbind(c(-1,-1,2), c(-1,-1,2), c(2,2,-4)))
 ```
 
-  We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. THis menas that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
+  We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. This means that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
 
 8. 
     a. We set $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$. So
@@ -494,7 +494,7 @@ rref( cbind(c(-1,-1,2), c(-1,-1,2), c(2,2,-4)))
     = \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
     $$
     Or we can find this inverse using RStudio.
-```{r}
+```{r, echo=TRUE}
 A = cbind(c(2,3),c(1,-1))
 solve(A)
 ```
@@ -544,9 +544,9 @@ A = \left[
 -2 & 1 \\ 0 & 1
 \end{bmatrix}
 $$
-    Here are some R calculations to check the answer for (a) and to find the values for (b) and (c)
+    Here are some R calculations to check the answer for (a) and to find the values for (b) and (c).
 
-```{r echo=TRUE}
+```{r, echo=TRUE}
 
 A = cbind(c(1/2,-2/5), c(1/5,9/10))
 A
@@ -565,13 +565,13 @@ sqrt(.7^2 + .2^2)
 
 ```
 
-  b. The angle of rotation is $tan^{-1} (.2/.7) = 0.278$ radians
+  b. The angle of rotation is $\tan^{-1} (.2/.7) = 0.278$ radians
   c. The dilation factor is $\sqrt{0.49 + 0.04} = \sqrt{0.53} = 0.728$.
 
   
 10. Let's use RStudio.
 
-```{r}
+```{r, echo=TRUE}
 A = cbind(c(0.662, 0.338),c(0.25,  0.75))
 A %*% A %*% c(0,1)
 
