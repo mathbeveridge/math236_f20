@@ -5,7 +5,6 @@ This online handbook accompanies MATH 236 Linear Algebra. The progression of top
 
 https://textbooks.math.gatech.edu/ila/index.html
 
-
 This handbook contains 
   - problem sets
   - R explorations
