@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 7 Problem Set 7 | MATH 236: Linear Algebra</title>
+  <title>Vector 24 Least Squares Approximation | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 7 Problem Set 7 | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 24 Least Squares Approximation | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 7 Problem Set 7 | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 24 Least Squares Approximation | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="problem-set-6.html"/>
-<link rel="next" href="important-definitions.html"/>
+<link rel="prev" href="digit-recognition.html"/>
+<link rel="next" href="quiz-1-review.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -389,325 +389,253 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-7" class="section level1">
-<h1><span class="header-section-number">Vector 7</span> Problem Set 7</h1>
-<ul>
-<li>Due: Tuesday December 08 by 11:55pm CST.</li>
-<li>Upload your solutions to Moodle in a PDF.</li>
-<li>Please feel free to <strong>use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation and inverse matrices.</strong></li>
-<li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS7-problem-set-7.Rmd">Rmd source file for this problem set</a>.</li>
-<li>You can download a <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd">Rmd template solution file</a>.</li>
-</ul>
-<p>This problem set covers Sections 5.5 Complex Eigenvalues and 5.6 Dynamical Systems, as well as <a href="modeling-of-ecological-systems.html#modeling-of-ecological-systems">Modeling of Ecological Systems</a>. Three out of four questions require you to use RStudio. I’ve provided a <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS7-template.Rmd">PS7 solution template</a> if you want to use it.</p>
-<div id="glucose-insulin-system-model" class="section level2">
-<h2><span class="header-section-number">7.1</span> Glucose-Insulin System Model</h2>
-<p><strong>Note:</strong> Use the functions <code>get_trajectory(A, start, N)</code> and <code>plot_trajectory(X, title, types)</code> from <a href="modeling-of-ecological-systems.html#modeling-of-ecological-systems">Modeling of Ecological Systems</a> to create trajectories and plots for this question.</p>
-<p>The excess glucose level <span class="math inline">\(G_t\)</span> and excess insulin level <span class="math inline">\(H_t\)</span> in a digestive system are determined by the update rule
+<div id="least-squares-approximation" class="section level1">
+<h1><span class="header-section-number">Vector 24</span> Least Squares Approximation</h1>
+<p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/11-least-squares.Rmd">Download this Rmd file</a></p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">24.1</span> Introduction</h2>
+<p>Let’s start with a summary of Least Squares Approximation.</p>
+<p><strong>The Why</strong>: Given a matrix <span class="math inline">\(A\)</span> and a vector <span class="math inline">\(\mathsf{b}\)</span> that is not in <span class="math inline">\(W = \mathrm{Col}(A)\)</span>, we want to find the “best approximate solution” <span class="math inline">\(\hat{\mathsf{b}} \in W\)</span>. In other words, we want to pick the best possible <span class="math inline">\(\hat{\mathsf{b}} \approx \mathsf{b}\)</span> that is in the column space of <span class="math inline">\(A\)</span>.</p>
+<p><strong>The What</strong>: The answer is to use projections.
+* This “best approximation” is the projection <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span>.
+* The residual vector vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathbf{b}}\)</span> is in <span class="math inline">\(W^{\perp}\)</span>.
+* The length <span class="math inline">\(\| \mathsf{z} \|\)</span> of the residual vector measures the closeness the approximation.
+* The approximate soltuion to our original problem is the vector <span class="math inline">\(\hat{\mathsf{x}}\)</span> such that
+<span class="math inline">\(A \hat{\mathsf{x}} = \hat{\mathsf{b}}\)</span>.</p>
+<p><strong>The How</strong>: A clever way to solve this is to use the <em>normal equations</em>. The best choice for <span class="math inline">\(\hat{\mathsf{x}}\)</span> satisfies
 <span class="math display">\[
-\begin{bmatrix} G_{t+1} \\  H_{t+1} \end{bmatrix}
-=
-\begin{bmatrix} 0.998 &amp; -0.169 \\  0.068 &amp; 0.930 \end{bmatrix}
-\begin{bmatrix} G_{t} \\  H_{t} \end{bmatrix}
-=
-\begin{bmatrix}
-a G_t + b H_t \\
- c G_t + d H_t \\
- \end{bmatrix}
+A^{\top} A \hat{\mathsf{x}} = A^{\top} \mathsf{b}. 
 \]</span>
-a. Suppose that we have an intake of glucose
-<span class="math inline">\(\begin{bmatrix} G_{0} \\ H_{0} \end{bmatrix} = \begin{bmatrix} 2 \\ 0 \end{bmatrix}.\)</span> Make a plot of this system and that you can use to estimate how long it will take for this system to return (approximately) to homeostatis, where the values stay steady at <span class="math inline">\(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Calculate the eigenvalues <span class="math inline">\(\lambda = a \pm b i\)</span> for this matrix. Use them to find the decay rate <span class="math inline">\(|\lambda| = \sqrt{a^2 + b^2}\)</span> and the rate of rotation
-<span class="math inline">\(\theta = \tan^{-1} (a/b)\)</span>, measured in degrees. You can find this value in RStudio using the command <code>atan(a/b) * 360 / (2 * pi)</code>.</li>
-</ol>
+Here is a template for the R code that will find the least squares solution <span class="math inline">\(\hat{\mathsf{x}}\)</span>, the projection vector <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span> and the residual vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathsf{b}}\)</span>.
+You should read this code line-by-line and make sure that you understand what it is doing!</p>
+<pre><code># Given: the matrix A
+# Given: the target vector b
+
+#solve the normal equation
+(xhat = solve(t(A) %*% A, t(A) %*% b))
+
+# find the projection
+(bhat = A %*% xhat)
+
+# find the residual vector
+(z = b - bhat)
+
+# check that z is orthogonal to Col(A)
+t(A) %*% z
+
+# measure the distance between bhat and b
+sqrt( t(z) %*% z)</code></pre>
 </div>
-<div id="population-interaction-models" class="section level2">
-<h2><span class="header-section-number">7.2</span> Population Interaction Models</h2>
-<p>The dynamics of two interacting populations <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be modeled using a discrete dynamical system of the form
+<div id="fitting-for-a-linear-function" class="section level2">
+<h2><span class="header-section-number">24.2</span> Fitting for a Linear Function</h2>
+<p>Here are some points that we’d like to fit a line to.</p>
+<p><strong>Note:</strong> Here we use <code>y</code> instead of <code>b</code> because we like to write linear equations as “<span class="math inline">\(y = cx + d\)</span>.” So the expression “<span class="math inline">\(b = cx +d\)</span>” looks funny to us. So we will talk about <code>y</code> and <code>yhat</code> instead of <code>b</code> and <code>bhat</code>.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="least-squares-approximation.html#cb193-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb193-2"><a href="least-squares-approximation.html#cb193-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="fl">3.6</span>, <span class="dv">4</span>)</span>
+<span id="cb193-3"><a href="least-squares-approximation.html#cb193-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),)</span>
+<span id="cb193-4"><a href="least-squares-approximation.html#cb193-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/sqlinear1-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>To fit a line <span class="math inline">\(y = d + cx\)</span> to the data, we need to solve the following <span class="math inline">\(Ax = b\)</span> problem:
 <span class="math display">\[
-\begin{bmatrix} X_{t+1} \\  Y_{t+1} \end{bmatrix}
-=
-\begin{bmatrix} a &amp; b \\  c &amp; d \end{bmatrix}
-\begin{bmatrix} X_{t} \\  Y_{t} \end{bmatrix}
-=
-\begin{bmatrix}
-a X_t + b Y_t \\
- c X_t + d Y_t \\
- \end{bmatrix}
-\]</span>
-where <span class="math inline">\(a,b,c,d\)</span> are constants that depend on the type of interaction.</p>
-<p>The constants have the following interpretations:</p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="35%" />
-<col width="58%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">constant</th>
-<th align="left">qualitative interpretation</th>
-<th align="left">quantitative interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><span class="math inline">\(a\)</span></td>
-<td align="left">Does population <span class="math inline">\(X\)</span> thrive in the absence of population <span class="math inline">\(Y\)</span>?</td>
-<td align="left">If <span class="math inline">\(a &gt; 1\)</span>, then <span class="math inline">\(X\)</span> thrives without <span class="math inline">\(Y\)</span>. If <span class="math inline">\(0 &lt; a &lt; 1\)</span> then <span class="math inline">\(X\)</span> dies out without <span class="math inline">\(Y\)</span>.</td>
-</tr>
-<tr class="even">
-<td align="left">b</td>
-<td align="left">What is the effect of population <span class="math inline">\(Y\)</span> on population <span class="math inline">\(X\)</span>?</td>
-<td align="left">If <span class="math inline">\(b &gt; 0\)</span> then <span class="math inline">\(Y\)</span> helps <span class="math inline">\(X\)</span> to thrive. If <span class="math inline">\(b &lt; 0\)</span> then <span class="math inline">\(Y\)</span> hinders the population growth of <span class="math inline">\(X\)</span>.</td>
-</tr>
-<tr class="odd">
-<td align="left">c</td>
-<td align="left">What is the effect of population <span class="math inline">\(X\)</span> on population <span class="math inline">\(Y\)</span>?</td>
-<td align="left">If <span class="math inline">\(c &gt; 0\)</span> then <span class="math inline">\(X\)</span> helps <span class="math inline">\(Y\)</span> to thrive. If <span class="math inline">\(c &lt; 0\)</span> then <span class="math inline">\(X\)</span> hinders the population growth of <span class="math inline">\(Y\)</span>.</td>
-</tr>
-<tr class="even">
-<td align="left">d</td>
-<td align="left">Does population <span class="math inline">\(Y\)</span> thrive in the absence of population <span class="math inline">\(X\)</span>?</td>
-<td align="left">If <span class="math inline">\(d &gt; 1\)</span>, then <span class="math inline">\(Y\)</span> thrives without <span class="math inline">\(X\)</span>. If <span class="math inline">\(0 &lt; d &lt; 1\)</span> then <span class="math inline">\(Y\)</span> dies out without <span class="math inline">\(X\)</span>.</td>
-</tr>
-</tbody>
-</table>
-<p>Let’s consider 3 different types of population interaction.</p>
-<ul>
-<li><strong>Predation</strong>: one population feeds off the other. One example: foxes and rabbits.</li>
-<li><strong>Competition</strong>: the populations compete for the same resources. One example: squirrels and chipmunks.</li>
-<li><strong>Mutual Symbiosis</strong>: the populations play complementary roles. Both thrive or decline together. One example: bees and flowers.</li>
-</ul>
-<p>You will characterize the constants corresponding to these interactions and then analyze some examples. (Note: these population models are oversimplified, of course. We are interested in seeing how eigenvalues and eigenvectors help to make sense of these systems.)</p>
-<ol style="list-style-type: lower-alpha">
-<li>For each of the proposed models (predation, competition, mutual symbiosis), characterize the values for the constants <span class="math inline">\(a,b,c,d\)</span> by using the interpretations listed above. For example, you must decide whether <span class="math inline">\(a&gt;1\)</span> or <span class="math inline">\(0 &lt; a &lt; 1\)</span> for each model.</li>
-</ol>
-<p>Your answer should be written in table form, as shown below.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">model</th>
-<th align="left">a</th>
-<th align="left">b</th>
-<th align="left">c</th>
-<th align="left">d</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">predation</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">competition</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">symbiosis</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-<ol start="2" style="list-style-type: lower-alpha">
-<li><p>Here are three different population models, along with its eigenvalue and eigenvectors. For each one, you must decide whether it is Predation, Competition or Symbiosis. Your answer will be three simple statements like “<span class="math inline">\(M\)</span> is predation.”</p>
-<p><span class="math inline">\(A = \begin{bmatrix}1.1 &amp; -0.2 \\ -0.3 &amp; 1.2 \end{bmatrix}, \qquad \lambda_1 = 1.4 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ -1.5 \end{bmatrix}, \qquad \lambda_2 = 0.9 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span></p>
-<p><span class="math inline">\(B = \begin{bmatrix}0.5 &amp; 0.4 \\ -0.2 &amp; 1.1 \end{bmatrix}, \qquad \lambda_1 = 0.9 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \qquad \lambda_2 = 0.7 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}\)</span></p>
-<p><span class="math inline">\(C = \begin{bmatrix}0.8 &amp; 0.3 \\ 0.4 &amp; 0.7 \end{bmatrix}, \qquad \lambda_1 = 1.1 \mbox{ with } \mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \qquad \lambda_2 = 0.4 \mbox{ with } \mathsf{v}_2 = \begin{bmatrix} 1 \\ -0.75 \end{bmatrix}\)</span></p></li>
-<li><p>Here are plots of the vector fields for the three models in part (b). Match the model <span class="math inline">\(A, B, C\)</span> to its corresponding vector field. Your answer will be three simple statements like “<span class="math inline">\(M\)</span> is Vector Field 2.”</p>
-<ol style="list-style-type: lower-roman">
-<li>Vector Field 1</li>
-</ol>
-<center>
-<p><img src="images/pop-model1.png" style="width:60.0%" /></p>
-</center>
-<ol start="2" style="list-style-type: lower-roman">
-<li>Vector Field 2</li>
-</ol>
-<center>
-<p><img src="images/pop-model2.png" style="width:60.0%" /></p>
-</center>
-<ol start="3" style="list-style-type: lower-roman">
-<li>Vector Field 3</li>
-</ol>
-<center>
-<p><img src="images/pop-model3.png" style="width:60.0%" /></p>
-</center></li>
-<li><p>For each matrix model <span class="math inline">\(A,B,C\)</span>, assume that the initial population is <span class="math inline">\([X_0, Y_0]^{\top} = [1, 2.5]^{\top}\)</span> where the units are in millions of organisms. Use the corresponding vector field to visualize the trajetory starting at <span class="math inline">\([1, 2.5]^{\top}\)</span>.</p></li>
-</ol>
-<ul>
-<li>Describe the trajectory in words. (For example: “At first both populations decrease to <span class="math inline">\([0.5, 1]^{\top}\)</span>. But then they both start increasing and converge to the direction of <span class="math inline">\([2,3]^{\top}\)</span>. They continue to grow forever.” )</li>
-<li>Indicate the long-term populations for both organisms (growth, stable, extinction).</li>
-<li>Connect the behavior you see back to the eigenvalues and eigenvectors of the model</li>
-</ul>
+\begin{bmatrix} 
+1 &amp; 1 \\  1 &amp; 2 \\ 1 &amp; 3 \\ 1 &amp; 4 \\
+\end{bmatrix}
+\begin{bmatrix} d \\ c \end{bmatrix}
+= 
+\begin{bmatrix} 1 \\ 2.4 \\ 3.6 \\ 4 \end{bmatrix}
+\]</span></p>
+<p>These equations are inconsistent, so we solve the normal equations <span class="math inline">\(A^T A x = A^T y\)</span> instead. A clever way to create the desired matrix <span class="math inline">\(A\)</span> is to use the fact that <span class="math inline">\(x^0=1\)</span> for any number <span class="math inline">\(x\)</span>.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="least-squares-approximation.html#cb194-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>,x))</span></code></pre></div>
+<pre><code>##        x
+## [1,] 1 1
+## [2,] 1 2
+## [3,] 1 3
+## [4,] 1 4</code></pre>
+<div id="your-turn-13" class="section level3">
+<h3><span class="header-section-number">24.2.1</span> Your Turn</h3>
+<p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximates the coefficients <span class="math inline">\(c, d\)</span>.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="least-squares-approximation.html#cb196-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb196-2"><a href="least-squares-approximation.html#cb196-2"></a></span>
+<span id="cb196-3"><a href="least-squares-approximation.html#cb196-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
 </div>
-<div id="blue-whale-population-dynamics" class="section level2">
-<h2><span class="header-section-number">7.3</span> Blue Whale Population Dynamics</h2>
-<p><strong>Note:</strong> Use the functions <code>get_trajectory(A, start, N)</code> and <code>plot_trajectory(X, title, types)</code>
-from <a href="Modeling%20of%20Ecological%20Systems">Modeling of Ecological Systems</a> to create trajectories and plots for this question.</p>
-<p>In the 1930’s (before <a href="https://en.wikipedia.org/wiki/Blue_whale#Hunting_era">its virtual extinction and a great change in its survival rates</a>), a researcher studied the blue whale population. Due to the long gestation period, mating habits and migration of the blue whale, a female can produce a calf only once in a two-year period. Thus the age classes for the whale were assumed to be:</p>
+<div id="plotting-your-least-squares-solution" class="section level3">
+<h3><span class="header-section-number">24.2.2</span> Plotting your least squares solution</h3>
+<p>The following code gives you a visualization of the approximate solution.
+* The black points: the original data points <code>cbind(x,y)</code>. This represents the entries of the desired target vector <code>y</code>.
+* The blue curve: the fitted curve, created from the approximate solution <code>xhat</code>.<br />
+* The orange points: the approximations <code>cbind(x,yhat)</code> of the data points <code>cbind(x,y)</code>. This represents entries of the projection <code>yhat</code>.
+* The red line segments: the distances between the original data points (block dots) and their approximations (orange dots). The lengths of these red segments are the entries of the residual vector <code>z</code></p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="least-squares-approximation.html#cb197-1"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit linear function&#39;</span>)</span>
+<span id="cb197-2"><a href="least-squares-approximation.html#cb197-2"></a>(<span class="dt">yhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    0
+## [2,]    0
+## [3,]    0
+## [4,]    0</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="least-squares-approximation.html#cb199-1"></a>tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
+<span id="cb199-2"><a href="least-squares-approximation.html#cb199-2"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb199-3"><a href="least-squares-approximation.html#cb199-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb199-4"><a href="least-squares-approximation.html#cb199-4"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb199-5"><a href="least-squares-approximation.html#cb199-5"></a>}</span>
+<span id="cb199-6"><a href="least-squares-approximation.html#cb199-6"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb199-7"><a href="least-squares-approximation.html#cb199-7"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/sqlinear2-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="your-turn-14" class="section level3">
+<h3><span class="header-section-number">24.2.3</span> Your turn</h3>
+<p>If you have not already done so</p>
 <ul>
-<li>0-1 years</li>
-<li>2-3 years</li>
-<li>4-5 years</li>
-<li>6-7 years</li>
-<li>8-9 years</li>
-<li>10-11 years</li>
-<li>12 or more years</li>
+<li>Find the residual vector <span class="math inline">\(z\)</span>.</li>
+<li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
+<li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
 </ul>
-<p>The Leslie Matrix <span class="math inline">\(B\)</span> for this model is given by</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="problem-set-7.html#cb6-1"></a>(<span class="dt">L=</span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">19</span>,.<span class="dv">44</span>,.<span class="dv">5</span>,.<span class="dv">5</span>,.<span class="dv">45</span>),</span>
-<span id="cb6-2"><a href="problem-set-7.html#cb6-2"></a>         <span class="kw">c</span>(.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb6-3"><a href="problem-set-7.html#cb6-3"></a>         <span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb6-4"><a href="problem-set-7.html#cb6-4"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb6-5"><a href="problem-set-7.html#cb6-5"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb6-6"><a href="problem-set-7.html#cb6-6"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb6-7"><a href="problem-set-7.html#cb6-7"></a>         <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">77</span>,.<span class="dv">78</span>)))</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
-## [1,] 0.00 0.00 0.19 0.44 0.50 0.50 0.45
-## [2,] 0.77 0.00 0.00 0.00 0.00 0.00 0.00
-## [3,] 0.00 0.77 0.00 0.00 0.00 0.00 0.00
-## [4,] 0.00 0.00 0.77 0.00 0.00 0.00 0.00
-## [5,] 0.00 0.00 0.00 0.77 0.00 0.00 0.00
-## [6,] 0.00 0.00 0.00 0.00 0.77 0.00 0.00
-## [7,] 0.00 0.00 0.00 0.00 0.00 0.77 0.78</code></pre>
-<p>We can see that the vector of fecundities is <span class="math inline">\([0,0,0.19,0.44,0.5,0.5,0.45]\)</span>, and that the survival rate for all whales 11 years old or younger is 77%, and for all whales 12 or more years, it is 78%.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Starting from a whale population of 1000 in each of the seven age classes, plot the trajectories over a 40 year period. Does your plot of this model predict population growth, population equilibrium or population extinction?</p></li>
-<li><p>Calculate the eigenvectors and eigenvalues of the matrix <span class="math inline">\(L\)</span>. Relate the behavior you see to the eigenvalues and eigenvectors.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="least-squares-approximation.html#cb200-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+</div>
+</div>
+<div id="fitting-a-quadratic-function" class="section level2">
+<h2><span class="header-section-number">24.3</span> Fitting a Quadratic Function</h2>
+<p>It might surprise you at first that we can use <em>linear algebra</em> to fit a <em>quadratic function</em>. But remember: we are fitting the <strong>coefficients</strong>. One we plug in our experimental data, we have a linear combination of the unknown coefficients!</p>
+<p>So let’s fit a quadratic function <span class="math inline">\(y = a_0 + a_1 x + a_2 x^2\)</span> to the following data:</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="least-squares-approximation.html#cb201-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb201-2"><a href="least-squares-approximation.html#cb201-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb201-3"><a href="least-squares-approximation.html#cb201-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
+<span id="cb201-4"><a href="least-squares-approximation.html#cb201-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/squad1-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>In this case, the linear model that we’d like to solve is:
+<span class="math display">\[
+\begin{bmatrix} 
+1 &amp; 1 &amp; 1\\  1 &amp; 2 &amp; 4 \\ 1 &amp; 3 &amp; 9 \\ 1 &amp; 4 &amp; 16 \\ 1 &amp; 5 &amp; 25 \\ 1 &amp; 6 &amp; 36 \\
+\end{bmatrix}
+\begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix}
+= 
+\begin{bmatrix} 7 \\ 2 \\ 1 \\ 3 \\ 7 \\ 7 \end{bmatrix}
+\]</span></p>
+<p>Again, this is inconsistent (go ahead and check if you want to). So we need to find the best approximate solution. I will make the <span class="math inline">\(A\)</span> matrix for you one more time. (You’ll have to construct it in the examples below.)</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="least-squares-approximation.html#cb202-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x, x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div id="your-turn-15" class="section level3">
+<h3><span class="header-section-number">24.3.1</span> Your Turn</h3>
+<p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximations of the coefficients <span class="math inline">\(a_0, a_1, a_2\)</span>.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="least-squares-approximation.html#cb203-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb203-2"><a href="least-squares-approximation.html#cb203-2"></a></span>
+<span id="cb203-3"><a href="least-squares-approximation.html#cb203-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
+</div>
+<div id="plotting-your-least-squares-solution-1" class="section level3">
+<h3><span class="header-section-number">24.3.2</span> Plotting your least squares solution</h3>
+<p><strong>Note:</strong> this code assumes that you have defined <code>xhat</code></p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="least-squares-approximation.html#cb204-1"></a>(<span class="dt">yhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    0
+## [2,]    0
+## [3,]    0
+## [4,]    0
+## [5,]    0
+## [6,]    0</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="least-squares-approximation.html#cb206-1"></a><span class="co"># plotting the solution</span></span>
+<span id="cb206-2"><a href="least-squares-approximation.html#cb206-2"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit quadratic function&#39;</span>)</span>
+<span id="cb206-3"><a href="least-squares-approximation.html#cb206-3"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
+<span id="cb206-4"><a href="least-squares-approximation.html#cb206-4"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">3</span>]<span class="op">*</span>tt<span class="op">^</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb206-5"><a href="least-squares-approximation.html#cb206-5"></a><span class="kw">grid</span>()</span>
+<span id="cb206-6"><a href="least-squares-approximation.html#cb206-6"></a><span class="co"># adding the residual lines</span></span>
+<span id="cb206-7"><a href="least-squares-approximation.html#cb206-7"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb206-8"><a href="least-squares-approximation.html#cb206-8"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb206-9"><a href="least-squares-approximation.html#cb206-9"></a>}</span>
+<span id="cb206-10"><a href="least-squares-approximation.html#cb206-10"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb206-11"><a href="least-squares-approximation.html#cb206-11"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/squad2-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="your-turn-16" class="section level3">
+<h3><span class="header-section-number">24.3.3</span> Your turn</h3>
+<p>If you have not already done so</p>
 <ul>
-<li>What is the overall growth rate?</li>
-<li>What are the long-term population ratios?</li>
+<li>Find the residual vector <span class="math inline">\(z\)</span>. Compare the entries (positive, negative) with the red line segments in the plot above.</li>
+<li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
+<li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
+</ul>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="least-squares-approximation.html#cb207-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+</div>
+</div>
+<div id="a-linear-model-for-production-at-a-hosiery-mill" class="section level2">
+<h2><span class="header-section-number">24.4</span> A Linear Model for Production at a Hosiery Mill</h2>
+<p>Here is a data set from a 1940’s hosiery mill. It measures monthly production output and total production cost. The data come from the article “Statistical Cost Functions of a Hosiery Mill”, by Joel Dean in Studies in Business Administration, vol. 14, no. 3, 1941.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="least-squares-approximation.html#cb208-1"></a>units.produced =<span class="kw">c</span>(<span class="fl">561.0</span>, <span class="fl">506.16</span>, <span class="fl">502.32</span>, <span class="fl">519.48</span>, <span class="fl">505.44</span>, <span class="fl">501.36</span>, <span class="fl">497.64</span>, </span>
+<span id="cb208-2"><a href="least-squares-approximation.html#cb208-2"></a>   <span class="fl">506.52</span>, <span class="fl">492.36</span>, <span class="fl">478.08</span>, <span class="fl">469.8</span>, <span class="fl">470.4</span>, <span class="fl">474.24</span>, <span class="fl">456.6</span>, <span class="fl">469.92</span>, </span>
+<span id="cb208-3"><a href="least-squares-approximation.html#cb208-3"></a>   <span class="fl">463.08</span>, <span class="fl">438.48</span>, <span class="fl">444.36</span>, <span class="fl">439.2</span>, <span class="fl">450.96</span>, <span class="fl">437.76</span>, <span class="fl">459.</span>, <span class="fl">447.12</span>, </span>
+<span id="cb208-4"><a href="least-squares-approximation.html#cb208-4"></a>   <span class="fl">463.08</span>, <span class="fl">490.68</span>, <span class="fl">451.92</span>, <span class="fl">465.48</span>, <span class="fl">465.36</span>, <span class="fl">440.4</span>, <span class="fl">421.2</span>, <span class="fl">405.</span>, <span class="fl">411.48</span>,</span>
+<span id="cb208-5"><a href="least-squares-approximation.html#cb208-5"></a>    <span class="fl">387.12</span>, <span class="fl">371.64</span>, <span class="fl">338.4</span>, <span class="fl">294.96</span>, <span class="fl">243.</span>, <span class="fl">205.08</span>, <span class="fl">172.2</span>, <span class="fl">157.32</span>, <span class="fl">114.</span>, </span>
+<span id="cb208-6"><a href="least-squares-approximation.html#cb208-6"></a>   <span class="fl">116.88</span>, <span class="fl">112.08</span>, <span class="fl">90.12</span>, <span class="fl">100.2</span>, <span class="fl">75.</span>, <span class="fl">65.4</span>, <span class="fl">45.48</span>)</span>
+<span id="cb208-7"><a href="least-squares-approximation.html#cb208-7"></a></span>
+<span id="cb208-8"><a href="least-squares-approximation.html#cb208-8"></a>production.cost =<span class="st"> </span><span class="kw">c</span>(<span class="fl">92.64</span>, <span class="fl">88.81</span>, <span class="fl">86.44</span>, <span class="fl">88.8</span>, <span class="fl">86.38</span>, <span class="fl">89.87</span>, <span class="fl">88.53</span>, <span class="fl">91.11</span>, <span class="fl">81.22</span>,</span>
+<span id="cb208-9"><a href="least-squares-approximation.html#cb208-9"></a>    <span class="fl">83.72</span>, <span class="fl">84.54</span>, <span class="fl">85.66</span>, <span class="fl">85.87</span>, <span class="fl">85.23</span>, <span class="fl">87.75</span>, <span class="fl">92.62</span>, <span class="fl">91.56</span>, <span class="fl">84.12</span>, </span>
+<span id="cb208-10"><a href="least-squares-approximation.html#cb208-10"></a>   <span class="fl">81.22</span>, <span class="fl">83.35</span>, <span class="fl">82.29</span>, <span class="fl">80.92</span>, <span class="fl">76.92</span>, <span class="fl">78.35</span>, <span class="fl">74.57</span>, <span class="fl">71.6</span>, <span class="fl">65.64</span>, </span>
+<span id="cb208-11"><a href="least-squares-approximation.html#cb208-11"></a>   <span class="fl">62.09</span>, <span class="fl">61.66</span>, <span class="fl">77.14</span>, <span class="fl">75.47</span>, <span class="fl">70.37</span>, <span class="fl">66.71</span>, <span class="fl">64.37</span>, <span class="fl">56.09</span>, <span class="fl">50.25</span>, </span>
+<span id="cb208-12"><a href="least-squares-approximation.html#cb208-12"></a>   <span class="fl">43.65</span>, <span class="fl">38.01</span>, <span class="fl">31.4</span>, <span class="fl">29.45</span>, <span class="fl">29.02</span>, <span class="fl">19.05</span>, <span class="fl">20.36</span>, <span class="fl">17.68</span>, <span class="fl">19.23</span>, </span>
+<span id="cb208-13"><a href="least-squares-approximation.html#cb208-13"></a>   <span class="fl">14.92</span>, <span class="fl">11.44</span>, <span class="fl">12.69</span>)</span></code></pre></div>
+<p>Fit a linear model between the units produced and the production cost.</p>
+<p><span class="math display">\[p=\beta_0+\beta_1 u,\]</span></p>
+<p>where <span class="math inline">\(u\)</span> is the number of units produced in a given month (in thousands), <span class="math inline">\(p\)</span> is the monthly production cost (in $1000s). The constant <span class="math inline">\(\beta_0\)</span> represents the fixed costs for running the hosiery mill and <span class="math inline">\(\beta_1\)</span> represents the variable cost per production of 1000 units.</p>
+<ul>
+<li><p>Use least squares approximation to find the best fitting linear function for this data. Look at the previous two examples for how to create your matrix <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Look at your least squared solution. What are the monthly fixed costs? What are the variable costs per 1000 units?</p></li>
+<li><p>Plot the data along with your linear function.</p></li>
+<li><p><strong>Optional:</strong> Compute the length of the residual vector</p></li>
+<li><p><strong>Optional:</strong> Confirm that the residual vector is orthogonal to both columns of the coefficient matrix.</p></li>
+</ul>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="least-squares-approximation.html#cb209-1"></a><span class="co"># your least squares code goes here</span></span>
+<span id="cb209-2"><a href="least-squares-approximation.html#cb209-2"></a>x =<span class="st"> </span>units.produced</span>
+<span id="cb209-3"><a href="least-squares-approximation.html#cb209-3"></a>y =<span class="st"> </span>production.cost</span>
+<span id="cb209-4"><a href="least-squares-approximation.html#cb209-4"></a></span>
+<span id="cb209-5"><a href="least-squares-approximation.html#cb209-5"></a><span class="co"># you must define A and xhat</span></span></code></pre></div>
+<ul>
+<li>**Note: this code assumes that you have defined <code>xhat</code> and ’x<code>and</code>y<code>and</code>A`</li>
+<li>Remove the leading tick mark in the line below make the block executable.</li>
+</ul>
+<p>’<code>{r sqhosiery,fig.width=4.5, fig.height=4.5, echo=TRUE} plot(x,y,pch=19, main='hosiery mill production', xlab="monthly units produced (1000s)",ylab="monthly production cost ($1000s)") yhat = A %*% xhat tt = seq(0,600,by=.1) lines(tt,xhat[1]+xhat[2]*tt,col='blue')</code></p>
+</div>
+<div id="global-fossil-fuel-emissions" class="section level2">
+<h2><span class="header-section-number">24.5</span> Global Fossil Fuel Emissions</h2>
+<p>Now let’s fit a curve to global fossil fuel emmissions between 1751 and 1998. The fossil fuel emissions are measured in megatons of carbon. Here is a plot of the data.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="least-squares-approximation.html#cb210-1"></a>year=<span class="kw">c</span>(<span class="dv">1751</span><span class="op">:</span><span class="dv">1998</span>)</span>
+<span id="cb210-2"><a href="least-squares-approximation.html#cb210-2"></a>emissions =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">43</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">57</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">71</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">78</span>, <span class="dv">83</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">104</span>, <span class="dv">112</span>, <span class="dv">119</span>, <span class="dv">122</span>, <span class="dv">130</span>, <span class="dv">135</span>,</span>
+<span id="cb210-3"><a href="least-squares-approximation.html#cb210-3"></a><span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">156</span>, <span class="dv">173</span>, <span class="dv">184</span>, <span class="dv">174</span>, <span class="dv">188</span>, <span class="dv">191</span>, <span class="dv">194</span>, <span class="dv">196</span>, <span class="dv">210</span>, <span class="dv">236</span>, <span class="dv">243</span>, <span class="dv">256</span>, <span class="dv">272</span>, <span class="dv">275</span>, <span class="dv">277</span>, <span class="dv">281</span>, <span class="dv">295</span>, <span class="dv">327</span>, <span class="dv">327</span>, <span class="dv">356</span>, <span class="dv">372</span>, <span class="dv">374</span>, <span class="dv">370</span>, <span class="dv">383</span>, <span class="dv">406</span>, <span class="dv">419</span>, <span class="dv">440</span>, <span class="dv">465</span>, <span class="dv">507</span>, <span class="dv">534</span>, <span class="dv">552</span>, <span class="dv">566</span>, <span class="dv">617</span>, <span class="dv">624</span>, <span class="dv">663</span>, <span class="dv">707</span>, <span class="dv">784</span>, <span class="dv">750</span>, <span class="dv">785</span>, <span class="dv">819</span>, <span class="dv">836</span>, <span class="dv">879</span>, <span class="dv">943</span>, <span class="dv">850</span>, <span class="dv">838</span>, <span class="dv">901</span>, <span class="dv">955</span>, <span class="dv">936</span>, <span class="dv">806</span>, <span class="dv">932</span>, <span class="dv">803</span>, <span class="dv">845</span>, <span class="dv">970</span>, <span class="dv">963</span>, <span class="dv">975</span>, <span class="dv">983</span>, <span class="dv">1062</span>, <span class="dv">1065</span>, <span class="dv">1145</span>, <span class="dv">1053</span>, <span class="dv">940</span>, <span class="dv">847</span>, <span class="dv">893</span>, <span class="dv">973</span>, <span class="dv">1027</span>, <span class="dv">1130</span>, <span class="dv">1209</span>, <span class="dv">1142</span>, <span class="dv">1192</span>, <span class="dv">1299</span>, <span class="dv">1334</span>, <span class="dv">1342</span>, <span class="dv">1391</span>, <span class="dv">1383</span>, <span class="dv">1160</span>, <span class="dv">1238</span>, <span class="dv">1392</span>, <span class="dv">1469</span>, <span class="dv">1419</span>, <span class="dv">1630</span>, <span class="dv">1767</span>, <span class="dv">1795</span>, <span class="dv">1841</span>, <span class="dv">1865</span>, <span class="dv">2043</span>, <span class="dv">2177</span>, <span class="dv">2270</span>, <span class="dv">2330</span>, <span class="dv">2463</span>, <span class="dv">2578</span>, <span class="dv">2595</span>, <span class="dv">2701</span>, <span class="dv">2848</span>, <span class="dv">3009</span>, <span class="dv">3146</span>, <span class="dv">3306</span>, <span class="dv">3412</span>, <span class="dv">3588</span>, <span class="dv">3802</span>, <span class="dv">4075</span>, <span class="dv">4227</span>, <span class="dv">4394</span>, <span class="dv">4633</span>, <span class="dv">4641</span>, <span class="dv">4613</span>, <span class="dv">4879</span>, <span class="dv">5018</span>, <span class="dv">5078</span>, <span class="dv">5368</span>, <span class="dv">5297</span>, <span class="dv">5125</span>, <span class="dv">5080</span>, <span class="dv">5067</span>, <span class="dv">5241</span>, <span class="dv">5405</span>, <span class="dv">5573</span>, <span class="dv">5701</span>, <span class="dv">5926</span>, <span class="dv">6035</span>, <span class="dv">6096</span>, <span class="dv">6186</span>, <span class="dv">6089</span>, <span class="dv">6090</span>, <span class="dv">6236</span>, <span class="dv">6378</span>, <span class="dv">6530</span>, <span class="dv">6628</span>, <span class="dv">6608</span>)</span>
+<span id="cb210-4"><a href="least-squares-approximation.html#cb210-4"></a><span class="kw">plot</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="math236_handbook_files/figure-html/unnamed-chunk-82-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>The data suggest that the fossil fuel emissions (<span class="math inline">\(f\)</span>) follow an exponential model with respect to the year (<span class="math inline">\(y\)</span>):
+<span class="math display">\[f = c e^{k(y-1750)},\]</span>
+where <span class="math inline">\(c\)</span> and <span class="math inline">\(k\)</span> are the unknown constants (parameters of the model). How do we fit a linear model in this case? Just take the logarithm of both sides! Doing so yields the following linear system:
+<span class="math display">\[\log(f)=\log(c)+k(y-1750).\]</span></p>
+<ul>
+<li><strong>Note:</strong> This process works for any logarithm, but it is common to use the natural logarithm (use <code>log()</code> in R).</li>
+<li><strong>Note:</strong> To simplify even further, define <code>time=year-1750</code> before forming your set of linear constraints. This results in the model</li>
+</ul>
+<p><span class="math display">\[ \log(f)=d+kx,\]</span>
+where <span class="math inline">\(b=\log(a)\)</span> and <span class="math inline">\(x\)</span> is time (since 1750),</p>
+<ul>
+<li>Use least squares approximation to find the best fitting exponential function for this data. This will give you the values for <span class="math inline">\(d\)</span> and <span class="math inline">\(k\)</span>, and once you know <span class="math inline">\(d\)</span>, you can find <span class="math inline">\(c = exp(d)\)</span>. We have started the code for you by defining <code>x=year-1750</code> and <code>y=log(emissions)</code></li>
+</ul>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="least-squares-approximation.html#cb211-1"></a><span class="co">### your code goes here. </span></span>
+<span id="cb211-2"><a href="least-squares-approximation.html#cb211-2"></a><span class="co"># be sure to define d and k</span></span>
+<span id="cb211-3"><a href="least-squares-approximation.html#cb211-3"></a></span>
+<span id="cb211-4"><a href="least-squares-approximation.html#cb211-4"></a>x=year<span class="dv">-1750</span></span>
+<span id="cb211-5"><a href="least-squares-approximation.html#cb211-5"></a>y=<span class="kw">log</span>(emissions)</span>
+<span id="cb211-6"><a href="least-squares-approximation.html#cb211-6"></a></span>
+<span id="cb211-7"><a href="least-squares-approximation.html#cb211-7"></a>b=<span class="dv">1</span></span>
+<span id="cb211-8"><a href="least-squares-approximation.html#cb211-8"></a>k=<span class="dv">1</span></span>
+<span id="cb211-9"><a href="least-squares-approximation.html#cb211-9"></a></span>
+<span id="cb211-10"><a href="least-squares-approximation.html#cb211-10"></a><span class="co">#####</span></span>
+<span id="cb211-11"><a href="least-squares-approximation.html#cb211-11"></a><span class="co"># your code above has found b and k</span></span>
+<span id="cb211-12"><a href="least-squares-approximation.html#cb211-12"></a></span>
+<span id="cb211-13"><a href="least-squares-approximation.html#cb211-13"></a>(<span class="dt">a =</span> <span class="kw">exp</span>(b))</span></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="least-squares-approximation.html#cb213-1"></a>k</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<ul>
+<li><p>Run the code below to plot the original data along with your exponential model curve <span class="math inline">\(f(y)\)</span>.</p>
+<ul>
+<li><strong>Note:</strong> This code assumes that you have already defined the values for <code>k</code> and <code>c</code>. Otherwise, it will not work!</li>
+<li>Remove the leading tick mark in the line below make the block executable.</li>
 </ul></li>
-<li><p>When population is increasing, one might be interested in harvesting a portion of the population for some purpose. We want this harvest rate to be <strong>sustainable</strong>, meaning that the <strong>total population remains at a constant level</strong> in the long run. For simplicity, we will not distinguish between classes during the harvest (but this could be added with a minor modification).</p>
-<p>If a fraction <span class="math inline">\(h\)</span> of the population is harvested each year, where <span class="math inline">\(0 &lt; h &lt; 1\)</span>, then the population model becomes</p>
-<p><span class="math display">\[{\bf x}_{t+1} = (1-h) L {\bf x}_t.\]</span></p>
-<ul>
-<li>Use trial and error to find the sustainable harvest rate <span class="math inline">\(h &lt; 1\)</span> <strong>up to 4 decimal places</strong> that leads to a stable population of whales.</li>
-<li>Then plot a trajectory of this system with sustainable harvesting. Choose a long enough time peroid so that your plot shows that the blue whale populations reach a very stable configuration.</li>
-<li>In the long run, what are the percentages of whales in each age class? How does this compare to the population percentages you found in part (b)? Why does this make sense?</li>
-</ul></li>
-</ol>
-</div>
-<div id="the-power-method-for-eigenvalue-calculation" class="section level2">
-<h2><span class="header-section-number">7.4</span> The Power Method for Eigenvalue Calculation</h2>
-<p>During class, we found eigenvalues by solving the characteristic equation <span class="math inline">\(\det(A−\lambda I) =0\)</span>. We then found the eigenvectors by finding a basis for <span class="math inline">\(\mathrm{Nul}(A - \lambda I)\)</span>. This is fine for small matrices, but impractical for large ones.</p>
-<p>So let’s see how computers find (or really: approximate) eigensystems. We will assume that all of the eigenvectors of <span class="math inline">\(A\)</span> are real and distinct. If you want the full story, then you should take MATH 365 Computational Linear Algebra.</p>
-<p>This problem explains how the Power Method and Inverse Power Methods work.</p>
-<ul>
-<li>At certain points, <strong>Your Task</strong> is identified, and that is what you must turn in for this problem.</li>
-<li>Parts (a) and (c) will have you confirm that the code below works for the following <span class="math inline">\(4 \times 4\)</span> matrix <span class="math inline">\(A\)</span>. We calculate its eigensystems up front so that you can compare your approximations to the values found by R.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="problem-set-7.html#cb8-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>))</span>
-<span id="cb8-2"><a href="problem-set-7.html#cb8-2"></a></span>
-<span id="cb8-3"><a href="problem-set-7.html#cb8-3"></a>A</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    4    2    4    8
-## [2,]    2    2    4    4
-## [3,]    4    4    9    1
-## [4,]    8    4    1    5</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="problem-set-7.html#cb10-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
-<pre><code>## eigen() decomposition
-## $values
-## [1] 16.9078855  7.2660095  0.4248061 -4.5987012
-## 
-## $vectors
-##            [,1]        [,2]        [,3]       [,4]
-## [1,] -0.5515710  0.29143140  0.45675770  0.6341999
-## [2,] -0.3595835 -0.08290935 -0.86242118  0.3464902
-## [3,] -0.5286316 -0.78914121  0.19952131 -0.2408236
-## [4,] -0.5357403  0.53427515 -0.08828003 -0.6478727</code></pre>
-<ul>
-<li><strong>Remark.</strong> This problem is not supposed to be hard. If you crave more guidance or background while working on this problem, then you can compare to <a href="http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-power-method.html">ULA Section 5.2</a> and Lay Section 5.8.</li>
-</ul>
-<p> </p>
-<ol style="list-style-type: lower-alpha">
-<li><p><strong>The Power Method.</strong> We find the dominant eigenvalue and eigenvector by repeatedly multiplying some initial vector by <span class="math inline">\(A\)</span> until we converge to the dominant eigenspace. This should sound familiar: it’s the same phenomenon that makes our dynamical systems converge!</p>
-<p>The one extra detail is that we rescale at each step: we adjust our eigenvector estimate so that its largest entry is 1. Here is the code. It is very simple.</p></li>
-</ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="problem-set-7.html#cb12-1"></a>estimate_dominant_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, numiter) {</span>
-<span id="cb12-2"><a href="problem-set-7.html#cb12-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
-<span id="cb12-3"><a href="problem-set-7.html#cb12-3"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,n)</span>
-<span id="cb12-4"><a href="problem-set-7.html#cb12-4"></a>  </span>
-<span id="cb12-5"><a href="problem-set-7.html#cb12-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numiter) {</span>
-<span id="cb12-6"><a href="problem-set-7.html#cb12-6"></a>    y =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span>
-<span id="cb12-7"><a href="problem-set-7.html#cb12-7"></a>    maxval =<span class="st"> </span><span class="kw">max</span>(y)</span>
-<span id="cb12-8"><a href="problem-set-7.html#cb12-8"></a>    minval =<span class="st"> </span><span class="kw">min</span>(y)</span>
-<span id="cb12-9"><a href="problem-set-7.html#cb12-9"></a>    </span>
-<span id="cb12-10"><a href="problem-set-7.html#cb12-10"></a>    <span class="cf">if</span> (<span class="kw">abs</span>(maxval) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(minval)) {</span>
-<span id="cb12-11"><a href="problem-set-7.html#cb12-11"></a>      m =<span class="st"> </span>maxval</span>
-<span id="cb12-12"><a href="problem-set-7.html#cb12-12"></a>    }  <span class="cf">else</span> {</span>
-<span id="cb12-13"><a href="problem-set-7.html#cb12-13"></a>      m =<span class="st"> </span>minval</span>
-<span id="cb12-14"><a href="problem-set-7.html#cb12-14"></a>    }</span>
-<span id="cb12-15"><a href="problem-set-7.html#cb12-15"></a>    </span>
-<span id="cb12-16"><a href="problem-set-7.html#cb12-16"></a>    x =<span class="st"> </span>y<span class="op">/</span>m</span>
-<span id="cb12-17"><a href="problem-set-7.html#cb12-17"></a>  }</span>
-<span id="cb12-18"><a href="problem-set-7.html#cb12-18"></a>  </span>
-<span id="cb12-19"><a href="problem-set-7.html#cb12-19"></a>  est =<span class="st"> &#39;estimate&#39;</span></span>
-<span id="cb12-20"><a href="problem-set-7.html#cb12-20"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>m</span>
-<span id="cb12-21"><a href="problem-set-7.html#cb12-21"></a>  <span class="kw">attr</span>(est, <span class="st">&#39;vector&#39;</span>) =<span class="st"> </span>x</span>
-<span id="cb12-22"><a href="problem-set-7.html#cb12-22"></a>  </span>
-<span id="cb12-23"><a href="problem-set-7.html#cb12-23"></a>  <span class="kw">return</span>(est)</span>
-<span id="cb12-24"><a href="problem-set-7.html#cb12-24"></a>}</span></code></pre></div>
-<p><strong>Your Task:</strong> Run this code on the matrix <span class="math inline">\(A\)</span> and start with <code>numiter=5</code>. Then increase this value and watch the eigenvalue estimate converge to the dominant eigenvalue.</p>
-<ul>
-<li>What is the smallest number of iterations needed so that the estimated eigenvalue matches the eigenvalue returned by <code>eigen(A)</code> (up to 5 decimal places)?</li>
-<li>Write some code to compare the estimated eigenvector (whose largest entry is 1) with the eigenvector returned by <code>eigen(A)</code>. They should match when you rescale.</li>
-</ul>
-<p> </p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li><strong>The Inverse Power Method Explained.</strong> We can use the power method to find the other eigenvalues, too. Let’s suppose that we are trying to find eigenvalue <span class="math inline">\(\lambda\)</span> with eigenvector <span class="math inline">\(\mathsf{v}\)</span>.</li>
-</ol>
-<p>We just need to start at a guess <span class="math inline">\(c\)</span> that is closer to <span class="math inline">\(\lambda\)</span> that to any of the other eigenvalue. In other words, if <span class="math inline">\(\mu\)</span> is any other eigenvale of <span class="math inline">\(A\)</span>, we have <span class="math inline">\(| \lambda - c| &lt; | \mu - c|.\)</span></p>
-<p>Using our guess <span class="math inline">\(c\)</span>, we define
-<span class="math display">\[
-B = (A - c I)^{-1}.
-\]</span>
-And then we apply the power method to <span class="math inline">\(B\)</span>. You will now show that (1) <span class="math inline">\(A-cI\)</span> really is invertible, and that (2) <span class="math inline">\(\mathsf{v}\)</span> is the dominant eigenvector of <span class="math inline">\(B\)</span>.</p>
-<p><strong>Your Task:</strong> answer the following four short questions. Each answer only requires a sentence or two.</p>
-<ol style="list-style-type: decimal">
-<li><p>Suppose that <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> for eigenvalue <span class="math inline">\(\lambda\)</span>. That is, <span class="math inline">\(A \mathsf{v} = \lambda \mathsf{v}\)</span>. Confirm that <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector for <span class="math inline">\(A - cI\)</span> for eigenvalue <span class="math inline">\(\lambda - c\)</span>.</p></li>
-<li><p>Assume that our guess <span class="math inline">\(c\)</span> is not an eigenvalue of <span class="math inline">\(A\)</span>. Prove that <span class="math inline">\(A-cI\)</span> is invertible by showing that <span class="math inline">\(\mathrm{Nul}(A-Ic) = \mathbf{0}\)</span>.</p></li>
-<li><p>Now that we know that <span class="math inline">\(B = (A - c I)^{-1}\)</span> exists, explain why <span class="math inline">\(\mathsf{v}\)</span> is an eigenvector of <span class="math inline">\(B\)</span> for eigenvalue
-<span class="math inline">\(\frac{1}{\lambda-c}.\)</span></p></li>
-<li><p>A similar argument shows that all eigenvalues of <span class="math inline">\(B\)</span> are of the form <span class="math inline">\(\frac{1}{\mu-c}\)</span> where <span class="math inline">\(\mu\)</span> is an eigenvalue of <span class="math inline">\(A\)</span>. So now use the fact that “<span class="math inline">\(c\)</span> that is closer to <span class="math inline">\(\lambda\)</span> that to any of the other eigenvalue” to explain why <span class="math inline">\(\frac{1}{\lambda-c}\)</span> is the dominant eigenvalue of <span class="math inline">\(B\)</span>.</p></li>
-</ol>
-<p> </p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li><strong>The Inverse Power Method in Practice.</strong> In part (b), you showed why the inverse power method works! Now, here is the code, which is very simple. (<strong>Remark:</strong> in order to avoid rounding errors, in a true implementation, we would write code that avoids explicitly taking the inverse.)</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="problem-set-7.html#cb13-1"></a>estimate_nearest_eigenvector &lt;-<span class="st"> </span><span class="cf">function</span>(A, c, numiter) {</span>
-<span id="cb13-2"><a href="problem-set-7.html#cb13-2"></a>  n =<span class="st"> </span><span class="kw">dim</span>(A)[<span class="dv">1</span>]</span>
-<span id="cb13-3"><a href="problem-set-7.html#cb13-3"></a>  </span>
-<span id="cb13-4"><a href="problem-set-7.html#cb13-4"></a>  B =<span class="st"> </span>A <span class="op">-</span><span class="st"> </span>c <span class="op">*</span><span class="st"> </span><span class="kw">diag</span>(n)</span>
-<span id="cb13-5"><a href="problem-set-7.html#cb13-5"></a>  Binv =<span class="st"> </span><span class="kw">solve</span>(B)</span>
-<span id="cb13-6"><a href="problem-set-7.html#cb13-6"></a></span>
-<span id="cb13-7"><a href="problem-set-7.html#cb13-7"></a>  est =<span class="st"> </span><span class="kw">estimate_dominant_eigenvector</span>(Binv, numiter)</span>
-<span id="cb13-8"><a href="problem-set-7.html#cb13-8"></a>  </span>
-<span id="cb13-9"><a href="problem-set-7.html#cb13-9"></a>  val =<span class="st"> </span><span class="kw">attr</span>(est, <span class="st">&#39;value&#39;</span>)</span>
-<span id="cb13-10"><a href="problem-set-7.html#cb13-10"></a>  newval =<span class="st"> </span><span class="dv">1</span><span class="op">/</span>val<span class="op">+</span>c</span>
-<span id="cb13-11"><a href="problem-set-7.html#cb13-11"></a>  </span>
-<span id="cb13-12"><a href="problem-set-7.html#cb13-12"></a>  <span class="kw">attr</span>(est,<span class="st">&#39;value&#39;</span>) =<span class="st"> </span>newval</span>
-<span id="cb13-13"><a href="problem-set-7.html#cb13-13"></a>  </span>
-<span id="cb13-14"><a href="problem-set-7.html#cb13-14"></a>  <span class="kw">return</span> (est)</span>
-<span id="cb13-15"><a href="problem-set-7.html#cb13-15"></a>}</span></code></pre></div>
-<p><strong>Your Task:</strong> Use this code to confirm that we can really find the other three eigenvalues for matrix <span class="math inline">\(A\)</span> above.</p>
-<ul>
-<li>Run this code using a guess for each of the 3 remaining eigenvalues.</li>
-<li>Confirm that this code does find the correct eigenvalue, provided that you run for enough iterations.</li>
-<li>Note what your initial guess is, and how many iterations are required to converge to the nearest eigenvalue (up to 5 decimal places).</li>
-</ul>
-<p><strong>Remark:</strong> These two methods succeed in finding the complete eigensystem when all of the eigenvalues are real and distinct. This is one of the reasons why the <code>eigen()</code> command in RStudio actually uses another method called <span class="math inline">\(QR\)</span>-decomposition to approximate eigensystems.</p>
-<p><strong>Remark:</strong> MATH 365 Computational Linear Algebra goes into the full story about how to approximate eigenvalues and eigenvectors quickly and precisely.</p>
+<p>’<code>{r, echo=TRUE} f=function(y){exp(a*exp(k*(y-1750))} plot(year,f(year),type="l",lwd=3,ylim=c(0,10000),ylab="emissions", main="best fit exponential function") points(year,emissions,pch=20,cex=.7,col="red")</code></p>
 
 </div>
 </div>
@@ -719,8 +647,8 @@ And then we apply the power method to <span class="math inline">\(B\)</span>. Yo
           </div>
         </div>
       </div>
-<a href="problem-set-6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="important-definitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="digit-recognition.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
