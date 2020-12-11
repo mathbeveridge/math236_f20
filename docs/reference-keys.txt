@@ -166,7 +166,6 @@ get-closest-by-distance
 get-closest-by-angle
 least-squares-approximation
 introduction
-fitting-for-a-linear-function
 your-turn-13
 plotting-your-least-squares-solution
 your-turn-14

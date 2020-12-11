@@ -331,19 +331,18 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>24</b> Least Squares Approximation</a><ul>
-<li class="chapter" data-level="24.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>24.1</b> Introduction</a></li>
-<li class="chapter" data-level="24.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>24.2</b> Fitting for a Linear Function</a><ul>
-<li class="chapter" data-level="24.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>24.2.1</b> Your Turn</a></li>
-<li class="chapter" data-level="24.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>24.2.2</b> Plotting your least squares solution</a></li>
-<li class="chapter" data-level="24.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>24.2.3</b> Your turn</a></li>
+<li class="chapter" data-level="24.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>24.1</b> Introduction</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>24.1.1</b> Your Turn</a></li>
+<li class="chapter" data-level="24.1.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>24.1.2</b> Plotting your least squares solution</a></li>
+<li class="chapter" data-level="24.1.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>24.1.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>24.3</b> Fitting a Quadratic Function</a><ul>
-<li class="chapter" data-level="24.3.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>24.3.1</b> Your Turn</a></li>
-<li class="chapter" data-level="24.3.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>24.3.2</b> Plotting your least squares solution</a></li>
-<li class="chapter" data-level="24.3.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>24.3.3</b> Your turn</a></li>
+<li class="chapter" data-level="24.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>24.2</b> Fitting a Quadratic Function</a><ul>
+<li class="chapter" data-level="24.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>24.2.1</b> Your Turn</a></li>
+<li class="chapter" data-level="24.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>24.2.2</b> Plotting your least squares solution</a></li>
+<li class="chapter" data-level="24.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>24.2.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>24.4</b> A Linear Model for Production at a Hosiery Mill</a></li>
-<li class="chapter" data-level="24.5" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>24.5</b> Global Fossil Fuel Emissions</a></li>
+<li class="chapter" data-level="24.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>24.3</b> A Linear Model for Production at a Hosiery Mill</a></li>
+<li class="chapter" data-level="24.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>24.4</b> Global Fossil Fuel Emissions</a></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
 <li class="chapter" data-level="25" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>25</b> Quiz 1 Review</a><ul>
@@ -395,13 +394,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="introduction" class="section level2">
 <h2><span class="header-section-number">24.1</span> Introduction</h2>
 <p>Let’s start with a summary of Least Squares Approximation.</p>
-<p><strong>The Why</strong>: Given a matrix <span class="math inline">\(A\)</span> and a vector <span class="math inline">\(\mathsf{b}\)</span> that is not in <span class="math inline">\(W = \mathrm{Col}(A)\)</span>, we want to find the “best approximate solution” <span class="math inline">\(\hat{\mathsf{b}} \in W\)</span>. In other words, we want to pick the best possible <span class="math inline">\(\hat{\mathsf{b}} \approx \mathsf{b}\)</span> that is in the column space of <span class="math inline">\(A\)</span>.</p>
-<p><strong>The What</strong>: The answer is to use projections.
-* This “best approximation” is the projection <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span>.
-* The residual vector vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathbf{b}}\)</span> is in <span class="math inline">\(W^{\perp}\)</span>.
-* The length <span class="math inline">\(\| \mathsf{z} \|\)</span> of the residual vector measures the closeness the approximation.
-* The approximate soltuion to our original problem is the vector <span class="math inline">\(\hat{\mathsf{x}}\)</span> such that
-<span class="math inline">\(A \hat{\mathsf{x}} = \hat{\mathsf{b}}\)</span>.</p>
+<p><strong>The Why</strong>: Given a matrix <span class="math inline">\(A\)</span> and a vector <span class="math inline">\(\mathsf{b}\)</span> that is not in <span class="math inline">\(W = \mathrm{Col}(A)\)</span>, we want to find the “best approximate solution” <span class="math inline">\(\hat{\mathsf{b}} \in W\)</span>. In other words, we want to pick the best possible <span class="math inline">\(\hat{\mathsf{b}} \approx \mathsf{b}\)</span> that lies in the column space of <span class="math inline">\(A\)</span>.</p>
+<p><strong>The What</strong>: The answer is to use projections.</p>
+<ul>
+<li>This “best approximation” is the projection <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span>.</li>
+<li>The residual vector vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathbf{b}}\)</span> is in <span class="math inline">\(W^{\perp}\)</span>.</li>
+<li>The length <span class="math inline">\(\| \mathsf{z} \|\)</span> of the residual vector measures the closeness the approximation.</li>
+<li>The approximate soltuion to our original problem is the vector <span class="math inline">\(\hat{\mathsf{x}}\)</span> such that
+<span class="math inline">\(A \hat{\mathsf{x}} = \hat{\mathsf{b}}\)</span>.</li>
+</ul>
 <p><strong>The How</strong>: A clever way to solve this is to use the <em>normal equations</em>. The best choice for <span class="math inline">\(\hat{\mathsf{x}}\)</span> satisfies
 <span class="math display">\[
 A^{\top} A \hat{\mathsf{x}} = A^{\top} \mathsf{b}. 
@@ -424,18 +425,25 @@ You should read this code line-by-line and make sure that you understand what it
 t(A) %*% z
 
 # measure the distance between bhat and b
-sqrt( t(z) %*% z)</code></pre>
-</div>
-<div id="fitting-for-a-linear-function" class="section level2">
-<h2><span class="header-section-number">24.2</span> Fitting for a Linear Function</h2>
-<p>Here are some points that we’d like to fit a line to.</p>
-<p><strong>Note:</strong> Here we use <code>y</code> instead of <code>b</code> because we like to write linear equations as “<span class="math inline">\(y = cx + d\)</span>.” So the expression “<span class="math inline">\(b = cx +d\)</span>” looks funny to us. So we will talk about <code>y</code> and <code>yhat</code> instead of <code>b</code> and <code>bhat</code>.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="least-squares-approximation.html#cb193-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb193-2"><a href="least-squares-approximation.html#cb193-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="fl">3.6</span>, <span class="dv">4</span>)</span>
-<span id="cb193-3"><a href="least-squares-approximation.html#cb193-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),)</span>
-<span id="cb193-4"><a href="least-squares-approximation.html#cb193-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+sqrt( t(z) %*% z)
+
+
+
+
+## Fitting for a Linear Function
+
+Here are some points that we&#39;d like to fit to a linear function $y = cx+d$. 
+
+**Note:** Here we use `y` instead of `b` because we like to write linear equations as &quot;$y = cx + d$.&quot; So the expression &quot;$b = cx +d$&quot; looks funny to us. So we will talk about `y` and `yhat` instead of `b` and `bhat`.
+
+
+```r
+x = c(1, 2, 3, 4)
+y = c(1, 2.4, 3.6, 4)
+plot(x,y,pch=19,ylim=c(0,5),)
+grid()</code></pre>
 <p><img src="math236_handbook_files/figure-html/sqlinear1-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>To fit a line <span class="math inline">\(y = d + cx\)</span> to the data, we need to solve the following <span class="math inline">\(Ax = b\)</span> problem:
+<p>To find a perfect fit line <span class="math inline">\(y = d + cx\)</span> to the data, we need to solve the following <span class="math inline">\(Ax = y\)</span> problem:
 <span class="math display">\[
 \begin{bmatrix} 
 1 &amp; 1 \\  1 &amp; 2 \\ 1 &amp; 3 \\ 1 &amp; 4 \\
@@ -444,62 +452,60 @@ sqrt( t(z) %*% z)</code></pre>
 = 
 \begin{bmatrix} 1 \\ 2.4 \\ 3.6 \\ 4 \end{bmatrix}
 \]</span></p>
-<p>These equations are inconsistent, so we solve the normal equations <span class="math inline">\(A^T A x = A^T y\)</span> instead. A clever way to create the desired matrix <span class="math inline">\(A\)</span> is to use the fact that <span class="math inline">\(x^0=1\)</span> for any number <span class="math inline">\(x\)</span>.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="least-squares-approximation.html#cb194-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>,x))</span></code></pre></div>
+<p>These equations are inconsistent, so we solve the normal equations <span class="math inline">\(A^T A x = A^T y\)</span> and find an approximate solution instead. <strong>Pro Tip:</strong> a clever way to create the desired matrix <span class="math inline">\(A\)</span> is to use the fact that <span class="math inline">\(x^0=1\)</span> for any number <span class="math inline">\(x\)</span>.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="least-squares-approximation.html#cb193-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>,x))</span></code></pre></div>
 <pre><code>##        x
 ## [1,] 1 1
 ## [2,] 1 2
 ## [3,] 1 3
 ## [4,] 1 4</code></pre>
 <div id="your-turn-13" class="section level3">
-<h3><span class="header-section-number">24.2.1</span> Your Turn</h3>
+<h3><span class="header-section-number">24.1.1</span> Your Turn</h3>
 <p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximates the coefficients <span class="math inline">\(c, d\)</span>.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="least-squares-approximation.html#cb196-1"></a><span class="co"># Replace with your code goes here.</span></span>
-<span id="cb196-2"><a href="least-squares-approximation.html#cb196-2"></a></span>
-<span id="cb196-3"><a href="least-squares-approximation.html#cb196-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="least-squares-approximation.html#cb195-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb195-2"><a href="least-squares-approximation.html#cb195-2"></a></span>
+<span id="cb195-3"><a href="least-squares-approximation.html#cb195-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
 </div>
 <div id="plotting-your-least-squares-solution" class="section level3">
-<h3><span class="header-section-number">24.2.2</span> Plotting your least squares solution</h3>
-<p>The following code gives you a visualization of the approximate solution.
-* The black points: the original data points <code>cbind(x,y)</code>. This represents the entries of the desired target vector <code>y</code>.
-* The blue curve: the fitted curve, created from the approximate solution <code>xhat</code>.<br />
-* The orange points: the approximations <code>cbind(x,yhat)</code> of the data points <code>cbind(x,y)</code>. This represents entries of the projection <code>yhat</code>.
-* The red line segments: the distances between the original data points (block dots) and their approximations (orange dots). The lengths of these red segments are the entries of the residual vector <code>z</code></p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="least-squares-approximation.html#cb197-1"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit linear function&#39;</span>)</span>
-<span id="cb197-2"><a href="least-squares-approximation.html#cb197-2"></a>(<span class="dt">yhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span></code></pre></div>
-<pre><code>##      [,1]
-## [1,]    0
-## [2,]    0
-## [3,]    0
-## [4,]    0</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="least-squares-approximation.html#cb199-1"></a>tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
-<span id="cb199-2"><a href="least-squares-approximation.html#cb199-2"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb199-3"><a href="least-squares-approximation.html#cb199-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
-<span id="cb199-4"><a href="least-squares-approximation.html#cb199-4"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
-<span id="cb199-5"><a href="least-squares-approximation.html#cb199-5"></a>}</span>
-<span id="cb199-6"><a href="least-squares-approximation.html#cb199-6"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
-<span id="cb199-7"><a href="least-squares-approximation.html#cb199-7"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<h3><span class="header-section-number">24.1.2</span> Plotting your least squares solution</h3>
+<p>The following code gives you a visualization of the approximate solution.</p>
+<ul>
+<li>The black points: the original data points <code>cbind(x,y)</code>. This represents the entries of the desired target vector <code>y</code>.</li>
+<li>The blue curve: the fitted curve, created from the approximate solution <code>xhat</code>.<br />
+</li>
+<li>The orange points: the approximations <code>cbind(x,yhat)</code> of the data points <code>cbind(x,y)</code>. This represents entries of the projection <code>yhat</code>.</li>
+<li>The red line segments: the distances between the original data points (block dots) and their approximations (orange dots). The lengths of these red segments are the entries of the residual vector <code>z</code></li>
+</ul>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="least-squares-approximation.html#cb196-1"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit linear function&#39;</span>)</span>
+<span id="cb196-2"><a href="least-squares-approximation.html#cb196-2"></a>yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
+<span id="cb196-3"><a href="least-squares-approximation.html#cb196-3"></a>tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
+<span id="cb196-4"><a href="least-squares-approximation.html#cb196-4"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb196-5"><a href="least-squares-approximation.html#cb196-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb196-6"><a href="least-squares-approximation.html#cb196-6"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb196-7"><a href="least-squares-approximation.html#cb196-7"></a>}</span>
+<span id="cb196-8"><a href="least-squares-approximation.html#cb196-8"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb196-9"><a href="least-squares-approximation.html#cb196-9"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/sqlinear2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="your-turn-14" class="section level3">
-<h3><span class="header-section-number">24.2.3</span> Your turn</h3>
+<h3><span class="header-section-number">24.1.3</span> Your turn</h3>
 <p>If you have not already done so</p>
 <ul>
 <li>Find the residual vector <span class="math inline">\(z\)</span>.</li>
 <li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
 <li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
 </ul>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="least-squares-approximation.html#cb200-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="least-squares-approximation.html#cb197-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
 </div>
 </div>
 <div id="fitting-a-quadratic-function" class="section level2">
-<h2><span class="header-section-number">24.3</span> Fitting a Quadratic Function</h2>
-<p>It might surprise you at first that we can use <em>linear algebra</em> to fit a <em>quadratic function</em>. But remember: we are fitting the <strong>coefficients</strong>. One we plug in our experimental data, we have a linear combination of the unknown coefficients!</p>
+<h2><span class="header-section-number">24.2</span> Fitting a Quadratic Function</h2>
+<p>It might surprise you at first that we can use <em>linear algebra</em> to fit a <em>quadratic function</em>. But remember: we are fitting the <strong>coefficients</strong>. Once we plug in our empirical data, we have a linear combination of the unknown coefficients!</p>
 <p>So let’s fit a quadratic function <span class="math inline">\(y = a_0 + a_1 x + a_2 x^2\)</span> to the following data:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="least-squares-approximation.html#cb201-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
-<span id="cb201-2"><a href="least-squares-approximation.html#cb201-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
-<span id="cb201-3"><a href="least-squares-approximation.html#cb201-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
-<span id="cb201-4"><a href="least-squares-approximation.html#cb201-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="least-squares-approximation.html#cb198-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb198-2"><a href="least-squares-approximation.html#cb198-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb198-3"><a href="least-squares-approximation.html#cb198-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
+<span id="cb198-4"><a href="least-squares-approximation.html#cb198-4"></a><span class="kw">grid</span>()</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/squad1-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>In this case, the linear model that we’d like to solve is:
 <span class="math display">\[
@@ -508,68 +514,61 @@ sqrt( t(z) %*% z)</code></pre>
 \end{bmatrix}
 \begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix}
 = 
-\begin{bmatrix} 7 \\ 2 \\ 1 \\ 3 \\ 7 \\ 7 \end{bmatrix}
+\begin{bmatrix} 7 \\ 2 \\ 1 \\ 3 \\ 7 \\ 7 \end{bmatrix}.
 \]</span></p>
 <p>Again, this is inconsistent (go ahead and check if you want to). So we need to find the best approximate solution. I will make the <span class="math inline">\(A\)</span> matrix for you one more time. (You’ll have to construct it in the examples below.)</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="least-squares-approximation.html#cb202-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x, x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="least-squares-approximation.html#cb199-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x, x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <div id="your-turn-15" class="section level3">
-<h3><span class="header-section-number">24.3.1</span> Your Turn</h3>
+<h3><span class="header-section-number">24.2.1</span> Your Turn</h3>
 <p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximations of the coefficients <span class="math inline">\(a_0, a_1, a_2\)</span>.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="least-squares-approximation.html#cb203-1"></a><span class="co"># Replace with your code goes here.</span></span>
-<span id="cb203-2"><a href="least-squares-approximation.html#cb203-2"></a></span>
-<span id="cb203-3"><a href="least-squares-approximation.html#cb203-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="least-squares-approximation.html#cb200-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb200-2"><a href="least-squares-approximation.html#cb200-2"></a></span>
+<span id="cb200-3"><a href="least-squares-approximation.html#cb200-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
 </div>
 <div id="plotting-your-least-squares-solution-1" class="section level3">
-<h3><span class="header-section-number">24.3.2</span> Plotting your least squares solution</h3>
+<h3><span class="header-section-number">24.2.2</span> Plotting your least squares solution</h3>
 <p><strong>Note:</strong> this code assumes that you have defined <code>xhat</code></p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="least-squares-approximation.html#cb204-1"></a>(<span class="dt">yhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span></code></pre></div>
-<pre><code>##      [,1]
-## [1,]    0
-## [2,]    0
-## [3,]    0
-## [4,]    0
-## [5,]    0
-## [6,]    0</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="least-squares-approximation.html#cb206-1"></a><span class="co"># plotting the solution</span></span>
-<span id="cb206-2"><a href="least-squares-approximation.html#cb206-2"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit quadratic function&#39;</span>)</span>
-<span id="cb206-3"><a href="least-squares-approximation.html#cb206-3"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
-<span id="cb206-4"><a href="least-squares-approximation.html#cb206-4"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">3</span>]<span class="op">*</span>tt<span class="op">^</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb206-5"><a href="least-squares-approximation.html#cb206-5"></a><span class="kw">grid</span>()</span>
-<span id="cb206-6"><a href="least-squares-approximation.html#cb206-6"></a><span class="co"># adding the residual lines</span></span>
-<span id="cb206-7"><a href="least-squares-approximation.html#cb206-7"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
-<span id="cb206-8"><a href="least-squares-approximation.html#cb206-8"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
-<span id="cb206-9"><a href="least-squares-approximation.html#cb206-9"></a>}</span>
-<span id="cb206-10"><a href="least-squares-approximation.html#cb206-10"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
-<span id="cb206-11"><a href="least-squares-approximation.html#cb206-11"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="least-squares-approximation.html#cb201-1"></a>yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
+<span id="cb201-2"><a href="least-squares-approximation.html#cb201-2"></a><span class="co"># plotting the solution</span></span>
+<span id="cb201-3"><a href="least-squares-approximation.html#cb201-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit quadratic function&#39;</span>)</span>
+<span id="cb201-4"><a href="least-squares-approximation.html#cb201-4"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
+<span id="cb201-5"><a href="least-squares-approximation.html#cb201-5"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">3</span>]<span class="op">*</span>tt<span class="op">^</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb201-6"><a href="least-squares-approximation.html#cb201-6"></a><span class="kw">grid</span>()</span>
+<span id="cb201-7"><a href="least-squares-approximation.html#cb201-7"></a><span class="co"># adding the residual lines</span></span>
+<span id="cb201-8"><a href="least-squares-approximation.html#cb201-8"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb201-9"><a href="least-squares-approximation.html#cb201-9"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb201-10"><a href="least-squares-approximation.html#cb201-10"></a>}</span>
+<span id="cb201-11"><a href="least-squares-approximation.html#cb201-11"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb201-12"><a href="least-squares-approximation.html#cb201-12"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/squad2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="your-turn-16" class="section level3">
-<h3><span class="header-section-number">24.3.3</span> Your turn</h3>
-<p>If you have not already done so</p>
+<h3><span class="header-section-number">24.2.3</span> Your turn</h3>
+<p>If you have not already done so, you should</p>
 <ul>
 <li>Find the residual vector <span class="math inline">\(z\)</span>. Compare the entries (positive, negative) with the red line segments in the plot above.</li>
 <li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
 <li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
 </ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="least-squares-approximation.html#cb207-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="least-squares-approximation.html#cb202-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
 </div>
 </div>
 <div id="a-linear-model-for-production-at-a-hosiery-mill" class="section level2">
-<h2><span class="header-section-number">24.4</span> A Linear Model for Production at a Hosiery Mill</h2>
+<h2><span class="header-section-number">24.3</span> A Linear Model for Production at a Hosiery Mill</h2>
 <p>Here is a data set from a 1940’s hosiery mill. It measures monthly production output and total production cost. The data come from the article “Statistical Cost Functions of a Hosiery Mill”, by Joel Dean in Studies in Business Administration, vol. 14, no. 3, 1941.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="least-squares-approximation.html#cb208-1"></a>units.produced =<span class="kw">c</span>(<span class="fl">561.0</span>, <span class="fl">506.16</span>, <span class="fl">502.32</span>, <span class="fl">519.48</span>, <span class="fl">505.44</span>, <span class="fl">501.36</span>, <span class="fl">497.64</span>, </span>
-<span id="cb208-2"><a href="least-squares-approximation.html#cb208-2"></a>   <span class="fl">506.52</span>, <span class="fl">492.36</span>, <span class="fl">478.08</span>, <span class="fl">469.8</span>, <span class="fl">470.4</span>, <span class="fl">474.24</span>, <span class="fl">456.6</span>, <span class="fl">469.92</span>, </span>
-<span id="cb208-3"><a href="least-squares-approximation.html#cb208-3"></a>   <span class="fl">463.08</span>, <span class="fl">438.48</span>, <span class="fl">444.36</span>, <span class="fl">439.2</span>, <span class="fl">450.96</span>, <span class="fl">437.76</span>, <span class="fl">459.</span>, <span class="fl">447.12</span>, </span>
-<span id="cb208-4"><a href="least-squares-approximation.html#cb208-4"></a>   <span class="fl">463.08</span>, <span class="fl">490.68</span>, <span class="fl">451.92</span>, <span class="fl">465.48</span>, <span class="fl">465.36</span>, <span class="fl">440.4</span>, <span class="fl">421.2</span>, <span class="fl">405.</span>, <span class="fl">411.48</span>,</span>
-<span id="cb208-5"><a href="least-squares-approximation.html#cb208-5"></a>    <span class="fl">387.12</span>, <span class="fl">371.64</span>, <span class="fl">338.4</span>, <span class="fl">294.96</span>, <span class="fl">243.</span>, <span class="fl">205.08</span>, <span class="fl">172.2</span>, <span class="fl">157.32</span>, <span class="fl">114.</span>, </span>
-<span id="cb208-6"><a href="least-squares-approximation.html#cb208-6"></a>   <span class="fl">116.88</span>, <span class="fl">112.08</span>, <span class="fl">90.12</span>, <span class="fl">100.2</span>, <span class="fl">75.</span>, <span class="fl">65.4</span>, <span class="fl">45.48</span>)</span>
-<span id="cb208-7"><a href="least-squares-approximation.html#cb208-7"></a></span>
-<span id="cb208-8"><a href="least-squares-approximation.html#cb208-8"></a>production.cost =<span class="st"> </span><span class="kw">c</span>(<span class="fl">92.64</span>, <span class="fl">88.81</span>, <span class="fl">86.44</span>, <span class="fl">88.8</span>, <span class="fl">86.38</span>, <span class="fl">89.87</span>, <span class="fl">88.53</span>, <span class="fl">91.11</span>, <span class="fl">81.22</span>,</span>
-<span id="cb208-9"><a href="least-squares-approximation.html#cb208-9"></a>    <span class="fl">83.72</span>, <span class="fl">84.54</span>, <span class="fl">85.66</span>, <span class="fl">85.87</span>, <span class="fl">85.23</span>, <span class="fl">87.75</span>, <span class="fl">92.62</span>, <span class="fl">91.56</span>, <span class="fl">84.12</span>, </span>
-<span id="cb208-10"><a href="least-squares-approximation.html#cb208-10"></a>   <span class="fl">81.22</span>, <span class="fl">83.35</span>, <span class="fl">82.29</span>, <span class="fl">80.92</span>, <span class="fl">76.92</span>, <span class="fl">78.35</span>, <span class="fl">74.57</span>, <span class="fl">71.6</span>, <span class="fl">65.64</span>, </span>
-<span id="cb208-11"><a href="least-squares-approximation.html#cb208-11"></a>   <span class="fl">62.09</span>, <span class="fl">61.66</span>, <span class="fl">77.14</span>, <span class="fl">75.47</span>, <span class="fl">70.37</span>, <span class="fl">66.71</span>, <span class="fl">64.37</span>, <span class="fl">56.09</span>, <span class="fl">50.25</span>, </span>
-<span id="cb208-12"><a href="least-squares-approximation.html#cb208-12"></a>   <span class="fl">43.65</span>, <span class="fl">38.01</span>, <span class="fl">31.4</span>, <span class="fl">29.45</span>, <span class="fl">29.02</span>, <span class="fl">19.05</span>, <span class="fl">20.36</span>, <span class="fl">17.68</span>, <span class="fl">19.23</span>, </span>
-<span id="cb208-13"><a href="least-squares-approximation.html#cb208-13"></a>   <span class="fl">14.92</span>, <span class="fl">11.44</span>, <span class="fl">12.69</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="least-squares-approximation.html#cb203-1"></a>units.produced =<span class="kw">c</span>(<span class="fl">561.0</span>, <span class="fl">506.16</span>, <span class="fl">502.32</span>, <span class="fl">519.48</span>, <span class="fl">505.44</span>, <span class="fl">501.36</span>, <span class="fl">497.64</span>, </span>
+<span id="cb203-2"><a href="least-squares-approximation.html#cb203-2"></a>   <span class="fl">506.52</span>, <span class="fl">492.36</span>, <span class="fl">478.08</span>, <span class="fl">469.8</span>, <span class="fl">470.4</span>, <span class="fl">474.24</span>, <span class="fl">456.6</span>, <span class="fl">469.92</span>, </span>
+<span id="cb203-3"><a href="least-squares-approximation.html#cb203-3"></a>   <span class="fl">463.08</span>, <span class="fl">438.48</span>, <span class="fl">444.36</span>, <span class="fl">439.2</span>, <span class="fl">450.96</span>, <span class="fl">437.76</span>, <span class="fl">459.</span>, <span class="fl">447.12</span>, </span>
+<span id="cb203-4"><a href="least-squares-approximation.html#cb203-4"></a>   <span class="fl">463.08</span>, <span class="fl">490.68</span>, <span class="fl">451.92</span>, <span class="fl">465.48</span>, <span class="fl">465.36</span>, <span class="fl">440.4</span>, <span class="fl">421.2</span>, <span class="fl">405.</span>, <span class="fl">411.48</span>,</span>
+<span id="cb203-5"><a href="least-squares-approximation.html#cb203-5"></a>    <span class="fl">387.12</span>, <span class="fl">371.64</span>, <span class="fl">338.4</span>, <span class="fl">294.96</span>, <span class="fl">243.</span>, <span class="fl">205.08</span>, <span class="fl">172.2</span>, <span class="fl">157.32</span>, <span class="fl">114.</span>, </span>
+<span id="cb203-6"><a href="least-squares-approximation.html#cb203-6"></a>   <span class="fl">116.88</span>, <span class="fl">112.08</span>, <span class="fl">90.12</span>, <span class="fl">100.2</span>, <span class="fl">75.</span>, <span class="fl">65.4</span>, <span class="fl">45.48</span>)</span>
+<span id="cb203-7"><a href="least-squares-approximation.html#cb203-7"></a></span>
+<span id="cb203-8"><a href="least-squares-approximation.html#cb203-8"></a>production.cost =<span class="st"> </span><span class="kw">c</span>(<span class="fl">92.64</span>, <span class="fl">88.81</span>, <span class="fl">86.44</span>, <span class="fl">88.8</span>, <span class="fl">86.38</span>, <span class="fl">89.87</span>, <span class="fl">88.53</span>, <span class="fl">91.11</span>, <span class="fl">81.22</span>,</span>
+<span id="cb203-9"><a href="least-squares-approximation.html#cb203-9"></a>    <span class="fl">83.72</span>, <span class="fl">84.54</span>, <span class="fl">85.66</span>, <span class="fl">85.87</span>, <span class="fl">85.23</span>, <span class="fl">87.75</span>, <span class="fl">92.62</span>, <span class="fl">91.56</span>, <span class="fl">84.12</span>, </span>
+<span id="cb203-10"><a href="least-squares-approximation.html#cb203-10"></a>   <span class="fl">81.22</span>, <span class="fl">83.35</span>, <span class="fl">82.29</span>, <span class="fl">80.92</span>, <span class="fl">76.92</span>, <span class="fl">78.35</span>, <span class="fl">74.57</span>, <span class="fl">71.6</span>, <span class="fl">65.64</span>, </span>
+<span id="cb203-11"><a href="least-squares-approximation.html#cb203-11"></a>   <span class="fl">62.09</span>, <span class="fl">61.66</span>, <span class="fl">77.14</span>, <span class="fl">75.47</span>, <span class="fl">70.37</span>, <span class="fl">66.71</span>, <span class="fl">64.37</span>, <span class="fl">56.09</span>, <span class="fl">50.25</span>, </span>
+<span id="cb203-12"><a href="least-squares-approximation.html#cb203-12"></a>   <span class="fl">43.65</span>, <span class="fl">38.01</span>, <span class="fl">31.4</span>, <span class="fl">29.45</span>, <span class="fl">29.02</span>, <span class="fl">19.05</span>, <span class="fl">20.36</span>, <span class="fl">17.68</span>, <span class="fl">19.23</span>, </span>
+<span id="cb203-13"><a href="least-squares-approximation.html#cb203-13"></a>   <span class="fl">14.92</span>, <span class="fl">11.44</span>, <span class="fl">12.69</span>)</span></code></pre></div>
 <p>Fit a linear model between the units produced and the production cost.</p>
 <p><span class="math display">\[p=\beta_0+\beta_1 u,\]</span></p>
 <p>where <span class="math inline">\(u\)</span> is the number of units produced in a given month (in thousands), <span class="math inline">\(p\)</span> is the monthly production cost (in $1000s). The constant <span class="math inline">\(\beta_0\)</span> represents the fixed costs for running the hosiery mill and <span class="math inline">\(\beta_1\)</span> represents the variable cost per production of 1000 units.</p>
@@ -580,29 +579,35 @@ sqrt( t(z) %*% z)</code></pre>
 <li><p><strong>Optional:</strong> Compute the length of the residual vector</p></li>
 <li><p><strong>Optional:</strong> Confirm that the residual vector is orthogonal to both columns of the coefficient matrix.</p></li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="least-squares-approximation.html#cb209-1"></a><span class="co"># your least squares code goes here</span></span>
-<span id="cb209-2"><a href="least-squares-approximation.html#cb209-2"></a>x =<span class="st"> </span>units.produced</span>
-<span id="cb209-3"><a href="least-squares-approximation.html#cb209-3"></a>y =<span class="st"> </span>production.cost</span>
-<span id="cb209-4"><a href="least-squares-approximation.html#cb209-4"></a></span>
-<span id="cb209-5"><a href="least-squares-approximation.html#cb209-5"></a><span class="co"># you must define A and xhat</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="least-squares-approximation.html#cb204-1"></a><span class="co"># your least squares code goes here</span></span>
+<span id="cb204-2"><a href="least-squares-approximation.html#cb204-2"></a>x =<span class="st"> </span>units.produced</span>
+<span id="cb204-3"><a href="least-squares-approximation.html#cb204-3"></a>y =<span class="st"> </span>production.cost</span>
+<span id="cb204-4"><a href="least-squares-approximation.html#cb204-4"></a></span>
+<span id="cb204-5"><a href="least-squares-approximation.html#cb204-5"></a>A  =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb204-6"><a href="least-squares-approximation.html#cb204-6"></a></span>
+<span id="cb204-7"><a href="least-squares-approximation.html#cb204-7"></a><span class="co"># you must define A and xhat</span></span></code></pre></div>
 <ul>
-<li>**Note: this code assumes that you have defined <code>xhat</code> and ’x<code>and</code>y<code>and</code>A`</li>
-<li>Remove the leading tick mark in the line below make the block executable.</li>
+<li>**Note: this code assumes that you have defined <code>xhat</code> and <code>x</code> and <code>y</code> and <code>A</code>.</li>
 </ul>
-<p>’<code>{r sqhosiery,fig.width=4.5, fig.height=4.5, echo=TRUE} plot(x,y,pch=19, main='hosiery mill production', xlab="monthly units produced (1000s)",ylab="monthly production cost ($1000s)") yhat = A %*% xhat tt = seq(0,600,by=.1) lines(tt,xhat[1]+xhat[2]*tt,col='blue')</code></p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="least-squares-approximation.html#cb205-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="st"> </span><span class="kw">is.null</span>(A)) {</span>
+<span id="cb205-2"><a href="least-squares-approximation.html#cb205-2"></a>  <span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">main=</span><span class="st">&#39;hosiery mill production&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;monthly units produced (1000s)&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;monthly production cost ($1000s)&quot;</span>)</span>
+<span id="cb205-3"><a href="least-squares-approximation.html#cb205-3"></a>  yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
+<span id="cb205-4"><a href="least-squares-approximation.html#cb205-4"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">600</span>,<span class="dt">by=</span>.<span class="dv">1</span>)</span>
+<span id="cb205-5"><a href="least-squares-approximation.html#cb205-5"></a>  <span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb205-6"><a href="least-squares-approximation.html#cb205-6"></a>}</span></code></pre></div>
 </div>
 <div id="global-fossil-fuel-emissions" class="section level2">
-<h2><span class="header-section-number">24.5</span> Global Fossil Fuel Emissions</h2>
+<h2><span class="header-section-number">24.4</span> Global Fossil Fuel Emissions</h2>
 <p>Now let’s fit a curve to global fossil fuel emmissions between 1751 and 1998. The fossil fuel emissions are measured in megatons of carbon. Here is a plot of the data.</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="least-squares-approximation.html#cb210-1"></a>year=<span class="kw">c</span>(<span class="dv">1751</span><span class="op">:</span><span class="dv">1998</span>)</span>
-<span id="cb210-2"><a href="least-squares-approximation.html#cb210-2"></a>emissions =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">43</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">57</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">71</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">78</span>, <span class="dv">83</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">104</span>, <span class="dv">112</span>, <span class="dv">119</span>, <span class="dv">122</span>, <span class="dv">130</span>, <span class="dv">135</span>,</span>
-<span id="cb210-3"><a href="least-squares-approximation.html#cb210-3"></a><span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">156</span>, <span class="dv">173</span>, <span class="dv">184</span>, <span class="dv">174</span>, <span class="dv">188</span>, <span class="dv">191</span>, <span class="dv">194</span>, <span class="dv">196</span>, <span class="dv">210</span>, <span class="dv">236</span>, <span class="dv">243</span>, <span class="dv">256</span>, <span class="dv">272</span>, <span class="dv">275</span>, <span class="dv">277</span>, <span class="dv">281</span>, <span class="dv">295</span>, <span class="dv">327</span>, <span class="dv">327</span>, <span class="dv">356</span>, <span class="dv">372</span>, <span class="dv">374</span>, <span class="dv">370</span>, <span class="dv">383</span>, <span class="dv">406</span>, <span class="dv">419</span>, <span class="dv">440</span>, <span class="dv">465</span>, <span class="dv">507</span>, <span class="dv">534</span>, <span class="dv">552</span>, <span class="dv">566</span>, <span class="dv">617</span>, <span class="dv">624</span>, <span class="dv">663</span>, <span class="dv">707</span>, <span class="dv">784</span>, <span class="dv">750</span>, <span class="dv">785</span>, <span class="dv">819</span>, <span class="dv">836</span>, <span class="dv">879</span>, <span class="dv">943</span>, <span class="dv">850</span>, <span class="dv">838</span>, <span class="dv">901</span>, <span class="dv">955</span>, <span class="dv">936</span>, <span class="dv">806</span>, <span class="dv">932</span>, <span class="dv">803</span>, <span class="dv">845</span>, <span class="dv">970</span>, <span class="dv">963</span>, <span class="dv">975</span>, <span class="dv">983</span>, <span class="dv">1062</span>, <span class="dv">1065</span>, <span class="dv">1145</span>, <span class="dv">1053</span>, <span class="dv">940</span>, <span class="dv">847</span>, <span class="dv">893</span>, <span class="dv">973</span>, <span class="dv">1027</span>, <span class="dv">1130</span>, <span class="dv">1209</span>, <span class="dv">1142</span>, <span class="dv">1192</span>, <span class="dv">1299</span>, <span class="dv">1334</span>, <span class="dv">1342</span>, <span class="dv">1391</span>, <span class="dv">1383</span>, <span class="dv">1160</span>, <span class="dv">1238</span>, <span class="dv">1392</span>, <span class="dv">1469</span>, <span class="dv">1419</span>, <span class="dv">1630</span>, <span class="dv">1767</span>, <span class="dv">1795</span>, <span class="dv">1841</span>, <span class="dv">1865</span>, <span class="dv">2043</span>, <span class="dv">2177</span>, <span class="dv">2270</span>, <span class="dv">2330</span>, <span class="dv">2463</span>, <span class="dv">2578</span>, <span class="dv">2595</span>, <span class="dv">2701</span>, <span class="dv">2848</span>, <span class="dv">3009</span>, <span class="dv">3146</span>, <span class="dv">3306</span>, <span class="dv">3412</span>, <span class="dv">3588</span>, <span class="dv">3802</span>, <span class="dv">4075</span>, <span class="dv">4227</span>, <span class="dv">4394</span>, <span class="dv">4633</span>, <span class="dv">4641</span>, <span class="dv">4613</span>, <span class="dv">4879</span>, <span class="dv">5018</span>, <span class="dv">5078</span>, <span class="dv">5368</span>, <span class="dv">5297</span>, <span class="dv">5125</span>, <span class="dv">5080</span>, <span class="dv">5067</span>, <span class="dv">5241</span>, <span class="dv">5405</span>, <span class="dv">5573</span>, <span class="dv">5701</span>, <span class="dv">5926</span>, <span class="dv">6035</span>, <span class="dv">6096</span>, <span class="dv">6186</span>, <span class="dv">6089</span>, <span class="dv">6090</span>, <span class="dv">6236</span>, <span class="dv">6378</span>, <span class="dv">6530</span>, <span class="dv">6628</span>, <span class="dv">6608</span>)</span>
-<span id="cb210-4"><a href="least-squares-approximation.html#cb210-4"></a><span class="kw">plot</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="least-squares-approximation.html#cb206-1"></a>year=<span class="kw">c</span>(<span class="dv">1751</span><span class="op">:</span><span class="dv">1998</span>)</span>
+<span id="cb206-2"><a href="least-squares-approximation.html#cb206-2"></a>emissions =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">43</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">57</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">71</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">78</span>, <span class="dv">83</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">104</span>, <span class="dv">112</span>, <span class="dv">119</span>, <span class="dv">122</span>, <span class="dv">130</span>, <span class="dv">135</span>,</span>
+<span id="cb206-3"><a href="least-squares-approximation.html#cb206-3"></a><span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">156</span>, <span class="dv">173</span>, <span class="dv">184</span>, <span class="dv">174</span>, <span class="dv">188</span>, <span class="dv">191</span>, <span class="dv">194</span>, <span class="dv">196</span>, <span class="dv">210</span>, <span class="dv">236</span>, <span class="dv">243</span>, <span class="dv">256</span>, <span class="dv">272</span>, <span class="dv">275</span>, <span class="dv">277</span>, <span class="dv">281</span>, <span class="dv">295</span>, <span class="dv">327</span>, <span class="dv">327</span>, <span class="dv">356</span>, <span class="dv">372</span>, <span class="dv">374</span>, <span class="dv">370</span>, <span class="dv">383</span>, <span class="dv">406</span>, <span class="dv">419</span>, <span class="dv">440</span>, <span class="dv">465</span>, <span class="dv">507</span>, <span class="dv">534</span>, <span class="dv">552</span>, <span class="dv">566</span>, <span class="dv">617</span>, <span class="dv">624</span>, <span class="dv">663</span>, <span class="dv">707</span>, <span class="dv">784</span>, <span class="dv">750</span>, <span class="dv">785</span>, <span class="dv">819</span>, <span class="dv">836</span>, <span class="dv">879</span>, <span class="dv">943</span>, <span class="dv">850</span>, <span class="dv">838</span>, <span class="dv">901</span>, <span class="dv">955</span>, <span class="dv">936</span>, <span class="dv">806</span>, <span class="dv">932</span>, <span class="dv">803</span>, <span class="dv">845</span>, <span class="dv">970</span>, <span class="dv">963</span>, <span class="dv">975</span>, <span class="dv">983</span>, <span class="dv">1062</span>, <span class="dv">1065</span>, <span class="dv">1145</span>, <span class="dv">1053</span>, <span class="dv">940</span>, <span class="dv">847</span>, <span class="dv">893</span>, <span class="dv">973</span>, <span class="dv">1027</span>, <span class="dv">1130</span>, <span class="dv">1209</span>, <span class="dv">1142</span>, <span class="dv">1192</span>, <span class="dv">1299</span>, <span class="dv">1334</span>, <span class="dv">1342</span>, <span class="dv">1391</span>, <span class="dv">1383</span>, <span class="dv">1160</span>, <span class="dv">1238</span>, <span class="dv">1392</span>, <span class="dv">1469</span>, <span class="dv">1419</span>, <span class="dv">1630</span>, <span class="dv">1767</span>, <span class="dv">1795</span>, <span class="dv">1841</span>, <span class="dv">1865</span>, <span class="dv">2043</span>, <span class="dv">2177</span>, <span class="dv">2270</span>, <span class="dv">2330</span>, <span class="dv">2463</span>, <span class="dv">2578</span>, <span class="dv">2595</span>, <span class="dv">2701</span>, <span class="dv">2848</span>, <span class="dv">3009</span>, <span class="dv">3146</span>, <span class="dv">3306</span>, <span class="dv">3412</span>, <span class="dv">3588</span>, <span class="dv">3802</span>, <span class="dv">4075</span>, <span class="dv">4227</span>, <span class="dv">4394</span>, <span class="dv">4633</span>, <span class="dv">4641</span>, <span class="dv">4613</span>, <span class="dv">4879</span>, <span class="dv">5018</span>, <span class="dv">5078</span>, <span class="dv">5368</span>, <span class="dv">5297</span>, <span class="dv">5125</span>, <span class="dv">5080</span>, <span class="dv">5067</span>, <span class="dv">5241</span>, <span class="dv">5405</span>, <span class="dv">5573</span>, <span class="dv">5701</span>, <span class="dv">5926</span>, <span class="dv">6035</span>, <span class="dv">6096</span>, <span class="dv">6186</span>, <span class="dv">6089</span>, <span class="dv">6090</span>, <span class="dv">6236</span>, <span class="dv">6378</span>, <span class="dv">6530</span>, <span class="dv">6628</span>, <span class="dv">6608</span>)</span>
+<span id="cb206-4"><a href="least-squares-approximation.html#cb206-4"></a><span class="kw">plot</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/sqemission-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The data suggest that the fossil fuel emissions (<span class="math inline">\(f\)</span>) follow an exponential model with respect to the year (<span class="math inline">\(y\)</span>):
-<span class="math display">\[f = c e^{k(y-1750)},\]</span>
-where <span class="math inline">\(c\)</span> and <span class="math inline">\(k\)</span> are the unknown constants (parameters of the model). How do we fit a linear model in this case? Just take the logarithm of both sides! Doing so yields the following linear system:
-<span class="math display">\[\log(f)=\log(c)+k(y-1750).\]</span></p>
+<p>The data suggest that the fossil fuel emissions <span class="math inline">\(f\)</span> follow an exponential model with respect to the year <span class="math inline">\(y\)</span>:
+<span class="math display">\[f = a e^{k(y-1750)},\]</span>
+where <span class="math inline">\(a\)</span> and <span class="math inline">\(k\)</span> are the unknown constants. How do we fit our data in this case? Just take the logarithm of both sides! Doing so yields the following linear system:
+<span class="math display">\[\log(f)=\log(a)+k(y-1750).\]</span></p>
 <ul>
 <li><strong>Note:</strong> This process works for any logarithm, but it is common to use the natural logarithm (use <code>log()</code> in R).</li>
 <li><strong>Note:</strong> To simplify even further, define <code>time=year-1750</code> before forming your set of linear constraints. This results in the model</li>
@@ -610,32 +615,34 @@ where <span class="math inline">\(c\)</span> and <span class="math inline">\(k\)
 <p><span class="math display">\[ \log(f)=d+kx,\]</span>
 where <span class="math inline">\(b=\log(a)\)</span> and <span class="math inline">\(x\)</span> is time (since 1750),</p>
 <ul>
-<li>Use least squares approximation to find the best fitting exponential function for this data. This will give you the values for <span class="math inline">\(d\)</span> and <span class="math inline">\(k\)</span>, and once you know <span class="math inline">\(d\)</span>, you can find <span class="math inline">\(c = exp(d)\)</span>. We have started the code for you by defining <code>x=year-1750</code> and <code>y=log(emissions)</code></li>
+<li>Use least squares approximation to find the best fitting exponential function for this data. This will give you the values for <span class="math inline">\(b\)</span> and <span class="math inline">\(k\)</span>, and once you know <span class="math inline">\(b\)</span>, you can find <span class="math inline">\(a = \exp(b)\)</span>. We have started the code for you by defining <code>x=year-1750</code> and <code>y=log(emissions)</code>.</li>
 </ul>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="least-squares-approximation.html#cb211-1"></a><span class="co">### your code goes here. </span></span>
-<span id="cb211-2"><a href="least-squares-approximation.html#cb211-2"></a><span class="co"># be sure to define d and k</span></span>
-<span id="cb211-3"><a href="least-squares-approximation.html#cb211-3"></a></span>
-<span id="cb211-4"><a href="least-squares-approximation.html#cb211-4"></a>x=year<span class="dv">-1750</span></span>
-<span id="cb211-5"><a href="least-squares-approximation.html#cb211-5"></a>y=<span class="kw">log</span>(emissions)</span>
-<span id="cb211-6"><a href="least-squares-approximation.html#cb211-6"></a></span>
-<span id="cb211-7"><a href="least-squares-approximation.html#cb211-7"></a>b=<span class="dv">1</span></span>
-<span id="cb211-8"><a href="least-squares-approximation.html#cb211-8"></a>k=<span class="dv">1</span></span>
-<span id="cb211-9"><a href="least-squares-approximation.html#cb211-9"></a></span>
-<span id="cb211-10"><a href="least-squares-approximation.html#cb211-10"></a><span class="co">#####</span></span>
-<span id="cb211-11"><a href="least-squares-approximation.html#cb211-11"></a><span class="co"># your code above has found b and k</span></span>
-<span id="cb211-12"><a href="least-squares-approximation.html#cb211-12"></a></span>
-<span id="cb211-13"><a href="least-squares-approximation.html#cb211-13"></a>(<span class="dt">a =</span> <span class="kw">exp</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="least-squares-approximation.html#cb207-1"></a><span class="co">### your code goes here. </span></span>
+<span id="cb207-2"><a href="least-squares-approximation.html#cb207-2"></a><span class="co"># be sure to define d and k and A</span></span>
+<span id="cb207-3"><a href="least-squares-approximation.html#cb207-3"></a></span>
+<span id="cb207-4"><a href="least-squares-approximation.html#cb207-4"></a>x=year<span class="dv">-1750</span></span>
+<span id="cb207-5"><a href="least-squares-approximation.html#cb207-5"></a>y=<span class="kw">log</span>(emissions)</span>
+<span id="cb207-6"><a href="least-squares-approximation.html#cb207-6"></a></span>
+<span id="cb207-7"><a href="least-squares-approximation.html#cb207-7"></a>A=<span class="ot">NULL</span></span>
+<span id="cb207-8"><a href="least-squares-approximation.html#cb207-8"></a>b=<span class="dv">1</span></span>
+<span id="cb207-9"><a href="least-squares-approximation.html#cb207-9"></a>k=<span class="dv">1</span></span>
+<span id="cb207-10"><a href="least-squares-approximation.html#cb207-10"></a></span>
+<span id="cb207-11"><a href="least-squares-approximation.html#cb207-11"></a><span class="co">#####</span></span>
+<span id="cb207-12"><a href="least-squares-approximation.html#cb207-12"></a><span class="co"># your code above has found b and k</span></span>
+<span id="cb207-13"><a href="least-squares-approximation.html#cb207-13"></a></span>
+<span id="cb207-14"><a href="least-squares-approximation.html#cb207-14"></a>(<span class="dt">a =</span> <span class="kw">exp</span>(b))</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="least-squares-approximation.html#cb213-1"></a>k</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="least-squares-approximation.html#cb209-1"></a>k</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ul>
-<li><p>Run the code below to plot the original data along with your exponential model curve <span class="math inline">\(f(y)\)</span>.</p>
-<ul>
-<li><strong>Note:</strong> This code assumes that you have already defined the values for <code>k</code> and <code>c</code>. Otherwise, it will not work!</li>
-<li>Remove the leading tick mark in the line below make the block executable.</li>
-</ul></li>
+<li><p>Run the code below to plot the original data along with your exponential model curve <span class="math inline">\(f(t)\)</span>.</p></li>
+<li><p><strong>Note:</strong> This code assumes that you have already defined the values for <code>A</code> and <code>k</code> and <code>a</code>. Otherwise, it will not work!</p></li>
 </ul>
-<p>’<code>{r, echo=TRUE} f=function(y){exp(a*exp(k*(y-1750))} plot(year,f(year),type="l",lwd=3,ylim=c(0,10000),ylab="emissions", main="best fit exponential function") points(year,emissions,pch=20,cex=.7,col="red")</code></p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="least-squares-approximation.html#cb211-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="st"> </span><span class="kw">is.null</span>(A)) {</span>
+<span id="cb211-2"><a href="least-squares-approximation.html#cb211-2"></a>  f=<span class="cf">function</span>(y){a <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(k<span class="op">*</span>(y<span class="dv">-1750</span>))}</span>
+<span id="cb211-3"><a href="least-squares-approximation.html#cb211-3"></a>  <span class="kw">plot</span>(year,<span class="kw">f</span>(year),<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10000</span>),<span class="dt">ylab=</span><span class="st">&quot;emissions&quot;</span>, <span class="dt">main=</span><span class="st">&quot;best fit exponential function&quot;</span>)</span>
+<span id="cb211-4"><a href="least-squares-approximation.html#cb211-4"></a>  <span class="kw">points</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb211-5"><a href="least-squares-approximation.html#cb211-5"></a>}</span></code></pre></div>
 
 </div>
 </div>

@@ -49,7 +49,7 @@ Find the eigenvalues and corresponding eigenvectors for $A$.
 
 2. Let $A$ be a $2 \times 2$ matrix. We view $A$ as a linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$. Describe the eigenvalues for each of the following types of matrices.
 
-    a. $A$ maps $\mathbb{R}^2$  onto a line through the origin in $\mathbb{R}^2$.
+    a. $A$ maps all of $\mathbb{R}^2$  onto a line through the origin in $\mathbb{R}^2$.
     a. $A$ is a reflection  of $\mathbb{R}^2$ about a line through the origin
     a. $A$ is a reflection  of $\mathbb{R}^2$ through the origin
     a.  $A$ is a horizontal shear
@@ -412,19 +412,24 @@ require(pracma)
 
 2. 
 
-    a. $\lambda=0$ is one eigenvalue. We know that the other eigenvalue is nonzero, since we are mapping onto  a line. However, we  can't say anything more without additional information.
+    a. This is a mapping that maps 2D space onto 1D space. We "lose a dimension" which means that $\dim(\mbox{Nul}(A))=1$. This means that $\lambda=0$ is an eigenvalue because there is a nonzero vector $\mathsf{x}$ such that $A \mathsf{x} = \mathbf{0} = 0 \mathsf{x}$. We know that the other eigenvalue is nonzero, since we are mapping onto  a line. However, we  can't say anything more without additional information.
   
-    b. The eigenvalues are $\lambda_1 = 1$ and $\lambda_2=-1$. Let $L$ be the line of reflection.
-        - If $\mathsf{v} = [a,b]^{\top}$ is on $L$, then $T(\mathsf{v}) = \mathsf{v}$.
+    b. The eigenvalues are $\lambda_1 = 1$ and $\lambda_2=-1$. Let $L = \mbox{span}( [a,b]^{\top}$ ) be the line of reflection.
+        - If $\mathsf{v} = [a,b]^{\top}$ is on $L$, then $T(\mathsf{v}) = \mathsf{v}$.Since $\mathsf{v}$ is on the line of reflection, it doesn't change. 
         - The vector $\mathsf{w} = [-b,a]^{\top}$ is perpendicular to $L$, so $T(\mathsf{w}) = -\mathsf{w}$.
-  
+      Perhaps this one is easiest to undertand by looking at a particular example. Let's look at a reflection across the $y$-axis. This means that $A [ x, y]^{\top} = [-x, y]^{\top}$. In particular, we have $A [ 1, 0]^{\top} =  [ -x, 0]^{\top} = - [ x, 0]^{\top}$. So $-1$ is an eigenvalue. Meanwhile, we also have $A [ 0, 1]^{\top} =  [ 0, 1]^{\top}$ So 1 is an eigenvalue.
+      
     c. The eigenvalues are $\lambda_1 = \lambda_2=-1$ because
     $$
     T\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \right)
     = \begin{bmatrix} -x_1 \\ -x_2 \end{bmatrix}
     = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
     $$
-    d. There is one eigenvalue $\lambda=1$ with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a  shear matrix is not diagonalizable.
+    d. There is one eigenvalue $\lambda=1$ with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a  shear matrix is not diagonalizable. A shear always fixes one direction (the $x$-axis or the $y$-axis). Since these vectors map to themselves, we know that 1 is an eigenvalue. A shear matrix is always of the form
+    
+    We can also give a matrix proof. A 2D horizontal  shear matrix is of the form
+    $\begin{bmatrix} 1 & a \\ 0 & 1 \end{bmatrix}$. A 2D vertical shear matrix is of the form
+    $\begin{bmatrix} 1 & 0 \\ a & 1 \end{bmatrix}$. Direct calculation shows that $\lambda=1$  has algebraic multiplicity 2 and geometric multiplicity 1. So there are no other eigenvalues.
     
 
 3.
@@ -623,8 +628,8 @@ v1/sum(v1)
 11.
     a. Initially, both populations increase from $[1, 2]$ to $[2.25,2.5]$, with wolves increasing more quickly. The wolves continue to increase, while the deer start to decrease. After reachaing $[3,2]$, both populations decrease. The deer die out first at the point $[.8,0]$.
     b. Deer breeding: Both populations thrive and grow every year, converging slowly to a $1:1$ ratio. The long-term growth rate is $1.1$, or $10\%$ growth.
-    c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[2.5, 2.5]$.
-    d. Since they want a stable ecosystem, the wolf hunting is a better option. Ww reach a stable equilibrium population of $[2.5, 2.5]$
+    c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[3, 3]$.
+    d. Since they want a stable ecosystem, the wolf hunting is a better option. We reach a stable equilibrium population of about $[3, 3]$
 
 
 12. 
