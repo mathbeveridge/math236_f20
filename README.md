@@ -16,3 +16,6 @@ Enter this command in the R console to build the handbook:
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
 
+Getting Started Guides:
+https://bookdown.org/yihui/bookdown/get-started.html
+https://happygitwithr.com/push-pull-github.html#push-pull-github
