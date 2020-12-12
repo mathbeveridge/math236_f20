@@ -21,7 +21,7 @@ Give rigorous proofs for each of the following problems. Here "rigorous" means t
 
 a. Let $W$ be a subspace of $\mathbb{R}^5$ with basis $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$.  Let $W^{\perp}$ be its orthogonal complement with basis $\mathsf{v}_1, \mathsf{v}_2$.  Prove that if $\mathsf{u}$ is in both $W$ and $W^{\perp}$ then $\mathsf{u}$ must be the zero vector. 
 
-a. Let $U$ and $V$ both be $n \times n$ orthogonal matrices. Prove that the matrix $UV$ is also an orthogonal matrix.
+b. Let $U$ and $V$ both be $n \times n$ orthogonal matrices. Prove that the matrix $UV$ is also an orthogonal matrix.
 
 
 ## Bases for a Subspace and its Orthogonal Complement
@@ -32,9 +32,9 @@ x_1 + x_2 + x_3 + x_4 + x_5 + x_6 &= 0 \\
 x_1 - x_2 + x_3 - x_4 + x_5 - x_6 &= 0 
 \end{align}
 
-a. Find a basis for $W$.
+a. Find a basis for $W$ by using row reduction on the appropriate matrix.
 b. Use your answer from (a) to find a "human readable" orthogonal basis for $W$ where the entries have integer values.
-c. Find a basis for $W^{\perp}$
+c. Find a basis for $W^{\perp}$ by using row reduction on the appropriate matrix.
 d. Use your answer from (c) to find a "human readable" orthogonal basis for $W^{\perp}$ where the entries have integer values.
 
 **Turn in:** Your code and its output. You must make it clear what your final answers are for each problem. 
@@ -63,7 +63,7 @@ c. Express the vector $\mathsf{v} = \begin{bmatrix} 4 & -6 &  8  & 1 \end{bmatri
 d.  Let $P$ be the matrix of these normalized, orthogonal eigenvectors.
 Diagonalize $A$ using $P$. Just write out $A = P D P^{-1}$. Congratulations: you have **orthogonally diagonalized** the symmetric matrix $A$!
 
-    **Turn in:** Your R code and the output for each part. For parts (c) and (d), you need to make it clear what your final answers are. 
+**Turn in:** Your R code and the output for each part. For parts (c) and (d), you need to make it clear what your final answers are. 
 
 ## Modeling Fertility in 1888 Switzerland
 
@@ -101,7 +101,7 @@ mort = swiss[,6]
 
 ```
 
-    **Turn in:** Your code and the output.
+**Turn in:** Your code and the output.
 
 b. The residual vector $\mathsf{z}$ measures  the quality of fit of our model. But how do we turn this into a meaninful quantity?
 One method is to look at the **coefficient of determination**, which is more commonly refered to as the "$R^2$ value."
@@ -177,7 +177,7 @@ knitr::kable(
 
 ```
 
-1. Your first task is to implement two functions.
+a. Your first task is to implement two functions.
 
     * `get_vote_magnitude(senator)` returns the magnitude of the senator's vote vector
     * `get_vote_cosine_similarity(senator1, senator2)` returns the cosine of the angle between the vote vectors of `senator1` and `senator2`
@@ -225,7 +225,7 @@ get_vote_cosine_similarity <- function(senator1, senator2) {
 ```
 
 
-2. Find the cosine of the angles between every pair of the following senators of note:
+b. Find the cosine of the angles between every pair of the following senators of note:
 
     + `clinton`: Hilary Clinton (D, NY), presidential candidate 2016
     + `mccain`: John McCain (R, AZ), presidential candidate 2008
@@ -237,7 +237,7 @@ get_vote_cosine_similarity <- function(senator1, senator2) {
 
     **Turn In:** Your code and the output. Comment on the similarities between all pairs of senators.
 
-3. The senate majority leader of the 109th Congress was Bill Frist (R, TN). The senate minority leader was Harry Reid (D, NV). 
+c. The senate majority leader of the 109th Congress was Bill Frist (R, TN). The senate minority leader was Harry Reid (D, NV). 
 
     * Create a function  `classify_senator(senator)` that returns "R" or "D" depending on the cosine similarity of `senator` to `frist` and to `reid`.
 You will have to write [an "if ... else statement" (here is the syntax)](https://www.tutorialspoint.com/r/r_if_else_statement.htm).
