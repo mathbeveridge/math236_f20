@@ -88,7 +88,7 @@ Obviously, *this data set shows its age*. We are attempting to model fertility r
 
 a. Model this problem as a least-squares approximation of an inconsistent system $A \mathsf{x} = \mathsf{y}$. Find the least squares solution $\hat{\mathsf{x}}$ and confirm that the residual vector $\mathsf{z}$ is orthogonal to the columns of $A$.
 
-To get you started, here is some convenient code to get the column vectors of the `swiss` dataset.
+    To get you started, here is some convenient code to get the column vectors of the `swiss` dataset.
 
 ```{r echo=TRUE}
 
@@ -101,7 +101,7 @@ mort = swiss[,6]
 
 ```
 
-  **Turn in:** Your code and the output.
+    **Turn in:** Your code and the output.
 
 b. The residual vector $\mathsf{z}$ measures  the quality of fit of our model. But how do we turn this into a meaninful quantity?
 One method is to look at the **coefficient of determination**, which is more commonly refered to as the "$R^2$ value."
@@ -116,7 +116,7 @@ R^2 = 1 - \frac{\| \mathsf{y} - \hat{\mathsf{y}} \| }{\| \mathsf{y} - \mathsf{y}
 $$
     This is a number in $[0,1]$. If the $R^2$ value is near 1, then our model does a good job at "explaining" the behavior of $\mathsf{y}$ via a linear combination of the columns of $A$. 
 
-    Find the $R^2$ value for our least squares solution to the Swiss data. Here are two helpful functions:
+    Find the $R^2$ value for our least squares solution to the Swiss data. Here are some helpful functions:
 
     * `sum(vec)` returns the sum of the entries of the vector `vec`
     * `length(vec)` returns the number of entries in the vector `vec`
@@ -145,7 +145,7 @@ This measure has the following nice properties:
 Let's use cosine similarity to compare the 99 US Senators (one senate seat was not filled at the time) from the 109th US Congress (2007-2008).
 
 Here is code that loads in the voting records. Each row contains the senator's name, party affiliation, state, and then their record on 46 resolutions. The votes are encoded as a sequence of
-0s, 1s, and -1s, where 1 means a `aye' vote, -1 means a `nay' vote, and 0 means the senator abstained. The row corresponding to Joseph Biden is
+0s, 1s, and -1s, where 1 means a 'aye' vote, -1 means a 'nay' vote, and 0 means the senator abstained. The row corresponding to Joseph Biden is
 <center>
 `biden = ["Biden", "D", "DE", -1, -1, 1, 1, ... , 1, -1]`.
 </center>
