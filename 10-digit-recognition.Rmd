@@ -125,12 +125,12 @@ So let's get started.
 
 
 
-## Length, Distance and Angle
+## Magnitude, Distance and Angle
 
 
 Here are the three methods that you must implement:
 
-* `get_length(colvec)`
+* `get_magnitude(colvec)`
 * `get_distance(colvec1, colvec2)`
 * `get_angle(colvec1, colvec2)`
 
@@ -140,6 +140,8 @@ $$
 d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 \theta = \cos^{-1} \left( \frac{\mathsf{v} \cdot \mathsf{w}}{\| \mathsf{v} \| \, \| \mathsf{w} \|} \right).
 $$
+**Note:** The R command `length(vec)` returns the number of entries in the vector `vec`. To avoid confusion, we use "magnitude" to refer to the geometric length of a vector.
+
 
 Here are some R functions that you will need.
 
@@ -150,7 +152,7 @@ Here are some R functions that you will need.
 
 ```{r, echo=TRUE}
 
-get_length <- function(colvec) {
+get_magnitude <- function(colvec) {
   # replace with your implementation
   len = sqrt(t(colvec) %*% colvec)
   
@@ -160,7 +162,7 @@ get_length <- function(colvec) {
 
 get_distance <- function(colvec1, colvec2) {
   v = colvec1 - colvec2
-  dist = get_length(v)
+  dist = get_magnitude(v)
   
   return (dist)
 } 
@@ -169,8 +171,8 @@ get_distance <- function(colvec1, colvec2) {
 
 get_angle <- function(colvec1, colvec2) {
   dotprod = t(colvec1) %*% colvec2
-  len1 = get_length(colvec1)
-  len2 = get_length(colvec2)
+  len1 = get_magnitude(colvec1)
+  len2 = get_magnitude(colvec2)
 
   val = dotprod / (len1 * len2)
   angle = acos(val)
@@ -200,10 +202,10 @@ check_equal <- function(val1, val2) {
   }
 }
 
-print('get_length')
-check_equal(get_length(c(3,4)),5)
-check_equal(get_length(c(1,2,-2,1)),sqrt(10))
-check_equal(get_length(c(0,0,0)),0)
+print('get_magnitude')
+check_equal(get_magnitude(c(3,4)),5)
+check_equal(get_magnitude(c(1,2,-2,1)),sqrt(10))
+check_equal(get_magnitude(c(0,0,0)),0)
 
 print('get_dist')
 check_equal(get_distance(c(3,4,5),c(2,-1,-3)), sqrt(90))
@@ -220,7 +222,7 @@ check_equal(get_angle(c(3,0),c(1,0)), 0)
 
 ## Machine Learning Algorithms
 
-Once your length, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around $80\%$ of the digits correct. (A good machine learning algorithm can get $98\%$ correct.)
+Once your magnitude, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around $80\%$ of the digits correct. (A good machine learning algorithm can get $98\%$ correct.)
 
 Run the code below and look at the output. Discuss the following questions
 

@@ -1,9 +1,9 @@
 tab:unnamed-chunk-2
 fig:example-2d-transformation
-tab:unnamed-chunk-56
-tab:unnamed-chunk-58
-tab:unnamed-chunk-60
-tab:unnamed-chunk-63
+tab:unnamed-chunk-62
+tab:unnamed-chunk-64
+tab:unnamed-chunk-66
+tab:unnamed-chunk-69
 problem-set-1
 characterize-the-solution-set
 find-the-parametric-solution
@@ -46,6 +46,12 @@ glucose-insulin-system-model
 population-interaction-models
 blue-whale-population-dynamics
 the-power-method-for-eigenvalue-calculation
+problem-set-8
+two-orthogonality-properties
+bases-for-a-subspace-and-its-orthogonal-complement
+eigensystem-of-a-symmetrix-matrix
+modeling-fertility-in-1888-switzerland
+cosine-similarity-for-us-senators
 important-definitions
 week-1-learning-goals
 solving-linear-equations
@@ -160,7 +166,7 @@ digit-recognition
 us-post-office-zip-code-data
 visualizing-the-data
 algorithm-overview
-length-distance-and-angle
+magnitude-distance-and-angle
 machine-learning-algorithms
 get-closest-by-distance
 get-closest-by-angle
