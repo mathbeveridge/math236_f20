@@ -1,0 +1,189 @@
+---
+title: "Template for Problem Set 8"
+author: "Your Name Here"
+date: "Due Date Here"
+output:
+  html_document: default
+---
+
+
+# Problem Set 8
+
+**Note:** If you are using this template then you need to submit a PDF file.
+
+* The easiest way is to (1) knit to HMTL, (2) click the "Open in Browser" button, (3) In the opened tab, "Print... Save as PDF"
+ * There is a way to knit to PDF, but it is not working for me (error: missing framed.sty). I tried to install the missing resources, but I didn't get it to work. Given the effort involved, I think that the "easy way" HMTL -> Print to PDF is faster.
+
+```{r, echo=FALSE}
+
+# run this command to load some practical math functions
+require(pracma)
+
+```
+
+
+## Two Orthogonality Properties
+
+
+a. My proof for part (a) 
+
+b. My proof for part (b)
+
+
+
+## Bases for a Subspace and its Orthogonal Complement
+
+
+
+a. My answer to part a. My code blocks use `{r echo=true}`.
+
+b. My answer to part b. My code blocks use `{r echo=true}`.
+
+c. My answer to part c. My code blocks use `{r echo=true}`.
+
+d. My answer to part d. My code blocks use `{r echo=true}`.
+
+
+
+## Eigensystem of a Symmetrix Matrix
+
+
+a. My answer to part a. My code blocks use `{r echo=true}`.
+
+b. My answer to part b. My code blocks use `{r echo=true}`.
+
+c. My answer to part c. My code blocks use `{r echo=true}`.
+
+d. My answer to part d. My code blocks use `{r echo=true}`.
+
+
+
+## Modeling Fertility in 1888 Switzerland
+
+
+```{r echo=TRUE}
+
+fert = swiss[,1]
+agric = swiss[,2]
+exam = swiss[,3]
+educ = swiss[,4]
+cath = swiss[,5]
+mort = swiss[,6]
+
+```
+
+
+a. My answer to part a. My code blocks use `{r echo=true}`.
+
+b. My answer to part b. My code blocks use `{r echo=true}`.
+
+
+
+## Cosine Similarity for US Senators
+
+```{r, echo=TRUE}
+
+library(readr)
+
+senate.vote.file = "https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv"
+
+record <- read_csv(senate.vote.file, col_names = TRUE)
+
+clinton = record[record$Name == 'Clinton',]
+collins = record[record$Name == 'Collins',]
+frist = record[record$Name == 'Frist',]
+mccain = record[record$Name == 'McCain',]
+obama = record[record$Name == 'Obama',]
+reid = record[record$Name == 'Reid',]
+
+
+knitr::kable(
+  head(record[,1:10],5), booktabs = TRUE,
+  caption = 'First 5 rows of the 109th US Senate voting records'
+)
+
+
+```
+
+a. My answer to part (a).
+
+```{r, echo=TRUE}
+
+
+# returns the vote vector for the senator
+get_votes <- function(senator) {
+  #unlist makes this dataframe row into a regular vector
+  return (unlist(senator[,4:49])) 
+}
+
+# Implement this function!
+# Return the magnitude of the senator's vote vector
+get_vote_magnitude <- function(senator) {
+  votes = get_votes(senator)
+  
+  # Your code goes here!
+  magnitude = 1
+  
+  return (magnitude)
+}
+
+# Implement this function!
+# Return the cosine of the angle between the vote vectors 
+# of senator1 and senator2
+get_vote_cosine_similarity <- function(senator1, senator2) {
+  votes1 = get_votes(senator1)
+  votes2 = get_votes(senator2)
+  
+  # your code goes here!
+  cosine = 1
+  
+  return (cosine)
+}
+
+```
+
+b. My answer to part b. My code blocks use `{r echo=true}`.
+
+
+c. My answer to part c. 
+
+
+```{r, echo=TRUE}
+
+
+
+# Implement this function!
+classify_senator <- function(senator) {
+
+  # your code goes here!
+  val = "R"
+  
+  return (val)
+}
+
+# returns a dataframe containing all misclassified senator names
+# and their party affiliations
+classify_all <- function() {
+
+  mismatch = vector()
+  
+  for (i in 1:99) {
+    senator = record[i,]
+    party = classify_senator(senator)
+    if (party !=  record[i,2]) {
+      mismatch = c(mismatch, i)
+    }
+  }
+  
+  record[mismatch,1:2]
+}
+
+
+# Classify all senators!
+classify_all()
+
+
+```
+
+
+
