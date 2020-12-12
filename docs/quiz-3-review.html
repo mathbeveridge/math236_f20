@@ -163,7 +163,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
 <li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
 <li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
-<li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis."><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis.</a></li>
+<li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis"><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis</a></li>
 <li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
 <li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
 </ul></li>
@@ -797,10 +797,10 @@ Perhaps this one is easiest to undertand by looking at a particular example. Let
 <li>When <span class="math inline">\(A=P D P^{-1}\)</span>, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by <span class="math inline">\(P^{-1}\)</span>.</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="quiz-3-review.html#cb238-1"></a>Pinv =<span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">15</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">30</span>,<span class="dv">2</span><span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>))</span>
-<span id="cb238-2"><a href="quiz-3-review.html#cb238-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb238-3"><a href="quiz-3-review.html#cb238-3"></a></span>
-<span id="cb238-4"><a href="quiz-3-review.html#cb238-4"></a>Pinv <span class="op">%*%</span><span class="st"> </span>v</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="quiz-3-review.html#cb236-1"></a>Pinv =<span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">15</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">30</span>,<span class="dv">2</span><span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>))</span>
+<span id="cb236-2"><a href="quiz-3-review.html#cb236-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb236-3"><a href="quiz-3-review.html#cb236-3"></a></span>
+<span id="cb236-4"><a href="quiz-3-review.html#cb236-4"></a>Pinv <span class="op">%*%</span><span class="st"> </span>v</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] -0.2
 ## [2,]  1.6
@@ -817,17 +817,17 @@ Perhaps this one is easiest to undertand by looking at a particular example. Let
 \]</span></p></li>
 </ol>
 <p>Let’s turn to RStudio</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="quiz-3-review.html#cb240-1"></a>a =<span class="st"> </span><span class="fl">.97</span></span>
-<span id="cb240-2"><a href="quiz-3-review.html#cb240-2"></a>b =<span class="st"> </span><span class="fl">.71</span></span>
-<span id="cb240-3"><a href="quiz-3-review.html#cb240-3"></a></span>
-<span id="cb240-4"><a href="quiz-3-review.html#cb240-4"></a>scale =<span class="st"> </span><span class="kw">sqrt</span>(a<span class="op">^</span><span class="dv">2</span><span class="op">+</span>b<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb240-5"><a href="quiz-3-review.html#cb240-5"></a>angle =<span class="st"> </span><span class="kw">atan</span> (b<span class="op">/</span>a)</span>
-<span id="cb240-6"><a href="quiz-3-review.html#cb240-6"></a></span>
-<span id="cb240-7"><a href="quiz-3-review.html#cb240-7"></a>scale</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="quiz-3-review.html#cb238-1"></a>a =<span class="st"> </span><span class="fl">.97</span></span>
+<span id="cb238-2"><a href="quiz-3-review.html#cb238-2"></a>b =<span class="st"> </span><span class="fl">.71</span></span>
+<span id="cb238-3"><a href="quiz-3-review.html#cb238-3"></a></span>
+<span id="cb238-4"><a href="quiz-3-review.html#cb238-4"></a>scale =<span class="st"> </span><span class="kw">sqrt</span>(a<span class="op">^</span><span class="dv">2</span><span class="op">+</span>b<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb238-5"><a href="quiz-3-review.html#cb238-5"></a>angle =<span class="st"> </span><span class="kw">atan</span> (b<span class="op">/</span>a)</span>
+<span id="cb238-6"><a href="quiz-3-review.html#cb238-6"></a></span>
+<span id="cb238-7"><a href="quiz-3-review.html#cb238-7"></a>scale</span></code></pre></div>
 <pre><code>## [1] 1.202082</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="quiz-3-review.html#cb242-1"></a>angle</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="quiz-3-review.html#cb240-1"></a>angle</span></code></pre></div>
 <pre><code>## [1] 0.6318544</code></pre>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="quiz-3-review.html#cb244-1"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">/</span><span class="st"> </span>angle</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="quiz-3-review.html#cb242-1"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">/</span><span class="st"> </span>angle</span></code></pre></div>
 <pre><code>## [1] 9.94404</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>It takes 10 iterations to rotate past the <span class="math inline">\(x\)</span>-axis.</li>
@@ -839,7 +839,7 @@ Perhaps this one is easiest to undertand by looking at a particular example. Let
 <li>We must see whether <span class="math inline">\(\lambda=4\)</span> has geometric multiplicty 2 (to match its algebraic multiplicity).</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="quiz-3-review.html#cb246-1"></a><span class="kw">rref</span>( <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="quiz-3-review.html#cb244-1"></a><span class="kw">rref</span>( <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    1   -2
 ## [2,]    0    0    0
@@ -855,8 +855,8 @@ Perhaps this one is easiest to undertand by looking at a particular example. Let
 Or we can find this inverse using RStudio.</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="quiz-3-review.html#cb248-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
-<span id="cb248-2"><a href="quiz-3-review.html#cb248-2"></a><span class="kw">solve</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="quiz-3-review.html#cb246-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb246-2"><a href="quiz-3-review.html#cb246-2"></a><span class="kw">solve</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]  0.2  0.2
 ## [2,]  0.6 -0.4</code></pre>
@@ -891,13 +891,13 @@ Therefore
 = c_1   \mathsf{v}_1.
 \]</span>
 So we need to find <span class="math inline">\(c_1,c_2\)</span> for each column of <span class="math inline">\(A\)</span>. Let’s use R Studio.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="quiz-3-review.html#cb251-1"></a>a1 =<span class="st"> </span><span class="kw">c</span>(.<span class="dv">7</span>,.<span class="dv">3</span>)</span>
-<span id="cb251-2"><a href="quiz-3-review.html#cb251-2"></a>a2 =<span class="st"> </span><span class="kw">c</span>(.<span class="dv">2</span>,.<span class="dv">8</span>)</span>
-<span id="cb251-3"><a href="quiz-3-review.html#cb251-3"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
-<span id="cb251-4"><a href="quiz-3-review.html#cb251-4"></a></span>
-<span id="cb251-5"><a href="quiz-3-review.html#cb251-5"></a><span class="kw">solve</span>(P,a1)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="quiz-3-review.html#cb249-1"></a>a1 =<span class="st"> </span><span class="kw">c</span>(.<span class="dv">7</span>,.<span class="dv">3</span>)</span>
+<span id="cb249-2"><a href="quiz-3-review.html#cb249-2"></a>a2 =<span class="st"> </span><span class="kw">c</span>(.<span class="dv">2</span>,.<span class="dv">8</span>)</span>
+<span id="cb249-3"><a href="quiz-3-review.html#cb249-3"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb249-4"><a href="quiz-3-review.html#cb249-4"></a></span>
+<span id="cb249-5"><a href="quiz-3-review.html#cb249-5"></a><span class="kw">solve</span>(P,a1)</span></code></pre></div>
 <pre><code>## [1] 0.2 0.3</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="quiz-3-review.html#cb253-1"></a><span class="kw">solve</span>(P,a2)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="quiz-3-review.html#cb251-1"></a><span class="kw">solve</span>(P,a2)</span></code></pre></div>
 <pre><code>## [1]  0.2 -0.2</code></pre>
 <p>In each case, <span class="math inline">\(c_1 = 0.2\)</span>. Therefore
 <span class="math display">\[
@@ -906,9 +906,9 @@ So we need to find <span class="math inline">\(c_1,c_2\)</span> for each column 
 <ol start="3" style="list-style-type: lower-alpha">
 <li>We need to find the coefficients for <span class="math inline">\(x_0 = [25, 0]^{\top}\)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="quiz-3-review.html#cb255-1"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
-<span id="cb255-2"><a href="quiz-3-review.html#cb255-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">0</span>)</span>
-<span id="cb255-3"><a href="quiz-3-review.html#cb255-3"></a><span class="kw">solve</span>(P,v)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="quiz-3-review.html#cb253-1"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb253-2"><a href="quiz-3-review.html#cb253-2"></a>v =<span class="st"> </span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">0</span>)</span>
+<span id="cb253-3"><a href="quiz-3-review.html#cb253-3"></a><span class="kw">solve</span>(P,v)</span></code></pre></div>
 <pre><code>## [1]  5 15</code></pre>
 <p>So the formula is
 <span class="math display">\[
@@ -941,12 +941,12 @@ A = \left[
 Here are some R calculations to check the answer for (a) and to find the values for (b) and (c).</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="quiz-3-review.html#cb257-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span><span class="op">/</span><span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,<span class="dv">9</span><span class="op">/</span><span class="dv">10</span>))</span>
-<span id="cb257-2"><a href="quiz-3-review.html#cb257-2"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="quiz-3-review.html#cb255-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span><span class="op">/</span><span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,<span class="dv">9</span><span class="op">/</span><span class="dv">10</span>))</span>
+<span id="cb255-2"><a href="quiz-3-review.html#cb255-2"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]  0.5  0.2
 ## [2,] -0.4  0.9</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="quiz-3-review.html#cb259-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="quiz-3-review.html#cb257-1"></a><span class="kw">eigen</span>(A)</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] 0.7+0.2i 0.7-0.2i
@@ -955,21 +955,21 @@ Here are some R calculations to check the answer for (a) and to find the values 
 ##                      [,1]                 [,2]
 ## [1,] 0.4082483-0.4082483i 0.4082483+0.4082483i
 ## [2,] 0.8164966+0.0000000i 0.8164966+0.0000000i</code></pre>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="quiz-3-review.html#cb261-1"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">1</span>))</span>
-<span id="cb261-2"><a href="quiz-3-review.html#cb261-2"></a>C =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(.<span class="dv">7</span>,.<span class="dv">2</span>),<span class="kw">c</span>(<span class="op">-</span>.<span class="dv">2</span>,.<span class="dv">7</span>))</span>
-<span id="cb261-3"><a href="quiz-3-review.html#cb261-3"></a>Pinv =<span class="st"> </span><span class="kw">solve</span>(P)</span>
-<span id="cb261-4"><a href="quiz-3-review.html#cb261-4"></a></span>
-<span id="cb261-5"><a href="quiz-3-review.html#cb261-5"></a>Pinv</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="quiz-3-review.html#cb259-1"></a>P =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb259-2"><a href="quiz-3-review.html#cb259-2"></a>C =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(.<span class="dv">7</span>,.<span class="dv">2</span>),<span class="kw">c</span>(<span class="op">-</span>.<span class="dv">2</span>,.<span class="dv">7</span>))</span>
+<span id="cb259-3"><a href="quiz-3-review.html#cb259-3"></a>Pinv =<span class="st"> </span><span class="kw">solve</span>(P)</span>
+<span id="cb259-4"><a href="quiz-3-review.html#cb259-4"></a></span>
+<span id="cb259-5"><a href="quiz-3-review.html#cb259-5"></a>Pinv</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]   -2    1
 ## [2,]    0    1</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="quiz-3-review.html#cb263-1"></a>P <span class="op">%*%</span><span class="st"> </span>C <span class="op">%*%</span><span class="st"> </span>Pinv</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="quiz-3-review.html#cb261-1"></a>P <span class="op">%*%</span><span class="st"> </span>C <span class="op">%*%</span><span class="st"> </span>Pinv</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]  0.5  0.2
 ## [2,] -0.4  0.9</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="quiz-3-review.html#cb265-1"></a><span class="kw">atan</span>(.<span class="dv">2</span><span class="op">/</span>.<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="quiz-3-review.html#cb263-1"></a><span class="kw">atan</span>(.<span class="dv">2</span><span class="op">/</span>.<span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2782997</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="quiz-3-review.html#cb267-1"></a><span class="kw">sqrt</span>(.<span class="dv">7</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="fl">.2</span><span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="quiz-3-review.html#cb265-1"></a><span class="kw">sqrt</span>(.<span class="dv">7</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="fl">.2</span><span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.728011</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The angle of rotation is <span class="math inline">\(\tan^{-1} (.2/.7) = 0.278\)</span> radians</li>
@@ -978,13 +978,13 @@ Here are some R calculations to check the answer for (a) and to find the values 
 <ol start="10" style="list-style-type: decimal">
 <li>Let’s use RStudio.</li>
 </ol>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="quiz-3-review.html#cb269-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="fl">0.662</span>, <span class="fl">0.338</span>),<span class="kw">c</span>(<span class="fl">0.25</span>,  <span class="fl">0.75</span>))</span>
-<span id="cb269-2"><a href="quiz-3-review.html#cb269-2"></a>A <span class="op">%*%</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="quiz-3-review.html#cb267-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="fl">0.662</span>, <span class="fl">0.338</span>),<span class="kw">c</span>(<span class="fl">0.25</span>,  <span class="fl">0.75</span>))</span>
+<span id="cb267-2"><a href="quiz-3-review.html#cb267-2"></a>A <span class="op">%*%</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##       [,1]
 ## [1,] 0.353
 ## [2,] 0.647</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="quiz-3-review.html#cb271-1"></a>v1 =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.595</span>, <span class="fl">-0.804</span> )</span>
-<span id="cb271-2"><a href="quiz-3-review.html#cb271-2"></a>v1<span class="op">/</span><span class="kw">sum</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="quiz-3-review.html#cb269-1"></a>v1 =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.595</span>, <span class="fl">-0.804</span> )</span>
+<span id="cb269-2"><a href="quiz-3-review.html#cb269-2"></a>v1<span class="op">/</span><span class="kw">sum</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 0.4253038 0.5746962</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>If Monday is dry, then the probability of a wet Wednesday is <span class="math inline">\(0.353\)</span>. The easiest way to calculate this <span class="math inline">\(A^2 \begin{bmatrix} 1 \\ 0 \end{bmatrix}.\)</span></li>
@@ -1001,15 +1001,15 @@ Here are some R calculations to check the answer for (a) and to find the values 
 <li>Here is the Leslie matrix, as well as some eigensystem computations.</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="quiz-3-review.html#cb273-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">8</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">9</span>),<span class="kw">c</span>(.<span class="dv">4</span>,<span class="dv">0</span>,.<span class="dv">8</span>))</span>
-<span id="cb273-2"><a href="quiz-3-review.html#cb273-2"></a>L</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="quiz-3-review.html#cb271-1"></a>L =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">8</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">9</span>),<span class="kw">c</span>(.<span class="dv">4</span>,<span class="dv">0</span>,.<span class="dv">8</span>))</span>
+<span id="cb271-2"><a href="quiz-3-review.html#cb271-2"></a>L</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]  0.0  0.0  0.4
 ## [2,]  0.8  0.0  0.0
 ## [3,]  0.0  0.9  0.8</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="quiz-3-review.html#cb275-1"></a>syst =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
-<span id="cb275-2"><a href="quiz-3-review.html#cb275-2"></a></span>
-<span id="cb275-3"><a href="quiz-3-review.html#cb275-3"></a>syst</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="quiz-3-review.html#cb273-1"></a>syst =<span class="st"> </span><span class="kw">eigen</span>(L)</span>
+<span id="cb273-2"><a href="quiz-3-review.html#cb273-2"></a></span>
+<span id="cb273-3"><a href="quiz-3-review.html#cb273-3"></a>syst</span></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1]  1.0575217+0.0000000i -0.1287609+0.5057227i -0.1287609-0.5057227i
@@ -1019,7 +1019,7 @@ Here are some R calculations to check the answer for (a) and to find the values 
 ## [1,] 0.3417536+0i -0.1097728+0.4311448i -0.1097728-0.4311448i
 ## [2,] 0.2585317+0i  0.6820256+0.0000000i  0.6820256+0.0000000i
 ## [3,] 0.9035297+0i -0.5097632-0.2775729i -0.5097632+0.2775729i</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="quiz-3-review.html#cb277-1"></a>syst<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(syst<span class="op">$</span>vectors[,<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="quiz-3-review.html#cb275-1"></a>syst<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(syst<span class="op">$</span>vectors[,<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.2272578+0i 0.1719172+0i 0.6008250+0i</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The eigenvalues are <span class="math inline">\(1.058, -0.129 \pm 0.506 i\)</span>.</li>

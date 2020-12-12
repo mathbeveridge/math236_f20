@@ -3,7 +3,7 @@
 
 * Due: Tuesday December 15 by 11:55pm CST. 
 * Upload your solutions to Moodle in a PDF. 
-* Please feel free to **use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation, inverse matrices, and the Gram-Schmidt process.**
+* Please feel free to **use RStudio for all calculations**, including row reduction, matrix multiplication, eigenvector calculation, inverse matrices, and the Gram-Schmidt process.
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-problem-set-8.Rmd).
 * Four out of five questions require you to use RStudio. I've provided a [PS8 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-template.Rmd) if you want to use it.
 
@@ -131,7 +131,7 @@ $$
 
 ## Cosine Similarity for US Senators
 
-In high dimensional space $\mathbb{R}^n$ a common measure of similarity between two vectors  is  \emph{cosine similarity}:  the cosine of the angle $\theta$ between the vectors. We calculate this value as follows:
+In high dimensional space $\mathbb{R}^n$ a common measure of similarity between two vectors  is  **cosine similarity**:  the cosine of the angle $\theta$ between the vectors. We calculate this value as follows:
 $$
 \cos(\theta) = \frac{ \mathsf{v} \cdot \mathsf{w}} {\| \mathsf{v}\| \, \|\mathsf{w}\|} = \frac{ \mathsf{v} \cdot \mathsf{w}} {\sqrt{\mathsf{v} \cdot \mathsf{v}} \sqrt{\mathsf{w} \cdot \mathsf{w}}}.
 $$
