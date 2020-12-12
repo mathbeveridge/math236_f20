@@ -5,9 +5,9 @@
 * Upload your solutions to Moodle in a PDF. 
 * Please feel free to **use RStudio for all calculations, including row reduction, matrix multiplication, eigenvector calculation, inverse matrices, and the Gram-Schmidt process.**
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-problem-set-8.Rmd).
-* FOur out of five questions require you to use RStudio. I've provided a [PS8 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-template.Rmd) if you want to use it.
+* Four out of five questions require you to use RStudio. I've provided a [PS8 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-template.Rmd) if you want to use it.
 
-This problem set covers Sections 6.1 - 6.5 Orthogonality and [Least Squares Approximation][Least Squares Approximation].  
+This problem set covers Sections 6.1 - 6.5 Orthogonality and the explorations on [Voting Patterns in the US Senate][Voting Patterns in the US Senate] [Least Squares Approximation][Least Squares Approximation].  
 
 ```{r}
 require(pracma)
