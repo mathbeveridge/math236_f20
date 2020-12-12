@@ -7,7 +7,7 @@
 * You can download the [Rmd source file  for this problem set](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-problem-set-8.Rmd).
 * Four out of five questions require you to use RStudio. I've provided a [PS8 solution template](https://github.com/mathbeveridge/math236_f20/blob/main/PS8-template.Rmd) if you want to use it.
 
-This problem set covers Sections 6.1 - 6.5 Orthogonality and the explorations on [Voting Patterns in the US Senate][Voting Patterns in the US Senate] [Least Squares Approximation][Least Squares Approximation].  
+This problem set covers Sections 6.1 - 6.5 Orthogonality and the explorations on [Voting Patterns in the US Senate][Voting Patterns in the US Senate] and [Least Squares Approximation][Least Squares Approximation].  
 
 ```{r}
 require(pracma)
