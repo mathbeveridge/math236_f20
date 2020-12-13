@@ -51,7 +51,7 @@ c. If $\mathsf{v}$ is **not** in  $S$ and $c$ is a  nonzero constant, can $c\mat
 
 
 
-## Creating a Basis from  Another Basis
+## Creating a Basis from Another Basis
 
 Suppose that $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ is a basis of $\mathbb{R}^3$. Let
 $$

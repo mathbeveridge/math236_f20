@@ -423,7 +423,7 @@ x_1 - x_2 + x_3 - x_4 + x_5 - x_6 &amp;= 0
 <ol style="list-style-type: lower-alpha">
 <li>Find a basis for <span class="math inline">\(W\)</span> by using row reduction on the appropriate matrix.</li>
 <li>Use your answer from (a) to find a “human readable” orthogonal basis for <span class="math inline">\(W\)</span> where the entries have integer values.</li>
-<li>Find a basis for <span class="math inline">\(W^{\perp}\)</span> by using row reduction on the appropriate matrix.</li>
+<li>Find a basis for <span class="math inline">\(W^{\perp}\)</span> without using the Gram-Schmidt process.</li>
 <li>Use your answer from (c) to find a “human readable” orthogonal basis for <span class="math inline">\(W^{\perp}\)</span> where the entries have integer values.</li>
 </ol>
 <p><strong>Turn in:</strong> Your code and its output. You must make it clear what your final answers are for each problem.</p>
@@ -444,7 +444,7 @@ A =
 <ol style="list-style-type: lower-alpha">
 <li><p>Find the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span>.</p></li>
 <li><p>Confirm that the eigenvectors returned by R are an orthonormal set. (Pro tip: you can do this in one calculation!)</p></li>
-<li><p>Express the vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix} 4 &amp; -6 &amp; 8 &amp; 1 \end{bmatrix}^{\top}\)</span> as a linear combination of the eigenvectors. Use the fact that the eigenvectors are orthonormal. (Don’t augment and row reduce.)</p></li>
+<li><p>Express the vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix} 2 &amp; -4 &amp; -9 &amp; -2 \end{bmatrix}^{\top}\)</span> as a linear combination of the eigenvectors. Use the fact that the eigenvectors are orthonormal. (Don’t augment and row reduce.)</p></li>
 <li><p>Let <span class="math inline">\(P\)</span> be the matrix of these normalized, orthogonal eigenvectors.
 Diagonalize <span class="math inline">\(A\)</span> using <span class="math inline">\(P\)</span>. Just write out <span class="math inline">\(A = P D P^{-1}\)</span>. Congratulations: you have <strong>orthogonally diagonalized</strong> the symmetric matrix <span class="math inline">\(A\)</span>!</p></li>
 </ol>
@@ -480,7 +480,7 @@ fert = <span class="math inline">\(c_1\)</span> + <span class="math inline">\(c_
 <span id="cb14-6"><a href="problem-set-8.html#cb14-6"></a>mort =<span class="st"> </span>swiss[,<span class="dv">6</span>]</span></code></pre></div>
 <p><strong>Turn in:</strong> Your code and the output.</p>
 <ol start="2" style="list-style-type: lower-alpha">
-<li><p>The residual vector <span class="math inline">\(\mathsf{z}\)</span> measures the quality of fit of our model. But how do we turn this into a meaninful quantity?
+<li><p>The residual vector <span class="math inline">\(\mathsf{z}\)</span> measures the quality of fit of our model. But how do we turn this into a meaningful quantity?
 One method is to look at the <strong>coefficient of determination</strong>, which is more commonly refered to as the “<span class="math inline">\(R^2\)</span> value.”</p>
 <p>Let <span class="math inline">\(\mathsf{y} = [ y_1, y_2, \ldots, y_n ]^{\top}\)</span> be our target vector with least squares solution <span class="math inline">\(\hat{\mathsf{y}} = A \hat{\mathsf{x}}\)</span> and residual vector <span class="math inline">\(\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}}\)</span>. Let
 <span class="math display">\[
@@ -527,7 +527,7 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <span id="cb15-4"><a href="problem-set-8.html#cb15-4"></a></span>
 <span id="cb15-5"><a href="problem-set-8.html#cb15-5"></a>record &lt;-<span class="st"> </span><span class="kw">read_csv</span>(senate.vote.file, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────
 ## cols(
 ##   .default = col_double(),
 ##   Name = col_character(),
@@ -548,7 +548,7 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <span id="cb17-11"><a href="problem-set-8.html#cb17-11"></a>  <span class="dt">caption =</span> <span class="st">&#39;First 10 rows of the 109th US Senate voting records&#39;</span></span>
 <span id="cb17-12"><a href="problem-set-8.html#cb17-12"></a>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-11">Table 8.1: </span>First 10 rows of the 109th US Senate voting records</caption>
+<caption><span id="tab:unnamed-chunk-99">Table 8.1: </span>First 10 rows of the 109th US Senate voting records</caption>
 <thead>
 <tr class="header">
 <th align="left">Name</th>
@@ -687,12 +687,11 @@ Here is code that loads in the voting records. Each row contains the senator’s
 </tbody>
 </table>
 <ol style="list-style-type: lower-alpha">
-<li><p>Your first task is to implement two functions.</p>
+<li><p>Your first task is to implement our cosine function.</p>
 <ul>
-<li><code>get_vote_magnitude(senator)</code> returns the magnitude of the senator’s vote vector</li>
 <li><code>get_vote_cosine_similarity(senator1, senator2)</code> returns the cosine of the angle between the vote vectors of <code>senator1</code> and <code>senator2</code></li>
 </ul>
-<p><strong>Note:</strong> The R command <code>length(vec)</code> returns the number of entries in the vector <code>vec</code>. To avoid confusion, we use “magnitude” to refer to the geometric length of a vector.</p>
+<p><strong>Note:</strong> The R command <code>length(vec)</code> returns the number of entries in the vector <code>vec</code>. You can get the magnitude (Euclidean length) of vector <code>vec</code> using the <code>pracma</code> function <code>Norm(vec)</code>.</p>
 <p>To get you started, we have written the helper function <code>get_votes(senator)</code>. This function returns the vote vector for the senator. These are the values in columns 3 to 49.</p>
 <p><strong>Turn In:</strong> Your implementations of the two functions.</p></li>
 </ol>
@@ -703,28 +702,17 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <span id="cb18-5"><a href="problem-set-8.html#cb18-5"></a>}</span>
 <span id="cb18-6"><a href="problem-set-8.html#cb18-6"></a></span>
 <span id="cb18-7"><a href="problem-set-8.html#cb18-7"></a><span class="co"># Implement this function!</span></span>
-<span id="cb18-8"><a href="problem-set-8.html#cb18-8"></a><span class="co"># Return the magnitude of the senator&#39;s vote vector</span></span>
-<span id="cb18-9"><a href="problem-set-8.html#cb18-9"></a>get_vote_magnitude &lt;-<span class="st"> </span><span class="cf">function</span>(senator) {</span>
-<span id="cb18-10"><a href="problem-set-8.html#cb18-10"></a>  votes =<span class="st"> </span><span class="kw">get_votes</span>(senator)</span>
-<span id="cb18-11"><a href="problem-set-8.html#cb18-11"></a>  </span>
-<span id="cb18-12"><a href="problem-set-8.html#cb18-12"></a>  <span class="co"># Your code goes here!</span></span>
-<span id="cb18-13"><a href="problem-set-8.html#cb18-13"></a>  magnitude =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb18-14"><a href="problem-set-8.html#cb18-14"></a>  </span>
-<span id="cb18-15"><a href="problem-set-8.html#cb18-15"></a>  <span class="kw">return</span> (magnitude)</span>
-<span id="cb18-16"><a href="problem-set-8.html#cb18-16"></a>}</span>
-<span id="cb18-17"><a href="problem-set-8.html#cb18-17"></a></span>
-<span id="cb18-18"><a href="problem-set-8.html#cb18-18"></a><span class="co"># Implement this function!</span></span>
-<span id="cb18-19"><a href="problem-set-8.html#cb18-19"></a><span class="co"># Return the cosine of the angle between the vote vectors </span></span>
-<span id="cb18-20"><a href="problem-set-8.html#cb18-20"></a><span class="co"># of senator1 and senator2</span></span>
-<span id="cb18-21"><a href="problem-set-8.html#cb18-21"></a>get_vote_cosine_similarity &lt;-<span class="st"> </span><span class="cf">function</span>(senator1, senator2) {</span>
-<span id="cb18-22"><a href="problem-set-8.html#cb18-22"></a>  votes1 =<span class="st"> </span><span class="kw">get_votes</span>(senator1)</span>
-<span id="cb18-23"><a href="problem-set-8.html#cb18-23"></a>  votes2 =<span class="st"> </span><span class="kw">get_votes</span>(senator2)</span>
-<span id="cb18-24"><a href="problem-set-8.html#cb18-24"></a>  </span>
-<span id="cb18-25"><a href="problem-set-8.html#cb18-25"></a>  <span class="co"># your code goes here!</span></span>
-<span id="cb18-26"><a href="problem-set-8.html#cb18-26"></a>  cosine =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb18-27"><a href="problem-set-8.html#cb18-27"></a>  </span>
-<span id="cb18-28"><a href="problem-set-8.html#cb18-28"></a>  <span class="kw">return</span> (cosine)</span>
-<span id="cb18-29"><a href="problem-set-8.html#cb18-29"></a>}</span></code></pre></div>
+<span id="cb18-8"><a href="problem-set-8.html#cb18-8"></a><span class="co"># Return the cosine of the angle between the vote vectors </span></span>
+<span id="cb18-9"><a href="problem-set-8.html#cb18-9"></a><span class="co"># of senator1 and senator2</span></span>
+<span id="cb18-10"><a href="problem-set-8.html#cb18-10"></a>get_vote_cosine_similarity &lt;-<span class="st"> </span><span class="cf">function</span>(senator1, senator2) {</span>
+<span id="cb18-11"><a href="problem-set-8.html#cb18-11"></a>  votes1 =<span class="st"> </span><span class="kw">get_votes</span>(senator1)</span>
+<span id="cb18-12"><a href="problem-set-8.html#cb18-12"></a>  votes2 =<span class="st"> </span><span class="kw">get_votes</span>(senator2)</span>
+<span id="cb18-13"><a href="problem-set-8.html#cb18-13"></a>  </span>
+<span id="cb18-14"><a href="problem-set-8.html#cb18-14"></a>  <span class="co"># your code goes here!</span></span>
+<span id="cb18-15"><a href="problem-set-8.html#cb18-15"></a>  cosine =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb18-16"><a href="problem-set-8.html#cb18-16"></a>  </span>
+<span id="cb18-17"><a href="problem-set-8.html#cb18-17"></a>  <span class="kw">return</span> (cosine)</span>
+<span id="cb18-18"><a href="problem-set-8.html#cb18-18"></a>}</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Find the cosine of the angles between every pair of the following senators of note:</p>
 <ul>
