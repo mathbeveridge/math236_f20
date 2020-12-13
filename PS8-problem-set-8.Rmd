@@ -81,7 +81,7 @@ There are 6  socio-economic columns, all scaled to the range $[0,100]$.
 
 We want to find the best-fit linear model
 <center>
-fert = $c_1$ + $c_2$ agr + $c_3$ exam + $c_4$ educ + $c_5$ cath + $c_6$ mort.
+fert = $c_1$ + $c_2$ agric + $c_3$ exam + $c_4$ educ + $c_5$ cath + $c_6$ mort.
 </center>
 
 Obviously, *this data set shows its age*. We are attempting to model fertility rates of **women** by using indirect measures about **male occupation and education levels**. This is problematic and would have to be addressed in a thorough analysis. We limit our use of this classic data to illustrate the method of least squares.
@@ -112,7 +112,7 @@ a = \frac{1}{n} ( y_1 + y_2 + \cdots + y_n)
 $$
     be the average of the entries of target vector $\mathsf{y}$ and let $\mathsf{y}^* = [a, a, \ldots, a]$. (We call this vector "y star", so `ystar` would be a fine name in R.) The $R^2$ value is
 $$
-R^2 = 1 - \frac{\| \mathsf{y} - \hat{\mathsf{y}} \| }{\| \mathsf{y} - \mathsf{y}^* \|}
+R^2 = 1 - \frac{\| \mathsf{y} - \hat{\mathsf{y}} \| }{\| \mathsf{y} - \mathsf{y}^* \|} = 1 - \frac{\| \mathsf{z} \|}{\| \mathsf{y} - \mathsf{y}^* \|}.
 $$
     This is a number in $[0,1]$. If the $R^2$ value is near 1, then our model does a good job at "explaining" the behavior of $\mathsf{y}$ via a linear combination of the columns of $A$. 
 
@@ -121,7 +121,7 @@ $$
     * `sum(vec)` returns the sum of the entries of the vector `vec`
     * `length(vec)` returns the number of entries in the vector `vec`
     * `rep(a, n)` creates a constant vector of length $n$ where every entry is $a$.
-    * `Norm(vec)` from the `pracma` package returns the magnitude (Euclidean length) of the vector.
+    * `Norm(vec)` from the `pracma` package returns the magnitude (Euclidean length) of the vector `vec`.
 
     **Turn in:** Your code and the $R^2$ value that you calculated.
 
@@ -145,7 +145,7 @@ This measure has the following nice properties:
 Let's use cosine similarity to compare the 99 US Senators (one senate seat was not filled at the time) from the 109th US Congress (2007-2008).
 
 Here is code that loads in the voting records. Each row contains the senator's name, party affiliation, state, and then their record on 46 resolutions. The votes are encoded as a sequence of
-0s, 1s, and -1s, where 1 means a 'aye' vote, -1 means a 'nay' vote, and 0 means the senator abstained. The row corresponding to Joseph Biden is
+0s, 1s, and -1s, where 1 means a 'aye' vote, -1 means a 'nay' vote, and 0 means the senator abstained. For example, the row corresponding to Joseph Biden is
 <center>
 `biden = ["Biden", "D", "DE", -1, -1, 1, 1, ... , 1, -1]`.
 </center>
@@ -242,9 +242,9 @@ c. The senate majority leader of the 109th Congress was Bill Frist (R, TN). The 
     * Create a function  `classify_senator(senator)` that returns "R" or "D" depending on the cosine similarity of `senator` to `frist` and to `reid`.
 You will have to write [an "if ... else statement" (here is the syntax)](https://www.tutorialspoint.com/r/r_if_else_statement.htm).
 
-    * Then run the `classify_all()` function that we have written. You will see how many senators are "misclassified," meaning that their votes are more similar to the leader of the opposing party. 
+    * Then run the `classify_all()` function that we have written for you. You will see how many senators are *misclassified*, meaning that their votes are more similar to the leader of the opposing party. 
 
-    **Note:** Your list will include Jim Jeffords (I, VT), a Republican who became and Independent in 2001 and then caucused with the Democrats. Your classifer correctly aligns the Independent Jeffords with the Democrats.
+    **Note:** Your misclassified list will include Jim Jeffords (I, VT), a Republican who became and Independent in 2001 and then caucused with the Democrats. Your classifer correctly aligns the Independent Jeffords with the Democrats.
 
 
     **Turn In:** Your code and the output. Comment on how many senators are misclassified, as well as their party affiliations.

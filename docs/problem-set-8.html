@@ -465,7 +465,7 @@ There are 6 socio-economic columns, all scaled to the range <span class="math in
 </ul>
 We want to find the best-fit linear model
 <center>
-fert = <span class="math inline">\(c_1\)</span> + <span class="math inline">\(c_2\)</span> agr + <span class="math inline">\(c_3\)</span> exam + <span class="math inline">\(c_4\)</span> educ + <span class="math inline">\(c_5\)</span> cath + <span class="math inline">\(c_6\)</span> mort.
+fert = <span class="math inline">\(c_1\)</span> + <span class="math inline">\(c_2\)</span> agric + <span class="math inline">\(c_3\)</span> exam + <span class="math inline">\(c_4\)</span> educ + <span class="math inline">\(c_5\)</span> cath + <span class="math inline">\(c_6\)</span> mort.
 </center>
 <p>Obviously, <em>this data set shows its age</em>. We are attempting to model fertility rates of <strong>women</strong> by using indirect measures about <strong>male occupation and education levels</strong>. This is problematic and would have to be addressed in a thorough analysis. We limit our use of this classic data to illustrate the method of least squares.</p>
 <ol style="list-style-type: lower-alpha">
@@ -488,7 +488,7 @@ a = \frac{1}{n} ( y_1 + y_2 + \cdots + y_n)
 \]</span>
 be the average of the entries of target vector <span class="math inline">\(\mathsf{y}\)</span> and let <span class="math inline">\(\mathsf{y}^* = [a, a, \ldots, a]\)</span>. (We call this vector “y star”, so <code>ystar</code> would be a fine name in R.) The <span class="math inline">\(R^2\)</span> value is
 <span class="math display">\[
-R^2 = 1 - \frac{\| \mathsf{y} - \hat{\mathsf{y}} \| }{\| \mathsf{y} - \mathsf{y}^* \|}
+R^2 = 1 - \frac{\| \mathsf{y} - \hat{\mathsf{y}} \| }{\| \mathsf{y} - \mathsf{y}^* \|} = 1 - \frac{\| \mathsf{z} \|}{\| \mathsf{y} - \mathsf{y}^* \|}.
 \]</span>
 This is a number in <span class="math inline">\([0,1]\)</span>. If the <span class="math inline">\(R^2\)</span> value is near 1, then our model does a good job at “explaining” the behavior of <span class="math inline">\(\mathsf{y}\)</span> via a linear combination of the columns of <span class="math inline">\(A\)</span>.</p>
 <p>Find the <span class="math inline">\(R^2\)</span> value for our least squares solution to the Swiss data. Here are some helpful functions:</p>
@@ -496,7 +496,7 @@ This is a number in <span class="math inline">\([0,1]\)</span>. If the <span cla
 <li><code>sum(vec)</code> returns the sum of the entries of the vector <code>vec</code></li>
 <li><code>length(vec)</code> returns the number of entries in the vector <code>vec</code></li>
 <li><code>rep(a, n)</code> creates a constant vector of length <span class="math inline">\(n\)</span> where every entry is <span class="math inline">\(a\)</span>.</li>
-<li><code>Norm(vec)</code> from the <code>pracma</code> package returns the magnitude (Euclidean length) of the vector.</li>
+<li><code>Norm(vec)</code> from the <code>pracma</code> package returns the magnitude (Euclidean length) of the vector <code>vec</code>.</li>
 </ul>
 <p><strong>Turn in:</strong> Your code and the <span class="math inline">\(R^2\)</span> value that you calculated.</p>
 <p><strong>Remark:</strong> There is certainly more to say about ethical use of data, as well as <span class="math inline">\(R^2\)</span> values and fitting models to data. To learn more, you should take STAT 155 Introduction to Statistical Modeling.</p></li>
@@ -517,7 +517,7 @@ This measure has the following nice properties:</p>
 </ul>
 <p>Let’s use cosine similarity to compare the 99 US Senators (one senate seat was not filled at the time) from the 109th US Congress (2007-2008).</p>
 Here is code that loads in the voting records. Each row contains the senator’s name, party affiliation, state, and then their record on 46 resolutions. The votes are encoded as a sequence of
-0s, 1s, and -1s, where 1 means a ‘aye’ vote, -1 means a ‘nay’ vote, and 0 means the senator abstained. The row corresponding to Joseph Biden is
+0s, 1s, and -1s, where 1 means a ‘aye’ vote, -1 means a ‘nay’ vote, and 0 means the senator abstained. For example, the row corresponding to Joseph Biden is
 <center>
 <code>biden = ["Biden", "D", "DE", -1, -1, 1, 1, ... , 1, -1]</code>.
 </center>
@@ -739,9 +739,9 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <ul>
 <li><p>Create a function <code>classify_senator(senator)</code> that returns “R” or “D” depending on the cosine similarity of <code>senator</code> to <code>frist</code> and to <code>reid</code>.
 You will have to write <a href="https://www.tutorialspoint.com/r/r_if_else_statement.htm">an “if … else statement” (here is the syntax)</a>.</p></li>
-<li><p>Then run the <code>classify_all()</code> function that we have written. You will see how many senators are “misclassified,” meaning that their votes are more similar to the leader of the opposing party.</p></li>
+<li><p>Then run the <code>classify_all()</code> function that we have written for you. You will see how many senators are <em>misclassified</em>, meaning that their votes are more similar to the leader of the opposing party.</p></li>
 </ul>
-<p><strong>Note:</strong> Your list will include Jim Jeffords (I, VT), a Republican who became and Independent in 2001 and then caucused with the Democrats. Your classifer correctly aligns the Independent Jeffords with the Democrats.</p>
+<p><strong>Note:</strong> Your misclassified list will include Jim Jeffords (I, VT), a Republican who became and Independent in 2001 and then caucused with the Democrats. Your classifer correctly aligns the Independent Jeffords with the Democrats.</p>
 <p><strong>Turn In:</strong> Your code and the output. Comment on how many senators are misclassified, as well as their party affiliations.</p></li>
 </ol>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="problem-set-8.html#cb19-1"></a><span class="co"># Implement this function!</span></span>
