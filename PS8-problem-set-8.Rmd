@@ -185,7 +185,7 @@ a. Your first task is to implement our cosine function.
 
     To get you started, we have written the helper function `get_votes(senator)`. This function returns the vote vector for the senator. These are the values in columns 3 to 49.
     
-    **Turn In:** Your implementations of the two functions.
+    **Turn In:** Your implementation of the function.
 
 
 ```{r, echo=TRUE}
@@ -244,6 +244,11 @@ You will have to write [an "if ... else statement" (here is the syntax)](https:/
 # Implement this function!
 classify_senator <- function(senator) {
 
+  # get the votes for the leaders and the given senator
+  fristvotes = get_votes(frist)
+  reidvotes = get_votes(reid)
+  senvotes = get_votes(senator)
+  
   # your code goes here!
   val = "R"
   
