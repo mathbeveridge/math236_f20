@@ -179,7 +179,7 @@ knitr::kable(
 
 a. Your first task is to implement our cosine function.
 
-    * `get_vote_cosine_similarity(senator1, senator2)` returns the cosine of the angle between the vote vectors of `senator1` and `senator2`
+    * `get_vote_cosine_similarity(senator1, senator2)` returns the cosine of the angle between the vote vectors of `get_votes(senator1)` and `get_votes(senator2)`
 
     **Note:** The R command `length(vec)` returns the number of entries in the vector `vec`. You can get the magnitude (Euclidean length) of vector `vec` using the `pracma` function `Norm(vec)`. 
 

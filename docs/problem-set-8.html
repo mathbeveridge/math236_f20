@@ -689,7 +689,7 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <ol style="list-style-type: lower-alpha">
 <li><p>Your first task is to implement our cosine function.</p>
 <ul>
-<li><code>get_vote_cosine_similarity(senator1, senator2)</code> returns the cosine of the angle between the vote vectors of <code>senator1</code> and <code>senator2</code></li>
+<li><code>get_vote_cosine_similarity(senator1, senator2)</code> returns the cosine of the angle between the vote vectors of <code>get_votes(senator1)</code> and <code>get_votes(senator2)</code></li>
 </ul>
 <p><strong>Note:</strong> The R command <code>length(vec)</code> returns the number of entries in the vector <code>vec</code>. You can get the magnitude (Euclidean length) of vector <code>vec</code> using the <code>pracma</code> function <code>Norm(vec)</code>.</p>
 <p>To get you started, we have written the helper function <code>get_votes(senator)</code>. This function returns the vote vector for the senator. These are the values in columns 3 to 49.</p>
