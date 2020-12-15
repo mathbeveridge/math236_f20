@@ -409,7 +409,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h2><span class="header-section-number">8.1</span> Two Orthogonality Properties</h2>
 <p>Give rigorous proofs for each of the following problems. Here “rigorous” means that the heart of your explanation must use equations and calculations to explicitly justify any intuitive reasoning that you provide.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Let <span class="math inline">\(W\)</span> be a subspace of <span class="math inline">\(\mathbb{R}^5\)</span> with basis <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span>. Let <span class="math inline">\(W^{\perp}\)</span> be its orthogonal complement with basis <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2\)</span>. Prove that if <span class="math inline">\(\mathsf{u}\)</span> is in both <span class="math inline">\(W\)</span> and <span class="math inline">\(W^{\perp}\)</span> then <span class="math inline">\(\mathsf{u}\)</span> must be the zero vector.</p></li>
+<li><p>Let <span class="math inline">\(W\)</span> be a subspace of <span class="math inline">\(\mathbb{R}^5\)</span> with orthonormal basis <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\)</span>. Let <span class="math inline">\(W^{\perp}\)</span> be its orthogonal complement with orthonormal basis <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2\)</span>. Prove that if <span class="math inline">\(\mathsf{u}\)</span> is in both <span class="math inline">\(W\)</span> and <span class="math inline">\(W^{\perp}\)</span> then <span class="math inline">\(\mathsf{u}\)</span> must be the zero vector.</p></li>
 <li><p>Let <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> both be <span class="math inline">\(n \times n\)</span> orthogonal matrices. Prove that the matrix <span class="math inline">\(UV\)</span> is also an orthogonal matrix.</p></li>
 </ol>
 </div>
@@ -472,12 +472,12 @@ fert = <span class="math inline">\(c_1\)</span> + <span class="math inline">\(c_
 <li><p>Model this problem as a least-squares approximation of an inconsistent system <span class="math inline">\(A \mathsf{x} = \mathsf{y}\)</span>. Find the least squares solution <span class="math inline">\(\hat{\mathsf{x}}\)</span> and confirm that the residual vector <span class="math inline">\(\mathsf{z}\)</span> is orthogonal to the columns of <span class="math inline">\(A\)</span>.</p>
 <p>To get you started, here is some convenient code to get the column vectors of the <code>swiss</code> dataset.</p></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="problem-set-8.html#cb14-1"></a>fert =<span class="st"> </span>swiss[,<span class="dv">1</span>]</span>
-<span id="cb14-2"><a href="problem-set-8.html#cb14-2"></a>agric =<span class="st"> </span>swiss[,<span class="dv">2</span>]</span>
-<span id="cb14-3"><a href="problem-set-8.html#cb14-3"></a>exam =<span class="st"> </span>swiss[,<span class="dv">3</span>]</span>
-<span id="cb14-4"><a href="problem-set-8.html#cb14-4"></a>educ =<span class="st"> </span>swiss[,<span class="dv">4</span>]</span>
-<span id="cb14-5"><a href="problem-set-8.html#cb14-5"></a>cath =<span class="st"> </span>swiss[,<span class="dv">5</span>]</span>
-<span id="cb14-6"><a href="problem-set-8.html#cb14-6"></a>mort =<span class="st"> </span>swiss[,<span class="dv">6</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="problem-set-8.html#cb19-1"></a>fert =<span class="st"> </span>swiss[,<span class="dv">1</span>]</span>
+<span id="cb19-2"><a href="problem-set-8.html#cb19-2"></a>agric =<span class="st"> </span>swiss[,<span class="dv">2</span>]</span>
+<span id="cb19-3"><a href="problem-set-8.html#cb19-3"></a>exam =<span class="st"> </span>swiss[,<span class="dv">3</span>]</span>
+<span id="cb19-4"><a href="problem-set-8.html#cb19-4"></a>educ =<span class="st"> </span>swiss[,<span class="dv">4</span>]</span>
+<span id="cb19-5"><a href="problem-set-8.html#cb19-5"></a>cath =<span class="st"> </span>swiss[,<span class="dv">5</span>]</span>
+<span id="cb19-6"><a href="problem-set-8.html#cb19-6"></a>mort =<span class="st"> </span>swiss[,<span class="dv">6</span>]</span></code></pre></div>
 <p><strong>Turn in:</strong> Your code and the output.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>The residual vector <span class="math inline">\(\mathsf{z}\)</span> measures the quality of fit of our model. But how do we turn this into a meaningful quantity?
@@ -521,34 +521,34 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <center>
 <code>biden = ["Biden", "D", "DE", -1, -1, 1, 1, ... , 1, -1]</code>.
 </center>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="problem-set-8.html#cb15-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb15-2"><a href="problem-set-8.html#cb15-2"></a></span>
-<span id="cb15-3"><a href="problem-set-8.html#cb15-3"></a>senate.vote.file =<span class="st"> &quot;https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv&quot;</span></span>
-<span id="cb15-4"><a href="problem-set-8.html#cb15-4"></a></span>
-<span id="cb15-5"><a href="problem-set-8.html#cb15-5"></a>record &lt;-<span class="st"> </span><span class="kw">read_csv</span>(senate.vote.file, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="problem-set-8.html#cb20-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb20-2"><a href="problem-set-8.html#cb20-2"></a></span>
+<span id="cb20-3"><a href="problem-set-8.html#cb20-3"></a>senate.vote.file =<span class="st"> &quot;https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv&quot;</span></span>
+<span id="cb20-4"><a href="problem-set-8.html#cb20-4"></a></span>
+<span id="cb20-5"><a href="problem-set-8.html#cb20-5"></a>record &lt;-<span class="st"> </span><span class="kw">read_csv</span>(senate.vote.file, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────
 ## cols(
 ##   .default = col_double(),
 ##   Name = col_character(),
 ##   Party = col_character(),
 ##   State = col_character()
 ## )
-## ℹ Use `spec()` for the full column specifications.</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="problem-set-8.html#cb17-1"></a>clinton =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Clinton&#39;</span>,]</span>
-<span id="cb17-2"><a href="problem-set-8.html#cb17-2"></a>collins =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Collins&#39;</span>,]</span>
-<span id="cb17-3"><a href="problem-set-8.html#cb17-3"></a>frist =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Frist&#39;</span>,]</span>
-<span id="cb17-4"><a href="problem-set-8.html#cb17-4"></a>mccain =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;McCain&#39;</span>,]</span>
-<span id="cb17-5"><a href="problem-set-8.html#cb17-5"></a>obama =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Obama&#39;</span>,]</span>
-<span id="cb17-6"><a href="problem-set-8.html#cb17-6"></a>reid =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Reid&#39;</span>,]</span>
-<span id="cb17-7"><a href="problem-set-8.html#cb17-7"></a></span>
-<span id="cb17-8"><a href="problem-set-8.html#cb17-8"></a></span>
-<span id="cb17-9"><a href="problem-set-8.html#cb17-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
-<span id="cb17-10"><a href="problem-set-8.html#cb17-10"></a>  <span class="kw">head</span>(record[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],<span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb17-11"><a href="problem-set-8.html#cb17-11"></a>  <span class="dt">caption =</span> <span class="st">&#39;First 10 rows of the 109th US Senate voting records&#39;</span></span>
-<span id="cb17-12"><a href="problem-set-8.html#cb17-12"></a>)</span></code></pre></div>
+## [36mℹ[39m Use `spec()` for the full column specifications.</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="problem-set-8.html#cb22-1"></a>clinton =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Clinton&#39;</span>,]</span>
+<span id="cb22-2"><a href="problem-set-8.html#cb22-2"></a>collins =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Collins&#39;</span>,]</span>
+<span id="cb22-3"><a href="problem-set-8.html#cb22-3"></a>frist =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Frist&#39;</span>,]</span>
+<span id="cb22-4"><a href="problem-set-8.html#cb22-4"></a>mccain =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;McCain&#39;</span>,]</span>
+<span id="cb22-5"><a href="problem-set-8.html#cb22-5"></a>obama =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Obama&#39;</span>,]</span>
+<span id="cb22-6"><a href="problem-set-8.html#cb22-6"></a>reid =<span class="st"> </span>record[record<span class="op">$</span>Name <span class="op">==</span><span class="st"> &#39;Reid&#39;</span>,]</span>
+<span id="cb22-7"><a href="problem-set-8.html#cb22-7"></a></span>
+<span id="cb22-8"><a href="problem-set-8.html#cb22-8"></a></span>
+<span id="cb22-9"><a href="problem-set-8.html#cb22-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb22-10"><a href="problem-set-8.html#cb22-10"></a>  <span class="kw">head</span>(record[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],<span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb22-11"><a href="problem-set-8.html#cb22-11"></a>  <span class="dt">caption =</span> <span class="st">&#39;First 10 rows of the 109th US Senate voting records&#39;</span></span>
+<span id="cb22-12"><a href="problem-set-8.html#cb22-12"></a>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-11">Table 8.1: </span>First 10 rows of the 109th US Senate voting records</caption>
+<caption><span id="tab:unnamed-chunk-27">Table 8.1: </span>First 10 rows of the 109th US Senate voting records</caption>
 <thead>
 <tr class="header">
 <th align="left">Name</th>
@@ -695,25 +695,25 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <p>To get you started, we have written the helper function <code>get_votes(senator)</code>. This function returns the vote vector for the senator. These are the values in columns 3 to 49.</p>
 <p><strong>Turn In:</strong> Your implementation of the function.</p></li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="problem-set-8.html#cb18-1"></a><span class="co"># returns the vote vector for the senator</span></span>
-<span id="cb18-2"><a href="problem-set-8.html#cb18-2"></a>get_votes &lt;-<span class="st"> </span><span class="cf">function</span>(senator) {</span>
-<span id="cb18-3"><a href="problem-set-8.html#cb18-3"></a>  <span class="co">#unlist makes this dataframe row into a regular vector</span></span>
-<span id="cb18-4"><a href="problem-set-8.html#cb18-4"></a>  <span class="kw">return</span> (<span class="kw">unlist</span>(senator[,<span class="dv">4</span><span class="op">:</span><span class="dv">49</span>])) </span>
-<span id="cb18-5"><a href="problem-set-8.html#cb18-5"></a>}</span>
-<span id="cb18-6"><a href="problem-set-8.html#cb18-6"></a></span>
-<span id="cb18-7"><a href="problem-set-8.html#cb18-7"></a><span class="co"># Implement this function!</span></span>
-<span id="cb18-8"><a href="problem-set-8.html#cb18-8"></a><span class="co"># Return the cosine of the angle between the vote vectors </span></span>
-<span id="cb18-9"><a href="problem-set-8.html#cb18-9"></a><span class="co"># of senator1 and senator2</span></span>
-<span id="cb18-10"><a href="problem-set-8.html#cb18-10"></a>get_vote_cosine_similarity &lt;-<span class="st"> </span><span class="cf">function</span>(senator1, senator2) {</span>
-<span id="cb18-11"><a href="problem-set-8.html#cb18-11"></a>  votes1 =<span class="st"> </span><span class="kw">get_votes</span>(senator1)</span>
-<span id="cb18-12"><a href="problem-set-8.html#cb18-12"></a>  votes2 =<span class="st"> </span><span class="kw">get_votes</span>(senator2)</span>
-<span id="cb18-13"><a href="problem-set-8.html#cb18-13"></a>  </span>
-<span id="cb18-14"><a href="problem-set-8.html#cb18-14"></a>  <span class="co"># your code goes here!</span></span>
-<span id="cb18-15"><a href="problem-set-8.html#cb18-15"></a>  <span class="co"># find the cosine of the angle between votes1 and votes2</span></span>
-<span id="cb18-16"><a href="problem-set-8.html#cb18-16"></a>  cosine =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb18-17"><a href="problem-set-8.html#cb18-17"></a>  </span>
-<span id="cb18-18"><a href="problem-set-8.html#cb18-18"></a>  <span class="kw">return</span> (cosine)</span>
-<span id="cb18-19"><a href="problem-set-8.html#cb18-19"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="problem-set-8.html#cb23-1"></a><span class="co"># returns the vote vector for the senator</span></span>
+<span id="cb23-2"><a href="problem-set-8.html#cb23-2"></a>get_votes &lt;-<span class="st"> </span><span class="cf">function</span>(senator) {</span>
+<span id="cb23-3"><a href="problem-set-8.html#cb23-3"></a>  <span class="co">#unlist makes this dataframe row into a regular vector</span></span>
+<span id="cb23-4"><a href="problem-set-8.html#cb23-4"></a>  <span class="kw">return</span> (<span class="kw">unlist</span>(senator[,<span class="dv">4</span><span class="op">:</span><span class="dv">49</span>])) </span>
+<span id="cb23-5"><a href="problem-set-8.html#cb23-5"></a>}</span>
+<span id="cb23-6"><a href="problem-set-8.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="problem-set-8.html#cb23-7"></a><span class="co"># Implement this function!</span></span>
+<span id="cb23-8"><a href="problem-set-8.html#cb23-8"></a><span class="co"># Return the cosine of the angle between the vote vectors </span></span>
+<span id="cb23-9"><a href="problem-set-8.html#cb23-9"></a><span class="co"># of senator1 and senator2</span></span>
+<span id="cb23-10"><a href="problem-set-8.html#cb23-10"></a>get_vote_cosine_similarity &lt;-<span class="st"> </span><span class="cf">function</span>(senator1, senator2) {</span>
+<span id="cb23-11"><a href="problem-set-8.html#cb23-11"></a>  votes1 =<span class="st"> </span><span class="kw">get_votes</span>(senator1)</span>
+<span id="cb23-12"><a href="problem-set-8.html#cb23-12"></a>  votes2 =<span class="st"> </span><span class="kw">get_votes</span>(senator2)</span>
+<span id="cb23-13"><a href="problem-set-8.html#cb23-13"></a>  </span>
+<span id="cb23-14"><a href="problem-set-8.html#cb23-14"></a>  <span class="co"># your code goes here!</span></span>
+<span id="cb23-15"><a href="problem-set-8.html#cb23-15"></a>  <span class="co"># find the cosine of the angle between votes1 and votes2</span></span>
+<span id="cb23-16"><a href="problem-set-8.html#cb23-16"></a>  cosine =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb23-17"><a href="problem-set-8.html#cb23-17"></a>  </span>
+<span id="cb23-18"><a href="problem-set-8.html#cb23-18"></a>  <span class="kw">return</span> (cosine)</span>
+<span id="cb23-19"><a href="problem-set-8.html#cb23-19"></a>}</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Find the cosine of the angles between every pair of the following senators of note:</p>
 <ul>
@@ -726,50 +726,46 @@ Here is code that loads in the voting records. Each row contains the senator’s
 <p><strong>Turn In:</strong> Your code and the output. Comment on the similarities between all pairs of senators.</p></li>
 <li><p>The senate majority leader of the 109th Congress was Bill Frist (R, TN). The senate minority leader was Harry Reid (D, NV).</p>
 <ul>
-<li><p>Create a function <code>classify_senator(senator)</code> that returns “R” or “D” depending on the cosine similarity of <code>get_votes(senator)</code> to <code>get_votes(frist)</code> and to <code>get_votes(reid)</code>.
+<li><p>Create a function <code>classify_senator(senator)</code> that returns “R” or “D” depending on the cosine similarity of <code>senator</code> to <code>frist</code> and to <code>reid</code>.
 You will have to write <a href="https://www.tutorialspoint.com/r/r_if_else_statement.htm">an “if … else statement” (here is the syntax)</a>.</p></li>
 <li><p>Then run the <code>classify_all()</code> function that we have written for you. You will see how many senators are <em>misclassified</em>, meaning that their votes are more similar to the leader of the opposing party.</p></li>
 </ul>
 <p><strong>Note:</strong> Your misclassified list will include Jim Jeffords (I, VT), a Republican who became and Independent in 2001 and then caucused with the Democrats. Your classifer correctly aligns the Independent Jeffords with the Democrats.</p>
 <p><strong>Turn In:</strong> Your code and the output. Comment on how many senators are misclassified, as well as their party affiliations.</p></li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="problem-set-8.html#cb19-1"></a><span class="co"># Implement this function!</span></span>
-<span id="cb19-2"><a href="problem-set-8.html#cb19-2"></a><span class="co"># return &quot;R&quot; if senator is closer to frist</span></span>
-<span id="cb19-3"><a href="problem-set-8.html#cb19-3"></a><span class="co"># return &quot;D&quot; if senator is closer to reid</span></span>
-<span id="cb19-4"><a href="problem-set-8.html#cb19-4"></a>classify_senator &lt;-<span class="st"> </span><span class="cf">function</span>(senator) {</span>
-<span id="cb19-5"><a href="problem-set-8.html#cb19-5"></a></span>
-<span id="cb19-6"><a href="problem-set-8.html#cb19-6"></a>  <span class="co"># get the votes for the leaders and the given senator</span></span>
-<span id="cb19-7"><a href="problem-set-8.html#cb19-7"></a>  fristvotes =<span class="st"> </span><span class="kw">get_votes</span>(frist)</span>
-<span id="cb19-8"><a href="problem-set-8.html#cb19-8"></a>  reidvotes =<span class="st"> </span><span class="kw">get_votes</span>(reid)</span>
-<span id="cb19-9"><a href="problem-set-8.html#cb19-9"></a>  senvotes =<span class="st"> </span><span class="kw">get_votes</span>(senator)</span>
-<span id="cb19-10"><a href="problem-set-8.html#cb19-10"></a>  </span>
-<span id="cb19-11"><a href="problem-set-8.html#cb19-11"></a>  <span class="co"># your code goes here!</span></span>
-<span id="cb19-12"><a href="problem-set-8.html#cb19-12"></a>  val =<span class="st"> &quot;R&quot;</span></span>
-<span id="cb19-13"><a href="problem-set-8.html#cb19-13"></a>  </span>
-<span id="cb19-14"><a href="problem-set-8.html#cb19-14"></a>  <span class="kw">return</span> (val)</span>
-<span id="cb19-15"><a href="problem-set-8.html#cb19-15"></a>}</span>
-<span id="cb19-16"><a href="problem-set-8.html#cb19-16"></a></span>
-<span id="cb19-17"><a href="problem-set-8.html#cb19-17"></a><span class="co"># returns a dataframe containing all misclassified senator names</span></span>
-<span id="cb19-18"><a href="problem-set-8.html#cb19-18"></a><span class="co"># and their party affiliations</span></span>
-<span id="cb19-19"><a href="problem-set-8.html#cb19-19"></a>classify_all &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
-<span id="cb19-20"><a href="problem-set-8.html#cb19-20"></a></span>
-<span id="cb19-21"><a href="problem-set-8.html#cb19-21"></a>  mismatch =<span class="st"> </span><span class="kw">vector</span>()</span>
-<span id="cb19-22"><a href="problem-set-8.html#cb19-22"></a>  </span>
-<span id="cb19-23"><a href="problem-set-8.html#cb19-23"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>) {</span>
-<span id="cb19-24"><a href="problem-set-8.html#cb19-24"></a>    senator =<span class="st"> </span>record[i,]</span>
-<span id="cb19-25"><a href="problem-set-8.html#cb19-25"></a>    party =<span class="st"> </span><span class="kw">classify_senator</span>(senator)</span>
-<span id="cb19-26"><a href="problem-set-8.html#cb19-26"></a>    <span class="cf">if</span> (party <span class="op">!=</span><span class="st">  </span>record[i,<span class="dv">2</span>]) {</span>
-<span id="cb19-27"><a href="problem-set-8.html#cb19-27"></a>      mismatch =<span class="st"> </span><span class="kw">c</span>(mismatch, i)</span>
-<span id="cb19-28"><a href="problem-set-8.html#cb19-28"></a>    }</span>
-<span id="cb19-29"><a href="problem-set-8.html#cb19-29"></a>  }</span>
-<span id="cb19-30"><a href="problem-set-8.html#cb19-30"></a>  </span>
-<span id="cb19-31"><a href="problem-set-8.html#cb19-31"></a>  record[mismatch,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
-<span id="cb19-32"><a href="problem-set-8.html#cb19-32"></a>}</span>
-<span id="cb19-33"><a href="problem-set-8.html#cb19-33"></a></span>
-<span id="cb19-34"><a href="problem-set-8.html#cb19-34"></a></span>
-<span id="cb19-35"><a href="problem-set-8.html#cb19-35"></a><span class="co"># Uncomment the next line to classify all senators!</span></span>
-<span id="cb19-36"><a href="problem-set-8.html#cb19-36"></a></span>
-<span id="cb19-37"><a href="problem-set-8.html#cb19-37"></a><span class="co"># classify_all()</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="problem-set-8.html#cb24-1"></a><span class="co"># Implement this function!</span></span>
+<span id="cb24-2"><a href="problem-set-8.html#cb24-2"></a><span class="co"># return &quot;R&quot; if senator is closer to frist</span></span>
+<span id="cb24-3"><a href="problem-set-8.html#cb24-3"></a><span class="co"># return &quot;D&quot; if senator is closer to reid</span></span>
+<span id="cb24-4"><a href="problem-set-8.html#cb24-4"></a>classify_senator &lt;-<span class="st"> </span><span class="cf">function</span>(senator) {</span>
+<span id="cb24-5"><a href="problem-set-8.html#cb24-5"></a></span>
+<span id="cb24-6"><a href="problem-set-8.html#cb24-6"></a>  <span class="co"># your code goes here!</span></span>
+<span id="cb24-7"><a href="problem-set-8.html#cb24-7"></a>  <span class="co"># use the get_vote_cosine_similarity() method to compare senator with frist and reid</span></span>
+<span id="cb24-8"><a href="problem-set-8.html#cb24-8"></a>  val =<span class="st"> &quot;R&quot;</span></span>
+<span id="cb24-9"><a href="problem-set-8.html#cb24-9"></a>  </span>
+<span id="cb24-10"><a href="problem-set-8.html#cb24-10"></a>  <span class="kw">return</span> (val)</span>
+<span id="cb24-11"><a href="problem-set-8.html#cb24-11"></a>}</span>
+<span id="cb24-12"><a href="problem-set-8.html#cb24-12"></a></span>
+<span id="cb24-13"><a href="problem-set-8.html#cb24-13"></a><span class="co"># returns a dataframe containing all misclassified senator names</span></span>
+<span id="cb24-14"><a href="problem-set-8.html#cb24-14"></a><span class="co"># and their party affiliations</span></span>
+<span id="cb24-15"><a href="problem-set-8.html#cb24-15"></a>classify_all &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb24-16"><a href="problem-set-8.html#cb24-16"></a></span>
+<span id="cb24-17"><a href="problem-set-8.html#cb24-17"></a>  mismatch =<span class="st"> </span><span class="kw">vector</span>()</span>
+<span id="cb24-18"><a href="problem-set-8.html#cb24-18"></a>  </span>
+<span id="cb24-19"><a href="problem-set-8.html#cb24-19"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>) {</span>
+<span id="cb24-20"><a href="problem-set-8.html#cb24-20"></a>    senator =<span class="st"> </span>record[i,]</span>
+<span id="cb24-21"><a href="problem-set-8.html#cb24-21"></a>    party =<span class="st"> </span><span class="kw">classify_senator</span>(senator)</span>
+<span id="cb24-22"><a href="problem-set-8.html#cb24-22"></a>    <span class="cf">if</span> (party <span class="op">!=</span><span class="st">  </span>record[i,<span class="dv">2</span>]) {</span>
+<span id="cb24-23"><a href="problem-set-8.html#cb24-23"></a>      mismatch =<span class="st"> </span><span class="kw">c</span>(mismatch, i)</span>
+<span id="cb24-24"><a href="problem-set-8.html#cb24-24"></a>    }</span>
+<span id="cb24-25"><a href="problem-set-8.html#cb24-25"></a>  }</span>
+<span id="cb24-26"><a href="problem-set-8.html#cb24-26"></a>  </span>
+<span id="cb24-27"><a href="problem-set-8.html#cb24-27"></a>  record[mismatch,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
+<span id="cb24-28"><a href="problem-set-8.html#cb24-28"></a>}</span>
+<span id="cb24-29"><a href="problem-set-8.html#cb24-29"></a></span>
+<span id="cb24-30"><a href="problem-set-8.html#cb24-30"></a></span>
+<span id="cb24-31"><a href="problem-set-8.html#cb24-31"></a><span class="co"># Uncomment the next line to classify all senators!</span></span>
+<span id="cb24-32"><a href="problem-set-8.html#cb24-32"></a></span>
+<span id="cb24-33"><a href="problem-set-8.html#cb24-33"></a><span class="co"># classify_all()</span></span></code></pre></div>
 
 </div>
 </div>

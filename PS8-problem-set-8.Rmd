@@ -19,7 +19,7 @@ require(pracma)
 
 Give rigorous proofs for each of the following problems. Here "rigorous" means that the heart of your explanation must use equations and calculations to explicitly justify any intuitive reasoning that you provide.
 
-a. Let $W$ be a subspace of $\mathbb{R}^5$ with basis $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$.  Let $W^{\perp}$ be its orthogonal complement with basis $\mathsf{v}_1, \mathsf{v}_2$.  Prove that if $\mathsf{u}$ is in both $W$ and $W^{\perp}$ then $\mathsf{u}$ must be the zero vector. 
+a. Let $W$ be a subspace of $\mathbb{R}^5$ with orthonormal basis $\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3$.  Let $W^{\perp}$ be its orthogonal complement with orthonormal basis $\mathsf{v}_1, \mathsf{v}_2$.  Prove that if $\mathsf{u}$ is in both $W$ and $W^{\perp}$ then $\mathsf{u}$ must be the zero vector. 
 
 b. Let $U$ and $V$ both be $n \times n$ orthogonal matrices. Prove that the matrix $UV$ is also an orthogonal matrix.
 
@@ -228,7 +228,7 @@ b. Find the cosine of the angles between every pair of the following senators of
 
 c. The senate majority leader of the 109th Congress was Bill Frist (R, TN). The senate minority leader was Harry Reid (D, NV). 
 
-    * Create a function  `classify_senator(senator)` that returns "R" or "D" depending on the cosine similarity of `get_votes(senator)` to `get_votes(frist)` and to `get_votes(reid)`.
+    * Create a function  `classify_senator(senator)` that returns "R" or "D" depending on the cosine similarity of `senator` to `frist` and to `reid`.
 You will have to write [an "if ... else statement" (here is the syntax)](https://www.tutorialspoint.com/r/r_if_else_statement.htm).
 
     * Then run the `classify_all()` function that we have written for you. You will see how many senators are *misclassified*, meaning that their votes are more similar to the leader of the opposing party. 
@@ -247,12 +247,8 @@ You will have to write [an "if ... else statement" (here is the syntax)](https:/
 # return "D" if senator is closer to reid
 classify_senator <- function(senator) {
 
-  # get the votes for the leaders and the given senator
-  fristvotes = get_votes(frist)
-  reidvotes = get_votes(reid)
-  senvotes = get_votes(senator)
-  
   # your code goes here!
+  # use the get_vote_cosine_similarity() method to compare senator with frist and reid
   val = "R"
   
   return (val)
