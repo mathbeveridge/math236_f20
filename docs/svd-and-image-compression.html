@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 16 2D Linear Transformations | MATH 236: Linear Algebra</title>
+  <title>Vector 26 SVD and Image Compression | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 16 2D Linear Transformations | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 26 SVD and Image Compression | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 16 2D Linear Transformations | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 26 SVD and Image Compression | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="linear-systems-in-r.html"/>
-<link rel="next" href="linear-transformations-of-a-house.html"/>
+<link rel="prev" href="least-squares-approximation.html"/>
+<link rel="next" href="quiz-1-review.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -409,117 +409,158 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="d-linear-transformations" class="section level1">
-<h1><span class="header-section-number">Vector 16</span> 2D Linear Transformations</h1>
-<p>Let’s explore linear transformations of the plane! <a href="https://github.com/mathbeveridge/math236_f20/blob/main/02-linear-transformations.Rmd">Download this Rmd file.</a></p>
-<p>We know that a linear transformation <span class="math inline">\(T\)</span> satisfies
+<div id="svd-and-image-compression" class="section level1">
+<h1><span class="header-section-number">Vector 26</span> SVD and Image Compression</h1>
+<p>Today we will use the <code>svd</code> command to find the Singular Value Decomposition of an <span class="math inline">\(m \times n\)</span> matrix.
+We will practice reading the output of this command and finding bases for the four fundamental subspaces of a matrix.
+Then we will look at a cool application of SVD: image compression!</p>
+<center>
+<img src="https://raw.githubusercontent.com/mathbeveridge/math236_f20/main/images/svd-summary.png" style="width:100.0%" />
+</center>
+<div id="singular-value-decomposition." class="section level2">
+<h2><span class="header-section-number">26.1</span> Singular Value Decomposition.</h2>
+<p>Let’s start by looking at the SVD for a couple of matrices. For each one:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Determine the rank of <span class="math inline">\(A\)</span></li>
+<li>Identify the basis for each of the four fundamental subspaces
 <span class="math display">\[
-T(c \mathsf{u} + d \mathsf{v}) = c\, T( \mathsf{u}) +d \, T( \mathsf{v}).
-\]</span>
-But what do linear transformations look like? Let’s start to answer this question by considering linear transformations of the plane.</p>
-<p>We will look at mappings <span class="math inline">\(T: \mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span> where <span class="math inline">\(T(\mathsf{x}) = \mathsf{A} \mathsf{x}\)</span> for a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathsf{A}\)</span>.
-<span class="math display">\[
-T \left( \begin{bmatrix} x \\ y \end{bmatrix} \right) = 
-\begin{bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
-\]</span>
-The linear transformation <span class="math inline">\(T(\mathsf{x})\)</span> maps the plane to itself. This nicely allows us to compare vectors before the mapping with their images after the mapping. We can then describe the effect of the mapping on the plane.</p>
-<div id="functions-to-plot-our-vectors" class="section level2">
-<h2><span class="header-section-number">16.1</span> Functions to plot our vectors</h2>
-<p>Here are a couple of helper functions to plot our “before” and “after” vectors as arrows in the plane.</p>
-<p>This function has four parameters. The parameters <code>before1</code> and <code>before2</code> are two vectors before the mapping, and <code>after1</code> and <code>after2</code> are their images after the mapping. The function creates a dashed plot of the parallelogram with corners (0,0), <code>before1</code>, <code>before2</code> and <code>before1+before2</code>. It also creates a solid plot of the image of this parallelogram. These are plotted on the same plane so taht we can easily compare “before” and “after.”</p>
-<p>Here is an example. Let’s start with vectors <span class="math inline">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and <span class="math inline">\(\begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span>. It’s nice to start with vectors of different lengths. Let’s consider the mapping correspoding to multiplication by the matrix
-<span class="math display">\[
-A = \begin{bmatrix} 2 &amp; 3 \\ 4 &amp; -1 \end{bmatrix}.
-\]</span>
-Here is some example code showing how to make our plot. Note: <code>A %*% x</code> is the syntax for matrix multiplication in R.</p>
-<div class="figure" style="text-align: center"><span id="fig:example-2d-transformation"></span>
-<img src="math236_handbook_files/figure-html/example-2d-transformation-1.png" alt="An example 2D linear transformation" width="75%" />
-<p class="caption">
-Figure 16.1: An example 2D linear transformation
-</p>
+\mbox{Nul}(A), \qquad \mbox{Col}(A), \qquad \mbox{Row}(A), \qquad \mbox{Nul}(A^{\top}).
+\]</span></li>
+<li>Pick a vector <span class="math inline">\(\mathsf{x}\)</span> from the basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> and confirm that <span class="math inline">\(A \mathsf{x} = \mathbf{0}\)</span>.</li>
+<li>Pick a vector <span class="math inline">\(\mathsf{y}\)</span> from the basis for <span class="math inline">\(\mbox{Col}(A)\)</span> and confirm that <span class="math inline">\(\mathsf{y}\)</span> can be written as the a linear combination of the columns of <span class="math inline">\(A\)</span>.</li>
+<li>Find the spectral decomposition of <span class="math inline">\(A\)</span></li>
+<li>Use the spectral decomposition to create approximations of matrix <span class="math inline">\(A\)</span> and then compare the quality of the approximation to the size of the gaps of the singular values.</li>
+</ol>
+<div id="svd-example-1" class="section level3">
+<h3><span class="header-section-number">26.1.1</span> SVD Example 1</h3>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="svd-and-image-compression.html#cb218-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1   -2    1    0    1
+## [2,]   -1    3   -1    1   -1
+## [3,]    1    0    1    4    5
+## [4,]    0    2    0    0   -4</code></pre>
 </div>
-<p>This visualization uses different colors for the vectors so that you can match up the original vector with its image. There is a lot going on in this mapping, so let’s start making some observations.</p>
+<div id="svd-example-2" class="section level3">
+<h3><span class="header-section-number">26.1.2</span> SVD Example 2</h3>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="svd-and-image-compression.html#cb220-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">9</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">9</span>,<span class="op">-</span><span class="dv">18</span>,<span class="dv">14</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">6</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">11</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">11</span>)))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   -3   -1    9    3   -2
+## [2,]    5   -2   -4   -4   11
+## [3,]   -3   -1    9    3   -2
+## [4,]    6    2  -18   -6    4
+## [5,]   -1   -4   14    3   11</code></pre>
+</div>
+<div id="svd-example-3" class="section level3">
+<h3><span class="header-section-number">26.1.3</span> SVD Example 3</h3>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="svd-and-image-compression.html#cb222-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb222-2"><a href="svd-and-image-compression.html#cb222-2"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x<span class="op">^</span><span class="dv">1</span>, x<span class="op">^</span><span class="dv">2</span>, x<span class="op">^</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    1    1    1
+## [2,]    1    2    4    8
+## [3,]    1    3    9   27
+## [4,]    1    4   16   64
+## [5,]    1    5   25  125
+## [6,]    1    6   36  216</code></pre>
+</div>
+</div>
+<div id="image-compression" class="section level2">
+<h2><span class="header-section-number">26.2</span> Image Compression</h2>
+<div id="converting-a-jpeg-image-into-a-matrix" class="section level3">
+<h3><span class="header-section-number">26.2.1</span> Converting a JPEG image into a Matrix</h3>
+<p>You may need to install the <code>jpeg</code> and <code>raster</code> packages. To check, your should</p>
 <ul>
-<li>The original rectangle mapped to a parallelogram. So the shape is ``squished’’ a bit.</li>
-<li>Both the black vector and the red vector have gotten larger. But we can see that the red vector has grown much more than the black one. So there is expansion, but it is not uniform.</li>
-<li>The black vector and the red vector have flipped! This means that there is some sort of reflection happening.</li>
+<li>Click on the ‘Packages’ tab in the lower right window</li>
+<li>Either search or scroll to see if the the <code>jpeg</code> and <code>raster</code> are there.</li>
+<li>If so, then click the checkbox to load the package into memory.
+If the package is missing, then uncomment and run the folllowing code chunk</li>
 </ul>
-<p>There isn’t a simple description for what’s happening here. It’s a combination of effects, so that the image of the rectangle is a warped version of the original.</p>
-</div>
-<div id="your-turn" class="section level2">
-<h2><span class="header-section-number">16.2</span> Your Turn</h2>
-<p>Now it’s your turn. Investigate the effect of each of the following families of mappings.</p>
+<p>You’ve probably heard of JPEG image files. The <code>jpeg</code> package will allow us to import those images into R. The JPEG format uses image compression. So we need to turn them into a <strong>raster (bitmap) image</strong> which is a rectangular grid of pixels or dots. In other words a raster image is a matrix. The package <code>raster</code> will do this conversion for us.</p>
+<p>The following defines two helper functions</p>
 <ul>
-<li>Using the previous code snippet as a guide, create a “before and after plot” for the black vector <span class="math inline">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and the red vector <span class="math inline">\(\begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span></li>
-<li><strong>Describe</strong> the effect of the mapping as best you can. Be sure to look at the different effect on the black vector and the red vector. Use words like, expansion, contraction, rotation, reflection and <a href="https://en.wikipedia.org/wiki/Shear_force#/media/File:Simple_shear_in_2D.svg">shear</a>.</li>
-<li>Once you have looked at the effect of the family, look back at the form of the matrix <span class="math inline">\(A\)</span>. Can you explain why it leads to the outcome you see?</li>
+<li><code>get_image(filename)</code> reads in a JPEG file and convert it into a raster image.</li>
+<li><code>plot_image(img)</code> creates a plot of the raster image</li>
 </ul>
-<div id="family-1" class="section level3">
-<h3><span class="header-section-number">16.2.1</span> Family 1</h3>
-<p>Explore matrices of the form
-<span class="math display">\[A=\displaystyle{ \begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix}}.\]</span>
-Once again, try various combinations of positive, negative, small and large numbers. Here is some sample code that would create such a matrix for <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>.</p>
+<p>Let start by reading in a picture of a tartan.</p>
+<pre><code>## [1] 335 333</code></pre>
+<pre><code>## [1] 111555</code></pre>
+<p>Each entry of <code>img</code> is a value in <span class="math inline">\([0,1]\)</span>. This is the <strong>grayscale value</strong> of a single pixel: value 0 corresponds to white and value 1 corresponds to black. The matrix <code>img</code> is a <span class="math inline">\(335 \times 333\)</span> matrix. So to store the image, we need to store <span class="math inline">\(111,555\)</span> floating point numbers (!). You can see compression methods are essential in practice.</p>
 </div>
-<div id="family-2" class="section level3">
-<h3><span class="header-section-number">16.2.2</span> Family 2</h3>
-<p>Explore matrices of the form
-<span class="math display">\[A=\displaystyle{ \begin{bmatrix} 0 &amp; b \\ c &amp; 0 \end{bmatrix}}.\]</span>
-Try various combinations of positive and negative numbers. Also try numbers of small magnitude (less than 1) and large magnitude.</p>
+<div id="svd-of-a-raster-image" class="section level3">
+<h3><span class="header-section-number">26.2.2</span> SVD of a Raster Image</h3>
+<p>The <code>img</code> variable is just a matrix. So we can find its singular value decomposition. We find that there are some large gaps in the singular values.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="svd-and-image-compression.html#cb226-1"></a>decomp =<span class="kw">svd</span>(img)<span class="op">$</span>d</span>
+<span id="cb226-2"><a href="svd-and-image-compression.html#cb226-2"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;)</span></span>
+<span id="cb226-3"><a href="svd-and-image-compression.html#cb226-3"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;,ylim=c(0,5))</span></span>
+<span id="cb226-4"><a href="svd-and-image-compression.html#cb226-4"></a>decomp[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1] 243.100715  23.459676  23.070452  22.687676  22.469706  11.317300   1.732057   1.647588   1.195523   1.161641</code></pre>
 </div>
-<div id="family-3" class="section level3">
-<h3><span class="header-section-number">16.2.3</span> Family 3</h3>
-<p>Explore matrices of the form
-<span class="math display">\[A=\displaystyle{ \begin{bmatrix} \cos(t) &amp; -\sin(t) \\ \sin(t) &amp; \cos(t) \end{bmatrix}}\]</span>
-where <span class="math inline">\(t\)</span> is in radians. Here is a function that will create such a matrix.</p>
-<pre><code>##              [,1]          [,2]
-## [1,] 6.123234e-17 -1.000000e+00
-## [2,] 1.000000e+00  6.123234e-17</code></pre>
-<p><strong>Note</strong>: R is numerical software. You’ll note that <code>sin(pi/2)</code> returns a value of <code>6.123234e-17</code> or something similar. This value is given in scientific notation, and is <span class="math inline">\(\approx 6.12 \times 10^{-17}\)</span>. <strong>You should treat this tiny number as equal to 0.</strong> Be sure to keep an eye out for return values like this that are ``numerically equivalent to 0.’’</p>
-</div>
-<div id="family-4" class="section level3">
-<h3><span class="header-section-number">16.2.4</span> Family 4</h3>
-<p>Now explore matrices of the form
-<span class="math display">\[A=\displaystyle{ \begin{bmatrix} a &amp; -b \\ b &amp; a \end{bmatrix}}\]</span></p>
-<p>Once again, consider a wide variety of such matrices.</p>
-</div>
-<div id="some-other-matrices" class="section level3">
-<h3><span class="header-section-number">16.2.5</span> Some Other Matrices</h3>
-<p>Now try these matrices. For each one, try to make other matrices that have a similar effect. (What is the relationship between the entries that leads to this particular kind of image?)</p>
-<p><span class="math display">\[
-A=\displaystyle{ \begin{bmatrix} 1 &amp; -3 \\  2 &amp; -6 \end{bmatrix}},
-\qquad
-B=\displaystyle{ \begin{bmatrix} 1 &amp; 1 \\  0 &amp; 1 \end{bmatrix}},
-\qquad
-C=\displaystyle{ \begin{bmatrix} 0 &amp; 1 \\  0 &amp; 0 \end{bmatrix}},
-\qquad
-D=\displaystyle{ \begin{bmatrix} 3 &amp; 0 \\  3 &amp; 2 \end{bmatrix}},
-\qquad
-\]</span></p>
-</div>
-</div>
-<div id="exploration" class="section level2">
-<h2><span class="header-section-number">16.3</span> Exploration</h2>
-<p>Now it’s time to explore. Try one or more of the following:</p>
+<div id="svd-approximation-of-the-image" class="section level3">
+<h3><span class="header-section-number">26.2.3</span> SVD Approximation of the image</h3>
+<p>Now let’s create an SVD approximation of the image. Here is some helper code for us to use. The functions that you will call are</p>
 <ul>
-<li>Can you find a mapping that will turn the rectangle with corners <code>(0,0), (3,0), (3,2), (0,2)</code> into a square?</li>
-<li>Look at some different starting vectors.</li>
-<li>Try some other matrices.</li>
-<li>What is the relationship between the rank of the matrix and the image of the transformation?</li>
+<li><code>plot_svd_approx(img, k)</code>: create the spectral decomposition corresponding to the <span class="math inline">\(k\)</span> largest singular values in the spectral decomposition.</li>
+<li><code>get_svd_approx_error(img, k)</code>: reports the average pixel error of the approximation.</li>
 </ul>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="svd-and-image-compression.html#cb228-1"></a><span class="co"># returns the spectral decomposition matrix for the first k singular values</span></span>
+<span id="cb228-2"><a href="svd-and-image-compression.html#cb228-2"></a>svd_approx =<span class="st"> </span><span class="cf">function</span>(A,<span class="dt">k =</span> <span class="kw">floor</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span><span class="kw">min</span>(<span class="kw">nrow</span>(A),<span class="kw">ncol</span>(A)))) {</span>
+<span id="cb228-3"><a href="svd-and-image-compression.html#cb228-3"></a>  decomp =<span class="st"> </span><span class="kw">svd</span>(A)</span>
+<span id="cb228-4"><a href="svd-and-image-compression.html#cb228-4"></a>  sings =<span class="st"> </span>decomp<span class="op">$</span>d</span>
+<span id="cb228-5"><a href="svd-and-image-compression.html#cb228-5"></a>  U =<span class="st"> </span>decomp<span class="op">$</span>u</span>
+<span id="cb228-6"><a href="svd-and-image-compression.html#cb228-6"></a>  V =<span class="st"> </span>decomp<span class="op">$</span>v</span>
+<span id="cb228-7"><a href="svd-and-image-compression.html#cb228-7"></a>  <span class="cf">if</span>(k<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb228-8"><a href="svd-and-image-compression.html#cb228-8"></a>    D=<span class="kw">matrix</span>(sings[<span class="dv">1</span>],<span class="dt">nrow=</span><span class="dv">1</span>,<span class="dt">ncol=</span><span class="dv">1</span>)</span>
+<span id="cb228-9"><a href="svd-and-image-compression.html#cb228-9"></a>  <span class="cf">else</span></span>
+<span id="cb228-10"><a href="svd-and-image-compression.html#cb228-10"></a>    D=<span class="kw">diag</span>(sings[<span class="dv">1</span><span class="op">:</span>k])</span>
+<span id="cb228-11"><a href="svd-and-image-compression.html#cb228-11"></a>  M=U[,<span class="dv">1</span><span class="op">:</span>k]<span class="op">%*%</span>D<span class="op">%*%</span><span class="kw">t</span>(V[,<span class="dv">1</span><span class="op">:</span>k])</span>
+<span id="cb228-12"><a href="svd-and-image-compression.html#cb228-12"></a>  <span class="kw">return</span>(M)</span>
+<span id="cb228-13"><a href="svd-and-image-compression.html#cb228-13"></a>}</span>
+<span id="cb228-14"><a href="svd-and-image-compression.html#cb228-14"></a></span>
+<span id="cb228-15"><a href="svd-and-image-compression.html#cb228-15"></a></span>
+<span id="cb228-16"><a href="svd-and-image-compression.html#cb228-16"></a><span class="co"># gets the svd approximation of the image</span></span>
+<span id="cb228-17"><a href="svd-and-image-compression.html#cb228-17"></a>get_svd_approx_img &lt;-<span class="st"> </span><span class="cf">function</span>(img,k) {</span>
+<span id="cb228-18"><a href="svd-and-image-compression.html#cb228-18"></a>  approxIm =<span class="st"> </span><span class="kw">svd_approx</span>(img,k)</span>
+<span id="cb228-19"><a href="svd-and-image-compression.html#cb228-19"></a>  approxIm[approxIm<span class="op">&lt;</span><span class="dv">0</span>] =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb228-20"><a href="svd-and-image-compression.html#cb228-20"></a>  approxIm[approxIm<span class="op">&gt;</span><span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb228-21"><a href="svd-and-image-compression.html#cb228-21"></a>  </span>
+<span id="cb228-22"><a href="svd-and-image-compression.html#cb228-22"></a>  <span class="kw">return</span> (approxIm)</span>
+<span id="cb228-23"><a href="svd-and-image-compression.html#cb228-23"></a>}</span>
+<span id="cb228-24"><a href="svd-and-image-compression.html#cb228-24"></a></span>
+<span id="cb228-25"><a href="svd-and-image-compression.html#cb228-25"></a><span class="co"># returns the average pixel error for the svd approximation of the image</span></span>
+<span id="cb228-26"><a href="svd-and-image-compression.html#cb228-26"></a>get_svd_approx_error &lt;-<span class="st">  </span><span class="cf">function</span>(img, k) {</span>
+<span id="cb228-27"><a href="svd-and-image-compression.html#cb228-27"></a>  approxImg =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
+<span id="cb228-28"><a href="svd-and-image-compression.html#cb228-28"></a>  return  =<span class="st"> </span><span class="kw">mean</span>(<span class="kw">abs</span>(img <span class="op">-</span><span class="st"> </span>approxImg))</span>
+<span id="cb228-29"><a href="svd-and-image-compression.html#cb228-29"></a>}</span>
+<span id="cb228-30"><a href="svd-and-image-compression.html#cb228-30"></a></span>
+<span id="cb228-31"><a href="svd-and-image-compression.html#cb228-31"></a><span class="co"># plots the SVD approximation of the image</span></span>
+<span id="cb228-32"><a href="svd-and-image-compression.html#cb228-32"></a>plot_svd_approx=<span class="cf">function</span>(img,k){</span>
+<span id="cb228-33"><a href="svd-and-image-compression.html#cb228-33"></a>  approxIm =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
+<span id="cb228-34"><a href="svd-and-image-compression.html#cb228-34"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)</span>
+<span id="cb228-35"><a href="svd-and-image-compression.html#cb228-35"></a>  <span class="kw">rasterImage</span>(approxIm, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>)</span>
+<span id="cb228-36"><a href="svd-and-image-compression.html#cb228-36"></a></span>
+<span id="cb228-37"><a href="svd-and-image-compression.html#cb228-37"></a>}</span></code></pre></div>
+<p>And here we show the singular value approximation with increasing numbers of singular values:</p>
 </div>
-<div id="even-more-exploration" class="section level2">
-<h2><span class="header-section-number">16.4</span> Even More Exploration</h2>
-<p>For a more interactive experinece, head over to <a href="http://merganser.math.gvsu.edu/david/linear.algebra/ula/ula/sec-transforms-geom.html">Section 2.6.2 of Understanding Linear Algbra</a>. This short section on the geometry of <span class="math inline">\(2 \times 2\)</span> matrix transformations has an interactive activity where you can change the entries using slider controls. It is illuminating to see the progressive impact of your choices!</p>
+<div id="svd-of-a-lighthouse" class="section level3">
+<h3><span class="header-section-number">26.2.4</span> SVD of a Lighthouse</h3>
+<p>Now let’s see how SVD does with this picture of a lighthouse. Use the appropriate code above to explore the SVD approximations of this lighthouse. How big must <span class="math inline">\(k\)</span> be in order to get an okay approximation? to get an approximation that you can’t distinguish from the original?</p>
+</div>
+<div id="your-turn-17" class="section level3">
+<h3><span class="header-section-number">26.2.5</span> Your Turn</h3>
+<p>Here are some JPG files available on the web for you to try. Or you can use an image of your own choice! Have fun!</p>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="linear-systems-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-transformations-of-a-house.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="least-squares-approximation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz-1-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

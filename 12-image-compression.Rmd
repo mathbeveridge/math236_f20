@@ -1,0 +1,229 @@
+
+# SVD and Image Compression
+
+
+Today we will use the `svd` command to find the Singular Value Decomposition of an $m \times n$ matrix.
+We will practice reading the output of this command and finding bases for the four fundamental subspaces of a matrix.
+Then we will look at a cool application of SVD: image compression!
+
+<center>
+![](https://raw.githubusercontent.com/mathbeveridge/math236_f20/main/images/svd-summary.png){width=100%}
+</center>
+
+
+## Singular Value Decomposition.
+
+Let's start by looking at the SVD for a couple of matrices. For each one: 
+
+a. Determine the rank of $A$
+b. Identify the basis for each of the four fundamental subspaces
+$$
+\mbox{Nul}(A), \qquad \mbox{Col}(A), \qquad \mbox{Row}(A), \qquad \mbox{Nul}(A^{\top}).
+$$
+c. Pick a vector $\mathsf{x}$ from the basis for $\mbox{Nul}(A)$ and confirm that $A \mathsf{x} = \mathbf{0}$.
+d. Pick a vector $\mathsf{y}$ from the basis for $\mbox{Col}(A)$ and confirm that $\mathsf{y}$ can be written as the a linear combination of the columns of $A$.
+e. Find the spectral decomposition of $A$
+f. Use the spectral decomposition to create approximations of matrix $A$ and then compare the quality of the approximation to the size of the gaps of the singular values.
+
+
+
+### SVD Example 1
+
+```{r, echo=TRUE}
+(A = cbind(c(1,-1,1,0),c(-2,3,0,2),c(1,-1,1,0),c(0,1,4,0),c(1,-1,5,-4)))
+
+```
+
+
+### SVD Example 2
+
+```{r, echo=TRUE}
+(A = cbind(c(-3,5,-3,6,-1),c(-1,-2,-1,2,-4),c(9,-4,9,-18,14),c(3,-4,3,-6,3),c(-2,11,-2,4,11)))
+
+```
+
+
+### SVD Example 3
+
+```{r, echo=TRUE}
+x = c(1,2,3,4,5,6)
+(A = cbind(x^0, x^1, x^2, x^3))
+
+```
+
+
+## Image Compression
+
+
+
+### Converting a JPEG image into a Matrix
+
+You may need to install the `jpeg` and `raster` packages. To check, your should
+
+* Click on the 'Packages' tab in the lower right window
+* Either search or scroll to see if the the `jpeg` and `raster` are there. 
+* If so, then click the checkbox to load the package into memory.
+If the package is missing, then uncomment and run  the folllowing code chunk
+```{r}
+#install.packages('jpeg')
+#install.packages('raster')
+```
+
+You've probably heard of JPEG image files. The `jpeg` package will allow us to import those images into R. The JPEG format uses image compression. So we need to turn them into a **raster (bitmap) image** which is a rectangular grid of pixels or dots. In other words a raster image is a matrix. The package `raster` will do this conversion for us.
+
+```{r,message=FALSE}
+library(jpeg)
+library(raster)
+```
+
+
+
+
+
+The following defines two helper functions
+
+* `get_image(filename)` reads in a JPEG file and convert it into a raster image.
+* `plot_image(img)` creates a plot of the raster image
+
+```{r}
+
+
+# converts a JPEG file into a raster image (a numerical matrix)
+# if the JPEG is a color image, it is converted to black and white.
+get_image <- function(filename) {
+  # read the jpeg file
+  img = readJPEG(readBin(filename,"raw",1e6))
+  img.dim = dim(img)
+  
+  # if this is a color image, we need to turn it into a grayscale image
+  img = img[,,1]+img[,,2]+img[,,3]
+  img <- img/max(img)
+  img.dim = dim(img)
+  
+  return (img)
+}
+
+
+plot_image = function(img,...) {
+  plot(2:1, type='n',xlab=" ",ylab= " ",...)
+  rasterImage(img, 1.0, 1.0, 2.0, 2.0)
+}
+
+
+
+
+```
+
+
+
+Let start by reading in a picture of a tartan.
+
+```{r, fig.width=6, fig.height=6}
+where.tartan = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Burberry.jpg"
+img = get_image(where.tartan)
+#plot_image(img,main="Image")
+
+dim(img)
+prod(dim(img)) # prod(vec) = product of the entries of vec
+
+
+```
+
+
+Each entry of `img` is a value in $[0,1]$. This is the  **grayscale value** of a single pixel: value 0 corresponds to white and value 1 corresponds to black.  The matrix `img` is a $335 \times 333$ matrix. So to store the image, we need to store $111,555$  floating point numbers (!). You can see compression methods are essential in practice.
+
+
+
+### SVD of a Raster Image
+
+
+The `img` variable is just a matrix. So we can find its singular value decomposition. We find that there are some large gaps in the singular values.
+```{r, echo=TRUE}
+decomp =svd(img)$d
+#plot(decomp,pch=19,cex=.5,col='blue')
+#plot(decomp,pch=19,cex=.5,col='blue',ylim=c(0,5))
+decomp[1:10]
+```
+
+### SVD Approximation of the image
+
+
+Now let's create an SVD approximation of the image. Here is some helper code for us to use. The functions that you will call are
+
+* `plot_svd_approx(img, k)`: create the spectral decomposition corresponding to the $k$ largest singular values in the spectral decomposition.
+* `get_svd_approx_error(img, k)`: reports the average pixel error of the approximation.
+```{r,echo=TRUE}
+
+# returns the spectral decomposition matrix for the first k singular values
+svd_approx = function(A,k = floor(1/2*min(nrow(A),ncol(A)))) {
+  decomp = svd(A)
+  sings = decomp$d
+  U = decomp$u
+  V = decomp$v
+  if(k==1)
+    D=matrix(sings[1],nrow=1,ncol=1)
+  else
+    D=diag(sings[1:k])
+  M=U[,1:k]%*%D%*%t(V[,1:k])
+  return(M)
+}
+
+
+# gets the svd approximation of the image
+get_svd_approx_img <- function(img,k) {
+  approxIm = svd_approx(img,k)
+  approxIm[approxIm<0] = 0
+  approxIm[approxIm>1] = 1
+  
+  return (approxIm)
+}
+
+# returns the average pixel error for the svd approximation of the image
+get_svd_approx_error <-  function(img, k) {
+  approxImg = get_svd_approx_img(img,k)
+  return  = mean(abs(img - approxImg))
+}
+
+# plots the SVD approximation of the image
+plot_svd_approx=function(img,k){
+  approxIm = get_svd_approx_img(img,k)
+  plot(1:2, type='n')
+  rasterImage(approxIm, 1.0, 1.0, 2.0, 2.0)
+
+}
+
+
+
+
+```
+
+And here we show the singular value approximation with increasing numbers of singular values:
+```{r, fig.width=6, fig.height=6}
+#plot_svd_approx(img,1)
+get_svd_approx_error(img,1)
+```
+
+
+### SVD of a Lighthouse
+
+Now let's see how SVD does with this picture of a lighthouse. Use the appropriate code above to explore the SVD approximations of this lighthouse. How big must $k$ be in order to get an okay approximation? to get an approximation that you can't distinguish from the original?
+
+
+```{r}
+where.lighthouse  = "https://images.unsplash.com/6/lighthouse.jpg"
+```
+
+
+### Your Turn
+
+Here are some JPG files available on the web for you to try. Or you can use an image of your own choice! Have fun!
+```{r}
+
+# some jpeg images available on the web
+where.cameraman = "https://www.macalester.edu/~dshuman1/data/cameraman_small.jpg"
+where.tiger = "https://i.pinimg.com/originals/f2/b5/0b/f2b50b1cbdb7cd16fef50f5641d41e77.jpg"
+where.flower= "https://www.amylamb.com/wp-content/uploads/2013/04/Gerbera-320x320.jpg"
+where.pattern  = "https://previews.123rf.com/images/noppanun/noppanun1411/noppanun141100046/33287656-black-and-white-geometric-seamless-pattern-with-triangle-and-trapezoid-abstract-background-vector-ep.jpg"
+
+```
+

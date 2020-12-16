@@ -182,6 +182,17 @@ plotting-your-least-squares-solution-1
 your-turn-16
 a-linear-model-for-production-at-a-hosiery-mill
 global-fossil-fuel-emissions
+svd-and-image-compression
+singular-value-decomposition.
+svd-example-1
+svd-example-2
+svd-example-3
+image-compression
+converting-a-jpeg-image-into-a-matrix
+svd-of-a-raster-image
+svd-approximation-of-the-image
+svd-of-a-lighthouse
+your-turn-17
 quiz-1-review
 overview
 vocabulary-and-concepts
