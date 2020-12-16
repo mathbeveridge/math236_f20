@@ -394,6 +394,22 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a></li>
 <li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a></li>
 </ul></li>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
+<li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-1"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
+<li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-2"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
+<li class="chapter" data-level="31.2.4" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-3"><i class="fa fa-check"></i><b>31.2.4</b> </a></li>
+<li class="chapter" data-level="31.2.5" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-4"><i class="fa fa-check"></i><b>31.2.5</b> </a></li>
+<li class="chapter" data-level="31.2.6" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-5"><i class="fa fa-check"></i><b>31.2.6</b> </a></li>
+<li class="chapter" data-level="31.2.7" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-6"><i class="fa fa-check"></i><b>31.2.7</b> </a></li>
+<li class="chapter" data-level="31.2.8" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-7"><i class="fa fa-check"></i><b>31.2.8</b> </a></li>
+<li class="chapter" data-level="31.2.9" data-path="quiz-4-review.html"><a href="quiz-4-review.html#more-problems-coming"><i class="fa fa-check"></i><b>31.2.9</b> More problems coming!</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
 
@@ -424,22 +440,22 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h2><span class="header-section-number">25.1</span> US Post Office Zip Code Data</h2>
 <p>We will look at a classic machine learning problem: identifying hand-written digits. Our data comes from the U.S. Postal Service: each digit comes zip codes automatically scanned from envelopes. I found this data at <a href="https://web.stanford.edu/~hastie/StatLearnSparsity_files/DATA/zipcode.html">this Machine Learning course page at Stanford</a>, but it originates from the neural network group at AT&amp;T research labs. I’ve made a copy of the data, and pre-processed the training data (to speed things up for us).</p>
 <p>Let’s load the data and print out the first 10 rows and columns of the test data.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="digit-recognition.html#cb184-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb184-2"><a href="digit-recognition.html#cb184-2"></a><span class="kw">require</span>(pracma)</span>
-<span id="cb184-3"><a href="digit-recognition.html#cb184-3"></a></span>
-<span id="cb184-4"><a href="digit-recognition.html#cb184-4"></a>digit.test.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-test.csv&#39;</span></span>
-<span id="cb184-5"><a href="digit-recognition.html#cb184-5"></a>digit.centroids.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-centroid.csv&#39;</span></span>
-<span id="cb184-6"><a href="digit-recognition.html#cb184-6"></a></span>
-<span id="cb184-7"><a href="digit-recognition.html#cb184-7"></a>test &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.test.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
-<span id="cb184-8"><a href="digit-recognition.html#cb184-8"></a>centroids &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.centroids.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
-<span id="cb184-9"><a href="digit-recognition.html#cb184-9"></a></span>
-<span id="cb184-10"><a href="digit-recognition.html#cb184-10"></a><span class="co"># take the transpose so that we can deal with column vectors (which is what we are used to)</span></span>
-<span id="cb184-11"><a href="digit-recognition.html#cb184-11"></a>test=<span class="kw">t</span>(test)</span>
-<span id="cb184-12"><a href="digit-recognition.html#cb184-12"></a>centroids=<span class="kw">t</span>(centroids)</span>
-<span id="cb184-13"><a href="digit-recognition.html#cb184-13"></a></span>
-<span id="cb184-14"><a href="digit-recognition.html#cb184-14"></a><span class="kw">dim</span>(test)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="digit-recognition.html#cb179-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb179-2"><a href="digit-recognition.html#cb179-2"></a><span class="kw">require</span>(pracma)</span>
+<span id="cb179-3"><a href="digit-recognition.html#cb179-3"></a></span>
+<span id="cb179-4"><a href="digit-recognition.html#cb179-4"></a>digit.test.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-test.csv&#39;</span></span>
+<span id="cb179-5"><a href="digit-recognition.html#cb179-5"></a>digit.centroids.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-centroid.csv&#39;</span></span>
+<span id="cb179-6"><a href="digit-recognition.html#cb179-6"></a></span>
+<span id="cb179-7"><a href="digit-recognition.html#cb179-7"></a>test &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.test.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
+<span id="cb179-8"><a href="digit-recognition.html#cb179-8"></a>centroids &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.centroids.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
+<span id="cb179-9"><a href="digit-recognition.html#cb179-9"></a></span>
+<span id="cb179-10"><a href="digit-recognition.html#cb179-10"></a><span class="co"># take the transpose so that we can deal with column vectors (which is what we are used to)</span></span>
+<span id="cb179-11"><a href="digit-recognition.html#cb179-11"></a>test=<span class="kw">t</span>(test)</span>
+<span id="cb179-12"><a href="digit-recognition.html#cb179-12"></a>centroids=<span class="kw">t</span>(centroids)</span>
+<span id="cb179-13"><a href="digit-recognition.html#cb179-13"></a></span>
+<span id="cb179-14"><a href="digit-recognition.html#cb179-14"></a><span class="kw">dim</span>(test)</span></code></pre></div>
 <pre><code>## [1]  257 2007</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="digit-recognition.html#cb186-1"></a>test[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="digit-recognition.html#cb181-1"></a>test[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##       [,1] [,2]   [,3] [,4]   [,5]   [,6]   [,7]   [,8]   [,9]  [,10]
 ## X1   9.000    6  3.000    6  6.000  0.000  0.000  0.000  6.000  9.000
 ## X2  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
@@ -460,39 +476,39 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>The remaining 256 values in each column correspond to a grayscale image of the digit.</li>
 </ul>
 <p>We must reshape this <span class="math inline">\(256 \times 1\)</span> column vector into a <span class="math inline">\(16 \times 16\)</span> matrix in order to display it. The following code will display the handwritten image for a given column. (Note: You don’t have to understand this code.)</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="digit-recognition.html#cb188-1"></a><span class="co"># Takes in a vector of length 257 and creates an image form entries 2:257</span></span>
-<span id="cb188-2"><a href="digit-recognition.html#cb188-2"></a><span class="co"># digitcol: a 257 x 1 vector. The first entry is the digit classification. The remaining 256 entries are the 16 x 16 image.</span></span>
-<span id="cb188-3"><a href="digit-recognition.html#cb188-3"></a>plot_digit &lt;-<span class="st"> </span><span class="cf">function</span>(digitcol) {</span>
-<span id="cb188-4"><a href="digit-recognition.html#cb188-4"></a>  img =<span class="st"> </span>digitcol[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
-<span id="cb188-5"><a href="digit-recognition.html#cb188-5"></a>  <span class="kw">dim</span>(img) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">16</span>)</span>
-<span id="cb188-6"><a href="digit-recognition.html#cb188-6"></a>  img =<span class="st"> </span>img[,<span class="kw">ncol</span>(img)<span class="op">:</span><span class="dv">1</span> ]</span>
-<span id="cb188-7"><a href="digit-recognition.html#cb188-7"></a>  </span>
-<span id="cb188-8"><a href="digit-recognition.html#cb188-8"></a>  <span class="kw">image</span>(img, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">length =</span> <span class="dv">256</span>)))</span>
-<span id="cb188-9"><a href="digit-recognition.html#cb188-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="digit-recognition.html#cb183-1"></a><span class="co"># Takes in a vector of length 257 and creates an image form entries 2:257</span></span>
+<span id="cb183-2"><a href="digit-recognition.html#cb183-2"></a><span class="co"># digitcol: a 257 x 1 vector. The first entry is the digit classification. The remaining 256 entries are the 16 x 16 image.</span></span>
+<span id="cb183-3"><a href="digit-recognition.html#cb183-3"></a>plot_digit &lt;-<span class="st"> </span><span class="cf">function</span>(digitcol) {</span>
+<span id="cb183-4"><a href="digit-recognition.html#cb183-4"></a>  img =<span class="st"> </span>digitcol[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
+<span id="cb183-5"><a href="digit-recognition.html#cb183-5"></a>  <span class="kw">dim</span>(img) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">16</span>)</span>
+<span id="cb183-6"><a href="digit-recognition.html#cb183-6"></a>  img =<span class="st"> </span>img[,<span class="kw">ncol</span>(img)<span class="op">:</span><span class="dv">1</span> ]</span>
+<span id="cb183-7"><a href="digit-recognition.html#cb183-7"></a>  </span>
+<span id="cb183-8"><a href="digit-recognition.html#cb183-8"></a>  <span class="kw">image</span>(img, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">length =</span> <span class="dv">256</span>)))</span>
+<span id="cb183-9"><a href="digit-recognition.html#cb183-9"></a>}</span></code></pre></div>
 <p>Now let’s display a few random digits from the test dataset. Feel free to re-run this block a few times. You’ll see different examples each time!</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="digit-recognition.html#cb189-1"></a>samp =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>], <span class="dv">6</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>)</span>
-<span id="cb189-2"><a href="digit-recognition.html#cb189-2"></a></span>
-<span id="cb189-3"><a href="digit-recognition.html#cb189-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>) {</span>
-<span id="cb189-4"><a href="digit-recognition.html#cb189-4"></a>  <span class="kw">print</span>(test[<span class="dv">1</span>,samp[i]])</span>
-<span id="cb189-5"><a href="digit-recognition.html#cb189-5"></a>  <span class="kw">plot_digit</span>(test[,samp[i]])</span>
-<span id="cb189-6"><a href="digit-recognition.html#cb189-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="digit-recognition.html#cb184-1"></a>samp =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>], <span class="dv">6</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>)</span>
+<span id="cb184-2"><a href="digit-recognition.html#cb184-2"></a></span>
+<span id="cb184-3"><a href="digit-recognition.html#cb184-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>) {</span>
+<span id="cb184-4"><a href="digit-recognition.html#cb184-4"></a>  <span class="kw">print</span>(test[<span class="dv">1</span>,samp[i]])</span>
+<span id="cb184-5"><a href="digit-recognition.html#cb184-5"></a>  <span class="kw">plot_digit</span>(test[,samp[i]])</span>
+<span id="cb184-6"><a href="digit-recognition.html#cb184-6"></a>}</span></code></pre></div>
 <pre><code>## X1 
-##  1</code></pre>
+##  0</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-1.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  1</code></pre>
+##  6</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-2.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  0</code></pre>
+##  6</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-3.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  5</code></pre>
+##  4</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-4.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  0</code></pre>
+##  8</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-5.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <pre><code>## X1 
-##  0</code></pre>
+##  4</code></pre>
 <p><img src="math236_handbook_files/figure-html/digitsamples-6.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 <p>Next, let’s talk about our training data. The original training data has 7291 different digits. Different machine learning techniques will use this data in different ways. But each of them follows the same idea:</p>
 <ul>
@@ -501,13 +517,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul>
 <p>Our goal today is to <strong>highlight the role of linear algebra</strong>, not come up with a high-performance algorithm. So we will simplify our training set. I have pre-processed the 7291 training digits and found the “average” vector for each digit.
 We will refer to these 10 training vectors as <strong>centroids</strong> since we are finding the vector in the center of all the training digits of each type. Since these are averages, when we plot them, they will look like blurry versions of the actual digit. Let’s look.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="digit-recognition.html#cb196-1"></a><span class="kw">library</span>(grid)</span>
-<span id="cb196-2"><a href="digit-recognition.html#cb196-2"></a>images =<span class="st"> </span><span class="kw">vector</span>()</span>
-<span id="cb196-3"><a href="digit-recognition.html#cb196-3"></a></span>
-<span id="cb196-4"><a href="digit-recognition.html#cb196-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">9</span>) {</span>
-<span id="cb196-5"><a href="digit-recognition.html#cb196-5"></a>    dimg =<span class="st"> </span>centroids[,i<span class="op">+</span><span class="dv">1</span>]</span>
-<span id="cb196-6"><a href="digit-recognition.html#cb196-6"></a>    <span class="kw">plot_digit</span>(dimg)</span>
-<span id="cb196-7"><a href="digit-recognition.html#cb196-7"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="digit-recognition.html#cb191-1"></a><span class="kw">library</span>(grid)</span>
+<span id="cb191-2"><a href="digit-recognition.html#cb191-2"></a>images =<span class="st"> </span><span class="kw">vector</span>()</span>
+<span id="cb191-3"><a href="digit-recognition.html#cb191-3"></a></span>
+<span id="cb191-4"><a href="digit-recognition.html#cb191-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">9</span>) {</span>
+<span id="cb191-5"><a href="digit-recognition.html#cb191-5"></a>    dimg =<span class="st"> </span>centroids[,i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb191-6"><a href="digit-recognition.html#cb191-6"></a>    <span class="kw">plot_digit</span>(dimg)</span>
+<span id="cb191-7"><a href="digit-recognition.html#cb191-7"></a>  }</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/digitcentroid-1.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-2.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-3.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-4.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-5.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-6.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-7.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-8.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-9.png" width="200px" height="200px" style="display: block; margin: auto;" /><img src="math236_handbook_files/figure-html/digitcentroid-10.png" width="200px" height="200px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="algorithm-overview" class="section level3">
@@ -550,67 +566,67 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <li>The square root of <code>y</code> is calculated by <code>sqrt(y)</code>.</li>
 <li>The inverse cosine of <code>x</code> is calculated by <code>acos(x)</code>.</li>
 </ul>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="digit-recognition.html#cb197-1"></a>get_magnitude &lt;-<span class="st"> </span><span class="cf">function</span>(colvec) {</span>
-<span id="cb197-2"><a href="digit-recognition.html#cb197-2"></a>  <span class="co"># replace with your implementation</span></span>
-<span id="cb197-3"><a href="digit-recognition.html#cb197-3"></a>  len =<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">t</span>(colvec) <span class="op">%*%</span><span class="st"> </span>colvec)</span>
-<span id="cb197-4"><a href="digit-recognition.html#cb197-4"></a>  </span>
-<span id="cb197-5"><a href="digit-recognition.html#cb197-5"></a>  <span class="kw">return</span> (len)</span>
-<span id="cb197-6"><a href="digit-recognition.html#cb197-6"></a>}</span>
-<span id="cb197-7"><a href="digit-recognition.html#cb197-7"></a></span>
-<span id="cb197-8"><a href="digit-recognition.html#cb197-8"></a></span>
-<span id="cb197-9"><a href="digit-recognition.html#cb197-9"></a>get_distance &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
-<span id="cb197-10"><a href="digit-recognition.html#cb197-10"></a>  v =<span class="st"> </span>colvec1 <span class="op">-</span><span class="st"> </span>colvec2</span>
-<span id="cb197-11"><a href="digit-recognition.html#cb197-11"></a>  dist =<span class="st"> </span><span class="kw">get_magnitude</span>(v)</span>
-<span id="cb197-12"><a href="digit-recognition.html#cb197-12"></a>  </span>
-<span id="cb197-13"><a href="digit-recognition.html#cb197-13"></a>  <span class="kw">return</span> (dist)</span>
-<span id="cb197-14"><a href="digit-recognition.html#cb197-14"></a>} </span>
-<span id="cb197-15"><a href="digit-recognition.html#cb197-15"></a></span>
-<span id="cb197-16"><a href="digit-recognition.html#cb197-16"></a></span>
-<span id="cb197-17"><a href="digit-recognition.html#cb197-17"></a></span>
-<span id="cb197-18"><a href="digit-recognition.html#cb197-18"></a>get_angle &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
-<span id="cb197-19"><a href="digit-recognition.html#cb197-19"></a>  dotprod =<span class="st"> </span><span class="kw">t</span>(colvec1) <span class="op">%*%</span><span class="st"> </span>colvec2</span>
-<span id="cb197-20"><a href="digit-recognition.html#cb197-20"></a>  len1 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec1)</span>
-<span id="cb197-21"><a href="digit-recognition.html#cb197-21"></a>  len2 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec2)</span>
-<span id="cb197-22"><a href="digit-recognition.html#cb197-22"></a></span>
-<span id="cb197-23"><a href="digit-recognition.html#cb197-23"></a>  val =<span class="st"> </span>dotprod <span class="op">/</span><span class="st"> </span>(len1 <span class="op">*</span><span class="st"> </span>len2)</span>
-<span id="cb197-24"><a href="digit-recognition.html#cb197-24"></a>  angle =<span class="st"> </span><span class="kw">acos</span>(val)</span>
-<span id="cb197-25"><a href="digit-recognition.html#cb197-25"></a>  </span>
-<span id="cb197-26"><a href="digit-recognition.html#cb197-26"></a>  <span class="kw">return</span> (angle)</span>
-<span id="cb197-27"><a href="digit-recognition.html#cb197-27"></a>  </span>
-<span id="cb197-28"><a href="digit-recognition.html#cb197-28"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="digit-recognition.html#cb192-1"></a>get_magnitude &lt;-<span class="st"> </span><span class="cf">function</span>(colvec) {</span>
+<span id="cb192-2"><a href="digit-recognition.html#cb192-2"></a>  <span class="co"># replace with your implementation</span></span>
+<span id="cb192-3"><a href="digit-recognition.html#cb192-3"></a>  len =<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">t</span>(colvec) <span class="op">%*%</span><span class="st"> </span>colvec)</span>
+<span id="cb192-4"><a href="digit-recognition.html#cb192-4"></a>  </span>
+<span id="cb192-5"><a href="digit-recognition.html#cb192-5"></a>  <span class="kw">return</span> (len)</span>
+<span id="cb192-6"><a href="digit-recognition.html#cb192-6"></a>}</span>
+<span id="cb192-7"><a href="digit-recognition.html#cb192-7"></a></span>
+<span id="cb192-8"><a href="digit-recognition.html#cb192-8"></a></span>
+<span id="cb192-9"><a href="digit-recognition.html#cb192-9"></a>get_distance &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
+<span id="cb192-10"><a href="digit-recognition.html#cb192-10"></a>  v =<span class="st"> </span>colvec1 <span class="op">-</span><span class="st"> </span>colvec2</span>
+<span id="cb192-11"><a href="digit-recognition.html#cb192-11"></a>  dist =<span class="st"> </span><span class="kw">get_magnitude</span>(v)</span>
+<span id="cb192-12"><a href="digit-recognition.html#cb192-12"></a>  </span>
+<span id="cb192-13"><a href="digit-recognition.html#cb192-13"></a>  <span class="kw">return</span> (dist)</span>
+<span id="cb192-14"><a href="digit-recognition.html#cb192-14"></a>} </span>
+<span id="cb192-15"><a href="digit-recognition.html#cb192-15"></a></span>
+<span id="cb192-16"><a href="digit-recognition.html#cb192-16"></a></span>
+<span id="cb192-17"><a href="digit-recognition.html#cb192-17"></a></span>
+<span id="cb192-18"><a href="digit-recognition.html#cb192-18"></a>get_angle &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
+<span id="cb192-19"><a href="digit-recognition.html#cb192-19"></a>  dotprod =<span class="st"> </span><span class="kw">t</span>(colvec1) <span class="op">%*%</span><span class="st"> </span>colvec2</span>
+<span id="cb192-20"><a href="digit-recognition.html#cb192-20"></a>  len1 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec1)</span>
+<span id="cb192-21"><a href="digit-recognition.html#cb192-21"></a>  len2 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec2)</span>
+<span id="cb192-22"><a href="digit-recognition.html#cb192-22"></a></span>
+<span id="cb192-23"><a href="digit-recognition.html#cb192-23"></a>  val =<span class="st"> </span>dotprod <span class="op">/</span><span class="st"> </span>(len1 <span class="op">*</span><span class="st"> </span>len2)</span>
+<span id="cb192-24"><a href="digit-recognition.html#cb192-24"></a>  angle =<span class="st"> </span><span class="kw">acos</span>(val)</span>
+<span id="cb192-25"><a href="digit-recognition.html#cb192-25"></a>  </span>
+<span id="cb192-26"><a href="digit-recognition.html#cb192-26"></a>  <span class="kw">return</span> (angle)</span>
+<span id="cb192-27"><a href="digit-recognition.html#cb192-27"></a>  </span>
+<span id="cb192-28"><a href="digit-recognition.html#cb192-28"></a>} </span></code></pre></div>
 <p>Here is some test code you can use to confirm that your implementations are correct.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="digit-recognition.html#cb198-1"></a>check_equal &lt;-<span class="st"> </span><span class="cf">function</span>(val1, val2) {</span>
-<span id="cb198-2"><a href="digit-recognition.html#cb198-2"></a>  diff =<span class="st"> </span><span class="kw">zapsmall</span>(val1 <span class="op">-</span><span class="st"> </span>val2)</span>
-<span id="cb198-3"><a href="digit-recognition.html#cb198-3"></a>  <span class="cf">if</span> (diff<span class="op">^</span><span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.001</span>) {</span>
-<span id="cb198-4"><a href="digit-recognition.html#cb198-4"></a>    <span class="kw">sprintf</span>(<span class="st">&#39;fail %f %f&#39;</span>, val1, val2)</span>
-<span id="cb198-5"><a href="digit-recognition.html#cb198-5"></a>  } <span class="cf">else</span> {</span>
-<span id="cb198-6"><a href="digit-recognition.html#cb198-6"></a>    <span class="kw">print</span>(<span class="st">&#39;pass&#39;</span>)</span>
-<span id="cb198-7"><a href="digit-recognition.html#cb198-7"></a>  }</span>
-<span id="cb198-8"><a href="digit-recognition.html#cb198-8"></a>}</span>
-<span id="cb198-9"><a href="digit-recognition.html#cb198-9"></a></span>
-<span id="cb198-10"><a href="digit-recognition.html#cb198-10"></a><span class="kw">print</span>(<span class="st">&#39;get_magnitude&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="digit-recognition.html#cb193-1"></a>check_equal &lt;-<span class="st"> </span><span class="cf">function</span>(val1, val2) {</span>
+<span id="cb193-2"><a href="digit-recognition.html#cb193-2"></a>  diff =<span class="st"> </span><span class="kw">zapsmall</span>(val1 <span class="op">-</span><span class="st"> </span>val2)</span>
+<span id="cb193-3"><a href="digit-recognition.html#cb193-3"></a>  <span class="cf">if</span> (diff<span class="op">^</span><span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.001</span>) {</span>
+<span id="cb193-4"><a href="digit-recognition.html#cb193-4"></a>    <span class="kw">sprintf</span>(<span class="st">&#39;fail %f %f&#39;</span>, val1, val2)</span>
+<span id="cb193-5"><a href="digit-recognition.html#cb193-5"></a>  } <span class="cf">else</span> {</span>
+<span id="cb193-6"><a href="digit-recognition.html#cb193-6"></a>    <span class="kw">print</span>(<span class="st">&#39;pass&#39;</span>)</span>
+<span id="cb193-7"><a href="digit-recognition.html#cb193-7"></a>  }</span>
+<span id="cb193-8"><a href="digit-recognition.html#cb193-8"></a>}</span>
+<span id="cb193-9"><a href="digit-recognition.html#cb193-9"></a></span>
+<span id="cb193-10"><a href="digit-recognition.html#cb193-10"></a><span class="kw">print</span>(<span class="st">&#39;get_magnitude&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_magnitude&quot;</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="digit-recognition.html#cb200-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)),<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="digit-recognition.html#cb195-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)),<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="digit-recognition.html#cb202-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)),<span class="kw">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="digit-recognition.html#cb197-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)),<span class="kw">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="digit-recognition.html#cb204-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)),<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="digit-recognition.html#cb199-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)),<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="digit-recognition.html#cb206-1"></a><span class="kw">print</span>(<span class="st">&#39;get_dist&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="digit-recognition.html#cb201-1"></a><span class="kw">print</span>(<span class="st">&#39;get_dist&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_dist&quot;</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="digit-recognition.html#cb208-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">3</span>)), <span class="kw">sqrt</span>(<span class="dv">90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="digit-recognition.html#cb203-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">3</span>)), <span class="kw">sqrt</span>(<span class="dv">90</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="digit-recognition.html#cb210-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)), <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="digit-recognition.html#cb205-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)), <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="digit-recognition.html#cb212-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="fl">1.5</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="fl">1.5</span>)), <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="digit-recognition.html#cb207-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="fl">1.5</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="fl">1.5</span>)), <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="digit-recognition.html#cb214-1"></a><span class="kw">print</span>(<span class="st">&#39;get_angle&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="digit-recognition.html#cb209-1"></a><span class="kw">print</span>(<span class="st">&#39;get_angle&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_angle&quot;</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="digit-recognition.html#cb216-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>)), pi<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="digit-recognition.html#cb211-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>)), pi<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="digit-recognition.html#cb218-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)), pi<span class="op">/</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="digit-recognition.html#cb213-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)), pi<span class="op">/</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="digit-recognition.html#cb220-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)), <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="digit-recognition.html#cb215-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)), <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
 </div>
 <div id="machine-learning-algorithms" class="section level2">
@@ -624,46 +640,46 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 </ol>
 <div id="get-closest-by-distance" class="section level3">
 <h3><span class="header-section-number">25.3.1</span> Get Closest by Distance</h3>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="digit-recognition.html#cb222-1"></a><span class="co"># Finds closest centroid to the given data</span></span>
-<span id="cb222-2"><a href="digit-recognition.html#cb222-2"></a><span class="co"># data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data</span></span>
-<span id="cb222-3"><a href="digit-recognition.html#cb222-3"></a><span class="co"># centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. </span></span>
-<span id="cb222-4"><a href="digit-recognition.html#cb222-4"></a>get_closest_by_distance &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
-<span id="cb222-5"><a href="digit-recognition.html#cb222-5"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb222-6"><a href="digit-recognition.html#cb222-6"></a>  min_dist =<span class="st"> </span><span class="dv">1024</span></span>
-<span id="cb222-7"><a href="digit-recognition.html#cb222-7"></a>  </span>
-<span id="cb222-8"><a href="digit-recognition.html#cb222-8"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
-<span id="cb222-9"><a href="digit-recognition.html#cb222-9"></a>    colvec1 =<span class="st"> </span>centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i]</span>
-<span id="cb222-10"><a href="digit-recognition.html#cb222-10"></a>    colvec2 =<span class="st"> </span>data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
-<span id="cb222-11"><a href="digit-recognition.html#cb222-11"></a>    </span>
-<span id="cb222-12"><a href="digit-recognition.html#cb222-12"></a>    dist =<span class="st"> </span><span class="kw">get_distance</span>(colvec1, colvec2)</span>
-<span id="cb222-13"><a href="digit-recognition.html#cb222-13"></a>    </span>
-<span id="cb222-14"><a href="digit-recognition.html#cb222-14"></a>    <span class="cf">if</span> (dist <span class="op">&lt;</span><span class="st"> </span>min_dist) {</span>
-<span id="cb222-15"><a href="digit-recognition.html#cb222-15"></a>      idx =<span class="st"> </span>i</span>
-<span id="cb222-16"><a href="digit-recognition.html#cb222-16"></a>      min_dist =<span class="st"> </span>dist</span>
-<span id="cb222-17"><a href="digit-recognition.html#cb222-17"></a>    }</span>
-<span id="cb222-18"><a href="digit-recognition.html#cb222-18"></a>  }</span>
-<span id="cb222-19"><a href="digit-recognition.html#cb222-19"></a>  </span>
-<span id="cb222-20"><a href="digit-recognition.html#cb222-20"></a>  <span class="kw">return</span> (idx)</span>
-<span id="cb222-21"><a href="digit-recognition.html#cb222-21"></a>  </span>
-<span id="cb222-22"><a href="digit-recognition.html#cb222-22"></a>}</span>
-<span id="cb222-23"><a href="digit-recognition.html#cb222-23"></a></span>
-<span id="cb222-24"><a href="digit-recognition.html#cb222-24"></a></span>
-<span id="cb222-25"><a href="digit-recognition.html#cb222-25"></a></span>
-<span id="cb222-26"><a href="digit-recognition.html#cb222-26"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
-<span id="cb222-27"><a href="digit-recognition.html#cb222-27"></a></span>
-<span id="cb222-28"><a href="digit-recognition.html#cb222-28"></a><span class="co"># try to match each column of the test data</span></span>
-<span id="cb222-29"><a href="digit-recognition.html#cb222-29"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
-<span id="cb222-30"><a href="digit-recognition.html#cb222-30"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb222-31"><a href="digit-recognition.html#cb222-31"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[,i])</span>
-<span id="cb222-32"><a href="digit-recognition.html#cb222-32"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_by_distance</span>(digit_data, centroids)</span>
-<span id="cb222-33"><a href="digit-recognition.html#cb222-33"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb222-34"><a href="digit-recognition.html#cb222-34"></a>}</span>
-<span id="cb222-35"><a href="digit-recognition.html#cb222-35"></a></span>
-<span id="cb222-36"><a href="digit-recognition.html#cb222-36"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
-<span id="cb222-37"><a href="digit-recognition.html#cb222-37"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb222-38"><a href="digit-recognition.html#cb222-38"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb222-39"><a href="digit-recognition.html#cb222-39"></a></span>
-<span id="cb222-40"><a href="digit-recognition.html#cb222-40"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="digit-recognition.html#cb217-1"></a><span class="co"># Finds closest centroid to the given data</span></span>
+<span id="cb217-2"><a href="digit-recognition.html#cb217-2"></a><span class="co"># data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data</span></span>
+<span id="cb217-3"><a href="digit-recognition.html#cb217-3"></a><span class="co"># centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. </span></span>
+<span id="cb217-4"><a href="digit-recognition.html#cb217-4"></a>get_closest_by_distance &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
+<span id="cb217-5"><a href="digit-recognition.html#cb217-5"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb217-6"><a href="digit-recognition.html#cb217-6"></a>  min_dist =<span class="st"> </span><span class="dv">1024</span></span>
+<span id="cb217-7"><a href="digit-recognition.html#cb217-7"></a>  </span>
+<span id="cb217-8"><a href="digit-recognition.html#cb217-8"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb217-9"><a href="digit-recognition.html#cb217-9"></a>    colvec1 =<span class="st"> </span>centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i]</span>
+<span id="cb217-10"><a href="digit-recognition.html#cb217-10"></a>    colvec2 =<span class="st"> </span>data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
+<span id="cb217-11"><a href="digit-recognition.html#cb217-11"></a>    </span>
+<span id="cb217-12"><a href="digit-recognition.html#cb217-12"></a>    dist =<span class="st"> </span><span class="kw">get_distance</span>(colvec1, colvec2)</span>
+<span id="cb217-13"><a href="digit-recognition.html#cb217-13"></a>    </span>
+<span id="cb217-14"><a href="digit-recognition.html#cb217-14"></a>    <span class="cf">if</span> (dist <span class="op">&lt;</span><span class="st"> </span>min_dist) {</span>
+<span id="cb217-15"><a href="digit-recognition.html#cb217-15"></a>      idx =<span class="st"> </span>i</span>
+<span id="cb217-16"><a href="digit-recognition.html#cb217-16"></a>      min_dist =<span class="st"> </span>dist</span>
+<span id="cb217-17"><a href="digit-recognition.html#cb217-17"></a>    }</span>
+<span id="cb217-18"><a href="digit-recognition.html#cb217-18"></a>  }</span>
+<span id="cb217-19"><a href="digit-recognition.html#cb217-19"></a>  </span>
+<span id="cb217-20"><a href="digit-recognition.html#cb217-20"></a>  <span class="kw">return</span> (idx)</span>
+<span id="cb217-21"><a href="digit-recognition.html#cb217-21"></a>  </span>
+<span id="cb217-22"><a href="digit-recognition.html#cb217-22"></a>}</span>
+<span id="cb217-23"><a href="digit-recognition.html#cb217-23"></a></span>
+<span id="cb217-24"><a href="digit-recognition.html#cb217-24"></a></span>
+<span id="cb217-25"><a href="digit-recognition.html#cb217-25"></a></span>
+<span id="cb217-26"><a href="digit-recognition.html#cb217-26"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
+<span id="cb217-27"><a href="digit-recognition.html#cb217-27"></a></span>
+<span id="cb217-28"><a href="digit-recognition.html#cb217-28"></a><span class="co"># try to match each column of the test data</span></span>
+<span id="cb217-29"><a href="digit-recognition.html#cb217-29"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
+<span id="cb217-30"><a href="digit-recognition.html#cb217-30"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb217-31"><a href="digit-recognition.html#cb217-31"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[,i])</span>
+<span id="cb217-32"><a href="digit-recognition.html#cb217-32"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_by_distance</span>(digit_data, centroids)</span>
+<span id="cb217-33"><a href="digit-recognition.html#cb217-33"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb217-34"><a href="digit-recognition.html#cb217-34"></a>}</span>
+<span id="cb217-35"><a href="digit-recognition.html#cb217-35"></a></span>
+<span id="cb217-36"><a href="digit-recognition.html#cb217-36"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
+<span id="cb217-37"><a href="digit-recognition.html#cb217-37"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
+<span id="cb217-38"><a href="digit-recognition.html#cb217-38"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
+<span id="cb217-39"><a href="digit-recognition.html#cb217-39"></a></span>
+<span id="cb217-40"><a href="digit-recognition.html#cb217-40"></a>results</span></code></pre></div>
 <pre><code>##     0   1   2   3   4   5   6   7   8   9
 ## 0 297   0   2   3   4   2  39   1  10   1
 ## 1   0 259   0   1   2   0   2   0   0   0
@@ -675,43 +691,43 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 ## 7   0   2   2   0   8   0   0 117   2  16
 ## 8   4   2   3  11   7   6   0   1 128   4
 ## 9   0   4   0   0  16   1   0  11   4 141</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="digit-recognition.html#cb224-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="digit-recognition.html#cb219-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 81.415047 percent&quot;</code></pre>
 </div>
 <div id="get-closest-by-angle" class="section level3">
 <h3><span class="header-section-number">25.3.2</span> Get Closest by Angle</h3>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="digit-recognition.html#cb226-1"></a>get_closest_angle &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
-<span id="cb226-2"><a href="digit-recognition.html#cb226-2"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb226-3"><a href="digit-recognition.html#cb226-3"></a>  minangle =<span class="st"> </span>pi</span>
-<span id="cb226-4"><a href="digit-recognition.html#cb226-4"></a></span>
-<span id="cb226-5"><a href="digit-recognition.html#cb226-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
-<span id="cb226-6"><a href="digit-recognition.html#cb226-6"></a>   angle =<span class="st"> </span><span class="kw">get_angle</span>(data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,<span class="dv">1</span>], centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i])</span>
-<span id="cb226-7"><a href="digit-recognition.html#cb226-7"></a>    </span>
-<span id="cb226-8"><a href="digit-recognition.html#cb226-8"></a>    <span class="cf">if</span> (angle <span class="op">&lt;</span><span class="st"> </span>minangle) {</span>
-<span id="cb226-9"><a href="digit-recognition.html#cb226-9"></a>      idx =<span class="st"> </span>i</span>
-<span id="cb226-10"><a href="digit-recognition.html#cb226-10"></a>      minangle =<span class="st"> </span>angle</span>
-<span id="cb226-11"><a href="digit-recognition.html#cb226-11"></a>    }</span>
-<span id="cb226-12"><a href="digit-recognition.html#cb226-12"></a>  }</span>
-<span id="cb226-13"><a href="digit-recognition.html#cb226-13"></a>  </span>
-<span id="cb226-14"><a href="digit-recognition.html#cb226-14"></a>  <span class="kw">return</span> (idx)</span>
-<span id="cb226-15"><a href="digit-recognition.html#cb226-15"></a>}</span>
-<span id="cb226-16"><a href="digit-recognition.html#cb226-16"></a></span>
-<span id="cb226-17"><a href="digit-recognition.html#cb226-17"></a></span>
-<span id="cb226-18"><a href="digit-recognition.html#cb226-18"></a></span>
-<span id="cb226-19"><a href="digit-recognition.html#cb226-19"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
-<span id="cb226-20"><a href="digit-recognition.html#cb226-20"></a></span>
-<span id="cb226-21"><a href="digit-recognition.html#cb226-21"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
-<span id="cb226-22"><a href="digit-recognition.html#cb226-22"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb226-23"><a href="digit-recognition.html#cb226-23"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[, i])</span>
-<span id="cb226-24"><a href="digit-recognition.html#cb226-24"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_angle</span>(digit_data, centroids)</span>
-<span id="cb226-25"><a href="digit-recognition.html#cb226-25"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb226-26"><a href="digit-recognition.html#cb226-26"></a>}</span>
-<span id="cb226-27"><a href="digit-recognition.html#cb226-27"></a>  </span>
-<span id="cb226-28"><a href="digit-recognition.html#cb226-28"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
-<span id="cb226-29"><a href="digit-recognition.html#cb226-29"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb226-30"><a href="digit-recognition.html#cb226-30"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb226-31"><a href="digit-recognition.html#cb226-31"></a></span>
-<span id="cb226-32"><a href="digit-recognition.html#cb226-32"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="digit-recognition.html#cb221-1"></a>get_closest_angle &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
+<span id="cb221-2"><a href="digit-recognition.html#cb221-2"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb221-3"><a href="digit-recognition.html#cb221-3"></a>  minangle =<span class="st"> </span>pi</span>
+<span id="cb221-4"><a href="digit-recognition.html#cb221-4"></a></span>
+<span id="cb221-5"><a href="digit-recognition.html#cb221-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb221-6"><a href="digit-recognition.html#cb221-6"></a>   angle =<span class="st"> </span><span class="kw">get_angle</span>(data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,<span class="dv">1</span>], centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i])</span>
+<span id="cb221-7"><a href="digit-recognition.html#cb221-7"></a>    </span>
+<span id="cb221-8"><a href="digit-recognition.html#cb221-8"></a>    <span class="cf">if</span> (angle <span class="op">&lt;</span><span class="st"> </span>minangle) {</span>
+<span id="cb221-9"><a href="digit-recognition.html#cb221-9"></a>      idx =<span class="st"> </span>i</span>
+<span id="cb221-10"><a href="digit-recognition.html#cb221-10"></a>      minangle =<span class="st"> </span>angle</span>
+<span id="cb221-11"><a href="digit-recognition.html#cb221-11"></a>    }</span>
+<span id="cb221-12"><a href="digit-recognition.html#cb221-12"></a>  }</span>
+<span id="cb221-13"><a href="digit-recognition.html#cb221-13"></a>  </span>
+<span id="cb221-14"><a href="digit-recognition.html#cb221-14"></a>  <span class="kw">return</span> (idx)</span>
+<span id="cb221-15"><a href="digit-recognition.html#cb221-15"></a>}</span>
+<span id="cb221-16"><a href="digit-recognition.html#cb221-16"></a></span>
+<span id="cb221-17"><a href="digit-recognition.html#cb221-17"></a></span>
+<span id="cb221-18"><a href="digit-recognition.html#cb221-18"></a></span>
+<span id="cb221-19"><a href="digit-recognition.html#cb221-19"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
+<span id="cb221-20"><a href="digit-recognition.html#cb221-20"></a></span>
+<span id="cb221-21"><a href="digit-recognition.html#cb221-21"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
+<span id="cb221-22"><a href="digit-recognition.html#cb221-22"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb221-23"><a href="digit-recognition.html#cb221-23"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[, i])</span>
+<span id="cb221-24"><a href="digit-recognition.html#cb221-24"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_angle</span>(digit_data, centroids)</span>
+<span id="cb221-25"><a href="digit-recognition.html#cb221-25"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb221-26"><a href="digit-recognition.html#cb221-26"></a>}</span>
+<span id="cb221-27"><a href="digit-recognition.html#cb221-27"></a>  </span>
+<span id="cb221-28"><a href="digit-recognition.html#cb221-28"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
+<span id="cb221-29"><a href="digit-recognition.html#cb221-29"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
+<span id="cb221-30"><a href="digit-recognition.html#cb221-30"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
+<span id="cb221-31"><a href="digit-recognition.html#cb221-31"></a></span>
+<span id="cb221-32"><a href="digit-recognition.html#cb221-32"></a>results</span></code></pre></div>
 <pre><code>##     0   1   2   3   4   5   6   7   8   9
 ## 0 298   0   1   3   4   1  39   1  11   1
 ## 1   0 260   0   1   2   0   1   0   0   0
@@ -723,7 +739,7 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 ## 7   0   3   2   0   7   0   0 118   1  16
 ## 8   4   3   1  12   7   5   0   2 127   5
 ## 9   0   9   0   0  14   1   0  12   3 138</code></pre>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="digit-recognition.html#cb228-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="digit-recognition.html#cb223-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 80.667663 percent&quot;</code></pre>
 
 </div>

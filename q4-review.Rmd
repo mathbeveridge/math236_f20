@@ -1,0 +1,240 @@
+
+
+# Quiz 4 Review
+
+
+## Overview
+
+Our fourth quiz covers sections 6.1-6.5, 7.1 and 7.4  in Lay's book. This corresponds to Problem Set 8.
+
+The best way to study is to do practice problems. The Quiz will have calculation problems (like Edfinity) and more conceptual problems (like the problem sets). Here are some ways to practice:
+
+* Make sure that you have mastered the Vocabulary, Skills and Concepts  listed below.
+* Look over the Edfinity homework assingments
+* Do practice problems from the Edfinity Practice assignments. These allow you to "Practice Similar" by generating new variations of the same problem.
+* Redo the Jamboard problems
+* Try to resolve the Problem Sets and compare your answers to the solutions.
+* Do the practice problems below. Compare your answers to the solutions.
+
+### Vocabulary, Concepts and Skills
+
+See the [Week 7-8 Learning Goals](week-7-8-learning-goals) for the list of vocabulary, concepts and skills.
+
+
+
+## Practice Problems
+
+
+###
+
+Let $\mathsf{v} =  \begin{bmatrix}1 \\ -1 \\ 1 \end{bmatrix}$ and $\mathsf{w}= \begin{bmatrix}5 \\ 2 \\ 3 \end{bmatrix}$.
+
+
+a. Find $\| \mathsf{v} \|$ and $\| \mathsf{w} \|$.
+
+a. Find the distance between $\mathsf{v}$ and $\mathsf{w}$.
+
+a. Find the cosine of the angle between $\mathsf{v}$ and $\mathsf{v}$.
+
+a. Find $\mbox{proj}_{\mathsf{v}} \mathsf{w}$. 
+
+
+b. Let $W=\mbox{span} (\mathsf{v}, \mathsf{w})$. Create an orthonormal basis $\mathsf{u}_1, \mathsf{u}_2$ for $W$ such that $\mathsf{u}_1$ is a vector in the same direction as $\mathsf{v}$.
+
+
+###
+
+Let $\mathsf{u} \neq 0$ be a vector in $\mathbb{R}^n$. Define the function $T: \mathbb{R}^n \rightarrow \mathbb{R}^n$ by
+$T(\mathsf{x}) = \mbox{proj}_{\mathsf{u}} \mathsf{x}$. 
+
+a. Prove that $T: \mathbb{R}^n \rightarrow \mathbb{R}^n$ is a linear transformation.
+
+b. Recall that the kernel of $T$ is the subspace $\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid T(x) = \mathbf{0} \}$. Describe  $\mbox{ker}(T)$ as explicitly as you can.
+
+
+
+
+### 
+
+ The vectors $\mathsf{u}_1, \mathsf{u}_2$  form an orthonormal basis of a subspace $W$ of $\mathbb{R}^4$. Find the projection of $\mathsf{v}$ onto $W$ and determine how close $\mathsf{v}$ is to $W$.
+$$
+\mathsf{u}_1 = \frac{1}{2}\begin{bmatrix} 1\\ -1\\ -1\\ 1 \end{bmatrix}, \quad
+\mathsf{u}_2 =  \frac{1}{2}\begin{bmatrix} 1\\ -1\\ 1\\ -1  \end{bmatrix}, \quad
+\mathsf{v} =  \begin{bmatrix}   2\\ 2\\ 4\\ 2 \end{bmatrix} 
+$$
+
+###
+
+
+
+Consider vectors 
+$\mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \\-1 \end{bmatrix}$ and 
+$\mathsf{v}_2= \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ in $\mathbb{R}^3$.
+Let $W=\mbox{span}(\mathsf{v}_1, \mathsf{v}_2)$.
+
+a.  Show that $\mathsf{v}_1$ and $\mathsf{v}_2$ are orthogonal.
+
+b.  Find a basis for $W^{\perp}$.
+
+c. Use orthogonal projections to find the representation of 
+$\mathsf{y} = \begin{bmatrix} 8 \\ 0 \\ 2 \end{bmatrix}$ as
+$\mathsf{y} = \hat{\mathsf{y}} + \mathsf{z}$ where
+$\hat{\mathsf{y}} \in W$ and $\mathsf{z} \in W^{\perp}$.
+
+
+
+###
+Let $W$ be the span of the vectors
+$$
+\begin{bmatrix}
+1 \\ -2 \\ 1 \\ 0 \\1 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+-1 \\ 3 \\ -1 \\ 1 \\ -1 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+0 \\ 0 \\ 1 \\ 3 \\1 
+\end{bmatrix}, \quad
+\begin{bmatrix}
+0 \\ 2 \\ 0 \\ 0 \\4 
+\end{bmatrix}
+$$
+
+a. Find a basis for $W$. What is the dimension of this subspace?
+b. Use the Gram-Schmidt process on your answer to part (a) to find an orthonormal basis for $W$
+c. Find a basis for $W^{\perp}$
+d. Use the Gram-Schmidt process on your answer from part (c) to find an orthogonal basis for $W^{\perp}$.
+
+
+### 
+
+Let $\mathsf{u}_1, \mathsf{u}_1, \ldots, \mathsf{u}_n$ be an **orthonormal** basis for $\mathbb{R}^n$. Pick any $\mathsf{v} \in \mathbb{R}^n$. Show that
+$$
+\| \mathsf{v} \| = \sqrt{ ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_1)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_1)^2}.
+$$
+
+<!--
+* Use the Gram-Schmidt process to find an orthogonal basis for $W$.
+* Find a basis for $W^{\perp}
+
+```
+A = cbind(c(3,0,0,4,0),c(1,1,0,-1,1),c(0,1,2,-1,2))
+A = cbind(c(1,-2,1,0,1),c(-1,3,-1,1,-1),c(1,0,1,4,5),c(0,2,0,0,-4))
+
+gramSchmidt(A)
+```
+
+-->
+
+
+<!-- least squares -->
+
+###
+
+Consider the system $A \mathsf{x} = \mathsf{b}$ given by
+$$
+\begin{bmatrix}
+1 & 1 & 1 \\
+1 & 2 & -1 \\
+1 & 1 & -1 \\
+1 & 2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\ x_2 \\ x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+4\\ 1 \\ -2 \\ -1
+\end{bmatrix}.
+$$
+
+a. Show that this system is inconsistent.
+b. Find the projected value $\hat{\mathsf{b}}$,  and the residual $\mathsf{z}$.
+
+
+###
+
+Here is an inconsistent system of equations:
+$$
+\begin{bmatrix} 1 & 2 \\ 1 & 2 \\ 1 & -1 \end{bmatrix}
+ \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 
+  \begin{bmatrix} 6\\ 4 \\ -4 \end{bmatrix} 
+$$
+
+a. State the normal equations for this problem (be sure to do all of the necessary matrix multiplications).
+
+b. Find the least squares solution to the problem.
+
+c. How close is your approximate solution to the desired target vector?
+
+### More problems coming!
+
+<!--
+
+
+###
+
+Fit this curve
+
+
+###
+
+Orthogonally diagonalize
+
+
+###
+
+Spectral decomposition
+
+
+
+```{r}
+
+
+A = cbind(c(1,0,0,0),c(0,1,0,0),c(0,1,1,0), c(0,0,0,1))
+
+A %*% t(A)
+
+svd(A)
+
+a=1
+
+
+#4*(a+1)^2
+#4* (2*a^2+2*a+1)
+
+b = (a+1) + sqrt(4*(a+1)^2 - 4* (a+1))/2
+
+b
+sqrt(b)
+
+
+```
+((a+1)^2 - x)(1-x) + a^2
+a^2 +2a + 1 - (a+1)x +x^2 - a^2
+
+2a+1
+
+
+(2-x) * (1-x) - 1 = 2 -3x + x^2 -1 = x^2 -3x + 1
+```{r}
+sqrt(3/2 + sqrt(9 - 4)/2) 
+```
+
+
+####
+
+SVD
+
+### 
+
+Spectral decompostion
+
+
+###
+
+Eigenvalue gap? Applied problem? 
+
+Use the senate voting problems?
+
+-->

@@ -394,6 +394,22 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a></li>
 <li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a></li>
 </ul></li>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
+<li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-1"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
+<li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-2"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
+<li class="chapter" data-level="31.2.4" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-3"><i class="fa fa-check"></i><b>31.2.4</b> </a></li>
+<li class="chapter" data-level="31.2.5" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-4"><i class="fa fa-check"></i><b>31.2.5</b> </a></li>
+<li class="chapter" data-level="31.2.6" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-5"><i class="fa fa-check"></i><b>31.2.6</b> </a></li>
+<li class="chapter" data-level="31.2.7" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-6"><i class="fa fa-check"></i><b>31.2.7</b> </a></li>
+<li class="chapter" data-level="31.2.8" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-7"><i class="fa fa-check"></i><b>31.2.8</b> </a></li>
+<li class="chapter" data-level="31.2.9" data-path="quiz-4-review.html"><a href="quiz-4-review.html#more-problems-coming"><i class="fa fa-check"></i><b>31.2.9</b> More problems coming!</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
 
@@ -431,46 +447,46 @@ The linear transformation <span class="math inline">\(T(\mathsf{x})\)</span> map
 <div id="functions-to-plot-our-vectors" class="section level2">
 <h2><span class="header-section-number">17.1</span> Functions to plot our vectors</h2>
 <p>Here are a couple of helper functions to plot our “before” and “after” vectors as arrows in the plane.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="d-linear-transformations.html#cb60-1"></a>plot_four_vectors &lt;-<span class="st"> </span><span class="cf">function</span>(before1, before2, after1, after2){</span>
-<span id="cb60-2"><a href="d-linear-transformations.html#cb60-2"></a>  a0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">1</span>], before2[<span class="dv">1</span>])</span>
-<span id="cb60-3"><a href="d-linear-transformations.html#cb60-3"></a>  b0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">2</span>], before2[<span class="dv">2</span>])</span>
-<span id="cb60-4"><a href="d-linear-transformations.html#cb60-4"></a>  a1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">1</span>],before2[<span class="dv">1</span>],before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>], before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>])</span>
-<span id="cb60-5"><a href="d-linear-transformations.html#cb60-5"></a>  b1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">2</span>],before2[<span class="dv">2</span>],before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>], before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>])</span>
-<span id="cb60-6"><a href="d-linear-transformations.html#cb60-6"></a>  c0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">1</span>], after2[<span class="dv">1</span>])</span>
-<span id="cb60-7"><a href="d-linear-transformations.html#cb60-7"></a>  d0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">2</span>], after2[<span class="dv">2</span>])</span>
-<span id="cb60-8"><a href="d-linear-transformations.html#cb60-8"></a>  c1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">1</span>],after2[<span class="dv">1</span>],after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>], after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>])</span>
-<span id="cb60-9"><a href="d-linear-transformations.html#cb60-9"></a>  d1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">2</span>],after2[<span class="dv">2</span>],after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>], after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>])</span>
-<span id="cb60-10"><a href="d-linear-transformations.html#cb60-10"></a>  max_val =<span class="st"> </span><span class="kw">max</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
-<span id="cb60-11"><a href="d-linear-transformations.html#cb60-11"></a>  min_val =<span class="st"> </span><span class="kw">min</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
-<span id="cb60-12"><a href="d-linear-transformations.html#cb60-12"></a>  </span>
-<span id="cb60-13"><a href="d-linear-transformations.html#cb60-13"></a>  <span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlim=</span><span class="kw">c</span>(min_val<span class="op">*</span><span class="fl">1.5</span>,max_val<span class="op">*</span><span class="fl">1.5</span>), <span class="dt">ylim=</span><span class="kw">c</span>(min_val,max_val), <span class="dt">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Y&quot;</span>, )</span>
-<span id="cb60-14"><a href="d-linear-transformations.html#cb60-14"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
-<span id="cb60-15"><a href="d-linear-transformations.html#cb60-15"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
-<span id="cb60-16"><a href="d-linear-transformations.html#cb60-16"></a>  vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
-<span id="cb60-17"><a href="d-linear-transformations.html#cb60-17"></a>                     <span class="dt">x0=</span>a0, <span class="dt">y0=</span>b0, <span class="dt">x1=</span>a1 ,<span class="dt">y1=</span>b1, </span>
-<span id="cb60-18"><a href="d-linear-transformations.html#cb60-18"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
-<span id="cb60-19"><a href="d-linear-transformations.html#cb60-19"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col, <span class="dt">lty=</span><span class="dv">2</span>) )</span>
-<span id="cb60-20"><a href="d-linear-transformations.html#cb60-20"></a>    vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
-<span id="cb60-21"><a href="d-linear-transformations.html#cb60-21"></a>                     <span class="dt">x0=</span>c0, <span class="dt">y0=</span>d0, <span class="dt">x1=</span>c1, <span class="dt">y1=</span>d1, </span>
-<span id="cb60-22"><a href="d-linear-transformations.html#cb60-22"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
-<span id="cb60-23"><a href="d-linear-transformations.html#cb60-23"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col) )</span>
-<span id="cb60-24"><a href="d-linear-transformations.html#cb60-24"></a></span>
-<span id="cb60-25"><a href="d-linear-transformations.html#cb60-25"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="d-linear-transformations.html#cb55-1"></a>plot_four_vectors &lt;-<span class="st"> </span><span class="cf">function</span>(before1, before2, after1, after2){</span>
+<span id="cb55-2"><a href="d-linear-transformations.html#cb55-2"></a>  a0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">1</span>], before2[<span class="dv">1</span>])</span>
+<span id="cb55-3"><a href="d-linear-transformations.html#cb55-3"></a>  b0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, before1[<span class="dv">2</span>], before2[<span class="dv">2</span>])</span>
+<span id="cb55-4"><a href="d-linear-transformations.html#cb55-4"></a>  a1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">1</span>],before2[<span class="dv">1</span>],before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>], before1[<span class="dv">1</span>]<span class="op">+</span>before2[<span class="dv">1</span>])</span>
+<span id="cb55-5"><a href="d-linear-transformations.html#cb55-5"></a>  b1 =<span class="st"> </span><span class="kw">c</span>(before1[<span class="dv">2</span>],before2[<span class="dv">2</span>],before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>], before1[<span class="dv">2</span>]<span class="op">+</span>before2[<span class="dv">2</span>])</span>
+<span id="cb55-6"><a href="d-linear-transformations.html#cb55-6"></a>  c0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">1</span>], after2[<span class="dv">1</span>])</span>
+<span id="cb55-7"><a href="d-linear-transformations.html#cb55-7"></a>  d0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>, after1[<span class="dv">2</span>], after2[<span class="dv">2</span>])</span>
+<span id="cb55-8"><a href="d-linear-transformations.html#cb55-8"></a>  c1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">1</span>],after2[<span class="dv">1</span>],after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>], after1[<span class="dv">1</span>]<span class="op">+</span>after2[<span class="dv">1</span>])</span>
+<span id="cb55-9"><a href="d-linear-transformations.html#cb55-9"></a>  d1 =<span class="st"> </span><span class="kw">c</span>(after1[<span class="dv">2</span>],after2[<span class="dv">2</span>],after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>], after1[<span class="dv">2</span>]<span class="op">+</span>after2[<span class="dv">2</span>])</span>
+<span id="cb55-10"><a href="d-linear-transformations.html#cb55-10"></a>  max_val =<span class="st"> </span><span class="kw">max</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
+<span id="cb55-11"><a href="d-linear-transformations.html#cb55-11"></a>  min_val =<span class="st"> </span><span class="kw">min</span>(a0,b0,a1,b1,c0,d0,c1,d1)</span>
+<span id="cb55-12"><a href="d-linear-transformations.html#cb55-12"></a>  </span>
+<span id="cb55-13"><a href="d-linear-transformations.html#cb55-13"></a>  <span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlim=</span><span class="kw">c</span>(min_val<span class="op">*</span><span class="fl">1.5</span>,max_val<span class="op">*</span><span class="fl">1.5</span>), <span class="dt">ylim=</span><span class="kw">c</span>(min_val,max_val), <span class="dt">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Y&quot;</span>, )</span>
+<span id="cb55-14"><a href="d-linear-transformations.html#cb55-14"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb55-15"><a href="d-linear-transformations.html#cb55-15"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb55-16"><a href="d-linear-transformations.html#cb55-16"></a>  vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
+<span id="cb55-17"><a href="d-linear-transformations.html#cb55-17"></a>                     <span class="dt">x0=</span>a0, <span class="dt">y0=</span>b0, <span class="dt">x1=</span>a1 ,<span class="dt">y1=</span>b1, </span>
+<span id="cb55-18"><a href="d-linear-transformations.html#cb55-18"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb55-19"><a href="d-linear-transformations.html#cb55-19"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col, <span class="dt">lty=</span><span class="dv">2</span>) )</span>
+<span id="cb55-20"><a href="d-linear-transformations.html#cb55-20"></a>    vecs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vname=</span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;a+b&quot;</span>, <span class="st">&quot;transb&quot;</span>), </span>
+<span id="cb55-21"><a href="d-linear-transformations.html#cb55-21"></a>                     <span class="dt">x0=</span>c0, <span class="dt">y0=</span>d0, <span class="dt">x1=</span>c1, <span class="dt">y1=</span>d1, </span>
+<span id="cb55-22"><a href="d-linear-transformations.html#cb55-22"></a>                     <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb55-23"><a href="d-linear-transformations.html#cb55-23"></a>  <span class="kw">with</span>( vecs, <span class="kw">mapply</span>(<span class="st">&quot;arrows&quot;</span>, x0, y0, x1,y1,<span class="dt">col=</span>col) )</span>
+<span id="cb55-24"><a href="d-linear-transformations.html#cb55-24"></a></span>
+<span id="cb55-25"><a href="d-linear-transformations.html#cb55-25"></a>}</span></code></pre></div>
 <p>This function has four parameters. The parameters <code>before1</code> and <code>before2</code> are two vectors before the mapping, and <code>after1</code> and <code>after2</code> are their images after the mapping. The function creates a dashed plot of the parallelogram with corners (0,0), <code>before1</code>, <code>before2</code> and <code>before1+before2</code>. It also creates a solid plot of the image of this parallelogram. These are plotted on the same plane so taht we can easily compare “before” and “after.”</p>
 <p>Here is an example. Let’s start with vectors <span class="math inline">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and <span class="math inline">\(\begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span>. It’s nice to start with vectors of different lengths. Let’s consider the mapping correspoding to multiplication by the matrix
 <span class="math display">\[
 A = \begin{bmatrix} 2 &amp; 3 \\ 4 &amp; -1 \end{bmatrix}.
 \]</span>
 Here is some example code showing how to make our plot. Note: <code>A %*% x</code> is the syntax for matrix multiplication in R.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="d-linear-transformations.html#cb61-1"></a>vec1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>)</span>
-<span id="cb61-2"><a href="d-linear-transformations.html#cb61-2"></a>vec2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>)</span>
-<span id="cb61-3"><a href="d-linear-transformations.html#cb61-3"></a></span>
-<span id="cb61-4"><a href="d-linear-transformations.html#cb61-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="op">-</span><span class="dv">1</span>))</span>
-<span id="cb61-5"><a href="d-linear-transformations.html#cb61-5"></a></span>
-<span id="cb61-6"><a href="d-linear-transformations.html#cb61-6"></a>newvec1 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec1</span>
-<span id="cb61-7"><a href="d-linear-transformations.html#cb61-7"></a>newvec2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec2</span>
-<span id="cb61-8"><a href="d-linear-transformations.html#cb61-8"></a></span>
-<span id="cb61-9"><a href="d-linear-transformations.html#cb61-9"></a><span class="kw">plot_four_vectors</span>(vec1, vec2, newvec1, newvec2)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="d-linear-transformations.html#cb56-1"></a>vec1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>)</span>
+<span id="cb56-2"><a href="d-linear-transformations.html#cb56-2"></a>vec2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb56-3"><a href="d-linear-transformations.html#cb56-3"></a></span>
+<span id="cb56-4"><a href="d-linear-transformations.html#cb56-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb56-5"><a href="d-linear-transformations.html#cb56-5"></a></span>
+<span id="cb56-6"><a href="d-linear-transformations.html#cb56-6"></a>newvec1 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec1</span>
+<span id="cb56-7"><a href="d-linear-transformations.html#cb56-7"></a>newvec2 =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>vec2</span>
+<span id="cb56-8"><a href="d-linear-transformations.html#cb56-8"></a></span>
+<span id="cb56-9"><a href="d-linear-transformations.html#cb56-9"></a><span class="kw">plot_four_vectors</span>(vec1, vec2, newvec1, newvec2)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:example-2d-transformation"></span>
 <img src="math236_handbook_files/figure-html/example-2d-transformation-1.png" alt="An example 2D linear transformation" width="75%" />
 <p class="caption">
@@ -498,10 +514,10 @@ Figure 17.1: An example 2D linear transformation
 <p>Explore matrices of the form
 <span class="math display">\[A=\displaystyle{ \begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix}}.\]</span>
 Once again, try various combinations of positive, negative, small and large numbers. Here is some sample code that would create such a matrix for <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=1\)</span>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="d-linear-transformations.html#cb62-1"></a>a =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb62-2"><a href="d-linear-transformations.html#cb62-2"></a>b =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb62-3"><a href="d-linear-transformations.html#cb62-3"></a></span>
-<span id="cb62-4"><a href="d-linear-transformations.html#cb62-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(a,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,b))</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="d-linear-transformations.html#cb57-1"></a>a =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb57-2"><a href="d-linear-transformations.html#cb57-2"></a>b =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb57-3"><a href="d-linear-transformations.html#cb57-3"></a></span>
+<span id="cb57-4"><a href="d-linear-transformations.html#cb57-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(a,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>,b))</span></code></pre></div>
 </div>
 <div id="family-2" class="section level3">
 <h3><span class="header-section-number">17.2.2</span> Family 2</h3>
@@ -514,13 +530,13 @@ Try various combinations of positive and negative numbers. Also try numbers of s
 <p>Explore matrices of the form
 <span class="math display">\[A=\displaystyle{ \begin{bmatrix} \cos(t) &amp; -\sin(t) \\ \sin(t) &amp; \cos(t) \end{bmatrix}}\]</span>
 where <span class="math inline">\(t\)</span> is in radians. Here is a function that will create such a matrix.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="d-linear-transformations.html#cb63-1"></a>create_angle_matrix &lt;-<span class="st"> </span><span class="cf">function</span>(t) {</span>
-<span id="cb63-2"><a href="d-linear-transformations.html#cb63-2"></a>  A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(t), <span class="kw">sin</span>(t)), <span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(t), <span class="kw">cos</span>(t)))</span>
-<span id="cb63-3"><a href="d-linear-transformations.html#cb63-3"></a>  <span class="kw">return</span>(A)</span>
-<span id="cb63-4"><a href="d-linear-transformations.html#cb63-4"></a>}</span>
-<span id="cb63-5"><a href="d-linear-transformations.html#cb63-5"></a></span>
-<span id="cb63-6"><a href="d-linear-transformations.html#cb63-6"></a>A =<span class="st"> </span><span class="kw">create_angle_matrix</span>(pi<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb63-7"><a href="d-linear-transformations.html#cb63-7"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="d-linear-transformations.html#cb58-1"></a>create_angle_matrix &lt;-<span class="st"> </span><span class="cf">function</span>(t) {</span>
+<span id="cb58-2"><a href="d-linear-transformations.html#cb58-2"></a>  A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="kw">cos</span>(t), <span class="kw">sin</span>(t)), <span class="kw">c</span>(<span class="op">-</span><span class="kw">sin</span>(t), <span class="kw">cos</span>(t)))</span>
+<span id="cb58-3"><a href="d-linear-transformations.html#cb58-3"></a>  <span class="kw">return</span>(A)</span>
+<span id="cb58-4"><a href="d-linear-transformations.html#cb58-4"></a>}</span>
+<span id="cb58-5"><a href="d-linear-transformations.html#cb58-5"></a></span>
+<span id="cb58-6"><a href="d-linear-transformations.html#cb58-6"></a>A =<span class="st"> </span><span class="kw">create_angle_matrix</span>(pi<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb58-7"><a href="d-linear-transformations.html#cb58-7"></a>A</span></code></pre></div>
 <pre><code>##              [,1]          [,2]
 ## [1,] 6.123234e-17 -1.000000e+00
 ## [2,] 1.000000e+00  6.123234e-17</code></pre>
