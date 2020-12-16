@@ -1,6 +1,7 @@
 
 # SVD and Image Compression
 
+[Download this Rmd file](https://github.com/mathbeveridge/math236_f20/blob/main/12-image-compression.Rmd)
 
 Today we will use the `svd` command to find the Singular Value Decomposition of an $m \times n$ matrix.
 We will practice reading the output of this command and finding bases for the four fundamental subspaces of a matrix.

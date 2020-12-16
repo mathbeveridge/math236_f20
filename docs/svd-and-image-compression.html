@@ -411,6 +411,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
             <section class="normal" id="section-">
 <div id="svd-and-image-compression" class="section level1">
 <h1><span class="header-section-number">Vector 26</span> SVD and Image Compression</h1>
+<p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/12-image-compression.Rmd">Download this Rmd file</a></p>
 <p>Today we will use the <code>svd</code> command to find the Singular Value Decomposition of an <span class="math inline">\(m \times n\)</span> matrix.
 We will practice reading the output of this command and finding bases for the four fundamental subspaces of a matrix.
 Then we will look at a cool application of SVD: image compression!</p>
@@ -433,7 +434,7 @@ Then we will look at a cool application of SVD: image compression!</p>
 </ol>
 <div id="svd-example-1" class="section level3">
 <h3><span class="header-section-number">26.1.1</span> SVD Example 1</h3>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="svd-and-image-compression.html#cb218-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="svd-and-image-compression.html#cb223-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">4</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1   -2    1    0    1
 ## [2,]   -1    3   -1    1   -1
@@ -442,7 +443,7 @@ Then we will look at a cool application of SVD: image compression!</p>
 </div>
 <div id="svd-example-2" class="section level3">
 <h3><span class="header-section-number">26.1.2</span> SVD Example 2</h3>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="svd-and-image-compression.html#cb220-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">9</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">9</span>,<span class="op">-</span><span class="dv">18</span>,<span class="dv">14</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">6</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">11</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">11</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="svd-and-image-compression.html#cb225-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">9</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">9</span>,<span class="op">-</span><span class="dv">18</span>,<span class="dv">14</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">6</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">11</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">11</span>)))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]   -3   -1    9    3   -2
 ## [2,]    5   -2   -4   -4   11
@@ -452,8 +453,8 @@ Then we will look at a cool application of SVD: image compression!</p>
 </div>
 <div id="svd-example-3" class="section level3">
 <h3><span class="header-section-number">26.1.3</span> SVD Example 3</h3>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="svd-and-image-compression.html#cb222-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
-<span id="cb222-2"><a href="svd-and-image-compression.html#cb222-2"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x<span class="op">^</span><span class="dv">1</span>, x<span class="op">^</span><span class="dv">2</span>, x<span class="op">^</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="svd-and-image-compression.html#cb227-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb227-2"><a href="svd-and-image-compression.html#cb227-2"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x<span class="op">^</span><span class="dv">1</span>, x<span class="op">^</span><span class="dv">2</span>, x<span class="op">^</span><span class="dv">3</span>))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    1    1    1
 ## [2,]    1    2    4    8
@@ -488,11 +489,12 @@ If the package is missing, then uncomment and run the folllowing code chunk</li>
 <div id="svd-of-a-raster-image" class="section level3">
 <h3><span class="header-section-number">26.2.2</span> SVD of a Raster Image</h3>
 <p>The <code>img</code> variable is just a matrix. So we can find its singular value decomposition. We find that there are some large gaps in the singular values.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="svd-and-image-compression.html#cb226-1"></a>decomp =<span class="kw">svd</span>(img)<span class="op">$</span>d</span>
-<span id="cb226-2"><a href="svd-and-image-compression.html#cb226-2"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;)</span></span>
-<span id="cb226-3"><a href="svd-and-image-compression.html#cb226-3"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;,ylim=c(0,5))</span></span>
-<span id="cb226-4"><a href="svd-and-image-compression.html#cb226-4"></a>decomp[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
-<pre><code>##  [1] 243.100715  23.459676  23.070452  22.687676  22.469706  11.317300   1.732057   1.647588   1.195523   1.161641</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="svd-and-image-compression.html#cb231-1"></a>decomp =<span class="kw">svd</span>(img)<span class="op">$</span>d</span>
+<span id="cb231-2"><a href="svd-and-image-compression.html#cb231-2"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;)</span></span>
+<span id="cb231-3"><a href="svd-and-image-compression.html#cb231-3"></a><span class="co">#plot(decomp,pch=19,cex=.5,col=&#39;blue&#39;,ylim=c(0,5))</span></span>
+<span id="cb231-4"><a href="svd-and-image-compression.html#cb231-4"></a>decomp[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1] 243.100715  23.459676  23.070452  22.687676  22.469706  11.317300
+##  [7]   1.732057   1.647588   1.195523   1.161641</code></pre>
 </div>
 <div id="svd-approximation-of-the-image" class="section level3">
 <h3><span class="header-section-number">26.2.3</span> SVD Approximation of the image</h3>
@@ -501,43 +503,43 @@ If the package is missing, then uncomment and run the folllowing code chunk</li>
 <li><code>plot_svd_approx(img, k)</code>: create the spectral decomposition corresponding to the <span class="math inline">\(k\)</span> largest singular values in the spectral decomposition.</li>
 <li><code>get_svd_approx_error(img, k)</code>: reports the average pixel error of the approximation.</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="svd-and-image-compression.html#cb228-1"></a><span class="co"># returns the spectral decomposition matrix for the first k singular values</span></span>
-<span id="cb228-2"><a href="svd-and-image-compression.html#cb228-2"></a>svd_approx =<span class="st"> </span><span class="cf">function</span>(A,<span class="dt">k =</span> <span class="kw">floor</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span><span class="kw">min</span>(<span class="kw">nrow</span>(A),<span class="kw">ncol</span>(A)))) {</span>
-<span id="cb228-3"><a href="svd-and-image-compression.html#cb228-3"></a>  decomp =<span class="st"> </span><span class="kw">svd</span>(A)</span>
-<span id="cb228-4"><a href="svd-and-image-compression.html#cb228-4"></a>  sings =<span class="st"> </span>decomp<span class="op">$</span>d</span>
-<span id="cb228-5"><a href="svd-and-image-compression.html#cb228-5"></a>  U =<span class="st"> </span>decomp<span class="op">$</span>u</span>
-<span id="cb228-6"><a href="svd-and-image-compression.html#cb228-6"></a>  V =<span class="st"> </span>decomp<span class="op">$</span>v</span>
-<span id="cb228-7"><a href="svd-and-image-compression.html#cb228-7"></a>  <span class="cf">if</span>(k<span class="op">==</span><span class="dv">1</span>)</span>
-<span id="cb228-8"><a href="svd-and-image-compression.html#cb228-8"></a>    D=<span class="kw">matrix</span>(sings[<span class="dv">1</span>],<span class="dt">nrow=</span><span class="dv">1</span>,<span class="dt">ncol=</span><span class="dv">1</span>)</span>
-<span id="cb228-9"><a href="svd-and-image-compression.html#cb228-9"></a>  <span class="cf">else</span></span>
-<span id="cb228-10"><a href="svd-and-image-compression.html#cb228-10"></a>    D=<span class="kw">diag</span>(sings[<span class="dv">1</span><span class="op">:</span>k])</span>
-<span id="cb228-11"><a href="svd-and-image-compression.html#cb228-11"></a>  M=U[,<span class="dv">1</span><span class="op">:</span>k]<span class="op">%*%</span>D<span class="op">%*%</span><span class="kw">t</span>(V[,<span class="dv">1</span><span class="op">:</span>k])</span>
-<span id="cb228-12"><a href="svd-and-image-compression.html#cb228-12"></a>  <span class="kw">return</span>(M)</span>
-<span id="cb228-13"><a href="svd-and-image-compression.html#cb228-13"></a>}</span>
-<span id="cb228-14"><a href="svd-and-image-compression.html#cb228-14"></a></span>
-<span id="cb228-15"><a href="svd-and-image-compression.html#cb228-15"></a></span>
-<span id="cb228-16"><a href="svd-and-image-compression.html#cb228-16"></a><span class="co"># gets the svd approximation of the image</span></span>
-<span id="cb228-17"><a href="svd-and-image-compression.html#cb228-17"></a>get_svd_approx_img &lt;-<span class="st"> </span><span class="cf">function</span>(img,k) {</span>
-<span id="cb228-18"><a href="svd-and-image-compression.html#cb228-18"></a>  approxIm =<span class="st"> </span><span class="kw">svd_approx</span>(img,k)</span>
-<span id="cb228-19"><a href="svd-and-image-compression.html#cb228-19"></a>  approxIm[approxIm<span class="op">&lt;</span><span class="dv">0</span>] =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb228-20"><a href="svd-and-image-compression.html#cb228-20"></a>  approxIm[approxIm<span class="op">&gt;</span><span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb228-21"><a href="svd-and-image-compression.html#cb228-21"></a>  </span>
-<span id="cb228-22"><a href="svd-and-image-compression.html#cb228-22"></a>  <span class="kw">return</span> (approxIm)</span>
-<span id="cb228-23"><a href="svd-and-image-compression.html#cb228-23"></a>}</span>
-<span id="cb228-24"><a href="svd-and-image-compression.html#cb228-24"></a></span>
-<span id="cb228-25"><a href="svd-and-image-compression.html#cb228-25"></a><span class="co"># returns the average pixel error for the svd approximation of the image</span></span>
-<span id="cb228-26"><a href="svd-and-image-compression.html#cb228-26"></a>get_svd_approx_error &lt;-<span class="st">  </span><span class="cf">function</span>(img, k) {</span>
-<span id="cb228-27"><a href="svd-and-image-compression.html#cb228-27"></a>  approxImg =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
-<span id="cb228-28"><a href="svd-and-image-compression.html#cb228-28"></a>  return  =<span class="st"> </span><span class="kw">mean</span>(<span class="kw">abs</span>(img <span class="op">-</span><span class="st"> </span>approxImg))</span>
-<span id="cb228-29"><a href="svd-and-image-compression.html#cb228-29"></a>}</span>
-<span id="cb228-30"><a href="svd-and-image-compression.html#cb228-30"></a></span>
-<span id="cb228-31"><a href="svd-and-image-compression.html#cb228-31"></a><span class="co"># plots the SVD approximation of the image</span></span>
-<span id="cb228-32"><a href="svd-and-image-compression.html#cb228-32"></a>plot_svd_approx=<span class="cf">function</span>(img,k){</span>
-<span id="cb228-33"><a href="svd-and-image-compression.html#cb228-33"></a>  approxIm =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
-<span id="cb228-34"><a href="svd-and-image-compression.html#cb228-34"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)</span>
-<span id="cb228-35"><a href="svd-and-image-compression.html#cb228-35"></a>  <span class="kw">rasterImage</span>(approxIm, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>)</span>
-<span id="cb228-36"><a href="svd-and-image-compression.html#cb228-36"></a></span>
-<span id="cb228-37"><a href="svd-and-image-compression.html#cb228-37"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="svd-and-image-compression.html#cb233-1"></a><span class="co"># returns the spectral decomposition matrix for the first k singular values</span></span>
+<span id="cb233-2"><a href="svd-and-image-compression.html#cb233-2"></a>svd_approx =<span class="st"> </span><span class="cf">function</span>(A,<span class="dt">k =</span> <span class="kw">floor</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span><span class="kw">min</span>(<span class="kw">nrow</span>(A),<span class="kw">ncol</span>(A)))) {</span>
+<span id="cb233-3"><a href="svd-and-image-compression.html#cb233-3"></a>  decomp =<span class="st"> </span><span class="kw">svd</span>(A)</span>
+<span id="cb233-4"><a href="svd-and-image-compression.html#cb233-4"></a>  sings =<span class="st"> </span>decomp<span class="op">$</span>d</span>
+<span id="cb233-5"><a href="svd-and-image-compression.html#cb233-5"></a>  U =<span class="st"> </span>decomp<span class="op">$</span>u</span>
+<span id="cb233-6"><a href="svd-and-image-compression.html#cb233-6"></a>  V =<span class="st"> </span>decomp<span class="op">$</span>v</span>
+<span id="cb233-7"><a href="svd-and-image-compression.html#cb233-7"></a>  <span class="cf">if</span>(k<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb233-8"><a href="svd-and-image-compression.html#cb233-8"></a>    D=<span class="kw">matrix</span>(sings[<span class="dv">1</span>],<span class="dt">nrow=</span><span class="dv">1</span>,<span class="dt">ncol=</span><span class="dv">1</span>)</span>
+<span id="cb233-9"><a href="svd-and-image-compression.html#cb233-9"></a>  <span class="cf">else</span></span>
+<span id="cb233-10"><a href="svd-and-image-compression.html#cb233-10"></a>    D=<span class="kw">diag</span>(sings[<span class="dv">1</span><span class="op">:</span>k])</span>
+<span id="cb233-11"><a href="svd-and-image-compression.html#cb233-11"></a>  M=U[,<span class="dv">1</span><span class="op">:</span>k]<span class="op">%*%</span>D<span class="op">%*%</span><span class="kw">t</span>(V[,<span class="dv">1</span><span class="op">:</span>k])</span>
+<span id="cb233-12"><a href="svd-and-image-compression.html#cb233-12"></a>  <span class="kw">return</span>(M)</span>
+<span id="cb233-13"><a href="svd-and-image-compression.html#cb233-13"></a>}</span>
+<span id="cb233-14"><a href="svd-and-image-compression.html#cb233-14"></a></span>
+<span id="cb233-15"><a href="svd-and-image-compression.html#cb233-15"></a></span>
+<span id="cb233-16"><a href="svd-and-image-compression.html#cb233-16"></a><span class="co"># gets the svd approximation of the image</span></span>
+<span id="cb233-17"><a href="svd-and-image-compression.html#cb233-17"></a>get_svd_approx_img &lt;-<span class="st"> </span><span class="cf">function</span>(img,k) {</span>
+<span id="cb233-18"><a href="svd-and-image-compression.html#cb233-18"></a>  approxIm =<span class="st"> </span><span class="kw">svd_approx</span>(img,k)</span>
+<span id="cb233-19"><a href="svd-and-image-compression.html#cb233-19"></a>  approxIm[approxIm<span class="op">&lt;</span><span class="dv">0</span>] =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb233-20"><a href="svd-and-image-compression.html#cb233-20"></a>  approxIm[approxIm<span class="op">&gt;</span><span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb233-21"><a href="svd-and-image-compression.html#cb233-21"></a>  </span>
+<span id="cb233-22"><a href="svd-and-image-compression.html#cb233-22"></a>  <span class="kw">return</span> (approxIm)</span>
+<span id="cb233-23"><a href="svd-and-image-compression.html#cb233-23"></a>}</span>
+<span id="cb233-24"><a href="svd-and-image-compression.html#cb233-24"></a></span>
+<span id="cb233-25"><a href="svd-and-image-compression.html#cb233-25"></a><span class="co"># returns the average pixel error for the svd approximation of the image</span></span>
+<span id="cb233-26"><a href="svd-and-image-compression.html#cb233-26"></a>get_svd_approx_error &lt;-<span class="st">  </span><span class="cf">function</span>(img, k) {</span>
+<span id="cb233-27"><a href="svd-and-image-compression.html#cb233-27"></a>  approxImg =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
+<span id="cb233-28"><a href="svd-and-image-compression.html#cb233-28"></a>  return  =<span class="st"> </span><span class="kw">mean</span>(<span class="kw">abs</span>(img <span class="op">-</span><span class="st"> </span>approxImg))</span>
+<span id="cb233-29"><a href="svd-and-image-compression.html#cb233-29"></a>}</span>
+<span id="cb233-30"><a href="svd-and-image-compression.html#cb233-30"></a></span>
+<span id="cb233-31"><a href="svd-and-image-compression.html#cb233-31"></a><span class="co"># plots the SVD approximation of the image</span></span>
+<span id="cb233-32"><a href="svd-and-image-compression.html#cb233-32"></a>plot_svd_approx=<span class="cf">function</span>(img,k){</span>
+<span id="cb233-33"><a href="svd-and-image-compression.html#cb233-33"></a>  approxIm =<span class="st"> </span><span class="kw">get_svd_approx_img</span>(img,k)</span>
+<span id="cb233-34"><a href="svd-and-image-compression.html#cb233-34"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)</span>
+<span id="cb233-35"><a href="svd-and-image-compression.html#cb233-35"></a>  <span class="kw">rasterImage</span>(approxIm, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>)</span>
+<span id="cb233-36"><a href="svd-and-image-compression.html#cb233-36"></a></span>
+<span id="cb233-37"><a href="svd-and-image-compression.html#cb233-37"></a>}</span></code></pre></div>
 <p>And here we show the singular value approximation with increasing numbers of singular values:</p>
 </div>
 <div id="svd-of-a-lighthouse" class="section level3">
