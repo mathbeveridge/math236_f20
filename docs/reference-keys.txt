@@ -56,9 +56,9 @@ cosine-similarity-for-us-senators
 important-definitions
 week-1-learning-goals
 solving-linear-equations
+rstudio
 vocabulary
 conceptual-thinking
-rstudio
 week-2-learning-goals
 solution-sets-span-and-linear-independence
 vocabulary-1
@@ -75,6 +75,10 @@ week-5-6-learning-goals
 eigensystems
 vocabulary-4
 conceptual-thinking-4
+week-7-8-learning-goals
+orthogonality-and-svd
+vocabulary-5
+conceptual-thinking-5
 linear-systems-in-r
 building-vectors-and-matrices
 solving-a-linear-system

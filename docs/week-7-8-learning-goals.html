@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Vector 29 Quiz 2 Review | MATH 236: Linear Algebra</title>
+  <title>Vector 15 Week 7-8 Learning Goals | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Vector 29 Quiz 2 Review | MATH 236: Linear Algebra" />
+  <meta property="og:title" content="Vector 15 Week 7-8 Learning Goals | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vector 29 Quiz 2 Review | MATH 236: Linear Algebra" />
+  <meta name="twitter:title" content="Vector 15 Week 7-8 Learning Goals | MATH 236: Linear Algebra" />
   
   <meta name="twitter:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="quiz-1-review.html"/>
-<link rel="next" href="quiz-3-review.html"/>
+<link rel="prev" href="week-5-6-learning-goals.html"/>
+<link rel="next" href="linear-systems-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -414,533 +414,89 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="quiz-2-review" class="section level1">
-<h1><span class="header-section-number">Vector 29</span> Quiz 2 Review</h1>
-<div id="overview-1" class="section level2">
-<h2><span class="header-section-number">29.1</span> Overview</h2>
-<p>Our second quiz covers sections 2.1 - 2.3 and 4.1-4.6 in Lay’s book. This corresponds to Problem Sets 4 and 5.</p>
-<p>The best way to study is to do practice problems. The Quiz will have calculation problems (like Edfinity) and more conceptual problems (like the problem sets). Here are some ways to practice:</p>
+<div id="week-7-8-learning-goals" class="section level1">
+<h1><span class="header-section-number">Vector 15</span> Week 7-8 Learning Goals</h1>
+<p>Here are the knowledge and skills you should master by the end of the seventh and eighth weeks.</p>
+<div id="orthogonality-and-svd" class="section level2">
+<h2><span class="header-section-number">15.1</span> Orthogonality and SVD</h2>
+<p>I should be able to do the following <strong>tasks</strong>:</p>
 <ul>
-<li>Make sure that you have mastered the Vocabulary, Skills and Concepts listed below.</li>
-<li>Look over the Edfinity homework assingments</li>
-<li>Do practice problems from the Edfinity Practice assignments. These allow you to “Practice Similar” by generating new variations of the same problem.</li>
-<li>Try to resolve the Problem Sets and compare your answers to the solutions.</li>
-<li>Do the practice problems below. Compare your answers to the solutions.</li>
-</ul>
-<div id="vocabulary-and-concepts-1" class="section level3">
-<h3><span class="header-section-number">29.1.1</span> Vocabulary and Concepts</h3>
-<p>You should understand these concepts and be able to read and use these terms correctly:</p>
-<ul>
-<li>all of the <a href="important-definitions.html#important-definitions">Important Definitions found here</a>.</li>
-<li>matrix inverses</li>
-<li>the Invertible Matrix Theorem</li>
-<li>homogeneous coordinates</li>
-<li>subspaces</li>
-<li>null space and column space of a matrix</li>
-<li>kernel and image of a linear transformation</li>
-<li>basis (span and linearly independent)</li>
-<li>coordinate vector with respect to a basis <span class="math inline">\(\mathcal{B}\)</span></li>
-<li>change-of-coordinates matrix</li>
-<li>dimension</li>
+<li>Find the length of a vector</li>
+<li>Find the distance between two vectors</li>
+<li>Normalize a vector</li>
+<li>Find the cosine of the angle between two vectors</li>
+<li>Find the orthogonal projection of one vector onto another</li>
+<li>Find the orthogonal projection of one vector onto a subspace (using an orthogonal basis)</li>
+<li>Find the orthogonal complement of a subspace</li>
+<li>Use the Gram-Schmidt process to create an orthonormal basis (starting from a given basis)</li>
+<li>Find the least squares approximation for an inconsistent system</li>
+<li>Formulate a curve fitting problem as an inconsistent linear system <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></li>
+<li>Orthogonally diagonalize a symmetric matrix as <span class="math inline">\(A=PDP^{\top}\)</span>.</li>
+<li>Find the spectral decomposition <span class="math inline">\(A = \lambda_1 \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_2 \mathsf{v}_2 \mathsf{v}_2^{\top} + \cdots + \lambda_n \mathsf{v}_n \mathsf{v}_n^{\top}\)</span> of a symmetric matrix <span class="math inline">\(A\)</span></li>
+<li>Find the best rank <span class="math inline">\(k\)</span> approximation of symmetric matrix <span class="math inline">\(A\)</span> (using its orthogonal diagonalization)</li>
+<li>Find the singular value decomposition <span class="math inline">\(A = U \Sigma V^{\top}\)</span> of a rectangular matrix <span class="math inline">\(A\)</span></li>
+<li>Use the singular value decomposition <span class="math inline">\(A = U \Sigma V^{\top}\)</span> to find orthonormal bases for <span class="math inline">\(\mbox{Row}(A), \mbox{Nul}(A), \mbox{Col}(A), \mbox{Nul}(A^{\top})\)</span></li>
+<li>Find the SVD spectral decomposition <span class="math inline">\(A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} + \cdots + \lambda_n \mathsf{u}_r \mathsf{v}_r^{\top}\)</span> of a rank <span class="math inline">\(r\)</span> matrix <span class="math inline">\(A\)</span></li>
+<li>Find the best rank <span class="math inline">\(k\)</span> approximation of a matrix <span class="math inline">\(A\)</span> (using its singular value decomposition)</li>
 </ul>
 </div>
-<div id="skills-1" class="section level3">
-<h3><span class="header-section-number">29.1.2</span> Skills</h3>
-<p>You should be able to perform these linear algebra tasks.</p>
+<div id="vocabulary-5" class="section level2">
+<h2><span class="header-section-number">15.2</span> Vocabulary</h2>
+<p>I should know and be able to use and explain the following <strong>terms</strong> or <strong>properties</strong>.</p>
 <ul>
-<li>solve matrix algebra equations</li>
-<li>find a matrix inverse</li>
-<li>use homogeneous coordinates to transform and translate images in the plane.</li>
-<li>show that a subset is a subspace or demonstrate that it is not a subspace</li>
-<li>describe the null space and the column space</li>
-<li>determine if a vector is in a null space or column space</li>
-<li>find a basis of a subspace</li>
-<li>answer questions about the connections between all these ideas</li>
-<li>write short proofs of basic statements using the <a href="important-definitions.html#important-definitions">Important Definitions</a></li>
+<li>dot product of two vectors (aka scalar product, inner product)</li>
+<li>length (magnitude) of a vector</li>
+<li>angle between vectors</li>
+<li>normalize</li>
+<li>unit vector</li>
+<li>orthogonal vectors</li>
+<li>orthogonal complement of a subspace</li>
+<li>orthogonal projection</li>
+<li>orthogonal basis</li>
+<li>orthonormal basis</li>
+<li>Gram-Schmidt process</li>
+<li>normal equations for a least squares approximation</li>
+<li>least squares solution</li>
+<li>residual vector</li>
+<li>symmetric matrix</li>
+<li>orthogonally diagonalizable</li>
+<li>outer product of two vectors</li>
+<li>spectral decomposition of a symmetric matrix</li>
+<li>singular value decomposition</li>
+<li>singular value, left singular vector, right singular vector</li>
+<li>SVD spectral decomposition of a rectangular matrix</li>
+<li>image compression</li>
 </ul>
 </div>
-</div>
-<div id="practice-problems-1" class="section level2">
-<h2><span class="header-section-number">29.2</span> Practice Problems</h2>
-<ol style="list-style-type: decimal">
-<li>Here is a picture of some boats.</li>
-</ol>
-<center>
-<img src="images/q2r-boat.png" style="width:60.0%" />
-</center>
-<p>The blue, yellow and gray boats are linear transformations of the red boat (using homogeneous coordinates). Find the <span class="math inline">\(3 \times 3\)</span> matrix corresponding to the linear transformation that creates:</p>
-<ol style="list-style-type: lower-alpha">
-<li>The shadow gray boat</li>
-<li>The fast blue boat</li>
-<li>The funny yellow boat.</li>
-</ol>
-<p>For your convenience, here is the code to draw the red boat as well as some commented code that you can adapt to create the other boats.</p>
-<pre><code>&#39;```{r,fig.height=4,fig.width=4}
-
-# the red boat
-boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
-            c(-.5,11), c(-.5,3), c(2,3) )
-boat = rbind(boat,rep(1,11))
-
-##### update these matrices
-graymap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
-bluemap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
-yellowmap = cbind(c(1,0,0), c(0,1,0),c(0,0,1))
-
-
-# plot all of the boats
-grayboat = graymap %*%  boat
-blueboat = bluemap %*%  boat
-yellowboat = yellowmap %*%  boat
-
-plot(boat[1,],boat[2,],type=&quot;n&quot;,xlim=c(-16,16),ylim=c(-16,16),xlab=&quot;x&quot;,ylab=&quot;y&quot;)
-abline(h=-16:16, v=-16:16, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
-
-polygon(grayboat[1,], grayboat[2,], col = &quot;gray&quot;, border = &quot;gray&quot;)
-polygon(blueboat[1,], blueboat[2,], col = &quot;blue&quot;, border = &quot;gray&quot;)
-polygon(yellowboat[1,], yellowboat[2,], col = &quot;yellow&quot;, border = &quot;gray&quot;)
-polygon(boat[1,], boat[2,], col = &quot;red&quot;, border = &quot;blue&quot;)
-</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Find the inverse of the matrix
-<span class="math display">\[
-\left[
-\begin{array}{rrr}
-1 &amp; -2 &amp; 2  \\
-1 &amp; 0 &amp; 0 \\
-2 &amp;-4 &amp; 5
-\end{array}
-\right]
-\]</span></p></li>
-<li><p>Suppose that a linear transformation <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> has the property that
-<span class="math inline">\(T(\mathsf{u}) = T(\mathsf{v})\)</span> for some pair of distinct vectors <span class="math inline">\(\mathsf{u}, \mathsf{v} \in \mathbb{R}^n\)</span>. Can <span class="math inline">\(T\)</span> map <span class="math inline">\(\mathbb{R}^n\)</span> onto <span class="math inline">\(\mathbb{R}^n\)</span>? Why or why not?</p></li>
-<li><p>Let <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> be subspaces of a vector space <span class="math inline">\(\mathbb{R}^n\)</span>.
-Prove or disprove the following statements</p>
-<ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(U \cap W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}\)</span> is a subspace</li>
-<li><span class="math inline">\(U \cup W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}\)</span> is a subspace</li>
-<li><span class="math inline">\(U+W = \{\mathsf{u} + \mathsf{w} \mid \mathsf{u} \in U \mbox{ and } \mathsf{w} \in W \}\)</span> is a subspace</li>
-</ol></li>
-<li><p>Let <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> be a linear transformation.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> are linearly independent, then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p></li>
-<li><p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is onto. Prove that if <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> span <span class="math inline">\(\mathbb{R}^n\)</span> then <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> span <span class="math inline">\(\mathbb{R}^m\)</span>.</p></li>
-</ol></li>
-<li><p>I have performed some row operations below for you on a matrix <span class="math inline">\(A\)</span>. Find a basis for the column space and the null space of <span class="math inline">\(A\)</span>.
-<span class="math display">\[
-A=
-\left[
-\begin{matrix}
-1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1 \\
-1&amp; 2&amp; 1&amp; 1&amp; 0&amp; -2 \\
-2&amp; 4&amp; -2&amp; 6&amp; 1&amp; 2 \\
-1&amp; 2&amp;  0&amp; 2&amp; -1&amp; -3 \\
-\end{matrix}\right] \longrightarrow
-\left[
-\begin{matrix}
-1&amp; 2&amp; 0&amp; 2&amp; 0&amp; -1\\
-0&amp; 0&amp; 1&amp; -1&amp; 0&amp; -1\\
-0&amp; 0&amp; 0&amp; 0&amp; 1&amp; 2\\
-0&amp; 0&amp;   0&amp; 0&amp; 0&amp; 0\\
-\end{matrix}\right] 
-\]</span></p></li>
-<li><p>Consider the matrix
-<span class="math display">\[
-A = \left[
-\begin{array}{cccc}
-1 &amp; 5 &amp; 2 &amp; -4 \\
-3 &amp; 10 &amp; 2 &amp; 8 \\
-4 &amp; 15 &amp; 4 &amp; 4 
-\end{array}
-\right]
-\]</span>
-Find a basis for <span class="math inline">\(\mathrm{Col}(A)\)</span>. Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span>.</p></li>
-<li><p>Are the vectors in <span class="math inline">\({\mathcal B}\)</span> a basis of <span class="math inline">\(\mathbb{R}^3\)</span>? If not, find a basis of <span class="math inline">\(\mathbb{R}^3\)</span> that consists of as many of the vectors from <span class="math inline">\({\mathcal B}\)</span> as is possible. Explain your reasoning.
-<span class="math display">\[
-\mathcal{B}=\left\{ \begin{bmatrix} 1 \\ -1 \\ -2 \end{bmatrix},\begin{bmatrix} 2 \\ -1 \\ 1 \end{bmatrix},\begin{bmatrix} -1 \\ -1 \\ -8 \end{bmatrix}
-\right\}
-\]</span></p></li>
-<li><p>I have the vectors below:
-<span class="math display">\[
-\begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix}. 
-\]</span>
-I know that they do not span <span class="math inline">\(\mathbb{R}^5\)</span>, but I want to extend them to a basis of <span class="math inline">\(\mathbb{R}^5\)</span> by adding some vectors to the set. I created the matrix below and row reduced. Give a basis for <span class="math inline">\(\mathbb{R}^5\)</span> that uses my three vectors and explain why this method works in general.
-<span class="math display">\[
-\left[
-\begin{array}{cccccccc}
- 5 &amp; 4 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
- 4 &amp; 4 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
- 3 &amp; 3 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
- 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
- 2 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
-\end{array}
-\right] \rightarrow \left[
-\begin{array}{cccccccc}
- 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 &amp; -3 \\
- 0 &amp; 1 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; -3 &amp; 4 \\
- 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; -1 \\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 2 &amp; -3 \\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; -2 \\
-\end{array}
-\right]
-\]</span></p></li>
-<li><p>Find the coordinates of <span class="math inline">\(\mathsf{w}\)</span> in the standard basis and of <span class="math inline">\(\mathsf{v}\)</span> in the <span class="math inline">\(\mathcal{B}\)</span>-basis.
-<span class="math display">\[
-\mathcal{B} = \left\{
-\mathsf{v}_1=\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
-\mathsf{v}_2=\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
-\mathsf{v}_3=\begin{bmatrix} 1 \\ 1 \\ 1 \\ 0 \end{bmatrix},
-\mathsf{v}_4=\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
-\right\},
-\qquad
-\mathsf{w} = 
-\begin{bmatrix} 3 \\ -2 \\ 0 \\ -1 \end{bmatrix}_{\mathcal{B}},
-\qquad
-\mathsf{v} = 
-\begin{bmatrix} 10 \\ 9 \\ 7 \\ 4 \end{bmatrix}_{\mathcal{S}}
-\]</span></p></li>
-<li><p>The subspace <span class="math inline">\(S \subset \mathbb{R}^5\)</span> is given by
-<span class="math display">\[ \mathsf{S} = \mathsf{span}
-\left(
-\begin{bmatrix}1\\ 1\\ 0\\ -1\\ 2 \end{bmatrix},
-\begin{bmatrix} 0\\ 1\\ 1\\  1\\ 1 \end{bmatrix},
-\begin{bmatrix} 3\\ 1\\ -2\\ -5\\ 4 \end{bmatrix},
-\begin{bmatrix} 1\\ 0\\ 1\\ 0\\ 1 \end{bmatrix},
-\begin{bmatrix} 2\\ -1\\ -1\\ -3\\ 1 \end{bmatrix},
-\right)\]</span></p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Use the following matrix to find a basis for <span class="math inline">\(S\)</span>. What is the dimension of <span class="math inline">\(S\)</span>?
-<span class="math display">\[
-A=\left[
-\begin{array}{ccccc}
- 1 &amp; 0 &amp; 3 &amp; 1 &amp; 2 \\
- 1 &amp; 1 &amp; 1 &amp; 0 &amp; -1 \\
- 0 &amp; 1 &amp; -2 &amp; 1 &amp; -1 \\
- -1 &amp; 1 &amp; -5 &amp; 0 &amp; -3 \\
- 2 &amp; 1 &amp; 4 &amp; 1 &amp; 1 \\
-\end{array}
-\right] \rightarrow
-\left[
-\begin{array}{ccccc}
- 1 &amp; 0 &amp; 3 &amp; 0 &amp; 1 \\
- 0 &amp; 1 &amp; -2 &amp; 0 &amp; -2 \\
- 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-\end{array}
-\right]
-\]</span></p></li>
-<li><p>Find a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span>. What is the dimension of this nullspace?</p></li>
-</ol></li>
-<li><p>A <span class="math inline">\(6 \times 8\)</span> matrix <span class="math inline">\(A\)</span> contains 5 pivots. For each of <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>,</p>
+<div id="conceptual-thinking-5" class="section level2">
+<h2><span class="header-section-number">15.3</span> Conceptual Thinking</h2>
+<p>I should understand and be able to explain the following <strong>concepts</strong>:</p>
 <ul>
-<li>Determine the dimension of the subspace,</li>
-<li>Indicate whether it is subspace of <span class="math inline">\(\mathbb{R}^6\)</span> or <span class="math inline">\(\mathbb{R}^8\)</span>, and</li>
-<li>Decide how you would find a basis of the subspace.</li>
-</ul></li>
-</ol>
-</div>
-<div id="solutions-to-practice-problems-1" class="section level2">
-<h2><span class="header-section-number">29.3</span> Solutions to Practice Problems</h2>
-<ol style="list-style-type: decimal">
-<li><p>Here are the matrices to make the boats.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Shadow gray boat:
-<span class="math display">\[ 
-\begin{bmatrix} 1 &amp; 0  &amp; 0 \\ 0 &amp; -1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\]</span><br />
-</li>
-<li>Fast blue boat:
-<span class="math display">\[ 
-\begin{bmatrix} 1 &amp; -0.25  &amp; 13 \\ 0 &amp; 1 &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\]</span></li>
-<li>Funny yellow boat:
-<span class="math display">\[ 
-\begin{bmatrix} 0.35 &amp; -0.35  &amp; -3 \\ 0.35 &amp; 0.35 &amp; 8 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\]</span></li>
-</ol></li>
-</ol>
-<p>And here is the updated code</p>
-<pre><code>&#39;```{r,fig.height=4,fig.width=4,echo=TRUE}
-
-# the red boat
-boat =cbind(c(0,0), c(-6,0), c(-7,3), c(-1,3), c(-1,5), c(-6,5), c(-1,10), c(-1,11),
-            c(-.5,11), c(-.5,3), c(2,3) )
-boat = rbind(boat,rep(1,11))
-
-
-# updated mappings
-graymap = cbind(c(1,0,0), c(0,-1,0),c(0,0,1))
-bluemap = cbind(c(1,0,0), c(0,1,0),c(13,0,1))  %*% cbind(c(1,0,0), c(-.25,1,0),c(0,0,1))
-t=pi/4
-yellowmap = cbind(c(1,0,0), c(0,1,0),c(-3,8,1)) %*% cbind(c(cos(t),sin(t),0), c(-sin(t),cos(t),0),c(0,0,1)) %*% cbind(c(1/2,0,0),c(0,1/2,0),c(0,0,1))
-
-
-
-# plot all of the boats
-grayboat = graymap %*%  boat
-blueboat = bluemap %*%  boat
-yellowboat = yellowmap %*%  boat
-
-plot(boat[1,],boat[2,],type=&quot;n&quot;,xlim=c(-16,16),ylim=c(-16,16),xlab=&quot;x&quot;,ylab=&quot;y&quot;)
-abline(h=-16:16, v=-16:16, col=&quot;gray&quot;, lty=&quot;dotted&quot;)
-
-polygon(grayboat[1,], grayboat[2,], col = &quot;gray&quot;, border = &quot;gray&quot;)
-polygon(blueboat[1,], blueboat[2,], col = &quot;blue&quot;, border = &quot;gray&quot;)
-polygon(yellowboat[1,], yellowboat[2,], col = &quot;yellow&quot;, border = &quot;gray&quot;)
-polygon(boat[1,], boat[2,], col = &quot;red&quot;, border = &quot;blue&quot;)
-</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>The inverse is
-<span class="math display">\[
-\begin{bmatrix}
-0 &amp; 1 &amp; 0 \\ 
--5/2  &amp; 1/2 &amp;1 \\
--2 &amp; 0 &amp; 1
-\end{bmatrix}
-\]</span></li>
-</ol>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="quiz-2-review.html#cb271-1"></a><span class="kw">require</span>(pracma)</span>
-<span id="cb271-2"><a href="quiz-2-review.html#cb271-2"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb271-3"><a href="quiz-2-review.html#cb271-3"></a> <span class="kw">rref</span>(A)</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]    1    0    0  0.0  1.0    0
-## [2,]    0    1    0 -2.5  0.5    1
-## [3,]    0    0    1 -2.0  0.0    1</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li><p>No <span class="math inline">\(T\)</span> cannot be an onto mapping by the Invertible Matrix Theorem. Since <span class="math inline">\(T\)</span> is not one-to-one, the mapping cannot be onto.</p></li>
-<li></li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li><p><strong>True</strong></p>
-<ul>
-<li><p>Since <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are subspaces, we know that <span class="math inline">\(\mathbb{0} \in U\)</span> and <span class="math inline">\(\mathbb{0} \in W\)</span>. Therefore <span class="math inline">\(\mathbb{0} \in U \cap W\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(\mathsf{v}_1 \in U \cap W\)</span> and <span class="math inline">\(\mathsf{v}_2 \in U \cap W\)</span>.
-+ We know that <span class="math inline">\(\mathsf{v}_1 \in U\)</span> and <span class="math inline">\(\mathsf{v}_2 \in U\)</span>. Since <span class="math inline">\(U\)</span> is a subspace, we have <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U\)</span>.
-+ We know that <span class="math inline">\(\mathsf{v}_1 \in W\)</span> and <span class="math inline">\(\mathsf{v}_2 \in W\)</span>. Since <span class="math inline">\(W\)</span> is a subspace, we have <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in W\)</span>.
-Therefore <span class="math inline">\(\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(\mathsf{v} \in U \cap W\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span>.</p>
-<ul>
-<li>We know that <span class="math inline">\(\mathsf{v} \in U\)</span> and <span class="math inline">\(c \in R\)</span>. Since <span class="math inline">\(U\)</span> is a subspace, we have <span class="math inline">\(c \mathsf{v} \in U\)</span>.</li>
-<li>We know that <span class="math inline">\(\mathsf{v} \in W\)</span> and <span class="math inline">\(c \in R\)</span>. Since <span class="math inline">\(W\)</span> is a subspace, we have <span class="math inline">\(c \mathsf{v} \in W\)</span>.</li>
-</ul></li>
-<li><p>Therefore <span class="math inline">\(c \mathsf{v} \in U \cap W\)</span>.</p></li>
-</ul></li>
-<li><p><strong>False.</strong> Here is an example that shows this is not always true.
-Let <span class="math inline">\(V= \mathbb{R}^2\)</span>, <span class="math inline">\(U = \{ { x \choose 0} \mid x \in \mathbb{R} \}\)</span> and <span class="math inline">\(W= \{ { 0 \choose y} \mid y \in \mathbb{R} \}\)</span>. The set <span class="math inline">\(U \cup W\)</span> is not closed under addition. For example,
-<span class="math inline">\({1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W\)</span>.</p></li>
-<li><p><strong>True.</strong></p>
-<ul>
-<li><p>Since <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are subspaces, we know that <span class="math inline">\(\mathbb{0} \in U\)</span> and <span class="math inline">\(\mathbb{0} \in W\)</span>. Therefore <span class="math inline">\(\mathbb{0} = \mathbb{0} + \mathbb{0} \in U + W\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(\mathsf{u}_1 + \mathsf{w}_1 \in U + W\)</span> and <span class="math inline">\(\mathsf{u}_1 + \mathsf{w}_2 \in U + W\)</span>, where <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2 \in U\)</span> and <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2 \in W\)</span>. Then
-<span class="math display">\[
-(\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
-\]</span>
-and <span class="math inline">\(\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U\)</span> (because <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W\)</span> (because <span class="math inline">\(W\)</span> is a subspace).</p></li>
-<li><p>Therefore <span class="math inline">\((\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(\mathsf{u} + \mathsf{w} \in U + W\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span>. Then
-<span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}\)</span>. We know that <span class="math inline">\(c \mathsf{u} \in U\)</span> (since <span class="math inline">\(U\)</span> is a subspace) and <span class="math inline">\(c \mathsf{w} \in W\)</span> (since <span class="math inline">\(W\)</span> is a subspace). Therefore <span class="math inline">\(c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W\)</span>.</p></li>
-</ul></li>
-</ol>
-<ol start="5" style="list-style-type: decimal">
-<li><ol style="list-style-type: lower-alpha">
-<li>Suppose that <span class="math inline">\(c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3) = 0\)</span>. We must show that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</li>
-</ol>
-<ul>
-<li><p>Since <span class="math inline">\(T\)</span> is a linear transformation, this means that <span class="math inline">\(T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(T\)</span> is one-to-one and <span class="math inline">\(T(\mathbf{0}) = \mathbf{0}\)</span>, we must have <span class="math inline">\(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}\)</span>.</p></li>
-<li><p>Because <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> are linearly independent, this means that <span class="math inline">\(c_1 = c_2 = c_3 = 0\)</span>.</p>
-<p>This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> are linearly independent.</p></li>
+<li>The dot product gives an algebraic encoding of the geometry (lengths and angles) of <span class="math inline">\(\mathbb{R}^n\)</span></li>
+<li>If two vectors are orthogonal, then they are perpendicular, or one of them is the zero vector.</li>
+<li>An orthogonal projection is a linear transformation</li>
+<li>The row space of a matrix is orthogonal to its nullspace</li>
+<li>The inverse of orthogonal matrix <span class="math inline">\(A\)</span> is the transpose <span class="math inline">\(A^{\top}\)</span></li>
+<li>The residual vector measures the quality of fit of a least squares solution</li>
+<li>The outer product <span class="math inline">\(\mathsf{v} \mathsf{w}^{\top}\)</span> is a square matrix with rank 1</li>
+<li>Singular value decomposition is a generalization of orthogonal diagonalization</li>
+<li>The singular values of <span class="math inline">\(A\)</span> are the square roots of the eigenvalues of <span class="math inline">\(A^{\top}A\)</span>.</li>
+<li>The spectral decomposition of a matrix allows us to find a rank <span class="math inline">\(k\)</span> approximation of a matrix</li>
+<li>The relative magnitudes of the eigenvectors/singular values indicate the quality of the rank <span class="math inline">\(k\)</span> approximation of the matrix</li>
 </ul>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Given <span class="math inline">\(\mathsf{w} \in W\)</span>. We must show that there exist constants <span class="math inline">\(c_1, c_2, c_3\)</span> such that
-<span class="math inline">\(\mathsf{w} = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)\)</span>. Here we go!</li>
-</ol>
-<ul>
-<li>Since <span class="math inline">\(T\)</span> is onto, we know that there exists <span class="math inline">\(\mathsf{v} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(T(\mathsf{v}) = \mathsf{w}\)</span>.</li>
-<li>Since <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> span <span class="math inline">\(\mathbb{R}^n\)</span>, we know that there exist constants
-<span class="math inline">\(c_1, c_2, c_3\)</span> such that <span class="math inline">\(\mathsf{v}= c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k\)</span></li>
-<li>Therefore
-<span class="math display">\[
-\mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_k)
-\]</span>
-because <span class="math inline">\(T\)</span> is a linear transformation.
-This proves that <span class="math inline">\(T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)\)</span> span <span class="math inline">\(W\)</span>.</li>
-</ul></li>
-<li><p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
-<span class="math display">\[
-\begin{bmatrix}
-1 \\1  \\ 2 \\ 1 
-\end{bmatrix}, \quad
-\begin{bmatrix}
-0 \\1  \\ -2 \\ 0 
-\end{bmatrix}, \quad
-\begin{bmatrix}
-0 \\0  \\ 1 \\ -1 
-\end{bmatrix}
-\]</span>
-and a basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> is
-<span class="math display">\[
-\begin{bmatrix}
--2 \\1  \\ 0 \\ 0 \\ 0 \\ 0
-\end{bmatrix}, \quad
-\begin{bmatrix}
--2 \\0  \\ 1 \\ 1 \\ 0 \\ 0 
-\end{bmatrix}, \quad
-\begin{bmatrix}
-1 \\0   \\ 1\\ 0 \\ -2 \\ 1 
-\end{bmatrix}.
-\]</span></p></li>
-<li><p>Using RStudio we find:</p></li>
-</ol>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    5    2   -4
-## [2,]    3   10    2    8
-## [3,]    4   15    4    4</code></pre>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    0 -2.0   16
-## [2,]    0    1  0.8   -4
-## [3,]    0    0  0.0    0</code></pre>
-<p>A basis for <span class="math inline">\(\mathrm{Col}(A)\)</span> is
-<span class="math display">\[
-\begin{bmatrix}
-1 \\ 3 \\ 4 
-\end{bmatrix}, \quad
-\begin{bmatrix}
-5 \\ 10 \\ 15
-\end{bmatrix}.
-\]</span></p>
-<p>A basis for <span class="math inline">\(\mathrm{Nul}(A)\)</span> is
-<span class="math display">\[
-\begin{bmatrix}
-2 \\ -0.8 \\ 1 \\ 0 
-\end{bmatrix}, \quad
-\begin{bmatrix}
--16 \\ 4  \\ 0 \\ 1
-\end{bmatrix}.
-\]</span></p>
-<ol start="8" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="quiz-2-review.html#cb275-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">8</span>))</span>
-<span id="cb275-2"><a href="quiz-2-review.html#cb275-2"></a>A</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    2   -1
-## [2,]   -1   -1   -1
-## [3,]   -2    1   -8</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="quiz-2-review.html#cb277-1"></a><span class="kw">rref</span>(A)</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    0    3
-## [2,]    0    1   -2
-## [3,]    0    0    0</code></pre>
-<p>No they are not a basis. The corresponding matrix only has two pivots. Let’s add the three elementary vectors to create matrix <span class="math inline">\(B\)</span> and then row reduce.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="quiz-2-review.html#cb279-1"></a>B =<span class="st">  </span><span class="kw">cbind</span>(A, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb279-2"><a href="quiz-2-review.html#cb279-2"></a>B</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]    1    2   -1    1    0    0
-## [2,]   -1   -1   -1    0    1    0
-## [3,]   -2    1   -8    0    0    1</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="quiz-2-review.html#cb281-1"></a><span class="kw">rref</span>(B)</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]       [,5]       [,6]
-## [1,]    1    0    3    0 -0.3333333 -0.3333333
-## [2,]    0    1   -2    0 -0.6666667  0.3333333
-## [3,]    0    0    0    1  1.6666667 -0.3333333</code></pre>
-<p>From this matrix, we can see that the vectors
-<span class="math display">\[
-\begin{bmatrix}
-1 \\ -1 \\ -2 
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-2 \\ -1 \\ 1 
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-1 \\ 0 \\ 0 
-\end{bmatrix}.
-\]</span>
-are linearly independent because they correspond to the basis columns of <span class="math inline">\(B\)</span>.</p>
-<ol start="9" style="list-style-type: decimal">
-<li>A basis for <span class="math inline">\(\mathbb{R}^5\)</span> is
-<span class="math display">\[
-\begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix},
-\begin{bmatrix} 0\\ 1\\ 0\\ 0\\ 0\end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1\\ 0\\ 0 \end{bmatrix}
-\]</span></li>
-</ol>
-<p>because these are basic columns in the given matrix. This will always work: place your desired vectors in the first columns. Since they are linearly independent, they will be basic columns. The remaining <span class="math inline">\(n\)</span> elementary basis vectors span $. So the columns of the matrix span <span class="math inline">\(\mathbb{R}^n\)</span> and Gaussian Elimination will identify <span class="math inline">\(n\)</span> pivots. The corresponding columns are a basis.</p>
-<ol start="10" style="list-style-type: decimal">
-<li>We need the matrices
-<span class="math display">\[
-P_{\cal  B} = 
-\begin{bmatrix}
-1 &amp; 1  &amp; 1 &amp; 1 \\
-0 &amp; 1 &amp; 1 &amp; 1 \\
-0  &amp; 0 &amp;  1 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\qquad \mbox{and}  \qquad
-P_{\cal  B}^{-1} = 
-\begin{bmatrix}
-1 &amp; -1  &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; -1 &amp; 0 \\
-0  &amp; 0 &amp;  1 &amp;-1 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\]</span>
-The desired coordinate vectors are
-<span class="math display">\[
-\mathsf{w} = 
-\begin{bmatrix} 0 \\ -3 \\ -1 \\ -1 \end{bmatrix}_{\mathcal{S}},
-\qquad
-\mathsf{v} = 
-\begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}_{\mathcal{B}}
-\]</span>
-Here is the R code for this solution:</li>
-</ol>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="quiz-2-review.html#cb283-1"></a>A =<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb283-2"><a href="quiz-2-review.html#cb283-2"></a>Ainv =<span class="st"> </span><span class="kw">solve</span>(A)</span>
-<span id="cb283-3"><a href="quiz-2-review.html#cb283-3"></a></span>
-<span id="cb283-4"><a href="quiz-2-review.html#cb283-4"></a>A  <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##      [,1]
-## [1,]    0
-## [2,]   -3
-## [3,]   -1
-## [4,]   -1</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="quiz-2-review.html#cb285-1"></a>Ainv <span class="op">%*%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##      [,1]
-## [1,]    1
-## [2,]    2
-## [3,]    3
-## [4,]    4</code></pre>
-<ol start="11" style="list-style-type: decimal">
-<li><ol style="list-style-type: lower-alpha">
-<li><p><span class="math inline">\(\dim(S) = 3\)</span> and a basis for <span class="math inline">\(S\)</span> is
-<span class="math display">\[
-\begin{bmatrix} 1 \\ 1 \\ 0 \\ -1 \\2  \end{bmatrix}, \quad
-\begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1  \end{bmatrix}, \quad
-\begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \\1  \end{bmatrix}.
-\]</span></p></li>
-<li><p><span class="math inline">\(\dim(\mathrm{Nul}(A))=2\)</span> and a basis is
-<span class="math display">\[
-\begin{bmatrix} -3 \\ 2 \\ 1 \\ 0 \\0  \end{bmatrix}, \quad
-\begin{bmatrix} -1 \\ 2 \\ 0 \\ -1 \\1  \end{bmatrix}.
-\]</span></p></li>
-</ol></li>
-<li><ul>
-<li><span class="math inline">\(\mathrm{Col}(A)\)</span> has dimension 5, and it is a subspace of <span class="math inline">\(\mathbb{R}^6\)</span>. You would find a basis by taking the pivot columns of <span class="math inline">\(A\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Nul}(A)\)</span> has dimension 3, and it is a subspace of <span class="math inline">\(\mathbb{R}^8\)</span>. You would find a basis by finding the parametric solution to <span class="math inline">\(A \mathsf{x}= \mathbb{0}\)</span>.</li>
-</ul></li>
-</ol>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="quiz-1-review.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quiz-3-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-5-6-learning-goals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

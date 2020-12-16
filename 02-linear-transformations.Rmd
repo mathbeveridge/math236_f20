@@ -22,7 +22,7 @@ The linear transformation $T(\mathsf{x})$ maps the plane to itself. This nicely 
 Here are a couple of helper functions to plot our "before" and "after" vectors as arrows in the plane. 
 
 
-```{r}
+```{r, echo=TRUE}
 
 plot_four_vectors <- function(before1, before2, after1, after2){
   a0 = c(0,0, before1[1], before2[1])
@@ -61,7 +61,7 @@ $$
 Here is some example code showing how to make our plot. Note: `A %*% x` is the syntax for matrix multiplication in R. 
 
 
-```{r, example-2d-transformation, results = FALSE, fig.cap="An example 2D linear transformation"}
+```{r, example-2d-transformation, results = FALSE, fig.cap="An example 2D linear transformation", echo=TRUE}
 
 vec1 = c(3,0)
 vec2 = c(0,2)
@@ -97,7 +97,7 @@ Explore matrices of the form
 $$A=\displaystyle{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}}.$$
 Once again, try various combinations of positive, negative, small and large  numbers. Here is some sample code that would create such a matrix for $a=1$ and $b=1$.
 
-```{r}
+```{r, echo=TRUE}
 a = 1
 b = 1
 
@@ -118,7 +118,7 @@ Explore matrices of the form
 $$A=\displaystyle{ \begin{bmatrix} \cos(t) & -\sin(t) \\ \sin(t) & \cos(t) \end{bmatrix}}$$
 where $t$ is in radians. Here is a function that will create such a matrix.
 
-```{r}
+```{r, echo=TRUE}
 create_angle_matrix <- function(t) {
   A = cbind(c(cos(t), sin(t)), c(-sin(t), cos(t)))
   return(A)

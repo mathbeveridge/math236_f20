@@ -65,14 +65,14 @@ You may need to install the `jpeg` and `raster` packages. To check, your should
 * Either search or scroll to see if the the `jpeg` and `raster` are there. 
 * If so, then click the checkbox to load the package into memory.
 If the package is missing, then uncomment and run  the folllowing code chunk
-```{r}
+```{r, echo=TRUE}
 #install.packages('jpeg')
 #install.packages('raster')
 ```
 
 You've probably heard of JPEG image files. The `jpeg` package will allow us to import those images into R. The JPEG format uses image compression. So we need to turn them into a **raster (bitmap) image** which is a rectangular grid of pixels or dots. In other words a raster image is a matrix. The package `raster` will do this conversion for us.
 
-```{r,message=FALSE}
+```{r,message=FALSE, echo=TRUE}
 library(jpeg)
 library(raster)
 ```
@@ -86,7 +86,7 @@ The following defines two helper functions
 * `get_image(filename)` reads in a JPEG file and convert it into a raster image.
 * `plot_image(img)` creates a plot of the raster image
 
-```{r}
+```{r, echo=TRUE}
 
 
 # converts a JPEG file into a raster image (a numerical matrix)
@@ -119,7 +119,7 @@ plot_image = function(img,...) {
 
 Let start by reading in a picture of a tartan.
 
-```{r, fig.width=6, fig.height=6}
+```{r, fig.width=6, fig.height=6, echo=TRUE}
 where.tartan = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Burberry.jpg"
 img = get_image(where.tartan)
 #plot_image(img,main="Image")
@@ -199,7 +199,7 @@ plot_svd_approx=function(img,k){
 ```
 
 And here we show the singular value approximation with increasing numbers of singular values:
-```{r, fig.width=6, fig.height=6}
+```{r, fig.width=6, fig.height=6, echo=TRUE}
 #plot_svd_approx(img,1)
 get_svd_approx_error(img,1)
 ```
@@ -210,15 +210,15 @@ get_svd_approx_error(img,1)
 Now let's see how SVD does with this picture of a lighthouse. Use the appropriate code above to explore the SVD approximations of this lighthouse. How big must $k$ be in order to get an okay approximation? to get an approximation that you can't distinguish from the original?
 
 
-```{r}
+```{r, echo=TRUE}
 where.lighthouse  = "https://images.unsplash.com/6/lighthouse.jpg"
 ```
 
 
 ### Your Turn
 
-Here are some JPG files available on the web for you to try. Or you can use an image of your own choice! Have fun!
-```{r}
+Here are some JPEG files available on the web for you to try. Or you can use an image of your own choice! Have fun!
+```{r, echo=TRUE}
 
 # some jpeg images available on the web
 where.cameraman = "https://www.macalester.edu/~dshuman1/data/cameraman_small.jpg"

@@ -8,7 +8,7 @@ First, we will create vectors and matrices  Then we will see how to create an au
 
 Gaussian elimination is performed by the `rref()` command. However, this command is not loaded into R by default. So we have have to tell RStudio to use the **practical math** package, which is known as `pracma`. 
 So we need to run the following command once at the beginning of our session.
-```{r}
+```{r, echo=TRUE}
 require(pracma)
 ```
 
@@ -16,13 +16,13 @@ require(pracma)
 
 A **vector** in R is a list of data. The simplest way to create a vector is to use the `c()` command. The letter 'c' is short for 'combine these values into a vector.' For example, we can make a vector `v` for the numbers 1,2,3 as follows:
 
-```{r}
+```{r, echo=TRUE}
 v=c(1,2,3)
 v
 ```
 Note that we had to ask R to display the value of `v`. This is because the assignment of `v` doesn't echo the value to the console. But can see the value of `v` in the Environment tab in the upper right panel of RStudio. For example, run this command and then check to see that the value of `v` gets updated in the environment.
 
-```{r}
+```{r, echo=TRUE}
 v=c(1,2,3,4,5,6)
 ```
 
@@ -36,12 +36,12 @@ A = \begin{bmatrix}
 \end{bmatrix}.
 $$
 We could create this matrix by binding three row vectors:
-```{r}
+```{r, echo=TRUE}
 A = rbind(c(1,1,1), c(2,4,8), c(3,9,27))
 A
 ```
 or we could bind three column vectors:
-```{r}
+```{r, echo=TRUE}
 A = cbind(c(1,2,3), c(1,4,9), c(1,8,27))
 A
 ```
@@ -72,7 +72,7 @@ $$
 This is the same matrix `A` we defined above. Let's define a vector b and use `cbind()` to create an augmented matrix which we will name `Ab`.
 (We could have just made the full augmented matrix from the start, but using `cbind` to add a column to a matrix is a skill we will use later in the course!) 
 
-```{r}
+```{r, echo=TRUE}
 A
 b = c(4,6,12)
 Ab = cbind(A,b)
@@ -81,7 +81,7 @@ Ab
 
 Now we use the `rref()` command to apply Gaussian Elimination to produce the reduced row echelon form. (And remember: we had to load this function into R by using the `require(pracma)` command above.)
 
-```{r}
+```{r, echo=TRUE}
 rref(Ab)
 ```
 
@@ -94,7 +94,7 @@ z&=1
 
 
 We can **verify** that our answer works by multiplying $A$ by one of the solutions above. Matrix multiplication uses the funny operation `%*%`.
-```{r}
+```{r, echo=TRUE}
 A %*% c(7,-4,1)
 #A %*% c(1,2,3,0,0)
 ```
@@ -134,14 +134,14 @@ $$
 This time, let's just construct the augmented matrix direclty.
 
 Then we define the coefficient matrix $A$. Here we use `cbind` to combine the vectors into the columns of a matrix named $A$. You can use `rbind` if you want to combine the vectors into the rows of a matrix.
-```{r}
+```{r, echo=TRUE}
 Ab = cbind(c(1,2,-1,1),c(0,1,1,0),c(-1,2,1,-1),c(-1,1,0,-1),c(-1,5,0,-1),c(-2,10,4,-2))
 Ab
 ```
 
 And now let's row reduce to get RREF.
 
-```{r}
+```{r, echo=TRUE}
 rref(Ab)
 ```
 So the set of solutions in parametric form is
@@ -167,7 +167,7 @@ Let's revisit the vector constructed by `cbind`. Above we called this  a "dimens
 For example, let $A$ be an $n \times  n$ matrix, and let $b$ be a vector.  The expression $Av$ is only defined when $v$ is a $n \times 1$ **column vector** and that $wA$  is only defined when  $w$ is a $1 \times n$ ** row vector**. But let's look at what happens when we use a dimensionless vector instead.
 
 
-```{r}
+```{r, echo=TRUE}
 A = cbind(c(1,1,1),c(-1,0,1), c(0,1,-1))
 A
 b = c(2,5,11)
@@ -185,7 +185,7 @@ Both of these multiplications worked! So  R **treated `b` as a column vector** f
 
 So how do you make a true **column vector** or a true **row vector**? The answer is to use `cbind` and  `rbind`! Here are some examples:
 
-```{r}
+```{r, echo=TRUE}
 #  dimensionless
 b = c(1,2,3,4)
 b

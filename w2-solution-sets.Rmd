@@ -5,7 +5,7 @@ Here are the knowledge and skills you should master by the end the second week.
 
 ## Solution Sets, Span and Linear Independence
 
-You should be able to do the following **tasks**:
+I should be able to do the following **tasks**:
 
 * Go back and forth between (i) systems of equations, (ii) vector equations, and (iii) the matrix equation $Ax = b$.
 * Compute and understand the matrix-vector product $A x$ both as a linear combination of the columns of A and as the dot product of $x$ with the rows of $A$.
@@ -16,7 +16,7 @@ You should be able to do the following **tasks**:
 
 ## Vocabulary
 
-You should know and be able to use and explain the following **terms** or **properties**. 
+I should know and be able to use and explain the following **terms** or **properties**. 
 
 * $A(x + y) = Ax + Ay$ and $A(c x) = c A x$
 * homogeneous and nonhomogeneous equations

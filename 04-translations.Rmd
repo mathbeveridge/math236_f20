@@ -96,7 +96,7 @@ T \left( \begin{bmatrix} x \\ y \\ z \end{bmatrix} \right)
 \begin{bmatrix} x \\ y \\ z \end{bmatrix}.
 $$
 
-```{r,homogeneous3,fig.height=5,fig.width=5}
+```{r,homogeneous3,fig.height=5,fig.width=5, echo=TRUE}
 
 
 translate = cbind(c(1,0,0),c(0,1,0),c(-2,1,1))

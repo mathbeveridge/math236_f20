@@ -18,6 +18,18 @@ I should be able to do the following tasks:
 * Use REF to determine whether a consistent system has a unique solution or an infinite number of solutions
 * Use RREF to find explicit equations for the solution set of a consistent system
 
+## RStudio
+
+I should be able to do the following tasks:
+
+* Log in to [Macalester's RStudio server](http://rstudio.macalester.edu/)
+* Upload R Markdown files to RStudio
+* Knit R Markdown to produce HTML
+* Use RStudio to create vectors and matrices
+* Use the ``rref`` command from ``pracma`` to solve a linear system
+
+
+
 ## Vocabulary
 
 I should know and be able to use and explain the following terms:
@@ -37,14 +49,6 @@ I should understand and be able to perform the following conceptual tasks:
 * Model 2-dimensional linear systems as the intersections of lines
 * Model 3-dimensional linear systems as the intersections of planes
 
-
-## RStudio
-
-* Log in to [Macalester's RStudio server](http://rstudio.macalester.edu/)
-* Upload R Markdown files to RStudio
-* Knit R Markdown to produce HTML
-* Use RStudio to create vectors and matrices
-* Use the ``rref`` command from ``pracma`` to solve a linear system
 
 
 

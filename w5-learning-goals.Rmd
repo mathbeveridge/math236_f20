@@ -8,7 +8,7 @@ Here are the knowledge and skills you should master by the end of the fifth and 
 
 ## Eigensystems
 
-You should be able to do the following **tasks**:
+I should be able to do the following **tasks**:
 
 * Check whether a given vector $\mathsf{v}$ is an  eigenvector for square matrix $A$.
 * Find the eigenvalues of a matrix $2 \times 2$ matrix by hand, using the  characteristic equation
@@ -28,36 +28,36 @@ You should be able to do the following **tasks**:
 
 ## Vocabulary
 
-You should know and be able to use and explain the following **terms** or **properties**. 
+I should know and be able to use and explain the following **terms** or **properties**. 
 
-* Eigenvalue, eigenvector  and eigenspace
-* Characteristic equation
-* Diagonalizable matrix
-* Similar matrices
-* Algebraic multiplicity of an eigenvalue
-* Geometric multiplicity of an eigenvalue
-* Scaling-rotation matrix
+* eigenvalue, eigenvector  and eigenspace
+* characteristic equation
+* diagonalizable matrix
+* similar matrices
+* algebraic multiplicity of an eigenvalue
+* geometric multiplicity of an eigenvalue
+* scaling-rotation matrix
 * Gould Index
-* Discrete dynamical system
-* Trajectory
-* Dominant eigenvalue  and dominant eigenvector
-* Population model
+* discrete dynamical system
+* trajectory
+* dominant eigenvalue  and dominant eigenvector
+* population model
 * Leslie matrix
 
 ## Conceptual Thinking
 
 I should understand and be able to explain the following **concepts**:
 
-* An eigenspace of $A$ is a subspace that is fixed under the linear transformation $T(\mathsf{x}) = A \mathsf{x}$
-* An eigenvalue $\lambda$ with $1 <| \lambda |$ corresponds to expansion
-* An eigenvalue $\lambda$ with $0 < | \lambda | < 1$ corresponds to contraction
+* An eigenspace of $A$ is a subspace that is fixed under the linear transformation $T(\mathsf{x}) = A \mathsf{x}$.
+* An eigenvalue $\lambda$ with $1 <| \lambda |$ corresponds to expansion.
+* An eigenvalue $\lambda$ with $0 < | \lambda | < 1$ corresponds to contraction.
 * A complex  eigenvalue  corresponds  to a rotation in a 2D subspace.
-* The eigenspace for $\lambda$ is the subspace $\mathrm{Nul}(A  - \lambda I)$
-* A matrix is  not diagonalizable when it has complex eigenvalues
-* A matrix is not diagonalizable when it has an eigenvalue whose algebraic mutiplicity is strictly larger than its geometrix multiplicity
-* The Gould Index measures the centrality of a vertex in the network
+* The eigenspace for $\lambda$ is the subspace $\mathrm{Nul}(A  - \lambda I)$.
+* A matrix is  not diagonalizable when it has complex eigenvalues.
+* A matrix is not diagonalizable when it has an eigenvalue whose algebraic mutiplicity is strictly larger than its geometrix multiplicity.
+* The Gould Index measures the centrality of a vertex in the network.
 * The eigenvalues of a matrix "encode some of the patterns" found in the matrix. Larger magnitude  eigenvalues indicate more important patterns.
-* The long-term behavior of a  dynamical system is determined by its dominent eigenvalue and eigenvector
+* The long-term behavior of a  dynamical system is determined by its dominent eigenvalue and eigenvector.
 * Any population model predicts one of: long term growth, extinction, convergence to a stable population, or convergence to a stable orbit of populations.
 
 
