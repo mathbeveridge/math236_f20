@@ -407,7 +407,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.6" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-5"><i class="fa fa-check"></i><b>31.2.6</b> </a></li>
 <li class="chapter" data-level="31.2.7" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-6"><i class="fa fa-check"></i><b>31.2.7</b> </a></li>
 <li class="chapter" data-level="31.2.8" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-7"><i class="fa fa-check"></i><b>31.2.8</b> </a></li>
-<li class="chapter" data-level="31.2.9" data-path="quiz-4-review.html"><a href="quiz-4-review.html#more-problems-coming"><i class="fa fa-check"></i><b>31.2.9</b> More problems coming!</a></li>
+<li class="chapter" data-level="31.2.9" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-8"><i class="fa fa-check"></i><b>31.2.9</b> </a></li>
+<li class="chapter" data-level="31.2.10" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-9"><i class="fa fa-check"></i><b>31.2.10</b> </a></li>
+<li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-10"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
+<li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-11"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
+<li class="chapter" data-level="31.2.13" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-12"><i class="fa fa-check"></i><b>31.2.13</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -576,91 +580,130 @@ x_1\\ x_2 \\ x_3
 <li><p>How close is your approximate solution to the desired target vector?</p></li>
 </ol>
 </div>
-<div id="more-problems-coming" class="section level3">
-<h3><span class="header-section-number">31.2.9</span> More problems coming!</h3>
+<div id="section-8" class="section level3">
+<h3><span class="header-section-number">31.2.9</span> </h3>
+<p>Curve Fitting problem coming soon!</p>
+</div>
+<div id="section-9" class="section level3">
+<h3><span class="header-section-number">31.2.10</span> </h3>
+Consider the symmetric matrix
+$$
+A =
+<span class="math display">\[\begin{bmatrix}
+
+   3  &amp;  0 &amp; 34  &amp;  3 \\
+   0  &amp;  6 &amp; -34  &amp;  0 \\
+  34 &amp; -34 &amp;  74  &amp; 34 \\
+   3  &amp;  0  &amp; 34  &amp;  3
+\end{bmatrix}\]</span>
+<p>$$
+a. Use RStudio to find the eigenvalues <span class="math inline">\(\lambda_1 &gt; \lambda_2 &gt; \lambda_3 &gt; \lambda_4\)</span> and their corresponding eigenvectors $_1, _2, _3, _3. Confirm that these eigenvectors form an orthonormal set.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Is the linear transformation <span class="math inline">\(T(\mathsf{x}) = Ax\)</span> invertible? How do you know?</p></li>
+<li><p>Confirm that <span class="math inline">\(A\)</span> = $_{1} _1 <em>1^{} + </em>{2} _2 <em>2^{} + </em>{3} _3 <em>3^{} + </em>{4} _4 _4^{}.</p></li>
+<li><p>Use your answer in part (d) to find the best rank 2 approximation for <span class="math inline">\(A\)</span>. (Be careful!)</p></li>
+</ol>
 <!--
-
-
-###
-
-Fit this curve
-
-
-###
-
-Orthogonally diagonalize
-
-
-###
-
-Spectral decomposition
-
-
-
 
 ```
 ##      [,1] [,2] [,3] [,4]
-## [1,]    1    0    0    0
-## [2,]    0    2    1    0
-## [3,]    0    1    1    0
-## [4,]    0    0    0    1
+## [1,]    3    0   34    3
+## [2,]    0    6  -34    0
+## [3,]   34  -34   74   34
+## [4,]    3    0   34    3
 ```
 
 ```
-## $d
-## [1] 1.618034 1.000000 1.000000 0.618034
-## 
-## $u
-##           [,1] [,2] [,3]       [,4]
-## [1,] 0.0000000    1    0  0.0000000
-## [2,] 0.8506508    0    0 -0.5257311
-## [3,] 0.5257311    0    0  0.8506508
-## [4,] 0.0000000    0    1  0.0000000
-## 
-## $v
-##           [,1] [,2] [,3]       [,4]
-## [1,] 0.0000000    1    0  0.0000000
-## [2,] 0.5257311    0    0 -0.8506508
-## [3,] 0.8506508    0    0  0.5257311
-## [4,] 0.0000000    0    1  0.0000000
+##               [,1]          [,2] [,3]         [,4]
+## [1,]  3.000000e+00 -1.776357e-15   34 3.000000e+00
+## [2,] -1.776357e-15  6.000000e+00  -34 5.595524e-14
+## [3,]  3.400000e+01 -3.400000e+01   74 3.400000e+01
+## [4,]  3.000000e+00  5.595524e-14   34 3.000000e+00
 ```
 
 ```
-## [1] 3.414214
+##      [,1] [,2] [,3] [,4]
+## [1,]    2   -2   34    2
+## [2,]   -2    2  -34   -2
+## [3,]   34  -34   74   34
+## [4,]    2   -2   34    2
 ```
 
 ```
-## [1] 1.847759
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    0    1
+## [2,]    2    4    0    2
+## [3,]    0    0    0    0
+## [4,]    1    2    0    1
 ```
-((a+1)^2 - x)(1-x) + a^2
-a^2 +2a + 1 - (a+1)x +x^2 - a^2
-
-2a+1
-
-
-(2-x) * (1-x) - 1 = 2 -3x + x^2 -1 = x^2 -3x + 1
-
-```
-## [1] 1.618034
-```
-
-
-####
-
-SVD
-
-### 
-
-Spectral decompostion
-
-
-###
-
-Eigenvalue gap? Applied problem? 
-
-Use the senate voting problems?
-
 -->
+</div>
+<div id="section-10" class="section level3">
+<h3><span class="header-section-number">31.2.11</span> </h3>
+<p>Here is a matrix <span class="math inline">\(A\)</span> and its reduced row echelon form <span class="math inline">\(B\)</span>
+<span class="math display">\[
+A = \begin{bmatrix}
+   1  &amp;  3  &amp; -3  &amp;  1  &amp;  0 \\
+    2  &amp;  1  &amp;  0  &amp;  6 &amp;   5 \\
+   3  &amp;  3  &amp; -3  &amp;  6  &amp;  3 \\
+  -1  &amp;  4  &amp; -3  &amp; -3  &amp; -1
+\end{bmatrix}
+\qquad \longrightarrow \qquad
+B = \begin{bmatrix}
+    1 &amp;   0  &amp;  0 &amp; 2.5 &amp; 1.5 \\
+    0  &amp;  1  &amp;  0 &amp; 1.0 &amp; 2.0 \\
+  0  &amp; 0  &amp;  1 &amp; 1.5 &amp; 2.5 \\
+   0  &amp;  0  &amp;  0 &amp; 0.0 &amp; 0.0
+\end{bmatrix}
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find a basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> and <span class="math inline">\(\mbox{Col}(A)\)</span>.</p></li>
+<li><p>Is the linear transformation <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span> one-to-one? Onto?</p></li>
+<li><p>How is the SVD for <span class="math inline">\(A\)</span> related to the SVD for <span class="math inline">\(B\)</span>? What properties will they share? What properties will be different? Make some conjectures.</p></li>
+<li><p>Now find the SVD of both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and test your conjectures. Compare the singular values, the right singular vectors and the left singular vectors. Be sure to compare each of the four fundamental subspaces: <span class="math inline">\(\mbox{Nul}(M), \mbox{Col}(M), \mbox{Row}(M), \mbox{Nul}(M^{\top})\)</span>.</p></li>
+</ol>
+<!--
+```
+v1 = c(1,3,-3,0,0)
+v2 = c(1,-2,4,2,-1)
+v3 = c(0,1,0,3,2)
+v4 = c(2,0,0,-1,3)
+
+w1 = v1+v2
+w2 = v4-v2+v3
+w3 = v4+v1
+w4 = v3 + v1-v4
+
+
+v1 = c(1,3,-3,1,0)
+#v2 = c(1,-2,4,0,-1)
+v3 = c(0,1,0,1,2)
+v4 = c(2,0,0,5,3)
+v2 = c(0,0,0,0,0)
+
+w1 = v1+v2
+w2 = v4-v2+v3
+w3 = v4+v1
+w4 = v3 + v1-v4
+
+B = rbind(w1,w2,w3,w4)
+B
+#U = rref(B)
+
+U
+
+svd(B)
+svd(U)
+```
+-->
+</div>
+<div id="section-11" class="section level3">
+<h3><span class="header-section-number">31.2.12</span> </h3>
+<p>Another SVD problem coming soon</p>
+</div>
+<div id="section-12" class="section level3">
+<h3><span class="header-section-number">31.2.13</span> </h3>
+<p>Applied SVD problem coming soon</p>
 
 </div>
 </div>
