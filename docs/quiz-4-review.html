@@ -586,7 +586,20 @@ c. How close is your approximate solution to the desired target vector?
 </div>
 <div id="section-7" class="section level3">
 <h3><span class="header-section-number">31.2.8</span> </h3>
-<p>Curve Fitting problem coming soon!</p>
+<p>According to the <a href="https://covidtracking.com/">COVID Tracking Project</a>, there had been <span class="math inline">\(54,463\)</span> positive COVID-19 cases by 31 July, 2020. As of 16 December, 2020, that count as reached <span class="math inline">\(331,949\)</span>. Here are the number of new daily COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="quiz-4-review.html#cb323-1"></a>covid.mn =<span class="st"> </span><span class="kw">c</span>(<span class="dv">725</span>, <span class="dv">1484</span>, <span class="dv">2097</span>, <span class="dv">2699</span>, <span class="dv">3316</span>, <span class="dv">4177</span>, <span class="dv">4722</span>, <span class="dv">5638</span>, <span class="dv">6435</span>, <span class="dv">7053</span>, <span class="dv">7376</span>, <span class="dv">7840</span>, <span class="dv">8530</span>, <span class="dv">9260</span>, <span class="dv">9950</span>, <span class="dv">10689</span>, <span class="dv">11253</span>, <span class="dv">11598</span>, <span class="dv">12155</span>, <span class="dv">12845</span>, <span class="dv">13670</span>, <span class="dv">14404</span>, <span class="dv">15121</span>, <span class="dv">15835</span>, <span class="dv">16244</span>, <span class="dv">16773</span>, <span class="dv">17927</span>, <span class="dv">18777</span>, <span class="dv">19794</span>, <span class="dv">20726</span>, <span class="dv">21401</span>, <span class="dv">21892</span>, <span class="dv">22622</span>, <span class="dv">23660</span>, <span class="dv">24503</span>, <span class="dv">25417</span>, <span class="dv">26124</span>, <span class="dv">26762</span>, <span class="dv">27145</span>, <span class="dv">27405</span>, <span class="dv">27786</span>, <span class="dv">28253</span>, <span class="dv">29125</span>, <span class="dv">29848</span>, <span class="dv">30486</span>, <span class="dv">30888</span>, <span class="dv">31350</span>, <span class="dv">32259</span>, <span class="dv">33344</span>, <span class="dv">34258</span>, <span class="dv">35554</span>, <span class="dv">36479</span>, <span class="dv">36959</span>, <span class="dv">37637</span>, <span class="dv">38549</span>, <span class="dv">39726</span>, <span class="dv">41196</span>, <span class="dv">42271</span>, <span class="dv">43175</span>, <span class="dv">43984</span>, <span class="dv">44671</span>, <span class="dv">45737</span>, <span class="dv">46903</span>, <span class="dv">48324</span>, <span class="dv">49363</span>, <span class="dv">50336</span>, <span class="dv">51277</span>, <span class="dv">52188</span>, <span class="dv">53459</span>, <span class="dv">54849</span>, <span class="dv">56365</span>, <span class="dv">57805</span>, <span class="dv">58976</span>, <span class="dv">60111</span>, <span class="dv">61480</span>, <span class="dv">62643</span>, <span class="dv">64933</span>, <span class="dv">66627</span>, <span class="dv">68349</span>, <span class="dv">69976</span>, <span class="dv">71068</span>, <span class="dv">72128</span>, <span class="dv">73689</span>, <span class="dv">75400</span>, <span class="dv">77659</span>, <span class="dv">79339</span>, <span class="dv">80909</span>, <span class="dv">83073</span>, <span class="dv">84981</span>, <span class="dv">87848</span>, <span class="dv">91002</span>, <span class="dv">94009</span>, <span class="dv">96209</span>, <span class="dv">99157</span>, <span class="dv">102633</span>, <span class="dv">106460</span>, <span class="dv">110402</span>, <span class="dv">115844</span>, <span class="dv">120491</span>, <span class="dv">126399</span>, <span class="dv">130325</span>, <span class="dv">135218</span>, <span class="dv">140107</span>, <span class="dv">147332</span>, <span class="dv">152876</span>, <span class="dv">161565</span>, <span class="dv">169118</span>, <span class="dv">176555</span>, <span class="dv">182486</span>, <span class="dv">187580</span>, <span class="dv">195443</span>, <span class="dv">202237</span>, <span class="dv">208489</span>, <span class="dv">215694</span>, <span class="dv">222037</span>, <span class="dv">228453</span>, <span class="dv">234840</span>, <span class="dv">234840</span>, <span class="dv">240538</span>, <span class="dv">249560</span>, <span class="dv">258506</span>, <span class="dv">264300</span>, <span class="dv">267849</span>, <span class="dv">273014</span>, <span class="dv">279163</span>, <span class="dv">284510</span>, <span class="dv">290818</span>, <span class="dv">296399</span>, <span class="dv">301689</span>, <span class="dv">304740</span>, <span class="dv">309256</span>, <span class="dv">312755</span>, <span class="dv">316505</span>, <span class="dv">320935</span>, <span class="dv">324360</span>, <span class="dv">327378</span>, <span class="dv">329701</span>, <span class="dv">331949</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the best fitting exponential function <span class="math inline">\(f(t) = a e^{k t}\)</span> for the number of new COVID-19 cases since 31 July, 2020.</p></li>
+<li><p>Run the following code to plot your function. This code assumes that your least squares solution is given by <code>xhat</code>. Does it look like a good fit?</p></li>
+</ol>
+<pre><code>a = exp(xhat[1])
+k = xhat[2]
+
+f=function(y){a * exp(k*(y))}
+
+plot(x,f(x)+ covid.start,type=&quot;l&quot;,lwd=3,ylab=&quot;new positive COVID-19 cases&quot;, xlab=&quot;days since July 31, 2020&quot;, main=&quot;best fit exponential function&quot;)
+points(x,covid.mn + covid.start,pch=20,cex=.7,col=&quot;red&quot;)
+</code></pre>
 </div>
 <div id="section-8" class="section level3">
 <h3><span class="header-section-number">31.2.9</span> </h3>
@@ -644,6 +657,57 @@ A = \lambda_{1} \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_{2} \mathsf{v}_2 \mat
 </div>
 <div id="section-9" class="section level3">
 <h3><span class="header-section-number">31.2.10</span> </h3>
+<p>The matrix
+<span class="math display">\[
+A = \left[
+\begin{array}{cccc}
+ 1 &amp; 2 &amp;  5 \\
+ 2 &amp; 3 &amp;  6 \\
+ -1 &amp; 2 &amp;  3 \\
+ -3 &amp; 0 &amp;  1 \\
+ 1 &amp; 4 &amp;  5 \\
+\end{array}
+\right]
+\]</span></p>
+<p>has singular value decomposition</p>
+<p><span class="math display">\[
+\left[
+\begin{array}{cccccc}
+ 0.48 &amp; -0.02 &amp; 0.55 &amp; 0.63 &amp; -0.27 \\
+ 0.61 &amp; -0.24 &amp; 0.32 &amp; -0.63 &amp; 0.27 \\
+ 0.30 &amp; 0.43 &amp; -0.24 &amp; -0.32 &amp; -0.75 \\
+ 0.032 &amp; 0.87 &amp; 0.22 &amp; 0.00 &amp; 0.44 \\
+ 0.56 &amp; -0.01 &amp; -0.70 &amp; 0.32 &amp; 0.31 \\
+\end{array}
+\right]
+\left[
+\begin{array}{cccc}
+ 11.4 &amp; 0 &amp; 0 \\
+ 0 &amp; 3.60 &amp; 0 \\
+ 0 &amp; 0 &amp; 1.39 \\
+ 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 \\
+\end{array}
+\right]
+\left[
+\begin{array}{cccc}
+ 0.16 &amp; -0.98 &amp; 0.062 \\
+ 0.49 &amp; 0.026 &amp; -0.87 \\
+ 0.86 &amp; 0.17 &amp; 0.49 \\
+\end{array}
+\right].
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Find an orthonormal basis for each of the four fundamental subspaces <span class="math inline">\(\mbox{Nul}(A), \mbox{Col}(A), \mbox{Row}(A), \mbox{Nul}(A^{\top})\)</span>.<br />
+</li>
+<li>Confirm that your basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> is orthogonal to your basis for (A)</li>
+<li>Explain how we know that the mapping <span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is one-to-one.</li>
+<li>Since the mapping <span class="math inline">\(T: \mathbb{R}^3 \rightarrow \mathbb{R}^5\)</span> is one-to-one. It maps a cube in <span class="math inline">\(\mathbb{R}^3\)</span> to a 3D “retangular cuboid” in <span class="math inline">\(\mathbb{R}^5\)</span>. Does the 3D volume expand, contract, or stay constant after the mapping? How do you know?</li>
+<li>What is the best rank 1 approximation of the matrix <span class="math inline">\(A\)</span>?</li>
+</ol>
+</div>
+<div id="section-10" class="section level3">
+<h3><span class="header-section-number">31.2.11</span> </h3>
 <p>Here is a matrix <span class="math inline">\(A\)</span> and its reduced row echelon form <span class="math inline">\(B\)</span>
 <span class="math display">\[
 A = \begin{bmatrix}
@@ -658,7 +722,7 @@ B = \begin{bmatrix}
     0  &amp;  1  &amp;  0 &amp; 1.0 &amp; 2.0 \\
   0  &amp; 0  &amp;  1 &amp; 1.5 &amp; 2.5 \\
    0  &amp;  0  &amp;  0 &amp; 0.0 &amp; 0.0
-\end{bmatrix}
+\end{bmatrix}.
 \]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Find a basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> and <span class="math inline">\(\mbox{Col}(A)\)</span>.</p></li>
@@ -701,13 +765,33 @@ svd(U)
 ```
 -->
 </div>
-<div id="section-10" class="section level3">
-<h3><span class="header-section-number">31.2.11</span> </h3>
-<p>Another SVD problem coming soon</p>
-</div>
 <div id="section-11" class="section level3">
 <h3><span class="header-section-number">31.2.12</span> </h3>
-<p>Applied SVD problem coming soon</p>
+<p>Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let’s try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let’s load in the data and sort it by party. Tis will list the 43 Democrats first, the 1 Independent and then the 55 Republicans. We then look at the matrix A of sorted votes.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="quiz-4-review.html#cb325-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb325-2"><a href="quiz-4-review.html#cb325-2"></a></span>
+<span id="cb325-3"><a href="quiz-4-review.html#cb325-3"></a>senate.vote.file =<span class="st"> &quot;https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv&quot;</span></span>
+<span id="cb325-4"><a href="quiz-4-review.html#cb325-4"></a></span>
+<span id="cb325-5"><a href="quiz-4-review.html#cb325-5"></a>record &lt;-<span class="st"> </span><span class="kw">read_csv</span>(senate.vote.file, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   Name = col_character(),
+##   Party = col_character(),
+##   State = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="quiz-4-review.html#cb327-1"></a>record.party &lt;-<span class="st"> </span>record[<span class="kw">order</span>(record<span class="op">$</span>Party),]</span>
+<span id="cb327-2"><a href="quiz-4-review.html#cb327-2"></a></span>
+<span id="cb327-3"><a href="quiz-4-review.html#cb327-3"></a>A &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(record.party[<span class="dv">4</span><span class="op">:</span><span class="dv">49</span>])</span>
+<span id="cb327-4"><a href="quiz-4-review.html#cb327-4"></a></span>
+<span id="cb327-5"><a href="quiz-4-review.html#cb327-5"></a>partycolors =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;blue&quot;</span>,<span class="dv">43</span>), <span class="st">&quot;purple&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">55</span>))</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the singular value decomposition. Define <code>singval</code> to be the singular values. Plot them using the command <code>plot(singval,pch=19,cex=.5,col='blue')</code>. How many “important” singular values are there?</p></li>
+<li><p>Define <code>U</code> to be the matrix of right singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: `<code>plot(U[,1],pch=19,cex=.5,col=partycolors)</code>. The parties will be separated along the <span class="math inline">\(x\)</span>-axis because we pre-sorted them. Do any of the singular values distinguish Democrats from Republicans along the <span class="math inline">\(y\)</span>-axis?</p></li>
+</ol>
+<p><strong>Remark</strong>: When we explored <a href="voting-patterns-in-the-us-senate">Voting Patterns in the US Senate</a>, we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix <span class="math inline">\(A\)</span> for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) <span class="math inline">\(AA^{\top} = (A^{\top}A)^{\top}\)</span>. So the eigenvectors of that square matrix are the singular values of the rectangular matrix <span class="math inline">\(A\)</span>.</p>
 
 </div>
 </div>
