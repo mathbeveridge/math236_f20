@@ -411,7 +411,6 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.10" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-9"><i class="fa fa-check"></i><b>31.2.10</b> </a></li>
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-10"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-11"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
-<li class="chapter" data-level="31.2.13" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-12"><i class="fa fa-check"></i><b>31.2.13</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -564,43 +563,48 @@ x_1\\ x_2 \\ x_3
 <ol style="list-style-type: lower-alpha">
 <li>Show that this system is inconsistent.</li>
 <li>Find the projected value <span class="math inline">\(\hat{\mathsf{b}}\)</span>, and the residual <span class="math inline">\(\mathsf{z}\)</span>.</li>
+<li>How close is your approximate solution to the desired target vector?</li>
 </ol>
+<!--
+###
+
+Here is an inconsistent system of equations:
+$$
+\begin{bmatrix} 1 & 2 \\ 1 & 2 \\ 1 & -1 \end{bmatrix}
+ \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 
+  \begin{bmatrix} 6\\ 4 \\ -4 \end{bmatrix} 
+$$
+
+a. State the normal equations for this problem (be sure to do all of the necessary matrix multiplications).
+
+b. Find the least squares solution to the problem.
+
+c. How close is your approximate solution to the desired target vector?
+
+### 
+-->
 </div>
 <div id="section-7" class="section level3">
 <h3><span class="header-section-number">31.2.8</span> </h3>
-<p>Here is an inconsistent system of equations:
-<span class="math display">\[
-\begin{bmatrix} 1 &amp; 2 \\ 1 &amp; 2 \\ 1 &amp; -1 \end{bmatrix}
- \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 
-  \begin{bmatrix} 6\\ 4 \\ -4 \end{bmatrix} 
-\]</span></p>
-<ol style="list-style-type: lower-alpha">
-<li><p>State the normal equations for this problem (be sure to do all of the necessary matrix multiplications).</p></li>
-<li><p>Find the least squares solution to the problem.</p></li>
-<li><p>How close is your approximate solution to the desired target vector?</p></li>
-</ol>
+<p>Curve Fitting problem coming soon!</p>
 </div>
 <div id="section-8" class="section level3">
 <h3><span class="header-section-number">31.2.9</span> </h3>
-<p>Curve Fitting problem coming soon!</p>
-</div>
-<div id="section-9" class="section level3">
-<h3><span class="header-section-number">31.2.10</span> </h3>
-Consider the symmetric matrix
-$$
-A =
-<span class="math display">\[\begin{bmatrix}
-
+<p>Consider the symmetric matrix
+<span class="math display">\[A = \begin{bmatrix}
    3  &amp;  0 &amp; 34  &amp;  3 \\
    0  &amp;  6 &amp; -34  &amp;  0 \\
   34 &amp; -34 &amp;  74  &amp; 34 \\
    3  &amp;  0  &amp; 34  &amp;  3
-\end{bmatrix}\]</span>
-<p>$$
-a. Use RStudio to find the eigenvalues <span class="math inline">\(\lambda_1 &gt; \lambda_2 &gt; \lambda_3 &gt; \lambda_4\)</span> and their corresponding eigenvectors $_1, _2, _3, _3. Confirm that these eigenvectors form an orthonormal set.</p>
+\end{bmatrix}
+\]</span>
+a. Use RStudio to find the eigenvalues <span class="math inline">\(\lambda_1 &gt; \lambda_2 &gt; \lambda_3 &gt; \lambda_4\)</span> and their corresponding eigenvectors <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_3\)</span>. Confirm that these eigenvectors form an orthonormal set.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Is the linear transformation <span class="math inline">\(T(\mathsf{x}) = Ax\)</span> invertible? How do you know?</p></li>
-<li><p>Confirm that <span class="math inline">\(A\)</span> = $_{1} _1 <em>1^{} + </em>{2} _2 <em>2^{} + </em>{3} _3 <em>3^{} + </em>{4} _4 _4^{}.</p></li>
+<li><p>Confirm that
+<span class="math display">\[
+A = \lambda_{1} \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_{2} \mathsf{v}_2 \mathsf{v}_2^{\top} + \lambda_{3} \mathsf{v}_3 \mathsf{v}_3^{\top} + \lambda_{4} \mathsf{v}_4 \mathsf{v}_4^{\top}.
+\]</span></p></li>
 <li><p>Use your answer in part (d) to find the best rank 2 approximation for <span class="math inline">\(A\)</span>. (Be careful!)</p></li>
 </ol>
 <!--
@@ -638,8 +642,8 @@ a. Use RStudio to find the eigenvalues <span class="math inline">\(\lambda_1 &gt
 ```
 -->
 </div>
-<div id="section-10" class="section level3">
-<h3><span class="header-section-number">31.2.11</span> </h3>
+<div id="section-9" class="section level3">
+<h3><span class="header-section-number">31.2.10</span> </h3>
 <p>Here is a matrix <span class="math inline">\(A\)</span> and its reduced row echelon form <span class="math inline">\(B\)</span>
 <span class="math display">\[
 A = \begin{bmatrix}
@@ -697,12 +701,12 @@ svd(U)
 ```
 -->
 </div>
-<div id="section-11" class="section level3">
-<h3><span class="header-section-number">31.2.12</span> </h3>
+<div id="section-10" class="section level3">
+<h3><span class="header-section-number">31.2.11</span> </h3>
 <p>Another SVD problem coming soon</p>
 </div>
-<div id="section-12" class="section level3">
-<h3><span class="header-section-number">31.2.13</span> </h3>
+<div id="section-11" class="section level3">
+<h3><span class="header-section-number">31.2.12</span> </h3>
 <p>Applied SVD problem coming soon</p>
 
 </div>

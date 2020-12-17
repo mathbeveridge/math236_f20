@@ -71,6 +71,6 @@ I should understand and be able to explain the following **concepts**:
 * The outer product $\mathsf{v} \mathsf{w}^{\top}$ is a square matrix with rank 1
 * Singular value decomposition is a generalization of orthogonal diagonalization
 * The singular values of $A$ are the square roots of the eigenvalues of $A^{\top}A$.
-* The spectral decomposition of a matrix allows us to find a rank $k$ approximation of a matrix
-* The relative magnitudes of the eigenvectors/singular values indicate the quality of the rank $k$ approximation of the matrix
+* The spectral decomposition of a matrix allows us to approximate a matrix with a linear combination of rank 1 matrices. 
+* The relative magnitudes of the eigenvectors/singular values  indicate the quality of the spectral decomposition approximation.
 

@@ -150,8 +150,9 @@ $$
 
 a. Show that this system is inconsistent.
 b. Find the projected value $\hat{\mathsf{b}}$,  and the residual $\mathsf{z}$.
+c. How close is your approximate solution to the desired target vector?
 
-
+<!--
 ###
 
 Here is an inconsistent system of equations:
@@ -168,28 +169,30 @@ b. Find the least squares solution to the problem.
 c. How close is your approximate solution to the desired target vector?
 
 ### 
+-->
 
-
+###
 
 Curve Fitting problem coming soon!
 
 ###
 
 Consider the symmetric matrix 
-$$
-A = \begin{bmatrix}
-
+$$A = \begin{bmatrix}
    3  &  0 & 34  &  3 \\
    0  &  6 & -34  &  0 \\
   34 & -34 &  74  & 34 \\
    3  &  0  & 34  &  3
 \end{bmatrix}
 $$
-a. Use RStudio to find the eigenvalues $\lambda_1 > \lambda_2 > \lambda_3 > \lambda_4$ and their corresponding eigenvectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_3. Confirm that these eigenvectors form an orthonormal set.
+a. Use RStudio to find the eigenvalues $\lambda_1 > \lambda_2 > \lambda_3 > \lambda_4$ and their corresponding eigenvectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_3$. Confirm that these eigenvectors form an orthonormal set.
 
 b. Is the linear transformation $T(\mathsf{x}) = Ax$ invertible? How do you know?
 
-c. Confirm that $A$ = $\lambda_{1} \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_{2} \mathsf{v}_2 \mathsf{v}_2^{\top} + \lambda_{3} \mathsf{v}_3 \mathsf{v}_3^{\top} + \lambda_{4} \mathsf{v}_4 \mathsf{v}_4^{\top}.
+c. Confirm that 
+$$
+A = \lambda_{1} \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_{2} \mathsf{v}_2 \mathsf{v}_2^{\top} + \lambda_{3} \mathsf{v}_3 \mathsf{v}_3^{\top} + \lambda_{4} \mathsf{v}_4 \mathsf{v}_4^{\top}.
+$$
 
 d. Use your answer in part (d) to find the best rank 2 approximation for $A$. (Be careful!)
 
