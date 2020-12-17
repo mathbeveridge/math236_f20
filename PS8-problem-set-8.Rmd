@@ -39,7 +39,7 @@ d. Use your answer from (c) to find a "human readable" orthogonal basis for $W^{
 
 **Turn in:** Your code and its output. You must make it clear what your final answers are for each problem. 
 
-## Eigensystem of a Symmetrix Matrix
+## Eigensystem of a Symmetric Matrix
 
 Recall that a square $n \times n$ matrix is symmetric when $A^{\top} = A$. We learned that the eigenvectors of a symmetric matric form an orthogonal basis of $\mathbb{R}^n$. In this problem, you will confirm that this holds for the following symmetric matrix
 

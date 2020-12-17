@@ -183,7 +183,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a><ul>
 <li class="chapter" data-level="8.1" data-path="problem-set-8.html"><a href="problem-set-8.html#two-orthogonality-properties"><i class="fa fa-check"></i><b>8.1</b> Two Orthogonality Properties</a></li>
 <li class="chapter" data-level="8.2" data-path="problem-set-8.html"><a href="problem-set-8.html#bases-for-a-subspace-and-its-orthogonal-complement"><i class="fa fa-check"></i><b>8.2</b> Bases for a Subspace and its Orthogonal Complement</a></li>
-<li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetrix-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetrix Matrix</a></li>
+<li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetric-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetric Matrix</a></li>
 <li class="chapter" data-level="8.4" data-path="problem-set-8.html"><a href="problem-set-8.html#modeling-fertility-in-1888-switzerland"><i class="fa fa-check"></i><b>8.4</b> Modeling Fertility in 1888 Switzerland</a></li>
 <li class="chapter" data-level="8.5" data-path="problem-set-8.html"><a href="problem-set-8.html#cosine-similarity-for-us-senators"><i class="fa fa-check"></i><b>8.5</b> Cosine Similarity for US Senators</a></li>
 </ul></li>
@@ -412,6 +412,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-10"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-11"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
 </ul></li>
+<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="31.3.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-12"><i class="fa fa-check"></i><b>31.3.1</b> </a></li>
+<li class="chapter" data-level="31.3.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-13"><i class="fa fa-check"></i><b>31.3.2</b> </a></li>
+<li class="chapter" data-level="31.3.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-14"><i class="fa fa-check"></i><b>31.3.3</b> </a></li>
+<li class="chapter" data-level="31.3.4" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-15"><i class="fa fa-check"></i><b>31.3.4</b> </a></li>
+<li class="chapter" data-level="31.3.5" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-16"><i class="fa fa-check"></i><b>31.3.5</b> </a></li>
+<li class="chapter" data-level="31.3.6" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-17"><i class="fa fa-check"></i><b>31.3.6</b> </a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -526,7 +534,7 @@ Let <span class="math inline">\(W=\mbox{span}(\mathsf{v}_1, \mathsf{v}_2)\)</spa
 <h3><span class="header-section-number">31.2.6</span> </h3>
 <p>Let <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_1, \ldots, \mathsf{u}_n\)</span> be an <strong>orthonormal</strong> basis for <span class="math inline">\(\mathbb{R}^n\)</span>. Pick any <span class="math inline">\(\mathsf{v} \in \mathbb{R}^n\)</span>. Show that
 <span class="math display">\[
-\| \mathsf{v} \| = \sqrt{ ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_1)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_1)^2}.
+\| \mathsf{v} \| = \sqrt{ ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_2)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_n)^2}.
 \]</span></p>
 <!--
 * Use the Gram-Schmidt process to find an orthogonal basis for $W$.
@@ -588,9 +596,11 @@ c. How close is your approximate solution to the desired target vector?
 <h3><span class="header-section-number">31.2.8</span> </h3>
 <p>According to the <a href="https://covidtracking.com/">COVID Tracking Project</a>, Minnestoa had <span class="math inline">\(54,463\)</span> positive COVID-19 cases between March 6 and 31 July, 2020. As of 16 December, 2020, that count has reached <span class="math inline">\(386,412\)</span>.</p>
 <p>The vector <code>covid.mn</code> lists the total number of new COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020 (on top of the previously reported <span class="math inline">\(54,463\)</span>).</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="quiz-4-review.html#cb323-1"></a>covid.mn =<span class="st"> </span><span class="kw">c</span>(<span class="dv">725</span>, <span class="dv">1484</span>, <span class="dv">2097</span>, <span class="dv">2699</span>, <span class="dv">3316</span>, <span class="dv">4177</span>, <span class="dv">4722</span>, <span class="dv">5638</span>, <span class="dv">6435</span>, <span class="dv">7053</span>, <span class="dv">7376</span>, <span class="dv">7840</span>, <span class="dv">8530</span>, <span class="dv">9260</span>, <span class="dv">9950</span>, <span class="dv">10689</span>, <span class="dv">11253</span>, <span class="dv">11598</span>, <span class="dv">12155</span>, <span class="dv">12845</span>, <span class="dv">13670</span>, <span class="dv">14404</span>, <span class="dv">15121</span>, <span class="dv">15835</span>, <span class="dv">16244</span>, <span class="dv">16773</span>, <span class="dv">17927</span>, <span class="dv">18777</span>, <span class="dv">19794</span>, <span class="dv">20726</span>, <span class="dv">21401</span>, <span class="dv">21892</span>, <span class="dv">22622</span>, <span class="dv">23660</span>, <span class="dv">24503</span>, <span class="dv">25417</span>, <span class="dv">26124</span>, <span class="dv">26762</span>, <span class="dv">27145</span>, <span class="dv">27405</span>, <span class="dv">27786</span>, <span class="dv">28253</span>, <span class="dv">29125</span>, <span class="dv">29848</span>, <span class="dv">30486</span>, <span class="dv">30888</span>, <span class="dv">31350</span>, <span class="dv">32259</span>, <span class="dv">33344</span>, <span class="dv">34258</span>, <span class="dv">35554</span>, <span class="dv">36479</span>, <span class="dv">36959</span>, <span class="dv">37637</span>, <span class="dv">38549</span>, <span class="dv">39726</span>, <span class="dv">41196</span>, <span class="dv">42271</span>, <span class="dv">43175</span>, <span class="dv">43984</span>, <span class="dv">44671</span>, <span class="dv">45737</span>, <span class="dv">46903</span>, <span class="dv">48324</span>, <span class="dv">49363</span>, <span class="dv">50336</span>, <span class="dv">51277</span>, <span class="dv">52188</span>, <span class="dv">53459</span>, <span class="dv">54849</span>, <span class="dv">56365</span>, <span class="dv">57805</span>, <span class="dv">58976</span>, <span class="dv">60111</span>, <span class="dv">61480</span>, <span class="dv">62643</span>, <span class="dv">64933</span>, <span class="dv">66627</span>, <span class="dv">68349</span>, <span class="dv">69976</span>, <span class="dv">71068</span>, <span class="dv">72128</span>, <span class="dv">73689</span>, <span class="dv">75400</span>, <span class="dv">77659</span>, <span class="dv">79339</span>, <span class="dv">80909</span>, <span class="dv">83073</span>, <span class="dv">84981</span>, <span class="dv">87848</span>, <span class="dv">91002</span>, <span class="dv">94009</span>, <span class="dv">96209</span>, <span class="dv">99157</span>, <span class="dv">102633</span>, <span class="dv">106460</span>, <span class="dv">110402</span>, <span class="dv">115844</span>, <span class="dv">120491</span>, <span class="dv">126399</span>, <span class="dv">130325</span>, <span class="dv">135218</span>, <span class="dv">140107</span>, <span class="dv">147332</span>, <span class="dv">152876</span>, <span class="dv">161565</span>, <span class="dv">169118</span>, <span class="dv">176555</span>, <span class="dv">182486</span>, <span class="dv">187580</span>, <span class="dv">195443</span>, <span class="dv">202237</span>, <span class="dv">208489</span>, <span class="dv">215694</span>, <span class="dv">222037</span>, <span class="dv">228453</span>, <span class="dv">234840</span>, <span class="dv">234840</span>, <span class="dv">240538</span>, <span class="dv">249560</span>, <span class="dv">258506</span>, <span class="dv">264300</span>, <span class="dv">267849</span>, <span class="dv">273014</span>, <span class="dv">279163</span>, <span class="dv">284510</span>, <span class="dv">290818</span>, <span class="dv">296399</span>, <span class="dv">301689</span>, <span class="dv">304740</span>, <span class="dv">309256</span>, <span class="dv">312755</span>, <span class="dv">316505</span>, <span class="dv">320935</span>, <span class="dv">324360</span>, <span class="dv">327378</span>, <span class="dv">329701</span>, <span class="dv">331949</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="quiz-4-review.html#cb323-1"></a>covid.start =<span class="st"> </span><span class="dv">54463</span></span>
+<span id="cb323-2"><a href="quiz-4-review.html#cb323-2"></a></span>
+<span id="cb323-3"><a href="quiz-4-review.html#cb323-3"></a>covid.mn =<span class="st"> </span><span class="kw">c</span>(<span class="dv">725</span>, <span class="dv">1484</span>, <span class="dv">2097</span>, <span class="dv">2699</span>, <span class="dv">3316</span>, <span class="dv">4177</span>, <span class="dv">4722</span>, <span class="dv">5638</span>, <span class="dv">6435</span>, <span class="dv">7053</span>, <span class="dv">7376</span>, <span class="dv">7840</span>, <span class="dv">8530</span>, <span class="dv">9260</span>, <span class="dv">9950</span>, <span class="dv">10689</span>, <span class="dv">11253</span>, <span class="dv">11598</span>, <span class="dv">12155</span>, <span class="dv">12845</span>, <span class="dv">13670</span>, <span class="dv">14404</span>, <span class="dv">15121</span>, <span class="dv">15835</span>, <span class="dv">16244</span>, <span class="dv">16773</span>, <span class="dv">17927</span>, <span class="dv">18777</span>, <span class="dv">19794</span>, <span class="dv">20726</span>, <span class="dv">21401</span>, <span class="dv">21892</span>, <span class="dv">22622</span>, <span class="dv">23660</span>, <span class="dv">24503</span>, <span class="dv">25417</span>, <span class="dv">26124</span>, <span class="dv">26762</span>, <span class="dv">27145</span>, <span class="dv">27405</span>, <span class="dv">27786</span>, <span class="dv">28253</span>, <span class="dv">29125</span>, <span class="dv">29848</span>, <span class="dv">30486</span>, <span class="dv">30888</span>, <span class="dv">31350</span>, <span class="dv">32259</span>, <span class="dv">33344</span>, <span class="dv">34258</span>, <span class="dv">35554</span>, <span class="dv">36479</span>, <span class="dv">36959</span>, <span class="dv">37637</span>, <span class="dv">38549</span>, <span class="dv">39726</span>, <span class="dv">41196</span>, <span class="dv">42271</span>, <span class="dv">43175</span>, <span class="dv">43984</span>, <span class="dv">44671</span>, <span class="dv">45737</span>, <span class="dv">46903</span>, <span class="dv">48324</span>, <span class="dv">49363</span>, <span class="dv">50336</span>, <span class="dv">51277</span>, <span class="dv">52188</span>, <span class="dv">53459</span>, <span class="dv">54849</span>, <span class="dv">56365</span>, <span class="dv">57805</span>, <span class="dv">58976</span>, <span class="dv">60111</span>, <span class="dv">61480</span>, <span class="dv">62643</span>, <span class="dv">64933</span>, <span class="dv">66627</span>, <span class="dv">68349</span>, <span class="dv">69976</span>, <span class="dv">71068</span>, <span class="dv">72128</span>, <span class="dv">73689</span>, <span class="dv">75400</span>, <span class="dv">77659</span>, <span class="dv">79339</span>, <span class="dv">80909</span>, <span class="dv">83073</span>, <span class="dv">84981</span>, <span class="dv">87848</span>, <span class="dv">91002</span>, <span class="dv">94009</span>, <span class="dv">96209</span>, <span class="dv">99157</span>, <span class="dv">102633</span>, <span class="dv">106460</span>, <span class="dv">110402</span>, <span class="dv">115844</span>, <span class="dv">120491</span>, <span class="dv">126399</span>, <span class="dv">130325</span>, <span class="dv">135218</span>, <span class="dv">140107</span>, <span class="dv">147332</span>, <span class="dv">152876</span>, <span class="dv">161565</span>, <span class="dv">169118</span>, <span class="dv">176555</span>, <span class="dv">182486</span>, <span class="dv">187580</span>, <span class="dv">195443</span>, <span class="dv">202237</span>, <span class="dv">208489</span>, <span class="dv">215694</span>, <span class="dv">222037</span>, <span class="dv">228453</span>, <span class="dv">234840</span>, <span class="dv">234840</span>, <span class="dv">240538</span>, <span class="dv">249560</span>, <span class="dv">258506</span>, <span class="dv">264300</span>, <span class="dv">267849</span>, <span class="dv">273014</span>, <span class="dv">279163</span>, <span class="dv">284510</span>, <span class="dv">290818</span>, <span class="dv">296399</span>, <span class="dv">301689</span>, <span class="dv">304740</span>, <span class="dv">309256</span>, <span class="dv">312755</span>, <span class="dv">316505</span>, <span class="dv">320935</span>, <span class="dv">324360</span>, <span class="dv">327378</span>, <span class="dv">329701</span>, <span class="dv">331949</span>)</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
-<li><p>Find the best fitting exponential function <span class="math inline">\(f(t) = a e^{k t}\)</span> for the number of COVID-19 cases in Minnesota since 31 July, 2020.</p></li>
+<li><p>Find the best fitting exponential function <span class="math inline">\(f(t) = a e^{k t}\)</span> for the number of COVID-19 cases in Minnesota since 31 July, 2020. Here <span class="math inline">\(t\)</span> is the number of days since <span class="math inline">\(31 July\)</span>.</p></li>
 <li><p>Run the following code to plot your function. This code assumes that your least squares solution is given by <code>xhat</code>. Does it look like a good fit?</p></li>
 </ol>
 <pre><code>a = exp(xhat[1])
@@ -701,7 +711,7 @@ A = \left[
 <ol style="list-style-type: lower-alpha">
 <li>Find an orthonormal basis for each of the four fundamental subspaces <span class="math inline">\(\mbox{Nul}(A), \mbox{Col}(A), \mbox{Row}(A), \mbox{Nul}(A^{\top})\)</span>.<br />
 </li>
-<li>Confirm that your basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> is orthogonal to your basis for (A)</li>
+<li>Confirm that your basis for <span class="math inline">\(\mbox{Nul}(A)\)</span> is orthogonal to your basis for <span class="math inline">\(\mbox{Row}(A)\)</span></li>
 <li>Explain how we know that the mapping <span class="math inline">\(T(\mathsf{x}) = A\mathsf{x}\)</span> is one-to-one.</li>
 <li>Since the mapping <span class="math inline">\(T: \mathbb{R}^3 \rightarrow \mathbb{R}^5\)</span> is one-to-one. It maps a cube in <span class="math inline">\(\mathbb{R}^3\)</span> to a 3D “retangular cuboid” in <span class="math inline">\(\mathbb{R}^5\)</span>. Does the 3D volume expand, contract, or stay constant after the mapping? How do you know?</li>
 <li>What is the best rank 1 approximation of the matrix <span class="math inline">\(A\)</span>?</li>
@@ -793,6 +803,213 @@ svd(U)
 <li><p>Define <code>U</code> to be the matrix of right singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: `<code>plot(U[,1],pch=19,cex=.75,col=sen.color)</code>. Do any of the singular values distinguish Democrats from Republicans along the <span class="math inline">\(y\)</span>-axis?</p></li>
 </ol>
 <p><strong>Remark</strong>: When we explored <a href="voting-patterns-in-the-us-senate">Voting Patterns in the US Senate</a>, we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix <span class="math inline">\(A\)</span> for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) <span class="math inline">\(AA^{\top} = (A^{\top}A)^{\top}\)</span>. So the eigenvectors of that square matrix are the singular values of the rectangular matrix <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+<div id="solutions-to-practice-problems-3" class="section level2">
+<h2><span class="header-section-number">31.3</span> Solutions to Practice Problems</h2>
+<div id="section-12" class="section level3">
+<h3><span class="header-section-number">31.3.1</span> </h3>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[\begin{align}
+\| \mathsf{v} \| &amp;= \sqrt{ \mathsf{v} \cdot \mathsf{v}} = \sqrt{1+1+1} = \sqrt{3} \\
+\| \mathsf{w} \| &amp;= \sqrt{ \mathsf{w} \cdot \mathsf{vw}} = \sqrt{25+4+9} = \sqrt{38} \\
+\end{align}\]</span></p></li>
+<li><p>We have <span class="math inline">\(\mathsf{v} - \mathsf{w} = \begin{bmatrix} -4 \\ -3 \\ -2 \end{bmatrix}\)</span> and so
+<span class="math display">\[
+\| \mathsf{v} - \mathsf{w}\|  = \sqrt{16+9+4} = \sqrt{29} 
+\]</span></p></li>
+<li><p><span class="math display">\[ \cos \theta = \frac{\mathsf{v} \cdot \mathsf{w}}{\| \mathsf{v}  \| \, \|\mathsf{w} \| }
+= \frac{5-2+3}{\sqrt{3} \, \sqrt{38} } = \frac{2\sqrt{3}}{\sqrt{38} }
+\]</span></p></li>
+<li><p><span class="math display">\[
+\hat{\mathsf{w}} = \mbox{proj}_{\mathsf{v}} \mathsf{w} = \frac{\mathsf{v} \cdot \mathsf{w}}{ \mathsf{v} \cdot \mathsf{v} } \, \mathsf{v} = \frac{5-2+3}{1+1+1}  \mathsf{v}  = 2 \mathsf{v} = 
+\begin{bmatrix}
+2 \\ -2 \\ 2 
+\end{bmatrix}
+\]</span></p></li>
+<li><p>Using <span class="math inline">\(\hat{\mathsf{w}}\)</span> from the previous problem, we know that
+<span class="math display">\[
+\mathsf{z} = \mathsf{w} - \hat{\mathsf{w}} = \begin{bmatrix} 5 \\ 2 \\ 3 \end{bmatrix}  -  \begin{bmatrix} 2 \\ -2 \\ 2  \end{bmatrix} =
+\begin{bmatrix} 3 \\ 4 \\ 1  \end{bmatrix}
+\]</span>
+is orthogonal to <span class="math inline">\(\mathsf{v}\)</span>.So an orthonormal basis is
+<span class="math display">\[
+\frac{1}{\sqrt{3}} \begin{bmatrix}
+1 \\ -1 \\ 1
+\end{bmatrix} \quad \mbox{and} \quad
+\frac{1}{\sqrt{26}} \begin{bmatrix}
+3 \\ 4 \\ 1
+\end{bmatrix}
+\]</span></p></li>
+</ol>
+</div>
+<div id="section-13" class="section level3">
+<h3><span class="header-section-number">31.3.2</span> </h3>
+<ol style="list-style-type: lower-alpha">
+<li>We check that <span class="math inline">\(T(\mathsf{x} + \mathsf{y}) = T(\mathsf{x}) + T(\mathsf{y})\)</span> and that <span class="math inline">\(T(c\mathsf{x} ) = c \, T(\mathsf{x}).\)</span> To make things a little more clear, let’s write
+<span class="math display">\[
+T(\mathsf{x}) = (\mathsf{x} \cdot \mathsf{u}) \, \frac{1}{\mathsf{u} \cdot \mathsf{u}} \mathsf{u} = (\mathsf{x} \cdot \mathsf{u}) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}.
+\]</span>
+We have
+<span class="math display">\[\begin{align}
+T(\mathsf{x} + \mathsf{y}) &amp;= \big((\mathsf{x}+\mathsf{y}) \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= \big(\mathsf{x} \cdot \mathsf{u}+ \mathsf{y} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u} \\
+&amp;= \big(\mathsf{x} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u} +  \big(\mathsf{y} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= T(\mathsf{x}) + T( \mathsf{y})
+\end{align}\]</span>
+and
+<span class="math display">\[
+T(c\mathsf{x}) = \big(c\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= c \big(\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+=  c \, T(\mathsf{x})
+\]</span></li>
+<li>Here are a few ways to describe <span class="math inline">\(\mbox{ker}(T)\)</span>.
+<ul>
+<li><span class="math inline">\(\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid \mathsf{x} \cdot \mathsf{u} = 0\)</span>.</li>
+<li><span class="math inline">\(\mbox{ker}(T)\)</span> is the set of vectors that are orthogonal to <span class="math inline">\(\mathsf{u}\)</span>.</li>
+<li>Let <span class="math inline">\(A\)</span> be the <span class="math inline">\(1 \times n\)</span> matrix <span class="math inline">\(\mathsf{u}^{\top}\)</span>. Then <span class="math inline">\(\mbox{ker}(T)= \mbox{Nul}(A)\)</span>.</li>
+</ul></li>
+</ol>
+</div>
+<div id="section-14" class="section level3">
+<h3><span class="header-section-number">31.3.3</span> </h3>
+<p>We have <span class="math inline">\(\mathsf{u}_1 \cdot \mathsf{v} = 2-2-4+2=-2\)</span> and <span class="math inline">\(\mathsf{u}_1 \cdot \mathsf{v} = 2-2+4-2=2\)</span> so
+<span class="math display">\[
+\hat{\mathsf{v}} = \mbox{proj}_W \mathsf{v} = -2 \mathsf{u}_1 + 2 \mathsf{u}_2 = 
+\begin{bmatrix}
+1 \\ -1 \\ -1 \\ 1 
+\end{bmatrix}
++
+\begin{bmatrix}
+1 \\ -1 \\ 1 \\ -1 
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\ -2 \\ 0 \\ 0 
+\end{bmatrix}
+\]</span>
+with residual vector
+<span class="math display">\[
+\mathsf{z} = \mathsf{v} - \hat{\mathsf{v}}
+= \begin{bmatrix}
+2 \\ 2 \\ 4 \\ 2 
+\end{bmatrix}
+-
+\begin{bmatrix}
+2 \\ -2 \\ 0 \\ 0 
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 6 \\ 4 \\ 2 
+\end{bmatrix}
+\]</span>
+and the distance is <span class="math inline">\(\| \mathsf{z} \| = \sqrt{36 + 16 + 4} = \sqrt{56}\)</span>.</p>
+</div>
+<div id="section-15" class="section level3">
+<h3><span class="header-section-number">31.3.4</span> </h3>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(\mathsf{v}_1 \cdot \mathsf{v}_2 = 1 +2 - 3 =0\)</span>.</p></li>
+<li><p>We must find <span class="math inline">\(\mbox{Nul}(A)\)</span> where
+<span class="math inline">\(A = \begin{bmatrix} \mathsf{v}_1^{\top} \\ \mathsf{v}_2^{\top}\end{bmatrix}\)</span>.</p></li>
+</ol>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 1 &amp; -1 \\
+1 &amp; 2 &amp; 3
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1 &amp; 1 &amp; -1 \\
+0 &amp; 1 &amp; 4
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1 &amp; 0 &amp; -5 \\
+0 &amp; 1 &amp; 4
+\end{bmatrix}
+\]</span>
+so the vector <span class="math inline">\(\begin{bmatrix} 5 \\ -4 \\ 1 \end{bmatrix}\)</span> is a basis for <span class="math inline">\(W^{\perp}\)</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>We have
+<span class="math display">\[\begin{align}
+\hat{\mathsf{y}} &amp;=
+\frac{\mathsf{y} \cdot \mathsf{v_1}}{\mathsf{v_1} \cdot \mathsf{v_1}} \, \mathsf{v_1} +
+\frac{\mathsf{y} \cdot \mathsf{v_2}}{\mathsf{v_2} \cdot \mathsf{v_2}} \, \mathsf{v_2}
+=
+\frac{8-2}{1+1+1} \mathsf{v_1} + \frac{8+6}{1+4+9} \mathsf{v_2} \\
+&amp;=
+2\mathsf{v_1} +\mathsf{v_2}
+= \begin{bmatrix} 2 \\ 2 \\ -2 \end{bmatrix} + \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+= \begin{bmatrix} 3 \\ 4 \\ 1 \end{bmatrix}
+\end{align}\]</span>
+and so
+<span class="math display">\[
+\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}}
+= \begin{bmatrix} 8 \\ 0 \\ 2 \end{bmatrix} - \begin{bmatrix} 3 \\ 4 \\ 1 \end{bmatrix}
+= \begin{bmatrix} 5 \\ -4 \\ 1 \end{bmatrix}.
+\]</span></li>
+</ol>
+</div>
+<div id="section-16" class="section level3">
+<h3><span class="header-section-number">31.3.5</span> </h3>
+<p>a .We will answer this one using RStudio.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="quiz-4-review.html#cb328-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">4</span>))</span>
+<span id="cb328-2"><a href="quiz-4-review.html#cb328-2"></a><span class="kw">rref</span>(A)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    0    0    0
+## [2,]    0    1    0    0
+## [3,]    0    0    1    0
+## [4,]    0    0    0    1
+## [5,]    0    0    0    0</code></pre>
+<p>So we need all four vectors to span the column space.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>RStudio makes this so easy!</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="quiz-4-review.html#cb330-1"></a><span class="kw">gramSchmidt</span>(A)</span></code></pre></div>
+<pre><code>## $Q
+##            [,1]      [,2]          [,3]        [,4]
+## [1,]  0.3779645 0.2390457 -8.164966e-01 -0.26233033
+## [2,] -0.7559289 0.3585686 -4.082483e-01  0.26233033
+## [3,]  0.3779645 0.2390457  2.719480e-16 -0.09837388
+## [4,]  0.0000000 0.8366600  4.082483e-01 -0.26233033
+## [5,]  0.3779645 0.2390457  2.719480e-16  0.88536488
+## 
+## $R
+##          [,1]      [,2]      [,3]       [,4]
+## [1,] 2.645751 -3.401680 0.7559289  0.0000000
+## [2,] 0.000000  1.195229 2.9880715  1.6733201
+## [3,] 0.000000  0.000000 1.2247449 -0.8164966
+## [4,] 0.000000  0.000000 0.0000000  4.0661202</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>We obtain a basis for <span class="math inline">\(W^{\perp}\)</span> by finding <span class="math inline">\(\mbox{Nul(A^{\top})}\)</span> So let’s row reduce <span class="math inline">\(A^{\top}\)</span></li>
+</ol>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="quiz-4-review.html#cb332-1"></a><span class="kw">rref</span>(<span class="kw">t</span>(A))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    0    0    0   -2
+## [2,]    0    1    0    0    2
+## [3,]    0    0    1    0    7
+## [4,]    0    0    0    1   -2</code></pre>
+<p>The vector <span class="math inline">\(\begin{bmatrix} 2 \\ -2 \\ -7 \\ 2 \\ 1\end{bmatrix}\)</span> spans <span class="math inline">\(W^{\perp}\)</span></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Using Gram-Schmidt is overkill for this problem. I’ll just divide by the length of the vector.</li>
+</ol>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="quiz-4-review.html#cb334-1"></a>vec =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb334-2"><a href="quiz-4-review.html#cb334-2"></a>vec <span class="op">/</span><span class="st"> </span><span class="kw">Norm</span>(vec)</span></code></pre></div>
+<pre><code>## [1]  0.2540003 -0.2540003 -0.8890009  0.2540003  0.1270001</code></pre>
+</div>
+<div id="section-17" class="section level3">
+<h3><span class="header-section-number">31.3.6</span> </h3>
+<p>We will show that
+<span class="math inline">\(\| \mathsf{v} \|^2 = ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_2)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_n)^2.\)</span></p>
+<p>Let’s write <span class="math inline">\(\mathsf{v}\)</span> in terms of the orthonormal basis: <span class="math inline">\(\mathsf{v} = c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n\)</span>. We then have</p>
+<p><span class="math display">\[\begin{align}
+\| \mathsf{v} \|^2 &amp;= \mathsf{v} \cdot \mathsf{v} \\
+&amp;= (c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n) \cdot (c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n) \\
+&amp;= c_1^2 + c_2 + \cdots + c_n^2
+\end{align}\]</span>
+because <span class="math inline">\(\mathsf{u}_i \cdot \mathsf{u}_i =1\)</span> and <span class="math inline">\(\mathsf{u}_i \cdot \mathsf{u}_j=0\)</span> for <span class="math inline">\(i \neq j\)</span>.</p>
+<p>Finally, we note that <span class="math inline">\(\mathsf{v} \cdot \mathsf{u_i} = c_i\)</span> using the same facts about the dot projects for the orthonormal basis. So we have verified the claim above.</p>
 
 </div>
 </div>

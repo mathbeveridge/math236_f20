@@ -32,11 +32,15 @@ Let $\mathsf{v} =  \begin{bmatrix}1 \\ -1 \\ 1 \end{bmatrix}$ and $\mathsf{w}= \
 
 a. Find $\| \mathsf{v} \|$ and $\| \mathsf{w} \|$.
 
-a. Find the distance between $\mathsf{v}$ and $\mathsf{w}$.
 
-a. Find the cosine of the angle between $\mathsf{v}$ and $\mathsf{v}$.
+
+b. Find the distance between $\mathsf{v}$ and $\mathsf{w}$.
+
+c. Find the cosine of the angle between $\mathsf{v}$ and $\mathsf{v}$.
 
 a. Find $\mbox{proj}_{\mathsf{v}} \mathsf{w}$. 
+
+
 
 
 b. Let $W=\mbox{span} (\mathsf{v}, \mathsf{w})$. Create an orthonormal basis $\mathsf{u}_1, \mathsf{u}_2$ for $W$ such that $\mathsf{u}_1$ is a vector in the same direction as $\mathsf{v}$.
@@ -110,7 +114,7 @@ d. Use the Gram-Schmidt process on your answer from part (c) to find an orthogon
 
 Let $\mathsf{u}_1, \mathsf{u}_1, \ldots, \mathsf{u}_n$ be an **orthonormal** basis for $\mathbb{R}^n$. Pick any $\mathsf{v} \in \mathbb{R}^n$. Show that
 $$
-\| \mathsf{v} \| = \sqrt{ ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_1)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_1)^2}.
+\| \mathsf{v} \| = \sqrt{ ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_2)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_n)^2}.
 $$
 
 <!--
@@ -179,11 +183,12 @@ The vector `covid.mn` lists the total number of new COVID-19 cases in Minnesota 
 
 ```{r, echo=TRUE}
 
+covid.start = 54463
 
 covid.mn = c(725, 1484, 2097, 2699, 3316, 4177, 4722, 5638, 6435, 7053, 7376, 7840, 8530, 9260, 9950, 10689, 11253, 11598, 12155, 12845, 13670, 14404, 15121, 15835, 16244, 16773, 17927, 18777, 19794, 20726, 21401, 21892, 22622, 23660, 24503, 25417, 26124, 26762, 27145, 27405, 27786, 28253, 29125, 29848, 30486, 30888, 31350, 32259, 33344, 34258, 35554, 36479, 36959, 37637, 38549, 39726, 41196, 42271, 43175, 43984, 44671, 45737, 46903, 48324, 49363, 50336, 51277, 52188, 53459, 54849, 56365, 57805, 58976, 60111, 61480, 62643, 64933, 66627, 68349, 69976, 71068, 72128, 73689, 75400, 77659, 79339, 80909, 83073, 84981, 87848, 91002, 94009, 96209, 99157, 102633, 106460, 110402, 115844, 120491, 126399, 130325, 135218, 140107, 147332, 152876, 161565, 169118, 176555, 182486, 187580, 195443, 202237, 208489, 215694, 222037, 228453, 234840, 234840, 240538, 249560, 258506, 264300, 267849, 273014, 279163, 284510, 290818, 296399, 301689, 304740, 309256, 312755, 316505, 320935, 324360, 327378, 329701, 331949)
 
 ```
-a. Find the best fitting exponential function $f(t) = a e^{k t}$ for the number of  COVID-19 cases in Minnesota since 31 July, 2020.
+a. Find the best fitting exponential function $f(t) = a e^{k t}$ for the number of  COVID-19 cases in Minnesota since 31 July, 2020. Here $t$ is the number of days since $31 July$.
 
 
 b. Run the following code to plot your function. This code assumes that your least squares solution is given by `xhat`. Does it look like a good fit?
@@ -301,7 +306,7 @@ $$
 $$
 
 a. Find an orthonormal basis for each of the four fundamental subspaces $\mbox{Nul}(A), \mbox{Col}(A), \mbox{Row}(A), \mbox{Nul}(A^{\top})$.  
-b. Confirm that your basis for $\mbox{Nul}(A)$ is orthogonal to your basis for \mbox{Row}(A)
+b. Confirm that your basis for $\mbox{Nul}(A)$ is orthogonal to your basis for $\mbox{Row}(A)$
 c. Explain how we know that the mapping $T(\mathsf{x}) = A\mathsf{x}$ is one-to-one.
 d. Since the mapping $T: \mathbb{R}^3 \rightarrow \mathbb{R}^5$ is one-to-one. It maps a cube in $\mathbb{R}^3$  to a 3D "retangular cuboid" in $\mathbb{R}^5$. Does the 3D volume expand, contract, or stay constant after the mapping? How do you know?
 e. What is the best rank 1 approximation of the matrix $A$?
@@ -405,3 +410,204 @@ b. Define `U` to be the matrix of right singular vectors. Plot the important sin
 **Remark**: When we explored [Voting Patterns in the US Senate](voting-patterns-in-the-us-senate), we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix  $A$ for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) $AA^{\top} = (A^{\top}A)^{\top}$. So the eigenvectors of that square matrix are the singular values of the rectangular matrix $A$.
 
 
+## Solutions to Practice Problems
+
+```{r}
+require(pracma)
+```
+
+###
+
+a.
+\begin{align}
+\| \mathsf{v} \| &= \sqrt{ \mathsf{v} \cdot \mathsf{v}} = \sqrt{1+1+1} = \sqrt{3} \\
+\| \mathsf{w} \| &= \sqrt{ \mathsf{w} \cdot \mathsf{vw}} = \sqrt{25+4+9} = \sqrt{38} \\
+\end{align}
+
+b. We have $\mathsf{v} - \mathsf{w} = \begin{bmatrix} -4 \\ -3 \\ -2 \end{bmatrix}$ and so
+$$
+\| \mathsf{v} - \mathsf{w}\|  = \sqrt{16+9+4} = \sqrt{29} 
+$$
+c. 
+$$ \cos \theta = \frac{\mathsf{v} \cdot \mathsf{w}}{\| \mathsf{v}  \| \, \|\mathsf{w} \| }
+= \frac{5-2+3}{\sqrt{3} \, \sqrt{38} } = \frac{2\sqrt{3}}{\sqrt{38} }
+$$
+d. 
+$$
+\hat{\mathsf{w}} = \mbox{proj}_{\mathsf{v}} \mathsf{w} = \frac{\mathsf{v} \cdot \mathsf{w}}{ \mathsf{v} \cdot \mathsf{v} } \, \mathsf{v} = \frac{5-2+3}{1+1+1}  \mathsf{v}  = 2 \mathsf{v} = 
+\begin{bmatrix}
+2 \\ -2 \\ 2 
+\end{bmatrix}
+$$
+e. Using $\hat{\mathsf{w}}$ from the previous problem, we know that 
+$$
+\mathsf{z} = \mathsf{w} - \hat{\mathsf{w}} = \begin{bmatrix} 5 \\ 2 \\ 3 \end{bmatrix}  -  \begin{bmatrix} 2 \\ -2 \\ 2  \end{bmatrix} =
+\begin{bmatrix} 3 \\ 4 \\ 1  \end{bmatrix}
+$$ 
+is orthogonal to $\mathsf{v}$.So an orthonormal basis is
+$$
+\frac{1}{\sqrt{3}} \begin{bmatrix}
+1 \\ -1 \\ 1
+\end{bmatrix} \quad \mbox{and} \quad
+\frac{1}{\sqrt{26}} \begin{bmatrix}
+3 \\ 4 \\ 1
+\end{bmatrix}
+$$
+
+###
+
+a. We check that $T(\mathsf{x} + \mathsf{y}) = T(\mathsf{x}) + T(\mathsf{y})$ and that  $T(c\mathsf{x} ) = c \, T(\mathsf{x}).$ To make things a little more clear, let's write
+$$
+T(\mathsf{x}) = (\mathsf{x} \cdot \mathsf{u}) \, \frac{1}{\mathsf{u} \cdot \mathsf{u}} \mathsf{u} = (\mathsf{x} \cdot \mathsf{u}) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}.
+$$
+We have
+\begin{align}
+T(\mathsf{x} + \mathsf{y}) &= \big((\mathsf{x}+\mathsf{y}) \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= \big(\mathsf{x} \cdot \mathsf{u}+ \mathsf{y} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u} \\
+&= \big(\mathsf{x} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u} +  \big(\mathsf{y} \cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= T(\mathsf{x}) + T( \mathsf{y})
+\end{align}
+and
+$$
+T(c\mathsf{x}) = \big(c\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+= c \big(\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u} \|^2} \mathsf{u}
+=  c \, T(\mathsf{x})
+$$
+b. Here are a few ways to describe $\mbox{ker}(T)$.
+    + $\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid \mathsf{x} \cdot \mathsf{u} = 0$.
+    + $\mbox{ker}(T)$ is the set of vectors that are orthogonal to $\mathsf{u}$.
+    + Let $A$ be the $1 \times n$ matrix $\mathsf{u}^{\top}$. Then $\mbox{ker}(T)= \mbox{Nul}(A)$.
+
+
+###
+
+We have $\mathsf{u}_1 \cdot \mathsf{v} = 2-2-4+2=-2$ and $\mathsf{u}_1 \cdot \mathsf{v} = 2-2+4-2=2$ so
+$$
+\hat{\mathsf{v}} = \mbox{proj}_W \mathsf{v} = -2 \mathsf{u}_1 + 2 \mathsf{u}_2 = 
+\begin{bmatrix}
+1 \\ -1 \\ -1 \\ 1 
+\end{bmatrix}
++
+\begin{bmatrix}
+1 \\ -1 \\ 1 \\ -1 
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\ -2 \\ 0 \\ 0 
+\end{bmatrix}
+$$
+with residual vector 
+$$
+\mathsf{z} = \mathsf{v} - \hat{\mathsf{v}}
+= \begin{bmatrix}
+2 \\ 2 \\ 4 \\ 2 
+\end{bmatrix}
+-
+\begin{bmatrix}
+2 \\ -2 \\ 0 \\ 0 
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 6 \\ 4 \\ 2 
+\end{bmatrix}
+$$
+and the distance is $\| \mathsf{z} \| = \sqrt{36 + 16 + 4} = \sqrt{56}$.
+
+###
+
+a. $\mathsf{v}_1 \cdot \mathsf{v}_2 = 1 +2 - 3 =0$.
+
+b. We must find $\mbox{Nul}(A)$ where 
+$A = \begin{bmatrix} \mathsf{v}_1^{\top} \\ \mathsf{v}_2^{\top}\end{bmatrix}$.
+
+$$
+\begin{bmatrix}
+1 & 1 & -1 \\
+1 & 2 & 3
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1 & 1 & -1 \\
+0 & 1 & 4
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1 & 0 & -5 \\
+0 & 1 & 4
+\end{bmatrix}
+$$
+so the vector $\begin{bmatrix} 5 \\ -4 \\ 1 \end{bmatrix}$ is a basis for $W^{\perp}$
+
+c. We have
+\begin{align}
+\hat{\mathsf{y}} &=
+\frac{\mathsf{y} \cdot \mathsf{v_1}}{\mathsf{v_1} \cdot \mathsf{v_1}} \, \mathsf{v_1} +
+\frac{\mathsf{y} \cdot \mathsf{v_2}}{\mathsf{v_2} \cdot \mathsf{v_2}} \, \mathsf{v_2}
+=
+\frac{8-2}{1+1+1} \mathsf{v_1} + \frac{8+6}{1+4+9} \mathsf{v_2} \\
+&=
+2\mathsf{v_1} +\mathsf{v_2}
+= \begin{bmatrix} 2 \\ 2 \\ -2 \end{bmatrix} + \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+= \begin{bmatrix} 3 \\ 4 \\ 1 \end{bmatrix}
+\end{align}
+and so 
+$$
+\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}}
+= \begin{bmatrix} 8 \\ 0 \\ 2 \end{bmatrix} - \begin{bmatrix} 3 \\ 4 \\ 1 \end{bmatrix}
+= \begin{bmatrix} 5 \\ -4 \\ 1 \end{bmatrix}.
+$$
+
+###
+
+a .We will answer this one using RStudio.
+
+```{r, echo=TRUE}
+
+A = cbind(c(1,-2,1,0,1), c(-1,3,-1,1,-1), c(0,0,1,3,1), c(0,2,0,0,4))
+rref(A)
+
+```
+
+  So we need all four vectors to span the column space.
+  
+b. 
+
+RStudio makes this so easy!
+```{r, echo=TRUE}
+
+gramSchmidt(A)
+
+```
+
+
+
+c. We obtain a basis for $W^{\perp}$ by finding $\mbox{Nul(A^{\top})}$ So let's row reduce $A^{\top}$
+
+```{r, echo=TRUE}
+rref(t(A))
+```
+
+The vector  $\begin{bmatrix} 2 \\ -2 \\ -7 \\ 2 \\ 1\end{bmatrix}$ spans $W^{\perp}$
+
+d. Using Gram-Schmidt is overkill for this problem. I'll just divide by the length of the vector.
+
+```{r, echo=TRUE}
+vec = c(2,-2,-7,2,1)
+vec / Norm(vec)
+```
+
+###
+
+We will show that 
+$\| \mathsf{v} \|^2 =  ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_2)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_n)^2.$
+
+Let's write $\mathsf{v}$ in terms of the orthonormal  basis: $\mathsf{v} = c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n$. We then have 
+
+\begin{align}
+\| \mathsf{v} \|^2 &= \mathsf{v} \cdot \mathsf{v} \\
+&= (c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n) \cdot (c_1 \mathsf{u}_1 + c_2 \mathsf{u}_2 + \cdots + c_n \mathsf{u}_n) \\
+&= c_1^2 + c_2 + \cdots + c_n^2
+\end{align}
+because $\mathsf{u}_i \cdot \mathsf{u}_i  =1$ and $\mathsf{u}_i \cdot \mathsf{u}_j=0$ for $i \neq j$. 
+
+Finally, we note that $\mathsf{v} \cdot \mathsf{u_i} = c_i$ using the same facts about the dot projects for the orthonormal basis. So we have verified the claim above.
