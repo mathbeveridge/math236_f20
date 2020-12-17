@@ -172,7 +172,7 @@ c. How close is your approximate solution to the desired target vector?
 -->
 
 ###
-According to the [COVID Tracking Project](https://covidtracking.com/), there had been $54,463$ positive COVID-19 cases by 31 July, 2020. As of 16 December, 2020, that count as reached $331,949$. Here are the number of new daily COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020.
+According to the [COVID Tracking Project](https://covidtracking.com/), there had been $54,463$ positive COVID-19 cases by 31 July, 2020. As of 16 December, 2020, that count has reached $386,412$. Here are the total number of new COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020.
  
 
 ```{r, echo=TRUE}
@@ -373,7 +373,7 @@ svd(U)
 
 ###
 
-Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let's try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let's load in the data and sort it by party. Tis will list the 43 Democrats first, the 1 Independent and then the 55 Republicans. We then look at the matrix A of sorted votes.
+Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let's try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let's load in the data and sort it by party. This will list the 43 Democrats first, the 1 Independent and then the 55 Republicans. We will then look at the SVD of the sorted vote matrix A.
 
 
 ```{r, echo=TRUE}
