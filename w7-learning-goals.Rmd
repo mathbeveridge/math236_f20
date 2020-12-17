@@ -68,7 +68,7 @@ I should understand and be able to explain the following **concepts**:
 * The inverse of orthogonal matrix $A$ is the transpose $A^{\top}$
 * Cosine similarity is a useful way to compare vectors, especially in high-dimensional vector spaces.
 * The residual vector measures the quality of fit of a least squares solution
-* The outer product $\mathsf{v} \mathsf{w}^{\top}$ is a square matrix with rank 1
+* The outer product $\mathsf{v}\,  \mathsf{w}^{\top}$ is a square matrix with rank 1
 * Singular value decomposition is a generalization of orthogonal diagonalization
 * The singular values of $A$ are the square roots of the eigenvalues of $A^{\top}A$.
 * The spectral decomposition of a matrix allows us to approximate a matrix with a linear combination of rank 1 matrices. 

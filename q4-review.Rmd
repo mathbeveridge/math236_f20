@@ -172,7 +172,9 @@ c. How close is your approximate solution to the desired target vector?
 -->
 
 ###
-According to the [COVID Tracking Project](https://covidtracking.com/), there had been $54,463$ positive COVID-19 cases by 31 July, 2020. As of 16 December, 2020, that count has reached $386,412$. Here are the total number of new COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020.
+According to the [COVID Tracking Project](https://covidtracking.com/), Minnestoa had $54,463$ positive COVID-19 cases between March 6 and 31 July, 2020. As of 16 December, 2020, that count has reached $386,412$. 
+
+The vector `covid.mn` lists the total number of new COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020 (on top of the previously reported $54,463$).
  
 
 ```{r, echo=TRUE}
@@ -181,7 +183,7 @@ According to the [COVID Tracking Project](https://covidtracking.com/), there had
 covid.mn = c(725, 1484, 2097, 2699, 3316, 4177, 4722, 5638, 6435, 7053, 7376, 7840, 8530, 9260, 9950, 10689, 11253, 11598, 12155, 12845, 13670, 14404, 15121, 15835, 16244, 16773, 17927, 18777, 19794, 20726, 21401, 21892, 22622, 23660, 24503, 25417, 26124, 26762, 27145, 27405, 27786, 28253, 29125, 29848, 30486, 30888, 31350, 32259, 33344, 34258, 35554, 36479, 36959, 37637, 38549, 39726, 41196, 42271, 43175, 43984, 44671, 45737, 46903, 48324, 49363, 50336, 51277, 52188, 53459, 54849, 56365, 57805, 58976, 60111, 61480, 62643, 64933, 66627, 68349, 69976, 71068, 72128, 73689, 75400, 77659, 79339, 80909, 83073, 84981, 87848, 91002, 94009, 96209, 99157, 102633, 106460, 110402, 115844, 120491, 126399, 130325, 135218, 140107, 147332, 152876, 161565, 169118, 176555, 182486, 187580, 195443, 202237, 208489, 215694, 222037, 228453, 234840, 234840, 240538, 249560, 258506, 264300, 267849, 273014, 279163, 284510, 290818, 296399, 301689, 304740, 309256, 312755, 316505, 320935, 324360, 327378, 329701, 331949)
 
 ```
-a. Find the best fitting exponential function $f(t) = a e^{k t}$ for the number of new COVID-19 cases since 31 July, 2020.
+a. Find the best fitting exponential function $f(t) = a e^{k t}$ for the number of  COVID-19 cases in Minnesota since 31 July, 2020.
 
 
 b. Run the following code to plot your function. This code assumes that your least squares solution is given by `xhat`. Does it look like a good fit?
@@ -373,7 +375,7 @@ svd(U)
 
 ###
 
-Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let's try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let's load in the data and sort it by party. This will list the 43 Democrats first, the 1 Independent and then the 55 Republicans. We will then look at the SVD of the sorted vote matrix A.
+Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let's try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let's load in the data and assign a color to each senator according to their party.
 
 
 ```{r, echo=TRUE}
@@ -381,12 +383,15 @@ library(readr)
 
 senate.vote.file = "https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv"
 
-record <- read_csv(senate.vote.file, col_names = TRUE)
-record.party <- record[order(record$Party),]
+senators <- read_csv(senate.vote.file, col_names = TRUE)
 
-A <- as.matrix(record.party[4:49])
+A <- as.matrix(senators[4:49])
 
-partycolors = c(rep("blue",43), "purple", rep("red", 55))
+sen.color=rep("goldenrod", dim(senators)[1])
+sen.color[senators$Party=='D']="cornflowerblue"
+sen.color[senators$Party=='R']="firebrick"
+
+
 
 ```
 
@@ -394,7 +399,7 @@ partycolors = c(rep("blue",43), "purple", rep("red", 55))
 a. Find the singular value decomposition. Define `singval` to be the singular values. Plot them  using the command `plot(singval,pch=19,cex=.5,col='blue')`. How many "important" singular values are there? 
 
 
-b. Define `U` to be the matrix of right singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: ``plot(U[,1],pch=19,cex=.5,col=partycolors)`. The parties will be separated along the $x$-axis because we pre-sorted them. Do any of the singular values distinguish Democrats from Republicans along the $y$-axis?
+b. Define `U` to be the matrix of right singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: ``plot(U[,1],pch=19,cex=.75,col=sen.color)`. Do any of the singular values distinguish Democrats from Republicans along the $y$-axis?
 
 
 **Remark**: When we explored [Voting Patterns in the US Senate](voting-patterns-in-the-us-senate), we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix  $A$ for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) $AA^{\top} = (A^{\top}A)^{\top}$. So the eigenvectors of that square matrix are the singular values of the rectangular matrix $A$.
