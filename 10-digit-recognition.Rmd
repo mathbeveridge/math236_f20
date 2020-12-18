@@ -68,7 +68,8 @@ plot_digit <- function(digitcol) {
 
 Now let's display a few random digits from the test dataset. Feel free to re-run this block a few times. You'll see different examples each time!
 
-```{r digitsamples, out.width = "200px", out.height = "200px", echo=TRUE}
+```
+'```{r digitsamples, out.width = "150px", out.height = "150px", echo=TRUE}
 
 
 samp = sample(1:dim(test)[2], 6, replace=FALSE)
@@ -80,6 +81,13 @@ for (i in 1:6) {
 
 ```
 
+![](images/digitsamples-1.png){width=150px, height=150px}
+![](images/digitsamples-2.png){width=150px, height=150px}
+![](images/digitsamples-3.png){width=150px, height=150px}
+
+![](images/digitsamples-4.png){width=150px, height=150px}
+![](images/digitsamples-5.png){width=150px, height=150px}
+![](images/digitsamples-6.png){width=150px, height=150px}
 
 Next, let's talk about our training data. The original training data has 7291 different digits. Different machine learning techniques will use this data in different ways. But each of them follows the same idea: 
 
@@ -90,8 +98,8 @@ Our goal today is to **highlight the role of linear algebra**, not come up with 
 We will refer to these 10 training vectors as **centroids** since we are finding the vector in the center of all the training digits of each type. Since these are averages, when we plot them, they will look like blurry versions of the actual digit.  Let's look. 
 
 
-
-```{r digitcentroid, out.width = "200px", out.height = "200px", echo=TRUE}
+```
+'```{r digitcentroid, out.width = "150px", out.height = "150px", echo=TRUE}
 library(grid)
 images = vector()
 
@@ -100,6 +108,22 @@ for (i in 0:9) {
     plot_digit(dimg)
   }
 ```
+
+![](images/digitcentroid-1.png){width=150px, height=150px}
+![](images/digitcentroid-2.png){width=150px, height=150px}
+![](images/digitcentroid-3.png){width=150px, height=150px}
+
+![](images/digitcentroid-4.png){width=150px, height=150px}
+![](images/digitcentroid-5.png){width=150px, height=150px}
+![](images/digitcentroid-6.png){width=150px, height=150px}
+
+![](images/digitcentroid-7.png){width=150px, height=150px}
+![](images/digitcentroid-8.png){width=150px, height=150px}
+![](images/digitcentroid-9.png){width=150px, height=150px}
+
+![](images/digitcentroid-10.png){width=150px, height=150px}
+
+
 
 
 ### Algorithm Overview

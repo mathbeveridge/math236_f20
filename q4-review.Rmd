@@ -373,7 +373,7 @@ sen.color[senators$Party=='R']="firebrick"
 a. Find the singular value decomposition. Define `singval` to be the singular values. Plot them  using the command `plot(singval,pch=19,cex=.5,col='blue')`. How many "important" singular values are there? 
 
 
-b. Define `U` to be the matrix of right singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: ``plot(U[,1],pch=19,cex=.75,col=sen.color)`. Do any of the singular values distinguish Democrats from Republicans along the $y$-axis?
+b. Define `U` to be the matrix of left singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: ``plot(U[,1],pch=19,cex=.75,col=sen.color)`. Do any of the singular values distinguish Democrats from Republicans along the $y$-axis?
 
 
 **Remark**: When we explored [Voting Patterns in the US Senate](voting-patterns-in-the-us-senate), we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix  $A$ for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) $AA^{\top} = (A^{\top}A)^{\top}$. So the eigenvectors of that square matrix are the singular values of the rectangular matrix $A$.
@@ -622,7 +622,7 @@ c. The distance of between $\mathsf{b}$ and  $\hat{\mathsf{b}}$ is
 $$
 \| = \| \mathsf{z} \| = \sqrt{4+4+4+4} = \sqrt{16} = 4.
 $$
-
+###
 a. 
 
 ```{r echo=TRUE}
@@ -808,10 +808,11 @@ singval = decomp$d
 plot(singval,pch=19,cex=.5,col='blue')
 
 ```
-There are at least two important eigenvectors. After those two gaps, the eigenvalues taper off at a consisnt rate.
+
+There are two  very important eigenvectors. After those two gaps, the eigenvalues taper off more slowly. We certainly need more than the first two for a good approximation of the matrix. But the importance of the rest is more even.
 
 
-b. The first singular vector picks up a mild (but not definitive) layering of Republicans and Democrates. The second singular vector provides a clear separation!
+b. The first left singular vector picks up a mild (but not definitive) layering of Republicans and Democrats. The second left singular vector provides a clear separation!
 
 
 ```{r q4-senate2, echo=TRUE}

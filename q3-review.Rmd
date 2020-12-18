@@ -12,6 +12,7 @@ The best way to study is to do practice problems. The Quiz will have calculation
 * Make sure that you have mastered the Vocabulary, Skills and Concepts  listed below.
 * Look over the Edfinity homework assingments
 * Do practice problems from the Edfinity Practice assignments. These allow you to "Practice Similar" by generating new variations of the same problem.
+* Redo the Jamboard problems.
 * Try to resolve the Problem Sets and compare your answers to the solutions.
 * Do the practice problems below. Compare your answers to the solutions.
 
@@ -25,9 +26,9 @@ See the [Week 5-6 Learning Goals](week-5-6-learning-goals) for the list of vocab
 
 
 
+###
 
-
-1. Consider the $3 \times 3$ matrix
+Consider the $3 \times 3$ matrix
 $$
 A = 
 \left[
@@ -47,27 +48,36 @@ Find the eigenvalues and corresponding eigenvectors for $A$.
 
 
 
-2. Let $A$ be a $2 \times 2$ matrix. We view $A$ as a linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$. Describe the eigenvalues for each of the following types of matrices.
 
-    a. $A$ maps all of $\mathbb{R}^2$  onto a line through the origin in $\mathbb{R}^2$.
-    a. $A$ is a reflection  of $\mathbb{R}^2$ about a line through the origin
-    a. $A$ is a reflection  of $\mathbb{R}^2$ through the origin
-    a.  $A$ is a horizontal shear
+###
+
+Let $A$ be a $2 \times 2$ matrix. We view $A$ as a linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$. Describe the eigenvalues for each of the following types of matrices.
+
+a. $A$ maps all of $\mathbb{R}^2$  onto a line through the origin in $\mathbb{R}^2$.
+a. $A$ is a reflection  of $\mathbb{R}^2$ about a line through the origin
+a. $A$ is a reflection  of $\mathbb{R}^2$ through the origin
+a.  $A$ is a horizontal shear
 
 
-    
-    
-3. Below are the eigenvalues of four different $5 \times 5$ matrices.  For each, decide if the matrix is invertible  and if it is diagonalizable. 
+
+
+
+###
+
+Below are the eigenvalues of four different $5 \times 5$ matrices.  For each, decide if the matrix is invertible  and if it is diagonalizable. 
 Answer Yes, No or "Not enough information to determine this." 
 
 
-    a. $A$ has eigenvalues $\lambda =  -4, -3,0,1, 2$
-    a. $B$ has eigenvalues $\lambda = -3, -1, 1, \sqrt{2}, 8.$
-    a. $C$  has eigenvalues $\lambda =  1, 2, 2, 7, 8.$
-    a. $D$ has eigenvalues $\lambda =  -1, 0, 3,3, 10$
+a. $A$ has eigenvalues $\lambda =  -4, -3,0,1, 2$
+a. $B$ has eigenvalues $\lambda = -3, -1, 1, \sqrt{2}, 8.$
+a. $C$  has eigenvalues $\lambda =  1, 2, 2, 7, 8.$
+a. $D$ has eigenvalues $\lambda =  -1, 0, 3,3, 10$
 
 
-4. Here the diagonalization of a matrix:
+
+###
+
+Here the diagonalization of a matrix:
  $$
  \mathsf{A}=\left[
 \begin{array}{ccc}
@@ -96,15 +106,18 @@ Answer Yes, No or "Not enough information to determine this."
 \end{array}
 \right].
 $$
-    a. Is the matrix $\mathsf{A}$  invertible?
-    b. Find a nonzero vector in $\mathrm{Nul}(\mathsf{A})$ if one exists.
-    c. Find a steady-state vector $\mathsf{v}$ such that $\mathsf{A} \mathsf{v} = \mathsf{v}$ if one exists.
-    d. Give the coordinates of $\mathsf{v} = [1,2,3]^T$ in the eigenbasis without row reductions.
-    e. Find a formula for $\mathsf{A}^{2020} \mathsf{v}$ if $\mathsf{v} = [1,2,3]^T$ in terms of the eigenbasis.
+a. Is the matrix $\mathsf{A}$  invertible?
+b. Find a nonzero vector in $\mathrm{Nul}(\mathsf{A})$ if one exists.
+c. Find a steady-state vector $\mathsf{v}$ such that $\mathsf{A} \mathsf{v} = \mathsf{v}$ if one exists.
+d. Give the coordinates of $\mathsf{v} = [1,2,3]^T$ in the eigenbasis without row reductions.
+e. Find a formula for $\mathsf{A}^{2020} \mathsf{v}$ if $\mathsf{v} = [1,2,3]^T$ in terms of the eigenbasis.
 
 
 
-5. The eigensystem of matrix  $A$ is given below.  It has complex eigenvalues. What angle  does it rotate by? What factor does it scale by?
+
+###
+
+The eigensystem of matrix  $A$ is given below.  It has complex eigenvalues. What angle  does it rotate by? What factor does it scale by?
 $$
 \begin{bmatrix} 3 & -5 \\ 1 & -1 \end{bmatrix}, \qquad
 \lambda = 1 \pm i,
@@ -113,23 +126,29 @@ v = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \pm \begin{bmatrix} 1 \\ 0 \end{bmatrix
 $$
 
 
-6.  Using the matrix $B = = \begin{bmatrix} .97 & -.71 \\ .71 & .97 \end{bmatrix}$  and the starting vector $\mathsf{v} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$, I plotted the points 
+
+###
+
+Using the matrix $B = = \begin{bmatrix} .97 & -.71 \\ .71 & .97 \end{bmatrix}$  and the starting vector $\mathsf{v} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$, I plotted the points 
 $$\mathsf{v}, B \mathsf{v}, B^2\mathsf{v}, B^3 \mathsf{v}, \ldots.$$ 
 I saw that these points are, roughly, going around in a circle. 
-    a. How many multiplications by $B$ does it take to get back around to the positive $x$-axis?   
-    a. When I come full circle, am I closer to the origin, farther from the origin, or the same distance to the origin?  
+a. How many multiplications by $B$ does it take to get back around to the positive $x$-axis?   
+a. When I come full circle, am I closer to the origin, farther from the origin, or the same distance to the origin?  
 
 7. For each matrix below,  decide if it is diagonalizable.  You do  not need to diagonalize the matrix (though you can!), but you must give a reason for why the matrix is or is not diagonalizable.
 
-    a. $A = \begin{bmatrix} 0 & -4 & 2 \\ 2 & -4 & -1 \\ -6 & 4 & 7 \end{bmatrix}$ has eigenvalues $4, -1, 0$.
+a. $A = \begin{bmatrix} 0 & -4 & 2 \\ 2 & -4 & -1 \\ -6 & 4 & 7 \end{bmatrix}$ has eigenvalues $4, -1, 0$.
 
-    b. $B = \begin{bmatrix} 3 & -1 & 2 \\ -1 & 3 & 2 \\ 2&2 & 0 \end{bmatrix}$ has eigenvalues $4,4,-2$.
+b. $B = \begin{bmatrix} 3 & -1 & 2 \\ -1 & 3 & 2 \\ 2&2 & 0 \end{bmatrix}$ has eigenvalues $4,4,-2$.
 
  
  
  
  
-8. Consider the matrix with  eigenvalues and eigenvectors
+
+###
+
+Consider the matrix with  eigenvalues and eigenvectors
 $$
 A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix}
 \qquad
@@ -139,13 +158,16 @@ A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix}
 \end{array}
 $$
 
-    a.  Diagonalize $A$.
-    a. What can you say about $\displaystyle{\lim_{n \to \infty}} A^n$?
-    a. Give a  formula for $A^n \mathsf{x}_0$ if $\mathsf{x}_0 = \begin{bmatrix} 25 \\ 0 \end{bmatrix}$ in terms of the eigenbasis.
-    a. What is $\displaystyle{\lim_{n \to \infty}} A^n \begin{bmatrix} 25 \\ 0 \end{bmatrix}$?
+a.  Diagonalize $A$.
+a. What can you say about $\displaystyle{\lim_{n \to \infty}} A^n$?
+a. Give a  formula for $A^n \mathsf{x}_0$ if $\mathsf{x}_0 = \begin{bmatrix} 25 \\ 0 \end{bmatrix}$ in terms of the eigenbasis.
+a. What is $\displaystyle{\lim_{n \to \infty}} A^n \begin{bmatrix} 25 \\ 0 \end{bmatrix}$?
 
  
-9. The matrix $A$ below has the given eigenvalues and eigenvectors. 
+
+###
+
+The matrix $A$ below has the given eigenvalues and eigenvectors. 
 $$
 A = \left[
 \begin{array}{cc}
@@ -160,14 +182,17 @@ A = \left[
 \end{array}\hskip5in
 $$ 
 
-    a. Factor $A=PCP^{-1}$ where $C$ is a rotation-scaling matrix.
-    a. What is the angle of rotation?
-    a. What is the factor of dilation?
+a. Factor $A=PCP^{-1}$ where $C$ is a rotation-scaling matrix.
+a. What is the angle of rotation?
+a. What is the factor of dilation?
 
  
  
 
-10. In a 1962 study of rainfall in Tel Aviv, it was determined that if today is a wet day, then the probability that tomorrow will be wet is 0.662 and the probability that tomorrow it will be dry is 0.338.  If today is a dry day, then the probability that tomorrow is wet is 0.250 and the probability that tomorrow is dry will be 0.75. From this I computed the following:
+
+###
+
+In a 1962 study of rainfall in Tel Aviv, it was determined that if today is a wet day, then the probability that tomorrow will be wet is 0.662 and the probability that tomorrow it will be dry is 0.338.  If today is a dry day, then the probability that tomorrow is wet is 0.250 and the probability that tomorrow is dry will be 0.75. From this I computed the following:
 $$
 A = \begin{bmatrix} 0.662 & 0.25 \\ 0.338 & 0.75\end{bmatrix};
 \qquad
@@ -178,11 +203,14 @@ A = \begin{bmatrix} 0.662 & 0.25 \\ 0.338 & 0.75\end{bmatrix};
 $$
 
 
-    a.  If Monday is a dry day, what is the probability that Wednesday will be wet?
-    a.  In the long-run, what is the distribution of wet and dry days?
+a.  If Monday is a dry day, what is the probability that Wednesday will be wet?
+a.  In the long-run, what is the distribution of wet and dry days?
 
 
-11. Conservation biologists in the Minnesota boundary waters have modeled the predator-prey dynamics of  Grey Wolves $X$ and White Tailed Deer $Y$, which have a predator-prey relationship:
+
+###
+
+Conservation biologists in the Minnesota boundary waters have modeled the predator-prey dynamics of  Grey Wolves $X$ and White Tailed Deer $Y$, which have a predator-prey relationship:
 $$
 \left[ 
 \begin{array}{r} 
@@ -207,12 +235,12 @@ $$
 Here, $t$ is measured in years and $X$ and $Y$ are measured in $100,000$ animals.
 
 
-    a. The plot below  shows the vector field for this dynamical system. Draw or describe the trajectory of the populations starting at $[X_0, Y_0] = [1,2]$. In one or two sentences, describe what happens to these populations over time.
+a. The plot below  shows the vector field for this dynamical system. Draw or describe the trajectory of the populations starting at $[X_0, Y_0] = [1,2]$. In one or two sentences, describe what happens to these populations over time.
 <center>
 ![](images/q3-wolfdeer1.png){width=60%}
 </center>
 
-    b. The population biologists consider two options to fix this system. The first option  is  a **deer breeding program** to increase their productivity. Their adjusted model becomes:
+b. The population biologists consider two options to fix this system. The first option  is  a **deer breeding program** to increase their productivity. Their adjusted model becomes:
 $$
 \left[ 
 \begin{array}{r} 
@@ -241,10 +269,10 @@ $$
 <center>
 ![](images/q3-wolfdeer2.png){width=60%}
 </center>
-    Draw or describe the trajectory of the populations starting at $(X_0, Y_0) = (1,2)$ in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.
+Draw or describe the trajectory of the populations starting at $(X_0, Y_0) = (1,2)$ in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.
 
 
-    c. The second option they consider is a **limited wolf hunting season**. This reduces the productivity of the wolves, giving the new model: 
+c. The second option they consider is a **limited wolf hunting season**. This reduces the productivity of the wolves, giving the new model: 
 $$
 \left[ 
 \begin{array}{r} 
@@ -272,28 +300,31 @@ $$
 <center>
 ![](images/q3-wolfdeer3.png){width=60%}
 </center>
-    Once again, draw or  desctibe the trajectory of the populations starting at $(X_0, Y_0) = (1,2)$ in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.
+Once again, draw or  desctibe the trajectory of the populations starting at $(X_0, Y_0) = (1,2)$ in the above vector plot. Describe what happens to these populations over time, and relate these observations to the eigenvectors and eigenvalues of the transition matrix.
 
 
-    d. The conservation biologists want to create a stable ecosystem, where the populations of deer and wolves remain constant over time. Which option (deer breeding or limited wolf hunting) would you recommend?
+d. The conservation biologists want to create a stable ecosystem, where the populations of deer and wolves remain constant over time. Which option (deer breeding or limited wolf hunting) would you recommend?
 
 
 
-12. A population of female bison is split into three groups: juveniles who are
+
+###
+
+A population of female bison is split into three groups: juveniles who are
 less than one year old; yearlings between one and two years old; and adults who
 are older than two years. Each year,
-    * 80% of the juveniles survive to become yearlings.
-    * 90% of the yearlings survive to become adults.
-    * 80% of the adults survive.
-    * 40% of the adults give birth to a juvenile
+* 80% of the juveniles survive to become yearlings.
+* 90% of the yearlings survive to become adults.
+* 80% of the adults survive.
+* 40% of the adults give birth to a juvenile
 Let
 $\mathsf{x}_t = \begin{bmatrix} J_t  \\ Y_t \\ A_t \end{bmatrix}$ be the
 state of the system in year $t$.
 
-    a. Find the Leslie matrix $L$ such that $\mathsf{x}_{t+1} = B \mathsf{x}_t.$.
-    b. Find the eigenvalues of $L$.
-    c. The matrix  $L$ has two complex eigenvalues and  one real eigenvalue. How  do  the complex eigenvectors manifest in the trajectory of a population?
-    d. What is the long-term behavior of the herd? Will the size of the herd grow, stablilize  or shrink?  What will be the proportions of juveniles, yearlings and  adults in the herd?
+a. Find the Leslie matrix $L$ such that $\mathsf{x}_{t+1} = B \mathsf{x}_t.$.
+b. Find the eigenvalues of $L$.
+c. The matrix  $L$ has two complex eigenvalues and  one real eigenvalue. How  do  the complex eigenvectors manifest in the trajectory of a population?
+d. What is the long-term behavior of the herd? Will the size of the herd grow, stablilize  or shrink?  What will be the proportions of juveniles, yearlings and  adults in the herd?
  
 ## Solutions to Practice Problems
 
@@ -303,146 +334,154 @@ require(pracma)
 
 
 
-1.  There are three eigenvalues: 1, 2, and  $-2$. We find an eigenvector for each of  them.
-    * Eigenvalue  $\lambda = 1$
-    $$
-    A - I = 
-    \left[
-    \begin{array}{rrr}
-    1 & -1 & 0 \\
-    0 & 0 & 0 \\
-    -2 & 5 & -3 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    1 & -1 & 0 \\
-    0 & 3 & -3 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    1 & -1 & 0 \\
-    0 & 1 & -1 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    1 & 0 & -1 \\
-    0 & 1 & -1 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    $$
-    So one eigenvector is $[1,1,1]^{\top}$
+
+###
+
+There are three eigenvalues: 1, 2, and  $-2$. We find an eigenvector for each of  them.
+* Eigenvalue  $\lambda = 1$
+$$
+A - I = 
+\left[
+\begin{array}{rrr}
+1 & -1 & 0 \\
+0 & 0 & 0 \\
+-2 & 5 & -3 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+1 & -1 & 0 \\
+0 & 3 & -3 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+1 & -1 & 0 \\
+0 & 1 & -1 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+1 & 0 & -1 \\
+0 & 1 & -1 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+$$
+So one eigenvector is $[1,1,1]^{\top}$
 
 
-    * Eigenvalue $\lambda = 2$
-    $$
-    A - 2I = 
-    \left[
-    \begin{array}{rrr}
-    0 & -1 & 0 \\
-    0 & -1 & 0 \\
-    -2 & 5 & -4 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    -2 & 5 & -4 \\
-    0 & -1 & 0 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    -2 & 0 & -4 \\
-    0 & 1 & 0 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    1 & 0 & 2 \\
-    0 & 1 & 0 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    $$
-    So one eigenvector is $[-2,0,1]^{\top}$
+* Eigenvalue $\lambda = 2$
+$$
+A - 2I = 
+\left[
+\begin{array}{rrr}
+0 & -1 & 0 \\
+0 & -1 & 0 \\
+-2 & 5 & -4 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+-2 & 5 & -4 \\
+0 & -1 & 0 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+-2 & 0 & -4 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+1 & 0 & 2 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+$$
+So one eigenvector is $[-2,0,1]^{\top}$
   
-    * Eigenvalue $\lambda = -2$
-    $$
-    A - 2I = 
-    \left[
-    \begin{array}{rrr}
-    4 & -1 & 0 \\
-    0 & 3 & 0 \\
-    -2 & 5 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    4 & 0 & 0 \\
-    0 & 1 & 0 \\
-    -2 & 0 & 0 \\
-    \end{array}
-    \right]
-    \sim
-    \left[
-    \begin{array}{rrr}
-    1 & 0 & 0 \\
-    0 & 1 & 0 \\
-    0 & 0 & 0 \\
-    \end{array}
-    \right]
-    $$
-    So one eigenvector is $[0,0,1]^{\top}$
+* Eigenvalue $\lambda = -2$
+$$
+A - 2I = 
+\left[
+\begin{array}{rrr}
+4 & -1 & 0 \\
+0 & 3 & 0 \\
+-2 & 5 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+4 & 0 & 0 \\
+0 & 1 & 0 \\
+-2 & 0 & 0 \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+\end{array}
+\right]
+$$
+So one eigenvector is $[0,0,1]^{\top}$
 
 
 
-2. 
 
-    a. This is a mapping that maps 2D space onto 1D space. We "lose a dimension" which means that $\dim(\mbox{Nul}(A))=1$. This means that $\lambda=0$ is an eigenvalue because there is a nonzero vector $\mathsf{x}$ such that $A \mathsf{x} = \mathbf{0} = 0 \mathsf{x}$. We know that the other eigenvalue is nonzero, since we are mapping onto  a line. However, we  can't say anything more without additional information.
+###
+
+
+a. This is a mapping that maps 2D space onto 1D space. We "lose a dimension" which means that $\dim(\mbox{Nul}(A))=1$. This means that $\lambda=0$ is an eigenvalue because there is a nonzero vector $\mathsf{x}$ such that $A \mathsf{x} = \mathbf{0} = 0 \mathsf{x}$. We know that the other eigenvalue is nonzero, since we are mapping onto  a line. However, we  can't say anything more without additional information.
   
-    b. The eigenvalues are $\lambda_1 = 1$ and $\lambda_2=-1$. Let $L = \mbox{span}( [a,b]^{\top}$ ) be the line of reflection.
-        - If $\mathsf{v} = [a,b]^{\top}$ is on $L$, then $T(\mathsf{v}) = \mathsf{v}$.Since $\mathsf{v}$ is on the line of reflection, it doesn't change. 
-        - The vector $\mathsf{w} = [-b,a]^{\top}$ is perpendicular to $L$, so $T(\mathsf{w}) = -\mathsf{w}$.
-      Perhaps this one is easiest to undertand by looking at a particular example. Let's look at a reflection across the $y$-axis. This means that $A [ x, y]^{\top} = [-x, y]^{\top}$. In particular, we have $A [ 1, 0]^{\top} =  [ -x, 0]^{\top} = - [ x, 0]^{\top}$. So $-1$ is an eigenvalue. Meanwhile, we also have $A [ 0, 1]^{\top} =  [ 0, 1]^{\top}$ So 1 is an eigenvalue.
-      
-    c. The eigenvalues are $\lambda_1 = \lambda_2=-1$ because
-    $$
-    T\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \right)
-    = \begin{bmatrix} -x_1 \\ -x_2 \end{bmatrix}
-    = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
-    $$
-    d. There is one eigenvalue $\lambda=1$ with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a  shear matrix is not diagonalizable. A shear always fixes one direction (the $x$-axis or the $y$-axis). Since these vectors map to themselves, we know that 1 is an eigenvalue. A shear matrix is always of the form
-    
-    We can also give a matrix proof. A 2D horizontal  shear matrix is of the form
-    $\begin{bmatrix} 1 & a \\ 0 & 1 \end{bmatrix}$. A 2D vertical shear matrix is of the form
-    $\begin{bmatrix} 1 & 0 \\ a & 1 \end{bmatrix}$. Direct calculation shows that $\lambda=1$  has algebraic multiplicity 2 and geometric multiplicity 1. So there are no other eigenvalues.
-    
-
-3.
-    a. $A$ is not invertible because $0$ is an eigenvalue. $A$ is diagonalizable because it have 5 distinct eigenvalues.
-    a. $B$ is  invertible because $0$ is not an eigenvalue. $B$ is diagonalizable because it have 5 distinct eigenvalues.
-    a. $C$ is  invertible because $0$ is not an eigenvalue. We cannot tell whether $C$ is diagonalizable without more information. The eigenvalue $\lambda=2$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
-    a. $D$ is not invertible because $0$ is  an eigenvalue. We cannot tell whether $D$ is diagonalizable without more information. The eigenvalue $\lambda=3$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
+b. The eigenvalues are $\lambda_1 = 1$ and $\lambda_2=-1$. Let $L = \mbox{span}( [a,b]^{\top}$ ) be the line of reflection.
+- If $\mathsf{v} = [a,b]^{\top}$ is on $L$, then $T(\mathsf{v}) = \mathsf{v}$.Since $\mathsf{v}$ is on the line of reflection, it doesn't change. 
+- The vector $\mathsf{w} = [-b,a]^{\top}$ is perpendicular to $L$, so $T(\mathsf{w}) = -\mathsf{w}$.
+  Perhaps this one is easiest to undertand by looking at a particular example. Let's look at a reflection across the $y$-axis. This means that $A [ x, y]^{\top} = [-x, y]^{\top}$. In particular, we have $A [ 1, 0]^{\top} =  [ -x, 0]^{\top} = - [ x, 0]^{\top}$. So $-1$ is an eigenvalue. Meanwhile, we also have $A [ 0, 1]^{\top} =  [ 0, 1]^{\top}$ So 1 is an eigenvalue.
   
-4.
-    a. No, $A$ is not invertible because $0$ is an eigenvalue.
-    b. $\mathsf{v} = [1, -2, 1]^{\top}$ is an eigenvector for $\lambda=0$. Therefore $\mathsf{v} \in \mbox{Nul}(A)$.
-    c. The vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
-    d. When $A=P D P^{-1}$, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by $P^{-1}$.
+c. The eigenvalues are $\lambda_1 = \lambda_2=-1$ because
+$$
+T\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \right)
+= \begin{bmatrix} -x_1 \\ -x_2 \end{bmatrix}
+= \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+$$
+d. There is one eigenvalue $\lambda=1$ with algebraic multiplicity 2. However, it only has geometric multiplicity 1. We know that a  shear matrix is not diagonalizable. A shear always fixes one direction (the $x$-axis or the $y$-axis). Since these vectors map to themselves, we know that 1 is an eigenvalue. A shear matrix is always of the form
+
+We can also give a matrix proof. A 2D horizontal  shear matrix is of the form
+$\begin{bmatrix} 1 & a \\ 0 & 1 \end{bmatrix}$. A 2D vertical shear matrix is of the form
+$\begin{bmatrix} 1 & 0 \\ a & 1 \end{bmatrix}$. Direct calculation shows that $\lambda=1$  has algebraic multiplicity 2 and geometric multiplicity 1. So there are no other eigenvalues.
+
+
+
+###
+a. $A$ is not invertible because $0$ is an eigenvalue. $A$ is diagonalizable because it have 5 distinct eigenvalues.
+a. $B$ is  invertible because $0$ is not an eigenvalue. $B$ is diagonalizable because it have 5 distinct eigenvalues.
+a. $C$ is  invertible because $0$ is not an eigenvalue. We cannot tell whether $C$ is diagonalizable without more information. The eigenvalue $\lambda=2$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
+a. $D$ is not invertible because $0$ is  an eigenvalue. We cannot tell whether $D$ is diagonalizable without more information. The eigenvalue $\lambda=3$ has algebraic multiplicity 2. We need to know whether the geometric multiplicity is 1 or 2.
+  
+
+###
+
+a. No, $A$ is not invertible because $0$ is an eigenvalue.
+b. $\mathsf{v} = [1, -2, 1]^{\top}$ is an eigenvector for $\lambda=0$. Therefore $\mathsf{v} \in \mbox{Nul}(A)$.
+c. The vector $\mathsf{v} = [0,1,2]^{\top}$ is an eigenvector for $\lambda=1$. So this is a steady-state vector. (However, the dynamical system will not converge to this steady state because $\lambda=6$ is the dominant eigenvalue.)
+d. When $A=P D P^{-1}$, we can find the coordinates of a vector with respect to the eigenbasis via multiplication by $P^{-1}$.
   
 ```{r, echo=TRUE}
 Pinv =cbind(c(-1/6,0,1/6),c(-1/15,1/5,-1/3),c(1/30,2/5,1/6))
@@ -451,15 +490,21 @@ v = c(1,2,3)
 Pinv %*% v
 ```
 
-  So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
+So  $[ \mathsf{v}]_{\mathcal{B}} = [-1/5, 8/5, 0]^{\top}$.
 
 
-  e. $-\frac{1}{5} \cdot 6^{2020} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
+e. $-\frac{1}{5} \cdot 6^{2020} \cdot \begin{bmatrix} -5 \\ -2 \\ 1 \end{bmatrix}  + \frac{8}{5}  \cdot \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}$
   
   
-5. This system scales by $\sqrt{1+1} = \sqrt{2}$ and it rotates by $\tan^{-1} (1/1) = \pi/4$. 
 
-6. We have
+###
+
+This system scales by $\sqrt{1+1} = \sqrt{2}$ and it rotates by $\tan^{-1} (1/1) = \pi/4$. 
+
+
+###
+
+We have
 $$
 \begin{bmatrix} a & -b \\ b & a \end{bmatrix} = \begin{bmatrix} .97 & -.71\\ .71 & .97 \end{bmatrix} 
 $$
@@ -478,33 +523,37 @@ angle
 2 * pi / angle
 ```
 
-  a. It takes 10 iterations to rotate past the $x$-axis. 
-  b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
+a. It takes 10 iterations to rotate past the $x$-axis. 
+b. We are further from the origin because $| \lambda| \approx 1.2 > 1$.
 
 
-7. 
-    a. The matrix $A$ is diagonalizable because it has 3 distinct eigenvalues
-    b. We must see whether $\lambda=4$ has geometric multiplicty 2 (to match its algebraic multiplicity).
+
+###
+ 
+a. The matrix $A$ is diagonalizable because it has 3 distinct eigenvalues
+b. We must see whether $\lambda=4$ has geometric multiplicty 2 (to match its algebraic multiplicity).
 
 ```{r, echo=TRUE}
 rref( cbind(c(-1,-1,2), c(-1,-1,2), c(2,2,-4)))
 ```
 
-  We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. This means that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
+We see that $B - 4I$ has two free columns, so $\dim ( \mbox{Nul}(B-4I))=2$. This means that $\lambda=4$ has geometric multiplicity 2. Therefore $B$ is diagonalizable.
 
-8. 
-    a. We set $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$. So
-    $$
-    P^{-1} =  - \frac{1}{5} \begin{bmatrix} -1 & -1 \\ -3 & 2 \end{bmatrix}
-    = \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
-    $$
-    Or we can find this inverse using RStudio.
+
+###
+ 
+a. We set $P = \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}$. So
+$$
+P^{-1} =  - \frac{1}{5} \begin{bmatrix} -1 & -1 \\ -3 & 2 \end{bmatrix}
+= \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
+$$
+Or we can find this inverse using RStudio.
 ```{r, echo=TRUE}
 A = cbind(c(2,3),c(1,-1))
 solve(A)
 ```
-    
-    Therefore 
+
+Therefore 
 $$
 A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix} = 
 \begin{bmatrix} 2 & 1 \\ 3 & -1 \end{bmatrix}
@@ -512,9 +561,9 @@ A = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix} =
 \begin{bmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{bmatrix}
 $$
 
-  b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 0.4 & 0.6 \\ 0.4 & 0.6 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue. So each column of $A$ convergence to vector in the eigenspace for the dominant eigenvalue. Basically, we treat each column of $A$ as a "starting vector" repeated multiplication by $A$ converges to the dominant eigenspace. Here are the details.
-  
-  Let $\mathsf{v}_1 = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$ and $\mathsf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$. Let's see why we can treat each column $\mathsf{a}_1, \mathsf{a}_2$ of $A$ as a "starting vector." We can choose to view  
+b. $\lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 0.4 & 0.6 \\ 0.4 & 0.6 \end{bmatrix}$ because $\lambda=1$ is the dominant eigenvalue. So each column of $A$ convergence to vector in the eigenspace for the dominant eigenvalue. Basically, we treat each column of $A$ as a "starting vector" repeated multiplication by $A$ converges to the dominant eigenspace. Here are the details.
+
+Let $\mathsf{v}_1 = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$ and $\mathsf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$. Let's see why we can treat each column $\mathsf{a}_1, \mathsf{a}_2$ of $A$ as a "starting vector." We can choose to view
 $$A^2 = A \begin{bmatrix} \mathsf{a}_1 &  \mathsf{a}_2  \end{bmatrix}  =  \begin{bmatrix} A \mathsf{a}_1 & A \mathsf{a}_2  \end{bmatrix}
 \quad \mbox{and} \quad 
 A^3 = A \begin{bmatrix} A \mathsf{a}_1 & A \mathsf{v}_2  \end{bmatrix} =  \begin{bmatrix} A^{2} \mathsf{a}_1 & A^{2} \mathsf{v}_2  \end{bmatrix}
@@ -536,7 +585,7 @@ $$
 = \lim_{n \rightarrow \infty} \left( c_1   \mathsf{v}_1 + c_2 (0.5)^n \mathsf{v}_2 \right)
 = c_1   \mathsf{v}_1.
 $$
-  So we need to find $c_1,c_2$ for each column of $A$. Let's use R Studio.
+So we need to find $c_1,c_2$ for each column of $A$. Let's use R Studio.
 
 ```{r, echo=TRUE}
 a1 = c(.7,.3)
@@ -551,8 +600,8 @@ $$
 \lim_{n \rightarrow \infty} A^n = \begin{bmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{bmatrix}.
 $$
 
-  
-  c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
+
+c. We need to find the coefficients for $x_0 = [25, 0]^{\top}$.
 
 ```{r, echo=TRUE}
 P = cbind(c(2,3), c(1,-1))
@@ -560,15 +609,17 @@ v = c(25,0)
 solve(P,v)
 ```
 
-  So the formula is
+So the formula is
 $$
 5 \begin{bmatrix} 2 \\ 3 \end{bmatrix} + 15 \left( \frac{1}{2}  \right)^n \begin{bmatrix} 1 \\ -1 \end{bmatrix} 
 $$
-    
-  d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
 
-9. 
-    a.  We have
+d. This converges to $5 \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.
+
+
+###
+ 
+a.  We have
 $$
 A = \left[
 \begin{array}{cc}
@@ -587,7 +638,7 @@ A = \left[
 -2 & 1 \\ 0 & 1
 \end{bmatrix}
 $$
-    Here are some R calculations to check the answer for (a) and to find the values for (b) and (c).
+Here are some R calculations to check the answer for (a) and to find the values for (b) and (c).
 
 ```{r, echo=TRUE}
 
@@ -608,11 +659,14 @@ sqrt(.7^2 + .2^2)
 
 ```
 
-  b. The angle of rotation is $\tan^{-1} (.2/.7) = 0.278$ radians
-  c. The dilation factor is $\sqrt{0.49 + 0.04} = \sqrt{0.53} = 0.728$.
+b. The angle of rotation is $\tan^{-1} (.2/.7) = 0.278$ radians
+c. The dilation factor is $\sqrt{0.49 + 0.04} = \sqrt{0.53} = 0.728$.
 
-  
-10. Let's use RStudio.
+
+
+###
+
+Let's use RStudio.
 
 ```{r, echo=TRUE}
 A = cbind(c(0.662, 0.338),c(0.25,  0.75))
@@ -622,19 +676,23 @@ v1 = c(-0.595, -0.804 )
 v1/sum(v1)
 ```
 
-  a. If Monday is dry, then  the probability of a wet Wednesday is $0.353$. The easiest way to calculate this $A^2 \begin{bmatrix} 1 \\ 0 \end{bmatrix}.$
-  b. In the long run, $42.5\%$ of days are wet  and $57.5\%$ of days are dry.
-
-11.
-    a. Initially, both populations increase from $[1, 2]$ to $[2.25,2.5]$, with wolves increasing more quickly. The wolves continue to increase, while the deer start to decrease. After reachaing $[3,2]$, both populations decrease. The deer die out first at the point $[.8,0]$.
-    b. Deer breeding: Both populations thrive and grow every year, converging slowly to a $1:1$ ratio. The long-term growth rate is $1.1$, or $10\%$ growth.
-    c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[3, 3]$.
-    d. Since they want a stable ecosystem, the wolf hunting is a better option. We reach a stable equilibrium population of about $[3, 3]$
+a. If Monday is dry, then  the probability of a wet Wednesday is $0.353$. The easiest way to calculate this $A^2 \begin{bmatrix} 1 \\ 0 \end{bmatrix}.$
+b. In the long run, $42.5\%$ of days are wet  and $57.5\%$ of days are dry.
 
 
-12. 
+###
 
-    a. Here is the Leslie matrix, as well as some eigensystem computations.
+a. Initially, both populations increase from $[1, 2]$ to $[2.25,2.5]$, with wolves increasing more quickly. The wolves continue to increase, while the deer start to decrease. After reachaing $[3,2]$, both populations decrease. The deer die out first at the point $[.8,0]$.
+b. Deer breeding: Both populations thrive and grow every year, converging slowly to a $1:1$ ratio. The long-term growth rate is $1.1$, or $10\%$ growth.
+c. Wolf hunting: Once again, both populations increase. But this time we converge on a stable population of about $[3, 3]$.
+d. Since they want a stable ecosystem, the wolf hunting is a better option. We reach a stable equilibrium population of about $[3, 3]$
+
+
+
+###
+
+
+a. Here is the Leslie matrix, as well as some eigensystem computations.
 ```{r, echo=TRUE}
 
 L = cbind(c(0,.8,0),c(0,0,.9),c(.4,0,.8))
@@ -649,9 +707,9 @@ syst$vectors[,1] / sum(syst$vectors[,1])
 
 ```
 
-  b. The eigenvalues are $1.058, -0.129 \pm 0.506 i$.
-  c. If we start outside of the span of the dominant eigenvalue, then the trajectory will wiggle with a mild oscillation with an overall growth trend of $1.058$, or $5.8\%$.
-  d. The size of the herd grows. THe proportions are $[0.227, 0.172, 0.601]$.
+b. The eigenvalues are $1.058, -0.129 \pm 0.506 i$.
+c. If we start outside of the span of the dominant eigenvalue, then the trajectory will wiggle with a mild oscillation with an overall growth trend of $1.058$, or $5.8\%$.
+d. The size of the herd grows. THe proportions are $[0.227, 0.172, 0.601]$.
 
 
 

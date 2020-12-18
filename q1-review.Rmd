@@ -55,8 +55,10 @@ You should be able to perform these linear algebra tasks.
 
 ## Practice Problems
 
-<!-- ------------------ -->
-1. I have performed some row operations below for you on a matrix $A$. Write out the complete set of solutions to $A \mathsf{x} = {\bf 0}$.
+
+###
+
+I have performed some row operations below for you on a matrix $A$. Write out the complete set of solutions to $A \mathsf{x} = {\bf 0}$.
 $$
 A=
 \begin{bmatrix}
@@ -69,11 +71,13 @@ A=
 1& 2& 0& 2& 0& -1\\
 0& 0& 1& -1& 0& -1\\
 0& 0& 0& 0& 1& 2\\
-0& 0&   0& 0& 0& 0\\
+0& 0& 0& 0& 0& 0\\
 \end{bmatrix}
 $$   
 
-2. I have performed some row operations below for you on a matrix $B$.
+###
+
+I have performed some row operations below for you on a matrix $B$.
 $$
 B=
 \begin{bmatrix}
@@ -84,12 +88,13 @@ B=
 1& 0& 0 \\ 0& 1& 0 \\ 0& 0& 1 \\ 0&0&0 \\ 0&0&0 \\
 \end{bmatrix} 
 $$
-    a. Describe the solutions to the equation $B \mathsf{x} = {\bf 0}$.
+a. Describe the solutions to the equation $B \mathsf{x} = {\bf 0}$.
 
-    b. Fill in the boxes:   the transformation $T(\mathsf{x}) = B\mathsf{x}$ is a linear transformation from $\mathbb{R}^{\square}$ to $\mathbb{R}^{\square}$.
+b. Fill in the boxes:   the transformation $T(\mathsf{x}) = B\mathsf{x}$ is a linear transformation from $\mathbb{R}^{\square}$ to $\mathbb{R}^{\square}$.
 
+###
 
-3. I want to know if it is possible to write $\mathsf{w}$ as a linear combination of the vectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ below. Write down,
+I want to know if it is possible to write $\mathsf{w}$ as a linear combination of the vectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ below. Write down,
 **but do not solve**, a matrix equation that would solve this problem.  Your answer should be of the form $A \mathsf{x} = \mathsf{b}$, where I can clearly see what $A, \mathsf{x}$, and $\mathsf{b}$ are. I should also be able to tell how many unknowns there are.
 $$
 \mathsf{v}_1 = \left[ \begin{matrix} 1 \\  2 \\ 3 \\ 4 \\  \end{matrix}\right] ,  \quad
@@ -98,7 +103,9 @@ $$
 \mathsf{w} = \left[ \begin{matrix} 1 \\  -8 \\ -11 \\ -24 \\  \end{matrix}\right] . 
 $$
 
-4. Describe all vectors that are not in the span of the columns of the matrix $A$ below:
+###
+
+Describe all vectors that are not in the span of the columns of the matrix $A$ below:
 $$
 A=
 \begin{bmatrix}
@@ -108,7 +115,9 @@ A=
 \end{bmatrix}
 $$
 
-5. The matrix below is $3 \times 3$ but the third column is missing.    Add a nonzero third column so that the columns of  $A$ are linearly dependent and add a 3rd column so that the columns of $A$ are linearly independent. Briefly describe your strategy.
+###
+
+The matrix below is $3 \times 3$ but the third column is missing.    Add a nonzero third column so that the columns of  $A$ are linearly dependent and add a 3rd column so that the columns of $A$ are linearly independent. Briefly describe your strategy.
 $$
 \begin{bmatrix}
 1& 0 & \quad \\
@@ -122,29 +131,33 @@ $$
 \end{bmatrix}
 $$
 
-6. In each case below, find the **matrix** of the linear transformation that is described, if you believe that the matrix exists. Otherwise, demonstrate that the transformation is **not linear**.  
+###
 
-    a. The transformation $T$ is given by:
-    $$T \left( \begin{bmatrix}  x_1 \\ x_2 \\ \end{bmatrix}\right) = 
-        \begin{bmatrix} x_1 + x_2 \\ 2 x_1 \\ -x_2 \\\end{bmatrix}.
-    $$
+In each case below, find the **matrix** of the linear transformation that is described, if you believe that the matrix exists. Otherwise, demonstrate that the transformation is **not linear**.  
 
-    b. The transformation $T$ is given by:
-    $$T \left( \begin{bmatrix}  x_1 \\ x_2 \\ x_3 \end{bmatrix} \right)= 
-      \begin{bmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3 \end{bmatrix}.
-    $$
+a. The transformation $T$ is given by:
+$$T \left( \begin{bmatrix}  x_1 \\ x_2 \\ \end{bmatrix}\right) = 
+\begin{bmatrix} x_1 + x_2 \\ 2 x_1 \\ -x_2 \\\end{bmatrix}.
+$$
+
+b. The transformation $T$ is given by:
+$$T \left( \begin{bmatrix}  x_1 \\ x_2 \\ x_3 \end{bmatrix} \right)= 
+  \begin{bmatrix} x_1 + x_2 + x_3 \\  x_1 x_2 \\ -x_2 + 2 x_3 \end{bmatrix}.
+$$
 
    c. The transformation $L: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
-    
+
 ![](images/q1-blockA.png){width=30%} $\qquad \qquad$ ![](images/q1-blockB.png){width=30%} 
-    
-  d. The transformation $R: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
+
+d. The transformation $R: \mathbb{R}^2 \to \mathbb{R}^2$ sends the shaded region on the  left to the the shaded region on the right such that $A$ maps to $A$, $B$ maps to $B$, $C$ maps to $C$, and $D$ maps to $D$.
 
 ![](images/q1-blockA.png){width=30%} $\qquad \qquad$ ![](images/q1-blockD.png){width=30%} 
 
 
 
-7. Write the following systems of equations in vector and matrix form.
+###
+
+Write the following systems of equations in vector and matrix form.
 
 $$
 \begin{array} {ccccccccccc}
@@ -155,7 +168,9 @@ $$
 $$
 
 
-8.  Let $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ be the vectors in the  columns of the matrix $A$ below.
+###
+
+Let $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ be the vectors in the  columns of the matrix $A$ below.
 $$
 A = \left[
 \begin{array}{cccc}
@@ -175,11 +190,13 @@ A = \left[
 \end{array}
 \right]
 $$
-    a. Are the vectors  $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ linear independent or dependent? If they are linearly dependent, please give a dependence relation among them. 
-    b. Describe the span of the vectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ inside of $\mathbb{R}^4$?
+a. Are the vectors  $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ linear independent or dependent? If they are linearly dependent, please give a dependence relation among them. 
+b. Describe the span of the vectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ inside of $\mathbb{R}^4$?
 
 
-9. Find a solution to $A \mathsf{x}=0$ that no one else in the class has.
+###
+
+Find a solution to $A \mathsf{x}=0$ that no one else in the class has.
 $$
 A = 
 \begin{bmatrix}
@@ -197,14 +214,18 @@ A =
 \end{bmatrix}
 $$
 
-10. Let $T: \mathbb{R}^n \to \mathbb{R}^m$ be a linear transformation.  Let $\mathsf{u}, \mathsf{v}, \mathsf{w}$ be a linearly independent set in $\mathbb{R}^n$, and suppose that $T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})$ is a linearly dependent set in $\mathbb{R}^m$.
+###
 
-    a. State precisely what it means for $T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})$ to be linearly dependent.
-    b. Use the properties of a linear transformation to demonstrate that $T(\mathsf{x}) = \mathbf{0}$ has a nontrivial solution.
+Let $T: \mathbb{R}^n \to \mathbb{R}^m$ be a linear transformation.  Let $\mathsf{u}, \mathsf{v}, \mathsf{w}$ be a linearly independent set in $\mathbb{R}^n$, and suppose that $T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})$ is a linearly dependent set in $\mathbb{R}^m$.
+
+a. State precisely what it means for $T(\mathsf{u}), T(\mathsf{v}), T(\mathsf{w})$ to be linearly dependent.
+b. Use the properties of a linear transformation to demonstrate that $T(\mathsf{x}) = \mathbf{0}$ has a nontrivial solution.
 
 ## Solutions to Practice Problems
 
-1. The parametric vector form of the solution is 
+###
+
+The parametric vector form of the solution is 
 
 $$\begin{bmatrix}
 x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\
@@ -218,12 +239,14 @@ u \begin{bmatrix}
 1 \\ 0 \\ 1 \\ 0 \\-2  \\ 1
 \end{bmatrix}$$
 
-2.
+###
 
-  a. There is one solution: $\mathsf{x} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$.
-  b. The transformation $T(\mathsf{x}) = B\mathsf{x}$ is a linear transformation from $\mathbb{R}^{3}$ to $\mathbb{R}^{5}$.
+
+a. There is one solution: $\mathsf{x} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$.
+b. The transformation $T(\mathsf{x}) = B\mathsf{x}$ is a linear transformation from $\mathbb{R}^{3}$ to $\mathbb{R}^{5}$.
   
-3.
+###
+
 $$
 \begin{bmatrix}
 1 & 1 & 1 \\
@@ -240,7 +263,9 @@ x_1 \\ x_2 \\ x_3
 \end{bmatrix}
 $$
 
-4. We want to find all target vectors $\mathsf{b}$ such that $A \mathsf{x} = \mathsf{b}$ is inconsistent. So we want the augmented matrix $\begin{bmatrix} A \,| \, b \end{bmatrix}$ to have a pivot in the last column.
+###
+
+ We want to find all target vectors $\mathsf{b}$ such that $A \mathsf{x} = \mathsf{b}$ is inconsistent. So we want the augmented matrix $\begin{bmatrix} A \,| \, b \end{bmatrix}$ to have a pivot in the last column.
 $$
 \left[ \begin{array}{ccc|c}
 1& 2& 4 & b_1 \\
@@ -268,7 +293,10 @@ b_1 \\ b_2 \\ b_3
 \qquad \mbox{where} \qquad
 2b_1 + b_2 + b_3 \neq 0.
 $$
-5. There are lots of right answers to this one. In my first matrix, I will just add the first two columns to get the thrid column. Then I will add one to one to the bottom right entry of the matrix.
+
+###
+
+There are lots of right answers to this one. In my first matrix, I will just add the first two columns to get the thrid column. Then I will add one to one to the bottom right entry of the matrix.
 $$
 \begin{bmatrix}
 1& 0 & 1 \\
@@ -281,19 +309,23 @@ $$
 2& 2& 5 \\
 \end{bmatrix}
 $$
-6. 
-    a. This is a linear transformation with 
-    $$A = \begin{bmatrix} 1 & 1 \\ 2 & 0 \\ 0 & -1 \end{bmatrix}.$$
-    b. This is not a linear transformation because
-    $$
-    2 \, T \left( \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right)= 2 \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 2 \\ 2 \end{bmatrix} \quad \mbox{while} \quad 
-    T \left( \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} \right)= 2 \begin{bmatrix} 6 \\ 4 \\ 2 \end{bmatrix}.
-    $$
-    c. $A= \begin{bmatrix} 1/2 & 1/2 \\ 1/2 & 1/2 \end{bmatrix}$
-  
-    d. $A= \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$
-  
-7. Vector Form:
+
+###
+ 
+a. This is a linear transformation with 
+$$A = \begin{bmatrix} 1 & 1 \\ 2 & 0 \\ 0 & -1 \end{bmatrix}.$$
+b. This is not a linear transformation because
+$$
+2 \, T \left( \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right)= 2 \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 2 \\ 2 \end{bmatrix} \quad \mbox{while} \quad 
+T \left( \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} \right)= 2 \begin{bmatrix} 6 \\ 4 \\ 2 \end{bmatrix}.
+$$
+c. $A= \begin{bmatrix} 1/2 & 1/2 \\ 1/2 & 1/2 \end{bmatrix}$
+
+d. $A= \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$
+
+###
+
+ Vector Form:
 $$
 x_1 \begin{bmatrix} 5 \\ 4 \\ -1 \end{bmatrix} + 
 x_2 \begin{bmatrix} 3 \\ 1 \\ 3 \end{bmatrix} + 
@@ -314,38 +346,42 @@ $$
  \begin{bmatrix} 10 \\ 11 \\ 12 \end{bmatrix} 
 $$
 
-8.
-    a. $-\mathsf{v}_1 - 2\mathsf{v}_2 + \mathsf{v}_3 + 0 \mathsf{v}_4 = 0$.
-    b. $\mathrm{span}(\mathsf{v}_1,\mathsf{v}_2,\mathsf{v}_3,\mathsf{v}_4)$ looks like a copy of $\mathbb{R}^3$ sitting inside $\mathbb{R}^4$. In other words, is 3-dimensional subset of $\mathbb{R}^4$. 
-    
-9. The general solution is
-    $$
-    \begin{bmatrix}
-    x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5
-    \end{bmatrix}
-    = s \begin{bmatrix} -2 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}
-    + t \begin{bmatrix} -1 \\ -1 \\ 0 \\ -2 \\ 1 \end{bmatrix}.
-    $$
-    My solution is
-    $$77,083,679 
-    \begin{bmatrix}
-    -2 \\ 1 \\ 1 \\ 0 \\ 0
-    \end{bmatrix}
-    - 72,159,215 
-    \begin{bmatrix}
-    -1 \\ -1 \\ 0 \\ -2 \\ 1
-    \end{bmatrix}.
-    $$
+###
 
-10.
-    a. There are scalars $c_1, c_2, c_3$ not all zero such that $c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) = \mathbf{0}$.
-    b. We have
-    $$
-    \mathbf{0} = c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) =
-     T(c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w})
-    $$
-    However, we know that $\mathsf{u}, \mathsf{v},\mathsf{w}$ are linearly independent, so 
-    $$
-    c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w} \neq \mathbf{0}.
-    $$
-    This is a nonzero vector that maps to the zero vector. Therefore $T$ is not one-to-one.
+a. $-\mathsf{v}_1 - 2\mathsf{v}_2 + \mathsf{v}_3 + 0 \mathsf{v}_4 = 0$.
+b. $\mathrm{span}(\mathsf{v}_1,\mathsf{v}_2,\mathsf{v}_3,\mathsf{v}_4)$ looks like a copy of $\mathbb{R}^3$ sitting inside $\mathbb{R}^4$. In other words, is 3-dimensional subset of $\mathbb{R}^4$. 
+
+###
+
+ The general solution is
+$$
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5
+\end{bmatrix}
+= s \begin{bmatrix} -2 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}
++ t \begin{bmatrix} -1 \\ -1 \\ 0 \\ -2 \\ 1 \end{bmatrix}.
+$$
+My solution is
+$$77,083,679 
+\begin{bmatrix}
+-2 \\ 1 \\ 1 \\ 0 \\ 0
+\end{bmatrix}
+- 72,159,215 
+\begin{bmatrix}
+-1 \\ -1 \\ 0 \\ -2 \\ 1
+\end{bmatrix}.
+$$
+
+###
+
+a. There are scalars $c_1, c_2, c_3$ not all zero such that $c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) = \mathbf{0}$.
+b. We have
+$$
+\mathbf{0} = c_1 T(\mathsf{u}) + c_2 T(\mathsf{v}) + c_3 T(\mathsf{w}) =
+ T(c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w})
+$$
+However, we know that $\mathsf{u}, \mathsf{v},\mathsf{w}$ are linearly independent, so 
+$$
+c_1 \mathsf{u} + c_2 \mathsf{v}+ c_3 \mathsf{w} \neq \mathbf{0}.
+$$
+This is a nonzero vector that maps to the zero vector. Therefore $T$ is not one-to-one.

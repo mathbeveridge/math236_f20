@@ -14,6 +14,7 @@ The best way to study is to do practice problems. The Quiz will have calculation
 * Make sure that you have mastered the Vocabulary, Skills and Concepts  listed below.
 * Look over the Edfinity homework assingments
 * Do practice problems from the Edfinity Practice assignments. These allow you to "Practice Similar" by generating new variations of the same problem.
+* Redo the Jamboard problems
 * Try to resolve the Problem Sets and compare your answers to the solutions.
 * Do the practice problems below. Compare your answers to the solutions.
 
@@ -55,7 +56,9 @@ You should be able to perform these linear algebra tasks.
 ## Practice Problems
 
 
-1. Here is a picture of some boats.
+###
+
+Here is a picture of some boats.
 
 <center>
 ![](images/q2r-boat.png){width=60%}
@@ -102,7 +105,10 @@ polygon(boat[1,], boat[2,], col = "red", border = "blue")
 
 
 
-2. Find the inverse of the matrix
+
+###
+
+Find the inverse of the matrix
 $$
 \left[
 \begin{array}{rrr}
@@ -115,29 +121,37 @@ $$
 
 
 
-1. Suppose that a linear transformation $T: \mathbb{R}^n \rightarrow \mathbb{R}^n$ has the property that 
+###
+
+Suppose that a linear transformation $T: \mathbb{R}^n \rightarrow \mathbb{R}^n$ has the property that 
 $T(\mathsf{u}) = T(\mathsf{v})$ for some pair of distinct vectors $\mathsf{u}, \mathsf{v} \in \mathbb{R}^n$. Can $T$ map $\mathbb{R}^n$ onto $\mathbb{R}^n$? Why or why not?
 
 
-1. Let $U$ and $W$ be subspaces of a vector space $\mathbb{R}^n$. 
+
+###
+
+Let $U$ and $W$ be subspaces of a vector space $\mathbb{R}^n$. 
 Prove or disprove the following statements
-    a. $U \cap W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}$ is a subspace
-    b. $U \cup W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}$ is a subspace
-    c. $U+W = \{\mathsf{u} + \mathsf{w} \mid \mathsf{u} \in U \mbox{ and } \mathsf{w} \in W \}$ is a subspace
+a. $U \cap W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ and } \mathsf{v} \in W \}$ is a subspace
+b. $U \cup W = \{ \mathsf{v} \in \mathbb{R}^n \mid \mathsf{v} \in U \mbox{ or } \mathsf{v} \in W \}$ is a subspace
+c. $U+W = \{\mathsf{u} + \mathsf{w} \mid \mathsf{u} \in U \mbox{ and } \mathsf{w} \in W \}$ is a subspace
 
 
 
 
-1. Let $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ be a linear transformation. 
 
-    a. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is one-to-one. Prove that if $\mathsf{v}_1,  \mathsf{v}_2,  \mathsf{v}_3$ are linearly independent, then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
+###
 
-    b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $\mathbb{R}^m$.
+Let $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ be a linear transformation. 
+
+a. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is one-to-one. Prove that if $\mathsf{v}_1,  \mathsf{v}_2,  \mathsf{v}_3$ are linearly independent, then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
+
+b. Suppose that $T: \mathbb{R}^n \to \mathbb{R}^m$ is onto. Prove that if $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$ then $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $\mathbb{R}^m$.
 
 
+###
 
-
-1.  I have performed some row operations below for you on a matrix $A$. Find a basis for the column space and the null space of $A$. 
+I have performed some row operations below for you on a matrix $A$. Find a basis for the column space and the null space of $A$. 
 $$
 A=
 \left[
@@ -160,7 +174,10 @@ $$
 
 
 
-1. Consider the matrix 
+
+###
+
+Consider the matrix 
 \[
 A = \left[
 \begin{array}{cccc}
@@ -174,13 +191,19 @@ Find a basis for $\mathrm{Col}(A)$. Find a basis for $\mathrm{Nul}(A)$.
 
 
 
-1. Are the vectors in ${\mathcal B}$ a basis of $\mathbb{R}^3$? If not, find a basis of $\mathbb{R}^3$ that consists of as many of the vectors from ${\mathcal B}$ as is possible. Explain your reasoning.
+
+###
+
+Are the vectors in ${\mathcal B}$ a basis of $\mathbb{R}^3$? If not, find a basis of $\mathbb{R}^3$ that consists of as many of the vectors from ${\mathcal B}$ as is possible. Explain your reasoning.
 $$
 \mathcal{B}=\left\{ \begin{bmatrix} 1 \\ -1 \\ -2 \end{bmatrix},\begin{bmatrix} 2 \\ -1 \\ 1 \end{bmatrix},\begin{bmatrix} -1 \\ -1 \\ -8 \end{bmatrix}
 \right\}
 $$
 
-1. I have the vectors below: 
+
+###
+
+I have the vectors below: 
 $$
 \begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix}. 
 $$
@@ -205,7 +228,10 @@ $$
 \right]
 $$
 
-1. Find the coordinates of $\mathsf{w}$ in the standard basis and of $\mathsf{v}$ in the $\mathcal{B}$-basis.
+
+###
+
+Find the coordinates of $\mathsf{w}$ in the standard basis and of $\mathsf{v}$ in the $\mathcal{B}$-basis.
 $$
 \mathcal{B} = \left\{
 \mathsf{v}_1=\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
@@ -221,7 +247,10 @@ $$
 \begin{bmatrix} 10 \\ 9 \\ 7 \\ 4 \end{bmatrix}_{\mathcal{S}}
 $$
 
-1.  The subspace $S \subset \mathbb{R}^5$ is given by 
+
+###
+
+The subspace $S \subset \mathbb{R}^5$ is given by 
 $$ \mathsf{S} = \mathsf{span}
 \left(
 \begin{bmatrix}1\\ 1\\ 0\\ -1\\ 2 \end{bmatrix},
@@ -231,7 +260,7 @@ $$ \mathsf{S} = \mathsf{span}
 \begin{bmatrix} 2\\ -1\\ -1\\ -3\\ 1 \end{bmatrix},
 \right)$$
 
-    a. Use the following matrix to find a basis for $S$. What is the dimension of  $S$?
+a. Use the following matrix to find a basis for $S$. What is the dimension of  $S$?
 $$
 A=\left[
 \begin{array}{ccccc}
@@ -253,13 +282,16 @@ A=\left[
 \right]
 $$
 
-    a. Find a basis for $\mathrm{Nul}(A)$. What is the dimension of this nullspace?
+a. Find a basis for $\mathrm{Nul}(A)$. What is the dimension of this nullspace?
 
-1. A $6 \times 8$ matrix $A$ contains 5 pivots. For each of  $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$,
 
-    * Determine the dimension of the subspace,
-    * Indicate whether it is  subspace of $\mathbb{R}^6$ or $\mathbb{R}^8$, and 
-    * Decide how you would find a basis of the subspace.  
+###
+
+A $6 \times 8$ matrix $A$ contains 5 pivots. For each of  $\mathrm{Col}(A)$ and $\mathrm{Nul}(A)$,
+
+* Determine the dimension of the subspace,
+* Indicate whether it is  subspace of $\mathbb{R}^6$ or $\mathbb{R}^8$, and 
+* Decide how you would find a basis of the subspace.  
 
 
 
@@ -271,17 +303,20 @@ $$
 ## Solutions to Practice Problems
 
 
-1. Here  are the matrices  to make the boats.
 
-    a.  Shadow gray  boat:
+###
+
+Here  are the matrices  to make the boats.
+
+a.  Shadow gray  boat:
 $$ 
 \begin{bmatrix} 1 & 0  & 0 \\ 0 & -1 & 0 \\  0 & 0 & 1 \end{bmatrix}
 $$  
-    a. Fast blue boat:
+a. Fast blue boat:
 $$ 
 \begin{bmatrix} 1 & -0.25  & 13 \\ 0 & 1 & 0 \\  0 & 0 & 1 \end{bmatrix}
 $$
-    a. Funny yellow boat:
+a. Funny yellow boat:
 $$ 
 \begin{bmatrix} 0.35 & -0.35  & -3 \\ 0.35 & 0.35 & 8 \\  0 & 0 & 1 \end{bmatrix}
 $$
@@ -322,7 +357,9 @@ polygon(boat[1,], boat[2,], col = "red", border = "blue")
 ```
 
 
-2.
+
+###
+
 The inverse is
 $$
 \begin{bmatrix}
@@ -340,67 +377,77 @@ A = cbind(c(1,1,2),c(-2,0,-4),c(2,0,5),c(1,0,0),c(0,1,0),c(0,0,1))
 ```
 
 
-3. No $T$ cannot be an onto mapping by the Invertible Matrix Theorem.  Since  $T$ is not  one-to-one,  the mapping cannot be onto.
 
-1. 
+###
 
-  a. **True**
+No $T$ cannot be an onto mapping by the Invertible Matrix Theorem.  Since  $T$ is not  one-to-one,  the mapping cannot be onto.
 
-      + Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
-      + Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
-            + We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
-            +  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. 
+
+###
+
+
+a. **True**
+
++ Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0} \in U \cap W$.
++ Let $\mathsf{v}_1 \in U \cap W$ and $\mathsf{v}_2 \in U \cap W$. 
++ We know that $\mathsf{v}_1 \in U$ and $\mathsf{v}_2 \in U$. Since $U$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in U$. 
++  We know that $\mathsf{v}_1 \in W$ and $\mathsf{v}_2 \in W$. Since $W$ is a subspace, we have $\mathsf{v}_1 + \mathsf{v}_2 \in W$. 
 Therefore $\mathsf{v}_1 + \mathsf{v}_2 \in U \cap W$.
 
-      +  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
-          + We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
-          +  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
-      + Therefore $c \mathsf{v} \in U \cap W$.
++  Let $\mathsf{v} \in U \cap W$ and $c \in \mathbb{R}$.
++ We know that $\mathsf{v} \in U$ and $c \in R$. Since $U$ is a subspace, we have $c \mathsf{v}  \in U$. 
++  We know that $\mathsf{v} \in W$ and $c \in R$. Since $W$ is a subspace, we have $c \mathsf{v}  \in W$. 
++ Therefore $c \mathsf{v} \in U \cap W$.
 
 
 
-  b.  **False.** Here is an example that shows this is not always true. 
-    Let $V= \mathbb{R}^2$, $U = \{ { x \choose 0} \mid x \in \mathbb{R} \}$ and $W= \{ { 0 \choose y} \mid y \in \mathbb{R} \}$. The set $U \cup W$ is not closed under addition. For example,
+b.  **False.** Here is an example that shows this is not always true. 
+Let $V= \mathbb{R}^2$, $U = \{ { x \choose 0} \mid x \in \mathbb{R} \}$ and $W= \{ { 0 \choose y} \mid y \in \mathbb{R} \}$. The set $U \cup W$ is not closed under addition. For example,
 ${1 \choose 0} + {0 \choose 1} = { 1 \choose 1} \notin U \cup W$.
 
-  c. **True.**
+c. **True.**
 
-      +  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
-      + Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then
++  Since $U$ and $W$ are subspaces, we know that $\mathbb{0} \in U$ and $\mathbb{0} \in W$. Therefore $\mathbb{0}  = \mathbb{0} + \mathbb{0} \in U + W$.
++ Let $\mathsf{u}_1 + \mathsf{w}_1 \in U + W$ and $\mathsf{u}_1 + \mathsf{w}_2 \in U + W$, where $\mathsf{u}_1, \mathsf{u}_2 \in U$ and $\mathsf{w}_1, \mathsf{w}_2 \in W$. Then
 $$
 (\mathsf{u}_1 + \mathsf{w}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = (\mathsf{u}_1 + \mathsf{u}_2) + (\mathsf{w}_1 + \mathsf{w}_2)
 $$
-      and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace). 
-      + Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
+and $\mathsf{u}_3 = (\mathsf{u}_1 + \mathsf{u}_2) \in U$ (because $U$ is a subspace) and $\mathsf{w}_3 = (\mathsf{w}_1 + \mathsf{w}_2) \in W$ (because $W$ is a subspace). 
++ Therefore $(\mathsf{u}_1 + \mathsf{v}_1) + (\mathsf{u}_2 + \mathsf{w}_2) = \mathsf{u}_3 + \mathsf{w}_3 \in U + W$.
 
-      + Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then
++ Let $\mathsf{u} + \mathsf{w}  \in U + W$ and $c \in \mathbb{R}$. Then
 $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w}$. We know that $c \mathsf{u} \in U$ (since $U$ is a subspace) and $c \mathsf{w} \in W$ (since $W$ is a subspace). Therefore $c(\mathsf{u} + \mathsf{w}) = c \mathsf{u} + c \mathsf{w} \in U+W$.
 
-5. 
 
-    a. Suppose that $c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) +  c_3 T(\mathsf{v}_3) = 0$. We must show that $c_1 = c_2 = c_3 = 0$. 
+###
 
-    + Since $T$ is a linear transformation, this means that  $T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0$.
-    + Since $T$ is one-to-one and $T(\mathbf{0}) = \mathbf{0}$, we must have $c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}$.
-    + Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
+
+a. Suppose that $c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) +  c_3 T(\mathsf{v}_3) = 0$. We must show that $c_1 = c_2 = c_3 = 0$. 
+
++ Since $T$ is a linear transformation, this means that  $T(c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 )= 0$.
++ Since $T$ is one-to-one and $T(\mathbf{0}) = \mathbf{0}$, we must have $c_1 \mathsf{v}_1+ c_2 \mathsf{v}_2 + c_3 \mathsf{v}_3 = \mathbf{0}$.
++ Because $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ are linearly independent, this means that $c_1 = c_2 = c_3 = 0$.
     
-      This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
+This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ are linearly independent.
 
-    b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that
+b. Given $\mathsf{w} \in W$. We must show that there exist constants $c_1, c_2, c_3$ such that
 $\mathsf{w} =  c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_3)$. Here we go!
 
-    + Since $T$ is onto, we know that there exists $\mathsf{v} \in \mathbb{R}^n$ such that $T(\mathsf{v}) = \mathsf{w}$.
-    + Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$, we know that there exist constants 
++ Since $T$ is onto, we know that there exists $\mathsf{v} \in \mathbb{R}^n$ such that $T(\mathsf{v}) = \mathsf{w}$.
++ Since $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3$ span $\mathbb{R}^n$, we know that there exist constants 
 $c_1, c_2, c_3$ such that $\mathsf{v}=  c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k$
-    +  Therefore
++  Therefore
 $$
 \mathsf{w} = T(\mathsf{v})=  T(c_1 \mathsf{v}_1 + c_2 \mathsf{v}_2 + c_3 \mathsf{v}_k) = c_1 T(\mathsf{v}_1) + c_2 T(\mathsf{v}_2) + c_3 T(\mathsf{v}_k)
 $$
-  because $T$ is a linear transformation.
+because $T$ is a linear transformation.
 This proves that $T(\mathsf{v}_1), T(\mathsf{v}_2), T(\mathsf{v}_3)$ span $W$.
 
 
-6. A basis for $\mathrm{Col}(A)$ is
+
+###
+
+A basis for $\mathrm{Col}(A)$ is
 $$
 \begin{bmatrix}
 1 \\1  \\ 2 \\ 1 
@@ -426,7 +473,10 @@ $$
 $$
 
 
-7. Using RStudio we find:
+
+###
+
+Using RStudio we find:
 
 ```{r}
 A =  cbind(c(1,3,4),c(5,10,15),c(2,2,4),c(-4,8,4))
@@ -456,7 +506,9 @@ $$
 $$
 
 
-8.
+
+###
+
 
 ```{r echo=TRUE}
 A =  cbind(c(1,-1,-2),c(2,-1,1),c(-1,-1,-8))
@@ -489,7 +541,10 @@ $$
 are  linearly independent because they correspond to the basis columns of $B$.
 
 
-9. A basis for $\mathbb{R}^5$ is
+
+###
+
+A basis for $\mathbb{R}^5$ is
 $$
 \begin{bmatrix} 5\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 4\\ 4\\ 3\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 1\\ 1\\ 1\end{bmatrix},
 \begin{bmatrix} 0\\ 1\\ 0\\ 0\\ 0\end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1\\ 0\\ 0 \end{bmatrix}
@@ -497,7 +552,10 @@ $$
 
 because these are basic columns in the given matrix. This  will always work: place your desired vectors in the first columns.  Since they are linearly independent,  they will be basic  columns. The remaining $n$ elementary basis vectors span  $\mathbb{R}. So the columns of the matrix span  $\mathbb{R}^n$ and Gaussian Elimination will identify $n$ pivots. The corresponding columns are a basis.
 
-10. We need the matrices
+
+###
+
+We need the matrices
 $$
 P_{\cal  B} = 
 \begin{bmatrix}
@@ -534,22 +592,26 @@ Ainv %*% c(10,9,7,4)
 
 
 
-11. 
-    a. $\dim(S) =  3$ and a basis for $S$  is
-    $$
-    \begin{bmatrix} 1 \\ 1 \\ 0 \\ -1 \\2  \end{bmatrix}, \quad
-    \begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1  \end{bmatrix}, \quad
-    \begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \\1  \end{bmatrix}.
-    $$
 
-    b. $\dim(\mathrm{Nul}(A))=2$ and a basis is
-        $$
-    \begin{bmatrix} -3 \\ 2 \\ 1 \\ 0 \\0  \end{bmatrix}, \quad
-    \begin{bmatrix} -1 \\ 2 \\ 0 \\ -1 \\1  \end{bmatrix}.
-    $$
-    
-12. 
-    * $\mathrm{Col}(A)$ has dimension 5, and it is a subspace of  $\mathbb{R}^6$. You would  find a basis  by taking the pivot  columns of  $A$.
-    * $\mathrm{Nul}(A)$ has dimension 3, and it is a subspace of  $\mathbb{R}^8$. You would  find a basis  by finding the parametric solution to $A \mathsf{x}= \mathbb{0}$.
-    
-    
+###
+
+a. $\dim(S) =  3$ and a basis for $S$  is
+$$
+\begin{bmatrix} 1 \\ 1 \\ 0 \\ -1 \\2  \end{bmatrix}, \quad
+\begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1  \end{bmatrix}, \quad
+\begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \\1  \end{bmatrix}.
+$$
+
+b. $\dim(\mathrm{Nul}(A))=2$ and a basis is
+$$
+\begin{bmatrix} -3 \\ 2 \\ 1 \\ 0 \\0\end{bmatrix}, \quad
+\begin{bmatrix} -1 \\ 2 \\ 0 \\ -1 \\1  \end{bmatrix}.
+$$
+
+
+###
+ 
+* $\mathrm{Col}(A)$ has dimension 5, and it is a subspace of  $\mathbb{R}^6$. You would  find a basis  by taking the pivot  columns of  $A$.
+* $\mathrm{Nul}(A)$ has dimension 3, and it is a subspace of  $\mathbb{R}^8$. You would  find a basis  by finding the parametric solution to $A \mathsf{x}= \mathbb{0}$.
+
+
