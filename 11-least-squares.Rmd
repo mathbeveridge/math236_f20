@@ -43,7 +43,7 @@ t(A) %*% z
 # measure the distance between bhat and b
 sqrt( t(z) %*% z)
 
-
+```
 
 
 ## Fitting for a Linear Function
