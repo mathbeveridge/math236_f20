@@ -12,7 +12,7 @@ Then we will look at a cool application of SVD: image compression!
 </center>
 
 
-## Singular Value Decomposition.
+## Singular Value Decomposition
 
 Let's start by looking at the SVD for a couple of matrices. For each one: 
 
@@ -28,9 +28,9 @@ f. Use the spectral decomposition to create approximations of matrix $A$ and the
 
 
 
-### SVD Example 1
+### SVD of a Wide Matrix
 
-Here is a $5 \times 4$ matrix $A$.
+Here is a $4 \times 5$ matrix $A$.
 
 ```{r, echo=TRUE}
 (A = cbind(c(1,-1,1,0),c(-2,3,0,2),c(1,-1,1,0),c(0,1,4,0),c(1,-1,5,-4)))
@@ -54,7 +54,7 @@ The return value has three attributes:
 
 **Warning!** We were expecting `decomp$v` to be a $5 \times 5$ matrix, and R only returned a $5 \times 4$ matrix. What is wrong!? The missing column is the final orthonormal vector $\mathsf{v}_5$ from $\mbox{Nul}(A)$.  
 
-#### Why has R omitted this vector? 
+#### Why has R Omitted this Vector? 
 
 The answer is that **RStudio is being efficient.** R has omitted vector $\mathsf{v}_5$ because we do not need this vector to create the spectral decomposition of $A$. That spectral decomposition is
 $$
@@ -74,17 +74,17 @@ If you take MATH 365 Computational Linear Algebra, you will learn more about the
 
 
 
-#### The four fundamental subspaces of $A$.
+#### The Four Fundamental Subspaces of $A$
 
-Keeping this is mind, we can characterize the four fundamental subspace of our example $5 \times 4$ matrix $A.$
+Keeping this is mind, let's characterize the four fundamental subspaces of our example $5 \times 4$ matrix $A.$
 
 * The matrix $A$ has rank $3$ because there are three nonzero signular values.
-*  $\mbox{Row}(A)$ is 3-dimensional with basis `decomp\$v[,1:3]`
-* $\mbox{Nul}(A)$ is 2-dimensional because $\sigma_4=0$ and there is $5-4=1$ missing left right singular vector. We can use `decomp$v[,4]` as one basis vector. We can find the remaining $5-4=1$ vector by finding the nullspace of `t(decomp$v)`$.
+*  $\mbox{Row}(A)$ is 3-dimensional with basis `decomp$v[,1:3]`
+* $\mbox{Nul}(A)$ is 2-dimensional because $\sigma_4=0$ and there is $5-4=1$ missing left right singular vector. We can use `decomp$v[,4]` as one basis vector. We can find the remaining $5-4=1$ vector by finding the nullspace of `t(decomp$v)`.
 * $\mbox{Col}(A)$ is 3-dimensional with basis `decomp$u[,1:3]`
 * $\mbox{Nul}(A^{\top})$ is 1-dimensional. The vector `decomp$u[,4]` is a basis. 
 
-### Your Turn: SVD Example 2
+### Your Turn: SVD of a Square Matrix
 
 Characterize the four subspaces of this $5x5$ matrix. Note that since $A$ is square, the matrices $U$ and $V$ will both contain a full basis for $\mathbb{R}^5$.
 
@@ -94,7 +94,7 @@ Characterize the four subspaces of this $5x5$ matrix. Note that since $A$ is squ
 ```
 
 
-### Your Turn: SVD Example 3
+### Your Turn: SVD of a Tall Matrix
 
 Characterize the four subspaces of this $6x4$ matrix. This time around, we will be missing $6-4=2$ of the left singular vectors that we need to extend `svd(A)$u$ into a basis of $\mathbb{R}^6$. These two singular vectors complete the basis for $\mbox{Nul(A^{\top})}$.
 
@@ -111,7 +111,7 @@ x = c(1,2,3,4,5,6)
 
 ### Converting a JPEG image into a Matrix
 
-You may need to install the `jpeg` and `raster` packages. To check, your should
+You may need to install the `jpeg` and `raster` packages. Let's find out.
 
 * Click on the 'Packages' tab in the lower right window
 * Either search or scroll to see if the the `jpeg` and `raster` are there. 
@@ -198,7 +198,7 @@ decomp =svd(img)$d
 decomp[1:10]
 ```
 
-### SVD Approximation of the image
+### SVD Approximation of the Image
 
 
 Now let's create an SVD approximation of the image. Here is some helper code for us to use. The functions that you will call are
