@@ -106,6 +106,7 @@ Here the diagonalization of a matrix:
 \end{array}
 \right].
 $$
+
 a. Is the matrix $\mathsf{A}$  invertible?
 b. Find a nonzero vector in $\mathrm{Nul}(\mathsf{A})$ if one exists.
 c. Find a steady-state vector $\mathsf{v}$ such that $\mathsf{A} \mathsf{v} = \mathsf{v}$ if one exists.
@@ -132,10 +133,14 @@ $$
 Using the matrix $B = = \begin{bmatrix} .97 & -.71 \\ .71 & .97 \end{bmatrix}$  and the starting vector $\mathsf{v} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$, I plotted the points 
 $$\mathsf{v}, B \mathsf{v}, B^2\mathsf{v}, B^3 \mathsf{v}, \ldots.$$ 
 I saw that these points are, roughly, going around in a circle. 
+
 a. How many multiplications by $B$ does it take to get back around to the positive $x$-axis?   
+
 a. When I come full circle, am I closer to the origin, farther from the origin, or the same distance to the origin?  
 
-7. For each matrix below,  decide if it is diagonalizable.  You do  not need to diagonalize the matrix (though you can!), but you must give a reason for why the matrix is or is not diagonalizable.
+###
+
+For each matrix below,  decide if it is diagonalizable.  You do  not need to diagonalize the matrix (though you can!), but you must give a reason for why the matrix is or is not diagonalizable.
 
 a. $A = \begin{bmatrix} 0 & -4 & 2 \\ 2 & -4 & -1 \\ -6 & 4 & 7 \end{bmatrix}$ has eigenvalues $4, -1, 0$.
 

@@ -12,7 +12,7 @@
 
 The following augmented matrices are in row echelon form. Decide whether the set of solutions  is a point, line, plane, or the empty set in 3-space. Briefly justify your answer.
 
-1.
+a.
 $\left[
 \begin{array}{ccc|c}
 1 & 3 & -1 & 4 \\
@@ -21,7 +21,7 @@ $\left[
 \end{array}
 \right]$
 
-2.
+b.
 $\left[
 \begin{array}{ccc|c}
 1 & 3 & -1 & 5 \\
@@ -30,7 +30,7 @@ $\left[
 \end{array}
 \right]$
 
-3.
+c.
 $\left[
 \begin{array}{ccc|c}
 1 & -1 & 0  & -2 \\
@@ -39,7 +39,7 @@ $\left[
 \end{array}
 \right]$
 
-4.
+d.
 $\left[ 
 \begin{array}{ccc|c}
 0 & 1 & 0 & 6 \\
@@ -53,7 +53,7 @@ $\left[
 
 Each of the following matrices is the reduced row echelon form of the augmented matrix of a system of linear equations. Give the general solution to each system. 
 
-1.
+a.
 $\left[
 \begin{array}{cccc|c}
 1 & 3 & 0 & -2 & 5\\
@@ -61,7 +61,7 @@ $\left[
 \end{array}
 \right]$
 
-2.
+b.
 $\left[
 \begin{array}{ccccc|c}
 1 & 0 & 4 & 0 & 3 & 6\\
@@ -70,7 +70,7 @@ $\left[
 \end{array}
 \right]$
 
-3.
+c.
 $\left[
 \begin{array}{cccc|c}
 1 & 4 & 0 & 0 & -2 \\
@@ -90,7 +90,7 @@ In each case below, an elementary row operation turns the matrix $A$ into the  m
 
 Give your answers in the form: "scale $R_2$ by 3" or "swap $R_1$  and $R_4$" or "replace $R_3$ with $R_3 + \frac{1}{5} R_1$."
 
-1.
+a.
 $$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
@@ -107,7 +107,8 @@ B=\left[
  0 & 7 & 0 & -4 \\
 \end{array}
 \right]$$
-2.
+
+b.
 $$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
@@ -124,7 +125,8 @@ B=\left[
  3 & 1 & 6 & -1 \\
 \end{array}
 \right]$$
-3.
+
+c.
 $$A=\left[
 \begin{array}{cccc}
  1 & 1 & 1 & 3 \\
@@ -157,13 +159,13 @@ each intersection (we will ignore parking and staying).
 </center>
 
 
-1. Create a system of linear equations to find the possible flow values for the inner streets $x_1, x_2, x_3, x_4$.
+a. Create a system of linear equations to find the possible flow values for the inner streets $x_1, x_2, x_3, x_4$.
 
-2. Use RStudio to find the solution set. Write your answer in parametric form.  
+b. Use RStudio to find the solution set. Write your answer in parametric form.  
 
-3. Your  answer to part 2 finds an infinite solution set. In terms of **traffic flow**, explain  why there can be more than one solution. Thinking about cars traveling along streets, why is there some flexibility in the overall flow of cars? 
+c. Your  answer to part 2 finds an infinite solution set. In terms of **traffic flow**, explain  why there can be more than one solution. Thinking about cars traveling along streets, why is there some flexibility in the overall flow of cars? 
 
-4. Now critique the model as presented. What solutions to the linear system are problematic for our original traffic flow problem? What additional conditions should we require for a valid solution?
+d. Now critique the model as presented. What solutions to the linear system are problematic for our original traffic flow problem? What additional conditions should we require for a valid solution?
 
 
 
@@ -182,13 +184,20 @@ through two given points. Note that there will be an infinite number of such pol
 ![](images/ps1-parab2.png){width=40%}
 </center>
 
-1. For each pair of points, (a) create linear system that represents the problem (b) use RStudio to find the RREF of the augmented matrix for the system and (c) write down the general formula for the family of parabolas $f(x)$ that contain the points.
-    1. $p_1 = (1,0)$ and $p_2 = (5,0)$
+a. For each pair of points below:
+
+    * Create linear system that represents the problem 
+    * Use RStudio to find the RREF of the augmented matrix for the system and 
+    * Write down the general formula for the family of parabolas $f(x)$ that contain the points.
+
+    Here are the pairs of points.
+    
+    i. $p_1 = (1,0)$ and $p_2 = (5,0)$
 
 
-    2. $q_1= (1,-3)$ and $q_2 =  (5,10)$
+    ii. $q_1= (1,-3)$ and $q_2 =  (5,10)$
 
-2. Part 1.1 characterizes the family of parabolas that contain the points 
+b. Part (a.i) characterizes the family of parabolas that contain the points 
 $p_1$ and $p_2$. Let's refer to this family of parabolas as our "$p_1,p_2$ family." Pick any two functions $g_1(x)$ and $g_2(x)$ from this $p_1,p_2$ family of parabolas. Now consider the parabola
 $$
 g(x) = g_1(x) - g_2(x).
@@ -197,7 +206,7 @@ Show that $g(1)=0$ and $g(5)=0$. This means that $g(x)$ is also in our $p_1,p_2$
 
 
 
-3. Part 1.2 characterizes the family of parabolas that contain the points 
+c. Part (a.ii) characterizes the family of parabolas that contain the points 
 $q_1$ and $q_2$. Let's refer to this family of parabolas as our "$q_1,q_2$ family."  Pick any two functions $h_1(x)$ and $h_2(x)$ in this $q_1,q_2$ family. Now consider the parabola
 $$
 h(x) = h_1(x) - h_2(x).
@@ -205,7 +214,7 @@ $$
 Show that $h(1) \neq -3$ and $h(5) \neq 10$. This means that $h(x)$ is NOT in our $q_1,q_2$ family. (So this family is not as nice as the previous one.)
 
 
-4. Now explain why the parabola $h(x)$ from part 3 is actually a member of the $p_1, p_2$ family. (So maybe this family is nicer than we thought!)
+d. Now explain why the parabola $h(x)$ from part 3 is actually a member of the $p_1, p_2$ family. (So maybe this family is nicer than we thought!)
 
 <!-- 
 4. Now take a step back. I want you to make some observations about these two families, and the relation between them.  In particular: 

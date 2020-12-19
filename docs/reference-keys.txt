@@ -275,8 +275,8 @@ section-51
 section-52
 section-53
 section-54
-solutions-to-practice-problems-2
 section-55
+solutions-to-practice-problems-2
 section-56
 section-57
 section-58
@@ -288,11 +288,11 @@ section-63
 section-64
 section-65
 section-66
+section-67
 quiz-4-review
 overview-3
 vocabulary-concepts-and-skills-1
 practice-problems-3
-section-67
 section-68
 section-69
 section-70
@@ -304,8 +304,8 @@ section-75
 section-76
 section-77
 section-78
-solutions-to-practice-problems-3
 section-79
+solutions-to-practice-problems-3
 section-80
 section-81
 section-82
@@ -316,3 +316,4 @@ section-86
 section-87
 section-88
 section-89
+section-90
