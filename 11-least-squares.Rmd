@@ -24,7 +24,8 @@ $$
 Here is a template for the R code that will find the least squares solution $\hat{\mathsf{x}}$, the projection vector  $\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}$ and the residual vector $\mathsf{z} = \mathsf{b} - \hat{\mathsf{b}}$.
 You should read this code line-by-line and make sure that you understand what it is doing!
 
-```
+
+```{r, eval=FALSE, echo=TRUE}
 # Given: the matrix A
 # Given: the target vector b
 

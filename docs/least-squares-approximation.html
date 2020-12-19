@@ -360,8 +360,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a><ul>
 <li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition."><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition.</a><ul>
 <li class="chapter" data-level="27.1.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-example-1"><i class="fa fa-check"></i><b>27.1.1</b> SVD Example 1</a></li>
-<li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-example-2"><i class="fa fa-check"></i><b>27.1.2</b> SVD Example 2</a></li>
-<li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-example-3"><i class="fa fa-check"></i><b>27.1.3</b> SVD Example 3</a></li>
+<li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-example-2"><i class="fa fa-check"></i><b>27.1.2</b> Your Turn: SVD Example 2</a></li>
+<li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-example-3"><i class="fa fa-check"></i><b>27.1.3</b> Your Turn: SVD Example 3</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a><ul>
 <li class="chapter" data-level="27.2.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#converting-a-jpeg-image-into-a-matrix"><i class="fa fa-check"></i><b>27.2.1</b> Converting a JPEG image into a Matrix</a></li>
@@ -541,24 +541,23 @@ A^{\top} A \hat{\mathsf{x}} = A^{\top} \mathsf{b}.
 \]</span>
 Here is a template for the R code that will find the least squares solution <span class="math inline">\(\hat{\mathsf{x}}\)</span>, the projection vector <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span> and the residual vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathsf{b}}\)</span>.
 You should read this code line-by-line and make sure that you understand what it is doing!</p>
-<pre><code># Given: the matrix A
-# Given: the target vector b
-
-#solve the normal equation
-(xhat = solve(t(A) %*% A, t(A) %*% b))
-
-# find the projection
-(bhat = A %*% xhat)
-
-# find the residual vector
-(z = b - bhat)
-
-# check that z is orthogonal to Col(A)
-t(A) %*% z
-
-# measure the distance between bhat and b
-sqrt( t(z) %*% z)
-</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="least-squares-approximation.html#cb219-1"></a><span class="co"># Given: the matrix A</span></span>
+<span id="cb219-2"><a href="least-squares-approximation.html#cb219-2"></a><span class="co"># Given: the target vector b</span></span>
+<span id="cb219-3"><a href="least-squares-approximation.html#cb219-3"></a></span>
+<span id="cb219-4"><a href="least-squares-approximation.html#cb219-4"></a><span class="co">#solve the normal equation</span></span>
+<span id="cb219-5"><a href="least-squares-approximation.html#cb219-5"></a>(<span class="dt">xhat =</span> <span class="kw">solve</span>(<span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>A, <span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>b))</span>
+<span id="cb219-6"><a href="least-squares-approximation.html#cb219-6"></a></span>
+<span id="cb219-7"><a href="least-squares-approximation.html#cb219-7"></a><span class="co"># find the projection</span></span>
+<span id="cb219-8"><a href="least-squares-approximation.html#cb219-8"></a>(<span class="dt">bhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span>
+<span id="cb219-9"><a href="least-squares-approximation.html#cb219-9"></a></span>
+<span id="cb219-10"><a href="least-squares-approximation.html#cb219-10"></a><span class="co"># find the residual vector</span></span>
+<span id="cb219-11"><a href="least-squares-approximation.html#cb219-11"></a>(<span class="dt">z =</span> b <span class="op">-</span><span class="st"> </span>bhat)</span>
+<span id="cb219-12"><a href="least-squares-approximation.html#cb219-12"></a></span>
+<span id="cb219-13"><a href="least-squares-approximation.html#cb219-13"></a><span class="co"># check that z is orthogonal to Col(A)</span></span>
+<span id="cb219-14"><a href="least-squares-approximation.html#cb219-14"></a><span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>z</span>
+<span id="cb219-15"><a href="least-squares-approximation.html#cb219-15"></a></span>
+<span id="cb219-16"><a href="least-squares-approximation.html#cb219-16"></a><span class="co"># measure the distance between bhat and b</span></span>
+<span id="cb219-17"><a href="least-squares-approximation.html#cb219-17"></a><span class="kw">sqrt</span>( <span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z)</span></code></pre></div>
 </div>
 <div id="fitting-for-a-linear-function" class="section level2">
 <h2><span class="header-section-number">26.2</span> Fitting for a Linear Function</h2>

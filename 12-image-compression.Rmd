@@ -30,13 +30,63 @@ f. Use the spectral decomposition to create approximations of matrix $A$ and the
 
 ### SVD Example 1
 
+Here is a $5 \times 4$ matrix $A$.
+
 ```{r, echo=TRUE}
 (A = cbind(c(1,-1,1,0),c(-2,3,0,2),c(1,-1,1,0),c(0,1,4,0),c(1,-1,5,-4)))
 
 ```
 
+Let's call `svd(A)` and see what we get.
 
-### SVD Example 2
+```{r, echo=TRUE}
+(decomp = svd(A))
+
+```
+
+The return value has three attributes: 
+
+* `decomp$d`: these are the singular values $\sigma_1, \sigma_2, \sigma_3, \sigma_4$. Note that $\sigma_4=0$.
+* `decomp$u`: the $4 \times 4$ matrix whose columns are the left singular vectors $\mathsf{u}_1, \mathsf{u}_1, \mathsf{u}_1, \mathsf{u}_1$ corresponding to the singular values. 
+* `decomp$v`: the $5 \times 4$ matrix whose columns are right singular vectors the right singular vectors $\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3, \mathsf{v}_4$ corresponding to the singular values. The final vector $\mathsf{v}_5$ is missing!
+
+**Note:** The columns of the matrix `decomp$v$` are singular vectors (not the rows).
+
+**Warning!** We were expecting `decomp$v` to be a $5 \times 5$ matrix, and R only returned a $5 \times 4$ matrix. What is wrong!? The missing column is the final orthonormal vector $\mathsf{v}_5$ from $\mbox{Nul}(A)$.  
+
+#### Why has R omitted this vector? 
+
+The answer is that **RStudio is being efficient.** R has omitted vector $\mathsf{v}_5$ because we do not need this vector to create the spectral decomposition of $A$. That spectral decomposition is
+$$
+A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} +  \sigma_3 \mathsf{u}_3 \mathsf{v}_3^{\top} +  \sigma_4 \mathsf{u}_4 \mathsf{v}_4^{\top}.
+$$
+Note that we do not use the vector $\mathsf{v}_5$. So R didn't calculate it for us (to save computation time). If $A$ had been a $10 \times 4$ matrix, this would be a pretty good idea: why find 6 vectors that we don't need?
+
+And don't worry: we can easily extend the columns of `decomp$u` into an orthonormal basis for $\mathbb{R}^5$. One simple way is to find a basis for the orthogonal complement of $\mbox{span}(\mathsf{v}_1\mathsf{v}_2,\mathsf{v}_3,\mathsf{v}_4)$. We could do this by manually by finding an orthogonal basis for the nullspace of `t(decomp$v)`. 
+
+If you take MATH 365 Computational Linear Algebra, you will learn more about the $QR$-decomposition. That gives a fast way to fill in the missing vectors if you need them. 
+
+
+**Pro Tip:** When you use `svd` on a rectangular matrix, just remember that some of the singular vectors are missing. 
+
+* If $m > n$ then there are $m-n$ missing columns of $U$, all lying in $\mbox{Nul}(A^{\top})$. 
+* If $n > m$ then there are $n-m$ missing columns of $V$, all lying in $\mbox{Nul(A)}$. 
+
+
+
+#### The four fundamental subspaces of $A$.
+
+Keeping this is mind, we can characterize the four fundamental subspace of our example $5 \times 4$ matrix $A.$
+
+* The matrix $A$ has rank $3$ because there are three nonzero signular values.
+*  $\mbox{Row}(A)$ is 3-dimensional with basis `decomp\$v[,1:3]`
+* $\mbox{Nul}(A)$ is 2-dimensional because $\sigma_4=0$ and there is $5-4=1$ missing left right singular vector. We can use `decomp$v[,4]` as one basis vector. We can find the remaining $5-4=1$ vector by finding the nullspace of `t(decomp$v)`$.
+* $\mbox{Col}(A)$ is 3-dimensional with basis `decomp$u[,1:3]`
+* $\mbox{Nul}(A^{\top})$ is 1-dimensional. The vector `decomp$u[,4]` is a basis. 
+
+### Your Turn: SVD Example 2
+
+Characterize the four subspaces of this $5x5$ matrix. Note that since $A$ is square, the matrices $U$ and $V$ will both contain a full basis for $\mathbb{R}^5$.
 
 ```{r, echo=TRUE}
 (A = cbind(c(-3,5,-3,6,-1),c(-1,-2,-1,2,-4),c(9,-4,9,-18,14),c(3,-4,3,-6,3),c(-2,11,-2,4,11)))
@@ -44,7 +94,9 @@ f. Use the spectral decomposition to create approximations of matrix $A$ and the
 ```
 
 
-### SVD Example 3
+### Your Turn: SVD Example 3
+
+Characterize the four subspaces of this $6x4$ matrix. This time around, we will be missing $6-4=2$ of the left singular vectors that we need to extend `svd(A)$u$ into a basis of $\mathbb{R}^6$. These two singular vectors complete the basis for $\mbox{Nul(A^{\top})}$.
 
 ```{r, echo=TRUE}
 x = c(1,2,3,4,5,6)

@@ -443,7 +443,7 @@ T(c\mathsf{x}) = \big(c\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u}
 =  c \, T(\mathsf{x})
 $$
 b. Here are a few ways to describe $\mbox{ker}(T)$.
-    + $\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid \mathsf{x} \cdot \mathsf{u} = 0$.
+    + $\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid \mathsf{x} \cdot \mathsf{u} = 0 \}$.
     + $\mbox{ker}(T)$ is the set of vectors that are orthogonal to $\mathsf{u}$.
     + Let $A$ be the $1 \times n$ matrix $\mathsf{u}^{\top}$. Then $\mbox{ker}(T)= \mbox{Nul}(A)$.
 
@@ -833,6 +833,3 @@ plot(U[,2],pch=19,cex=.75,col=sen.color)
 
 ```
 
-
-
-asd
