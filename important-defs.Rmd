@@ -100,6 +100,8 @@ null space
 $$
 \mbox{Nul}(A) = \{ \mathsf{x} \in \mathbb{R}^n : A \mathsf{x} = \mathbf{0} \}
 $$
+*Connection to Linear Transformations*: If $T(\mathsf{x}) = A \mathsf{x}$, then the kernel of $T$ is the null space of matrix $A$. 
+
 
 column space
 
@@ -112,6 +114,8 @@ We also write this as
 $$
 \mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : b = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
 $$
+*Connection to Linear Transformations*: If $T(\mathsf{x}) = A \mathsf{x}$, then the range (also called the image) of $T$ is the column space of matrix $A$. 
+
 
 rank
 
@@ -171,7 +175,7 @@ orthogonal matrix
 
 orthogonal matrix
 
-: A square $n \times n$ matrix $P$ is orthogonal when is columns are an orthonormal set. As a result, we have $P^{-1} = P^{\top}$.
+: A square $n \times n$ matrix $P$ is orthogonal when its columns are an orthonormal set. As a result, we have $P^{-1} = P^{\top}$.
 
 projection and residual
 
@@ -186,7 +190,7 @@ orthogonal diagonalization
 
 spectral decomposition
 
-: A symmetric matrix $A$ can be written a linear combination of rank 1 matrices derived from the orthonormal eigensystem of $A$. In particular, we have
+: A symmetric matrix $A$ can be written as a linear combination of rank 1 matrices derived from the orthonormal eigensystem of $A$. In particular, we have
 $$
 A = \lambda_1 \mathsf{u}_1 \mathsf{u}_1^{\top} + \lambda_2 \mathsf{u}_2 \mathsf{u}_2^{\top} + \cdots + \lambda_n \mathsf{u}_n \mathsf{u}_n^{\top}. 
 $$
@@ -196,13 +200,13 @@ singular value decomposition (SVD)
 : Any $m \times n$ matrix $A$ of rank $r$ can be factored as $U \Sigma V^{\top}$ where 
 
 * $U$ is an $m \times m$ orthogonal matrix,
-* $\Sigma$ is a matrix whose nonzero entries are the positive numbers $\sigma_1, \ldots , \sigma_r$ are in decreasing order on the diagonal, and 
+* $\Sigma$ is a matrix whose nonzero entries are the positive numbers $\sigma_1, \ldots , \sigma_r$, which appear in decreasing order on the diagonal, and 
 * $V$ is an $n \times n$ orthogonal matrix.
 The nonzero entries of $\Sigma$ are called the singular values of $A$. The columns of $U$ are  the left singular vectors and the rows of $V^{\top}$ are the right singular vectors.
 
 SVD spectral decomposition
 
-: Any $m \times n$ matrix $A$ of rank $r$ can be written a linear combination of rank 1 matrices derived from the singular value decomposition of $A$. In particular, we have
+: Any $m \times n$ matrix $A$ of rank $r$ can be written as a linear combination of rank 1 matrices derived from the singular value decomposition of $A$. In particular, we have
 $$
 A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} + \cdots + \sigma_r \mathsf{u}_r \mathsf{v}_r^{\top}. 
 $$

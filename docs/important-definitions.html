@@ -614,7 +614,8 @@ Equivalently, one can say that <span class="math inline">\(\mathcal{B} = \{\math
 <dd><p>The nullspace <span class="math inline">\(\mbox{Nul}(A) \subset \mathbb{R}^n\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of solutions to the homogeneous equation <span class="math inline">\(A \mathsf{x} = \mathbf{0}\)</span>&gt; We also write this as
 <span class="math display">\[
 \mbox{Nul}(A) = \{ \mathsf{x} \in \mathbb{R}^n : A \mathsf{x} = \mathbf{0} \}
-\]</span></p>
+\]</span>
+<em>Connection to Linear Transformations</em>: If <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span>, then the kernel of <span class="math inline">\(T\)</span> is the null space of matrix <span class="math inline">\(A\)</span>.</p>
 </dd>
 <dt>column space</dt>
 <dd><p>The column space <span class="math inline">\(\mbox{Col}(A) \subset \mathbb{R}^m\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(A\)</span>.
@@ -625,7 +626,8 @@ For <span class="math inline">\(A = \begin{bmatrix} \mathsf{a}_1 &amp; \mathsf{a
 We also write this as
 <span class="math display">\[
 \mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : b = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
-\]</span></p>
+\]</span>
+<em>Connection to Linear Transformations</em>: If <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span>, then the range (also called the image) of <span class="math inline">\(T\)</span> is the column space of matrix <span class="math inline">\(A\)</span>.</p>
 </dd>
 <dt>rank</dt>
 <dd><p>The rank of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the dimension of the column space of <span class="math inline">\(A\)</span></p>
@@ -677,7 +679,7 @@ W^{\perp} = \{ \mathsf{v} \in \mathbb{R}^n : \mathsf{v} \cdot \mathsf{w} \mbox{ 
 orthogonal matrix</p>
 </dd>
 <dt>orthogonal matrix</dt>
-<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(P\)</span> is orthogonal when is columns are an orthonormal set. As a result, we have <span class="math inline">\(P^{-1} = P^{\top}\)</span>.</p>
+<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(P\)</span> is orthogonal when its columns are an orthonormal set. As a result, we have <span class="math inline">\(P^{-1} = P^{\top}\)</span>.</p>
 </dd>
 <dt>projection and residual</dt>
 <dd><p>The orthogonal projection of vector <span class="math inline">\(\mathsf{y}\)</span> into a subspace <span class="math inline">\(W\)</span> is the unique vector <span class="math inline">\(\hat{\mathsf{y}} \in W\)</span> such that <span class="math inline">\(\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}} \in W^{\perp}\)</span>. The vector <span class="math inline">\(\mathsf{z}\)</span> is called the residual vector for the projection.</p>
@@ -691,7 +693,7 @@ orthogonal matrix</p>
 <dd><p>Every symmetric <span class="math inline">\(n \times n\)</span> matrix is orthogonally diagonalizable, meaning that we have <span class="math inline">\(A = P D P^{\top}\)</span> where <span class="math inline">\(D\)</span> is a diagonal matrix and <span class="math inline">\(P\)</span> is an orthogonal matrix. The diagonal entries of <span class="math inline">\(D\)</span> are the eigenvalues of <span class="math inline">\(A\)</span> and the columns of <span class="math inline">\(P\)</span> are the corresponding orthonormal eigenvectors. Furthermore, the eigenvalues of <span class="math inline">\(A\)</span> are nonnegative.</p>
 </dd>
 <dt>spectral decomposition</dt>
-<dd><p>A symmetric matrix <span class="math inline">\(A\)</span> can be written a linear combination of rank 1 matrices derived from the orthonormal eigensystem of <span class="math inline">\(A\)</span>. In particular, we have
+<dd><p>A symmetric matrix <span class="math inline">\(A\)</span> can be written as a linear combination of rank 1 matrices derived from the orthonormal eigensystem of <span class="math inline">\(A\)</span>. In particular, we have
 <span class="math display">\[
 A = \lambda_1 \mathsf{u}_1 \mathsf{u}_1^{\top} + \lambda_2 \mathsf{u}_2 \mathsf{u}_2^{\top} + \cdots + \lambda_n \mathsf{u}_n \mathsf{u}_n^{\top}. 
 \]</span></p>
@@ -702,13 +704,13 @@ A = \lambda_1 \mathsf{u}_1 \mathsf{u}_1^{\top} + \lambda_2 \mathsf{u}_2 \mathsf{
 </dl>
 <ul>
 <li><span class="math inline">\(U\)</span> is an <span class="math inline">\(m \times m\)</span> orthogonal matrix,</li>
-<li><span class="math inline">\(\Sigma\)</span> is a matrix whose nonzero entries are the positive numbers <span class="math inline">\(\sigma_1, \ldots , \sigma_r\)</span> are in decreasing order on the diagonal, and</li>
+<li><span class="math inline">\(\Sigma\)</span> is a matrix whose nonzero entries are the positive numbers <span class="math inline">\(\sigma_1, \ldots , \sigma_r\)</span>, which appear in decreasing order on the diagonal, and</li>
 <li><span class="math inline">\(V\)</span> is an <span class="math inline">\(n \times n\)</span> orthogonal matrix.
 The nonzero entries of <span class="math inline">\(\Sigma\)</span> are called the singular values of <span class="math inline">\(A\)</span>. The columns of <span class="math inline">\(U\)</span> are the left singular vectors and the rows of <span class="math inline">\(V^{\top}\)</span> are the right singular vectors.</li>
 </ul>
 <dl>
 <dt>SVD spectral decomposition</dt>
-<dd><p>Any <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> of rank <span class="math inline">\(r\)</span> can be written a linear combination of rank 1 matrices derived from the singular value decomposition of <span class="math inline">\(A\)</span>. In particular, we have
+<dd><p>Any <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> of rank <span class="math inline">\(r\)</span> can be written as a linear combination of rank 1 matrices derived from the singular value decomposition of <span class="math inline">\(A\)</span>. In particular, we have
 <span class="math display">\[
 A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} + \cdots + \sigma_r \mathsf{u}_r \mathsf{v}_r^{\top}. 
 \]</span></p>
