@@ -589,7 +589,7 @@ It follows from these that also <span class="math inline">\(\mathsf{0} \in S\)</
 </ul>
 </dd>
 <dt>basis</dt>
-<dd><p>A basis of a vector space (or subspace) <span class="math inline">\(V\)</span> is a set of vectors <span class="math inline">\(\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}\)</span> in <span class="math inline">\(V\)</span> such that</p>
+<dd><p>A <strong>basis</strong> of a vector space (or subspace) <span class="math inline">\(V\)</span> is a set of vectors <span class="math inline">\(\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}\)</span> in <span class="math inline">\(V\)</span> such that</p>
 <ul>
 <li><span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> span <span class="math inline">\(V\)</span></li>
 <li><span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\)</span> are linearly independent
@@ -601,7 +601,7 @@ Equivalently, one can say that <span class="math inline">\(\mathcal{B} = \{\math
 </ul>
 </dd>
 <dt>dimension</dt>
-<dd><p>The dimension of a subspace <span class="math inline">\(W\)</span> is the number of vectors in any basis of <span class="math inline">\(W\)</span>. This is also the fewest number of vectors required to span the subspace.</p>
+<dd><p>The <strong>dimension</strong> of a subspace <span class="math inline">\(W\)</span> is the number of vectors in any basis of <span class="math inline">\(W\)</span>. This is also the fewest number of vectors required to span the subspace.</p>
 </dd>
 </dl>
 </div>
@@ -609,17 +609,17 @@ Equivalently, one can say that <span class="math inline">\(\mathcal{B} = \{\math
 <h2><span class="header-section-number">9.2</span> Matrices</h2>
 <dl>
 <dt>invertible</dt>
-<dd><p>The square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span> is invertible when there exists an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A^{-1}\)</span> such that <span class="math inline">\(A A^{-1} = I = A^{-1} A\)</span>. The Invertible Matrix Theorem collects over a dozen equivalent conditions, each of which guarantees that <span class="math inline">\(A\)</span> is invertible.</p>
+<dd><p>The square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span> is <strong>invertible</strong> when there exists an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A^{-1}\)</span> such that <span class="math inline">\(A A^{-1} = I = A^{-1} A\)</span>. The Invertible Matrix Theorem collects over two dozen equivalent conditions, each of which guarantees that <span class="math inline">\(A\)</span> is invertible.</p>
 </dd>
 <dt>null space</dt>
-<dd><p>The nullspace <span class="math inline">\(\mbox{Nul}(A) \subset \mathbb{R}^n\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of solutions to the homogeneous equation <span class="math inline">\(A \mathsf{x} = \mathbf{0}\)</span>&gt; We also write this as
+<dd><p>The <strong>null space</strong> <span class="math inline">\(\mbox{Nul}(A) \subset \mathbb{R}^n\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of solutions to the homogeneous equation <span class="math inline">\(A \mathsf{x} = \mathbf{0}\)</span>&gt; We also write this as
 <span class="math display">\[
 \mbox{Nul}(A) = \{ \mathsf{x} \in \mathbb{R}^n : A \mathsf{x} = \mathbf{0} \}
 \]</span>
 <em>Connection to Linear Transformations</em>: If <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span>, then the kernel of <span class="math inline">\(T\)</span> is the null space of matrix <span class="math inline">\(A\)</span>.</p>
 </dd>
 <dt>column space</dt>
-<dd><p>The column space <span class="math inline">\(\mbox{Col}(A) \subset \mathbb{R}^m\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(A\)</span>.
+<dd><p>The <strong>column space</strong> <span class="math inline">\(\mbox{Col}(A) \subset \mathbb{R}^m\)</span> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(A\)</span>.
 For <span class="math inline">\(A = \begin{bmatrix} \mathsf{a}_1 &amp; \mathsf{a}_2 &amp; \cdots &amp; \mathsf{a}_n \end{bmatrix}\)</span>, we have
 <span class="math display">\[
 \mbox{Col}(A) = \mbox{span} ( \mathsf{a}_1, \mathsf{a}_2, \ldots , \mathsf{a}_n )
@@ -631,19 +631,16 @@ We also write this as
 <em>Connection to Linear Transformations</em>: If <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span>, then the range (also called the image) of <span class="math inline">\(T\)</span> is the column space of matrix <span class="math inline">\(A\)</span>.</p>
 </dd>
 <dt>rank</dt>
-<dd><p>The rank of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the dimension of the column space of <span class="math inline">\(A\)</span></p>
+<dd><p>The <strong>rank</strong> of the <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> is the dimension of the column space of <span class="math inline">\(A\)</span>. This is also the number of pivot columns of the matrix.</p>
 </dd>
 <dt>eigenvalue and eigenvector</dt>
-<dd><p>For a square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span>, the scalar <span class="math inline">\(\lambda \in \mathbb{R}\)</span> is an eigenvalue for <span class="math inline">\(A\)</span> when there exists a nonzero vector <span class="math inline">\(\mathsf{x} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(A \mathsf{x} = \lambda \mathsf{x}\)</span>. The nonzero vector <span class="math inline">\(\mathsf{x}\)</span> and the eigenvector for eigenvalue <span class="math inline">\(\lambda\)</span>.</p>
-</dd>
-<dt>eigensystem</dt>
-<dd><p>The eigensystem of a square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span> is the collection of all of the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span>.</p>
+<dd><p>For a square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span>, the scalar <span class="math inline">\(\lambda \in \mathbb{R}\)</span> is an <strong>eigenvalue</strong> for <span class="math inline">\(A\)</span> when there exists a nonzero vector <span class="math inline">\(\mathsf{x} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(A \mathsf{x} = \lambda \mathsf{x}\)</span>. The nonzero vector <span class="math inline">\(\mathsf{x}\)</span> is the <strong>eigenvector</strong> for eigenvalue <span class="math inline">\(\lambda\)</span>. The collection of all of these eigenvalues and eigenvectors is called the <strong>eigensystem</strong> of A.</p>
 </dd>
 <dt>diagonalization</dt>
-<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix is diagonalizable when there is a diagonal matrix <span class="math inline">\(D\)</span> and an invertible matrix <span class="math inline">\(P\)</span> such that <span class="math inline">\(A = P D P^{-1}\)</span>. In this case, the eigenvalues of <span class="math inline">\(A\)</span> are the diagonal entries of <span class="math inline">\(D\)</span>. Their corresponding eigenvectors are the columns of <span class="math inline">\(P\)</span>.</p>
+<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix is <strong>diagonalizable</strong> when there is a diagonal matrix <span class="math inline">\(D\)</span> and an invertible matrix <span class="math inline">\(P\)</span> such that <span class="math inline">\(A = P D P^{-1}\)</span>. In this case, the eigenvalues of <span class="math inline">\(A\)</span> are the diagonal entries of <span class="math inline">\(D\)</span>. Their corresponding eigenvectors are the columns of <span class="math inline">\(P\)</span>.</p>
 </dd>
 <dt>dominant eigenvalue</dt>
-<dd><p>The eigenvalue <span class="math inline">\(\lambda\)</span> of the square matrix <span class="math inline">\(A\)</span> is the dominant eigenvalue when <span class="math inline">\(| \lambda | &gt; | \mu |\)</span> where <span class="math inline">\(\mu\)</span> is any other eigenvalue of <span class="math inline">\(A\)</span>. The dominant eigenvalue determines the long-term behavior of <span class="math inline">\(A^t\)</span> as <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
+<dd><p>The eigenvalue <span class="math inline">\(\lambda\)</span> of the square matrix <span class="math inline">\(A\)</span> is the <strong>dominant eigenvalue</strong> when <span class="math inline">\(| \lambda | &gt; | \mu |\)</span> where <span class="math inline">\(\mu\)</span> is any other eigenvalue of <span class="math inline">\(A\)</span>. The dominant eigenvalue determines the long-term behavior of <span class="math inline">\(A^t\)</span> as <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
 </dd>
 </dl>
 </div>
@@ -651,39 +648,39 @@ We also write this as
 <h2><span class="header-section-number">9.3</span> Orthogonality</h2>
 <dl>
 <dt>length</dt>
-<dd><p>The length of a vector <span class="math inline">\(\mathsf{v}\)</span> is
+<dd><p>The <strong>length</strong> of a vector <span class="math inline">\(\mathsf{v}\)</span> is
 <span class="math display">\[
 \| \mathsf{v} \| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}.
 \]</span></p>
 </dd>
 <dt>distance and angle</dt>
-<dd><p>The distance between vectors <span class="math inline">\(\mathsf{u}\)</span> and <span class="math inline">\(\mathsf{v}\)</span> is
+<dd><p>The <strong>distance</strong> between vectors <span class="math inline">\(\mathsf{u}\)</span> and <span class="math inline">\(\mathsf{v}\)</span> is
 <span class="math display">\[
 \mbox{dist}(\mathsf{u},\mathsf{v}) = \| \mathsf{u} - \mathsf{v} \|.
 \]</span>
-The angle <span class="math inline">\(\theta\)</span> between these vectors is determined by
+The <strong>angle</strong> <span class="math inline">\(\theta\)</span> between these vectors is determined by
 <span class="math display">\[
 \cos \theta = \frac{\mathsf{u} \cdot \mathsf{v}}{ \| \mathsf{u} \| \, \| \mathsf{v} \|}.
 \]</span></p>
 </dd>
 <dt>orthogonal</dt>
-<dd><p>The vectors <span class="math inline">\(\mathsf{u}\)</span> and <span class="math inline">\(\mathsf{v}\)</span> are orthogonal when <span class="math inline">\(\mathsf{u} \cdot \mathsf{v} = 0\)</span>. This means that either one of them is the zero vector, or they are perpendicular to one another.</p>
+<dd><p>The vectors <span class="math inline">\(\mathsf{u}\)</span> and <span class="math inline">\(\mathsf{v}\)</span> are <strong>orthogonal</strong> when <span class="math inline">\(\mathsf{u} \cdot \mathsf{v} = 0\)</span>. This means that either one of them is the zero vector, or they are perpendicular to one another.</p>
 </dd>
 <dt>orthogonal complement</dt>
-<dd><p>If <span class="math inline">\(W \subset \mathbb{R}^n\)</span> is a subspace, then its orthogonal complement <span class="math inline">\(W^{\perp}\)</span> is the set of all vectors in <span class="math inline">\(\mathsf{R}^n\)</span> that are orthogonal to <span class="math inline">\(W\)</span>. We also write
+<dd><p>If <span class="math inline">\(W \subset \mathbb{R}^n\)</span> is a subspace, then its <strong>orthogonal complement</strong> <span class="math inline">\(W^{\perp}\)</span> is the set of all vectors in <span class="math inline">\(\mathsf{R}^n\)</span> that are orthogonal to <span class="math inline">\(W\)</span>. We also write
 <span class="math display">\[
 W^{\perp} = \{ \mathsf{v} \in \mathbb{R}^n : \mathsf{v} \cdot \mathsf{w} \mbox{ for all } \mathsf{w} \in W \}.
 \]</span></p>
 </dd>
 <dt>orthonormal set</dt>
-<dd><p>A collection of vectors <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2, \ldots, \mathsf{u}_k\)</span> are an orthonormal set when every vector has length 1 and the vectors are pairwise orthogonal.
+<dd><p>A collection of vectors <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2, \ldots, \mathsf{u}_k\)</span> are an <strong>orthonormal set</strong> when every vector has length 1 and the vectors are pairwise orthogonal.
 orthogonal matrix</p>
 </dd>
 <dt>orthogonal matrix</dt>
-<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(P\)</span> is orthogonal when its columns are an orthonormal set. As a result, we have <span class="math inline">\(P^{-1} = P^{\top}\)</span>.</p>
+<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(P\)</span> is an <strong>orthogonal matrix</strong> when its columns are an orthonormal set. As a result, we have <span class="math inline">\(P^{-1} = P^{\top}\)</span>.</p>
 </dd>
 <dt>projection and residual</dt>
-<dd><p>The orthogonal projection of vector <span class="math inline">\(\mathsf{y}\)</span> into a subspace <span class="math inline">\(W\)</span> is the unique vector <span class="math inline">\(\hat{\mathsf{y}} \in W\)</span> such that <span class="math inline">\(\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}} \in W^{\perp}\)</span>. The vector <span class="math inline">\(\mathsf{z}\)</span> is called the residual vector for the projection.</p>
+<dd><p>The <strong>orthogonal projection</strong> of vector <span class="math inline">\(\mathsf{y}\)</span> into a subspace <span class="math inline">\(W\)</span> is the unique vector <span class="math inline">\(\hat{\mathsf{y}} \in W\)</span> such that <span class="math inline">\(\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}} \in W^{\perp}\)</span>. The vector <span class="math inline">\(\mathsf{z}\)</span> is called the <strong>residual vector</strong> for the projection.</p>
 </dd>
 </dl>
 </div>
@@ -691,16 +688,17 @@ orthogonal matrix</p>
 <h2><span class="header-section-number">9.4</span> Spectral Decompostion</h2>
 <dl>
 <dt>orthogonal diagonalization</dt>
-<dd><p>Every symmetric <span class="math inline">\(n \times n\)</span> matrix is orthogonally diagonalizable, meaning that we have <span class="math inline">\(A = P D P^{\top}\)</span> where <span class="math inline">\(D\)</span> is a diagonal matrix and <span class="math inline">\(P\)</span> is an orthogonal matrix. The diagonal entries of <span class="math inline">\(D\)</span> are the eigenvalues of <span class="math inline">\(A\)</span> and the columns of <span class="math inline">\(P\)</span> are the corresponding orthonormal eigenvectors. Furthermore, the eigenvalues of <span class="math inline">\(A\)</span> are nonnegative.</p>
+<dd><p>Every symmetric <span class="math inline">\(n \times n\)</span> matrix is <strong>orthogonally diagonalizable</strong>, meaning that we have <span class="math inline">\(A = P D P^{\top}\)</span> where <span class="math inline">\(D\)</span> is a diagonal matrix and <span class="math inline">\(P\)</span> is an orthogonal matrix. The diagonal entries of <span class="math inline">\(D\)</span> are the eigenvalues of <span class="math inline">\(A\)</span> and the columns of <span class="math inline">\(P\)</span> are the corresponding orthonormal eigenvectors. Furthermore, the eigenvalues of <span class="math inline">\(A\)</span> are nonnegative.</p>
 </dd>
 <dt>spectral decomposition</dt>
 <dd><p>A symmetric matrix <span class="math inline">\(A\)</span> can be written as a linear combination of rank 1 matrices derived from the orthonormal eigensystem of <span class="math inline">\(A\)</span>. In particular, we have
 <span class="math display">\[
 A = \lambda_1 \mathsf{u}_1 \mathsf{u}_1^{\top} + \lambda_2 \mathsf{u}_2 \mathsf{u}_2^{\top} + \cdots + \lambda_n \mathsf{u}_n \mathsf{u}_n^{\top}. 
-\]</span></p>
+\]</span>
+This linear combination of rank 1 vectors is called the <strong>spectral decomposition</strong> of <span class="math inline">\(A\)</span>.</p>
 </dd>
 <dt>singular value decomposition (SVD)</dt>
-<dd><p>Any <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> of rank <span class="math inline">\(r\)</span> can be factored as <span class="math inline">\(U \Sigma V^{\top}\)</span> where</p>
+<dd><p>Any <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> of rank <span class="math inline">\(r\)</span> can be factored into its <strong>singular value decomposition</strong> <span class="math inline">\(U \Sigma V^{\top}\)</span> where</p>
 </dd>
 </dl>
 <ul>
@@ -714,7 +712,8 @@ The nonzero entries of <span class="math inline">\(\Sigma\)</span> are called th
 <dd><p>Any <span class="math inline">\(m \times n\)</span> matrix <span class="math inline">\(A\)</span> of rank <span class="math inline">\(r\)</span> can be written as a linear combination of rank 1 matrices derived from the singular value decomposition of <span class="math inline">\(A\)</span>. In particular, we have
 <span class="math display">\[
 A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} + \cdots + \sigma_r \mathsf{u}_r \mathsf{v}_r^{\top}. 
-\]</span></p>
+\]</span>
+This linear combination of rank 1 vectors is called the <strong>(SVD) spectral decomposition</strong> of <span class="math inline">\(A\)</span>.</p>
 </dd>
 </dl>
 

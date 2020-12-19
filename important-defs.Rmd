@@ -72,7 +72,7 @@ It follows from these that also $\mathsf{0} \in S$.
 
 basis
 
-: A basis of a vector space (or subspace) $V$ is a set of vectors $\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}$  in $V$ such that
+: A **basis** of a vector space (or subspace) $V$ is a set of vectors $\mathcal{B} = \{\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n\}$  in $V$ such that
 
     * $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ span $V$
     * $\mathsf{v}_1, \mathsf{v}_2, \ldots, \mathsf{v}_n$ are linearly independent
@@ -84,7 +84,7 @@ $$
 
 dimension
 
-: The dimension of a subspace $W$ is the number of vectors in any basis of $W$. This is also the fewest number of vectors required to span the subspace.
+: The **dimension** of a subspace $W$ is the number of vectors in any basis of $W$. This is also the fewest number of vectors required to span the subspace.
 
 
 ## Matrices
@@ -92,11 +92,11 @@ dimension
 
 invertible
 
-: The square $n \times n$ matrix $A$ is invertible when there exists an $n \times n$ matrix $A^{-1}$ such that $A A^{-1} = I = A^{-1} A$. The Invertible Matrix Theorem collects over a dozen equivalent conditions, each of which guarantees that $A$ is invertible.
+: The square $n \times n$ matrix $A$ is **invertible** when there exists an $n \times n$ matrix $A^{-1}$ such that $A A^{-1} = I = A^{-1} A$. The Invertible Matrix Theorem collects over two dozen equivalent conditions, each of which guarantees that $A$ is invertible.
 
 null space
 
-: The nullspace $\mbox{Nul}(A) \subset \mathbb{R}^n$ of the $m \times n$ matrix $A$ is the set of solutions to the homogeneous equation $A \mathsf{x} = \mathbf{0}$> We also write this as
+: The **null space** $\mbox{Nul}(A) \subset \mathbb{R}^n$ of the $m \times n$ matrix $A$ is the set of solutions to the homogeneous equation $A \mathsf{x} = \mathbf{0}$> We also write this as
 $$
 \mbox{Nul}(A) = \{ \mathsf{x} \in \mathbb{R}^n : A \mathsf{x} = \mathbf{0} \}
 $$
@@ -105,7 +105,7 @@ $$
 
 column space
 
-: The column space $\mbox{Col}(A) \subset \mathbb{R}^m$ of the $m \times n$ matrix $A$ is the set of all linear combinations of the columns of $A$. 
+: The **column space** $\mbox{Col}(A) \subset \mathbb{R}^m$ of the $m \times n$ matrix $A$ is the set of all linear combinations of the columns of $A$. 
 For $A = \begin{bmatrix} \mathsf{a}_1 & \mathsf{a}_2 & \cdots & \mathsf{a}_n \end{bmatrix}$, we have
 $$
 \mbox{Col}(A) = \mbox{span} ( \mathsf{a}_1, \mathsf{a}_2, \ldots , \mathsf{a}_n )
@@ -119,74 +119,71 @@ $$
 
 rank
 
-: The rank of the $m \times n$ matrix $A$ is the dimension of the column space of $A$
+: The **rank** of the $m \times n$ matrix $A$ is the dimension of the column space of $A$. This is also the number of pivot columns of the matrix.
 
 eigenvalue and eigenvector
 
-: For a square $n \times n$ matrix $A$, the scalar $\lambda \in \mathbb{R}$ is an eigenvalue for $A$ when there exists a nonzero vector  $\mathsf{x} \in \mathbb{R}^n$ such that $A \mathsf{x} = \lambda \mathsf{x}$. The nonzero vector $\mathsf{x}$ and the eigenvector for eigenvalue $\lambda$.
+: For a square $n \times n$ matrix $A$, the scalar $\lambda \in \mathbb{R}$ is an **eigenvalue** for $A$ when there exists a nonzero vector  $\mathsf{x} \in \mathbb{R}^n$ such that $A \mathsf{x} = \lambda \mathsf{x}$. The nonzero vector $\mathsf{x}$ is the **eigenvector** for eigenvalue $\lambda$. The collection of all of these eigenvalues and eigenvectors is called the **eigensystem** of A.
 
-eigensystem
-
-: The eigensystem of a square $n \times n$ matrix $A$ is the collection of all of the eigenvalues and eigenvectors of $A$.
 
 diagonalization
 
-: A square $n \times n$ matrix is diagonalizable when there is a diagonal matrix $D$ and an invertible matrix $P$ such that $A = P D P^{-1}$. In this case, the eigenvalues of $A$ are the diagonal entries of $D$. Their corresponding eigenvectors are the columns of $P$.
+: A square $n \times n$ matrix is **diagonalizable** when there is a diagonal matrix $D$ and an invertible matrix $P$ such that $A = P D P^{-1}$. In this case, the eigenvalues of $A$ are the diagonal entries of $D$. Their corresponding eigenvectors are the columns of $P$.
 
 dominant eigenvalue
 
-: The eigenvalue $\lambda$ of  the square matrix $A$ is the dominant eigenvalue when  $| \lambda | > | \mu |$ where $\mu$ is any other eigenvalue of $A$. The dominant eigenvalue determines the long-term behavior of $A^t$ as $t \rightarrow \infty$.
+: The eigenvalue $\lambda$ of  the square matrix $A$ is the **dominant eigenvalue** when  $| \lambda | > | \mu |$ where $\mu$ is any other eigenvalue of $A$. The dominant eigenvalue determines the long-term behavior of $A^t$ as $t \rightarrow \infty$.
 
 ## Orthogonality
 
 length 
 
-: The length of a vector $\mathsf{v}$ is 
+: The **length** of a vector $\mathsf{v}$ is 
 $$
 \| \mathsf{v} \| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}.
 $$
 
 distance and angle
 
-: The distance between vectors $\mathsf{u}$ and $\mathsf{v}$ is
+: The **distance** between vectors $\mathsf{u}$ and $\mathsf{v}$ is
 $$
 \mbox{dist}(\mathsf{u},\mathsf{v}) = \| \mathsf{u} - \mathsf{v} \|.
 $$
-The angle $\theta$ between these vectors is determined by
+The **angle** $\theta$ between these vectors is determined by
 $$
 \cos \theta = \frac{\mathsf{u} \cdot \mathsf{v}}{ \| \mathsf{u} \| \, \| \mathsf{v} \|}.
 $$
 
 orthogonal
 
-: The vectors $\mathsf{u}$ and $\mathsf{v}$ are orthogonal when $\mathsf{u} \cdot \mathsf{v} = 0$. This means that either one of them is the zero vector, or they are perpendicular to one another.
+: The vectors $\mathsf{u}$ and $\mathsf{v}$ are **orthogonal** when $\mathsf{u} \cdot \mathsf{v} = 0$. This means that either one of them is the zero vector, or they are perpendicular to one another.
 
 orthogonal complement
 
-: If $W \subset \mathbb{R}^n$ is a subspace, then its orthogonal complement $W^{\perp}$ is the set of all vectors in $\mathsf{R}^n$ that are orthogonal to $W$. We also write
+: If $W \subset \mathbb{R}^n$ is a subspace, then its **orthogonal complement** $W^{\perp}$ is the set of all vectors in $\mathsf{R}^n$ that are orthogonal to $W$. We also write
 $$
 W^{\perp} = \{ \mathsf{v} \in \mathbb{R}^n : \mathsf{v} \cdot \mathsf{w} \mbox{ for all } \mathsf{w} \in W \}.
 $$
 
 orthonormal set
 
-: A collection of vectors $\mathsf{u}_1, \mathsf{u}_2, \ldots, \mathsf{u}_k$ are an orthonormal set when every vector has length 1 and the vectors are pairwise orthogonal.
+: A collection of vectors $\mathsf{u}_1, \mathsf{u}_2, \ldots, \mathsf{u}_k$ are an **orthonormal set** when every vector has length 1 and the vectors are pairwise orthogonal.
 orthogonal matrix
 
 orthogonal matrix
 
-: A square $n \times n$ matrix $P$ is orthogonal when its columns are an orthonormal set. As a result, we have $P^{-1} = P^{\top}$.
+: A square $n \times n$ matrix $P$ is an **orthogonal matrix** when its columns are an orthonormal set. As a result, we have $P^{-1} = P^{\top}$.
 
 projection and residual
 
-: The orthogonal projection  of vector $\mathsf{y}$ into a subspace $W$ is the unique vector $\hat{\mathsf{y}} \in W$ such that $\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}} \in W^{\perp}$. The vector $\mathsf{z}$ is called the residual vector for the projection.
+: The **orthogonal projection**  of vector $\mathsf{y}$ into a subspace $W$ is the unique vector $\hat{\mathsf{y}} \in W$ such that $\mathsf{z} = \mathsf{y} - \hat{\mathsf{y}} \in W^{\perp}$. The vector $\mathsf{z}$ is called the **residual vector** for the projection.
 
 
 ## Spectral Decompostion
 
 orthogonal diagonalization
 
-: Every symmetric $n \times n$ matrix is orthogonally diagonalizable, meaning that we have $A = P D P^{\top}$ where $D$ is a diagonal matrix and $P$ is an orthogonal matrix. The diagonal entries of $D$ are the eigenvalues of $A$ and the columns of $P$ are the corresponding orthonormal eigenvectors. Furthermore, the eigenvalues of $A$ are nonnegative.
+: Every symmetric $n \times n$ matrix is **orthogonally diagonalizable**, meaning that we have $A = P D P^{\top}$ where $D$ is a diagonal matrix and $P$ is an orthogonal matrix. The diagonal entries of $D$ are the eigenvalues of $A$ and the columns of $P$ are the corresponding orthonormal eigenvectors. Furthermore, the eigenvalues of $A$ are nonnegative.
 
 spectral decomposition
 
@@ -194,10 +191,12 @@ spectral decomposition
 $$
 A = \lambda_1 \mathsf{u}_1 \mathsf{u}_1^{\top} + \lambda_2 \mathsf{u}_2 \mathsf{u}_2^{\top} + \cdots + \lambda_n \mathsf{u}_n \mathsf{u}_n^{\top}. 
 $$
+This linear combination of rank 1 vectors is called the **spectral decomposition** of $A$.
+
 
 singular value decomposition (SVD)
 
-: Any $m \times n$ matrix $A$ of rank $r$ can be factored as $U \Sigma V^{\top}$ where 
+: Any $m \times n$ matrix $A$ of rank $r$ can be factored into its **singular value decomposition** $U \Sigma V^{\top}$ where 
 
 * $U$ is an $m \times m$ orthogonal matrix,
 * $\Sigma$ is a matrix whose nonzero entries are the positive numbers $\sigma_1, \ldots , \sigma_r$, which appear in decreasing order on the diagonal, and 
@@ -210,3 +209,4 @@ SVD spectral decomposition
 $$
 A = \sigma_1 \mathsf{u}_1 \mathsf{v}_1^{\top} + \sigma_2 \mathsf{u}_2 \mathsf{v}_2^{\top} + \cdots + \sigma_r \mathsf{u}_r \mathsf{v}_r^{\top}. 
 $$
+This linear combination of rank 1 vectors is called the **(SVD) spectral decomposition** of $A$.

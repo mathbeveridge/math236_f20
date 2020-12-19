@@ -74,7 +74,7 @@ senators <- read.csv(senate.files[2], header=FALSE)
 sen.name = senators[,2]
 sen.party = senators[,4]
 
-sen.color=rep("chartreuse", length(senators))
+sen.color=rep("goldenrod", length(senators))
 sen.color[sen.party=='D']="cornflowerblue"
 sen.color[sen.party=='R']="firebrick"
 
@@ -163,7 +163,7 @@ v5 = eigsys$vectors[,5]
 xdir = v1
 ydir = v2
 
-plot(xdir, ydir, col=sen.color)
+plot(xdir, ydir, pch=20,cex=1, col=sen.color)
 
 
 
