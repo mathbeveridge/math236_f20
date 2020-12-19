@@ -112,7 +112,7 @@ $$
 $$
 We also write this as
 $$
-\mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : b = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
+\mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : \mathsf{b} = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
 $$
 *Connection to Linear Transformations*: If $T(\mathsf{x}) = A \mathsf{x}$, then the range (also called the image) of $T$ is the column space of matrix $A$. 
 
@@ -128,7 +128,7 @@ eigenvalue and eigenvector
 
 diagonalization
 
-: A square $n \times n$ matrix is **diagonalizable** when there is a diagonal matrix $D$ and an invertible matrix $P$ such that $A = P D P^{-1}$. In this case, the eigenvalues of $A$ are the diagonal entries of $D$. Their corresponding eigenvectors are the columns of $P$.
+: A square $n \times n$ matrix is **diagonalizable** when $A = P D P^{-1}$ where $D$ is a diagonal matrix and $P$ is an invertible matrix.  In this case, the eigenvalues of $A$ are the diagonal entries of $D$ and their corresponding eigenvectors are the columns of $P$.
 
 dominant eigenvalue
 

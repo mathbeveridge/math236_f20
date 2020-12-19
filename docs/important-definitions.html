@@ -626,7 +626,7 @@ For <span class="math inline">\(A = \begin{bmatrix} \mathsf{a}_1 &amp; \mathsf{a
 \]</span>
 We also write this as
 <span class="math display">\[
-\mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : b = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
+\mbox{Col}(A) = \{ \mathsf{b} \in \mathbb{R}^m : \mathsf{b} = A \mathsf{x} \mbox{ for some } \mathsf{x} \in \mathbb{R}^n \}.
 \]</span>
 <em>Connection to Linear Transformations</em>: If <span class="math inline">\(T(\mathsf{x}) = A \mathsf{x}\)</span>, then the range (also called the image) of <span class="math inline">\(T\)</span> is the column space of matrix <span class="math inline">\(A\)</span>.</p>
 </dd>
@@ -637,7 +637,7 @@ We also write this as
 <dd><p>For a square <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span>, the scalar <span class="math inline">\(\lambda \in \mathbb{R}\)</span> is an <strong>eigenvalue</strong> for <span class="math inline">\(A\)</span> when there exists a nonzero vector <span class="math inline">\(\mathsf{x} \in \mathbb{R}^n\)</span> such that <span class="math inline">\(A \mathsf{x} = \lambda \mathsf{x}\)</span>. The nonzero vector <span class="math inline">\(\mathsf{x}\)</span> is the <strong>eigenvector</strong> for eigenvalue <span class="math inline">\(\lambda\)</span>. The collection of all of these eigenvalues and eigenvectors is called the <strong>eigensystem</strong> of A.</p>
 </dd>
 <dt>diagonalization</dt>
-<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix is <strong>diagonalizable</strong> when there is a diagonal matrix <span class="math inline">\(D\)</span> and an invertible matrix <span class="math inline">\(P\)</span> such that <span class="math inline">\(A = P D P^{-1}\)</span>. In this case, the eigenvalues of <span class="math inline">\(A\)</span> are the diagonal entries of <span class="math inline">\(D\)</span>. Their corresponding eigenvectors are the columns of <span class="math inline">\(P\)</span>.</p>
+<dd><p>A square <span class="math inline">\(n \times n\)</span> matrix is <strong>diagonalizable</strong> when <span class="math inline">\(A = P D P^{-1}\)</span> where <span class="math inline">\(D\)</span> is a diagonal matrix and <span class="math inline">\(P\)</span> is an invertible matrix. In this case, the eigenvalues of <span class="math inline">\(A\)</span> are the diagonal entries of <span class="math inline">\(D\)</span> and their corresponding eigenvectors are the columns of <span class="math inline">\(P\)</span>.</p>
 </dd>
 <dt>dominant eigenvalue</dt>
 <dd><p>The eigenvalue <span class="math inline">\(\lambda\)</span> of the square matrix <span class="math inline">\(A\)</span> is the <strong>dominant eigenvalue</strong> when <span class="math inline">\(| \lambda | &gt; | \mu |\)</span> where <span class="math inline">\(\mu\)</span> is any other eigenvalue of <span class="math inline">\(A\)</span>. The dominant eigenvalue determines the long-term behavior of <span class="math inline">\(A^t\)</span> as <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
