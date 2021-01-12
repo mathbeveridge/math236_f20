@@ -29,7 +29,7 @@ b. Let $U$ and $V$ both be $n \times n$ orthogonal matrices. Prove that the matr
 Let $W \subset \mathbb{R}^6$ be the set of solutions to
 \begin{align}
 x_1 + x_2 + x_3 + x_4 + x_5 + x_6 &= 0 \\
-x_1 - x_2 + x_3 - x_4 + x_5 - x_6 &= 0 
+x_1 + x_2 - x_3 + x_4 + x_5 - x_6 &= 0 
 \end{align}
 
 a. Find a basis for $W$ by using row reduction on the appropriate matrix.
