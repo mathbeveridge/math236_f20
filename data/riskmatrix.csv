@@ -1,6 +1,6 @@
-"Afghanistan", "Ukraine", "Ural", "China", "India", "Middle East", "Alaska", "Alberta", "Northwest Territory", "Kamchatka", "Ontario", "Western United States", "Argentina", "Brazil", "Peru", "North Africa", "Venezuela", "Central America", "Eastern United States", "Siberia", "Mongolia", "Siam", "Congo", "East Africa", "South Africa", "Madagascar", "Egypt", "Eastern Australia", "Western Australia", "New Guinea", "Quebec", "Southern Europe", "Great Britain", "Iceland", "Western Europe", "Northern Europe", "Scandinavia", "Greenland", "Indonesia", "Irkutsk", "Yakutsk", "Japan"
+"Afghanistan","Ukraine","Ural","China","India","Middle East","Alaska","Alberta","Northwest Territory","Kamchatka","Ontario","Western United States","Argentina","Brazil","Peru","North Africa","Venezuela","Central America","Eastern United States","Siberia","Mongolia","Siam","Congo","East Africa","South Africa","Madagascar","Egypt","Eastern Australia","Western Australia","New Guinea","Quebec","Southern Europe","Great Britain","Iceland","Western Europe","Northern Europe","Scandinavia","Greenland","Indonesia","Irkutsk","Yakutsk","Japan"
 0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0
 1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -30,7 +30,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0
 0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0
+0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
