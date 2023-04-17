@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Vector 25 Digit Recognition | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Vector 25 Digit Recognition | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
@@ -31,7 +30,8 @@
   
 <link rel="prev" href="modeling-of-ecological-systems.html"/>
 <link rel="next" href="least-squares-approximation.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,25 +47,24 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -113,6 +112,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="m236.css" type="text/css" />
 </head>
 
@@ -131,14 +131,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Problem Sets</b></span></li>
-<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
 <li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
 <li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
 <li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
 <li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
 <li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
 <li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
@@ -146,7 +148,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
 <li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a><ul>
+<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="problem-set-3.html"><a href="problem-set-3.html#three-vectors-in-mathbbr4"><i class="fa fa-check"></i><b>3.1</b> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></a></li>
 <li class="chapter" data-level="3.2" data-path="problem-set-3.html"><a href="problem-set-3.html#a-balanced-diet"><i class="fa fa-check"></i><b>3.2</b> A Balanced Diet</a></li>
 <li class="chapter" data-level="3.3" data-path="problem-set-3.html"><a href="problem-set-3.html#a-problem-about-span-and-linear-dependence"><i class="fa fa-check"></i><b>3.3</b> A Problem about Span and Linear Dependence</a></li>
@@ -154,33 +157,38 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="3.5" data-path="problem-set-3.html"><a href="problem-set-3.html#partial-information-about-a-linear-transformation"><i class="fa fa-check"></i><b>3.5</b> Partial Information about a Linear Transformation</a></li>
 <li class="chapter" data-level="3.6" data-path="problem-set-3.html"><a href="problem-set-3.html#house-renovations"><i class="fa fa-check"></i><b>3.6</b> House Renovations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a><ul>
+<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="problem-set-4.html"><a href="problem-set-4.html#an-invertible-product-of-rectangular-matrices"><i class="fa fa-check"></i><b>4.1</b> An Invertible Product of Rectangular Matrices</a></li>
 <li class="chapter" data-level="4.2" data-path="problem-set-4.html"><a href="problem-set-4.html#guessing-the-inverse-matrix-from-a-pattern"><i class="fa fa-check"></i><b>4.2</b> Guessing the Inverse Matrix from a Pattern</a></li>
 <li class="chapter" data-level="4.3" data-path="problem-set-4.html"><a href="problem-set-4.html#lu-decomposition-of-an-invertible-matrix"><i class="fa fa-check"></i><b>4.3</b> LU Decomposition of an Invertible Matrix</a></li>
 <li class="chapter" data-level="4.4" data-path="problem-set-4.html"><a href="problem-set-4.html#homogeneous-coordinates"><i class="fa fa-check"></i><b>4.4</b> Homogeneous Coordinates</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
+<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
 <li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
 <li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis"><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis</a></li>
 <li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
 <li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a><ul>
+<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="problem-set-6.html"><a href="problem-set-6.html#the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.1</b> The Square Root of a Matrix?</a></li>
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
 <li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
 <li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
 <li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-of-risk-territories"><i class="fa fa-check"></i><b>6.5</b> Network Analysis of Risk Territories</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a><ul>
+<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="problem-set-7.html"><a href="problem-set-7.html#glucose-insulin-system-model"><i class="fa fa-check"></i><b>7.1</b> Glucose-Insulin System Model</a></li>
 <li class="chapter" data-level="7.2" data-path="problem-set-7.html"><a href="problem-set-7.html#population-interaction-models"><i class="fa fa-check"></i><b>7.2</b> Population Interaction Models</a></li>
 <li class="chapter" data-level="7.3" data-path="problem-set-7.html"><a href="problem-set-7.html#blue-whale-population-dynamics"><i class="fa fa-check"></i><b>7.3</b> Blue Whale Population Dynamics</a></li>
 <li class="chapter" data-level="7.4" data-path="problem-set-7.html"><a href="problem-set-7.html#the-power-method-for-eigenvalue-calculation"><i class="fa fa-check"></i><b>7.4</b> The Power Method for Eigenvalue Calculation</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a><ul>
+<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="problem-set-8.html"><a href="problem-set-8.html#two-orthogonality-properties"><i class="fa fa-check"></i><b>8.1</b> Two Orthogonality Properties</a></li>
 <li class="chapter" data-level="8.2" data-path="problem-set-8.html"><a href="problem-set-8.html#bases-for-a-subspace-and-its-orthogonal-complement"><i class="fa fa-check"></i><b>8.2</b> Bases for a Subspace and its Orthogonal Complement</a></li>
 <li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetric-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetric Matrix</a></li>
@@ -188,53 +196,63 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="8.5" data-path="problem-set-8.html"><a href="problem-set-8.html#cosine-similarity-for-us-senators"><i class="fa fa-check"></i><b>8.5</b> Cosine Similarity for US Senators</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
-<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a><ul>
+<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="important-definitions.html"><a href="important-definitions.html#vector-spaces"><i class="fa fa-check"></i><b>9.1</b> Vector Spaces</a></li>
 <li class="chapter" data-level="9.2" data-path="important-definitions.html"><a href="important-definitions.html#matrices"><i class="fa fa-check"></i><b>9.2</b> Matrices</a></li>
 <li class="chapter" data-level="9.3" data-path="important-definitions.html"><a href="important-definitions.html#orthogonality"><i class="fa fa-check"></i><b>9.3</b> Orthogonality</a></li>
 <li class="chapter" data-level="9.4" data-path="important-definitions.html"><a href="important-definitions.html#spectral-decompostion"><i class="fa fa-check"></i><b>9.4</b> Spectral Decompostion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>10.1</b> Solving Linear Equations</a></li>
 <li class="chapter" data-level="10.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>10.2</b> RStudio</a></li>
 <li class="chapter" data-level="10.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
 <li class="chapter" data-level="10.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>10.4</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>11.1</b> Solution Sets, Span and Linear Independence</a></li>
 <li class="chapter" data-level="11.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>11.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="11.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>11.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a><ul>
+<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#linear-transformations-and-matrix-inverses"><i class="fa fa-check"></i><b>12.1</b> Linear Transformations and Matrix Inverses</a></li>
 <li class="chapter" data-level="12.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>12.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="12.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>12.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a><ul>
+<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vector-spaces-and-the-determinant"><i class="fa fa-check"></i><b>13.1</b> Vector Spaces and the Determinant</a></li>
 <li class="chapter" data-level="13.2" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vocabulary-3"><i class="fa fa-check"></i><b>13.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="13.3" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#conceptual-thinking-3"><i class="fa fa-check"></i><b>13.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a><ul>
+<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#eigensystems"><i class="fa fa-check"></i><b>14.1</b> Eigensystems</a></li>
 <li class="chapter" data-level="14.2" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#vocabulary-4"><i class="fa fa-check"></i><b>14.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="14.3" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#conceptual-thinking-4"><i class="fa fa-check"></i><b>14.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a><ul>
+<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#orthogonality-and-svd"><i class="fa fa-check"></i><b>15.1</b> Orthogonality and SVD</a></li>
 <li class="chapter" data-level="15.2" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#vocabulary-5"><i class="fa fa-check"></i><b>15.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="15.3" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#conceptual-thinking-5"><i class="fa fa-check"></i><b>15.3</b> Conceptual Thinking</a></li>
 </ul></li>
 <li class="part"><span><b>III LineaR Algebra</b></span></li>
-<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>16.1</b> Building Vectors and Matrices</a></li>
 <li class="chapter" data-level="16.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>16.2</b> Solving a Linear System</a></li>
 <li class="chapter" data-level="16.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>16.3</b> Solving another Linear System</a></li>
 <li class="chapter" data-level="16.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>16.4</b> Appendix: Dimensionless Vectors in R</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>17.1</b> Functions to plot our vectors</a></li>
-<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a><ul>
+<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-1"><i class="fa fa-check"></i><b>17.2.1</b> Family 1</a></li>
 <li class="chapter" data-level="17.2.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-2"><i class="fa fa-check"></i><b>17.2.2</b> Family 2</a></li>
 <li class="chapter" data-level="17.2.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-3"><i class="fa fa-check"></i><b>17.2.3</b> Family 3</a></li>
@@ -244,57 +262,73 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="17.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>17.3</b> Exploration</a></li>
 <li class="chapter" data-level="17.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>17.4</b> Even More Exploration</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a><ul>
-<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a><ul>
+<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-1"><i class="fa fa-check"></i><b>18.1.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a><ul>
+<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-2"><i class="fa fa-check"></i><b>18.2.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a><ul>
+<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a>
+<ul>
 <li class="chapter" data-level="18.3.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-3"><i class="fa fa-check"></i><b>18.3.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a><ul>
+<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a>
+<ul>
 <li class="chapter" data-level="18.4.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-4"><i class="fa fa-check"></i><b>18.4.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a><ul>
+<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a>
+<ul>
 <li class="chapter" data-level="18.5.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-5"><i class="fa fa-check"></i><b>18.5.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a><ul>
+<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a>
+<ul>
 <li class="chapter" data-level="18.6.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-6"><i class="fa fa-check"></i><b>18.6.1</b> Your Turn</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a><ul>
+<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>19.1</b> Translation</a></li>
 <li class="chapter" data-level="19.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>19.2</b> Translation and then Rotation</a></li>
 <li class="chapter" data-level="19.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>19.3</b> Rotation and then Translation</a></li>
-<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a><ul>
+<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="19.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>19.4.1</b> House of Orange</a></li>
 <li class="chapter" data-level="19.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>19.4.2</b> House Party</a></li>
+<li class="chapter" data-level="19.4.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#test-checkin"><i class="fa fa-check"></i><b>19.4.3</b> test checkin</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a><ul>
+<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>20.1</b> Transforming My House.</a></li>
 <li class="chapter" data-level="20.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>20.2</b> Watching a series of points.</a></li>
 <li class="chapter" data-level="20.3" data-path="fractals.html"><a href="fractals.html#here-are-some-from-httppaulbourke.netfractalsifs"><i class="fa fa-check"></i><b>20.3</b> Here are some from <span>http://paulbourke.net/fractals/ifs/</span></a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a><ul>
+<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#helper-function-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>21.1</b> Helper Function to Plot Dynamical Systems</a></li>
 <li class="chapter" data-level="21.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#our-first-example"><i class="fa fa-check"></i><b>21.2</b> Our first example</a></li>
-<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a><ul>
+<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-1"><i class="fa fa-check"></i><b>21.3.1</b> Example 1</a></li>
 <li class="chapter" data-level="21.3.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-2"><i class="fa fa-check"></i><b>21.3.2</b> Example 2</a></li>
 <li class="chapter" data-level="21.3.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-3"><i class="fa fa-check"></i><b>21.3.3</b> Example 3</a></li>
 <li class="chapter" data-level="21.3.4" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-4"><i class="fa fa-check"></i><b>21.3.4</b> Example 4</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a><ul>
-<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a>
+<ul>
 <li class="chapter" data-level="22.1.1" data-path="network-centralities.html"><a href="network-centralities.html#adjacency-matrices"><i class="fa fa-check"></i><b>22.1.1</b> Adjacency Matrices</a></li>
 <li class="chapter" data-level="22.1.2" data-path="network-centralities.html"><a href="network-centralities.html#graph-layouts"><i class="fa fa-check"></i><b>22.1.2</b> Graph Layouts</a></li>
 </ul></li>
 <li class="chapter" data-level="22.2" data-path="network-centralities.html"><a href="network-centralities.html#degree-centrality"><i class="fa fa-check"></i><b>22.2</b> Degree Centrality</a></li>
-<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a><ul>
+<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a>
+<ul>
 <li class="chapter" data-level="22.3.1" data-path="network-centralities.html"><a href="network-centralities.html#step-1"><i class="fa fa-check"></i><b>22.3.1</b> Step 1</a></li>
 <li class="chapter" data-level="22.3.2" data-path="network-centralities.html"><a href="network-centralities.html#step-2"><i class="fa fa-check"></i><b>22.3.2</b> Step 2</a></li>
 <li class="chapter" data-level="22.3.3" data-path="network-centralities.html"><a href="network-centralities.html#step-3"><i class="fa fa-check"></i><b>22.3.3</b> Step 3</a></li>
@@ -302,59 +336,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="22.3.5" data-path="network-centralities.html"><a href="network-centralities.html#step-5"><i class="fa fa-check"></i><b>22.3.5</b> Step 5</a></li>
 <li class="chapter" data-level="22.3.6" data-path="network-centralities.html"><a href="network-centralities.html#gould-index-summary"><i class="fa fa-check"></i><b>22.3.6</b> Gould Index Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a><ul>
+<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a>
+<ul>
 <li class="chapter" data-level="22.4.1" data-path="network-centralities.html"><a href="network-centralities.html#find-the-degree-centrality-values."><i class="fa fa-check"></i><b>22.4.1</b> Find the Degree Centrality values.</a></li>
 <li class="chapter" data-level="22.4.2" data-path="network-centralities.html"><a href="network-centralities.html#find-the-gould-index-values"><i class="fa fa-check"></i><b>22.4.2</b> Find the Gould Index values</a></li>
 <li class="chapter" data-level="22.4.3" data-path="network-centralities.html"><a href="network-centralities.html#analyze-the-data"><i class="fa fa-check"></i><b>22.4.3</b> Analyze the Data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a><ul>
+<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-data"><i class="fa fa-check"></i><b>23.1</b> The Data</a></li>
 <li class="chapter" data-level="23.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-88th-congressional-session-1964"><i class="fa fa-check"></i><b>23.2</b> The 88th Congressional Session (1964)</a></li>
-<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a><ul>
+<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-dominant-eigenvectors."><i class="fa fa-check"></i><b>23.3.1</b> Using the Dominant Eigenvectors.</a></li>
 <li class="chapter" data-level="23.3.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#patterns-in-the-first-two-eigenvectors"><i class="fa fa-check"></i><b>23.3.2</b> Patterns in the First Two Eigenvectors</a></li>
 <li class="chapter" data-level="23.3.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#creating-a-table-sorted-by-an-eigenvector"><i class="fa fa-check"></i><b>23.3.3</b> Creating a Table Sorted by an Eigenvector</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#your-turn-12"><i class="fa fa-check"></i><b>23.4</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a><ul>
+<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#helper-functions-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>24.1</b> Helper Functions to Plot Dynamical Systems</a></li>
-<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a><ul>
+<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#population-forecast"><i class="fa fa-check"></i><b>24.2.1</b> Population forecast</a></li>
 <li class="chapter" data-level="24.2.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-population-at-t200"><i class="fa fa-check"></i><b>24.2.2</b> The population at <span class="math inline">\(t=200\)</span></a></li>
 <li class="chapter" data-level="24.2.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#eigenvectors-and-eigenvalues-of-l"><i class="fa fa-check"></i><b>24.2.3</b> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a><ul>
+<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations"><i class="fa fa-check"></i><b>24.3.1</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.3.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-populations-at-t100-versus-the-dominant-eigenvector"><i class="fa fa-check"></i><b>24.3.2</b> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</a></li>
 <li class="chapter" data-level="24.3.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-long-range-prospects"><i class="fa fa-check"></i><b>24.3.3</b> The long-range prospects</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a><ul>
+<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a>
+<ul>
 <li class="chapter" data-level="24.4.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-leslie-matrix"><i class="fa fa-check"></i><b>24.4.1</b> The Leslie Matrix</a></li>
 <li class="chapter" data-level="24.4.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations-1"><i class="fa fa-check"></i><b>24.4.2</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.4.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#river-clean-up"><i class="fa fa-check"></i><b>24.4.3</b> River Clean Up</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a><ul>
-<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a><ul>
+<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a>
+<ul>
 <li class="chapter" data-level="25.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>25.1.1</b> Visualizing the Data</a></li>
 <li class="chapter" data-level="25.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>25.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="digit-recognition.html"><a href="digit-recognition.html#magnitude-distance-and-angle"><i class="fa fa-check"></i><b>25.2</b> Magnitude, Distance and Angle</a></li>
-<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a>
+<ul>
 <li class="chapter" data-level="25.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>25.3.1</b> Get Closest by Distance</a></li>
 <li class="chapter" data-level="25.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>25.3.2</b> Get Closest by Angle</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a><ul>
+<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
-<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a><ul>
+<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>26.2.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>26.2.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>26.2.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a><ul>
+<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a>
+<ul>
 <li class="chapter" data-level="26.3.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>26.3.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.3.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>26.3.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.3.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>26.3.3</b> Your turn</a></li>
@@ -362,13 +409,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="26.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>26.4</b> A Linear Model for Production at a Hosiery Mill</a></li>
 <li class="chapter" data-level="26.5" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>26.5</b> Global Fossil Fuel Emissions</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a><ul>
-<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a><ul>
+<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-wide-matrix"><i class="fa fa-check"></i><b>27.1.1</b> SVD of a Wide Matrix</a></li>
 <li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-square-matrix"><i class="fa fa-check"></i><b>27.1.2</b> Your Turn: SVD of a Square Matrix</a></li>
 <li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-tall-matrix"><i class="fa fa-check"></i><b>27.1.3</b> Your Turn: SVD of a Tall Matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a><ul>
+<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a>
+<ul>
 <li class="chapter" data-level="27.2.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#converting-a-jpeg-image-into-a-matrix"><i class="fa fa-check"></i><b>27.2.1</b> Converting a JPEG image into a Matrix</a></li>
 <li class="chapter" data-level="27.2.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-raster-image"><i class="fa fa-check"></i><b>27.2.2</b> SVD of a Raster Image</a></li>
 <li class="chapter" data-level="27.2.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-approximation-of-the-image"><i class="fa fa-check"></i><b>27.2.3</b> SVD Approximation of the Image</a></li>
@@ -377,12 +427,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a><ul>
-<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a><ul>
+<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="28.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>28.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="28.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>28.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.2.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section"><i class="fa fa-check"></i><b>28.2.1</b> </a></li>
 <li class="chapter" data-level="28.2.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-1"><i class="fa fa-check"></i><b>28.2.2</b> </a></li>
 <li class="chapter" data-level="28.2.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-2"><i class="fa fa-check"></i><b>28.2.3</b> </a></li>
@@ -394,7 +447,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.2.9" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-8"><i class="fa fa-check"></i><b>28.2.9</b> </a></li>
 <li class="chapter" data-level="28.2.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-9"><i class="fa fa-check"></i><b>28.2.10</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.3.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-10"><i class="fa fa-check"></i><b>28.3.1</b> </a></li>
 <li class="chapter" data-level="28.3.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-11"><i class="fa fa-check"></i><b>28.3.2</b> </a></li>
 <li class="chapter" data-level="28.3.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-12"><i class="fa fa-check"></i><b>28.3.3</b> </a></li>
@@ -407,12 +461,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.3.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-19"><i class="fa fa-check"></i><b>28.3.10</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a><ul>
-<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a><ul>
+<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="29.1.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#vocabulary-and-concepts-1"><i class="fa fa-check"></i><b>29.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="29.1.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#skills-1"><i class="fa fa-check"></i><b>29.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.2.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-20"><i class="fa fa-check"></i><b>29.2.1</b> </a></li>
 <li class="chapter" data-level="29.2.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-21"><i class="fa fa-check"></i><b>29.2.2</b> </a></li>
 <li class="chapter" data-level="29.2.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-22"><i class="fa fa-check"></i><b>29.2.3</b> </a></li>
@@ -426,7 +483,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.2.11" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-30"><i class="fa fa-check"></i><b>29.2.11</b> </a></li>
 <li class="chapter" data-level="29.2.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-31"><i class="fa fa-check"></i><b>29.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.3.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-32"><i class="fa fa-check"></i><b>29.3.1</b> </a></li>
 <li class="chapter" data-level="29.3.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-33"><i class="fa fa-check"></i><b>29.3.2</b> </a></li>
 <li class="chapter" data-level="29.3.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-34"><i class="fa fa-check"></i><b>29.3.3</b> </a></li>
@@ -441,11 +499,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.3.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-43"><i class="fa fa-check"></i><b>29.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a><ul>
-<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a><ul>
+<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>30.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.2.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-44"><i class="fa fa-check"></i><b>30.2.1</b> </a></li>
 <li class="chapter" data-level="30.2.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-45"><i class="fa fa-check"></i><b>30.2.2</b> </a></li>
 <li class="chapter" data-level="30.2.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-46"><i class="fa fa-check"></i><b>30.2.3</b> </a></li>
@@ -459,7 +520,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2.11" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-54"><i class="fa fa-check"></i><b>30.2.11</b> </a></li>
 <li class="chapter" data-level="30.2.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-55"><i class="fa fa-check"></i><b>30.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.3.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-56"><i class="fa fa-check"></i><b>30.3.1</b> </a></li>
 <li class="chapter" data-level="30.3.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-57"><i class="fa fa-check"></i><b>30.3.2</b> </a></li>
 <li class="chapter" data-level="30.3.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-58"><i class="fa fa-check"></i><b>30.3.3</b> </a></li>
@@ -474,11 +536,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.3.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-67"><i class="fa fa-check"></i><b>30.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
-<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-68"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
 <li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-69"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
 <li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-70"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
@@ -492,7 +557,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-78"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-79"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.3.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-80"><i class="fa fa-check"></i><b>31.3.1</b> </a></li>
 <li class="chapter" data-level="31.3.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-81"><i class="fa fa-check"></i><b>31.3.2</b> </a></li>
 <li class="chapter" data-level="31.3.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-82"><i class="fa fa-check"></i><b>31.3.3</b> </a></li>
@@ -526,61 +592,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="digit-recognition" class="section level1">
-<h1><span class="header-section-number">Vector 25</span> Digit Recognition</h1>
+<div id="digit-recognition" class="section level1 hasAnchor" number="25">
+<h1><span class="header-section-number">Vector 25</span> Digit Recognition<a href="digit-recognition.html#digit-recognition" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/10-digit-recognition.Rmd">Download this Rmd file</a></p>
 <p><strong>Machine Learning</strong> has become a big part of our daily experience. When my phone suggests that it’s time for bed, or volunteers how long my today’s commute will be, I am benefiting from machine learning. My phone has learned my patterns and is predicting what might be useful for me today based on past data.</p>
 <p>Rather than being “told” the answer up front, a machine learning algorithm <strong>learns what to do by analyzing training data</strong>. The algorithm then uses patterns to decide what to do with new data. In other words, these algorithms learn from experience, just like humans do. That’s why machine learning falls under the umbrella of artificial intelligence.</p>
 <p>And guess what sits at the heart of machine learning? That’s right: <strong>linear algebra.</strong> Today we will create a rudimentary machine learning algorithm using the dot product in a high-dimensional space.</p>
-<div id="us-post-office-zip-code-data" class="section level2">
-<h2><span class="header-section-number">25.1</span> US Post Office Zip Code Data</h2>
+<div id="us-post-office-zip-code-data" class="section level2 hasAnchor" number="25.1">
+<h2><span class="header-section-number">25.1</span> US Post Office Zip Code Data<a href="digit-recognition.html#us-post-office-zip-code-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will look at a classic machine learning problem: identifying hand-written digits. Our data comes from the U.S. Postal Service: each digit comes zip codes automatically scanned from envelopes. I found this data at <a href="https://web.stanford.edu/~hastie/StatLearnSparsity_files/DATA/zipcode.html">this Machine Learning course page at Stanford</a>, but it originates from the neural network group at AT&amp;T research labs. I’ve made a copy of the data, and pre-processed the training data (to speed things up for us).</p>
 <p>Let’s load the data and print out the first 10 rows and columns of the test data.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="digit-recognition.html#cb179-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb179-2"><a href="digit-recognition.html#cb179-2"></a><span class="kw">require</span>(pracma)</span>
-<span id="cb179-3"><a href="digit-recognition.html#cb179-3"></a></span>
-<span id="cb179-4"><a href="digit-recognition.html#cb179-4"></a>digit.test.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-test.csv&#39;</span></span>
-<span id="cb179-5"><a href="digit-recognition.html#cb179-5"></a>digit.centroids.file =<span class="st"> &#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-centroid.csv&#39;</span></span>
-<span id="cb179-6"><a href="digit-recognition.html#cb179-6"></a></span>
-<span id="cb179-7"><a href="digit-recognition.html#cb179-7"></a>test &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.test.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
-<span id="cb179-8"><a href="digit-recognition.html#cb179-8"></a>centroids &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(<span class="kw">read_csv</span>(digit.centroids.file, <span class="dt">col_names =</span> <span class="ot">FALSE</span>))</span>
-<span id="cb179-9"><a href="digit-recognition.html#cb179-9"></a></span>
-<span id="cb179-10"><a href="digit-recognition.html#cb179-10"></a><span class="co"># take the transpose so that we can deal with column vectors (which is what we are used to)</span></span>
-<span id="cb179-11"><a href="digit-recognition.html#cb179-11"></a>test=<span class="kw">t</span>(test)</span>
-<span id="cb179-12"><a href="digit-recognition.html#cb179-12"></a>centroids=<span class="kw">t</span>(centroids)</span>
-<span id="cb179-13"><a href="digit-recognition.html#cb179-13"></a></span>
-<span id="cb179-14"><a href="digit-recognition.html#cb179-14"></a><span class="kw">dim</span>(test)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="digit-recognition.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb179-2"><a href="digit-recognition.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(pracma)</span>
+<span id="cb179-3"><a href="digit-recognition.html#cb179-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-4"><a href="digit-recognition.html#cb179-4" aria-hidden="true" tabindex="-1"></a>digit.test.file <span class="ot">=</span> <span class="st">&#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-test.csv&#39;</span></span>
+<span id="cb179-5"><a href="digit-recognition.html#cb179-5" aria-hidden="true" tabindex="-1"></a>digit.centroids.file <span class="ot">=</span> <span class="st">&#39;https://raw.github.com/mathbeveridge/math236_f20//main/data/digit-centroid.csv&#39;</span></span>
+<span id="cb179-6"><a href="digit-recognition.html#cb179-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-7"><a href="digit-recognition.html#cb179-7" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">data.matrix</span>(<span class="fu">read_csv</span>(digit.test.file, <span class="at">col_names =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb179-8"><a href="digit-recognition.html#cb179-8" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> <span class="fu">data.matrix</span>(<span class="fu">read_csv</span>(digit.centroids.file, <span class="at">col_names =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb179-9"><a href="digit-recognition.html#cb179-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-10"><a href="digit-recognition.html#cb179-10" aria-hidden="true" tabindex="-1"></a><span class="co"># take the transpose so that we can deal with column vectors (which is what we are used to)</span></span>
+<span id="cb179-11"><a href="digit-recognition.html#cb179-11" aria-hidden="true" tabindex="-1"></a>test<span class="ot">=</span><span class="fu">t</span>(test)</span>
+<span id="cb179-12"><a href="digit-recognition.html#cb179-12" aria-hidden="true" tabindex="-1"></a>centroids<span class="ot">=</span><span class="fu">t</span>(centroids)</span>
+<span id="cb179-13"><a href="digit-recognition.html#cb179-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-14"><a href="digit-recognition.html#cb179-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(test)</span></code></pre></div>
 <pre><code>## [1]  257 2007</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="digit-recognition.html#cb181-1"></a>test[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
-<pre><code>##       [,1] [,2]   [,3] [,4]   [,5]   [,6]   [,7]   [,8]   [,9]  [,10]
-## X1   9.000    6  3.000    6  6.000  0.000  0.000  0.000  6.000  9.000
-## X2  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
-## X3  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
-## X4  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
-## X5  -1.000   -1 -0.593   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
-## X6  -1.000   -1  0.700   -1 -1.000 -1.000 -1.000 -1.000 -1.000 -1.000
-## X7  -0.948   -1  1.000   -1 -1.000 -1.000 -0.785 -0.914 -1.000 -0.904
-## X8  -0.561   -1  1.000   -1 -1.000  0.195  0.775 -0.688 -1.000 -0.060
-## X9   0.148   -1  1.000   -1 -0.858  1.000  0.268 -0.736 -0.761  0.638
-## X10  0.384   -1  1.000   -1 -0.106  0.054 -1.000  0.956  0.438  0.678</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="digit-recognition.html#cb181-1" aria-hidden="true" tabindex="-1"></a>test[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##       [,1] [,2]   [,3] [,4]   [,5]   [,6]   [,7]   [,8]   [,9]
+## X1   9.000    6  3.000    6  6.000  0.000  0.000  0.000  6.000
+## X2  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000
+## X3  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000
+## X4  -1.000   -1 -1.000   -1 -1.000 -1.000 -1.000 -1.000 -1.000
+## X5  -1.000   -1 -0.593   -1 -1.000 -1.000 -1.000 -1.000 -1.000
+## X6  -1.000   -1  0.700   -1 -1.000 -1.000 -1.000 -1.000 -1.000
+## X7  -0.948   -1  1.000   -1 -1.000 -1.000 -0.785 -0.914 -1.000
+## X8  -0.561   -1  1.000   -1 -1.000  0.195  0.775 -0.688 -1.000
+## X9   0.148   -1  1.000   -1 -0.858  1.000  0.268 -0.736 -0.761
+## X10  0.384   -1  1.000   -1 -0.106  0.054 -1.000  0.956  0.438
+##      [,10]
+## X1   9.000
+## X2  -1.000
+## X3  -1.000
+## X4  -1.000
+## X5  -1.000
+## X6  -1.000
+## X7  -0.904
+## X8  -0.060
+## X9   0.638
+## X10  0.678</code></pre>
 <p>The data set has 257 rows and 2007 columns. Each column of the data corresponds to a hand-written digit. So the test data has 2007 hand-written digits.</p>
-<div id="visualizing-the-data" class="section level3">
-<h3><span class="header-section-number">25.1.1</span> Visualizing the Data</h3>
+<div id="visualizing-the-data" class="section level3 hasAnchor" number="25.1.1">
+<h3><span class="header-section-number">25.1.1</span> Visualizing the Data<a href="digit-recognition.html#visualizing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is how the data is formatted.</p>
 <ul>
 <li>The first value in each column tells you the correct digit. Looking at the data above, we see that the first ten hand-written digits are <span class="math inline">\(9,6,3,6,6,0,0,0,6,9\)</span>.</li>
 <li>The remaining 256 values in each column correspond to a grayscale image of the digit.</li>
 </ul>
 <p>We must reshape this <span class="math inline">\(256 \times 1\)</span> column vector into a <span class="math inline">\(16 \times 16\)</span> matrix in order to display it. The following code will display the handwritten image for a given column. (Note: You don’t have to understand this code.)</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="digit-recognition.html#cb183-1"></a><span class="co"># Takes in a vector of length 257 and creates an image form entries 2:257</span></span>
-<span id="cb183-2"><a href="digit-recognition.html#cb183-2"></a><span class="co"># digitcol: a 257 x 1 vector. The first entry is the digit classification. The remaining 256 entries are the 16 x 16 image.</span></span>
-<span id="cb183-3"><a href="digit-recognition.html#cb183-3"></a>plot_digit &lt;-<span class="st"> </span><span class="cf">function</span>(digitcol) {</span>
-<span id="cb183-4"><a href="digit-recognition.html#cb183-4"></a>  img =<span class="st"> </span>digitcol[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
-<span id="cb183-5"><a href="digit-recognition.html#cb183-5"></a>  <span class="kw">dim</span>(img) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">16</span>)</span>
-<span id="cb183-6"><a href="digit-recognition.html#cb183-6"></a>  img =<span class="st"> </span>img[,<span class="kw">ncol</span>(img)<span class="op">:</span><span class="dv">1</span> ]</span>
-<span id="cb183-7"><a href="digit-recognition.html#cb183-7"></a>  </span>
-<span id="cb183-8"><a href="digit-recognition.html#cb183-8"></a>  <span class="kw">image</span>(img, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">length =</span> <span class="dv">256</span>)))</span>
-<span id="cb183-9"><a href="digit-recognition.html#cb183-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="digit-recognition.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Takes in a vector of length 257 and creates an image form entries 2:257</span></span>
+<span id="cb183-2"><a href="digit-recognition.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="co"># digitcol: a 257 x 1 vector. The first entry is the digit classification. The remaining 256 entries are the 16 x 16 image.</span></span>
+<span id="cb183-3"><a href="digit-recognition.html#cb183-3" aria-hidden="true" tabindex="-1"></a>plot_digit <span class="ot">&lt;-</span> <span class="cf">function</span>(digitcol) {</span>
+<span id="cb183-4"><a href="digit-recognition.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  img <span class="ot">=</span> digitcol[<span class="dv">2</span><span class="sc">:</span><span class="dv">257</span>]</span>
+<span id="cb183-5"><a href="digit-recognition.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>(img) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">16</span>)</span>
+<span id="cb183-6"><a href="digit-recognition.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  img <span class="ot">=</span> img[,<span class="fu">ncol</span>(img)<span class="sc">:</span><span class="dv">1</span> ]</span>
+<span id="cb183-7"><a href="digit-recognition.html#cb183-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-8"><a href="digit-recognition.html#cb183-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image</span>(img, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="fu">grey</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">256</span>)))</span>
+<span id="cb183-9"><a href="digit-recognition.html#cb183-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s display a few random digits from the test dataset. Feel free to re-run this block a few times. You’ll see different examples each time!</p>
 <pre><code>&#39;```{r digitsamples, out.width = &quot;150px&quot;, out.height = &quot;150px&quot;, echo=TRUE}
 
@@ -624,8 +701,8 @@ for (i in 0:9) {
 <img src="images/digitcentroid-9.png" height="150" /></p>
 <p><img src="images/digitcentroid-10.png" height="150" /></p>
 </div>
-<div id="algorithm-overview" class="section level3">
-<h3><span class="header-section-number">25.1.2</span> Algorithm Overview</h3>
+<div id="algorithm-overview" class="section level3 hasAnchor" number="25.1.2">
+<h3><span class="header-section-number">25.1.2</span> Algorithm Overview<a href="digit-recognition.html#algorithm-overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is our simple machine learning algorithm. For each test digit:</p>
 <ul>
 <li>Find the centroid that is closest to that digit.</li>
@@ -643,8 +720,8 @@ for (i in 0:9) {
 </ul>
 </div>
 </div>
-<div id="magnitude-distance-and-angle" class="section level2">
-<h2><span class="header-section-number">25.2</span> Magnitude, Distance and Angle</h2>
+<div id="magnitude-distance-and-angle" class="section level2 hasAnchor" number="25.2">
+<h2><span class="header-section-number">25.2</span> Magnitude, Distance and Angle<a href="digit-recognition.html#magnitude-distance-and-angle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are the three methods that you must implement:</p>
 <ul>
 <li><code>get_magnitude(colvec)</code></li>
@@ -653,7 +730,7 @@ for (i in 0:9) {
 </ul>
 <p>Implement these methods according to the definitions:
 <span class="math display">\[
-\| \mathsf{v} \| = \sqrt{ \mathsf{v} \cdot \mathsf{v}}, \qquad 
+\| \mathsf{v} \| = \sqrt{ \mathsf{v} \cdot \mathsf{v}}, \qquad
 d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 \theta = \cos^{-1} \left( \frac{\mathsf{v} \cdot \mathsf{w}}{\| \mathsf{v} \| \, \| \mathsf{w} \|} \right).
 \]</span>
@@ -664,71 +741,71 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <li>The square root of <code>y</code> is calculated by <code>sqrt(y)</code>.</li>
 <li>The inverse cosine of <code>x</code> is calculated by <code>acos(x)</code>.</li>
 </ul>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="digit-recognition.html#cb186-1"></a>get_magnitude &lt;-<span class="st"> </span><span class="cf">function</span>(colvec) {</span>
-<span id="cb186-2"><a href="digit-recognition.html#cb186-2"></a>  <span class="co"># replace with your implementation</span></span>
-<span id="cb186-3"><a href="digit-recognition.html#cb186-3"></a>  len =<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">t</span>(colvec) <span class="op">%*%</span><span class="st"> </span>colvec)</span>
-<span id="cb186-4"><a href="digit-recognition.html#cb186-4"></a>  </span>
-<span id="cb186-5"><a href="digit-recognition.html#cb186-5"></a>  <span class="kw">return</span> (len)</span>
-<span id="cb186-6"><a href="digit-recognition.html#cb186-6"></a>}</span>
-<span id="cb186-7"><a href="digit-recognition.html#cb186-7"></a></span>
-<span id="cb186-8"><a href="digit-recognition.html#cb186-8"></a></span>
-<span id="cb186-9"><a href="digit-recognition.html#cb186-9"></a>get_distance &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
-<span id="cb186-10"><a href="digit-recognition.html#cb186-10"></a>  v =<span class="st"> </span>colvec1 <span class="op">-</span><span class="st"> </span>colvec2</span>
-<span id="cb186-11"><a href="digit-recognition.html#cb186-11"></a>  dist =<span class="st"> </span><span class="kw">get_magnitude</span>(v)</span>
-<span id="cb186-12"><a href="digit-recognition.html#cb186-12"></a>  </span>
-<span id="cb186-13"><a href="digit-recognition.html#cb186-13"></a>  <span class="kw">return</span> (dist)</span>
-<span id="cb186-14"><a href="digit-recognition.html#cb186-14"></a>} </span>
-<span id="cb186-15"><a href="digit-recognition.html#cb186-15"></a></span>
-<span id="cb186-16"><a href="digit-recognition.html#cb186-16"></a></span>
-<span id="cb186-17"><a href="digit-recognition.html#cb186-17"></a></span>
-<span id="cb186-18"><a href="digit-recognition.html#cb186-18"></a>get_angle &lt;-<span class="st"> </span><span class="cf">function</span>(colvec1, colvec2) {</span>
-<span id="cb186-19"><a href="digit-recognition.html#cb186-19"></a>  dotprod =<span class="st"> </span><span class="kw">t</span>(colvec1) <span class="op">%*%</span><span class="st"> </span>colvec2</span>
-<span id="cb186-20"><a href="digit-recognition.html#cb186-20"></a>  len1 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec1)</span>
-<span id="cb186-21"><a href="digit-recognition.html#cb186-21"></a>  len2 =<span class="st"> </span><span class="kw">get_magnitude</span>(colvec2)</span>
-<span id="cb186-22"><a href="digit-recognition.html#cb186-22"></a></span>
-<span id="cb186-23"><a href="digit-recognition.html#cb186-23"></a>  val =<span class="st"> </span>dotprod <span class="op">/</span><span class="st"> </span>(len1 <span class="op">*</span><span class="st"> </span>len2)</span>
-<span id="cb186-24"><a href="digit-recognition.html#cb186-24"></a>  angle =<span class="st"> </span><span class="kw">acos</span>(val)</span>
-<span id="cb186-25"><a href="digit-recognition.html#cb186-25"></a>  </span>
-<span id="cb186-26"><a href="digit-recognition.html#cb186-26"></a>  <span class="kw">return</span> (angle)</span>
-<span id="cb186-27"><a href="digit-recognition.html#cb186-27"></a>  </span>
-<span id="cb186-28"><a href="digit-recognition.html#cb186-28"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="digit-recognition.html#cb186-1" aria-hidden="true" tabindex="-1"></a>get_magnitude <span class="ot">&lt;-</span> <span class="cf">function</span>(colvec) {</span>
+<span id="cb186-2"><a href="digit-recognition.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># replace with your implementation</span></span>
+<span id="cb186-3"><a href="digit-recognition.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  len <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">t</span>(colvec) <span class="sc">%*%</span> colvec)</span>
+<span id="cb186-4"><a href="digit-recognition.html#cb186-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb186-5"><a href="digit-recognition.html#cb186-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (len)</span>
+<span id="cb186-6"><a href="digit-recognition.html#cb186-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb186-7"><a href="digit-recognition.html#cb186-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-8"><a href="digit-recognition.html#cb186-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-9"><a href="digit-recognition.html#cb186-9" aria-hidden="true" tabindex="-1"></a>get_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(colvec1, colvec2) {</span>
+<span id="cb186-10"><a href="digit-recognition.html#cb186-10" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">=</span> colvec1 <span class="sc">-</span> colvec2</span>
+<span id="cb186-11"><a href="digit-recognition.html#cb186-11" aria-hidden="true" tabindex="-1"></a>  dist <span class="ot">=</span> <span class="fu">get_magnitude</span>(v)</span>
+<span id="cb186-12"><a href="digit-recognition.html#cb186-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb186-13"><a href="digit-recognition.html#cb186-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (dist)</span>
+<span id="cb186-14"><a href="digit-recognition.html#cb186-14" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb186-15"><a href="digit-recognition.html#cb186-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-16"><a href="digit-recognition.html#cb186-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-17"><a href="digit-recognition.html#cb186-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-18"><a href="digit-recognition.html#cb186-18" aria-hidden="true" tabindex="-1"></a>get_angle <span class="ot">&lt;-</span> <span class="cf">function</span>(colvec1, colvec2) {</span>
+<span id="cb186-19"><a href="digit-recognition.html#cb186-19" aria-hidden="true" tabindex="-1"></a>  dotprod <span class="ot">=</span> <span class="fu">t</span>(colvec1) <span class="sc">%*%</span> colvec2</span>
+<span id="cb186-20"><a href="digit-recognition.html#cb186-20" aria-hidden="true" tabindex="-1"></a>  len1 <span class="ot">=</span> <span class="fu">get_magnitude</span>(colvec1)</span>
+<span id="cb186-21"><a href="digit-recognition.html#cb186-21" aria-hidden="true" tabindex="-1"></a>  len2 <span class="ot">=</span> <span class="fu">get_magnitude</span>(colvec2)</span>
+<span id="cb186-22"><a href="digit-recognition.html#cb186-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-23"><a href="digit-recognition.html#cb186-23" aria-hidden="true" tabindex="-1"></a>  val <span class="ot">=</span> dotprod <span class="sc">/</span> (len1 <span class="sc">*</span> len2)</span>
+<span id="cb186-24"><a href="digit-recognition.html#cb186-24" aria-hidden="true" tabindex="-1"></a>  angle <span class="ot">=</span> <span class="fu">acos</span>(val)</span>
+<span id="cb186-25"><a href="digit-recognition.html#cb186-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb186-26"><a href="digit-recognition.html#cb186-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (angle)</span>
+<span id="cb186-27"><a href="digit-recognition.html#cb186-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb186-28"><a href="digit-recognition.html#cb186-28" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 <p>Here is some test code you can use to confirm that your implementations are correct.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="digit-recognition.html#cb187-1"></a>check_equal &lt;-<span class="st"> </span><span class="cf">function</span>(val1, val2) {</span>
-<span id="cb187-2"><a href="digit-recognition.html#cb187-2"></a>  diff =<span class="st"> </span><span class="kw">zapsmall</span>(val1 <span class="op">-</span><span class="st"> </span>val2)</span>
-<span id="cb187-3"><a href="digit-recognition.html#cb187-3"></a>  <span class="cf">if</span> (diff<span class="op">^</span><span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.001</span>) {</span>
-<span id="cb187-4"><a href="digit-recognition.html#cb187-4"></a>    <span class="kw">sprintf</span>(<span class="st">&#39;fail %f %f&#39;</span>, val1, val2)</span>
-<span id="cb187-5"><a href="digit-recognition.html#cb187-5"></a>  } <span class="cf">else</span> {</span>
-<span id="cb187-6"><a href="digit-recognition.html#cb187-6"></a>    <span class="kw">print</span>(<span class="st">&#39;pass&#39;</span>)</span>
-<span id="cb187-7"><a href="digit-recognition.html#cb187-7"></a>  }</span>
-<span id="cb187-8"><a href="digit-recognition.html#cb187-8"></a>}</span>
-<span id="cb187-9"><a href="digit-recognition.html#cb187-9"></a></span>
-<span id="cb187-10"><a href="digit-recognition.html#cb187-10"></a><span class="kw">print</span>(<span class="st">&#39;get_magnitude&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="digit-recognition.html#cb187-1" aria-hidden="true" tabindex="-1"></a>check_equal <span class="ot">&lt;-</span> <span class="cf">function</span>(val1, val2) {</span>
+<span id="cb187-2"><a href="digit-recognition.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">=</span> <span class="fu">zapsmall</span>(val1 <span class="sc">-</span> val2)</span>
+<span id="cb187-3"><a href="digit-recognition.html#cb187-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (diff<span class="sc">^</span><span class="dv">1</span> <span class="sc">&gt;</span> <span class="fl">0.001</span>) {</span>
+<span id="cb187-4"><a href="digit-recognition.html#cb187-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&#39;fail %f %f&#39;</span>, val1, val2)</span>
+<span id="cb187-5"><a href="digit-recognition.html#cb187-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb187-6"><a href="digit-recognition.html#cb187-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&#39;pass&#39;</span>)</span>
+<span id="cb187-7"><a href="digit-recognition.html#cb187-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb187-8"><a href="digit-recognition.html#cb187-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb187-9"><a href="digit-recognition.html#cb187-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-10"><a href="digit-recognition.html#cb187-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;get_magnitude&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_magnitude&quot;</code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="digit-recognition.html#cb189-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)),<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="digit-recognition.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_magnitude</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)),<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="digit-recognition.html#cb191-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)),<span class="kw">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="digit-recognition.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_magnitude</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="dv">1</span>)),<span class="fu">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="digit-recognition.html#cb193-1"></a><span class="kw">check_equal</span>(<span class="kw">get_magnitude</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)),<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="digit-recognition.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_magnitude</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)),<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="digit-recognition.html#cb195-1"></a><span class="kw">print</span>(<span class="st">&#39;get_dist&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="digit-recognition.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;get_dist&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_dist&quot;</code></pre>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="digit-recognition.html#cb197-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">3</span>)), <span class="kw">sqrt</span>(<span class="dv">90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="digit-recognition.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_distance</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">3</span>)), <span class="fu">sqrt</span>(<span class="dv">90</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="digit-recognition.html#cb199-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)), <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="digit-recognition.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_distance</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="dv">1</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="dv">1</span>)), <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="digit-recognition.html#cb201-1"></a><span class="kw">check_equal</span>(<span class="kw">get_distance</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="fl">1.5</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="fl">1.5</span>)), <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="digit-recognition.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_distance</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="fl">1.5</span>),<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="fl">1.5</span>)), <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="digit-recognition.html#cb203-1"></a><span class="kw">print</span>(<span class="st">&#39;get_angle&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="digit-recognition.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;get_angle&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;get_angle&quot;</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="digit-recognition.html#cb205-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>)), pi<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="digit-recognition.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_angle</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>),<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>)), pi<span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="digit-recognition.html#cb207-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)), pi<span class="op">/</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="digit-recognition.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_angle</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)), pi<span class="sc">/</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="digit-recognition.html#cb209-1"></a><span class="kw">check_equal</span>(<span class="kw">get_angle</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)), <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="digit-recognition.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_equal</span>(<span class="fu">get_angle</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)), <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pass&quot;</code></pre>
 </div>
-<div id="machine-learning-algorithms" class="section level2">
-<h2><span class="header-section-number">25.3</span> Machine Learning Algorithms</h2>
+<div id="machine-learning-algorithms" class="section level2 hasAnchor" number="25.3">
+<h2><span class="header-section-number">25.3</span> Machine Learning Algorithms<a href="digit-recognition.html#machine-learning-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once your magnitude, distance and angle code is working, you are ready to try out our two rudimentary machine learning algorithms! You will find that each of them does okay (but not great) for this data set. Both get around <span class="math inline">\(80\%\)</span> of the digits correct. (A good machine learning algorithm can get <span class="math inline">\(98\%\)</span> correct.)</p>
 <p>Run the code below and look at the output. Discuss the following questions</p>
 <ol style="list-style-type: decimal">
@@ -736,48 +813,48 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 <li>Which algorithm does better: closest by distance or closest by angle?</li>
 <li>We turned the training data into a single centroid and then used that to measure distances. A better algorithm would make use of all of the training points during the classification. Discuss what improvements you would try instead of using the centroids.</li>
 </ol>
-<div id="get-closest-by-distance" class="section level3">
-<h3><span class="header-section-number">25.3.1</span> Get Closest by Distance</h3>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="digit-recognition.html#cb211-1"></a><span class="co"># Finds closest centroid to the given data</span></span>
-<span id="cb211-2"><a href="digit-recognition.html#cb211-2"></a><span class="co"># data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data</span></span>
-<span id="cb211-3"><a href="digit-recognition.html#cb211-3"></a><span class="co"># centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. </span></span>
-<span id="cb211-4"><a href="digit-recognition.html#cb211-4"></a>get_closest_by_distance &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
-<span id="cb211-5"><a href="digit-recognition.html#cb211-5"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb211-6"><a href="digit-recognition.html#cb211-6"></a>  min_dist =<span class="st"> </span><span class="dv">1024</span></span>
-<span id="cb211-7"><a href="digit-recognition.html#cb211-7"></a>  </span>
-<span id="cb211-8"><a href="digit-recognition.html#cb211-8"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
-<span id="cb211-9"><a href="digit-recognition.html#cb211-9"></a>    colvec1 =<span class="st"> </span>centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i]</span>
-<span id="cb211-10"><a href="digit-recognition.html#cb211-10"></a>    colvec2 =<span class="st"> </span>data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>]</span>
-<span id="cb211-11"><a href="digit-recognition.html#cb211-11"></a>    </span>
-<span id="cb211-12"><a href="digit-recognition.html#cb211-12"></a>    dist =<span class="st"> </span><span class="kw">get_distance</span>(colvec1, colvec2)</span>
-<span id="cb211-13"><a href="digit-recognition.html#cb211-13"></a>    </span>
-<span id="cb211-14"><a href="digit-recognition.html#cb211-14"></a>    <span class="cf">if</span> (dist <span class="op">&lt;</span><span class="st"> </span>min_dist) {</span>
-<span id="cb211-15"><a href="digit-recognition.html#cb211-15"></a>      idx =<span class="st"> </span>i</span>
-<span id="cb211-16"><a href="digit-recognition.html#cb211-16"></a>      min_dist =<span class="st"> </span>dist</span>
-<span id="cb211-17"><a href="digit-recognition.html#cb211-17"></a>    }</span>
-<span id="cb211-18"><a href="digit-recognition.html#cb211-18"></a>  }</span>
-<span id="cb211-19"><a href="digit-recognition.html#cb211-19"></a>  </span>
-<span id="cb211-20"><a href="digit-recognition.html#cb211-20"></a>  <span class="kw">return</span> (idx)</span>
-<span id="cb211-21"><a href="digit-recognition.html#cb211-21"></a>  </span>
-<span id="cb211-22"><a href="digit-recognition.html#cb211-22"></a>}</span>
-<span id="cb211-23"><a href="digit-recognition.html#cb211-23"></a></span>
-<span id="cb211-24"><a href="digit-recognition.html#cb211-24"></a></span>
-<span id="cb211-25"><a href="digit-recognition.html#cb211-25"></a></span>
-<span id="cb211-26"><a href="digit-recognition.html#cb211-26"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
-<span id="cb211-27"><a href="digit-recognition.html#cb211-27"></a></span>
-<span id="cb211-28"><a href="digit-recognition.html#cb211-28"></a><span class="co"># try to match each column of the test data</span></span>
-<span id="cb211-29"><a href="digit-recognition.html#cb211-29"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
-<span id="cb211-30"><a href="digit-recognition.html#cb211-30"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb211-31"><a href="digit-recognition.html#cb211-31"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[,i])</span>
-<span id="cb211-32"><a href="digit-recognition.html#cb211-32"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_by_distance</span>(digit_data, centroids)</span>
-<span id="cb211-33"><a href="digit-recognition.html#cb211-33"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb211-34"><a href="digit-recognition.html#cb211-34"></a>}</span>
-<span id="cb211-35"><a href="digit-recognition.html#cb211-35"></a></span>
-<span id="cb211-36"><a href="digit-recognition.html#cb211-36"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
-<span id="cb211-37"><a href="digit-recognition.html#cb211-37"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb211-38"><a href="digit-recognition.html#cb211-38"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb211-39"><a href="digit-recognition.html#cb211-39"></a></span>
-<span id="cb211-40"><a href="digit-recognition.html#cb211-40"></a>results</span></code></pre></div>
+<div id="get-closest-by-distance" class="section level3 hasAnchor" number="25.3.1">
+<h3><span class="header-section-number">25.3.1</span> Get Closest by Distance<a href="digit-recognition.html#get-closest-by-distance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="digit-recognition.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finds closest centroid to the given data</span></span>
+<span id="cb211-2"><a href="digit-recognition.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data - a column vector of length 257. the first entry is the actual digit. the remaining 256 are the data</span></span>
+<span id="cb211-3"><a href="digit-recognition.html#cb211-3" aria-hidden="true" tabindex="-1"></a><span class="co"># centroids - a 257 x 10 matrix. Column j is the centroid of digit j-1. </span></span>
+<span id="cb211-4"><a href="digit-recognition.html#cb211-4" aria-hidden="true" tabindex="-1"></a>get_closest_by_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(data, centroids) {</span>
+<span id="cb211-5"><a href="digit-recognition.html#cb211-5" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb211-6"><a href="digit-recognition.html#cb211-6" aria-hidden="true" tabindex="-1"></a>  min_dist <span class="ot">=</span> <span class="dv">1024</span></span>
+<span id="cb211-7"><a href="digit-recognition.html#cb211-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb211-8"><a href="digit-recognition.html#cb211-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb211-9"><a href="digit-recognition.html#cb211-9" aria-hidden="true" tabindex="-1"></a>    colvec1 <span class="ot">=</span> centroids[<span class="dv">2</span><span class="sc">:</span><span class="dv">257</span>,i]</span>
+<span id="cb211-10"><a href="digit-recognition.html#cb211-10" aria-hidden="true" tabindex="-1"></a>    colvec2 <span class="ot">=</span> data[<span class="dv">2</span><span class="sc">:</span><span class="dv">257</span>]</span>
+<span id="cb211-11"><a href="digit-recognition.html#cb211-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb211-12"><a href="digit-recognition.html#cb211-12" aria-hidden="true" tabindex="-1"></a>    dist <span class="ot">=</span> <span class="fu">get_distance</span>(colvec1, colvec2)</span>
+<span id="cb211-13"><a href="digit-recognition.html#cb211-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb211-14"><a href="digit-recognition.html#cb211-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (dist <span class="sc">&lt;</span> min_dist) {</span>
+<span id="cb211-15"><a href="digit-recognition.html#cb211-15" aria-hidden="true" tabindex="-1"></a>      idx <span class="ot">=</span> i</span>
+<span id="cb211-16"><a href="digit-recognition.html#cb211-16" aria-hidden="true" tabindex="-1"></a>      min_dist <span class="ot">=</span> dist</span>
+<span id="cb211-17"><a href="digit-recognition.html#cb211-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb211-18"><a href="digit-recognition.html#cb211-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb211-19"><a href="digit-recognition.html#cb211-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb211-20"><a href="digit-recognition.html#cb211-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (idx)</span>
+<span id="cb211-21"><a href="digit-recognition.html#cb211-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb211-22"><a href="digit-recognition.html#cb211-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb211-23"><a href="digit-recognition.html#cb211-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-24"><a href="digit-recognition.html#cb211-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-25"><a href="digit-recognition.html#cb211-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-26"><a href="digit-recognition.html#cb211-26" aria-hidden="true" tabindex="-1"></a>results <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span><span class="dv">10</span>, <span class="at">ncol=</span><span class="dv">10</span>)</span>
+<span id="cb211-27"><a href="digit-recognition.html#cb211-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-28"><a href="digit-recognition.html#cb211-28" aria-hidden="true" tabindex="-1"></a><span class="co"># try to match each column of the test data</span></span>
+<span id="cb211-29"><a href="digit-recognition.html#cb211-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(test)[<span class="dv">2</span>]) {</span>
+<span id="cb211-30"><a href="digit-recognition.html#cb211-30" aria-hidden="true" tabindex="-1"></a>  true_digit <span class="ot">=</span> <span class="fu">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb211-31"><a href="digit-recognition.html#cb211-31" aria-hidden="true" tabindex="-1"></a>  digit_data <span class="ot">=</span> <span class="fu">data.matrix</span>(test[,i])</span>
+<span id="cb211-32"><a href="digit-recognition.html#cb211-32" aria-hidden="true" tabindex="-1"></a>  matched_digit <span class="ot">=</span> <span class="fu">get_closest_by_distance</span>(digit_data, centroids)</span>
+<span id="cb211-33"><a href="digit-recognition.html#cb211-33" aria-hidden="true" tabindex="-1"></a>  results[true_digit,matched_digit] <span class="ot">=</span> results[true_digit,matched_digit]<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb211-34"><a href="digit-recognition.html#cb211-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb211-35"><a href="digit-recognition.html#cb211-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-36"><a href="digit-recognition.html#cb211-36" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb211-37"><a href="digit-recognition.html#cb211-37" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(results) <span class="ot">&lt;-</span> labels</span>
+<span id="cb211-38"><a href="digit-recognition.html#cb211-38" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(results) <span class="ot">&lt;-</span> labels</span>
+<span id="cb211-39"><a href="digit-recognition.html#cb211-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-40"><a href="digit-recognition.html#cb211-40" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
 <pre><code>##     0   1   2   3   4   5   6   7   8   9
 ## 0 297   0   2   3   4   2  39   1  10   1
 ## 1   0 259   0   1   2   0   2   0   0   0
@@ -789,43 +866,43 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 ## 7   0   2   2   0   8   0   0 117   2  16
 ## 8   4   2   3  11   7   6   0   1 128   4
 ## 9   0   4   0   0  16   1   0  11   4 141</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="digit-recognition.html#cb213-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="digit-recognition.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="fu">sum</span>(<span class="fu">diag</span>(results))<span class="sc">/</span><span class="fu">sum</span>(results) <span class="sc">*</span> <span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 81.415047 percent&quot;</code></pre>
 </div>
-<div id="get-closest-by-angle" class="section level3">
-<h3><span class="header-section-number">25.3.2</span> Get Closest by Angle</h3>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="digit-recognition.html#cb215-1"></a>get_closest_angle &lt;-<span class="st"> </span><span class="cf">function</span>(data, centroids) {</span>
-<span id="cb215-2"><a href="digit-recognition.html#cb215-2"></a>  idx =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb215-3"><a href="digit-recognition.html#cb215-3"></a>  minangle =<span class="st"> </span>pi</span>
-<span id="cb215-4"><a href="digit-recognition.html#cb215-4"></a></span>
-<span id="cb215-5"><a href="digit-recognition.html#cb215-5"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
-<span id="cb215-6"><a href="digit-recognition.html#cb215-6"></a>   angle =<span class="st"> </span><span class="kw">get_angle</span>(data[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,<span class="dv">1</span>], centroids[<span class="dv">2</span><span class="op">:</span><span class="dv">257</span>,i])</span>
-<span id="cb215-7"><a href="digit-recognition.html#cb215-7"></a>    </span>
-<span id="cb215-8"><a href="digit-recognition.html#cb215-8"></a>    <span class="cf">if</span> (angle <span class="op">&lt;</span><span class="st"> </span>minangle) {</span>
-<span id="cb215-9"><a href="digit-recognition.html#cb215-9"></a>      idx =<span class="st"> </span>i</span>
-<span id="cb215-10"><a href="digit-recognition.html#cb215-10"></a>      minangle =<span class="st"> </span>angle</span>
-<span id="cb215-11"><a href="digit-recognition.html#cb215-11"></a>    }</span>
-<span id="cb215-12"><a href="digit-recognition.html#cb215-12"></a>  }</span>
-<span id="cb215-13"><a href="digit-recognition.html#cb215-13"></a>  </span>
-<span id="cb215-14"><a href="digit-recognition.html#cb215-14"></a>  <span class="kw">return</span> (idx)</span>
-<span id="cb215-15"><a href="digit-recognition.html#cb215-15"></a>}</span>
-<span id="cb215-16"><a href="digit-recognition.html#cb215-16"></a></span>
-<span id="cb215-17"><a href="digit-recognition.html#cb215-17"></a></span>
-<span id="cb215-18"><a href="digit-recognition.html#cb215-18"></a></span>
-<span id="cb215-19"><a href="digit-recognition.html#cb215-19"></a>results =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>)</span>
-<span id="cb215-20"><a href="digit-recognition.html#cb215-20"></a></span>
-<span id="cb215-21"><a href="digit-recognition.html#cb215-21"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(test)[<span class="dv">2</span>]) {</span>
-<span id="cb215-22"><a href="digit-recognition.html#cb215-22"></a>  true_digit =<span class="st"> </span><span class="kw">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb215-23"><a href="digit-recognition.html#cb215-23"></a>  digit_data =<span class="st"> </span><span class="kw">data.matrix</span>(test[, i])</span>
-<span id="cb215-24"><a href="digit-recognition.html#cb215-24"></a>  matched_digit =<span class="st"> </span><span class="kw">get_closest_angle</span>(digit_data, centroids)</span>
-<span id="cb215-25"><a href="digit-recognition.html#cb215-25"></a>  results[true_digit,matched_digit] =<span class="st"> </span>results[true_digit,matched_digit]<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb215-26"><a href="digit-recognition.html#cb215-26"></a>}</span>
-<span id="cb215-27"><a href="digit-recognition.html#cb215-27"></a>  </span>
-<span id="cb215-28"><a href="digit-recognition.html#cb215-28"></a>labels=<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)</span>
-<span id="cb215-29"><a href="digit-recognition.html#cb215-29"></a><span class="kw">colnames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb215-30"><a href="digit-recognition.html#cb215-30"></a><span class="kw">rownames</span>(results) &lt;-<span class="st"> </span>labels</span>
-<span id="cb215-31"><a href="digit-recognition.html#cb215-31"></a></span>
-<span id="cb215-32"><a href="digit-recognition.html#cb215-32"></a>results</span></code></pre></div>
+<div id="get-closest-by-angle" class="section level3 hasAnchor" number="25.3.2">
+<h3><span class="header-section-number">25.3.2</span> Get Closest by Angle<a href="digit-recognition.html#get-closest-by-angle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="digit-recognition.html#cb215-1" aria-hidden="true" tabindex="-1"></a>get_closest_angle <span class="ot">&lt;-</span> <span class="cf">function</span>(data, centroids) {</span>
+<span id="cb215-2"><a href="digit-recognition.html#cb215-2" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb215-3"><a href="digit-recognition.html#cb215-3" aria-hidden="true" tabindex="-1"></a>  minangle <span class="ot">=</span> pi</span>
+<span id="cb215-4"><a href="digit-recognition.html#cb215-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-5"><a href="digit-recognition.html#cb215-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb215-6"><a href="digit-recognition.html#cb215-6" aria-hidden="true" tabindex="-1"></a>   angle <span class="ot">=</span> <span class="fu">get_angle</span>(data[<span class="dv">2</span><span class="sc">:</span><span class="dv">257</span>,<span class="dv">1</span>], centroids[<span class="dv">2</span><span class="sc">:</span><span class="dv">257</span>,i])</span>
+<span id="cb215-7"><a href="digit-recognition.html#cb215-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb215-8"><a href="digit-recognition.html#cb215-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (angle <span class="sc">&lt;</span> minangle) {</span>
+<span id="cb215-9"><a href="digit-recognition.html#cb215-9" aria-hidden="true" tabindex="-1"></a>      idx <span class="ot">=</span> i</span>
+<span id="cb215-10"><a href="digit-recognition.html#cb215-10" aria-hidden="true" tabindex="-1"></a>      minangle <span class="ot">=</span> angle</span>
+<span id="cb215-11"><a href="digit-recognition.html#cb215-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb215-12"><a href="digit-recognition.html#cb215-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb215-13"><a href="digit-recognition.html#cb215-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb215-14"><a href="digit-recognition.html#cb215-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (idx)</span>
+<span id="cb215-15"><a href="digit-recognition.html#cb215-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb215-16"><a href="digit-recognition.html#cb215-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-17"><a href="digit-recognition.html#cb215-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-18"><a href="digit-recognition.html#cb215-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-19"><a href="digit-recognition.html#cb215-19" aria-hidden="true" tabindex="-1"></a>results <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span><span class="dv">10</span>, <span class="at">ncol=</span><span class="dv">10</span>)</span>
+<span id="cb215-20"><a href="digit-recognition.html#cb215-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-21"><a href="digit-recognition.html#cb215-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(test)[<span class="dv">2</span>]) {</span>
+<span id="cb215-22"><a href="digit-recognition.html#cb215-22" aria-hidden="true" tabindex="-1"></a>  true_digit <span class="ot">=</span> <span class="fu">data.matrix</span>(test[<span class="dv">1</span>, i]) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb215-23"><a href="digit-recognition.html#cb215-23" aria-hidden="true" tabindex="-1"></a>  digit_data <span class="ot">=</span> <span class="fu">data.matrix</span>(test[, i])</span>
+<span id="cb215-24"><a href="digit-recognition.html#cb215-24" aria-hidden="true" tabindex="-1"></a>  matched_digit <span class="ot">=</span> <span class="fu">get_closest_angle</span>(digit_data, centroids)</span>
+<span id="cb215-25"><a href="digit-recognition.html#cb215-25" aria-hidden="true" tabindex="-1"></a>  results[true_digit,matched_digit] <span class="ot">=</span> results[true_digit,matched_digit]<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb215-26"><a href="digit-recognition.html#cb215-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb215-27"><a href="digit-recognition.html#cb215-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb215-28"><a href="digit-recognition.html#cb215-28" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb215-29"><a href="digit-recognition.html#cb215-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(results) <span class="ot">&lt;-</span> labels</span>
+<span id="cb215-30"><a href="digit-recognition.html#cb215-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(results) <span class="ot">&lt;-</span> labels</span>
+<span id="cb215-31"><a href="digit-recognition.html#cb215-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-32"><a href="digit-recognition.html#cb215-32" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
 <pre><code>##     0   1   2   3   4   5   6   7   8   9
 ## 0 298   0   1   3   4   1  39   1  11   1
 ## 1   0 260   0   1   2   0   1   0   0   0
@@ -837,7 +914,7 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
 ## 7   0   3   2   0   7   0   0 118   1  16
 ## 8   4   3   1  12   7   5   0   2 127   5
 ## 9   0   9   0   0  14   1   0  12   3 138</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="digit-recognition.html#cb217-1"></a><span class="kw">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="kw">sum</span>(<span class="kw">diag</span>(results))<span class="op">/</span><span class="kw">sum</span>(results) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="digit-recognition.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&#39;matched: %f percent&#39;</span> , <span class="fu">sum</span>(<span class="fu">diag</span>(results))<span class="sc">/</span><span class="fu">sum</span>(results) <span class="sc">*</span> <span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;matched: 80.667663 percent&quot;</code></pre>
 
 </div>
@@ -853,7 +930,6 @@ d(\mathsf{v}, \mathsf{w}) = \| \mathsf{v} - \mathsf{w} \|, \qquad
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -872,6 +948,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -892,6 +969,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -905,7 +986,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

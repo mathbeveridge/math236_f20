@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Vector 5 Problem Set 5 | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Vector 5 Problem Set 5 | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
@@ -31,7 +30,8 @@
   
 <link rel="prev" href="problem-set-4.html"/>
 <link rel="next" href="problem-set-6.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,25 +47,24 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -113,6 +112,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="m236.css" type="text/css" />
 </head>
 
@@ -131,14 +131,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Problem Sets</b></span></li>
-<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
 <li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
 <li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
 <li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
 <li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
 <li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
 <li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
@@ -146,7 +148,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
 <li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a><ul>
+<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="problem-set-3.html"><a href="problem-set-3.html#three-vectors-in-mathbbr4"><i class="fa fa-check"></i><b>3.1</b> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></a></li>
 <li class="chapter" data-level="3.2" data-path="problem-set-3.html"><a href="problem-set-3.html#a-balanced-diet"><i class="fa fa-check"></i><b>3.2</b> A Balanced Diet</a></li>
 <li class="chapter" data-level="3.3" data-path="problem-set-3.html"><a href="problem-set-3.html#a-problem-about-span-and-linear-dependence"><i class="fa fa-check"></i><b>3.3</b> A Problem about Span and Linear Dependence</a></li>
@@ -154,33 +157,38 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="3.5" data-path="problem-set-3.html"><a href="problem-set-3.html#partial-information-about-a-linear-transformation"><i class="fa fa-check"></i><b>3.5</b> Partial Information about a Linear Transformation</a></li>
 <li class="chapter" data-level="3.6" data-path="problem-set-3.html"><a href="problem-set-3.html#house-renovations"><i class="fa fa-check"></i><b>3.6</b> House Renovations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a><ul>
+<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="problem-set-4.html"><a href="problem-set-4.html#an-invertible-product-of-rectangular-matrices"><i class="fa fa-check"></i><b>4.1</b> An Invertible Product of Rectangular Matrices</a></li>
 <li class="chapter" data-level="4.2" data-path="problem-set-4.html"><a href="problem-set-4.html#guessing-the-inverse-matrix-from-a-pattern"><i class="fa fa-check"></i><b>4.2</b> Guessing the Inverse Matrix from a Pattern</a></li>
 <li class="chapter" data-level="4.3" data-path="problem-set-4.html"><a href="problem-set-4.html#lu-decomposition-of-an-invertible-matrix"><i class="fa fa-check"></i><b>4.3</b> LU Decomposition of an Invertible Matrix</a></li>
 <li class="chapter" data-level="4.4" data-path="problem-set-4.html"><a href="problem-set-4.html#homogeneous-coordinates"><i class="fa fa-check"></i><b>4.4</b> Homogeneous Coordinates</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
+<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
 <li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
 <li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis"><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis</a></li>
 <li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
 <li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a><ul>
+<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="problem-set-6.html"><a href="problem-set-6.html#the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.1</b> The Square Root of a Matrix?</a></li>
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
 <li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
 <li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
 <li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-of-risk-territories"><i class="fa fa-check"></i><b>6.5</b> Network Analysis of Risk Territories</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a><ul>
+<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="problem-set-7.html"><a href="problem-set-7.html#glucose-insulin-system-model"><i class="fa fa-check"></i><b>7.1</b> Glucose-Insulin System Model</a></li>
 <li class="chapter" data-level="7.2" data-path="problem-set-7.html"><a href="problem-set-7.html#population-interaction-models"><i class="fa fa-check"></i><b>7.2</b> Population Interaction Models</a></li>
 <li class="chapter" data-level="7.3" data-path="problem-set-7.html"><a href="problem-set-7.html#blue-whale-population-dynamics"><i class="fa fa-check"></i><b>7.3</b> Blue Whale Population Dynamics</a></li>
 <li class="chapter" data-level="7.4" data-path="problem-set-7.html"><a href="problem-set-7.html#the-power-method-for-eigenvalue-calculation"><i class="fa fa-check"></i><b>7.4</b> The Power Method for Eigenvalue Calculation</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a><ul>
+<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="problem-set-8.html"><a href="problem-set-8.html#two-orthogonality-properties"><i class="fa fa-check"></i><b>8.1</b> Two Orthogonality Properties</a></li>
 <li class="chapter" data-level="8.2" data-path="problem-set-8.html"><a href="problem-set-8.html#bases-for-a-subspace-and-its-orthogonal-complement"><i class="fa fa-check"></i><b>8.2</b> Bases for a Subspace and its Orthogonal Complement</a></li>
 <li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetric-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetric Matrix</a></li>
@@ -188,53 +196,63 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="8.5" data-path="problem-set-8.html"><a href="problem-set-8.html#cosine-similarity-for-us-senators"><i class="fa fa-check"></i><b>8.5</b> Cosine Similarity for US Senators</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
-<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a><ul>
+<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="important-definitions.html"><a href="important-definitions.html#vector-spaces"><i class="fa fa-check"></i><b>9.1</b> Vector Spaces</a></li>
 <li class="chapter" data-level="9.2" data-path="important-definitions.html"><a href="important-definitions.html#matrices"><i class="fa fa-check"></i><b>9.2</b> Matrices</a></li>
 <li class="chapter" data-level="9.3" data-path="important-definitions.html"><a href="important-definitions.html#orthogonality"><i class="fa fa-check"></i><b>9.3</b> Orthogonality</a></li>
 <li class="chapter" data-level="9.4" data-path="important-definitions.html"><a href="important-definitions.html#spectral-decompostion"><i class="fa fa-check"></i><b>9.4</b> Spectral Decompostion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>10.1</b> Solving Linear Equations</a></li>
 <li class="chapter" data-level="10.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>10.2</b> RStudio</a></li>
 <li class="chapter" data-level="10.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
 <li class="chapter" data-level="10.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>10.4</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>11.1</b> Solution Sets, Span and Linear Independence</a></li>
 <li class="chapter" data-level="11.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>11.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="11.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>11.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a><ul>
+<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#linear-transformations-and-matrix-inverses"><i class="fa fa-check"></i><b>12.1</b> Linear Transformations and Matrix Inverses</a></li>
 <li class="chapter" data-level="12.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>12.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="12.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>12.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a><ul>
+<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vector-spaces-and-the-determinant"><i class="fa fa-check"></i><b>13.1</b> Vector Spaces and the Determinant</a></li>
 <li class="chapter" data-level="13.2" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vocabulary-3"><i class="fa fa-check"></i><b>13.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="13.3" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#conceptual-thinking-3"><i class="fa fa-check"></i><b>13.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a><ul>
+<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#eigensystems"><i class="fa fa-check"></i><b>14.1</b> Eigensystems</a></li>
 <li class="chapter" data-level="14.2" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#vocabulary-4"><i class="fa fa-check"></i><b>14.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="14.3" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#conceptual-thinking-4"><i class="fa fa-check"></i><b>14.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a><ul>
+<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#orthogonality-and-svd"><i class="fa fa-check"></i><b>15.1</b> Orthogonality and SVD</a></li>
 <li class="chapter" data-level="15.2" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#vocabulary-5"><i class="fa fa-check"></i><b>15.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="15.3" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#conceptual-thinking-5"><i class="fa fa-check"></i><b>15.3</b> Conceptual Thinking</a></li>
 </ul></li>
 <li class="part"><span><b>III LineaR Algebra</b></span></li>
-<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>16.1</b> Building Vectors and Matrices</a></li>
 <li class="chapter" data-level="16.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>16.2</b> Solving a Linear System</a></li>
 <li class="chapter" data-level="16.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>16.3</b> Solving another Linear System</a></li>
 <li class="chapter" data-level="16.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>16.4</b> Appendix: Dimensionless Vectors in R</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>17.1</b> Functions to plot our vectors</a></li>
-<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a><ul>
+<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-1"><i class="fa fa-check"></i><b>17.2.1</b> Family 1</a></li>
 <li class="chapter" data-level="17.2.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-2"><i class="fa fa-check"></i><b>17.2.2</b> Family 2</a></li>
 <li class="chapter" data-level="17.2.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-3"><i class="fa fa-check"></i><b>17.2.3</b> Family 3</a></li>
@@ -244,57 +262,73 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="17.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>17.3</b> Exploration</a></li>
 <li class="chapter" data-level="17.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>17.4</b> Even More Exploration</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a><ul>
-<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a><ul>
+<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-1"><i class="fa fa-check"></i><b>18.1.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a><ul>
+<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-2"><i class="fa fa-check"></i><b>18.2.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a><ul>
+<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a>
+<ul>
 <li class="chapter" data-level="18.3.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-3"><i class="fa fa-check"></i><b>18.3.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a><ul>
+<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a>
+<ul>
 <li class="chapter" data-level="18.4.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-4"><i class="fa fa-check"></i><b>18.4.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a><ul>
+<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a>
+<ul>
 <li class="chapter" data-level="18.5.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-5"><i class="fa fa-check"></i><b>18.5.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a><ul>
+<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a>
+<ul>
 <li class="chapter" data-level="18.6.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-6"><i class="fa fa-check"></i><b>18.6.1</b> Your Turn</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a><ul>
+<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>19.1</b> Translation</a></li>
 <li class="chapter" data-level="19.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>19.2</b> Translation and then Rotation</a></li>
 <li class="chapter" data-level="19.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>19.3</b> Rotation and then Translation</a></li>
-<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a><ul>
+<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="19.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>19.4.1</b> House of Orange</a></li>
 <li class="chapter" data-level="19.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>19.4.2</b> House Party</a></li>
+<li class="chapter" data-level="19.4.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#test-checkin"><i class="fa fa-check"></i><b>19.4.3</b> test checkin</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a><ul>
+<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>20.1</b> Transforming My House.</a></li>
 <li class="chapter" data-level="20.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>20.2</b> Watching a series of points.</a></li>
 <li class="chapter" data-level="20.3" data-path="fractals.html"><a href="fractals.html#here-are-some-from-httppaulbourke.netfractalsifs"><i class="fa fa-check"></i><b>20.3</b> Here are some from <span>http://paulbourke.net/fractals/ifs/</span></a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a><ul>
+<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#helper-function-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>21.1</b> Helper Function to Plot Dynamical Systems</a></li>
 <li class="chapter" data-level="21.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#our-first-example"><i class="fa fa-check"></i><b>21.2</b> Our first example</a></li>
-<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a><ul>
+<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-1"><i class="fa fa-check"></i><b>21.3.1</b> Example 1</a></li>
 <li class="chapter" data-level="21.3.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-2"><i class="fa fa-check"></i><b>21.3.2</b> Example 2</a></li>
 <li class="chapter" data-level="21.3.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-3"><i class="fa fa-check"></i><b>21.3.3</b> Example 3</a></li>
 <li class="chapter" data-level="21.3.4" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-4"><i class="fa fa-check"></i><b>21.3.4</b> Example 4</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a><ul>
-<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a>
+<ul>
 <li class="chapter" data-level="22.1.1" data-path="network-centralities.html"><a href="network-centralities.html#adjacency-matrices"><i class="fa fa-check"></i><b>22.1.1</b> Adjacency Matrices</a></li>
 <li class="chapter" data-level="22.1.2" data-path="network-centralities.html"><a href="network-centralities.html#graph-layouts"><i class="fa fa-check"></i><b>22.1.2</b> Graph Layouts</a></li>
 </ul></li>
 <li class="chapter" data-level="22.2" data-path="network-centralities.html"><a href="network-centralities.html#degree-centrality"><i class="fa fa-check"></i><b>22.2</b> Degree Centrality</a></li>
-<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a><ul>
+<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a>
+<ul>
 <li class="chapter" data-level="22.3.1" data-path="network-centralities.html"><a href="network-centralities.html#step-1"><i class="fa fa-check"></i><b>22.3.1</b> Step 1</a></li>
 <li class="chapter" data-level="22.3.2" data-path="network-centralities.html"><a href="network-centralities.html#step-2"><i class="fa fa-check"></i><b>22.3.2</b> Step 2</a></li>
 <li class="chapter" data-level="22.3.3" data-path="network-centralities.html"><a href="network-centralities.html#step-3"><i class="fa fa-check"></i><b>22.3.3</b> Step 3</a></li>
@@ -302,59 +336,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="22.3.5" data-path="network-centralities.html"><a href="network-centralities.html#step-5"><i class="fa fa-check"></i><b>22.3.5</b> Step 5</a></li>
 <li class="chapter" data-level="22.3.6" data-path="network-centralities.html"><a href="network-centralities.html#gould-index-summary"><i class="fa fa-check"></i><b>22.3.6</b> Gould Index Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a><ul>
+<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a>
+<ul>
 <li class="chapter" data-level="22.4.1" data-path="network-centralities.html"><a href="network-centralities.html#find-the-degree-centrality-values."><i class="fa fa-check"></i><b>22.4.1</b> Find the Degree Centrality values.</a></li>
 <li class="chapter" data-level="22.4.2" data-path="network-centralities.html"><a href="network-centralities.html#find-the-gould-index-values"><i class="fa fa-check"></i><b>22.4.2</b> Find the Gould Index values</a></li>
 <li class="chapter" data-level="22.4.3" data-path="network-centralities.html"><a href="network-centralities.html#analyze-the-data"><i class="fa fa-check"></i><b>22.4.3</b> Analyze the Data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a><ul>
+<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-data"><i class="fa fa-check"></i><b>23.1</b> The Data</a></li>
 <li class="chapter" data-level="23.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-88th-congressional-session-1964"><i class="fa fa-check"></i><b>23.2</b> The 88th Congressional Session (1964)</a></li>
-<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a><ul>
+<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-dominant-eigenvectors."><i class="fa fa-check"></i><b>23.3.1</b> Using the Dominant Eigenvectors.</a></li>
 <li class="chapter" data-level="23.3.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#patterns-in-the-first-two-eigenvectors"><i class="fa fa-check"></i><b>23.3.2</b> Patterns in the First Two Eigenvectors</a></li>
 <li class="chapter" data-level="23.3.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#creating-a-table-sorted-by-an-eigenvector"><i class="fa fa-check"></i><b>23.3.3</b> Creating a Table Sorted by an Eigenvector</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#your-turn-12"><i class="fa fa-check"></i><b>23.4</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a><ul>
+<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#helper-functions-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>24.1</b> Helper Functions to Plot Dynamical Systems</a></li>
-<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a><ul>
+<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#population-forecast"><i class="fa fa-check"></i><b>24.2.1</b> Population forecast</a></li>
 <li class="chapter" data-level="24.2.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-population-at-t200"><i class="fa fa-check"></i><b>24.2.2</b> The population at <span class="math inline">\(t=200\)</span></a></li>
 <li class="chapter" data-level="24.2.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#eigenvectors-and-eigenvalues-of-l"><i class="fa fa-check"></i><b>24.2.3</b> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a><ul>
+<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations"><i class="fa fa-check"></i><b>24.3.1</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.3.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-populations-at-t100-versus-the-dominant-eigenvector"><i class="fa fa-check"></i><b>24.3.2</b> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</a></li>
 <li class="chapter" data-level="24.3.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-long-range-prospects"><i class="fa fa-check"></i><b>24.3.3</b> The long-range prospects</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a><ul>
+<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a>
+<ul>
 <li class="chapter" data-level="24.4.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-leslie-matrix"><i class="fa fa-check"></i><b>24.4.1</b> The Leslie Matrix</a></li>
 <li class="chapter" data-level="24.4.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations-1"><i class="fa fa-check"></i><b>24.4.2</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.4.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#river-clean-up"><i class="fa fa-check"></i><b>24.4.3</b> River Clean Up</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a><ul>
-<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a><ul>
+<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a>
+<ul>
 <li class="chapter" data-level="25.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>25.1.1</b> Visualizing the Data</a></li>
 <li class="chapter" data-level="25.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>25.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="digit-recognition.html"><a href="digit-recognition.html#magnitude-distance-and-angle"><i class="fa fa-check"></i><b>25.2</b> Magnitude, Distance and Angle</a></li>
-<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a>
+<ul>
 <li class="chapter" data-level="25.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>25.3.1</b> Get Closest by Distance</a></li>
 <li class="chapter" data-level="25.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>25.3.2</b> Get Closest by Angle</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a><ul>
+<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
-<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a><ul>
+<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>26.2.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>26.2.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>26.2.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a><ul>
+<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a>
+<ul>
 <li class="chapter" data-level="26.3.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>26.3.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.3.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>26.3.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.3.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>26.3.3</b> Your turn</a></li>
@@ -362,13 +409,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="26.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>26.4</b> A Linear Model for Production at a Hosiery Mill</a></li>
 <li class="chapter" data-level="26.5" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>26.5</b> Global Fossil Fuel Emissions</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a><ul>
-<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a><ul>
+<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-wide-matrix"><i class="fa fa-check"></i><b>27.1.1</b> SVD of a Wide Matrix</a></li>
 <li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-square-matrix"><i class="fa fa-check"></i><b>27.1.2</b> Your Turn: SVD of a Square Matrix</a></li>
 <li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-tall-matrix"><i class="fa fa-check"></i><b>27.1.3</b> Your Turn: SVD of a Tall Matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a><ul>
+<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a>
+<ul>
 <li class="chapter" data-level="27.2.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#converting-a-jpeg-image-into-a-matrix"><i class="fa fa-check"></i><b>27.2.1</b> Converting a JPEG image into a Matrix</a></li>
 <li class="chapter" data-level="27.2.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-raster-image"><i class="fa fa-check"></i><b>27.2.2</b> SVD of a Raster Image</a></li>
 <li class="chapter" data-level="27.2.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-approximation-of-the-image"><i class="fa fa-check"></i><b>27.2.3</b> SVD Approximation of the Image</a></li>
@@ -377,12 +427,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a><ul>
-<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a><ul>
+<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="28.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>28.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="28.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>28.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.2.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section"><i class="fa fa-check"></i><b>28.2.1</b> </a></li>
 <li class="chapter" data-level="28.2.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-1"><i class="fa fa-check"></i><b>28.2.2</b> </a></li>
 <li class="chapter" data-level="28.2.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-2"><i class="fa fa-check"></i><b>28.2.3</b> </a></li>
@@ -394,7 +447,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.2.9" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-8"><i class="fa fa-check"></i><b>28.2.9</b> </a></li>
 <li class="chapter" data-level="28.2.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-9"><i class="fa fa-check"></i><b>28.2.10</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.3.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-10"><i class="fa fa-check"></i><b>28.3.1</b> </a></li>
 <li class="chapter" data-level="28.3.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-11"><i class="fa fa-check"></i><b>28.3.2</b> </a></li>
 <li class="chapter" data-level="28.3.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-12"><i class="fa fa-check"></i><b>28.3.3</b> </a></li>
@@ -407,12 +461,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.3.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-19"><i class="fa fa-check"></i><b>28.3.10</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a><ul>
-<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a><ul>
+<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="29.1.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#vocabulary-and-concepts-1"><i class="fa fa-check"></i><b>29.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="29.1.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#skills-1"><i class="fa fa-check"></i><b>29.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.2.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-20"><i class="fa fa-check"></i><b>29.2.1</b> </a></li>
 <li class="chapter" data-level="29.2.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-21"><i class="fa fa-check"></i><b>29.2.2</b> </a></li>
 <li class="chapter" data-level="29.2.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-22"><i class="fa fa-check"></i><b>29.2.3</b> </a></li>
@@ -426,7 +483,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.2.11" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-30"><i class="fa fa-check"></i><b>29.2.11</b> </a></li>
 <li class="chapter" data-level="29.2.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-31"><i class="fa fa-check"></i><b>29.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.3.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-32"><i class="fa fa-check"></i><b>29.3.1</b> </a></li>
 <li class="chapter" data-level="29.3.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-33"><i class="fa fa-check"></i><b>29.3.2</b> </a></li>
 <li class="chapter" data-level="29.3.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-34"><i class="fa fa-check"></i><b>29.3.3</b> </a></li>
@@ -441,11 +499,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.3.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-43"><i class="fa fa-check"></i><b>29.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a><ul>
-<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a><ul>
+<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>30.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.2.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-44"><i class="fa fa-check"></i><b>30.2.1</b> </a></li>
 <li class="chapter" data-level="30.2.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-45"><i class="fa fa-check"></i><b>30.2.2</b> </a></li>
 <li class="chapter" data-level="30.2.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-46"><i class="fa fa-check"></i><b>30.2.3</b> </a></li>
@@ -459,7 +520,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2.11" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-54"><i class="fa fa-check"></i><b>30.2.11</b> </a></li>
 <li class="chapter" data-level="30.2.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-55"><i class="fa fa-check"></i><b>30.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.3.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-56"><i class="fa fa-check"></i><b>30.3.1</b> </a></li>
 <li class="chapter" data-level="30.3.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-57"><i class="fa fa-check"></i><b>30.3.2</b> </a></li>
 <li class="chapter" data-level="30.3.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-58"><i class="fa fa-check"></i><b>30.3.3</b> </a></li>
@@ -474,11 +536,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.3.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-67"><i class="fa fa-check"></i><b>30.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
-<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-68"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
 <li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-69"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
 <li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-70"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
@@ -492,7 +557,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-78"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-79"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.3.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-80"><i class="fa fa-check"></i><b>31.3.1</b> </a></li>
 <li class="chapter" data-level="31.3.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-81"><i class="fa fa-check"></i><b>31.3.2</b> </a></li>
 <li class="chapter" data-level="31.3.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-82"><i class="fa fa-check"></i><b>31.3.3</b> </a></li>
@@ -526,8 +592,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="problem-set-5" class="section level1">
-<h1><span class="header-section-number">Vector 5</span> Problem Set 5</h1>
+<div id="problem-set-5" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Vector 5</span> Problem Set 5<a href="problem-set-5.html#problem-set-5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
 <li>Due: Friday November 20 by 11:55pm CST.</li>
 <li>Upload your solutions to Moodle in a PDF.</li>
@@ -535,8 +601,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>You can download the <a href="https://github.com/mathbeveridge/math236_f20/blob/main/PS5-problem-set-5.Rmd">Rmd source file for this problem set</a>.</li>
 </ul>
 <p>The Problem Set covers sections 4.1, 4.2, 4.3 and 4.4.</p>
-<div id="a-subspace-from-two-linear-transformations" class="section level2">
-<h2><span class="header-section-number">5.1</span> A Subspace from Two Linear Transformations</h2>
+<div id="a-subspace-from-two-linear-transformations" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> A Subspace from Two Linear Transformations<a href="problem-set-5.html#a-subspace-from-two-linear-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose that <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> and <span class="math inline">\(S: \mathbb{R}^n \to \mathbb{R}^m\)</span> are linear transformations.
 Let <span class="math inline">\(V \subset \mathbb{R}^n\)</span> be the set
 <span class="math display">\[
@@ -548,8 +614,8 @@ V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
 <li><p>If <span class="math inline">\(\mathsf{v} \in V\)</span> and <span class="math inline">\(c \in \mathbb{R}\)</span> then <span class="math inline">\(c \mathsf{v} \in V\)</span></p></li>
 </ol>
 </div>
-<div id="getting-into-a-subspace" class="section level2">
-<h2><span class="header-section-number">5.2</span> Getting Into a Subspace</h2>
+<div id="getting-into-a-subspace" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Getting Into a Subspace<a href="problem-set-5.html#getting-into-a-subspace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(S \subset \mathbb{R}^n\)</span> be a subspace and let <span class="math inline">\(\mathsf{v}, \mathsf{w} \in \mathbb{R}^n\)</span>. For each of the following statements, either give a specific example or explain why it cannot happen.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>If <span class="math inline">\(\mathsf{v}\)</span> is in <span class="math inline">\(S\)</span> but <span class="math inline">\(\mathsf{w}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span>, can <span class="math inline">\(\mathsf{v} + \mathsf{w}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
@@ -557,8 +623,8 @@ V = \{ \mathsf{v}  \in \mathbb{R}^n\mid T(\mathsf{v})  = S(\mathsf{v}) \}.
 <li><p>If <span class="math inline">\(\mathsf{v}\)</span> is <strong>not</strong> in <span class="math inline">\(S\)</span> and <span class="math inline">\(c\)</span> is a nonzero constant, can <span class="math inline">\(c\mathsf{v}\)</span> be in <span class="math inline">\(S\)</span>?</p></li>
 </ol>
 </div>
-<div id="creating-a-basis-from-another-basis" class="section level2">
-<h2><span class="header-section-number">5.3</span> Creating a Basis from Another Basis</h2>
+<div id="creating-a-basis-from-another-basis" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Creating a Basis from Another Basis<a href="problem-set-5.html#creating-a-basis-from-another-basis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose that <span class="math inline">\(\mathsf{v}_1, \mathsf{v}_2, \mathsf{v}_3\)</span> is a basis of <span class="math inline">\(\mathbb{R}^3\)</span>. Let
 <span class="math display">\[
 \mathsf{w}_1 = \mathsf{v}_1, \quad \mathsf{w}_2 = \mathsf{v}_1 +  \mathsf{v}_2, \quad  \mathsf{w}_3= \mathsf{v}_1 +  \mathsf{v}_2 +  \mathsf{v}_3.
@@ -577,12 +643,12 @@ Prove that <span class="math inline">\(\mathsf{w}_1, \mathsf{w}_2, \mathsf{w}_3\
 </ul></li>
 </ol>
 </div>
-<div id="a-vector-that-is-in-both-cola-and-nula" class="section level2">
-<h2><span class="header-section-number">5.4</span> A Vector that is in Both Col(A) and Nul}(A)</h2>
+<div id="a-vector-that-is-in-both-cola-and-nula" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> A Vector that is in Both Col(A) and Nul}(A)<a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Give a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span> for which the vector <span class="math inline">\(\mathsf{v} = \begin{bmatrix}3 \\ -2 \\ 5 \end{bmatrix}\)</span> is in both <span class="math inline">\(\mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathrm{Nul}(A)\)</span>. Be sure to demonstrate that <span class="math inline">\(\mathsf{v} \in \mathrm{Col}(A)\)</span> and <span class="math inline">\(\mathsf{v} \in \mathrm{Nul}(A)\)</span>.</p>
 </div>
-<div id="changing-coordinate-systems" class="section level2">
-<h2><span class="header-section-number">5.5</span> Changing Coordinate Systems</h2>
+<div id="changing-coordinate-systems" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Changing Coordinate Systems<a href="problem-set-5.html#changing-coordinate-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are three bases for <span class="math inline">\(\mathbb{R}^4\)</span>:</p>
 <p><span class="math display">\[\begin{align}
 {\cal S}  &amp;= \left\{
@@ -666,7 +732,6 @@ Find <span class="math inline">\([ \mathsf{v} ]_{\cal C}.\)</span> Then calculat
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -685,6 +750,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -705,6 +771,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -718,7 +788,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

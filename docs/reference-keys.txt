@@ -118,6 +118,7 @@ rotation-and-then-translation
 your-turn-7
 house-of-orange
 house-party
+test-checkin
 fractals
 transforming-my-house.
 watching-a-series-of-points.

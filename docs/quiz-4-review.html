@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Vector 31 Quiz 4 Review | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Vector 31 Quiz 4 Review | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
@@ -31,7 +30,8 @@
   
 <link rel="prev" href="quiz-3-review.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,25 +47,24 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -113,6 +112,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="m236.css" type="text/css" />
 </head>
 
@@ -131,14 +131,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Problem Sets</b></span></li>
-<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
 <li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
 <li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
 <li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
 <li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
 <li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
 <li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
@@ -146,7 +148,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
 <li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a><ul>
+<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="problem-set-3.html"><a href="problem-set-3.html#three-vectors-in-mathbbr4"><i class="fa fa-check"></i><b>3.1</b> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></a></li>
 <li class="chapter" data-level="3.2" data-path="problem-set-3.html"><a href="problem-set-3.html#a-balanced-diet"><i class="fa fa-check"></i><b>3.2</b> A Balanced Diet</a></li>
 <li class="chapter" data-level="3.3" data-path="problem-set-3.html"><a href="problem-set-3.html#a-problem-about-span-and-linear-dependence"><i class="fa fa-check"></i><b>3.3</b> A Problem about Span and Linear Dependence</a></li>
@@ -154,33 +157,38 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="3.5" data-path="problem-set-3.html"><a href="problem-set-3.html#partial-information-about-a-linear-transformation"><i class="fa fa-check"></i><b>3.5</b> Partial Information about a Linear Transformation</a></li>
 <li class="chapter" data-level="3.6" data-path="problem-set-3.html"><a href="problem-set-3.html#house-renovations"><i class="fa fa-check"></i><b>3.6</b> House Renovations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a><ul>
+<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="problem-set-4.html"><a href="problem-set-4.html#an-invertible-product-of-rectangular-matrices"><i class="fa fa-check"></i><b>4.1</b> An Invertible Product of Rectangular Matrices</a></li>
 <li class="chapter" data-level="4.2" data-path="problem-set-4.html"><a href="problem-set-4.html#guessing-the-inverse-matrix-from-a-pattern"><i class="fa fa-check"></i><b>4.2</b> Guessing the Inverse Matrix from a Pattern</a></li>
 <li class="chapter" data-level="4.3" data-path="problem-set-4.html"><a href="problem-set-4.html#lu-decomposition-of-an-invertible-matrix"><i class="fa fa-check"></i><b>4.3</b> LU Decomposition of an Invertible Matrix</a></li>
 <li class="chapter" data-level="4.4" data-path="problem-set-4.html"><a href="problem-set-4.html#homogeneous-coordinates"><i class="fa fa-check"></i><b>4.4</b> Homogeneous Coordinates</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
+<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
 <li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
 <li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis"><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis</a></li>
 <li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
 <li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a><ul>
+<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="problem-set-6.html"><a href="problem-set-6.html#the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.1</b> The Square Root of a Matrix?</a></li>
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
 <li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
 <li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
 <li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-of-risk-territories"><i class="fa fa-check"></i><b>6.5</b> Network Analysis of Risk Territories</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a><ul>
+<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="problem-set-7.html"><a href="problem-set-7.html#glucose-insulin-system-model"><i class="fa fa-check"></i><b>7.1</b> Glucose-Insulin System Model</a></li>
 <li class="chapter" data-level="7.2" data-path="problem-set-7.html"><a href="problem-set-7.html#population-interaction-models"><i class="fa fa-check"></i><b>7.2</b> Population Interaction Models</a></li>
 <li class="chapter" data-level="7.3" data-path="problem-set-7.html"><a href="problem-set-7.html#blue-whale-population-dynamics"><i class="fa fa-check"></i><b>7.3</b> Blue Whale Population Dynamics</a></li>
 <li class="chapter" data-level="7.4" data-path="problem-set-7.html"><a href="problem-set-7.html#the-power-method-for-eigenvalue-calculation"><i class="fa fa-check"></i><b>7.4</b> The Power Method for Eigenvalue Calculation</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a><ul>
+<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="problem-set-8.html"><a href="problem-set-8.html#two-orthogonality-properties"><i class="fa fa-check"></i><b>8.1</b> Two Orthogonality Properties</a></li>
 <li class="chapter" data-level="8.2" data-path="problem-set-8.html"><a href="problem-set-8.html#bases-for-a-subspace-and-its-orthogonal-complement"><i class="fa fa-check"></i><b>8.2</b> Bases for a Subspace and its Orthogonal Complement</a></li>
 <li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetric-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetric Matrix</a></li>
@@ -188,53 +196,63 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="8.5" data-path="problem-set-8.html"><a href="problem-set-8.html#cosine-similarity-for-us-senators"><i class="fa fa-check"></i><b>8.5</b> Cosine Similarity for US Senators</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
-<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a><ul>
+<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="important-definitions.html"><a href="important-definitions.html#vector-spaces"><i class="fa fa-check"></i><b>9.1</b> Vector Spaces</a></li>
 <li class="chapter" data-level="9.2" data-path="important-definitions.html"><a href="important-definitions.html#matrices"><i class="fa fa-check"></i><b>9.2</b> Matrices</a></li>
 <li class="chapter" data-level="9.3" data-path="important-definitions.html"><a href="important-definitions.html#orthogonality"><i class="fa fa-check"></i><b>9.3</b> Orthogonality</a></li>
 <li class="chapter" data-level="9.4" data-path="important-definitions.html"><a href="important-definitions.html#spectral-decompostion"><i class="fa fa-check"></i><b>9.4</b> Spectral Decompostion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>10.1</b> Solving Linear Equations</a></li>
 <li class="chapter" data-level="10.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>10.2</b> RStudio</a></li>
 <li class="chapter" data-level="10.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
 <li class="chapter" data-level="10.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>10.4</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>11.1</b> Solution Sets, Span and Linear Independence</a></li>
 <li class="chapter" data-level="11.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>11.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="11.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>11.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a><ul>
+<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#linear-transformations-and-matrix-inverses"><i class="fa fa-check"></i><b>12.1</b> Linear Transformations and Matrix Inverses</a></li>
 <li class="chapter" data-level="12.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>12.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="12.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>12.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a><ul>
+<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vector-spaces-and-the-determinant"><i class="fa fa-check"></i><b>13.1</b> Vector Spaces and the Determinant</a></li>
 <li class="chapter" data-level="13.2" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vocabulary-3"><i class="fa fa-check"></i><b>13.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="13.3" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#conceptual-thinking-3"><i class="fa fa-check"></i><b>13.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a><ul>
+<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#eigensystems"><i class="fa fa-check"></i><b>14.1</b> Eigensystems</a></li>
 <li class="chapter" data-level="14.2" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#vocabulary-4"><i class="fa fa-check"></i><b>14.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="14.3" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#conceptual-thinking-4"><i class="fa fa-check"></i><b>14.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a><ul>
+<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#orthogonality-and-svd"><i class="fa fa-check"></i><b>15.1</b> Orthogonality and SVD</a></li>
 <li class="chapter" data-level="15.2" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#vocabulary-5"><i class="fa fa-check"></i><b>15.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="15.3" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#conceptual-thinking-5"><i class="fa fa-check"></i><b>15.3</b> Conceptual Thinking</a></li>
 </ul></li>
 <li class="part"><span><b>III LineaR Algebra</b></span></li>
-<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>16.1</b> Building Vectors and Matrices</a></li>
 <li class="chapter" data-level="16.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>16.2</b> Solving a Linear System</a></li>
 <li class="chapter" data-level="16.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>16.3</b> Solving another Linear System</a></li>
 <li class="chapter" data-level="16.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>16.4</b> Appendix: Dimensionless Vectors in R</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>17.1</b> Functions to plot our vectors</a></li>
-<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a><ul>
+<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-1"><i class="fa fa-check"></i><b>17.2.1</b> Family 1</a></li>
 <li class="chapter" data-level="17.2.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-2"><i class="fa fa-check"></i><b>17.2.2</b> Family 2</a></li>
 <li class="chapter" data-level="17.2.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-3"><i class="fa fa-check"></i><b>17.2.3</b> Family 3</a></li>
@@ -244,57 +262,73 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="17.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>17.3</b> Exploration</a></li>
 <li class="chapter" data-level="17.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>17.4</b> Even More Exploration</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a><ul>
-<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a><ul>
+<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-1"><i class="fa fa-check"></i><b>18.1.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a><ul>
+<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-2"><i class="fa fa-check"></i><b>18.2.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a><ul>
+<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a>
+<ul>
 <li class="chapter" data-level="18.3.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-3"><i class="fa fa-check"></i><b>18.3.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a><ul>
+<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a>
+<ul>
 <li class="chapter" data-level="18.4.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-4"><i class="fa fa-check"></i><b>18.4.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a><ul>
+<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a>
+<ul>
 <li class="chapter" data-level="18.5.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-5"><i class="fa fa-check"></i><b>18.5.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a><ul>
+<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a>
+<ul>
 <li class="chapter" data-level="18.6.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-6"><i class="fa fa-check"></i><b>18.6.1</b> Your Turn</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a><ul>
+<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>19.1</b> Translation</a></li>
 <li class="chapter" data-level="19.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>19.2</b> Translation and then Rotation</a></li>
 <li class="chapter" data-level="19.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>19.3</b> Rotation and then Translation</a></li>
-<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a><ul>
+<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="19.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>19.4.1</b> House of Orange</a></li>
 <li class="chapter" data-level="19.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>19.4.2</b> House Party</a></li>
+<li class="chapter" data-level="19.4.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#test-checkin"><i class="fa fa-check"></i><b>19.4.3</b> test checkin</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a><ul>
+<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>20.1</b> Transforming My House.</a></li>
 <li class="chapter" data-level="20.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>20.2</b> Watching a series of points.</a></li>
 <li class="chapter" data-level="20.3" data-path="fractals.html"><a href="fractals.html#here-are-some-from-httppaulbourke.netfractalsifs"><i class="fa fa-check"></i><b>20.3</b> Here are some from <span>http://paulbourke.net/fractals/ifs/</span></a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a><ul>
+<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#helper-function-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>21.1</b> Helper Function to Plot Dynamical Systems</a></li>
 <li class="chapter" data-level="21.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#our-first-example"><i class="fa fa-check"></i><b>21.2</b> Our first example</a></li>
-<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a><ul>
+<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-1"><i class="fa fa-check"></i><b>21.3.1</b> Example 1</a></li>
 <li class="chapter" data-level="21.3.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-2"><i class="fa fa-check"></i><b>21.3.2</b> Example 2</a></li>
 <li class="chapter" data-level="21.3.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-3"><i class="fa fa-check"></i><b>21.3.3</b> Example 3</a></li>
 <li class="chapter" data-level="21.3.4" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-4"><i class="fa fa-check"></i><b>21.3.4</b> Example 4</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a><ul>
-<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a>
+<ul>
 <li class="chapter" data-level="22.1.1" data-path="network-centralities.html"><a href="network-centralities.html#adjacency-matrices"><i class="fa fa-check"></i><b>22.1.1</b> Adjacency Matrices</a></li>
 <li class="chapter" data-level="22.1.2" data-path="network-centralities.html"><a href="network-centralities.html#graph-layouts"><i class="fa fa-check"></i><b>22.1.2</b> Graph Layouts</a></li>
 </ul></li>
 <li class="chapter" data-level="22.2" data-path="network-centralities.html"><a href="network-centralities.html#degree-centrality"><i class="fa fa-check"></i><b>22.2</b> Degree Centrality</a></li>
-<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a><ul>
+<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a>
+<ul>
 <li class="chapter" data-level="22.3.1" data-path="network-centralities.html"><a href="network-centralities.html#step-1"><i class="fa fa-check"></i><b>22.3.1</b> Step 1</a></li>
 <li class="chapter" data-level="22.3.2" data-path="network-centralities.html"><a href="network-centralities.html#step-2"><i class="fa fa-check"></i><b>22.3.2</b> Step 2</a></li>
 <li class="chapter" data-level="22.3.3" data-path="network-centralities.html"><a href="network-centralities.html#step-3"><i class="fa fa-check"></i><b>22.3.3</b> Step 3</a></li>
@@ -302,59 +336,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="22.3.5" data-path="network-centralities.html"><a href="network-centralities.html#step-5"><i class="fa fa-check"></i><b>22.3.5</b> Step 5</a></li>
 <li class="chapter" data-level="22.3.6" data-path="network-centralities.html"><a href="network-centralities.html#gould-index-summary"><i class="fa fa-check"></i><b>22.3.6</b> Gould Index Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a><ul>
+<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a>
+<ul>
 <li class="chapter" data-level="22.4.1" data-path="network-centralities.html"><a href="network-centralities.html#find-the-degree-centrality-values."><i class="fa fa-check"></i><b>22.4.1</b> Find the Degree Centrality values.</a></li>
 <li class="chapter" data-level="22.4.2" data-path="network-centralities.html"><a href="network-centralities.html#find-the-gould-index-values"><i class="fa fa-check"></i><b>22.4.2</b> Find the Gould Index values</a></li>
 <li class="chapter" data-level="22.4.3" data-path="network-centralities.html"><a href="network-centralities.html#analyze-the-data"><i class="fa fa-check"></i><b>22.4.3</b> Analyze the Data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a><ul>
+<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-data"><i class="fa fa-check"></i><b>23.1</b> The Data</a></li>
 <li class="chapter" data-level="23.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-88th-congressional-session-1964"><i class="fa fa-check"></i><b>23.2</b> The 88th Congressional Session (1964)</a></li>
-<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a><ul>
+<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-dominant-eigenvectors."><i class="fa fa-check"></i><b>23.3.1</b> Using the Dominant Eigenvectors.</a></li>
 <li class="chapter" data-level="23.3.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#patterns-in-the-first-two-eigenvectors"><i class="fa fa-check"></i><b>23.3.2</b> Patterns in the First Two Eigenvectors</a></li>
 <li class="chapter" data-level="23.3.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#creating-a-table-sorted-by-an-eigenvector"><i class="fa fa-check"></i><b>23.3.3</b> Creating a Table Sorted by an Eigenvector</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#your-turn-12"><i class="fa fa-check"></i><b>23.4</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a><ul>
+<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#helper-functions-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>24.1</b> Helper Functions to Plot Dynamical Systems</a></li>
-<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a><ul>
+<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#population-forecast"><i class="fa fa-check"></i><b>24.2.1</b> Population forecast</a></li>
 <li class="chapter" data-level="24.2.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-population-at-t200"><i class="fa fa-check"></i><b>24.2.2</b> The population at <span class="math inline">\(t=200\)</span></a></li>
 <li class="chapter" data-level="24.2.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#eigenvectors-and-eigenvalues-of-l"><i class="fa fa-check"></i><b>24.2.3</b> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a><ul>
+<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations"><i class="fa fa-check"></i><b>24.3.1</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.3.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-populations-at-t100-versus-the-dominant-eigenvector"><i class="fa fa-check"></i><b>24.3.2</b> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</a></li>
 <li class="chapter" data-level="24.3.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-long-range-prospects"><i class="fa fa-check"></i><b>24.3.3</b> The long-range prospects</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a><ul>
+<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a>
+<ul>
 <li class="chapter" data-level="24.4.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-leslie-matrix"><i class="fa fa-check"></i><b>24.4.1</b> The Leslie Matrix</a></li>
 <li class="chapter" data-level="24.4.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations-1"><i class="fa fa-check"></i><b>24.4.2</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.4.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#river-clean-up"><i class="fa fa-check"></i><b>24.4.3</b> River Clean Up</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a><ul>
-<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a><ul>
+<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a>
+<ul>
 <li class="chapter" data-level="25.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>25.1.1</b> Visualizing the Data</a></li>
 <li class="chapter" data-level="25.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>25.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="digit-recognition.html"><a href="digit-recognition.html#magnitude-distance-and-angle"><i class="fa fa-check"></i><b>25.2</b> Magnitude, Distance and Angle</a></li>
-<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a>
+<ul>
 <li class="chapter" data-level="25.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>25.3.1</b> Get Closest by Distance</a></li>
 <li class="chapter" data-level="25.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>25.3.2</b> Get Closest by Angle</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a><ul>
+<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
-<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a><ul>
+<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>26.2.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>26.2.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>26.2.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a><ul>
+<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a>
+<ul>
 <li class="chapter" data-level="26.3.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>26.3.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.3.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>26.3.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.3.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>26.3.3</b> Your turn</a></li>
@@ -362,13 +409,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="26.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>26.4</b> A Linear Model for Production at a Hosiery Mill</a></li>
 <li class="chapter" data-level="26.5" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>26.5</b> Global Fossil Fuel Emissions</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a><ul>
-<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a><ul>
+<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-wide-matrix"><i class="fa fa-check"></i><b>27.1.1</b> SVD of a Wide Matrix</a></li>
 <li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-square-matrix"><i class="fa fa-check"></i><b>27.1.2</b> Your Turn: SVD of a Square Matrix</a></li>
 <li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-tall-matrix"><i class="fa fa-check"></i><b>27.1.3</b> Your Turn: SVD of a Tall Matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a><ul>
+<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a>
+<ul>
 <li class="chapter" data-level="27.2.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#converting-a-jpeg-image-into-a-matrix"><i class="fa fa-check"></i><b>27.2.1</b> Converting a JPEG image into a Matrix</a></li>
 <li class="chapter" data-level="27.2.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-raster-image"><i class="fa fa-check"></i><b>27.2.2</b> SVD of a Raster Image</a></li>
 <li class="chapter" data-level="27.2.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-approximation-of-the-image"><i class="fa fa-check"></i><b>27.2.3</b> SVD Approximation of the Image</a></li>
@@ -377,12 +427,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a><ul>
-<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a><ul>
+<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="28.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>28.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="28.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>28.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.2.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section"><i class="fa fa-check"></i><b>28.2.1</b> </a></li>
 <li class="chapter" data-level="28.2.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-1"><i class="fa fa-check"></i><b>28.2.2</b> </a></li>
 <li class="chapter" data-level="28.2.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-2"><i class="fa fa-check"></i><b>28.2.3</b> </a></li>
@@ -394,7 +447,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.2.9" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-8"><i class="fa fa-check"></i><b>28.2.9</b> </a></li>
 <li class="chapter" data-level="28.2.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-9"><i class="fa fa-check"></i><b>28.2.10</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.3.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-10"><i class="fa fa-check"></i><b>28.3.1</b> </a></li>
 <li class="chapter" data-level="28.3.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-11"><i class="fa fa-check"></i><b>28.3.2</b> </a></li>
 <li class="chapter" data-level="28.3.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-12"><i class="fa fa-check"></i><b>28.3.3</b> </a></li>
@@ -407,12 +461,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.3.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-19"><i class="fa fa-check"></i><b>28.3.10</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a><ul>
-<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a><ul>
+<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="29.1.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#vocabulary-and-concepts-1"><i class="fa fa-check"></i><b>29.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="29.1.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#skills-1"><i class="fa fa-check"></i><b>29.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.2.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-20"><i class="fa fa-check"></i><b>29.2.1</b> </a></li>
 <li class="chapter" data-level="29.2.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-21"><i class="fa fa-check"></i><b>29.2.2</b> </a></li>
 <li class="chapter" data-level="29.2.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-22"><i class="fa fa-check"></i><b>29.2.3</b> </a></li>
@@ -426,7 +483,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.2.11" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-30"><i class="fa fa-check"></i><b>29.2.11</b> </a></li>
 <li class="chapter" data-level="29.2.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-31"><i class="fa fa-check"></i><b>29.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.3.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-32"><i class="fa fa-check"></i><b>29.3.1</b> </a></li>
 <li class="chapter" data-level="29.3.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-33"><i class="fa fa-check"></i><b>29.3.2</b> </a></li>
 <li class="chapter" data-level="29.3.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-34"><i class="fa fa-check"></i><b>29.3.3</b> </a></li>
@@ -441,11 +499,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.3.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-43"><i class="fa fa-check"></i><b>29.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a><ul>
-<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a><ul>
+<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>30.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.2.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-44"><i class="fa fa-check"></i><b>30.2.1</b> </a></li>
 <li class="chapter" data-level="30.2.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-45"><i class="fa fa-check"></i><b>30.2.2</b> </a></li>
 <li class="chapter" data-level="30.2.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-46"><i class="fa fa-check"></i><b>30.2.3</b> </a></li>
@@ -459,7 +520,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2.11" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-54"><i class="fa fa-check"></i><b>30.2.11</b> </a></li>
 <li class="chapter" data-level="30.2.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-55"><i class="fa fa-check"></i><b>30.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.3.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-56"><i class="fa fa-check"></i><b>30.3.1</b> </a></li>
 <li class="chapter" data-level="30.3.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-57"><i class="fa fa-check"></i><b>30.3.2</b> </a></li>
 <li class="chapter" data-level="30.3.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-58"><i class="fa fa-check"></i><b>30.3.3</b> </a></li>
@@ -474,11 +536,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.3.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-67"><i class="fa fa-check"></i><b>30.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
-<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-68"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
 <li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-69"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
 <li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-70"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
@@ -492,7 +557,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-78"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-79"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.3.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-80"><i class="fa fa-check"></i><b>31.3.1</b> </a></li>
 <li class="chapter" data-level="31.3.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-81"><i class="fa fa-check"></i><b>31.3.2</b> </a></li>
 <li class="chapter" data-level="31.3.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-82"><i class="fa fa-check"></i><b>31.3.3</b> </a></li>
@@ -526,10 +592,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="quiz-4-review" class="section level1">
-<h1><span class="header-section-number">Vector 31</span> Quiz 4 Review</h1>
-<div id="overview-3" class="section level2">
-<h2><span class="header-section-number">31.1</span> Overview</h2>
+<div id="quiz-4-review" class="section level1 hasAnchor" number="31">
+<h1><span class="header-section-number">Vector 31</span> Quiz 4 Review<a href="quiz-4-review.html#quiz-4-review" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-3" class="section level2 hasAnchor" number="31.1">
+<h2><span class="header-section-number">31.1</span> Overview<a href="quiz-4-review.html#overview-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Our fourth quiz covers sections 6.1-6.5, 7.1 and 7.4 in Lay’s book. This corresponds to Problem Set 8.</p>
 <p>The best way to study is to do practice problems. The Quiz will have calculation problems (like Edfinity) and more conceptual problems (like the problem sets). Here are some ways to practice:</p>
 <ul>
@@ -540,14 +606,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>Try to resolve the Problem Sets and compare your answers to the solutions.</li>
 <li>Do the practice problems below. Compare your answers to the solutions.</li>
 </ul>
-<div id="vocabulary-concepts-and-skills-1" class="section level3">
-<h3><span class="header-section-number">31.1.1</span> Vocabulary, Concepts and Skills</h3>
+<div id="vocabulary-concepts-and-skills-1" class="section level3 hasAnchor" number="31.1.1">
+<h3><span class="header-section-number">31.1.1</span> Vocabulary, Concepts and Skills<a href="quiz-4-review.html#vocabulary-concepts-and-skills-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>See the <a href="week-7-8-learning-goals">Week 7-8 Learning Goals</a> for the list of vocabulary, concepts and skills.</p>
 </div>
 </div>
-<div id="practice-problems-3" class="section level2">
-<h2><span class="header-section-number">31.2</span> Practice Problems</h2>
-<div id="section-68" class="section level3">
+<div id="practice-problems-3" class="section level2 hasAnchor" number="31.2">
+<h2><span class="header-section-number">31.2</span> Practice Problems<a href="quiz-4-review.html#practice-problems-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section-68" class="section level3" number="31.2.1">
 <h3><span class="header-section-number">31.2.1</span> </h3>
 <p>Let <span class="math inline">\(\mathsf{v} = \begin{bmatrix}1 \\ -1 \\ 1 \end{bmatrix}\)</span> and <span class="math inline">\(\mathsf{w}= \begin{bmatrix}5 \\ 2 \\ 3 \end{bmatrix}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -558,7 +624,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><p>Let <span class="math inline">\(W=\mbox{span} (\mathsf{v}, \mathsf{w})\)</span>. Create an orthonormal basis <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2\)</span> for <span class="math inline">\(W\)</span> such that <span class="math inline">\(\mathsf{u}_1\)</span> is a vector in the same direction as <span class="math inline">\(\mathsf{v}\)</span>.</p></li>
 </ol>
 </div>
-<div id="section-69" class="section level3">
+<div id="section-69" class="section level3" number="31.2.2">
 <h3><span class="header-section-number">31.2.2</span> </h3>
 <p>Let <span class="math inline">\(\mathsf{u} \neq 0\)</span> be a vector in <span class="math inline">\(\mathbb{R}^n\)</span>. Define the function <span class="math inline">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> by
 <span class="math inline">\(T(\mathsf{x}) = \mbox{proj}_{\mathsf{u}} \mathsf{x}\)</span>.</p>
@@ -567,16 +633,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><p>Recall that the kernel of <span class="math inline">\(T\)</span> is the subspace <span class="math inline">\(\mbox{ker}(T) = \{ \mathsf{x} \in \mathbb{R}^n \mid T(x) = \mathbf{0} \}\)</span>. Describe <span class="math inline">\(\mbox{ker}(T)\)</span> as explicitly as you can.</p></li>
 </ol>
 </div>
-<div id="section-70" class="section level3">
+<div id="section-70" class="section level3" number="31.2.3">
 <h3><span class="header-section-number">31.2.3</span> </h3>
 <p>The vectors <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_2\)</span> form an orthonormal basis of a subspace <span class="math inline">\(W\)</span> of <span class="math inline">\(\mathbb{R}^4\)</span>. Find the projection of <span class="math inline">\(\mathsf{v}\)</span> onto <span class="math inline">\(W\)</span> and determine how close <span class="math inline">\(\mathsf{v}\)</span> is to <span class="math inline">\(W\)</span>.
 <span class="math display">\[
 \mathsf{u}_1 = \frac{1}{2}\begin{bmatrix} 1\\ -1\\ -1\\ 1 \end{bmatrix}, \quad
 \mathsf{u}_2 =  \frac{1}{2}\begin{bmatrix} 1\\ -1\\ 1\\ -1  \end{bmatrix}, \quad
-\mathsf{v} =  \begin{bmatrix}   2\\ 2\\ 4\\ 2 \end{bmatrix} 
+\mathsf{v} =  \begin{bmatrix}   2\\ 2\\ 4\\ 2 \end{bmatrix}
 \]</span></p>
 </div>
-<div id="section-71" class="section level3">
+<div id="section-71" class="section level3" number="31.2.4">
 <h3><span class="header-section-number">31.2.4</span> </h3>
 <p>Consider vectors
 <span class="math inline">\(\mathsf{v}_1 = \begin{bmatrix} 1 \\ 1 \\-1 \end{bmatrix}\)</span> and
@@ -591,21 +657,21 @@ Let <span class="math inline">\(W=\mbox{span}(\mathsf{v}_1, \mathsf{v}_2)\)</spa
 <span class="math inline">\(\hat{\mathsf{y}} \in W\)</span> and <span class="math inline">\(\mathsf{z} \in W^{\perp}\)</span>.</p></li>
 </ol>
 </div>
-<div id="section-72" class="section level3">
+<div id="section-72" class="section level3" number="31.2.5">
 <h3><span class="header-section-number">31.2.5</span> </h3>
 <p>Let <span class="math inline">\(W\)</span> be the span of the vectors
 <span class="math display">\[
 \begin{bmatrix}
-1 \\ -2 \\ 1 \\ 0 \\1 
+1 \\ -2 \\ 1 \\ 0 \\1
 \end{bmatrix}, \quad
 \begin{bmatrix}
--1 \\ 3 \\ -1 \\ 1 \\ -1 
+-1 \\ 3 \\ -1 \\ 1 \\ -1
 \end{bmatrix}, \quad
 \begin{bmatrix}
-0 \\ 0 \\ 1 \\ 3 \\1 
+0 \\ 0 \\ 1 \\ 3 \\1
 \end{bmatrix}, \quad
 \begin{bmatrix}
-0 \\ 2 \\ 0 \\ 0 \\4 
+0 \\ 2 \\ 0 \\ 0 \\4
 \end{bmatrix}
 \]</span></p>
 <ol style="list-style-type: lower-alpha">
@@ -615,7 +681,7 @@ Let <span class="math inline">\(W=\mbox{span}(\mathsf{v}_1, \mathsf{v}_2)\)</spa
 <li>Use the Gram-Schmidt process on your answer from part (c) to find an orthogonal basis for <span class="math inline">\(W^{\perp}\)</span>.</li>
 </ol>
 </div>
-<div id="section-73" class="section level3">
+<div id="section-73" class="section level3" number="31.2.6">
 <h3><span class="header-section-number">31.2.6</span> </h3>
 <p>Let <span class="math inline">\(\mathsf{u}_1, \mathsf{u}_1, \ldots, \mathsf{u}_n\)</span> be an <strong>orthonormal</strong> basis for <span class="math inline">\(\mathbb{R}^n\)</span>. Pick any <span class="math inline">\(\mathsf{v} \in \mathbb{R}^n\)</span>. Show that
 <span class="math display">\[
@@ -635,7 +701,7 @@ gramSchmidt(A)
 -->
 <!-- least squares -->
 </div>
-<div id="section-74" class="section level3">
+<div id="section-74" class="section level3" number="31.2.7">
 <h3><span class="header-section-number">31.2.7</span> </h3>
 <p>Consider the system <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span> given by
 <span class="math display">\[
@@ -677,13 +743,13 @@ c. How close is your approximate solution to the desired target vector?
 ### 
 -->
 </div>
-<div id="section-75" class="section level3">
+<div id="section-75" class="section level3" number="31.2.8">
 <h3><span class="header-section-number">31.2.8</span> </h3>
 <p>According to the <a href="https://covidtracking.com/">COVID Tracking Project</a>, Minnesota had <span class="math inline">\(54,463\)</span> positive COVID-19 cases between March 6 and 31 July, 2020. As of 16 December, 2020, that count has reached <span class="math inline">\(386,412\)</span>.</p>
 <p>The vector <code>covid.mn</code> lists the total number of new COVID-19 cases in Minnesota between August 1, 2020 and December 16, 2020 (on top of the previously reported <span class="math inline">\(54,463\)</span>).</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="quiz-4-review.html#cb319-1"></a>covid.start =<span class="st"> </span><span class="dv">54463</span></span>
-<span id="cb319-2"><a href="quiz-4-review.html#cb319-2"></a></span>
-<span id="cb319-3"><a href="quiz-4-review.html#cb319-3"></a>covid.mn =<span class="st"> </span><span class="kw">c</span>(<span class="dv">725</span>, <span class="dv">1484</span>, <span class="dv">2097</span>, <span class="dv">2699</span>, <span class="dv">3316</span>, <span class="dv">4177</span>, <span class="dv">4722</span>, <span class="dv">5638</span>, <span class="dv">6435</span>, <span class="dv">7053</span>, <span class="dv">7376</span>, <span class="dv">7840</span>, <span class="dv">8530</span>, <span class="dv">9260</span>, <span class="dv">9950</span>, <span class="dv">10689</span>, <span class="dv">11253</span>, <span class="dv">11598</span>, <span class="dv">12155</span>, <span class="dv">12845</span>, <span class="dv">13670</span>, <span class="dv">14404</span>, <span class="dv">15121</span>, <span class="dv">15835</span>, <span class="dv">16244</span>, <span class="dv">16773</span>, <span class="dv">17927</span>, <span class="dv">18777</span>, <span class="dv">19794</span>, <span class="dv">20726</span>, <span class="dv">21401</span>, <span class="dv">21892</span>, <span class="dv">22622</span>, <span class="dv">23660</span>, <span class="dv">24503</span>, <span class="dv">25417</span>, <span class="dv">26124</span>, <span class="dv">26762</span>, <span class="dv">27145</span>, <span class="dv">27405</span>, <span class="dv">27786</span>, <span class="dv">28253</span>, <span class="dv">29125</span>, <span class="dv">29848</span>, <span class="dv">30486</span>, <span class="dv">30888</span>, <span class="dv">31350</span>, <span class="dv">32259</span>, <span class="dv">33344</span>, <span class="dv">34258</span>, <span class="dv">35554</span>, <span class="dv">36479</span>, <span class="dv">36959</span>, <span class="dv">37637</span>, <span class="dv">38549</span>, <span class="dv">39726</span>, <span class="dv">41196</span>, <span class="dv">42271</span>, <span class="dv">43175</span>, <span class="dv">43984</span>, <span class="dv">44671</span>, <span class="dv">45737</span>, <span class="dv">46903</span>, <span class="dv">48324</span>, <span class="dv">49363</span>, <span class="dv">50336</span>, <span class="dv">51277</span>, <span class="dv">52188</span>, <span class="dv">53459</span>, <span class="dv">54849</span>, <span class="dv">56365</span>, <span class="dv">57805</span>, <span class="dv">58976</span>, <span class="dv">60111</span>, <span class="dv">61480</span>, <span class="dv">62643</span>, <span class="dv">64933</span>, <span class="dv">66627</span>, <span class="dv">68349</span>, <span class="dv">69976</span>, <span class="dv">71068</span>, <span class="dv">72128</span>, <span class="dv">73689</span>, <span class="dv">75400</span>, <span class="dv">77659</span>, <span class="dv">79339</span>, <span class="dv">80909</span>, <span class="dv">83073</span>, <span class="dv">84981</span>, <span class="dv">87848</span>, <span class="dv">91002</span>, <span class="dv">94009</span>, <span class="dv">96209</span>, <span class="dv">99157</span>, <span class="dv">102633</span>, <span class="dv">106460</span>, <span class="dv">110402</span>, <span class="dv">115844</span>, <span class="dv">120491</span>, <span class="dv">126399</span>, <span class="dv">130325</span>, <span class="dv">135218</span>, <span class="dv">140107</span>, <span class="dv">147332</span>, <span class="dv">152876</span>, <span class="dv">161565</span>, <span class="dv">169118</span>, <span class="dv">176555</span>, <span class="dv">182486</span>, <span class="dv">187580</span>, <span class="dv">195443</span>, <span class="dv">202237</span>, <span class="dv">208489</span>, <span class="dv">215694</span>, <span class="dv">222037</span>, <span class="dv">228453</span>, <span class="dv">234840</span>, <span class="dv">234840</span>, <span class="dv">240538</span>, <span class="dv">249560</span>, <span class="dv">258506</span>, <span class="dv">264300</span>, <span class="dv">267849</span>, <span class="dv">273014</span>, <span class="dv">279163</span>, <span class="dv">284510</span>, <span class="dv">290818</span>, <span class="dv">296399</span>, <span class="dv">301689</span>, <span class="dv">304740</span>, <span class="dv">309256</span>, <span class="dv">312755</span>, <span class="dv">316505</span>, <span class="dv">320935</span>, <span class="dv">324360</span>, <span class="dv">327378</span>, <span class="dv">329701</span>, <span class="dv">331949</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="quiz-4-review.html#cb319-1" aria-hidden="true" tabindex="-1"></a>covid.start <span class="ot">=</span> <span class="dv">54463</span></span>
+<span id="cb319-2"><a href="quiz-4-review.html#cb319-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb319-3"><a href="quiz-4-review.html#cb319-3" aria-hidden="true" tabindex="-1"></a>covid.mn <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">725</span>, <span class="dv">1484</span>, <span class="dv">2097</span>, <span class="dv">2699</span>, <span class="dv">3316</span>, <span class="dv">4177</span>, <span class="dv">4722</span>, <span class="dv">5638</span>, <span class="dv">6435</span>, <span class="dv">7053</span>, <span class="dv">7376</span>, <span class="dv">7840</span>, <span class="dv">8530</span>, <span class="dv">9260</span>, <span class="dv">9950</span>, <span class="dv">10689</span>, <span class="dv">11253</span>, <span class="dv">11598</span>, <span class="dv">12155</span>, <span class="dv">12845</span>, <span class="dv">13670</span>, <span class="dv">14404</span>, <span class="dv">15121</span>, <span class="dv">15835</span>, <span class="dv">16244</span>, <span class="dv">16773</span>, <span class="dv">17927</span>, <span class="dv">18777</span>, <span class="dv">19794</span>, <span class="dv">20726</span>, <span class="dv">21401</span>, <span class="dv">21892</span>, <span class="dv">22622</span>, <span class="dv">23660</span>, <span class="dv">24503</span>, <span class="dv">25417</span>, <span class="dv">26124</span>, <span class="dv">26762</span>, <span class="dv">27145</span>, <span class="dv">27405</span>, <span class="dv">27786</span>, <span class="dv">28253</span>, <span class="dv">29125</span>, <span class="dv">29848</span>, <span class="dv">30486</span>, <span class="dv">30888</span>, <span class="dv">31350</span>, <span class="dv">32259</span>, <span class="dv">33344</span>, <span class="dv">34258</span>, <span class="dv">35554</span>, <span class="dv">36479</span>, <span class="dv">36959</span>, <span class="dv">37637</span>, <span class="dv">38549</span>, <span class="dv">39726</span>, <span class="dv">41196</span>, <span class="dv">42271</span>, <span class="dv">43175</span>, <span class="dv">43984</span>, <span class="dv">44671</span>, <span class="dv">45737</span>, <span class="dv">46903</span>, <span class="dv">48324</span>, <span class="dv">49363</span>, <span class="dv">50336</span>, <span class="dv">51277</span>, <span class="dv">52188</span>, <span class="dv">53459</span>, <span class="dv">54849</span>, <span class="dv">56365</span>, <span class="dv">57805</span>, <span class="dv">58976</span>, <span class="dv">60111</span>, <span class="dv">61480</span>, <span class="dv">62643</span>, <span class="dv">64933</span>, <span class="dv">66627</span>, <span class="dv">68349</span>, <span class="dv">69976</span>, <span class="dv">71068</span>, <span class="dv">72128</span>, <span class="dv">73689</span>, <span class="dv">75400</span>, <span class="dv">77659</span>, <span class="dv">79339</span>, <span class="dv">80909</span>, <span class="dv">83073</span>, <span class="dv">84981</span>, <span class="dv">87848</span>, <span class="dv">91002</span>, <span class="dv">94009</span>, <span class="dv">96209</span>, <span class="dv">99157</span>, <span class="dv">102633</span>, <span class="dv">106460</span>, <span class="dv">110402</span>, <span class="dv">115844</span>, <span class="dv">120491</span>, <span class="dv">126399</span>, <span class="dv">130325</span>, <span class="dv">135218</span>, <span class="dv">140107</span>, <span class="dv">147332</span>, <span class="dv">152876</span>, <span class="dv">161565</span>, <span class="dv">169118</span>, <span class="dv">176555</span>, <span class="dv">182486</span>, <span class="dv">187580</span>, <span class="dv">195443</span>, <span class="dv">202237</span>, <span class="dv">208489</span>, <span class="dv">215694</span>, <span class="dv">222037</span>, <span class="dv">228453</span>, <span class="dv">234840</span>, <span class="dv">234840</span>, <span class="dv">240538</span>, <span class="dv">249560</span>, <span class="dv">258506</span>, <span class="dv">264300</span>, <span class="dv">267849</span>, <span class="dv">273014</span>, <span class="dv">279163</span>, <span class="dv">284510</span>, <span class="dv">290818</span>, <span class="dv">296399</span>, <span class="dv">301689</span>, <span class="dv">304740</span>, <span class="dv">309256</span>, <span class="dv">312755</span>, <span class="dv">316505</span>, <span class="dv">320935</span>, <span class="dv">324360</span>, <span class="dv">327378</span>, <span class="dv">329701</span>, <span class="dv">331949</span>)</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>Find the best fitting exponential function <span class="math inline">\(f(t) = a e^{k t}\)</span> for the number of COVID-19 cases in Minnesota since 31 July, 2020. Here <span class="math inline">\(t\)</span> is the number of days since 31 July.</p></li>
 <li><p>Run the following code to plot your function. This code assumes that your least squares solution is given by <code>xhat</code>. Does it look like a good fit?</p></li>
@@ -697,7 +763,7 @@ plot(x,f(x)+ covid.start,type=&quot;l&quot;,lwd=3,ylab=&quot;new positive COVID-
 points(x,covid.mn + covid.start,pch=20,cex=.7,col=&quot;red&quot;)
 </code></pre>
 </div>
-<div id="section-76" class="section level3">
+<div id="section-76" class="section level3" number="31.2.9">
 <h3><span class="header-section-number">31.2.9</span> </h3>
 <p>Consider the symmetric matrix
 <span class="math display">\[A = \begin{bmatrix}
@@ -717,17 +783,17 @@ A = \lambda_{1} \mathsf{v}_1 \mathsf{v}_1^{\top} + \lambda_{2} \mathsf{v}_2 \mat
 <li><p>Use your answer in part (d) to find the best rank 2 approximation for <span class="math inline">\(A\)</span>. (Be careful!)</p></li>
 </ol>
 </div>
-<div id="section-77" class="section level3">
+<div id="section-77" class="section level3" number="31.2.10">
 <h3><span class="header-section-number">31.2.10</span> </h3>
 <p>The matrix
 <span class="math display">\[
 A = \left[
 \begin{array}{cccc}
- 1 &amp; 2 &amp;  5 \\
- 2 &amp; 3 &amp;  6 \\
- -1 &amp; 2 &amp;  3 \\
- -3 &amp; 0 &amp;  1 \\
- 1 &amp; 4 &amp;  5 \\
+1 &amp; 2 &amp;  5 \\
+2 &amp; 3 &amp;  6 \\
+-1 &amp; 2 &amp;  3 \\
+-3 &amp; 0 &amp;  1 \\
+1 &amp; 4 &amp;  5 \\
 \end{array}
 \right]
 \]</span></p>
@@ -735,27 +801,27 @@ A = \left[
 <p><span class="math display">\[
 \left[
 \begin{array}{cccccc}
- 0.48 &amp; -0.02 &amp; 0.55 &amp; 0.63 &amp; -0.27 \\
- 0.61 &amp; -0.24 &amp; 0.32 &amp; -0.63 &amp; 0.27 \\
- 0.30 &amp; 0.43 &amp; -0.24 &amp; -0.32 &amp; -0.75 \\
- 0.032 &amp; 0.87 &amp; 0.22 &amp; 0.00 &amp; 0.44 \\
- 0.56 &amp; -0.01 &amp; -0.70 &amp; 0.32 &amp; 0.31 \\
+0.48 &amp; -0.02 &amp; 0.55 &amp; 0.63 &amp; -0.27 \\
+0.61 &amp; -0.24 &amp; 0.32 &amp; -0.63 &amp; 0.27 \\
+0.30 &amp; 0.43 &amp; -0.24 &amp; -0.32 &amp; -0.75 \\
+0.032 &amp; 0.87 &amp; 0.22 &amp; 0.00 &amp; 0.44 \\
+0.56 &amp; -0.01 &amp; -0.70 &amp; 0.32 &amp; 0.31 \\
 \end{array}
 \right]
 \left[
 \begin{array}{cccc}
- 11.4 &amp; 0 &amp; 0 \\
- 0 &amp; 3.60 &amp; 0 \\
- 0 &amp; 0 &amp; 1.39 \\
- 0 &amp; 0 &amp; 0 \\
- 0 &amp; 0 &amp; 0 \\
+11.4 &amp; 0 &amp; 0 \\
+0 &amp; 3.60 &amp; 0 \\
+0 &amp; 0 &amp; 1.39 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
 \end{array}
 \right]
 \left[
 \begin{array}{cccc}
- 0.16 &amp; -0.98 &amp; 0.062 \\
- 0.49 &amp; 0.026 &amp; -0.87 \\
- 0.86 &amp; 0.17 &amp; 0.49 \\
+0.16 &amp; -0.98 &amp; 0.062 \\
+0.49 &amp; 0.026 &amp; -0.87 \\
+0.86 &amp; 0.17 &amp; 0.49 \\
 \end{array}
 \right].
 \]</span></p>
@@ -768,7 +834,7 @@ A = \left[
 <li>What is the best rank 1 approximation of the matrix <span class="math inline">\(A\)</span>?</li>
 </ol>
 </div>
-<div id="section-78" class="section level3">
+<div id="section-78" class="section level3" number="31.2.11">
 <h3><span class="header-section-number">31.2.11</span> </h3>
 <p>Here is a matrix <span class="math inline">\(A\)</span> and its reduced row echelon form <span class="math inline">\(B\)</span>
 <span class="math display">\[
@@ -827,28 +893,27 @@ svd(U)
 ```
 -->
 </div>
-<div id="section-79" class="section level3">
+<div id="section-79" class="section level3" number="31.2.12">
 <h3><span class="header-section-number">31.2.12</span> </h3>
 <p>Singular value decomposition can be used for clustering of high dimensional data. Indeed, the singular vectors encode the patterns in a matrix. So let’s try this out on the Senate votes from the 109th Congress (from Problem Set 8). Let’s load in the data and assign a color to each senator according to their party.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="quiz-4-review.html#cb321-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb321-2"><a href="quiz-4-review.html#cb321-2"></a></span>
-<span id="cb321-3"><a href="quiz-4-review.html#cb321-3"></a>senate.vote.file =<span class="st"> &quot;https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv&quot;</span></span>
-<span id="cb321-4"><a href="quiz-4-review.html#cb321-4"></a></span>
-<span id="cb321-5"><a href="quiz-4-review.html#cb321-5"></a>senators &lt;-<span class="st"> </span><span class="kw">read_csv</span>(senate.vote.file, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>## 
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────
-## cols(
-##   .default = col_double(),
-##   Name = col_character(),
-##   Party = col_character(),
-##   State = col_character()
-## )
-## ℹ Use `spec()` for the full column specifications.</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="quiz-4-review.html#cb323-1"></a>sen.mat &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(senators[<span class="dv">4</span><span class="op">:</span><span class="dv">49</span>])</span>
-<span id="cb323-2"><a href="quiz-4-review.html#cb323-2"></a></span>
-<span id="cb323-3"><a href="quiz-4-review.html#cb323-3"></a>sen.color=<span class="kw">rep</span>(<span class="st">&quot;goldenrod&quot;</span>, <span class="kw">dim</span>(senators)[<span class="dv">1</span>])</span>
-<span id="cb323-4"><a href="quiz-4-review.html#cb323-4"></a>sen.color[senators<span class="op">$</span>Party<span class="op">==</span><span class="st">&#39;D&#39;</span>]=<span class="st">&quot;cornflowerblue&quot;</span></span>
-<span id="cb323-5"><a href="quiz-4-review.html#cb323-5"></a>sen.color[senators<span class="op">$</span>Party<span class="op">==</span><span class="st">&#39;R&#39;</span>]=<span class="st">&quot;firebrick&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="quiz-4-review.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb321-2"><a href="quiz-4-review.html#cb321-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb321-3"><a href="quiz-4-review.html#cb321-3" aria-hidden="true" tabindex="-1"></a>senate.vote.file <span class="ot">=</span> <span class="st">&quot;https://raw.github.com/mathbeveridge/math236_f20//main/data/SenateVoting109.csv&quot;</span></span>
+<span id="cb321-4"><a href="quiz-4-review.html#cb321-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb321-5"><a href="quiz-4-review.html#cb321-5" aria-hidden="true" tabindex="-1"></a>senators <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(senate.vote.file, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Rows: 99 Columns: 49
+## ── Column specification ────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (3): Name, Party, State
+## dbl (46): V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, ...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="quiz-4-review.html#cb323-1" aria-hidden="true" tabindex="-1"></a>sen.mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(senators[<span class="dv">4</span><span class="sc">:</span><span class="dv">49</span>])</span>
+<span id="cb323-2"><a href="quiz-4-review.html#cb323-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb323-3"><a href="quiz-4-review.html#cb323-3" aria-hidden="true" tabindex="-1"></a>sen.color<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;goldenrod&quot;</span>, <span class="fu">dim</span>(senators)[<span class="dv">1</span>])</span>
+<span id="cb323-4"><a href="quiz-4-review.html#cb323-4" aria-hidden="true" tabindex="-1"></a>sen.color[senators<span class="sc">$</span>Party<span class="sc">==</span><span class="st">&#39;D&#39;</span>]<span class="ot">=</span><span class="st">&quot;cornflowerblue&quot;</span></span>
+<span id="cb323-5"><a href="quiz-4-review.html#cb323-5" aria-hidden="true" tabindex="-1"></a>sen.color[senators<span class="sc">$</span>Party<span class="sc">==</span><span class="st">&#39;R&#39;</span>]<span class="ot">=</span><span class="st">&quot;firebrick&quot;</span></span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>Find the singular value decomposition. Define <code>singval</code> to be the singular values. Plot them using the command <code>plot(singval,pch=19,cex=.5,col='blue')</code>. How many “important” singular values are there?</p></li>
 <li><p>Define <code>U</code> to be the matrix of left singular vectors. Plot the important singular vectors one by one. Here is a command to plot the first singular vector: `<code>plot(U[,1],pch=19,cex=.75,col=sen.color)</code>. Do any of the singular values distinguish Democrats from Republicans along the <span class="math inline">\(y\)</span>-axis?</p></li>
@@ -856,9 +921,9 @@ svd(U)
 <p><strong>Remark</strong>: When we explored <a href="voting-patterns-in-the-us-senate">Voting Patterns in the US Senate</a>, we were actually using singular value decomposition to explore those other datasets. In this problem, you looked at a rectangular matrix <span class="math inline">\(A\)</span> for senators (rows) and votes (columns). In the previous exploration, you were given a square matrix that was (essentially) <span class="math inline">\(AA^{\top} = (A^{\top}A)^{\top}\)</span>. So the eigenvectors of that square matrix are the singular values of the rectangular matrix <span class="math inline">\(A\)</span>.</p>
 </div>
 </div>
-<div id="solutions-to-practice-problems-3" class="section level2">
-<h2><span class="header-section-number">31.3</span> Solutions to Practice Problems</h2>
-<div id="section-80" class="section level3">
+<div id="solutions-to-practice-problems-3" class="section level2 hasAnchor" number="31.3">
+<h2><span class="header-section-number">31.3</span> Solutions to Practice Problems<a href="quiz-4-review.html#solutions-to-practice-problems-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section-80" class="section level3" number="31.3.1">
 <h3><span class="header-section-number">31.3.1</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math display">\[\begin{align}
@@ -867,15 +932,15 @@ svd(U)
 \end{align}\]</span></p></li>
 <li><p>We have <span class="math inline">\(\mathsf{v} - \mathsf{w} = \begin{bmatrix} -4 \\ -3 \\ -2 \end{bmatrix}\)</span> and so
 <span class="math display">\[
-\| \mathsf{v} - \mathsf{w}\|  = \sqrt{16+9+4} = \sqrt{29} 
+\| \mathsf{v} - \mathsf{w}\|  = \sqrt{16+9+4} = \sqrt{29}
 \]</span></p></li>
 <li><p><span class="math display">\[ \cos \theta = \frac{\mathsf{v} \cdot \mathsf{w}}{\| \mathsf{v}  \| \, \|\mathsf{w} \| }
 = \frac{5-2+3}{\sqrt{3} \, \sqrt{38} } = \frac{2\sqrt{3}}{\sqrt{38} }
 \]</span></p></li>
 <li><p><span class="math display">\[
-\hat{\mathsf{w}} = \mbox{proj}_{\mathsf{v}} \mathsf{w} = \frac{\mathsf{v} \cdot \mathsf{w}}{ \mathsf{v} \cdot \mathsf{v} } \, \mathsf{v} = \frac{5-2+3}{1+1+1}  \mathsf{v}  = 2 \mathsf{v} = 
+\hat{\mathsf{w}} = \mbox{proj}_{\mathsf{v}} \mathsf{w} = \frac{\mathsf{v} \cdot \mathsf{w}}{ \mathsf{v} \cdot \mathsf{v} } \, \mathsf{v} = \frac{5-2+3}{1+1+1}  \mathsf{v}  = 2 \mathsf{v} =
 \begin{bmatrix}
-2 \\ -2 \\ 2 
+2 \\ -2 \\ 2
 \end{bmatrix}
 \]</span></p></li>
 <li><p>Using <span class="math inline">\(\hat{\mathsf{w}}\)</span> from the previous problem, we know that
@@ -894,7 +959,7 @@ is orthogonal to <span class="math inline">\(\mathsf{v}\)</span>.So an orthonorm
 \]</span></p></li>
 </ol>
 </div>
-<div id="section-81" class="section level3">
+<div id="section-81" class="section level3" number="31.3.2">
 <h3><span class="header-section-number">31.3.2</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li>We check that <span class="math inline">\(T(\mathsf{x} + \mathsf{y}) = T(\mathsf{x}) + T(\mathsf{y})\)</span> and that <span class="math inline">\(T(c\mathsf{x} ) = c \, T(\mathsf{x}).\)</span> To make things a little more clear, let’s write
@@ -922,41 +987,41 @@ T(c\mathsf{x}) = \big(c\mathsf{x}\cdot \mathsf{u} \big) \, \frac{1}{\|\mathsf{u}
 </ul></li>
 </ol>
 </div>
-<div id="section-82" class="section level3">
+<div id="section-82" class="section level3" number="31.3.3">
 <h3><span class="header-section-number">31.3.3</span> </h3>
 <p>We have <span class="math inline">\(\mathsf{u}_1 \cdot \mathsf{v} = 2-2-4+2=-2\)</span> and <span class="math inline">\(\mathsf{u}_1 \cdot \mathsf{v} = 2-2+4-2=2\)</span> so
 <span class="math display">\[
-\hat{\mathsf{v}} = \mbox{proj}_W \mathsf{v} = -2 \mathsf{u}_1 + 2 \mathsf{u}_2 = 
+\hat{\mathsf{v}} = \mbox{proj}_W \mathsf{v} = -2 \mathsf{u}_1 + 2 \mathsf{u}_2 =
 \begin{bmatrix}
-1 \\ -1 \\ -1 \\ 1 
+1 \\ -1 \\ -1 \\ 1
 \end{bmatrix}
 +
 \begin{bmatrix}
-1 \\ -1 \\ 1 \\ -1 
+1 \\ -1 \\ 1 \\ -1
 \end{bmatrix}
 =
 \begin{bmatrix}
-2 \\ -2 \\ 0 \\ 0 
+2 \\ -2 \\ 0 \\ 0
 \end{bmatrix}
 \]</span>
 with residual vector
 <span class="math display">\[
 \mathsf{z} = \mathsf{v} - \hat{\mathsf{v}}
 = \begin{bmatrix}
-2 \\ 2 \\ 4 \\ 2 
+2 \\ 2 \\ 4 \\ 2
 \end{bmatrix}
 -
 \begin{bmatrix}
-2 \\ -2 \\ 0 \\ 0 
+2 \\ -2 \\ 0 \\ 0
 \end{bmatrix}
 =
 \begin{bmatrix}
-0 \\ 6 \\ 4 \\ 2 
+0 \\ 6 \\ 4 \\ 2
 \end{bmatrix}
 \]</span>
 and the distance is <span class="math inline">\(\| \mathsf{z} \| = \sqrt{36 + 16 + 4} = \sqrt{56}\)</span>.</p>
 </div>
-<div id="section-83" class="section level3">
+<div id="section-83" class="section level3" number="31.3.4">
 <h3><span class="header-section-number">31.3.4</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(\mathsf{v}_1 \cdot \mathsf{v}_2 = 1 +2 - 3 =0\)</span>.</p></li>
@@ -1001,11 +1066,11 @@ and so
 \]</span></li>
 </ol>
 </div>
-<div id="section-84" class="section level3">
+<div id="section-84" class="section level3" number="31.3.5">
 <h3><span class="header-section-number">31.3.5</span> </h3>
 <p>a .We will answer this one using RStudio.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="quiz-4-review.html#cb324-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">4</span>))</span>
-<span id="cb324-2"><a href="quiz-4-review.html#cb324-2"></a><span class="kw">rref</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="quiz-4-review.html#cb324-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">4</span>))</span>
+<span id="cb324-2"><a href="quiz-4-review.html#cb324-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    0    0    0
 ## [2,]    0    1    0    0
@@ -1017,7 +1082,7 @@ and so
 <li></li>
 </ol>
 <p>RStudio makes this so easy!</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="quiz-4-review.html#cb326-1"></a><span class="kw">gramSchmidt</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="quiz-4-review.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gramSchmidt</span>(A)</span></code></pre></div>
 <pre><code>## $Q
 ##            [,1]      [,2]          [,3]        [,4]
 ## [1,]  0.3779645 0.2390457 -8.164966e-01 -0.26233033
@@ -1035,7 +1100,7 @@ and so
 <ol start="3" style="list-style-type: lower-alpha">
 <li>We obtain a basis for <span class="math inline">\(W^{\perp}\)</span> by finding <span class="math inline">\(\mbox{Nul(A^{\top})}\)</span> So let’s row reduce <span class="math inline">\(A^{\top}\)</span></li>
 </ol>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="quiz-4-review.html#cb328-1"></a><span class="kw">rref</span>(<span class="kw">t</span>(A))</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="quiz-4-review.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(<span class="fu">t</span>(A))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    0    0    0   -2
 ## [2,]    0    1    0    0    2
@@ -1045,11 +1110,11 @@ and so
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Using Gram-Schmidt is overkill for this problem. I’ll just divide by the length of the vector.</li>
 </ol>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="quiz-4-review.html#cb330-1"></a>vec =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb330-2"><a href="quiz-4-review.html#cb330-2"></a>vec <span class="op">/</span><span class="st"> </span><span class="kw">Norm</span>(vec)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="quiz-4-review.html#cb330-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb330-2"><a href="quiz-4-review.html#cb330-2" aria-hidden="true" tabindex="-1"></a>vec <span class="sc">/</span> <span class="fu">Norm</span>(vec)</span></code></pre></div>
 <pre><code>## [1]  0.2540003 -0.2540003 -0.8890009  0.2540003  0.1270001</code></pre>
 </div>
-<div id="section-85" class="section level3">
+<div id="section-85" class="section level3" number="31.3.6">
 <h3><span class="header-section-number">31.3.6</span> </h3>
 <p>We will show that
 <span class="math inline">\(\| \mathsf{v} \|^2 = ( \mathsf{v} \cdot \mathsf{u}_1)^2 + (\mathsf{v} \cdot \mathsf{u}_2)^2 + \cdots +(\mathsf{v} \cdot \mathsf{u}_n)^2.\)</span></p>
@@ -1062,14 +1127,14 @@ and so
 because <span class="math inline">\(\mathsf{u}_i \cdot \mathsf{u}_i =1\)</span> and <span class="math inline">\(\mathsf{u}_i \cdot \mathsf{u}_j=0\)</span> for <span class="math inline">\(i \neq j\)</span>.</p>
 <p>Finally, we note that <span class="math inline">\(\mathsf{v} \cdot \mathsf{u_i} = c_i\)</span> using the same facts about the dot projects for the orthonormal basis. So we have verified the claim above.</p>
 </div>
-<div id="section-86" class="section level3">
+<div id="section-86" class="section level3" number="31.3.7">
 <h3><span class="header-section-number">31.3.7</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="quiz-4-review.html#cb332-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb332-2"><a href="quiz-4-review.html#cb332-2"></a>b  =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb332-3"><a href="quiz-4-review.html#cb332-3"></a><span class="kw">rref</span>(<span class="kw">cbind</span>(A,b))</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="quiz-4-review.html#cb332-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb332-2"><a href="quiz-4-review.html#cb332-2" aria-hidden="true" tabindex="-1"></a>b  <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb332-3"><a href="quiz-4-review.html#cb332-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(<span class="fu">cbind</span>(A,b))</span></code></pre></div>
 <pre><code>##            b
 ## [1,] 1 0 0 0
 ## [2,] 0 1 0 0
@@ -1080,34 +1145,34 @@ because <span class="math inline">\(\mathsf{u}_i \cdot \mathsf{u}_i =1\)</span> 
 <li></li>
 </ol>
 <p>Here is the least squares calculation.</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="quiz-4-review.html#cb334-1"></a><span class="co">#solve the normal equation</span></span>
-<span id="cb334-2"><a href="quiz-4-review.html#cb334-2"></a>(<span class="dt">xhat =</span> <span class="kw">solve</span>(<span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>A, <span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>b))</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="quiz-4-review.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="co">#solve the normal equation</span></span>
+<span id="cb334-2"><a href="quiz-4-review.html#cb334-2" aria-hidden="true" tabindex="-1"></a>(<span class="at">xhat =</span> <span class="fu">solve</span>(<span class="fu">t</span>(A) <span class="sc">%*%</span> A, <span class="fu">t</span>(A) <span class="sc">%*%</span> b))</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    2
 ## [2,]   -1
 ## [3,]    1</code></pre>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="quiz-4-review.html#cb336-1"></a><span class="co"># find the projection</span></span>
-<span id="cb336-2"><a href="quiz-4-review.html#cb336-2"></a>(<span class="dt">bhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="quiz-4-review.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the projection</span></span>
+<span id="cb336-2"><a href="quiz-4-review.html#cb336-2" aria-hidden="true" tabindex="-1"></a>(<span class="at">bhat =</span> A <span class="sc">%*%</span> xhat)</span></code></pre></div>
 <pre><code>##               [,1]
 ## [1,]  2.000000e+00
 ## [2,] -1.000000e+00
 ## [3,]  6.661338e-16
 ## [4,]  1.000000e+00</code></pre>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="quiz-4-review.html#cb338-1"></a><span class="co"># find the residual vector</span></span>
-<span id="cb338-2"><a href="quiz-4-review.html#cb338-2"></a>(<span class="dt">z =</span> b <span class="op">-</span><span class="st"> </span>bhat)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="quiz-4-review.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the residual vector</span></span>
+<span id="cb338-2"><a href="quiz-4-review.html#cb338-2" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> b <span class="sc">-</span> bhat)</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    2
 ## [2,]    2
 ## [3,]   -2
 ## [4,]   -2</code></pre>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="quiz-4-review.html#cb340-1"></a><span class="co"># check that z is orthogonal to Col(A)</span></span>
-<span id="cb340-2"><a href="quiz-4-review.html#cb340-2"></a><span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>z</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="quiz-4-review.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check that z is orthogonal to Col(A)</span></span>
+<span id="cb340-2"><a href="quiz-4-review.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A) <span class="sc">%*%</span> z</span></code></pre></div>
 <pre><code>##               [,1]
 ## [1,] -8.881784e-16
 ## [2,]  0.000000e+00
 ## [3,]  0.000000e+00</code></pre>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="quiz-4-review.html#cb342-1"></a><span class="co"># measure the distance between bhat and b</span></span>
-<span id="cb342-2"><a href="quiz-4-review.html#cb342-2"></a><span class="kw">sqrt</span>( <span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="quiz-4-review.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure the distance between bhat and b</span></span>
+<span id="cb342-2"><a href="quiz-4-review.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>( <span class="fu">t</span>(z) <span class="sc">%*%</span> z)</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    4</code></pre>
 <p>The projection is <span class="math inline">\(\hat{\mathsf{b}} = [2,-1,0,1]^{\top}\)</span>.
@@ -1120,49 +1185,49 @@ The residual is <span class="math inline">\(\mathsf{z} = [2,2,-2,-2]^{\top}\)</s
 ###</li>
 <li></li>
 </ol>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="quiz-4-review.html#cb344-1"></a>x =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(covid.mn)</span>
-<span id="cb344-2"><a href="quiz-4-review.html#cb344-2"></a>y =<span class="st"> </span><span class="kw">log</span>(covid.mn)</span>
-<span id="cb344-3"><a href="quiz-4-review.html#cb344-3"></a></span>
-<span id="cb344-4"><a href="quiz-4-review.html#cb344-4"></a>A =<span class="st"> </span><span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x)</span>
-<span id="cb344-5"><a href="quiz-4-review.html#cb344-5"></a></span>
-<span id="cb344-6"><a href="quiz-4-review.html#cb344-6"></a>(<span class="dt">xhat =</span> <span class="kw">solve</span>(<span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>A, <span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>y))</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="quiz-4-review.html#cb344-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(covid.mn)</span>
+<span id="cb344-2"><a href="quiz-4-review.html#cb344-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">log</span>(covid.mn)</span>
+<span id="cb344-3"><a href="quiz-4-review.html#cb344-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-4"><a href="quiz-4-review.html#cb344-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cbind</span>(x<span class="sc">^</span><span class="dv">0</span>, x)</span>
+<span id="cb344-5"><a href="quiz-4-review.html#cb344-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-6"><a href="quiz-4-review.html#cb344-6" aria-hidden="true" tabindex="-1"></a>(<span class="at">xhat =</span> <span class="fu">solve</span>(<span class="fu">t</span>(A) <span class="sc">%*%</span> A, <span class="fu">t</span>(A) <span class="sc">%*%</span> y))</span></code></pre></div>
 <pre><code>##         [,1]
 ##   8.66588980
 ## x 0.03138331</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="quiz-4-review.html#cb346-1"></a>a =<span class="st"> </span><span class="kw">exp</span>(xhat[<span class="dv">1</span>])</span>
-<span id="cb346-2"><a href="quiz-4-review.html#cb346-2"></a>k =<span class="st"> </span>xhat[<span class="dv">2</span>]</span>
-<span id="cb346-3"><a href="quiz-4-review.html#cb346-3"></a></span>
-<span id="cb346-4"><a href="quiz-4-review.html#cb346-4"></a>f=<span class="cf">function</span>(y){a <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(k<span class="op">*</span>(y))}</span>
-<span id="cb346-5"><a href="quiz-4-review.html#cb346-5"></a></span>
-<span id="cb346-6"><a href="quiz-4-review.html#cb346-6"></a><span class="kw">plot</span>(x,<span class="kw">f</span>(x)<span class="op">+</span><span class="st"> </span>covid.start,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">ylab=</span><span class="st">&quot;new positive COVID-19 cases&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;days since July 31, 2020&quot;</span>, <span class="dt">main=</span><span class="st">&quot;best fit exponential function&quot;</span>)</span>
-<span id="cb346-7"><a href="quiz-4-review.html#cb346-7"></a><span class="kw">points</span>(x,covid.mn <span class="op">+</span><span class="st"> </span>covid.start,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="quiz-4-review.html#cb346-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">exp</span>(xhat[<span class="dv">1</span>])</span>
+<span id="cb346-2"><a href="quiz-4-review.html#cb346-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">=</span> xhat[<span class="dv">2</span>]</span>
+<span id="cb346-3"><a href="quiz-4-review.html#cb346-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb346-4"><a href="quiz-4-review.html#cb346-4" aria-hidden="true" tabindex="-1"></a>f<span class="ot">=</span><span class="cf">function</span>(y){a <span class="sc">*</span> <span class="fu">exp</span>(k<span class="sc">*</span>(y))}</span>
+<span id="cb346-5"><a href="quiz-4-review.html#cb346-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb346-6"><a href="quiz-4-review.html#cb346-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">f</span>(x)<span class="sc">+</span> covid.start,<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">ylab=</span><span class="st">&quot;new positive COVID-19 cases&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;days since July 31, 2020&quot;</span>, <span class="at">main=</span><span class="st">&quot;best fit exponential function&quot;</span>)</span>
+<span id="cb346-7"><a href="quiz-4-review.html#cb346-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,covid.mn <span class="sc">+</span> covid.start,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span>.<span class="dv">7</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/q4-covid-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>The curve is a pretty good fit (unfortunately?). However, it does look like the additional restrictions of the last two weeks are slowing the COVID spread.</p>
 </div>
-<div id="section-87" class="section level3">
+<div id="section-87" class="section level3" number="31.3.8">
 <h3><span class="header-section-number">31.3.8</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="quiz-4-review.html#cb347-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">34</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">34</span>,<span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">34</span>,<span class="op">-</span><span class="dv">34</span>,<span class="dv">74</span>,<span class="dv">34</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">34</span>,<span class="dv">3</span>))</span>
-<span id="cb347-2"><a href="quiz-4-review.html#cb347-2"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="quiz-4-review.html#cb347-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">34</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="sc">-</span><span class="dv">34</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">34</span>,<span class="sc">-</span><span class="dv">34</span>,<span class="dv">74</span>,<span class="dv">34</span>),<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">34</span>,<span class="dv">3</span>))</span>
+<span id="cb347-2"><a href="quiz-4-review.html#cb347-2" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    3    0   34    3
 ## [2,]    0    6  -34    0
 ## [3,]   34  -34   74   34
 ## [4,]    3    0   34    3</code></pre>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="quiz-4-review.html#cb349-1"></a>syst =<span class="st"> </span><span class="kw">eigen</span>(A)</span>
-<span id="cb349-2"><a href="quiz-4-review.html#cb349-2"></a></span>
-<span id="cb349-3"><a href="quiz-4-review.html#cb349-3"></a>(<span class="dt">P =</span> syst<span class="op">$</span>vectors)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="quiz-4-review.html#cb349-1" aria-hidden="true" tabindex="-1"></a>syst <span class="ot">=</span> <span class="fu">eigen</span>(A)</span>
+<span id="cb349-2"><a href="quiz-4-review.html#cb349-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-3"><a href="quiz-4-review.html#cb349-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">P =</span> syst<span class="sc">$</span>vectors)</span></code></pre></div>
 <pre><code>##            [,1]          [,2]          [,3] [,4]
 ## [1,] -0.2886751  4.082483e-01 -7.071068e-01  0.5
 ## [2,]  0.2886751  8.164966e-01 -3.295975e-15 -0.5
 ## [3,] -0.8660254 -3.330669e-16  7.771561e-16 -0.5
 ## [4,] -0.2886751  4.082483e-01  7.071068e-01  0.5</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="quiz-4-review.html#cb351-1"></a><span class="kw">zapsmall</span>(P <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(P))</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="quiz-4-review.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zapsmall</span>(P <span class="sc">%*%</span> <span class="fu">t</span>(P))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    0    0    0
 ## [2,]    0    1    0    0
@@ -1177,12 +1242,12 @@ The residual is <span class="math inline">\(\mathsf{z} = [2,2,-2,-2]^{\top}\)</s
 <ol start="3" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="quiz-4-review.html#cb354-1"></a>v1 =<span class="st"> </span>syst<span class="op">$</span>vectors[,<span class="dv">1</span>]</span>
-<span id="cb354-2"><a href="quiz-4-review.html#cb354-2"></a>v2 =<span class="st"> </span>syst<span class="op">$</span>vectors[,<span class="dv">2</span>]</span>
-<span id="cb354-3"><a href="quiz-4-review.html#cb354-3"></a>v3 =<span class="st"> </span>syst<span class="op">$</span>vectors[,<span class="dv">3</span>]</span>
-<span id="cb354-4"><a href="quiz-4-review.html#cb354-4"></a>v4 =<span class="st"> </span>syst<span class="op">$</span>vectors[,<span class="dv">4</span>]</span>
-<span id="cb354-5"><a href="quiz-4-review.html#cb354-5"></a></span>
-<span id="cb354-6"><a href="quiz-4-review.html#cb354-6"></a>syst<span class="op">$</span>values[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>v1 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v1) <span class="op">+</span><span class="st"> </span>syst<span class="op">$</span>values[<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>v2 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v2) <span class="op">+</span><span class="st"> </span>syst<span class="op">$</span>values[<span class="dv">3</span>] <span class="op">*</span><span class="st"> </span>v3 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v3) <span class="op">+</span><span class="st"> </span>syst<span class="op">$</span>values[<span class="dv">4</span>] <span class="op">*</span><span class="st"> </span>v4 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="quiz-4-review.html#cb354-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">=</span> syst<span class="sc">$</span>vectors[,<span class="dv">1</span>]</span>
+<span id="cb354-2"><a href="quiz-4-review.html#cb354-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">=</span> syst<span class="sc">$</span>vectors[,<span class="dv">2</span>]</span>
+<span id="cb354-3"><a href="quiz-4-review.html#cb354-3" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">=</span> syst<span class="sc">$</span>vectors[,<span class="dv">3</span>]</span>
+<span id="cb354-4"><a href="quiz-4-review.html#cb354-4" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">=</span> syst<span class="sc">$</span>vectors[,<span class="dv">4</span>]</span>
+<span id="cb354-5"><a href="quiz-4-review.html#cb354-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb354-6"><a href="quiz-4-review.html#cb354-6" aria-hidden="true" tabindex="-1"></a>syst<span class="sc">$</span>values[<span class="dv">1</span>] <span class="sc">*</span> v1 <span class="sc">%*%</span> <span class="fu">t</span>(v1) <span class="sc">+</span> syst<span class="sc">$</span>values[<span class="dv">2</span>] <span class="sc">*</span> v2 <span class="sc">%*%</span> <span class="fu">t</span>(v2) <span class="sc">+</span> syst<span class="sc">$</span>values[<span class="dv">3</span>] <span class="sc">*</span> v3 <span class="sc">%*%</span> <span class="fu">t</span>(v3) <span class="sc">+</span> syst<span class="sc">$</span>values[<span class="dv">4</span>] <span class="sc">*</span> v4 <span class="sc">%*%</span> <span class="fu">t</span>(v4)</span></code></pre></div>
 <pre><code>##               [,1]          [,2] [,3]         [,4]
 ## [1,]  3.000000e+00 -1.776357e-15   34 3.000000e+00
 ## [2,] -1.776357e-15  6.000000e+00  -34 5.595524e-14
@@ -1192,14 +1257,14 @@ The residual is <span class="math inline">\(\mathsf{z} = [2,2,-2,-2]^{\top}\)</s
 <li>We must remember to use the eigenvalues of largest magnitude: these are
 <span class="math inline">\(\lambda_1 = 108\)</span> and <span class="math inline">\(\lambda_4 = -28\)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="quiz-4-review.html#cb356-1"></a>syst<span class="op">$</span>values[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>v1 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v1)  <span class="op">+</span><span class="st"> </span>syst<span class="op">$</span>values[<span class="dv">4</span>] <span class="op">*</span><span class="st"> </span>v4 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="quiz-4-review.html#cb356-1" aria-hidden="true" tabindex="-1"></a>syst<span class="sc">$</span>values[<span class="dv">1</span>] <span class="sc">*</span> v1 <span class="sc">%*%</span> <span class="fu">t</span>(v1)  <span class="sc">+</span> syst<span class="sc">$</span>values[<span class="dv">4</span>] <span class="sc">*</span> v4 <span class="sc">%*%</span> <span class="fu">t</span>(v4)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    2   -2   34    2
 ## [2,]   -2    2  -34   -2
 ## [3,]   34  -34   74   34
 ## [4,]    2   -2   34    2</code></pre>
 </div>
-<div id="section-88" class="section level3">
+<div id="section-88" class="section level3" number="31.3.9">
 <h3><span class="header-section-number">31.3.9</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li><p>This SVD factorization is <span class="math inline">\(U \Sigma V^{\top}\)</span>.</p>
@@ -1214,7 +1279,7 @@ The residual is <span class="math inline">\(\mathsf{z} = [2,2,-2,-2]^{\top}\)</s
 <li><p>The 3D volume expands because the product of the singular values is greater than 1.</p></li>
 <li></li>
 </ol>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="quiz-4-review.html#cb358-1"></a><span class="fl">11.4</span> <span class="op">*</span><span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="fl">0.48</span>,<span class="fl">0.61</span>,<span class="fl">0.30</span>,<span class="fl">0.032</span>,<span class="fl">0.56</span>)) <span class="op">%*%</span><span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="fl">0.16</span>,<span class="op">-</span><span class="fl">0.98</span>,<span class="fl">0.062</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="quiz-4-review.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fl">11.4</span> <span class="sc">*</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="fl">0.48</span>,<span class="fl">0.61</span>,<span class="fl">0.30</span>,<span class="fl">0.032</span>,<span class="fl">0.56</span>)) <span class="sc">%*%</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="fl">0.16</span>,<span class="sc">-</span><span class="fl">0.98</span>,<span class="fl">0.062</span>))</span></code></pre></div>
 <pre><code>##          [,1]      [,2]      [,3]
 ## [1,] 0.875520 -5.362560 0.3392640
 ## [2,] 1.112640 -6.814920 0.4311480
@@ -1222,7 +1287,7 @@ The residual is <span class="math inline">\(\mathsf{z} = [2,2,-2,-2]^{\top}\)</s
 ## [4,] 0.058368 -0.357504 0.0226176
 ## [5,] 1.021440 -6.256320 0.3958080</code></pre>
 </div>
-<div id="section-89" class="section level3">
+<div id="section-89" class="section level3" number="31.3.10">
 <h3><span class="header-section-number">31.3.10</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li><p>The null space is the span of <span class="math inline">\([-2.5,-1,-1.5,1,0]^{\top}\)</span> and <span class="math inline">\([-1.5,-2,-2.5,0,1]^{\top}\)</span>.
@@ -1236,22 +1301,22 @@ The column space is the span of <span class="math inline">\([1,2,3,-1]^{\top}\)<
 </ul></li>
 <li></li>
 </ol>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="quiz-4-review.html#cb360-1"></a>A =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">4</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>))</span>
-<span id="cb360-2"><a href="quiz-4-review.html#cb360-2"></a>B =<span class="st"> </span><span class="kw">rref</span>(A)</span>
-<span id="cb360-3"><a href="quiz-4-review.html#cb360-3"></a></span>
-<span id="cb360-4"><a href="quiz-4-review.html#cb360-4"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="quiz-4-review.html#cb360-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">3</span>),<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">4</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb360-2"><a href="quiz-4-review.html#cb360-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">rref</span>(A)</span>
+<span id="cb360-3"><a href="quiz-4-review.html#cb360-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb360-4"><a href="quiz-4-review.html#cb360-4" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    3   -3    1    0
 ## [2,]    2    1    0    6    5
 ## [3,]    3    3   -3    6    3
 ## [4,]   -1    4   -3   -3   -1</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="quiz-4-review.html#cb362-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="quiz-4-review.html#cb362-1" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    0    0  2.5  1.5
 ## [2,]    0    1    0  1.0  2.0
 ## [3,]    0    0    1  1.5  2.5
 ## [4,]    0    0    0  0.0  0.0</code></pre>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="quiz-4-review.html#cb364-1"></a>(<span class="dt">Asvd =</span> <span class="kw">svd</span>(A))</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="quiz-4-review.html#cb364-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Asvd =</span> <span class="fu">svd</span>(A))</span></code></pre></div>
 <pre><code>## $d
 ## [1] 1.170522e+01 7.291802e+00 1.953827e+00 1.048298e-15
 ## 
@@ -1269,7 +1334,7 @@ The column space is the span of <span class="math inline">\([1,2,3,-1]^{\top}\)<
 ## [3,]  0.2022409  0.62969638 -0.2863539  0.1988388
 ## [4,] -0.7526916  0.27463749  0.3096671  0.5095232
 ## [5,] -0.4758851  0.19080183 -0.7302360 -0.3852494</code></pre>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="quiz-4-review.html#cb366-1"></a>(<span class="dt">Bsvd =</span> <span class="kw">svd</span>(B))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="quiz-4-review.html#cb366-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Bsvd =</span> <span class="fu">svd</span>(B))</span></code></pre></div>
 <pre><code>## $d
 ## [1] 4.649483 1.543473 1.000000 0.000000
 ## 
@@ -1287,60 +1352,60 @@ The column space is the span of <span class="math inline">\([1,2,3,-1]^{\top}\)<
 ## [3,] 0.1361833 -0.2665465  6.556101e-01 -0.04871373
 ## [4,] 0.6344264  0.5791090  6.938894e-17  0.49438789
 ## [5,] 0.7424586 -0.4948451 -5.551115e-17 -0.27714724</code></pre>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="quiz-4-review.html#cb368-1"></a><span class="co"># check that the singular values are different</span></span>
-<span id="cb368-2"><a href="quiz-4-review.html#cb368-2"></a>Asvd<span class="op">$</span>d</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="quiz-4-review.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check that the singular values are different</span></span>
+<span id="cb368-2"><a href="quiz-4-review.html#cb368-2" aria-hidden="true" tabindex="-1"></a>Asvd<span class="sc">$</span>d</span></code></pre></div>
 <pre><code>## [1] 1.170522e+01 7.291802e+00 1.953827e+00 1.048298e-15</code></pre>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="quiz-4-review.html#cb370-1"></a>Bsvd<span class="op">$</span>d</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="quiz-4-review.html#cb370-1" aria-hidden="true" tabindex="-1"></a>Bsvd<span class="sc">$</span>d</span></code></pre></div>
 <pre><code>## [1] 4.649483 1.543473 1.000000 0.000000</code></pre>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="quiz-4-review.html#cb372-1"></a>Arow =<span class="st"> </span>Asvd<span class="op">$</span>v[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb372-2"><a href="quiz-4-review.html#cb372-2"></a>Acol =<span class="st"> </span>Asvd<span class="op">$</span>u[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb372-3"><a href="quiz-4-review.html#cb372-3"></a></span>
-<span id="cb372-4"><a href="quiz-4-review.html#cb372-4"></a>Brow =<span class="st"> </span>Bsvd<span class="op">$</span>v[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb372-5"><a href="quiz-4-review.html#cb372-5"></a>Bcol =<span class="st"> </span>Bsvd<span class="op">$</span>u[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb372-6"><a href="quiz-4-review.html#cb372-6"></a></span>
-<span id="cb372-7"><a href="quiz-4-review.html#cb372-7"></a><span class="co"># check that the rowspaces are the same</span></span>
-<span id="cb372-8"><a href="quiz-4-review.html#cb372-8"></a><span class="co"># this also means that the nullspaces are the same</span></span>
-<span id="cb372-9"><a href="quiz-4-review.html#cb372-9"></a><span class="kw">rref</span>(<span class="kw">cbind</span>(Arow, Brow))</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="quiz-4-review.html#cb372-1" aria-hidden="true" tabindex="-1"></a>Arow <span class="ot">=</span> Asvd<span class="sc">$</span>v[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb372-2"><a href="quiz-4-review.html#cb372-2" aria-hidden="true" tabindex="-1"></a>Acol <span class="ot">=</span> Asvd<span class="sc">$</span>u[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb372-3"><a href="quiz-4-review.html#cb372-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb372-4"><a href="quiz-4-review.html#cb372-4" aria-hidden="true" tabindex="-1"></a>Brow <span class="ot">=</span> Bsvd<span class="sc">$</span>v[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb372-5"><a href="quiz-4-review.html#cb372-5" aria-hidden="true" tabindex="-1"></a>Bcol <span class="ot">=</span> Bsvd<span class="sc">$</span>u[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb372-6"><a href="quiz-4-review.html#cb372-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb372-7"><a href="quiz-4-review.html#cb372-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check that the rowspaces are the same</span></span>
+<span id="cb372-8"><a href="quiz-4-review.html#cb372-8" aria-hidden="true" tabindex="-1"></a><span class="co"># this also means that the nullspaces are the same</span></span>
+<span id="cb372-9"><a href="quiz-4-review.html#cb372-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(<span class="fu">cbind</span>(Arow, Brow))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]       [,4] [,5]       [,6]
 ## [1,]    1    0    0 -0.8711504    0  0.4023226
 ## [2,]    0    1    0  0.3312215    0  0.9197649
 ## [3,]    0    0    1 -0.3624766    0 -0.1264565
 ## [4,]    0    0    0  0.0000000    1  0.1543445
 ## [5,]    0    0    0  0.0000000    0  0.0000000</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="quiz-4-review.html#cb374-1"></a><span class="kw">rref</span>(<span class="kw">cbind</span>(Brow, Arow))</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="quiz-4-review.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(<span class="fu">cbind</span>(Brow, Arow))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]       [,4]      [,5] [,6]
 ## [1,]    1    0    0 -0.8711504 0.3312215    0
 ## [2,]    0    1    0 -0.3453768 0.1113812    0
 ## [3,]    0    0    1  0.3490156 0.9369560    0
 ## [4,]    0    0    0  0.0000000 0.0000000    1
 ## [5,]    0    0    0  0.0000000 0.0000000    0</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="quiz-4-review.html#cb376-1"></a><span class="co"># check that the columnspaces are different</span></span>
-<span id="cb376-2"><a href="quiz-4-review.html#cb376-2"></a><span class="kw">rref</span>(<span class="kw">cbind</span>(Acol, Bcol))</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="quiz-4-review.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check that the columnspaces are different</span></span>
+<span id="cb376-2"><a href="quiz-4-review.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rref</span>(<span class="fu">cbind</span>(Acol, Bcol))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]        [,5]      [,6]
 ## [1,]    1    0    0    0  2.77467300 -1.955659
 ## [2,]    0    1    0    0  0.45357378 -1.059136
 ## [3,]    0    0    1    0 -0.01928201  1.068529
 ## [4,]    0    0    0    1  2.62771978 -2.255687</code></pre>
 </div>
-<div id="section-90" class="section level3">
+<div id="section-90" class="section level3" number="31.3.11">
 <h3><span class="header-section-number">31.3.11</span> </h3>
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="quiz-4-review.html#cb378-1"></a>decomp =<span class="st"> </span><span class="kw">svd</span>(sen.mat)</span>
-<span id="cb378-2"><a href="quiz-4-review.html#cb378-2"></a>singval =<span class="st"> </span>decomp<span class="op">$</span>d</span>
-<span id="cb378-3"><a href="quiz-4-review.html#cb378-3"></a></span>
-<span id="cb378-4"><a href="quiz-4-review.html#cb378-4"></a><span class="kw">plot</span>(singval,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">cex=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="quiz-4-review.html#cb378-1" aria-hidden="true" tabindex="-1"></a>decomp <span class="ot">=</span> <span class="fu">svd</span>(sen.mat)</span>
+<span id="cb378-2"><a href="quiz-4-review.html#cb378-2" aria-hidden="true" tabindex="-1"></a>singval <span class="ot">=</span> decomp<span class="sc">$</span>d</span>
+<span id="cb378-3"><a href="quiz-4-review.html#cb378-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb378-4"><a href="quiz-4-review.html#cb378-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(singval,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span>.<span class="dv">5</span>,<span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/q4-senate1-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>There are two very important eigenvectors. After those two gaps, the eigenvalues taper off more slowly. We certainly need more than the first two for a good approximation of the matrix. But the importance of the rest is more even.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The first left singular vector picks up a mild (but not definitive) layering of Republicans and Democrats. The second left singular vector provides a clear separation!</li>
 </ol>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="quiz-4-review.html#cb379-1"></a>U =<span class="st"> </span>decomp<span class="op">$</span>u</span>
-<span id="cb379-2"><a href="quiz-4-review.html#cb379-2"></a></span>
-<span id="cb379-3"><a href="quiz-4-review.html#cb379-3"></a><span class="kw">plot</span>(U[,<span class="dv">1</span>],<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">cex=</span>.<span class="dv">75</span>,<span class="dt">col=</span>sen.color)</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="quiz-4-review.html#cb379-1" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> decomp<span class="sc">$</span>u</span>
+<span id="cb379-2"><a href="quiz-4-review.html#cb379-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-3"><a href="quiz-4-review.html#cb379-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(U[,<span class="dv">1</span>],<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span>.<span class="dv">75</span>,<span class="at">col=</span>sen.color)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/q4-senate2-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="quiz-4-review.html#cb380-1"></a><span class="kw">plot</span>(U[,<span class="dv">2</span>],<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">cex=</span>.<span class="dv">75</span>,<span class="dt">col=</span>sen.color)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="quiz-4-review.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(U[,<span class="dv">2</span>],<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span>.<span class="dv">75</span>,<span class="at">col=</span>sen.color)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/q4-senate3-1.png" width="75%" style="display: block; margin: auto;" /></p>
 
 </div>
@@ -1356,7 +1421,6 @@ The column space is the span of <span class="math inline">\([1,2,3,-1]^{\top}\)<
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1375,6 +1439,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1395,6 +1460,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -1408,7 +1477,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

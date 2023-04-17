@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Vector 26 Least Squares Approximation | MATH 236: Linear Algebra</title>
   <meta name="description" content="This is the class activity manual for MATH 236 at Macalester College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Vector 26 Least Squares Approximation | MATH 236: Linear Algebra" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the class activity manual for MATH 236 at Macalester College." />
   <meta name="github-repo" content="mathbeveridge/math236_f20" />
@@ -31,7 +30,8 @@
   
 <link rel="prev" href="digit-recognition.html"/>
 <link rel="next" href="svd-and-image-compression.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,25 +47,24 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -113,6 +112,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="m236.css" type="text/css" />
 </head>
 
@@ -131,14 +131,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Problem Sets</b></span></li>
-<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a><ul>
+<li class="chapter" data-level="1" data-path="problem-set-1.html"><a href="problem-set-1.html"><i class="fa fa-check"></i><b>1</b> Problem Set 1</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="problem-set-1.html"><a href="problem-set-1.html#characterize-the-solution-set"><i class="fa fa-check"></i><b>1.1</b> Characterize the Solution Set</a></li>
 <li class="chapter" data-level="1.2" data-path="problem-set-1.html"><a href="problem-set-1.html#find-the-parametric-solution"><i class="fa fa-check"></i><b>1.2</b> Find the Parametric Solution</a></li>
 <li class="chapter" data-level="1.3" data-path="problem-set-1.html"><a href="problem-set-1.html#elementary-row-operations-are-reversible"><i class="fa fa-check"></i><b>1.3</b> Elementary row operations are reversible</a></li>
 <li class="chapter" data-level="1.4" data-path="problem-set-1.html"><a href="problem-set-1.html#traffic-flow"><i class="fa fa-check"></i><b>1.4</b> Traffic Flow</a></li>
 <li class="chapter" data-level="1.5" data-path="problem-set-1.html"><a href="problem-set-1.html#parabolas-through-two-points"><i class="fa fa-check"></i><b>1.5</b> Parabolas Through Two Points</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a><ul>
+<li class="chapter" data-level="2" data-path="problem-set-2.html"><a href="problem-set-2.html"><i class="fa fa-check"></i><b>2</b> Problem Set 2</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="problem-set-2.html"><a href="problem-set-2.html#parametric-vector-form"><i class="fa fa-check"></i><b>2.1</b> Parametric Vector Form</a></li>
 <li class="chapter" data-level="2.2" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-linear-system"><i class="fa fa-check"></i><b>2.2</b> RREF for a linear system</a></li>
 <li class="chapter" data-level="2.3" data-path="problem-set-2.html"><a href="problem-set-2.html#rref-for-a-set-of-vectors"><i class="fa fa-check"></i><b>2.3</b> RREF for a set of vectors</a></li>
@@ -146,7 +148,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="2.5" data-path="problem-set-2.html"><a href="problem-set-2.html#a-square-matrix"><i class="fa fa-check"></i><b>2.5</b> A square matrix</a></li>
 <li class="chapter" data-level="2.6" data-path="problem-set-2.html"><a href="problem-set-2.html#combining-solutions-to-a-mathsfx-mathsfb"><i class="fa fa-check"></i><b>2.6</b> Combining solutions to <span class="math inline">\(A \mathsf{x} = \mathsf{b}\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a><ul>
+<li class="chapter" data-level="3" data-path="problem-set-3.html"><a href="problem-set-3.html"><i class="fa fa-check"></i><b>3</b> Problem Set 3</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="problem-set-3.html"><a href="problem-set-3.html#three-vectors-in-mathbbr4"><i class="fa fa-check"></i><b>3.1</b> Three vectors in <span class="math inline">\(\mathbb{R}^4\)</span></a></li>
 <li class="chapter" data-level="3.2" data-path="problem-set-3.html"><a href="problem-set-3.html#a-balanced-diet"><i class="fa fa-check"></i><b>3.2</b> A Balanced Diet</a></li>
 <li class="chapter" data-level="3.3" data-path="problem-set-3.html"><a href="problem-set-3.html#a-problem-about-span-and-linear-dependence"><i class="fa fa-check"></i><b>3.3</b> A Problem about Span and Linear Dependence</a></li>
@@ -154,33 +157,38 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="3.5" data-path="problem-set-3.html"><a href="problem-set-3.html#partial-information-about-a-linear-transformation"><i class="fa fa-check"></i><b>3.5</b> Partial Information about a Linear Transformation</a></li>
 <li class="chapter" data-level="3.6" data-path="problem-set-3.html"><a href="problem-set-3.html#house-renovations"><i class="fa fa-check"></i><b>3.6</b> House Renovations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a><ul>
+<li class="chapter" data-level="4" data-path="problem-set-4.html"><a href="problem-set-4.html"><i class="fa fa-check"></i><b>4</b> Problem Set 4</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="problem-set-4.html"><a href="problem-set-4.html#an-invertible-product-of-rectangular-matrices"><i class="fa fa-check"></i><b>4.1</b> An Invertible Product of Rectangular Matrices</a></li>
 <li class="chapter" data-level="4.2" data-path="problem-set-4.html"><a href="problem-set-4.html#guessing-the-inverse-matrix-from-a-pattern"><i class="fa fa-check"></i><b>4.2</b> Guessing the Inverse Matrix from a Pattern</a></li>
 <li class="chapter" data-level="4.3" data-path="problem-set-4.html"><a href="problem-set-4.html#lu-decomposition-of-an-invertible-matrix"><i class="fa fa-check"></i><b>4.3</b> LU Decomposition of an Invertible Matrix</a></li>
 <li class="chapter" data-level="4.4" data-path="problem-set-4.html"><a href="problem-set-4.html#homogeneous-coordinates"><i class="fa fa-check"></i><b>4.4</b> Homogeneous Coordinates</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a><ul>
+<li class="chapter" data-level="5" data-path="problem-set-5.html"><a href="problem-set-5.html"><i class="fa fa-check"></i><b>5</b> Problem Set 5</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="problem-set-5.html"><a href="problem-set-5.html#a-subspace-from-two-linear-transformations"><i class="fa fa-check"></i><b>5.1</b> A Subspace from Two Linear Transformations</a></li>
 <li class="chapter" data-level="5.2" data-path="problem-set-5.html"><a href="problem-set-5.html#getting-into-a-subspace"><i class="fa fa-check"></i><b>5.2</b> Getting Into a Subspace</a></li>
 <li class="chapter" data-level="5.3" data-path="problem-set-5.html"><a href="problem-set-5.html#creating-a-basis-from-another-basis"><i class="fa fa-check"></i><b>5.3</b> Creating a Basis from Another Basis</a></li>
 <li class="chapter" data-level="5.4" data-path="problem-set-5.html"><a href="problem-set-5.html#a-vector-that-is-in-both-cola-and-nula"><i class="fa fa-check"></i><b>5.4</b> A Vector that is in Both Col(A) and Nul}(A)</a></li>
 <li class="chapter" data-level="5.5" data-path="problem-set-5.html"><a href="problem-set-5.html#changing-coordinate-systems"><i class="fa fa-check"></i><b>5.5</b> Changing Coordinate Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a><ul>
+<li class="chapter" data-level="6" data-path="problem-set-6.html"><a href="problem-set-6.html"><i class="fa fa-check"></i><b>6</b> Problem Set 6</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="problem-set-6.html"><a href="problem-set-6.html#the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.1</b> The Square Root of a Matrix?</a></li>
 <li class="chapter" data-level="6.2" data-path="problem-set-6.html"><a href="problem-set-6.html#a-matrix-mystery"><i class="fa fa-check"></i><b>6.2</b> A Matrix Mystery</a></li>
 <li class="chapter" data-level="6.3" data-path="problem-set-6.html"><a href="problem-set-6.html#upper-triangular-matrix-with-a-constant-diagonal"><i class="fa fa-check"></i><b>6.3</b> Upper Triangular Matrix with a Constant Diagonal</a></li>
 <li class="chapter" data-level="6.4" data-path="problem-set-6.html"><a href="problem-set-6.html#block-diagonalization-of-a-4-times-4-matrix"><i class="fa fa-check"></i><b>6.4</b> Block Diagonalization of a <span class="math inline">\(4 \times 4\)</span> Matrix</a></li>
 <li class="chapter" data-level="6.5" data-path="problem-set-6.html"><a href="problem-set-6.html#network-analysis-of-risk-territories"><i class="fa fa-check"></i><b>6.5</b> Network Analysis of Risk Territories</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a><ul>
+<li class="chapter" data-level="7" data-path="problem-set-7.html"><a href="problem-set-7.html"><i class="fa fa-check"></i><b>7</b> Problem Set 7</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="problem-set-7.html"><a href="problem-set-7.html#glucose-insulin-system-model"><i class="fa fa-check"></i><b>7.1</b> Glucose-Insulin System Model</a></li>
 <li class="chapter" data-level="7.2" data-path="problem-set-7.html"><a href="problem-set-7.html#population-interaction-models"><i class="fa fa-check"></i><b>7.2</b> Population Interaction Models</a></li>
 <li class="chapter" data-level="7.3" data-path="problem-set-7.html"><a href="problem-set-7.html#blue-whale-population-dynamics"><i class="fa fa-check"></i><b>7.3</b> Blue Whale Population Dynamics</a></li>
 <li class="chapter" data-level="7.4" data-path="problem-set-7.html"><a href="problem-set-7.html#the-power-method-for-eigenvalue-calculation"><i class="fa fa-check"></i><b>7.4</b> The Power Method for Eigenvalue Calculation</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a><ul>
+<li class="chapter" data-level="8" data-path="problem-set-8.html"><a href="problem-set-8.html"><i class="fa fa-check"></i><b>8</b> Problem Set 8</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="problem-set-8.html"><a href="problem-set-8.html#two-orthogonality-properties"><i class="fa fa-check"></i><b>8.1</b> Two Orthogonality Properties</a></li>
 <li class="chapter" data-level="8.2" data-path="problem-set-8.html"><a href="problem-set-8.html#bases-for-a-subspace-and-its-orthogonal-complement"><i class="fa fa-check"></i><b>8.2</b> Bases for a Subspace and its Orthogonal Complement</a></li>
 <li class="chapter" data-level="8.3" data-path="problem-set-8.html"><a href="problem-set-8.html#eigensystem-of-a-symmetric-matrix"><i class="fa fa-check"></i><b>8.3</b> Eigensystem of a Symmetric Matrix</a></li>
@@ -188,53 +196,63 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="8.5" data-path="problem-set-8.html"><a href="problem-set-8.html#cosine-similarity-for-us-senators"><i class="fa fa-check"></i><b>8.5</b> Cosine Similarity for US Senators</a></li>
 </ul></li>
 <li class="part"><span><b>II Concepts of Linear Algebra</b></span></li>
-<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a><ul>
+<li class="chapter" data-level="9" data-path="important-definitions.html"><a href="important-definitions.html"><i class="fa fa-check"></i><b>9</b> Important Definitions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="important-definitions.html"><a href="important-definitions.html#vector-spaces"><i class="fa fa-check"></i><b>9.1</b> Vector Spaces</a></li>
 <li class="chapter" data-level="9.2" data-path="important-definitions.html"><a href="important-definitions.html#matrices"><i class="fa fa-check"></i><b>9.2</b> Matrices</a></li>
 <li class="chapter" data-level="9.3" data-path="important-definitions.html"><a href="important-definitions.html#orthogonality"><i class="fa fa-check"></i><b>9.3</b> Orthogonality</a></li>
 <li class="chapter" data-level="9.4" data-path="important-definitions.html"><a href="important-definitions.html#spectral-decompostion"><i class="fa fa-check"></i><b>9.4</b> Spectral Decompostion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a><ul>
+<li class="chapter" data-level="10" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html"><i class="fa fa-check"></i><b>10</b> Week 1 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#solving-linear-equations"><i class="fa fa-check"></i><b>10.1</b> Solving Linear Equations</a></li>
 <li class="chapter" data-level="10.2" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#rstudio"><i class="fa fa-check"></i><b>10.2</b> RStudio</a></li>
 <li class="chapter" data-level="10.3" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#vocabulary"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
 <li class="chapter" data-level="10.4" data-path="week-1-learning-goals.html"><a href="week-1-learning-goals.html#conceptual-thinking"><i class="fa fa-check"></i><b>10.4</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a><ul>
+<li class="chapter" data-level="11" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html"><i class="fa fa-check"></i><b>11</b> Week 2 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#solution-sets-span-and-linear-independence"><i class="fa fa-check"></i><b>11.1</b> Solution Sets, Span and Linear Independence</a></li>
 <li class="chapter" data-level="11.2" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#vocabulary-1"><i class="fa fa-check"></i><b>11.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="11.3" data-path="week-2-learning-goals.html"><a href="week-2-learning-goals.html#conceptual-thinking-1"><i class="fa fa-check"></i><b>11.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a><ul>
+<li class="chapter" data-level="12" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html"><i class="fa fa-check"></i><b>12</b> Week 3 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#linear-transformations-and-matrix-inverses"><i class="fa fa-check"></i><b>12.1</b> Linear Transformations and Matrix Inverses</a></li>
 <li class="chapter" data-level="12.2" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#vocabulary-2"><i class="fa fa-check"></i><b>12.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="12.3" data-path="week-3-learning-goals.html"><a href="week-3-learning-goals.html#conceptual-thinking-2"><i class="fa fa-check"></i><b>12.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a><ul>
+<li class="chapter" data-level="13" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html"><i class="fa fa-check"></i><b>13</b> Week 4 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vector-spaces-and-the-determinant"><i class="fa fa-check"></i><b>13.1</b> Vector Spaces and the Determinant</a></li>
 <li class="chapter" data-level="13.2" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#vocabulary-3"><i class="fa fa-check"></i><b>13.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="13.3" data-path="week-4-learning-goals.html"><a href="week-4-learning-goals.html#conceptual-thinking-3"><i class="fa fa-check"></i><b>13.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a><ul>
+<li class="chapter" data-level="14" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html"><i class="fa fa-check"></i><b>14</b> Week 5-6 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#eigensystems"><i class="fa fa-check"></i><b>14.1</b> Eigensystems</a></li>
 <li class="chapter" data-level="14.2" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#vocabulary-4"><i class="fa fa-check"></i><b>14.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="14.3" data-path="week-5-6-learning-goals.html"><a href="week-5-6-learning-goals.html#conceptual-thinking-4"><i class="fa fa-check"></i><b>14.3</b> Conceptual Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a><ul>
+<li class="chapter" data-level="15" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html"><i class="fa fa-check"></i><b>15</b> Week 7-8 Learning Goals</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#orthogonality-and-svd"><i class="fa fa-check"></i><b>15.1</b> Orthogonality and SVD</a></li>
 <li class="chapter" data-level="15.2" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#vocabulary-5"><i class="fa fa-check"></i><b>15.2</b> Vocabulary</a></li>
 <li class="chapter" data-level="15.3" data-path="week-7-8-learning-goals.html"><a href="week-7-8-learning-goals.html#conceptual-thinking-5"><i class="fa fa-check"></i><b>15.3</b> Conceptual Thinking</a></li>
 </ul></li>
 <li class="part"><span><b>III LineaR Algebra</b></span></li>
-<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a><ul>
+<li class="chapter" data-level="16" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html"><i class="fa fa-check"></i><b>16</b> Linear Systems in R</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#building-vectors-and-matrices"><i class="fa fa-check"></i><b>16.1</b> Building Vectors and Matrices</a></li>
 <li class="chapter" data-level="16.2" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-a-linear-system"><i class="fa fa-check"></i><b>16.2</b> Solving a Linear System</a></li>
 <li class="chapter" data-level="16.3" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#solving-another-linear-system"><i class="fa fa-check"></i><b>16.3</b> Solving another Linear System</a></li>
 <li class="chapter" data-level="16.4" data-path="linear-systems-in-r.html"><a href="linear-systems-in-r.html#appendix-dimensionless-vectors-in-r"><i class="fa fa-check"></i><b>16.4</b> Appendix: Dimensionless Vectors in R</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a><ul>
+<li class="chapter" data-level="17" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html"><i class="fa fa-check"></i><b>17</b> 2D Linear Transformations</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#functions-to-plot-our-vectors"><i class="fa fa-check"></i><b>17.1</b> Functions to plot our vectors</a></li>
-<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a><ul>
+<li class="chapter" data-level="17.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#your-turn"><i class="fa fa-check"></i><b>17.2</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-1"><i class="fa fa-check"></i><b>17.2.1</b> Family 1</a></li>
 <li class="chapter" data-level="17.2.2" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-2"><i class="fa fa-check"></i><b>17.2.2</b> Family 2</a></li>
 <li class="chapter" data-level="17.2.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#family-3"><i class="fa fa-check"></i><b>17.2.3</b> Family 3</a></li>
@@ -244,57 +262,73 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="17.3" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#exploration"><i class="fa fa-check"></i><b>17.3</b> Exploration</a></li>
 <li class="chapter" data-level="17.4" data-path="d-linear-transformations.html"><a href="d-linear-transformations.html#even-more-exploration"><i class="fa fa-check"></i><b>17.4</b> Even More Exploration</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a><ul>
-<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a><ul>
+<li class="chapter" data-level="18" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html"><i class="fa fa-check"></i><b>18</b> Linear Transformations of a House</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#rotations"><i class="fa fa-check"></i><b>18.1</b> Rotations</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-1"><i class="fa fa-check"></i><b>18.1.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a><ul>
+<li class="chapter" data-level="18.2" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#expansion-and-contraction"><i class="fa fa-check"></i><b>18.2</b> Expansion and contraction</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-2"><i class="fa fa-check"></i><b>18.2.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a><ul>
+<li class="chapter" data-level="18.3" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#reflection-over-the-line-yx"><i class="fa fa-check"></i><b>18.3</b> Reflection over the line <span class="math inline">\(y=x\)</span></a>
+<ul>
 <li class="chapter" data-level="18.3.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-3"><i class="fa fa-check"></i><b>18.3.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a><ul>
+<li class="chapter" data-level="18.4" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#shear-transformations"><i class="fa fa-check"></i><b>18.4</b> Shear Transformations</a>
+<ul>
 <li class="chapter" data-level="18.4.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-4"><i class="fa fa-check"></i><b>18.4.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a><ul>
+<li class="chapter" data-level="18.5" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#dimension-reduction"><i class="fa fa-check"></i><b>18.5</b> Dimension Reduction</a>
+<ul>
 <li class="chapter" data-level="18.5.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-5"><i class="fa fa-check"></i><b>18.5.1</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a><ul>
+<li class="chapter" data-level="18.6" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#a-complicated-transformation"><i class="fa fa-check"></i><b>18.6</b> A Complicated Transformation</a>
+<ul>
 <li class="chapter" data-level="18.6.1" data-path="linear-transformations-of-a-house.html"><a href="linear-transformations-of-a-house.html#your-turn-6"><i class="fa fa-check"></i><b>18.6.1</b> Your Turn</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a><ul>
+<li class="chapter" data-level="19" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html"><i class="fa fa-check"></i><b>19</b> 2D Translations with Homogeneous Coordinates</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation"><i class="fa fa-check"></i><b>19.1</b> Translation</a></li>
 <li class="chapter" data-level="19.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#translation-and-then-rotation"><i class="fa fa-check"></i><b>19.2</b> Translation and then Rotation</a></li>
 <li class="chapter" data-level="19.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#rotation-and-then-translation"><i class="fa fa-check"></i><b>19.3</b> Rotation and then Translation</a></li>
-<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a><ul>
+<li class="chapter" data-level="19.4" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#your-turn-7"><i class="fa fa-check"></i><b>19.4</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="19.4.1" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-of-orange"><i class="fa fa-check"></i><b>19.4.1</b> House of Orange</a></li>
 <li class="chapter" data-level="19.4.2" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#house-party"><i class="fa fa-check"></i><b>19.4.2</b> House Party</a></li>
+<li class="chapter" data-level="19.4.3" data-path="d-translations-with-homogeneous-coordinates.html"><a href="d-translations-with-homogeneous-coordinates.html#test-checkin"><i class="fa fa-check"></i><b>19.4.3</b> test checkin</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a><ul>
+<li class="chapter" data-level="20" data-path="fractals.html"><a href="fractals.html"><i class="fa fa-check"></i><b>20</b> Fractals</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="fractals.html"><a href="fractals.html#transforming-my-house."><i class="fa fa-check"></i><b>20.1</b> Transforming My House.</a></li>
 <li class="chapter" data-level="20.2" data-path="fractals.html"><a href="fractals.html#watching-a-series-of-points."><i class="fa fa-check"></i><b>20.2</b> Watching a series of points.</a></li>
 <li class="chapter" data-level="20.3" data-path="fractals.html"><a href="fractals.html#here-are-some-from-httppaulbourke.netfractalsifs"><i class="fa fa-check"></i><b>20.3</b> Here are some from <span>http://paulbourke.net/fractals/ifs/</span></a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a><ul>
+<li class="chapter" data-level="21" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html"><i class="fa fa-check"></i><b>21</b> Dynamical Systems in 2D</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#helper-function-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>21.1</b> Helper Function to Plot Dynamical Systems</a></li>
 <li class="chapter" data-level="21.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#our-first-example"><i class="fa fa-check"></i><b>21.2</b> Our first example</a></li>
-<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a><ul>
+<li class="chapter" data-level="21.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#your-turn-8"><i class="fa fa-check"></i><b>21.3</b> Your Turn</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-1"><i class="fa fa-check"></i><b>21.3.1</b> Example 1</a></li>
 <li class="chapter" data-level="21.3.2" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-2"><i class="fa fa-check"></i><b>21.3.2</b> Example 2</a></li>
 <li class="chapter" data-level="21.3.3" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-3"><i class="fa fa-check"></i><b>21.3.3</b> Example 3</a></li>
 <li class="chapter" data-level="21.3.4" data-path="dynamical-systems-in-2d.html"><a href="dynamical-systems-in-2d.html#example-4"><i class="fa fa-check"></i><b>21.3.4</b> Example 4</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a><ul>
-<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a><ul>
+<li class="chapter" data-level="22" data-path="network-centralities.html"><a href="network-centralities.html"><i class="fa fa-check"></i><b>22</b> Network Centralities</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="network-centralities.html"><a href="network-centralities.html#graphs-and-networks"><i class="fa fa-check"></i><b>22.1</b> Graphs and Networks</a>
+<ul>
 <li class="chapter" data-level="22.1.1" data-path="network-centralities.html"><a href="network-centralities.html#adjacency-matrices"><i class="fa fa-check"></i><b>22.1.1</b> Adjacency Matrices</a></li>
 <li class="chapter" data-level="22.1.2" data-path="network-centralities.html"><a href="network-centralities.html#graph-layouts"><i class="fa fa-check"></i><b>22.1.2</b> Graph Layouts</a></li>
 </ul></li>
 <li class="chapter" data-level="22.2" data-path="network-centralities.html"><a href="network-centralities.html#degree-centrality"><i class="fa fa-check"></i><b>22.2</b> Degree Centrality</a></li>
-<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a><ul>
+<li class="chapter" data-level="22.3" data-path="network-centralities.html"><a href="network-centralities.html#goulds-index"><i class="fa fa-check"></i><b>22.3</b> Gould’s Index</a>
+<ul>
 <li class="chapter" data-level="22.3.1" data-path="network-centralities.html"><a href="network-centralities.html#step-1"><i class="fa fa-check"></i><b>22.3.1</b> Step 1</a></li>
 <li class="chapter" data-level="22.3.2" data-path="network-centralities.html"><a href="network-centralities.html#step-2"><i class="fa fa-check"></i><b>22.3.2</b> Step 2</a></li>
 <li class="chapter" data-level="22.3.3" data-path="network-centralities.html"><a href="network-centralities.html#step-3"><i class="fa fa-check"></i><b>22.3.3</b> Step 3</a></li>
@@ -302,59 +336,72 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="22.3.5" data-path="network-centralities.html"><a href="network-centralities.html#step-5"><i class="fa fa-check"></i><b>22.3.5</b> Step 5</a></li>
 <li class="chapter" data-level="22.3.6" data-path="network-centralities.html"><a href="network-centralities.html#gould-index-summary"><i class="fa fa-check"></i><b>22.3.6</b> Gould Index Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a><ul>
+<li class="chapter" data-level="22.4" data-path="network-centralities.html"><a href="network-centralities.html#your-turn-the-rise-of-moscow"><i class="fa fa-check"></i><b>22.4</b> Your Turn: The Rise of Moscow</a>
+<ul>
 <li class="chapter" data-level="22.4.1" data-path="network-centralities.html"><a href="network-centralities.html#find-the-degree-centrality-values."><i class="fa fa-check"></i><b>22.4.1</b> Find the Degree Centrality values.</a></li>
 <li class="chapter" data-level="22.4.2" data-path="network-centralities.html"><a href="network-centralities.html#find-the-gould-index-values"><i class="fa fa-check"></i><b>22.4.2</b> Find the Gould Index values</a></li>
 <li class="chapter" data-level="22.4.3" data-path="network-centralities.html"><a href="network-centralities.html#analyze-the-data"><i class="fa fa-check"></i><b>22.4.3</b> Analyze the Data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a><ul>
+<li class="chapter" data-level="23" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html"><i class="fa fa-check"></i><b>23</b> Voting Patterns in the US Senate</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-data"><i class="fa fa-check"></i><b>23.1</b> The Data</a></li>
 <li class="chapter" data-level="23.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#the-88th-congressional-session-1964"><i class="fa fa-check"></i><b>23.2</b> The 88th Congressional Session (1964)</a></li>
-<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a><ul>
+<li class="chapter" data-level="23.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-eigenbasis"><i class="fa fa-check"></i><b>23.3</b> Using the Eigenbasis</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#using-the-dominant-eigenvectors."><i class="fa fa-check"></i><b>23.3.1</b> Using the Dominant Eigenvectors.</a></li>
 <li class="chapter" data-level="23.3.2" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#patterns-in-the-first-two-eigenvectors"><i class="fa fa-check"></i><b>23.3.2</b> Patterns in the First Two Eigenvectors</a></li>
 <li class="chapter" data-level="23.3.3" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#creating-a-table-sorted-by-an-eigenvector"><i class="fa fa-check"></i><b>23.3.3</b> Creating a Table Sorted by an Eigenvector</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="voting-patterns-in-the-us-senate.html"><a href="voting-patterns-in-the-us-senate.html#your-turn-12"><i class="fa fa-check"></i><b>23.4</b> Your Turn</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a><ul>
+<li class="chapter" data-level="24" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html"><i class="fa fa-check"></i><b>24</b> Modeling of Ecological Systems</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#helper-functions-to-plot-dynamical-systems"><i class="fa fa-check"></i><b>24.1</b> Helper Functions to Plot Dynamical Systems</a></li>
-<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a><ul>
+<li class="chapter" data-level="24.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owl-population"><i class="fa fa-check"></i><b>24.2</b> Northern Spotted Owl Population</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#population-forecast"><i class="fa fa-check"></i><b>24.2.1</b> Population forecast</a></li>
 <li class="chapter" data-level="24.2.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-population-at-t200"><i class="fa fa-check"></i><b>24.2.2</b> The population at <span class="math inline">\(t=200\)</span></a></li>
 <li class="chapter" data-level="24.2.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#eigenvectors-and-eigenvalues-of-l"><i class="fa fa-check"></i><b>24.2.3</b> Eigenvectors and eigenvalues of <span class="math inline">\(L\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a><ul>
+<li class="chapter" data-level="24.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#northern-spotted-owls-revisited"><i class="fa fa-check"></i><b>24.3</b> Northern Spotted Owls Revisited</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations"><i class="fa fa-check"></i><b>24.3.1</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.3.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-populations-at-t100-versus-the-dominant-eigenvector"><i class="fa fa-check"></i><b>24.3.2</b> The populations at <span class="math inline">\(t=100\)</span> versus the dominant eigenvector</a></li>
 <li class="chapter" data-level="24.3.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-long-range-prospects"><i class="fa fa-check"></i><b>24.3.3</b> The long-range prospects</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a><ul>
+<li class="chapter" data-level="24.4" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#brook-trout-in-hunt-creek-mi"><i class="fa fa-check"></i><b>24.4</b> Brook Trout in Hunt Creek, MI</a>
+<ul>
 <li class="chapter" data-level="24.4.1" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#the-leslie-matrix"><i class="fa fa-check"></i><b>24.4.1</b> The Leslie Matrix</a></li>
 <li class="chapter" data-level="24.4.2" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#find-the-long-range-populations-1"><i class="fa fa-check"></i><b>24.4.2</b> Find the long-range populations</a></li>
 <li class="chapter" data-level="24.4.3" data-path="modeling-of-ecological-systems.html"><a href="modeling-of-ecological-systems.html#river-clean-up"><i class="fa fa-check"></i><b>24.4.3</b> River Clean Up</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a><ul>
-<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a><ul>
+<li class="chapter" data-level="25" data-path="digit-recognition.html"><a href="digit-recognition.html"><i class="fa fa-check"></i><b>25</b> Digit Recognition</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="digit-recognition.html"><a href="digit-recognition.html#us-post-office-zip-code-data"><i class="fa fa-check"></i><b>25.1</b> US Post Office Zip Code Data</a>
+<ul>
 <li class="chapter" data-level="25.1.1" data-path="digit-recognition.html"><a href="digit-recognition.html#visualizing-the-data"><i class="fa fa-check"></i><b>25.1.1</b> Visualizing the Data</a></li>
 <li class="chapter" data-level="25.1.2" data-path="digit-recognition.html"><a href="digit-recognition.html#algorithm-overview"><i class="fa fa-check"></i><b>25.1.2</b> Algorithm Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="25.2" data-path="digit-recognition.html"><a href="digit-recognition.html#magnitude-distance-and-angle"><i class="fa fa-check"></i><b>25.2</b> Magnitude, Distance and Angle</a></li>
-<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a><ul>
+<li class="chapter" data-level="25.3" data-path="digit-recognition.html"><a href="digit-recognition.html#machine-learning-algorithms"><i class="fa fa-check"></i><b>25.3</b> Machine Learning Algorithms</a>
+<ul>
 <li class="chapter" data-level="25.3.1" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-distance"><i class="fa fa-check"></i><b>25.3.1</b> Get Closest by Distance</a></li>
 <li class="chapter" data-level="25.3.2" data-path="digit-recognition.html"><a href="digit-recognition.html#get-closest-by-angle"><i class="fa fa-check"></i><b>25.3.2</b> Get Closest by Angle</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a><ul>
+<li class="chapter" data-level="26" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html"><i class="fa fa-check"></i><b>26</b> Least Squares Approximation</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
-<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a><ul>
+<li class="chapter" data-level="26.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-for-a-linear-function"><i class="fa fa-check"></i><b>26.2</b> Fitting for a Linear Function</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-13"><i class="fa fa-check"></i><b>26.2.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.2.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution"><i class="fa fa-check"></i><b>26.2.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.2.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-14"><i class="fa fa-check"></i><b>26.2.3</b> Your turn</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a><ul>
+<li class="chapter" data-level="26.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#fitting-a-quadratic-function"><i class="fa fa-check"></i><b>26.3</b> Fitting a Quadratic Function</a>
+<ul>
 <li class="chapter" data-level="26.3.1" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-15"><i class="fa fa-check"></i><b>26.3.1</b> Your Turn</a></li>
 <li class="chapter" data-level="26.3.2" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#plotting-your-least-squares-solution-1"><i class="fa fa-check"></i><b>26.3.2</b> Plotting your least squares solution</a></li>
 <li class="chapter" data-level="26.3.3" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#your-turn-16"><i class="fa fa-check"></i><b>26.3.3</b> Your turn</a></li>
@@ -362,13 +409,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="26.4" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill"><i class="fa fa-check"></i><b>26.4</b> A Linear Model for Production at a Hosiery Mill</a></li>
 <li class="chapter" data-level="26.5" data-path="least-squares-approximation.html"><a href="least-squares-approximation.html#global-fossil-fuel-emissions"><i class="fa fa-check"></i><b>26.5</b> Global Fossil Fuel Emissions</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a><ul>
-<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a><ul>
+<li class="chapter" data-level="27" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html"><i class="fa fa-check"></i><b>27</b> SVD and Image Compression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#singular-value-decomposition"><i class="fa fa-check"></i><b>27.1</b> Singular Value Decomposition</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-wide-matrix"><i class="fa fa-check"></i><b>27.1.1</b> SVD of a Wide Matrix</a></li>
 <li class="chapter" data-level="27.1.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-square-matrix"><i class="fa fa-check"></i><b>27.1.2</b> Your Turn: SVD of a Square Matrix</a></li>
 <li class="chapter" data-level="27.1.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#your-turn-svd-of-a-tall-matrix"><i class="fa fa-check"></i><b>27.1.3</b> Your Turn: SVD of a Tall Matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a><ul>
+<li class="chapter" data-level="27.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#image-compression"><i class="fa fa-check"></i><b>27.2</b> Image Compression</a>
+<ul>
 <li class="chapter" data-level="27.2.1" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#converting-a-jpeg-image-into-a-matrix"><i class="fa fa-check"></i><b>27.2.1</b> Converting a JPEG image into a Matrix</a></li>
 <li class="chapter" data-level="27.2.2" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-of-a-raster-image"><i class="fa fa-check"></i><b>27.2.2</b> SVD of a Raster Image</a></li>
 <li class="chapter" data-level="27.2.3" data-path="svd-and-image-compression.html"><a href="svd-and-image-compression.html#svd-approximation-of-the-image"><i class="fa fa-check"></i><b>27.2.3</b> SVD Approximation of the Image</a></li>
@@ -377,12 +427,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Quiz Review</b></span></li>
-<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a><ul>
-<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a><ul>
+<li class="chapter" data-level="28" data-path="quiz-1-review.html"><a href="quiz-1-review.html"><i class="fa fa-check"></i><b>28</b> Quiz 1 Review</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#overview"><i class="fa fa-check"></i><b>28.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="28.1.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#vocabulary-and-concepts"><i class="fa fa-check"></i><b>28.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="28.1.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#skills"><i class="fa fa-check"></i><b>28.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="28.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#practice-problems"><i class="fa fa-check"></i><b>28.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.2.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section"><i class="fa fa-check"></i><b>28.2.1</b> </a></li>
 <li class="chapter" data-level="28.2.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-1"><i class="fa fa-check"></i><b>28.2.2</b> </a></li>
 <li class="chapter" data-level="28.2.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-2"><i class="fa fa-check"></i><b>28.2.3</b> </a></li>
@@ -394,7 +447,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.2.9" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-8"><i class="fa fa-check"></i><b>28.2.9</b> </a></li>
 <li class="chapter" data-level="28.2.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-9"><i class="fa fa-check"></i><b>28.2.10</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="28.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#solutions-to-practice-problems"><i class="fa fa-check"></i><b>28.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="28.3.1" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-10"><i class="fa fa-check"></i><b>28.3.1</b> </a></li>
 <li class="chapter" data-level="28.3.2" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-11"><i class="fa fa-check"></i><b>28.3.2</b> </a></li>
 <li class="chapter" data-level="28.3.3" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-12"><i class="fa fa-check"></i><b>28.3.3</b> </a></li>
@@ -407,12 +461,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="28.3.10" data-path="quiz-1-review.html"><a href="quiz-1-review.html#section-19"><i class="fa fa-check"></i><b>28.3.10</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a><ul>
-<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a><ul>
+<li class="chapter" data-level="29" data-path="quiz-2-review.html"><a href="quiz-2-review.html"><i class="fa fa-check"></i><b>29</b> Quiz 2 Review</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#overview-1"><i class="fa fa-check"></i><b>29.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="29.1.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#vocabulary-and-concepts-1"><i class="fa fa-check"></i><b>29.1.1</b> Vocabulary and Concepts</a></li>
 <li class="chapter" data-level="29.1.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#skills-1"><i class="fa fa-check"></i><b>29.1.2</b> Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="29.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#practice-problems-1"><i class="fa fa-check"></i><b>29.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.2.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-20"><i class="fa fa-check"></i><b>29.2.1</b> </a></li>
 <li class="chapter" data-level="29.2.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-21"><i class="fa fa-check"></i><b>29.2.2</b> </a></li>
 <li class="chapter" data-level="29.2.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-22"><i class="fa fa-check"></i><b>29.2.3</b> </a></li>
@@ -426,7 +483,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.2.11" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-30"><i class="fa fa-check"></i><b>29.2.11</b> </a></li>
 <li class="chapter" data-level="29.2.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-31"><i class="fa fa-check"></i><b>29.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="29.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#solutions-to-practice-problems-1"><i class="fa fa-check"></i><b>29.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="29.3.1" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-32"><i class="fa fa-check"></i><b>29.3.1</b> </a></li>
 <li class="chapter" data-level="29.3.2" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-33"><i class="fa fa-check"></i><b>29.3.2</b> </a></li>
 <li class="chapter" data-level="29.3.3" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-34"><i class="fa fa-check"></i><b>29.3.3</b> </a></li>
@@ -441,11 +499,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="29.3.12" data-path="quiz-2-review.html"><a href="quiz-2-review.html#section-43"><i class="fa fa-check"></i><b>29.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a><ul>
-<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a><ul>
+<li class="chapter" data-level="30" data-path="quiz-3-review.html"><a href="quiz-3-review.html"><i class="fa fa-check"></i><b>30</b> Quiz 3 Review</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#overview-2"><i class="fa fa-check"></i><b>30.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#vocabulary-concepts-and-skills"><i class="fa fa-check"></i><b>30.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="30.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#practice-problems-2"><i class="fa fa-check"></i><b>30.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.2.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-44"><i class="fa fa-check"></i><b>30.2.1</b> </a></li>
 <li class="chapter" data-level="30.2.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-45"><i class="fa fa-check"></i><b>30.2.2</b> </a></li>
 <li class="chapter" data-level="30.2.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-46"><i class="fa fa-check"></i><b>30.2.3</b> </a></li>
@@ -459,7 +520,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.2.11" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-54"><i class="fa fa-check"></i><b>30.2.11</b> </a></li>
 <li class="chapter" data-level="30.2.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-55"><i class="fa fa-check"></i><b>30.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="30.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#solutions-to-practice-problems-2"><i class="fa fa-check"></i><b>30.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="30.3.1" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-56"><i class="fa fa-check"></i><b>30.3.1</b> </a></li>
 <li class="chapter" data-level="30.3.2" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-57"><i class="fa fa-check"></i><b>30.3.2</b> </a></li>
 <li class="chapter" data-level="30.3.3" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-58"><i class="fa fa-check"></i><b>30.3.3</b> </a></li>
@@ -474,11 +536,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.3.12" data-path="quiz-3-review.html"><a href="quiz-3-review.html#section-67"><i class="fa fa-check"></i><b>30.3.12</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a><ul>
-<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a><ul>
+<li class="chapter" data-level="31" data-path="quiz-4-review.html"><a href="quiz-4-review.html"><i class="fa fa-check"></i><b>31</b> Quiz 4 Review</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#overview-3"><i class="fa fa-check"></i><b>31.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="31.1.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#vocabulary-concepts-and-skills-1"><i class="fa fa-check"></i><b>31.1.1</b> Vocabulary, Concepts and Skills</a></li>
 </ul></li>
-<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a><ul>
+<li class="chapter" data-level="31.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#practice-problems-3"><i class="fa fa-check"></i><b>31.2</b> Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.2.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-68"><i class="fa fa-check"></i><b>31.2.1</b> </a></li>
 <li class="chapter" data-level="31.2.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-69"><i class="fa fa-check"></i><b>31.2.2</b> </a></li>
 <li class="chapter" data-level="31.2.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-70"><i class="fa fa-check"></i><b>31.2.3</b> </a></li>
@@ -492,7 +557,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="31.2.11" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-78"><i class="fa fa-check"></i><b>31.2.11</b> </a></li>
 <li class="chapter" data-level="31.2.12" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-79"><i class="fa fa-check"></i><b>31.2.12</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a><ul>
+<li class="chapter" data-level="31.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#solutions-to-practice-problems-3"><i class="fa fa-check"></i><b>31.3</b> Solutions to Practice Problems</a>
+<ul>
 <li class="chapter" data-level="31.3.1" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-80"><i class="fa fa-check"></i><b>31.3.1</b> </a></li>
 <li class="chapter" data-level="31.3.2" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-81"><i class="fa fa-check"></i><b>31.3.2</b> </a></li>
 <li class="chapter" data-level="31.3.3" data-path="quiz-4-review.html"><a href="quiz-4-review.html#section-82"><i class="fa fa-check"></i><b>31.3.3</b> </a></li>
@@ -526,11 +592,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="least-squares-approximation" class="section level1">
-<h1><span class="header-section-number">Vector 26</span> Least Squares Approximation</h1>
+<div id="least-squares-approximation" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Vector 26</span> Least Squares Approximation<a href="least-squares-approximation.html#least-squares-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://github.com/mathbeveridge/math236_f20/blob/main/11-least-squares.Rmd">Download this Rmd file</a></p>
-<div id="introduction" class="section level2">
-<h2><span class="header-section-number">26.1</span> Introduction</h2>
+<div id="introduction" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> Introduction<a href="least-squares-approximation.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s start with a summary of Least Squares Approximation.</p>
 <p><strong>The Why</strong>: Given a matrix <span class="math inline">\(A\)</span> and a vector <span class="math inline">\(\mathsf{b}\)</span> that is not in <span class="math inline">\(W = \mathrm{Col}(A)\)</span>, we want to find the “best approximate solution” <span class="math inline">\(\hat{\mathsf{b}} \in W\)</span>. In other words, we want to pick the best possible <span class="math inline">\(\hat{\mathsf{b}} \approx \mathsf{b}\)</span> that lies in the column space of <span class="math inline">\(A\)</span>.</p>
 <p><strong>The What</strong>: The answer is to use projections.</p>
@@ -543,62 +609,62 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul>
 <p><strong>The How</strong>: A clever way to solve this is to use the <em>normal equations</em>. The best choice for <span class="math inline">\(\hat{\mathsf{x}}\)</span> satisfies
 <span class="math display">\[
-A^{\top} A \hat{\mathsf{x}} = A^{\top} \mathsf{b}. 
+A^{\top} A \hat{\mathsf{x}} = A^{\top} \mathsf{b}.
 \]</span>
 Here is a template for the R code that will find the least squares solution <span class="math inline">\(\hat{\mathsf{x}}\)</span>, the projection vector <span class="math inline">\(\hat{\mathsf{b}} = \mbox{proj}_W \mathsf{b}\)</span> and the residual vector <span class="math inline">\(\mathsf{z} = \mathsf{b} - \hat{\mathsf{b}}\)</span>.
 You should read this code line-by-line and make sure that you understand what it is doing!</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="least-squares-approximation.html#cb219-1"></a><span class="co"># Given: the matrix A</span></span>
-<span id="cb219-2"><a href="least-squares-approximation.html#cb219-2"></a><span class="co"># Given: the target vector b</span></span>
-<span id="cb219-3"><a href="least-squares-approximation.html#cb219-3"></a></span>
-<span id="cb219-4"><a href="least-squares-approximation.html#cb219-4"></a><span class="co">#solve the normal equation</span></span>
-<span id="cb219-5"><a href="least-squares-approximation.html#cb219-5"></a>(<span class="dt">xhat =</span> <span class="kw">solve</span>(<span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>A, <span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>b))</span>
-<span id="cb219-6"><a href="least-squares-approximation.html#cb219-6"></a></span>
-<span id="cb219-7"><a href="least-squares-approximation.html#cb219-7"></a><span class="co"># find the projection</span></span>
-<span id="cb219-8"><a href="least-squares-approximation.html#cb219-8"></a>(<span class="dt">bhat =</span> A <span class="op">%*%</span><span class="st"> </span>xhat)</span>
-<span id="cb219-9"><a href="least-squares-approximation.html#cb219-9"></a></span>
-<span id="cb219-10"><a href="least-squares-approximation.html#cb219-10"></a><span class="co"># find the residual vector</span></span>
-<span id="cb219-11"><a href="least-squares-approximation.html#cb219-11"></a>(<span class="dt">z =</span> b <span class="op">-</span><span class="st"> </span>bhat)</span>
-<span id="cb219-12"><a href="least-squares-approximation.html#cb219-12"></a></span>
-<span id="cb219-13"><a href="least-squares-approximation.html#cb219-13"></a><span class="co"># check that z is orthogonal to Col(A)</span></span>
-<span id="cb219-14"><a href="least-squares-approximation.html#cb219-14"></a><span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>z</span>
-<span id="cb219-15"><a href="least-squares-approximation.html#cb219-15"></a></span>
-<span id="cb219-16"><a href="least-squares-approximation.html#cb219-16"></a><span class="co"># measure the distance between bhat and b</span></span>
-<span id="cb219-17"><a href="least-squares-approximation.html#cb219-17"></a><span class="kw">sqrt</span>( <span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="least-squares-approximation.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Given: the matrix A</span></span>
+<span id="cb219-2"><a href="least-squares-approximation.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Given: the target vector b</span></span>
+<span id="cb219-3"><a href="least-squares-approximation.html#cb219-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-4"><a href="least-squares-approximation.html#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="co">#solve the normal equation</span></span>
+<span id="cb219-5"><a href="least-squares-approximation.html#cb219-5" aria-hidden="true" tabindex="-1"></a>(<span class="at">xhat =</span> <span class="fu">solve</span>(<span class="fu">t</span>(A) <span class="sc">%*%</span> A, <span class="fu">t</span>(A) <span class="sc">%*%</span> b))</span>
+<span id="cb219-6"><a href="least-squares-approximation.html#cb219-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-7"><a href="least-squares-approximation.html#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="co"># find the projection</span></span>
+<span id="cb219-8"><a href="least-squares-approximation.html#cb219-8" aria-hidden="true" tabindex="-1"></a>(<span class="at">bhat =</span> A <span class="sc">%*%</span> xhat)</span>
+<span id="cb219-9"><a href="least-squares-approximation.html#cb219-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-10"><a href="least-squares-approximation.html#cb219-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the residual vector</span></span>
+<span id="cb219-11"><a href="least-squares-approximation.html#cb219-11" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> b <span class="sc">-</span> bhat)</span>
+<span id="cb219-12"><a href="least-squares-approximation.html#cb219-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-13"><a href="least-squares-approximation.html#cb219-13" aria-hidden="true" tabindex="-1"></a><span class="co"># check that z is orthogonal to Col(A)</span></span>
+<span id="cb219-14"><a href="least-squares-approximation.html#cb219-14" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A) <span class="sc">%*%</span> z</span>
+<span id="cb219-15"><a href="least-squares-approximation.html#cb219-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-16"><a href="least-squares-approximation.html#cb219-16" aria-hidden="true" tabindex="-1"></a><span class="co"># measure the distance between bhat and b</span></span>
+<span id="cb219-17"><a href="least-squares-approximation.html#cb219-17" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>( <span class="fu">t</span>(z) <span class="sc">%*%</span> z)</span></code></pre></div>
 </div>
-<div id="fitting-for-a-linear-function" class="section level2">
-<h2><span class="header-section-number">26.2</span> Fitting for a Linear Function</h2>
+<div id="fitting-for-a-linear-function" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Fitting for a Linear Function<a href="least-squares-approximation.html#fitting-for-a-linear-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are some points that we’d like to fit to a linear function <span class="math inline">\(y = cx+d\)</span>.</p>
 <p><strong>Note:</strong> Here we use <code>y</code> instead of <code>b</code> because we like to write linear equations as “<span class="math inline">\(y = cx + d\)</span>.” So the expression “<span class="math inline">\(b = cx +d\)</span>” looks funny to us. So we will talk about <code>y</code> and <code>yhat</code> instead of <code>b</code> and <code>bhat</code>.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="least-squares-approximation.html#cb220-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb220-2"><a href="least-squares-approximation.html#cb220-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="fl">3.6</span>, <span class="dv">4</span>)</span>
-<span id="cb220-3"><a href="least-squares-approximation.html#cb220-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),)</span>
-<span id="cb220-4"><a href="least-squares-approximation.html#cb220-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="least-squares-approximation.html#cb220-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb220-2"><a href="least-squares-approximation.html#cb220-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">2.4</span>, <span class="fl">3.6</span>, <span class="dv">4</span>)</span>
+<span id="cb220-3"><a href="least-squares-approximation.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),)</span>
+<span id="cb220-4"><a href="least-squares-approximation.html#cb220-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/sqlinear1-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>To find a perfect fit line <span class="math inline">\(y = d + cx\)</span> to the data, we need to solve the following <span class="math inline">\(Ax = y\)</span> problem:
 <span class="math display">\[
-\begin{bmatrix} 
+\begin{bmatrix}
 1 &amp; 1 \\  1 &amp; 2 \\ 1 &amp; 3 \\ 1 &amp; 4 \\
 \end{bmatrix}
 \begin{bmatrix} d \\ c \end{bmatrix}
-= 
+=
 \begin{bmatrix} 1 \\ 2.4 \\ 3.6 \\ 4 \end{bmatrix}
 \]</span></p>
 <p>These equations are inconsistent, so we solve the normal equations <span class="math inline">\(A^T A x = A^T y\)</span> and find an approximate solution instead. <strong>Pro Tip:</strong> a clever way to create the desired matrix <span class="math inline">\(A\)</span> is to use the fact that <span class="math inline">\(x^0=1\)</span> for any number <span class="math inline">\(x\)</span>.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="least-squares-approximation.html#cb221-1"></a>(<span class="dt">A =</span> <span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>,x))</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="least-squares-approximation.html#cb221-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">cbind</span>(x<span class="sc">^</span><span class="dv">0</span>,x))</span></code></pre></div>
 <pre><code>##        x
 ## [1,] 1 1
 ## [2,] 1 2
 ## [3,] 1 3
 ## [4,] 1 4</code></pre>
-<div id="your-turn-13" class="section level3">
-<h3><span class="header-section-number">26.2.1</span> Your Turn</h3>
+<div id="your-turn-13" class="section level3 hasAnchor" number="26.2.1">
+<h3><span class="header-section-number">26.2.1</span> Your Turn<a href="least-squares-approximation.html#your-turn-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximates the coefficients <span class="math inline">\(c, d\)</span>.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="least-squares-approximation.html#cb223-1"></a><span class="co"># Replace with your code goes here.</span></span>
-<span id="cb223-2"><a href="least-squares-approximation.html#cb223-2"></a></span>
-<span id="cb223-3"><a href="least-squares-approximation.html#cb223-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="least-squares-approximation.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb223-2"><a href="least-squares-approximation.html#cb223-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="least-squares-approximation.html#cb223-3" aria-hidden="true" tabindex="-1"></a>xhat <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
 </div>
-<div id="plotting-your-least-squares-solution" class="section level3">
-<h3><span class="header-section-number">26.2.2</span> Plotting your least squares solution</h3>
+<div id="plotting-your-least-squares-solution" class="section level3 hasAnchor" number="26.2.2">
+<h3><span class="header-section-number">26.2.2</span> Plotting your least squares solution<a href="least-squares-approximation.html#plotting-your-least-squares-solution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following code gives you a visualization of the approximate solution.</p>
 <ul>
 <li>The black points: the original data points <code>cbind(x,y)</code>. This represents the entries of the desired target vector <code>y</code>.</li>
@@ -607,99 +673,99 @@ You should read this code line-by-line and make sure that you understand what it
 <li>The orange points: the approximations <code>cbind(x,yhat)</code> of the data points <code>cbind(x,y)</code>. This represents entries of the projection <code>yhat</code>.</li>
 <li>The red line segments: the distances between the original data points (block dots) and their approximations (orange dots). The lengths of these red segments are the entries of the residual vector <code>z</code></li>
 </ul>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="least-squares-approximation.html#cb224-1"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit linear function&#39;</span>)</span>
-<span id="cb224-2"><a href="least-squares-approximation.html#cb224-2"></a>yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
-<span id="cb224-3"><a href="least-squares-approximation.html#cb224-3"></a>tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
-<span id="cb224-4"><a href="least-squares-approximation.html#cb224-4"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb224-5"><a href="least-squares-approximation.html#cb224-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
-<span id="cb224-6"><a href="least-squares-approximation.html#cb224-6"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
-<span id="cb224-7"><a href="least-squares-approximation.html#cb224-7"></a>}</span>
-<span id="cb224-8"><a href="least-squares-approximation.html#cb224-8"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
-<span id="cb224-9"><a href="least-squares-approximation.html#cb224-9"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="least-squares-approximation.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="at">main=</span><span class="st">&#39;the best-fit linear function&#39;</span>)</span>
+<span id="cb224-2"><a href="least-squares-approximation.html#cb224-2" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">=</span> A <span class="sc">%*%</span> xhat</span>
+<span id="cb224-3"><a href="least-squares-approximation.html#cb224-3" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="at">len=</span><span class="dv">100</span>)</span>
+<span id="cb224-4"><a href="least-squares-approximation.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="sc">+</span>xhat[<span class="dv">2</span>]<span class="sc">*</span>tt,<span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb224-5"><a href="least-squares-approximation.html#cb224-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb224-6"><a href="least-squares-approximation.html#cb224-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(<span class="fu">c</span>(x[i],x[i]),<span class="fu">c</span>(y[i],yhat[i]), <span class="at">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb224-7"><a href="least-squares-approximation.html#cb224-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb224-8"><a href="least-squares-approximation.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,yhat,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb224-9"><a href="least-squares-approximation.html#cb224-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/sqlinear2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="your-turn-14" class="section level3">
-<h3><span class="header-section-number">26.2.3</span> Your turn</h3>
+<div id="your-turn-14" class="section level3 hasAnchor" number="26.2.3">
+<h3><span class="header-section-number">26.2.3</span> Your turn<a href="least-squares-approximation.html#your-turn-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you have not already done so</p>
 <ul>
 <li>Find the residual vector <span class="math inline">\(z\)</span>.</li>
 <li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
 <li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
 </ul>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="least-squares-approximation.html#cb225-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="least-squares-approximation.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
 </div>
 </div>
-<div id="fitting-a-quadratic-function" class="section level2">
-<h2><span class="header-section-number">26.3</span> Fitting a Quadratic Function</h2>
+<div id="fitting-a-quadratic-function" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Fitting a Quadratic Function<a href="least-squares-approximation.html#fitting-a-quadratic-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It might surprise you at first that we can use <em>linear algebra</em> to fit a <em>quadratic function</em>. But remember: we are fitting the <strong>coefficients</strong>. Once we plug in our empirical data, we have a linear combination of the unknown coefficients!</p>
 <p>So let’s fit a quadratic function <span class="math inline">\(y = a_0 + a_1 x + a_2 x^2\)</span> to the following data:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="least-squares-approximation.html#cb226-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
-<span id="cb226-2"><a href="least-squares-approximation.html#cb226-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
-<span id="cb226-3"><a href="least-squares-approximation.html#cb226-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
-<span id="cb226-4"><a href="least-squares-approximation.html#cb226-4"></a><span class="kw">grid</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="least-squares-approximation.html#cb226-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb226-2"><a href="least-squares-approximation.html#cb226-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb226-3"><a href="least-squares-approximation.html#cb226-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
+<span id="cb226-4"><a href="least-squares-approximation.html#cb226-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/squad1-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>In this case, the linear model that we’d like to solve is:
 <span class="math display">\[
-\begin{bmatrix} 
+\begin{bmatrix}
 1 &amp; 1 &amp; 1\\  1 &amp; 2 &amp; 4 \\ 1 &amp; 3 &amp; 9 \\ 1 &amp; 4 &amp; 16 \\ 1 &amp; 5 &amp; 25 \\ 1 &amp; 6 &amp; 36 \\
 \end{bmatrix}
 \begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix}
-= 
+=
 \begin{bmatrix} 7 \\ 2 \\ 1 \\ 3 \\ 7 \\ 7 \end{bmatrix}.
 \]</span></p>
 <p>Again, this is inconsistent (go ahead and check if you want to). So we need to find the best approximate solution. I will make the <span class="math inline">\(A\)</span> matrix for you one more time. (You’ll have to construct it in the examples below.)</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="least-squares-approximation.html#cb227-1"></a>A =<span class="st"> </span><span class="kw">cbind</span>(x<span class="op">^</span><span class="dv">0</span>, x, x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
-<div id="your-turn-15" class="section level3">
-<h3><span class="header-section-number">26.3.1</span> Your Turn</h3>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="least-squares-approximation.html#cb227-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cbind</span>(x<span class="sc">^</span><span class="dv">0</span>, x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div id="your-turn-15" class="section level3 hasAnchor" number="26.3.1">
+<h3><span class="header-section-number">26.3.1</span> Your Turn<a href="least-squares-approximation.html#your-turn-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use the template code above to find <code>xhat</code>. This is the “least squares solution” that approximations of the coefficients <span class="math inline">\(a_0, a_1, a_2\)</span>.</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="least-squares-approximation.html#cb228-1"></a><span class="co"># Replace with your code goes here.</span></span>
-<span id="cb228-2"><a href="least-squares-approximation.html#cb228-2"></a></span>
-<span id="cb228-3"><a href="least-squares-approximation.html#cb228-3"></a>xhat =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="least-squares-approximation.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace with your code goes here.</span></span>
+<span id="cb228-2"><a href="least-squares-approximation.html#cb228-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-3"><a href="least-squares-approximation.html#cb228-3" aria-hidden="true" tabindex="-1"></a>xhat <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span></code></pre></div>
 </div>
-<div id="plotting-your-least-squares-solution-1" class="section level3">
-<h3><span class="header-section-number">26.3.2</span> Plotting your least squares solution</h3>
+<div id="plotting-your-least-squares-solution-1" class="section level3 hasAnchor" number="26.3.2">
+<h3><span class="header-section-number">26.3.2</span> Plotting your least squares solution<a href="least-squares-approximation.html#plotting-your-least-squares-solution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Note:</strong> this code assumes that you have defined <code>xhat</code></p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="least-squares-approximation.html#cb229-1"></a>yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
-<span id="cb229-2"><a href="least-squares-approximation.html#cb229-2"></a><span class="co"># plotting the solution</span></span>
-<span id="cb229-3"><a href="least-squares-approximation.html#cb229-3"></a><span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">main=</span><span class="st">&#39;the best-fit quadratic function&#39;</span>)</span>
-<span id="cb229-4"><a href="least-squares-approximation.html#cb229-4"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dt">len=</span><span class="dv">100</span>)</span>
-<span id="cb229-5"><a href="least-squares-approximation.html#cb229-5"></a><span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt <span class="op">+</span><span class="st"> </span>xhat[<span class="dv">3</span>]<span class="op">*</span>tt<span class="op">^</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb229-6"><a href="least-squares-approximation.html#cb229-6"></a><span class="kw">grid</span>()</span>
-<span id="cb229-7"><a href="least-squares-approximation.html#cb229-7"></a><span class="co"># adding the residual lines</span></span>
-<span id="cb229-8"><a href="least-squares-approximation.html#cb229-8"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
-<span id="cb229-9"><a href="least-squares-approximation.html#cb229-9"></a>  <span class="kw">lines</span>(<span class="kw">c</span>(x[i],x[i]),<span class="kw">c</span>(y[i],yhat[i]), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span>
-<span id="cb229-10"><a href="least-squares-approximation.html#cb229-10"></a>}</span>
-<span id="cb229-11"><a href="least-squares-approximation.html#cb229-11"></a><span class="kw">points</span>(x,yhat,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</span>
-<span id="cb229-12"><a href="least-squares-approximation.html#cb229-12"></a><span class="kw">points</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="least-squares-approximation.html#cb229-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">=</span> A <span class="sc">%*%</span> xhat</span>
+<span id="cb229-2"><a href="least-squares-approximation.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting the solution</span></span>
+<span id="cb229-3"><a href="least-squares-approximation.html#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">main=</span><span class="st">&#39;the best-fit quadratic function&#39;</span>)</span>
+<span id="cb229-4"><a href="least-squares-approximation.html#cb229-4" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="at">len=</span><span class="dv">100</span>)</span>
+<span id="cb229-5"><a href="least-squares-approximation.html#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(tt,xhat[<span class="dv">1</span>] <span class="sc">+</span> xhat[<span class="dv">2</span>]<span class="sc">*</span>tt <span class="sc">+</span> xhat[<span class="dv">3</span>]<span class="sc">*</span>tt<span class="sc">^</span><span class="dv">2</span>,<span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb229-6"><a href="least-squares-approximation.html#cb229-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb229-7"><a href="least-squares-approximation.html#cb229-7" aria-hidden="true" tabindex="-1"></a><span class="co"># adding the residual lines</span></span>
+<span id="cb229-8"><a href="least-squares-approximation.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb229-9"><a href="least-squares-approximation.html#cb229-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(<span class="fu">c</span>(x[i],x[i]),<span class="fu">c</span>(y[i],yhat[i]), <span class="at">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb229-10"><a href="least-squares-approximation.html#cb229-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb229-11"><a href="least-squares-approximation.html#cb229-11" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,yhat,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb229-12"><a href="least-squares-approximation.html#cb229-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/squad2-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="your-turn-16" class="section level3">
-<h3><span class="header-section-number">26.3.3</span> Your turn</h3>
+<div id="your-turn-16" class="section level3 hasAnchor" number="26.3.3">
+<h3><span class="header-section-number">26.3.3</span> Your turn<a href="least-squares-approximation.html#your-turn-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you have not already done so, you should</p>
 <ul>
 <li>Find the residual vector <span class="math inline">\(z\)</span>. Compare the entries (positive, negative) with the red line segments in the plot above.</li>
 <li>Find the length of <span class="math inline">\(z\)</span>. This is a measure of the quality of the approximation: the smaller, the better!</li>
 <li>Confirm that <span class="math inline">\(z\)</span> is orthogonal to <span class="math inline">\(\mbox{Col}(A)\)</span>. (You may want to use <code>zapsmall()</code>.)</li>
 </ul>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="least-squares-approximation.html#cb230-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="least-squares-approximation.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code goes here</span></span></code></pre></div>
 </div>
 </div>
-<div id="a-linear-model-for-production-at-a-hosiery-mill" class="section level2">
-<h2><span class="header-section-number">26.4</span> A Linear Model for Production at a Hosiery Mill</h2>
+<div id="a-linear-model-for-production-at-a-hosiery-mill" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> A Linear Model for Production at a Hosiery Mill<a href="least-squares-approximation.html#a-linear-model-for-production-at-a-hosiery-mill" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is a data set from a 1940’s hosiery mill. It measures monthly production output and total production cost. The data come from the article “Statistical Cost Functions of a Hosiery Mill”, by Joel Dean in Studies in Business Administration, vol. 14, no. 3, 1941.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="least-squares-approximation.html#cb231-1"></a>units.produced =<span class="kw">c</span>(<span class="fl">561.0</span>, <span class="fl">506.16</span>, <span class="fl">502.32</span>, <span class="fl">519.48</span>, <span class="fl">505.44</span>, <span class="fl">501.36</span>, <span class="fl">497.64</span>, </span>
-<span id="cb231-2"><a href="least-squares-approximation.html#cb231-2"></a>   <span class="fl">506.52</span>, <span class="fl">492.36</span>, <span class="fl">478.08</span>, <span class="fl">469.8</span>, <span class="fl">470.4</span>, <span class="fl">474.24</span>, <span class="fl">456.6</span>, <span class="fl">469.92</span>, </span>
-<span id="cb231-3"><a href="least-squares-approximation.html#cb231-3"></a>   <span class="fl">463.08</span>, <span class="fl">438.48</span>, <span class="fl">444.36</span>, <span class="fl">439.2</span>, <span class="fl">450.96</span>, <span class="fl">437.76</span>, <span class="fl">459.</span>, <span class="fl">447.12</span>, </span>
-<span id="cb231-4"><a href="least-squares-approximation.html#cb231-4"></a>   <span class="fl">463.08</span>, <span class="fl">490.68</span>, <span class="fl">451.92</span>, <span class="fl">465.48</span>, <span class="fl">465.36</span>, <span class="fl">440.4</span>, <span class="fl">421.2</span>, <span class="fl">405.</span>, <span class="fl">411.48</span>,</span>
-<span id="cb231-5"><a href="least-squares-approximation.html#cb231-5"></a>    <span class="fl">387.12</span>, <span class="fl">371.64</span>, <span class="fl">338.4</span>, <span class="fl">294.96</span>, <span class="fl">243.</span>, <span class="fl">205.08</span>, <span class="fl">172.2</span>, <span class="fl">157.32</span>, <span class="fl">114.</span>, </span>
-<span id="cb231-6"><a href="least-squares-approximation.html#cb231-6"></a>   <span class="fl">116.88</span>, <span class="fl">112.08</span>, <span class="fl">90.12</span>, <span class="fl">100.2</span>, <span class="fl">75.</span>, <span class="fl">65.4</span>, <span class="fl">45.48</span>)</span>
-<span id="cb231-7"><a href="least-squares-approximation.html#cb231-7"></a></span>
-<span id="cb231-8"><a href="least-squares-approximation.html#cb231-8"></a>production.cost =<span class="st"> </span><span class="kw">c</span>(<span class="fl">92.64</span>, <span class="fl">88.81</span>, <span class="fl">86.44</span>, <span class="fl">88.8</span>, <span class="fl">86.38</span>, <span class="fl">89.87</span>, <span class="fl">88.53</span>, <span class="fl">91.11</span>, <span class="fl">81.22</span>,</span>
-<span id="cb231-9"><a href="least-squares-approximation.html#cb231-9"></a>    <span class="fl">83.72</span>, <span class="fl">84.54</span>, <span class="fl">85.66</span>, <span class="fl">85.87</span>, <span class="fl">85.23</span>, <span class="fl">87.75</span>, <span class="fl">92.62</span>, <span class="fl">91.56</span>, <span class="fl">84.12</span>, </span>
-<span id="cb231-10"><a href="least-squares-approximation.html#cb231-10"></a>   <span class="fl">81.22</span>, <span class="fl">83.35</span>, <span class="fl">82.29</span>, <span class="fl">80.92</span>, <span class="fl">76.92</span>, <span class="fl">78.35</span>, <span class="fl">74.57</span>, <span class="fl">71.6</span>, <span class="fl">65.64</span>, </span>
-<span id="cb231-11"><a href="least-squares-approximation.html#cb231-11"></a>   <span class="fl">62.09</span>, <span class="fl">61.66</span>, <span class="fl">77.14</span>, <span class="fl">75.47</span>, <span class="fl">70.37</span>, <span class="fl">66.71</span>, <span class="fl">64.37</span>, <span class="fl">56.09</span>, <span class="fl">50.25</span>, </span>
-<span id="cb231-12"><a href="least-squares-approximation.html#cb231-12"></a>   <span class="fl">43.65</span>, <span class="fl">38.01</span>, <span class="fl">31.4</span>, <span class="fl">29.45</span>, <span class="fl">29.02</span>, <span class="fl">19.05</span>, <span class="fl">20.36</span>, <span class="fl">17.68</span>, <span class="fl">19.23</span>, </span>
-<span id="cb231-13"><a href="least-squares-approximation.html#cb231-13"></a>   <span class="fl">14.92</span>, <span class="fl">11.44</span>, <span class="fl">12.69</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="least-squares-approximation.html#cb231-1" aria-hidden="true" tabindex="-1"></a>units.produced <span class="ot">=</span><span class="fu">c</span>(<span class="fl">561.0</span>, <span class="fl">506.16</span>, <span class="fl">502.32</span>, <span class="fl">519.48</span>, <span class="fl">505.44</span>, <span class="fl">501.36</span>, <span class="fl">497.64</span>, </span>
+<span id="cb231-2"><a href="least-squares-approximation.html#cb231-2" aria-hidden="true" tabindex="-1"></a>   <span class="fl">506.52</span>, <span class="fl">492.36</span>, <span class="fl">478.08</span>, <span class="fl">469.8</span>, <span class="fl">470.4</span>, <span class="fl">474.24</span>, <span class="fl">456.6</span>, <span class="fl">469.92</span>, </span>
+<span id="cb231-3"><a href="least-squares-approximation.html#cb231-3" aria-hidden="true" tabindex="-1"></a>   <span class="fl">463.08</span>, <span class="fl">438.48</span>, <span class="fl">444.36</span>, <span class="fl">439.2</span>, <span class="fl">450.96</span>, <span class="fl">437.76</span>, <span class="fl">459.</span>, <span class="fl">447.12</span>, </span>
+<span id="cb231-4"><a href="least-squares-approximation.html#cb231-4" aria-hidden="true" tabindex="-1"></a>   <span class="fl">463.08</span>, <span class="fl">490.68</span>, <span class="fl">451.92</span>, <span class="fl">465.48</span>, <span class="fl">465.36</span>, <span class="fl">440.4</span>, <span class="fl">421.2</span>, <span class="fl">405.</span>, <span class="fl">411.48</span>,</span>
+<span id="cb231-5"><a href="least-squares-approximation.html#cb231-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">387.12</span>, <span class="fl">371.64</span>, <span class="fl">338.4</span>, <span class="fl">294.96</span>, <span class="fl">243.</span>, <span class="fl">205.08</span>, <span class="fl">172.2</span>, <span class="fl">157.32</span>, <span class="fl">114.</span>, </span>
+<span id="cb231-6"><a href="least-squares-approximation.html#cb231-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">116.88</span>, <span class="fl">112.08</span>, <span class="fl">90.12</span>, <span class="fl">100.2</span>, <span class="fl">75.</span>, <span class="fl">65.4</span>, <span class="fl">45.48</span>)</span>
+<span id="cb231-7"><a href="least-squares-approximation.html#cb231-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-8"><a href="least-squares-approximation.html#cb231-8" aria-hidden="true" tabindex="-1"></a>production.cost <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">92.64</span>, <span class="fl">88.81</span>, <span class="fl">86.44</span>, <span class="fl">88.8</span>, <span class="fl">86.38</span>, <span class="fl">89.87</span>, <span class="fl">88.53</span>, <span class="fl">91.11</span>, <span class="fl">81.22</span>,</span>
+<span id="cb231-9"><a href="least-squares-approximation.html#cb231-9" aria-hidden="true" tabindex="-1"></a>    <span class="fl">83.72</span>, <span class="fl">84.54</span>, <span class="fl">85.66</span>, <span class="fl">85.87</span>, <span class="fl">85.23</span>, <span class="fl">87.75</span>, <span class="fl">92.62</span>, <span class="fl">91.56</span>, <span class="fl">84.12</span>, </span>
+<span id="cb231-10"><a href="least-squares-approximation.html#cb231-10" aria-hidden="true" tabindex="-1"></a>   <span class="fl">81.22</span>, <span class="fl">83.35</span>, <span class="fl">82.29</span>, <span class="fl">80.92</span>, <span class="fl">76.92</span>, <span class="fl">78.35</span>, <span class="fl">74.57</span>, <span class="fl">71.6</span>, <span class="fl">65.64</span>, </span>
+<span id="cb231-11"><a href="least-squares-approximation.html#cb231-11" aria-hidden="true" tabindex="-1"></a>   <span class="fl">62.09</span>, <span class="fl">61.66</span>, <span class="fl">77.14</span>, <span class="fl">75.47</span>, <span class="fl">70.37</span>, <span class="fl">66.71</span>, <span class="fl">64.37</span>, <span class="fl">56.09</span>, <span class="fl">50.25</span>, </span>
+<span id="cb231-12"><a href="least-squares-approximation.html#cb231-12" aria-hidden="true" tabindex="-1"></a>   <span class="fl">43.65</span>, <span class="fl">38.01</span>, <span class="fl">31.4</span>, <span class="fl">29.45</span>, <span class="fl">29.02</span>, <span class="fl">19.05</span>, <span class="fl">20.36</span>, <span class="fl">17.68</span>, <span class="fl">19.23</span>, </span>
+<span id="cb231-13"><a href="least-squares-approximation.html#cb231-13" aria-hidden="true" tabindex="-1"></a>   <span class="fl">14.92</span>, <span class="fl">11.44</span>, <span class="fl">12.69</span>)</span></code></pre></div>
 <p>Fit a linear model between the units produced and the production cost.</p>
 <p><span class="math display">\[p=\beta_0+\beta_1 u,\]</span></p>
 <p>where <span class="math inline">\(u\)</span> is the number of units produced in a given month (in thousands), <span class="math inline">\(p\)</span> is the monthly production cost (in $1000s). The constant <span class="math inline">\(\beta_0\)</span> represents the fixed costs for running the hosiery mill and <span class="math inline">\(\beta_1\)</span> represents the variable cost per production of 1000 units.</p>
@@ -710,30 +776,30 @@ You should read this code line-by-line and make sure that you understand what it
 <li><p><strong>Optional:</strong> Compute the length of the residual vector</p></li>
 <li><p><strong>Optional:</strong> Confirm that the residual vector is orthogonal to both columns of the coefficient matrix.</p></li>
 </ul>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="least-squares-approximation.html#cb232-1"></a><span class="co"># your least squares code goes here</span></span>
-<span id="cb232-2"><a href="least-squares-approximation.html#cb232-2"></a>x =<span class="st"> </span>units.produced</span>
-<span id="cb232-3"><a href="least-squares-approximation.html#cb232-3"></a>y =<span class="st"> </span>production.cost</span>
-<span id="cb232-4"><a href="least-squares-approximation.html#cb232-4"></a></span>
-<span id="cb232-5"><a href="least-squares-approximation.html#cb232-5"></a>A  =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb232-6"><a href="least-squares-approximation.html#cb232-6"></a></span>
-<span id="cb232-7"><a href="least-squares-approximation.html#cb232-7"></a><span class="co"># you must define A and xhat</span></span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="least-squares-approximation.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your least squares code goes here</span></span>
+<span id="cb232-2"><a href="least-squares-approximation.html#cb232-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> units.produced</span>
+<span id="cb232-3"><a href="least-squares-approximation.html#cb232-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> production.cost</span>
+<span id="cb232-4"><a href="least-squares-approximation.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="least-squares-approximation.html#cb232-5" aria-hidden="true" tabindex="-1"></a>A  <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb232-6"><a href="least-squares-approximation.html#cb232-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-7"><a href="least-squares-approximation.html#cb232-7" aria-hidden="true" tabindex="-1"></a><span class="co"># you must define A and xhat</span></span></code></pre></div>
 <ul>
 <li>**Note: this code assumes that you have defined <code>xhat</code> and <code>x</code> and <code>y</code> and <code>A</code>.</li>
 </ul>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="least-squares-approximation.html#cb233-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="st"> </span><span class="kw">is.null</span>(A)) {</span>
-<span id="cb233-2"><a href="least-squares-approximation.html#cb233-2"></a>  <span class="kw">plot</span>(x,y,<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">main=</span><span class="st">&#39;hosiery mill production&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;monthly units produced (1000s)&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;monthly production cost ($1000s)&quot;</span>)</span>
-<span id="cb233-3"><a href="least-squares-approximation.html#cb233-3"></a>  yhat =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xhat</span>
-<span id="cb233-4"><a href="least-squares-approximation.html#cb233-4"></a>  tt =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">600</span>,<span class="dt">by=</span>.<span class="dv">1</span>)</span>
-<span id="cb233-5"><a href="least-squares-approximation.html#cb233-5"></a>  <span class="kw">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="op">+</span>xhat[<span class="dv">2</span>]<span class="op">*</span>tt,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb233-6"><a href="least-squares-approximation.html#cb233-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="least-squares-approximation.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">is.null</span>(A)) {</span>
+<span id="cb233-2"><a href="least-squares-approximation.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>, <span class="at">main=</span><span class="st">&#39;hosiery mill production&#39;</span>, <span class="at">xlab=</span><span class="st">&quot;monthly units produced (1000s)&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;monthly production cost ($1000s)&quot;</span>)</span>
+<span id="cb233-3"><a href="least-squares-approximation.html#cb233-3" aria-hidden="true" tabindex="-1"></a>  yhat <span class="ot">=</span> A <span class="sc">%*%</span> xhat</span>
+<span id="cb233-4"><a href="least-squares-approximation.html#cb233-4" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">600</span>,<span class="at">by=</span>.<span class="dv">1</span>)</span>
+<span id="cb233-5"><a href="least-squares-approximation.html#cb233-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(tt,xhat[<span class="dv">1</span>]<span class="sc">+</span>xhat[<span class="dv">2</span>]<span class="sc">*</span>tt,<span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb233-6"><a href="least-squares-approximation.html#cb233-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="global-fossil-fuel-emissions" class="section level2">
-<h2><span class="header-section-number">26.5</span> Global Fossil Fuel Emissions</h2>
+<div id="global-fossil-fuel-emissions" class="section level2 hasAnchor" number="26.5">
+<h2><span class="header-section-number">26.5</span> Global Fossil Fuel Emissions<a href="least-squares-approximation.html#global-fossil-fuel-emissions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now let’s fit a curve to global fossil fuel emmissions between 1751 and 1998. The fossil fuel emissions are measured in megatons of carbon. Here is a plot of the data.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="least-squares-approximation.html#cb234-1"></a>year=<span class="kw">c</span>(<span class="dv">1751</span><span class="op">:</span><span class="dv">1998</span>)</span>
-<span id="cb234-2"><a href="least-squares-approximation.html#cb234-2"></a>emissions =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">43</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">57</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">71</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">78</span>, <span class="dv">83</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">104</span>, <span class="dv">112</span>, <span class="dv">119</span>, <span class="dv">122</span>, <span class="dv">130</span>, <span class="dv">135</span>,</span>
-<span id="cb234-3"><a href="least-squares-approximation.html#cb234-3"></a><span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">156</span>, <span class="dv">173</span>, <span class="dv">184</span>, <span class="dv">174</span>, <span class="dv">188</span>, <span class="dv">191</span>, <span class="dv">194</span>, <span class="dv">196</span>, <span class="dv">210</span>, <span class="dv">236</span>, <span class="dv">243</span>, <span class="dv">256</span>, <span class="dv">272</span>, <span class="dv">275</span>, <span class="dv">277</span>, <span class="dv">281</span>, <span class="dv">295</span>, <span class="dv">327</span>, <span class="dv">327</span>, <span class="dv">356</span>, <span class="dv">372</span>, <span class="dv">374</span>, <span class="dv">370</span>, <span class="dv">383</span>, <span class="dv">406</span>, <span class="dv">419</span>, <span class="dv">440</span>, <span class="dv">465</span>, <span class="dv">507</span>, <span class="dv">534</span>, <span class="dv">552</span>, <span class="dv">566</span>, <span class="dv">617</span>, <span class="dv">624</span>, <span class="dv">663</span>, <span class="dv">707</span>, <span class="dv">784</span>, <span class="dv">750</span>, <span class="dv">785</span>, <span class="dv">819</span>, <span class="dv">836</span>, <span class="dv">879</span>, <span class="dv">943</span>, <span class="dv">850</span>, <span class="dv">838</span>, <span class="dv">901</span>, <span class="dv">955</span>, <span class="dv">936</span>, <span class="dv">806</span>, <span class="dv">932</span>, <span class="dv">803</span>, <span class="dv">845</span>, <span class="dv">970</span>, <span class="dv">963</span>, <span class="dv">975</span>, <span class="dv">983</span>, <span class="dv">1062</span>, <span class="dv">1065</span>, <span class="dv">1145</span>, <span class="dv">1053</span>, <span class="dv">940</span>, <span class="dv">847</span>, <span class="dv">893</span>, <span class="dv">973</span>, <span class="dv">1027</span>, <span class="dv">1130</span>, <span class="dv">1209</span>, <span class="dv">1142</span>, <span class="dv">1192</span>, <span class="dv">1299</span>, <span class="dv">1334</span>, <span class="dv">1342</span>, <span class="dv">1391</span>, <span class="dv">1383</span>, <span class="dv">1160</span>, <span class="dv">1238</span>, <span class="dv">1392</span>, <span class="dv">1469</span>, <span class="dv">1419</span>, <span class="dv">1630</span>, <span class="dv">1767</span>, <span class="dv">1795</span>, <span class="dv">1841</span>, <span class="dv">1865</span>, <span class="dv">2043</span>, <span class="dv">2177</span>, <span class="dv">2270</span>, <span class="dv">2330</span>, <span class="dv">2463</span>, <span class="dv">2578</span>, <span class="dv">2595</span>, <span class="dv">2701</span>, <span class="dv">2848</span>, <span class="dv">3009</span>, <span class="dv">3146</span>, <span class="dv">3306</span>, <span class="dv">3412</span>, <span class="dv">3588</span>, <span class="dv">3802</span>, <span class="dv">4075</span>, <span class="dv">4227</span>, <span class="dv">4394</span>, <span class="dv">4633</span>, <span class="dv">4641</span>, <span class="dv">4613</span>, <span class="dv">4879</span>, <span class="dv">5018</span>, <span class="dv">5078</span>, <span class="dv">5368</span>, <span class="dv">5297</span>, <span class="dv">5125</span>, <span class="dv">5080</span>, <span class="dv">5067</span>, <span class="dv">5241</span>, <span class="dv">5405</span>, <span class="dv">5573</span>, <span class="dv">5701</span>, <span class="dv">5926</span>, <span class="dv">6035</span>, <span class="dv">6096</span>, <span class="dv">6186</span>, <span class="dv">6089</span>, <span class="dv">6090</span>, <span class="dv">6236</span>, <span class="dv">6378</span>, <span class="dv">6530</span>, <span class="dv">6628</span>, <span class="dv">6608</span>)</span>
-<span id="cb234-4"><a href="least-squares-approximation.html#cb234-4"></a><span class="kw">plot</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="least-squares-approximation.html#cb234-1" aria-hidden="true" tabindex="-1"></a>year<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1751</span><span class="sc">:</span><span class="dv">1998</span>)</span>
+<span id="cb234-2"><a href="least-squares-approximation.html#cb234-2" aria-hidden="true" tabindex="-1"></a>emissions <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">43</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">50</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">57</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">71</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">78</span>, <span class="dv">83</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">104</span>, <span class="dv">112</span>, <span class="dv">119</span>, <span class="dv">122</span>, <span class="dv">130</span>, <span class="dv">135</span>,</span>
+<span id="cb234-3"><a href="least-squares-approximation.html#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">156</span>, <span class="dv">173</span>, <span class="dv">184</span>, <span class="dv">174</span>, <span class="dv">188</span>, <span class="dv">191</span>, <span class="dv">194</span>, <span class="dv">196</span>, <span class="dv">210</span>, <span class="dv">236</span>, <span class="dv">243</span>, <span class="dv">256</span>, <span class="dv">272</span>, <span class="dv">275</span>, <span class="dv">277</span>, <span class="dv">281</span>, <span class="dv">295</span>, <span class="dv">327</span>, <span class="dv">327</span>, <span class="dv">356</span>, <span class="dv">372</span>, <span class="dv">374</span>, <span class="dv">370</span>, <span class="dv">383</span>, <span class="dv">406</span>, <span class="dv">419</span>, <span class="dv">440</span>, <span class="dv">465</span>, <span class="dv">507</span>, <span class="dv">534</span>, <span class="dv">552</span>, <span class="dv">566</span>, <span class="dv">617</span>, <span class="dv">624</span>, <span class="dv">663</span>, <span class="dv">707</span>, <span class="dv">784</span>, <span class="dv">750</span>, <span class="dv">785</span>, <span class="dv">819</span>, <span class="dv">836</span>, <span class="dv">879</span>, <span class="dv">943</span>, <span class="dv">850</span>, <span class="dv">838</span>, <span class="dv">901</span>, <span class="dv">955</span>, <span class="dv">936</span>, <span class="dv">806</span>, <span class="dv">932</span>, <span class="dv">803</span>, <span class="dv">845</span>, <span class="dv">970</span>, <span class="dv">963</span>, <span class="dv">975</span>, <span class="dv">983</span>, <span class="dv">1062</span>, <span class="dv">1065</span>, <span class="dv">1145</span>, <span class="dv">1053</span>, <span class="dv">940</span>, <span class="dv">847</span>, <span class="dv">893</span>, <span class="dv">973</span>, <span class="dv">1027</span>, <span class="dv">1130</span>, <span class="dv">1209</span>, <span class="dv">1142</span>, <span class="dv">1192</span>, <span class="dv">1299</span>, <span class="dv">1334</span>, <span class="dv">1342</span>, <span class="dv">1391</span>, <span class="dv">1383</span>, <span class="dv">1160</span>, <span class="dv">1238</span>, <span class="dv">1392</span>, <span class="dv">1469</span>, <span class="dv">1419</span>, <span class="dv">1630</span>, <span class="dv">1767</span>, <span class="dv">1795</span>, <span class="dv">1841</span>, <span class="dv">1865</span>, <span class="dv">2043</span>, <span class="dv">2177</span>, <span class="dv">2270</span>, <span class="dv">2330</span>, <span class="dv">2463</span>, <span class="dv">2578</span>, <span class="dv">2595</span>, <span class="dv">2701</span>, <span class="dv">2848</span>, <span class="dv">3009</span>, <span class="dv">3146</span>, <span class="dv">3306</span>, <span class="dv">3412</span>, <span class="dv">3588</span>, <span class="dv">3802</span>, <span class="dv">4075</span>, <span class="dv">4227</span>, <span class="dv">4394</span>, <span class="dv">4633</span>, <span class="dv">4641</span>, <span class="dv">4613</span>, <span class="dv">4879</span>, <span class="dv">5018</span>, <span class="dv">5078</span>, <span class="dv">5368</span>, <span class="dv">5297</span>, <span class="dv">5125</span>, <span class="dv">5080</span>, <span class="dv">5067</span>, <span class="dv">5241</span>, <span class="dv">5405</span>, <span class="dv">5573</span>, <span class="dv">5701</span>, <span class="dv">5926</span>, <span class="dv">6035</span>, <span class="dv">6096</span>, <span class="dv">6186</span>, <span class="dv">6089</span>, <span class="dv">6090</span>, <span class="dv">6236</span>, <span class="dv">6378</span>, <span class="dv">6530</span>, <span class="dv">6628</span>, <span class="dv">6608</span>)</span>
+<span id="cb234-4"><a href="least-squares-approximation.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(year,emissions,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span>.<span class="dv">7</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="math236_handbook_files/figure-html/sqemission-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>The data suggest that the fossil fuel emissions <span class="math inline">\(f\)</span> follow an exponential model with respect to the year <span class="math inline">\(y\)</span>:
 <span class="math display">\[f = a e^{k(y-1750)},\]</span>
@@ -748,32 +814,32 @@ where <span class="math inline">\(b=\log(a)\)</span> and <span class="math inlin
 <ul>
 <li>Use least squares approximation to find the best fitting exponential function for this data. This will give you the values for <span class="math inline">\(b\)</span> and <span class="math inline">\(k\)</span>, and once you know <span class="math inline">\(b\)</span>, you can find <span class="math inline">\(a = \exp(b)\)</span>. We have started the code for you by defining <code>x=year-1750</code> and <code>y=log(emissions)</code>.</li>
 </ul>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="least-squares-approximation.html#cb235-1"></a><span class="co">### your code goes here. </span></span>
-<span id="cb235-2"><a href="least-squares-approximation.html#cb235-2"></a><span class="co"># be sure to define d and k and A</span></span>
-<span id="cb235-3"><a href="least-squares-approximation.html#cb235-3"></a></span>
-<span id="cb235-4"><a href="least-squares-approximation.html#cb235-4"></a>x=year<span class="dv">-1750</span></span>
-<span id="cb235-5"><a href="least-squares-approximation.html#cb235-5"></a>y=<span class="kw">log</span>(emissions)</span>
-<span id="cb235-6"><a href="least-squares-approximation.html#cb235-6"></a></span>
-<span id="cb235-7"><a href="least-squares-approximation.html#cb235-7"></a>A=<span class="ot">NULL</span></span>
-<span id="cb235-8"><a href="least-squares-approximation.html#cb235-8"></a>b=<span class="dv">1</span></span>
-<span id="cb235-9"><a href="least-squares-approximation.html#cb235-9"></a>k=<span class="dv">1</span></span>
-<span id="cb235-10"><a href="least-squares-approximation.html#cb235-10"></a></span>
-<span id="cb235-11"><a href="least-squares-approximation.html#cb235-11"></a><span class="co">#####</span></span>
-<span id="cb235-12"><a href="least-squares-approximation.html#cb235-12"></a><span class="co"># your code above has found b and k</span></span>
-<span id="cb235-13"><a href="least-squares-approximation.html#cb235-13"></a></span>
-<span id="cb235-14"><a href="least-squares-approximation.html#cb235-14"></a>(<span class="dt">a =</span> <span class="kw">exp</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="least-squares-approximation.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="do">### your code goes here. </span></span>
+<span id="cb235-2"><a href="least-squares-approximation.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="co"># be sure to define d and k and A</span></span>
+<span id="cb235-3"><a href="least-squares-approximation.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="least-squares-approximation.html#cb235-4" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span>year<span class="dv">-1750</span></span>
+<span id="cb235-5"><a href="least-squares-approximation.html#cb235-5" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">log</span>(emissions)</span>
+<span id="cb235-6"><a href="least-squares-approximation.html#cb235-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-7"><a href="least-squares-approximation.html#cb235-7" aria-hidden="true" tabindex="-1"></a>A<span class="ot">=</span><span class="cn">NULL</span></span>
+<span id="cb235-8"><a href="least-squares-approximation.html#cb235-8" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb235-9"><a href="least-squares-approximation.html#cb235-9" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb235-10"><a href="least-squares-approximation.html#cb235-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-11"><a href="least-squares-approximation.html#cb235-11" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb235-12"><a href="least-squares-approximation.html#cb235-12" aria-hidden="true" tabindex="-1"></a><span class="co"># your code above has found b and k</span></span>
+<span id="cb235-13"><a href="least-squares-approximation.html#cb235-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-14"><a href="least-squares-approximation.html#cb235-14" aria-hidden="true" tabindex="-1"></a>(<span class="at">a =</span> <span class="fu">exp</span>(b))</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="least-squares-approximation.html#cb237-1"></a>k</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="least-squares-approximation.html#cb237-1" aria-hidden="true" tabindex="-1"></a>k</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ul>
 <li><p>Run the code below to plot the original data along with your exponential model curve <span class="math inline">\(f(t)\)</span>.</p></li>
 <li><p><strong>Note:</strong> This code assumes that you have already defined the values for <code>A</code> and <code>k</code> and <code>a</code>. Otherwise, it will not work!</p></li>
 </ul>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="least-squares-approximation.html#cb239-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="st"> </span><span class="kw">is.null</span>(A)) {</span>
-<span id="cb239-2"><a href="least-squares-approximation.html#cb239-2"></a>  f=<span class="cf">function</span>(y){a <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(k<span class="op">*</span>(y<span class="dv">-1750</span>))}</span>
-<span id="cb239-3"><a href="least-squares-approximation.html#cb239-3"></a>  <span class="kw">plot</span>(year,<span class="kw">f</span>(year),<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10000</span>),<span class="dt">ylab=</span><span class="st">&quot;emissions&quot;</span>, <span class="dt">main=</span><span class="st">&quot;best fit exponential function&quot;</span>)</span>
-<span id="cb239-4"><a href="least-squares-approximation.html#cb239-4"></a>  <span class="kw">points</span>(year,emissions,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span>.<span class="dv">7</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb239-5"><a href="least-squares-approximation.html#cb239-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="least-squares-approximation.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">is.null</span>(A)) {</span>
+<span id="cb239-2"><a href="least-squares-approximation.html#cb239-2" aria-hidden="true" tabindex="-1"></a>  f<span class="ot">=</span><span class="cf">function</span>(y){a <span class="sc">*</span> <span class="fu">exp</span>(k<span class="sc">*</span>(y<span class="dv">-1750</span>))}</span>
+<span id="cb239-3"><a href="least-squares-approximation.html#cb239-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(year,<span class="fu">f</span>(year),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10000</span>),<span class="at">ylab=</span><span class="st">&quot;emissions&quot;</span>, <span class="at">main=</span><span class="st">&quot;best fit exponential function&quot;</span>)</span>
+<span id="cb239-4"><a href="least-squares-approximation.html#cb239-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(year,emissions,<span class="at">pch=</span><span class="dv">20</span>,<span class="at">cex=</span>.<span class="dv">7</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb239-5"><a href="least-squares-approximation.html#cb239-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 
 </div>
 </div>
@@ -787,7 +853,6 @@ where <span class="math inline">\(b=\log(a)\)</span> and <span class="math inlin
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -806,6 +871,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -826,6 +892,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
@@ -839,7 +909,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
